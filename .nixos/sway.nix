@@ -1,27 +1,4 @@
 { config, pkgs, ... }: {
-  home-manager.users.eduardo = { pkgs, ... }: {
-    home.file = {
-      swayConfig = {
-        # onChange = "swaymsg reload";
-        source = ./config/sway/config;
-        target = ".config/sway/config";
-      };
-      waybarConfig = {
-        # onChange = "swaymsg reload";
-        recursive = true;
-        source = ./config/waybar;
-        target = ".config/waybar";
-      };
-    };
-  };
-  environment = {
-    sessionVariables = {
-      IMAGE_VIEWER = "imv";
-    };
-    loginShellInit = ''
-      [ "$(tty)" = "/dev/tty1" ] && exec sway
-    '';
-  };
   programs = {
     sway = {
       enable = true;
