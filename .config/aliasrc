@@ -11,3 +11,6 @@ alias aerc="torify aerc"
 alias diff="diff --color=auto"
 alias grep="grep --color=auto"
 alias ls="ls --color=auto --group-directories-first"
+
+# Shorten some things
+alias l="ls -lah"
