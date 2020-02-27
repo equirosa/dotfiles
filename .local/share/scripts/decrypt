@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+case "$1" in
+	*.gpg) gpg --output "$(echo "$1" | sed 's/.gpg//g')" --decrypt "$1" && notify-send -t 5000 "✅ file decrypted" || notify-send -t 5000 "❌ decryption failed";;
+	*) echo "I can't decrypt that...";;
+esac

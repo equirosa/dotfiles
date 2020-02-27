@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+[ -f "$HOME/Pictures/wallpaper.png" ] && rm "$HOME/Pictures/wallpaper.png";
+ln -s "$1" "$HOME/Pictures/wallpaper.png";
+which sway 2> /dev/null && swaymsg reload

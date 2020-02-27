@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+if [ -f ~/Templates/licenses/"$1" ]; then
+    [ -f LICENSE ] && rm LICENSE
+    sed s/'<year>'/"$(date +%Y)"/g ~/Templates/licenses/"$1" | sed s/'<name>'/"Eduardo José Quirós Alvarado"/g | \
+	sed s/'<email>'/"<eduardo@eduardoquiros.com>"/g >> LICENSE
+else
+    echo "License $1 not present in your licenses directory"
+fi

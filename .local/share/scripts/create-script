@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+if [ "$1" = "" ]; then
+	notify-send "⚠ERROR: Must specify name of file.⚠" -t 5000;
+else
+	echo "#!/usr/bin/env sh" >> "$HOME/.nixos/scripts/$1" && chmod +x "$HOME/.nixos/scripts/$1" && $EDITOR "$HOME/.nixos/scripts/$1";
+fi

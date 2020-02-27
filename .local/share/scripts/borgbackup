@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+borg create --progress \
+	/run/media/eduardo/2e571771-81db-41a5-a0b6-d5c6d3b8bf88/backups/::\{hostname\}-\{user\}-\{now\}\
+	~/Games/ ~/Documents/ ~/Pictures/ ~/Videos/ ~/Music/ ~/Templates/ ~/Downloads/ ~/oses/\
+	--exclude ~/Games/league-of-legends/\
+	--exclude '*/.stfolder'\
+	--compression auto,zstd,22
