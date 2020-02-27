@@ -1,0 +1,50 @@
+{ config, pkgs, ... }: {
+  environment = {
+    shellAliases = {
+      v = "nvim";
+      vi = "nvim";
+      vim = "nvim";
+    };
+    sessionVariables = { EDITOR = "nvim"; };
+  };
+  home-manager.users.eduardo = { pkgs, ... }: {
+    programs.neovim = {
+      enable = true;
+      package = pkgs.neovim;
+      extraConfig = ''
+        filetype plugin indent on
+        set number relativenumber termguicolors
+        set splitbelow splitright
+        syntax enable
+        set background=dark
+        let g:gruvbox_material_background = 'hard'
+        colorscheme gruvbox
+        let g:airline_theme = 'gruvbox'
+        set tabstop=4
+        set shiftwidth=4
+        set noexpandtab
+        let g:lf_replace_netrw = 1 "open lf when vim open a directory
+      '';
+      plugins = with pkgs.vimPlugins; [
+        auto-pairs
+        bclose-vim
+        fugitive
+        goyo
+        gruvbox-community
+        lf-vim
+        neomake
+        nerdcommenter
+        vim-airline
+        vim-airline-themes
+        vim-css-color
+        vim-devicons
+        vim-go
+        vim-nix
+        vim-orgmode
+        youcompleteme
+      ];
+      viAlias = true;
+      vimAlias = true;
+    };
+  };
+}
