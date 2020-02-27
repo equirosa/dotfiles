@@ -33,3 +33,4 @@ export ZDOTDIR="$HOME/.config/zsh"
 
 # Autolaunch
 [ "$(tty)" = "/dev/tty1" ] && exec sway
+if [ -e /home/eduardo/.nix-profile/etc/profile.d/nix.sh ]; then . /home/eduardo/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
