@@ -19,7 +19,6 @@
     ./nix.nix
     ./pass.nix
     ./printing.nix
-    ./scripts.nix
     ./starship.nix
     ./sway.nix
     ./syncthing.nix
