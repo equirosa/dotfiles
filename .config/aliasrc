@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+# Substitue nvim for vim
+command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
+alias vi="nvim"
+
+# Torify all the things!!!!!
+alias aerc="torify aerc"
+
+# Color output
+alias diff="diff --color=auto"
+alias grep="grep --color=auto"
+alias ls="ls --color=auto --group-directories-first"
