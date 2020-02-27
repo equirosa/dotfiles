@@ -9,7 +9,6 @@
     ./fuck.nix
     ./git.nix
     ./global.nix
-    ./htop.nix
     ./kdeConnect.nix
     ./kitty.nix
     ./lf.nix
@@ -19,7 +18,6 @@
     ./nix.nix
     ./pass.nix
     ./printing.nix
-    ./starship.nix
     ./sway.nix
     ./syncthing.nix
     ./theme.nix
