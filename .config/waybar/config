@@ -1,0 +1,78 @@
+{
+	"layer": "top",
+	"modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+	"modules-center": [],
+	"modules-right": ["custom/torrent","network","pulseaudio","backlight","memory","battery","clock","idle_inhibitor","tray"],
+	"sway/window": {
+		"format": "{}",
+		"tooltip": false
+	},
+	"custom/torrent": {
+		"on-click": "$TERMINAL -e transmission-remote-cli",
+		"exec-if": "pgrep transmission-da",
+		"interval": 10,
+		"exec": "torrent",
+		"format": "{}"
+	},
+	"pulseaudio": {
+		"format": "{volume}% {icon}",
+		"format-bluetooth": "{volume}% {icon}",
+		"format-muted": "",
+		"format-iconts": {
+			"headphones": "",
+			"handsfree": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", ""]
+		},
+		"scroll-step": 1,
+		"on-click": "pavucontrol"
+	},
+	"network": {
+		"on-click" : "$TERMINAL -e nmtui",
+		"interval": 30,
+		"format-ethernet": "{icon}",
+		"format-wifi": "{essid} {signalStrength}% {icon}",
+		"format-disconnected": "{icon}",
+		"format-icons": {
+            "wifi": ["", "" ,""],
+            "ethernet": [""],
+            "disconnected": [""]
+        }
+	},
+	"memory": {
+		"interval": 30,
+		"format": "{percentage}% "
+	},
+	"battery": {
+		"format-icons": ["", "", "", "", ""],
+		"format-charging": "{capacity}% ",
+		"format": "{capacity}% {icon}",
+		"format-full": "{icon}",
+		"states": {
+			  "critical": 10
+		}
+	},
+	"clock": {
+		"interval": 5,
+		"format": "{: %H:%M}"
+	},
+	"tray": {
+		"icon-size": 18
+	},
+	"backlight": {
+		"device": "intel_backlight",
+		"format": "{percent}% {icon}",
+		"format-icons": ["", ""]
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		}
+	}
+
+}
