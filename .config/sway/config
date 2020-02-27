@@ -1,0 +1,221 @@
+# Variables
+set {
+    $mod Mod4
+    $alt Mod1
+    $term $TERMINAL
+    $left h
+    $down j
+    $up k
+    $right l
+    $menu wofi -S run | xargs swaymsg exec
+    $desktop exec launch-wofi-desktop | xargs swaymsg exec
+}
+# Output configuration
+# Wallpaper
+output * bg ~/Pictures/wallpaper.png fill
+# Idle configuration
+exec swayidle -w \
+	timeout 300 'swaylock -f -c 000000' \
+	timeout 600 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on"' \
+	before-sleep 'swaylock -f -c 000000'
+# Input configuration
+input {
+	"1133:16494:Logitech_K800" {
+		xkb_layout us,latam
+		xkb_options grp:win_space_toggle,ctrl:nocaps
+	}
+	"1:1:AT_Translated_Set_2_keyboard" {
+		xkb_layout us,latam
+		xkb_options grp:win_space_toggle,ctrl:nocaps
+	}
+	"2:14:ETPS/2_Elantech_Touchpad" {
+		tap enabled
+		dwt enabled
+		natural_scroll enabled
+	}
+}
+
+### Key bindings
+bindsym {
+	$mod+Return exec $term #Launch Terminal
+	$mod+q kill #Kill container
+	$mod+d exec $menu #Launch wofi in command mode
+	$mod+Shift+d exec $desktop #Launch wofi in desktop mode
+	$mod+x exec swaylock -F -c 000000 #Lock screen
+	$mod+Shift+z swaymsg reload #Reload config
+    # Move your focus around
+	$mod+$left focus left
+	$mod+$down focus down
+	$mod+$up focus up
+	$mod+$right focus right
+    # or use $mod+[up|down|left|right]
+	$mod+Left focus left
+	$mod+Down focus down
+	$mod+Up focus up
+	$mod+Right focus right
+    # _move_ the focused window with the same, but add Shift
+	$mod+Shift+$left move left
+	$mod+Shift+$down move down
+	$mod+Shift+$up move up
+	$mod+Shift+$right move right
+    # ditto, with arrow keys
+	$mod+Shift+Left move left
+	$mod+Shift+Down move down
+	$mod+Shift+Up move up
+	$mod+Shift+Right move right
+	Print exec grim ~/Pictures/screenshots/$(date --iso-8601=ns).png
+	$mod+c exec $term -e calc
+	$mod+Shift+e exec $EDITOR
+}
+floating_modifier $mod normal
+#
+# Moving around:
+#
+	bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit' # exit sway (logs you out of your Wayland session)
+#
+# Workspaces:
+#
+    # switch to workspace
+    bindsym $mod+1 workspace 1
+    bindsym $mod+2 workspace 2
+    bindsym $mod+3 workspace 3
+    bindsym $mod+4 workspace 4
+    bindsym $mod+5 workspace 5
+    bindsym $mod+6 workspace 6
+    bindsym $mod+7 workspace 7
+    bindsym $mod+8 workspace 8
+    bindsym $mod+9 workspace 9
+    bindsym $mod+0 workspace 10
+    # move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace 1
+    bindsym $mod+Shift+2 move container to workspace 2
+    bindsym $mod+Shift+3 move container to workspace 3
+    bindsym $mod+Shift+4 move container to workspace 4
+    bindsym $mod+Shift+5 move container to workspace 5
+    bindsym $mod+Shift+6 move container to workspace 6
+    bindsym $mod+Shift+7 move container to workspace 7
+    bindsym $mod+Shift+8 move container to workspace 8
+    bindsym $mod+Shift+9 move container to workspace 9
+    bindsym $mod+Shift+0 move container to workspace 10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+    #
+    # Switch back and forth between workspaces.
+    bindsym $mod+Tab	workspace back_and_forth
+#
+# Layout stuff:
+#
+    bindsym $mod+t splitt
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    #bindsym $mod+space focus mode_toggle
+
+# Launchers:
+
+	#FeedReader
+	bindsym $mod+n exec $term -e newsboat
+
+	#Launch mail client:
+	bindsym $mod+e exec $term -e $MAIL
+
+	#Launch sys monitor:
+	bindsym $mod+i exec $term -e $MONITOR
+
+	#Launch web browser:
+	bindsym $mod+Shift+w exec $BROWSER
+	bindsym $mod+w exec tor-browser
+
+	#Launch file browser:
+	bindsym $mod+r exec $term -e $FILE
+
+	#Launch nmtui
+	bindsym $mod+F12 exec $term -e nmtui
+
+	#Brightness
+	bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
+	bindsym XF86MonBrightnessUp exec brightnessctl s +5%
+
+	#Audio
+	bindsym XF86AudioMute amixer sset Master toggle
+	bindsym XF86AudioRaiseVolume amixer sset Master 5%+
+	bindsym XF86AudioLowerVolume amixer sset Master 5%-
+
+	# Bleh
+	bindsym XF86Calculator exec $term -e $CALCULATOR
+
+	# Toggle transmission-daemon
+	bindsym $mod+F6 exec (pgrep -x transmission && notify-send -t 5000 "🟥 transmission daemon already running" || transmission-daemon && notify-send -t 5000 "🟢 strating transmission daemon")
+	bindsym $mod+Shift+F6 exec pkill transmission-da && notify-send -t 5000 "❌ stopping transmission daemon"
+
+# Scratchpad:
+
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+
+# Screenshots:
+bindsym {
+	Shift+Print exec grim -g "$(slurp)" ~/Pictures/screenshots/$(date --iso-8601=ns).png
+}
+
+
+# Resizing containers:
+mode "resize" {
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+r mode "resize"
+
+
+# Status Bar:
+bar {
+    position top
+    swaybar_command waybar
+}
+
+# Windows
+default_border pixel #alters window borders (normal,pixel,none)
+
+# Gaps
+gaps {
+     inner 5
+     outer 5
+}
+smart_gaps on # Maximizes size of window when it is the only window in a workspace
+bindsym $mod+s gaps outer current plus 5
+bindsym $mod+Shift+s gaps outer current minus 5
+
+# Autostart
+exec {
+	mako&
+	redshift&
+	udiskie&
+	kdeconnect-indicator&
+	transmission-daemon&
+	syncthing&
+}
