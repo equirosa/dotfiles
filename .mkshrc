@@ -1,2 +1,4 @@
 #!/usr/bin/env sh
 export PS1="[$USER@$(hostname)]> "
+
+[ -f ~/.profile ] && source ~/.profile
