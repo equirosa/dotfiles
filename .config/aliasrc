@@ -14,3 +14,6 @@ alias ls="ls --color=auto --group-directories-first"
 
 # Shorten some things
 alias l="ls -lah"
+
+## Git
+alias gcp="git commit -a && git push"
