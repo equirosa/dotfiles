@@ -13,6 +13,7 @@ alias grep="grep --color=auto"
 alias ls="ls --color=auto --group-directories-first"
 
 # Shorten some things
+alias g="torify git"
 alias l="ls -lah"
 
 ## Git
