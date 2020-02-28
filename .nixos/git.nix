@@ -9,6 +9,7 @@
       package = pkgs.gitAndTools.gitFull;
       aliases = {
         ca = "commit -a";
+        fire = "commit -am 'Fire!!!' && push";
         pl = "pull";
         ps = "push";
         s = "status";
