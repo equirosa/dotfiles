@@ -16,4 +16,4 @@ alias ls="ls --color=auto --group-directories-first"
 alias l="ls -lah"
 
 ## Git
-alias gcp="git commit -a && git push"
+alias gcp="git commit -a ; git push"
