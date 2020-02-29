@@ -1,2 +1,2 @@
 #! /usr/bin/env sh
-nix-env -iA nixos."$1"
+[ -f "/etc/NIXOS" ] && nix-env -iA nixos."$1" || nix-env -iA nixpkgs."$1"
