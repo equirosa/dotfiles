@@ -3,8 +3,8 @@
     <home-manager/nixos>
     ./firefox.nix
     ./git.nix
-    ./user.nix
     ./tor.nix
+    ./user.nix
     ./vim.nix
     ./zsh.nix
   ];
