@@ -1,4 +1,13 @@
 { config, pkgs, ... }: {
+  imports = [
+    <home-manager/nixos>
+    ./firefox.nix
+    ./git.nix
+    ./user.nix
+    ./tor.nix
+    ./vim.nix
+    ./zsh.nix
+  ];
   environment = {
     shellAliases = {
       aerc = "torify aerc";
@@ -17,7 +26,7 @@
       lf # terminal file manager
       gopass # password manager frontend
       kitty # terminal emulator
-      nixfmt
+      # nixfmt
       qutebrowser # favourite browser
       trash-cli # handle trashing files instead of deleting them
       lazygit # git helper
@@ -41,4 +50,9 @@
       CALCULATOR = "calc";
     };
   };
+  programs = {
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+};};
 }
