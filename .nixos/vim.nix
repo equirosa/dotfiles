@@ -2,9 +2,26 @@
   home-manager.users.eduardo = { pkgs, ...}: {
     programs.vim = {
       enable = true;
+      extraConfig = ''
+        filetype plugin indent on
+        syntax enable
+        colorscheme gruvbox
+        let g:airline_theme = 'gruvbox' 
+      '';
       plugins = with pkgs.vimPlugins; [
+        auto-pairs
+        bclose-vim
+        fugitive
+        goyo
+        gruvbox-community
         lf-vim
+        neomake
+        nerdcommenter
+        vim-airline
+        vim-airline-themes
+        vim-css-color
         vim-nix
+        youcompleteme
       ];
       settings = {
         background = "dark";
@@ -13,6 +30,8 @@
         mouse = "a";
         number = true;
         relativenumber = true;
+        shiftwidth = 4;
+        tabstop = 4;
       };
     };
   };
