@@ -54,5 +54,7 @@
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-};};
+    };
+  };
+  time.timeZone = "America/Costa_Rica";
 }
