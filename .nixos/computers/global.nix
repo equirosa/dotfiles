@@ -1,12 +1,12 @@
 { config, pkgs, ... }: {
   imports = [
     <home-manager/nixos>
-    ./firefox.nix
-    ./git.nix
-    ./tor.nix
-    ./user.nix
-    ./vim.nix
-    ./zsh.nix
+    ../firefox.nix
+    ../git.nix
+    ../tor.nix
+    ../user.nix
+    ../vim.nix
+    ../zsh.nix
   ];
   environment = {
     shellAliases = {
