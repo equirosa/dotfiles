@@ -14,7 +14,6 @@
     ./lf.nix
     ./location.nix
     ./mpv.nix
-    ./neovim.nix
     ./nix.nix
     ./pass.nix
     ./printing.nix
