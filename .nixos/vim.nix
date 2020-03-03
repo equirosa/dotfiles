@@ -1,5 +1,10 @@
 { config, pkgs, ...}: {
   home-manager.users.eduardo = { pkgs, ...}: {
+    home = {
+      sessionVariables = {
+        EDITOR = "vim";
+      };
+    };
     programs.vim = {
       enable = true;
       extraConfig = ''
