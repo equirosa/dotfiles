@@ -1,0 +1,13 @@
+#!/bin/sh
+
+bspc rule -r "*"
+
+mainmonitor="$(bspc query --monitors --names | grep -v eDP | head -n 1)"
+
+if ! echo "$mainmonitor" | grep eDP >/dev/null 2>&1; then
+	xrandr --output "$mainmonitor" --auto --output eDP-1 --off
+fi
+
+# Start workspaces in main monitor
+bspc monitor "$mainmonitor" -d 1 2 3 4 5 6 7 8 9 10
+bspc desktop -f 1
