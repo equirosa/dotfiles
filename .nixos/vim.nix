@@ -25,7 +25,7 @@
       ];
       settings = {
         background = "dark";
-        backupdir = [ "$HOME/.cache/vim_backups/" ];
+        #backupdir = [ "$HOME/.cache/vim_backups/" ];
         expandtab = false;
         mouse = "a";
         number = true;
