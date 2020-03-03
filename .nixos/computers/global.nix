@@ -3,6 +3,7 @@
     <home-manager/nixos>
     ../firefox.nix
     ../git.nix
+    ../location.nix
     ../pass.nix
     ../tor.nix
     ../user.nix

@@ -13,7 +13,6 @@
     ../kdeConnect.nix
     ../kitty.nix
     ../lf.nix
-    ../location.nix
     ../mpv.nix
     ../nix.nix
     ../pass.nix
