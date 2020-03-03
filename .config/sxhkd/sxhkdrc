@@ -1,0 +1,8 @@
+super + Return
+	$TERMINAL
+super + r
+	$TERMINAL + $FILE
+super + e
+	$TERMINAL + $MAIL
+super + w
+	$BROWSER
