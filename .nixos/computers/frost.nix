@@ -3,19 +3,12 @@
     # Import global configuration
     ./global.nix
     ../auto_upgrades.nix
-    ../bat.nix
-    ../flatpak.nix
     ../fuck.nix
-    ../git.nix
     ../kdeConnect.nix
     ../printing.nix
     ../sway.nix
-    ../syncthing.nix
-    ../tor.nix
     ../udiskie.nix
-    ../user.nix
     ../virtualization.nix
-    ../zsh.nix
   ];
   networking.hostName = "frost";
   programs.udevil.enable = true;
