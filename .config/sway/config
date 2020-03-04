@@ -10,16 +10,20 @@ set {
     $menu wofi -S run | xargs swaymsg exec
     $desktop exec launch-wofi-desktop | xargs swaymsg exec
 }
-# Output configuration
-# Wallpaper
+######### Output configuration ############
+#### Wallpaper ###
 output * bg ~/Pictures/wallpaper.png fill
-# Idle configuration
+
+### Idle configuration ###
+
 exec swayidle -w \
 	timeout 300 'swaylock -f -c 000000' \
 	timeout 600 'swaymsg "output * dpms off"' \
 	resume 'swaymsg "output * dpms on"' \
 	before-sleep 'swaylock -f -c 000000'
-# Input configuration
+
+#### Input configuration ####
+
 input {
 	"1133:16494:Logitech_K800" {
 		xkb_layout us,latam
@@ -36,7 +40,8 @@ input {
 	}
 }
 
-### Key bindings
+#### Key bindings ####
+
 bindsym {
 	$mod+Return exec $term #Launch Terminal
 	$mod+q kill #Kill container
