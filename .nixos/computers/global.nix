@@ -30,6 +30,7 @@
       ls = "ls --color=auto --group-directories-first";
       lg = "lazygit";
       diff = "diff --color=auto";
+      rebuild = "sudo nixos-rebuild switch";
     };
     systemPackages = with pkgs; [
       aerc # Mail reader
