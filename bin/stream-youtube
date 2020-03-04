@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+mpv --fs=yes ydtl://"$1"
