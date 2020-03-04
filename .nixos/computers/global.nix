@@ -12,6 +12,7 @@
     ../zsh.nix
   ];
   environment = {
+    homeBinInPath = true;
     shellAliases = {
       aerc = "torify aerc";
       c = "cd";
