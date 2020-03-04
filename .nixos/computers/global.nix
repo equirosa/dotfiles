@@ -37,6 +37,7 @@
       ed # THE STANDARD TEXT EDITOR
       lf # terminal file manager
       gopass # password manager frontend
+      htop # monitor
       kitty # terminal emulator
       # nixfmt
       qutebrowser # favourite browser
