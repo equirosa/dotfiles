@@ -1,6 +1,7 @@
 { config, pkgs, ... }: {
   imports = [
     <home-manager/nixos>
+    ../audio.nix
     ../firefox.nix
     ../fonts.nix
     ../git.nix

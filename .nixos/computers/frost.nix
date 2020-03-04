@@ -2,7 +2,6 @@
   imports = [
     # Import global configuration
     ./global.nix
-    ../audio.nix
     ../auto_upgrades.nix
     ../bat.nix
     ../flatpak.nix
