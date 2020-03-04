@@ -3,6 +3,7 @@
     <home-manager/nixos>
     ../audio.nix
     ../firefox.nix
+    ../flatpak.nix
     ../fonts.nix
     ../git.nix
     ../location.nix
