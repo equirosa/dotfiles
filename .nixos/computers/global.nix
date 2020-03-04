@@ -5,6 +5,10 @@
     ../fonts.nix
     ../git.nix
     ../location.nix
+    ../kitty.nix
+    ../lf.nix
+    ../mpv.nix
+    ../nix.nix
     ../pass.nix
     ../theme.nix
     ../tor.nix

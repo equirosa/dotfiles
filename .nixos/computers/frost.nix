@@ -5,16 +5,10 @@
     ../audio.nix
     ../auto_upgrades.nix
     ../bat.nix
-    ../firefox.nix
     ../flatpak.nix
     ../fuck.nix
     ../git.nix
     ../kdeConnect.nix
-    ../kitty.nix
-    ../lf.nix
-    ../mpv.nix
-    ../nix.nix
-    ../pass.nix
     ../printing.nix
     ../sway.nix
     ../syncthing.nix
