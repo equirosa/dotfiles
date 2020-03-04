@@ -24,6 +24,7 @@
       c = "cd";
       g = "git";
       grep = "grep --colour=auto";
+      regrep = "grep -d recurse";
       ls = "ls --color=auto --group-directories-first";
       lg = "lazygit";
       diff = "diff --color=auto";
