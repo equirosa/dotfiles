@@ -6,7 +6,7 @@
 # Environment Variables
 export PATH="$HOME/.local/share/scripts:$PATH"
 export BROWSER="firefox"
-export EDITOR="nvim"
+export EDITOR="vim"
 export FILE="lf"
 export IMAGE_VIEWER="imv"
 export MAIL="aerc"
