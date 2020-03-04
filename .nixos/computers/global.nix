@@ -31,6 +31,7 @@
     };
     systemPackages = with pkgs; [
       aerc # Mail reader
+      busybox # another coreutils
       calc # Calculator
       croc magic-wormhole # File transfer
       ed # THE STANDARD TEXT EDITOR
