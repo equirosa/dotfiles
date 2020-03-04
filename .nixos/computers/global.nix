@@ -43,6 +43,7 @@
       trash-cli # handle trashing files instead of deleting them
       lazygit # git helper
       speedtest-cli
+      starship # pretty prompt :P
       youtube-dl # YouTube downloader
       tor-browser-bundle-bin # Tor Browser (obviously)
     ];
