@@ -15,6 +15,8 @@
         syntax enable
         colorscheme gruvbox
         let g:airline_theme = 'gruvbox' 
+        set colorcolumn=80
+        highlight ColorColumn ctermbg=1
       '';
       plugins = with pkgs.vimPlugins; [
         auto-pairs
