@@ -45,6 +45,8 @@
       lazygit # git helper
       speedtest-cli
       starship # pretty prompt :P
+      transmission
+      transmission-remote-cli
       youtube-dl # YouTube downloader
       tor-browser-bundle-bin # Tor Browser (obviously)
     ];
