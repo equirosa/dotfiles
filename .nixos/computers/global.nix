@@ -2,6 +2,7 @@
   imports = [
     <home-manager/nixos>
     ../firefox.nix
+    ../fonts.nix
     ../git.nix
     ../location.nix
     ../pass.nix

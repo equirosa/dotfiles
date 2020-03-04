@@ -7,7 +7,6 @@
     ../bat.nix
     ../firefox.nix
     ../flatpak.nix
-    ../fonts.nix
     ../fuck.nix
     ../git.nix
     ../kdeConnect.nix
