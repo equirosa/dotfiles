@@ -31,7 +31,7 @@
     systemPackages = with pkgs; [
       aerc # Mail reader
       calc # Calculator
-      croc # File transfer
+      croc magic-wormhole # File transfer
       ed # THE STANDARD TEXT EDITOR
       lf # terminal file manager
       gopass # password manager frontend
