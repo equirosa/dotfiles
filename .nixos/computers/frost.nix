@@ -18,7 +18,6 @@
     ../printing.nix
     ../sway.nix
     ../syncthing.nix
-    ../theme.nix
     ../tor.nix
     ../udiskie.nix
     ../user.nix

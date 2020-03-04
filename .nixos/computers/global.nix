@@ -6,6 +6,7 @@
     ../git.nix
     ../location.nix
     ../pass.nix
+    ../theme.nix
     ../tor.nix
     ../user.nix
     ../vim.nix
