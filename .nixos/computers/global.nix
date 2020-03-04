@@ -45,6 +45,8 @@
       lazygit # git helper
       speedtest-cli
       starship # pretty prompt :P
+      syncthing
+      qsyncthingtray
       transmission
       transmission-remote-cli
       youtube-dl # YouTube downloader
