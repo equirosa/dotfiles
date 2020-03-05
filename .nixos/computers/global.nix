@@ -16,7 +16,7 @@
     ../theme.nix
     ../tor.nix
     ../user.nix
-    ../vim.nix
+    ../neovim.nix
     ../zsh.nix
   ];
   environment = {

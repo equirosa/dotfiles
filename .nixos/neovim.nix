@@ -24,6 +24,9 @@
         set shiftwidth=4
         set noexpandtab
         let g:lf_replace_netrw = 1 "open lf when vim open a directory
+        set colorcolumn=80
+        autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
+        autocmd BufWritePost *sway/config,*waybar/* !swaymsg reload
       '';
       plugins = with pkgs.vimPlugins; [
         auto-pairs
