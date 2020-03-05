@@ -31,6 +31,7 @@
       lg = "lazygit";
       diff = "diff --color=auto";
       rebuild = "sudo nixos-rebuild switch";
+      upgrade = "sudo nixos-rebuild switch --upgrade";
     };
     systemPackages = with pkgs; [
       aerc # Mail reader
