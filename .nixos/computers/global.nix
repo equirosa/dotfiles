@@ -40,6 +40,7 @@
       ed # THE STANDARD TEXT EDITOR
       lf # terminal file manager
       gopass # password manager frontend
+      groff # Document formatting
       htop # monitor
       kitty # terminal emulator
       # nixfmt
