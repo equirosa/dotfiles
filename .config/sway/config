@@ -223,4 +223,5 @@ exec {
 	kdeconnect-indicator&
 	transmission-daemon&
 	syncthing&
+	qsynthingtray&
 }
