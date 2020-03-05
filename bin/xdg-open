@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+case "$1" in
+	*invidio.us*) mpv --fs=yes ydtl://"$1";;
+esac
