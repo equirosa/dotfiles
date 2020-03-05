@@ -56,6 +56,7 @@
       transmission-remote-cli
       youtube-dl # YouTube downloader
       tor-browser-bundle-bin # Tor Browser (obviously)
+      zathura # Doc viewer
     ];
     variables = {
       BROWSER = "firefox";
