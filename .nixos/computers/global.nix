@@ -11,12 +11,12 @@
     ../kitty.nix
     ../lf.nix
     ../mpv.nix
+    ../neovim.nix
     ../nix.nix
     ../pass.nix
     ../theme.nix
     ../tor.nix
     ../user.nix
-    ../neovim.nix
     ../zsh.nix
   ];
   environment = {
