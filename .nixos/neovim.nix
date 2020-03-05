@@ -32,15 +32,12 @@
         goyo
         gruvbox-community
         lf-vim
-        neomake
         nerdcommenter
         vim-airline
         vim-airline-themes
         vim-css-color
         vim-devicons
-        vim-go
         vim-nix
-        vim-orgmode
         youcompleteme
       ];
       viAlias = true;
