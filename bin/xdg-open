@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
 case "$1" in
-	*invidio.us*) mpv --fs=yes ydtl://"$1";;
+	*invidio.us*)
+		exec mpv --fs=yes ydtl://"$1";;
 esac
