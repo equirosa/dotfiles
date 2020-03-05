@@ -17,6 +17,7 @@
         let g:airline_theme = 'gruvbox' 
         set colorcolumn=80
         highlight ColorColumn ctermbg=1
+        autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
       '';
       plugins = with pkgs.vimPlugins; [
         auto-pairs
