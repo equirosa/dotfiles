@@ -33,6 +33,7 @@
       #### Nix Stuff ####
       rebuild = "sudo nixos-rebuild switch";
       upgrade = "sudo nixos-rebuild switch --upgrade";
+      nsearch = "nix-env -qaP --description";
     };
     systemPackages = with pkgs; [
       aerc # Mail reader

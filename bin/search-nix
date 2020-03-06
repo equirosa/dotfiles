@@ -1,2 +1,0 @@
-#! /usr/bin/env sh
-nix-env -qaP --description $1
