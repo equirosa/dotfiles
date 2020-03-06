@@ -41,6 +41,7 @@
         vim-css-color
         vim-devicons
         vim-nix
+        vim-surround
         youcompleteme
       ];
       viAlias = true;

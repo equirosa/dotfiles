@@ -47,6 +47,7 @@
       qutebrowser # favourite browser
       trash-cli # handle trashing files instead of deleting them
       lazygit # git helper
+      nox # Yay but for Nix
       speedtest-cli
       starship # pretty prompt :P
       syncthing
@@ -55,6 +56,7 @@
       transmission-remote-cli
       youtube-dl # YouTube downloader
       tor-browser-bundle-bin # Tor Browser (obviously)
+      zathura # Doc viewer
     ];
     variables = {
       BROWSER = "firefox";
