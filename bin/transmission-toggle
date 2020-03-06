@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 if [ pgrep transmission-da ]; then
 	pkill transmission-da && notify-send -t 5000 "❌ killing transmission daemon"
 else

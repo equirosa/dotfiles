@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 case "$1" in
 	*.webm | *.mp4 | *.mkv) mpv --fs=yes "$1" & disown;;
 	*.png | *.jpeg | *.jpg) $IMAGE_VIEWER "$1" & disown;;
