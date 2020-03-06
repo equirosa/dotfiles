@@ -30,6 +30,7 @@
       ls = "ls --color=auto --group-directories-first";
       lg = "lazygit";
       diff = "diff --color=auto";
+      #### Nix Stuff ####
       rebuild = "sudo nixos-rebuild switch";
       upgrade = "sudo nixos-rebuild switch --upgrade";
     };
