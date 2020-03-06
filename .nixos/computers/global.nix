@@ -58,6 +58,10 @@
       youtube-dl # YouTube downloader
       tor-browser-bundle-bin # Tor Browser (obviously)
       zathura # Doc viewer
+
+      ## Nixpkgs stuff
+      nix-prefetch-git
+      nix-prefetch-github
     ];
     variables = {
       BROWSER = "firefox";
