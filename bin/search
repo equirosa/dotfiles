@@ -1,10 +1,13 @@
 #!/bin/sh
 
-case "$1" in
-	"wikipedia") query="wikipedia.org/w/index.php?search=$2";;
-	"proton") query="protondb.com/search?q=$2";;
-	"d") query="duckduckgo.com/?q=$2";;
-	*) query="searx.neocities.org/?q=$1" ;;
-esac
-
-"$BROWSER" "https://$query"
+if [ "$1" == "" ]; then
+	echo "Empty argument, not running."
+else
+	case "$1" in
+		"wikipedia") query="wikipedia.org/w/index.php?search=$2";;
+		"proton") query="protondb.com/search?q=$2";;
+		"d") query="duckduckgo.com/?q=$2";;
+		*) query="searx.neocities.org/?q=$1" ;;
+	esac
+	"$BROWSER" "https://$query"
+fi
