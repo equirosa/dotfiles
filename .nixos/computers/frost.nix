@@ -9,6 +9,7 @@
     ../sway.nix
     ../udiskie.nix
     ../virtualization.nix
+    ../ricardo.nix
   ];
   networking.hostName = "frost";
   programs.udevil.enable = true;
