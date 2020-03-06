@@ -1,7 +1,7 @@
 { config, pkgs, ...}: {
   imports = [
     ./global.nix
-    ../steam.nix
+    ../gaming.nix
     ../sway.nix
     ../syncthing.nix
   ];
