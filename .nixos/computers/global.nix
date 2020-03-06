@@ -16,7 +16,7 @@
     ../pass.nix
     ../theme.nix
     ../tor.nix
-    ../user.nix
+    ../eduardo.nix
     ../zsh.nix
   ];
   environment = {
