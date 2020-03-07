@@ -38,11 +38,8 @@
       nsearch = "nix-env -qaP --description";
     };
     systemPackages = with pkgs; [
-      aerc # Mail reader
       calc # Calculator
       croc magic-wormhole # File transfer
-      ed # THE STANDARD TEXT EDITOR
-      lf # terminal file manager
       gopass # password manager frontend
       groff # Document formatting
       htop # monitor
@@ -61,16 +58,8 @@
       transmission-remote-cli
       youtube-dl # YouTube downloader
       tor-browser-bundle-bin # Tor Browser (obviously)
-      zathura # Doc viewer
-
-      ## Nixpkgs stuff
-      nix-prefetch-git
-      nix-prefetch-github
     ];
     variables = {
-      BROWSER = "firefox";
-      FILE = "lf";
-      MAIL = "torify aerc";
       LESS = "-R";
       LESS_TERMCAP_mb = "$(printf '%b' '[1;31m')";
       LESS_TERMCAP_md = "$(printf '%b' '[1;36m')";
@@ -79,8 +68,6 @@
       LESS_TERMCAP_se = "$(printf '%b' '[0m')";
       LESS_TERMCAP_us = "$(printf '%b' '[1;32m')";
       LESS_TERMCAP_ue = "$(printf '%b' '[0m')";
-      MONITOR = "htop";
-      CALCULATOR = "calc";
     };
   };
   programs = {
