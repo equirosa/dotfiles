@@ -1,4 +1,4 @@
 { config, pkgs, ...}: {
-  imports = [ ./unfree.nix ];
+  imports = [ ./misc/unfree.nix ];
   services.xserver.videoDrivers = [ "nvidia" ];
 }
