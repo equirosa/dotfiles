@@ -15,7 +15,7 @@
     packages = with pkgs; [
       aerc # Mail reader
       lf # Terminal file manager
-      spacefm # Graphical file manager
+      spaceFM # Graphical file manager
       zathura # Doc viewer
 
       #### Nixpkgs stuff
