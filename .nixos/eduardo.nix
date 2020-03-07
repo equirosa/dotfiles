@@ -3,7 +3,7 @@
     spacefm = {
       enable = true;
     };
-    udevil = true;
+    udevil.enable = true;
   };
   users.users.eduardo = {
     createHome = true;
