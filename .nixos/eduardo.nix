@@ -1,4 +1,7 @@
 { config, pkgs, ... }: {
+  imports = [
+    ./kdeConnect.nix
+  ];
   programs = {
     spacefm = {
       enable = true;

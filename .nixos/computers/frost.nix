@@ -4,7 +4,6 @@
     ./global.nix
     ../auto_upgrades.nix
     ../fuck.nix
-    ../kdeConnect.nix
     ../sway.nix
     ../udiskie.nix
     ../virtualization.nix
