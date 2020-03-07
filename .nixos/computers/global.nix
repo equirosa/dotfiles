@@ -16,8 +16,10 @@
     ../pass.nix
     ../theme.nix
     ../tor.nix
-    ../eduardo.nix
     ../zsh.nix
+    #### User Stuff ####
+    ../eduardo.nix
+    ../ricardo.nix
   ];
   environment = {
     homeBinInPath = true;
