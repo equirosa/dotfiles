@@ -14,6 +14,7 @@
     ../neovim.nix
     ../nix.nix
     ../pass.nix
+    ../printing.nix
     ../theme.nix
     ../tor.nix
     ../zsh.nix

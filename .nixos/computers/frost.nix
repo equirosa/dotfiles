@@ -5,7 +5,6 @@
     ../auto_upgrades.nix
     ../fuck.nix
     ../kdeConnect.nix
-    ../printing.nix
     ../sway.nix
     ../udiskie.nix
     ../virtualization.nix
