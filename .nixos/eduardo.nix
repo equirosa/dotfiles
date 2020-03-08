@@ -1,6 +1,7 @@
 { config, pkgs, ... }: {
   imports = [
     ./emacs.nix
+    #./firefox.nix
     ./kdeConnect.nix
     ./kitty.nix
   ];
@@ -19,6 +20,7 @@
     isNormalUser = true;
     packages = with pkgs; [
       aerc # Mail reader
+      drive # stuff that i use to make Google drive less unbearable
       lf # Terminal file manager
       spaceFM # Graphical file manager
       zathura # Doc viewer
