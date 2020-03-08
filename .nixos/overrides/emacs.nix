@@ -30,4 +30,5 @@ in emacsWithPackages (epkgs:
     magit
     monokai-theme
     pdf-tools
+    transmission
   ]) ++ (with epkgs.elpaPackages; [ auctex beacon ]) ++ [ ])
