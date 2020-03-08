@@ -1,5 +1,6 @@
 { config, pkgs, ... }: {
   imports = [
+    ./emacs.nix
     ./kdeConnect.nix
     ./kitty.nix
   ];
