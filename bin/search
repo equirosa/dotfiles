@@ -5,7 +5,7 @@ if [ "$1" == "" ]; then
 else
 	case "$1" in
 		"wp"|"w"|"wikipedia") query="wikipedia.org/w/index.php?search=$2";;
-		"proton") query="protondb.com/search?q=$2";;
+		"proton"|"protondb") query="protondb.com/search?q=$2";;
 		"d"|"ddg") query="duckduckgo.com/?q=$2";;
 		*) query="searx.neocities.org/?q=$1" ;;
 	esac
