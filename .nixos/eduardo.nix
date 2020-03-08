@@ -1,6 +1,7 @@
 { config, pkgs, ... }: {
   imports = [
     ./kdeConnect.nix
+    ./kitty.nix
   ];
   programs = {
     spacefm = {
