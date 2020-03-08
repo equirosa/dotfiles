@@ -9,5 +9,5 @@ else
 		"d"|"ddg") query="duckduckgo.com/?q=$2";;
 		*) query="searx.neocities.org/?q=$1" ;;
 	esac
-	"$BROWSER" "https://$query"
+	"$BROWSER" "https://$query" & disown
 fi
