@@ -28,4 +28,9 @@
       };
     };
   };
+  users.users.eduardo = {
+    sessionVariables = {
+      BROWSER = "firefox";
+    };
+  };
 }
