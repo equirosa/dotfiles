@@ -4,6 +4,7 @@ if [ "$1" == "" ]; then
 	echo "Empty argument, not running."
 else
 	case "$1" in
+		"a") query="wiki.archlinux.org/index.php?search=$2";;
 		"wp"|"w"|"wikipedia") query="wikipedia.org/w/index.php?search=$2";;
 		"proton"|"protondb") query="protondb.com/search?q=$2";;
 		"d"|"ddg") query="duckduckgo.com/?q=$2";;
