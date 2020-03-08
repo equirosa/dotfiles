@@ -25,6 +25,9 @@
       #### Nixpkgs stuff
       nix-prefetch-git
       nix-prefetch-github
+
+      #### Rust Dev ####
+      cargo
     ];
   };
 }
