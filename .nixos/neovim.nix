@@ -27,6 +27,8 @@
         set colorcolumn=80
         autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
         autocmd BufWritePost *sway/config,*waybar/* !swaymsg reload
+        autocmd BufWritePre * %s/\s\+S//e
+        map <leader>C :w! \| !compiler <c-r>%<CR>
       '';
       plugins = with pkgs.vimPlugins; [
         auto-pairs
