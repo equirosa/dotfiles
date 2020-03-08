@@ -1,5 +1,10 @@
 { config, pkgs, ... }: {
   home-manager.users.eduardo = { pkgs, ... }: {
+    home = {
+      sessionVariables = {
+        BROWSER = "firefox";
+      };
+    };
     programs = {
       browserpass = {
         enable = true;
@@ -28,9 +33,9 @@
       };
     };
   };
-  users.users.eduardo = {
-    sessionVariables = {
-      BROWSER = "firefox";
-    };
-  };
+  #users.users.eduardo = {
+    #sessionVariables = {
+      #BROWSER = "firefox";
+    #};
+  #};
 }
