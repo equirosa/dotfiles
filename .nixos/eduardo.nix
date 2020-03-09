@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
   imports = [
     ./emacs.nix
-    #./firefox.nix
+    ./firefox.nix
     ./kdeConnect.nix
     ./kitty.nix
   ];
