@@ -24,6 +24,7 @@ in emacsWithPackages (epkgs:
     auto-org-md
     markdown-mode
     # Misc.
+    all-the-icons
     password-store
     company
     evil
@@ -33,4 +34,6 @@ in emacsWithPackages (epkgs:
     #### Theming ####
     gruvbox-theme
     monokai-theme
-  ]) ++ (with epkgs.elpaPackages; [ auctex beacon ]) ++ (with pkgs; [ ]))
+  ]) ++ (with epkgs.elpaPackages; [ auctex beacon ]) ++ (with pkgs; [
+    emacs-all-the-icons-fonts
+  ]))
