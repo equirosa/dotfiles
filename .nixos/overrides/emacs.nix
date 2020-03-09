@@ -28,7 +28,9 @@ in emacsWithPackages (epkgs:
     company
     evil
     magit
-    monokai-theme
     pdf-tools
     transmission
-  ]) ++ (with epkgs.elpaPackages; [ auctex beacon ]) ++ [ ])
+    #### Theming ####
+    gruvbox-theme
+    monokai-theme
+  ]) ++ (with epkgs.elpaPackages; [ auctex beacon ]) ++ (with pkgs; [ ]))
