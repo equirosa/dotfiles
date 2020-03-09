@@ -4,6 +4,7 @@
     ./firefox.nix
     ./kdeConnect.nix
     ./kitty.nix
+    ./sway.nix
   ];
   programs = {
     spacefm = {
