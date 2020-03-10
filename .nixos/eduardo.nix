@@ -25,6 +25,7 @@
       lf # Terminal file manager
       spaceFM # Graphical file manager
       zathura # Doc viewer
+      texlive.combined.scheme-basic
 
       #### Nixpkgs stuff
       nix-prefetch-git
