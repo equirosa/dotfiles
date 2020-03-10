@@ -24,7 +24,7 @@
       drive # stuff that i use to make Google drive less unbearable
       lf # Terminal file manager
       spaceFM # Graphical file manager
-      texlive.combined.scheme-small # LaTeX stuff
+        texlive.combined.scheme-full # LaTeX stuff
       zathura # Doc viewer
 
       #### Nixpkgs stuff
