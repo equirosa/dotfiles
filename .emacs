@@ -23,7 +23,7 @@
 (set-default-coding-systems 'utf-8)
 
 ;; Set some shortcuts
-(local-set-key (kbd "C-c C-v") #'comment-line)
+(global-set-key (kbd "C-c C-v") #'comment-line)
 
 (electric-pair-mode 1) ;; Auto-pairs
 (evil-mode 1) ;; Automatically use EVIL
