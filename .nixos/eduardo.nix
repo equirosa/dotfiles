@@ -24,8 +24,8 @@
       drive # stuff that i use to make Google drive less unbearable
       lf # Terminal file manager
       spaceFM # Graphical file manager
+      texlive.combined.scheme-small # LaTeX stuff
       zathura # Doc viewer
-      texlive.combined.scheme-basic
 
       #### Nixpkgs stuff
       nix-prefetch-git
@@ -33,6 +33,9 @@
 
       #### Rust Dev ####
       cargo
+
+      #### Compression ####
+      zip unzip
     ];
   };
 }
