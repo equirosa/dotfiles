@@ -2,5 +2,6 @@
 
 # TODO: make this thing set up more than just the ssh keys
 for key in codeberg github sourcehut gitlab; do
-	ssh-keygen -o -a 100 -t ed25519 -f "~/.ssh/$key" -C "$(hostname)"
+	[ -f ~/.ssh/"$key" ] ||
+		ssh-keygen -o -a 100 -t ed25519 -f "~/.ssh/$key" -C "$(hostname)"
 done;
