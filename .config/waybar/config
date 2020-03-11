@@ -1,4 +1,5 @@
 {
+	/*"height": 10,*/
 	"layer": "top",
 	"modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
 	"modules-center": [],
@@ -37,9 +38,9 @@
 		"format-wifi": "{essid} {signalStrength}% {icon}",
 		"format-disconnected": "{icon}",
 		"format-icons": {
-            "wifi": ["", "" ,""],
+            "wifi": ["直"],
             "ethernet": [""],
-            "disconnected": [""]
+            "disconnected": ["睊"]
         }
 	},
 	"memory": {
