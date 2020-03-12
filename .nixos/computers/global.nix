@@ -58,6 +58,10 @@
       transmission-remote-cli
       youtube-dl # YouTube downloader
       tor-browser-bundle-bin # Tor Browser (obviously)
+
+      #### Global Java Sadness ####
+      eclipses.eclipse-java
+      jetbrains.idea-community
     ];
     variables = {
       LESS = "-R";
