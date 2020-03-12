@@ -36,6 +36,9 @@
 
       #### Compression ####
       zip unzip
+
+      #### Java Sadness ####
+      eclipses.eclipse-java
     ];
   };
 }
