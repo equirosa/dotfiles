@@ -1,6 +1,12 @@
 { config, pkgs, ... }: {
-  environment.systemPackages = with pkgs; [ xclip ];
+  environment.systemPackages = with pkgs; [
+    xclip
+    xdotool
+  ];
   services = {
+    unclutter = {
+      enable = true;
+    };
     xserver = {
       enable = true;
       layout = "us,latam";

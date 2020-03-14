@@ -2,8 +2,8 @@
   imports = [
     ./global.nix
     ../gaming.nix
-    ../nvidia.nix
     ../syncthing.nix
+    ../bspwm.nix
   ];
   networking = { hostName = "snowfort"; };
 }
