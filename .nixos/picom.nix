@@ -4,4 +4,4 @@
     fade = true;
     inactiveOpacity = 0.8;
   };
-};
+}
