@@ -1,4 +1,5 @@
 { config, pkgs, ... }: {
+  imports = [ ./picom.nix ];
   environment.systemPackages = with pkgs; [
     xclip
     xdotool
