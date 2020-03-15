@@ -19,7 +19,6 @@
     ../zsh.nix
     #### User Stuff ####
     ../eduardo.nix
-    ../ricardo.nix
   ];
   environment = {
     homeBinInPath = true;
