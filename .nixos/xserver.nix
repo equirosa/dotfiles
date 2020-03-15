@@ -1,6 +1,7 @@
 { config, pkgs, ... }: {
   imports = [ ./picom.nix ];
   environment.systemPackages = with pkgs; [
+    dmenu
     xclip
     xdotool
   ];
@@ -20,6 +21,7 @@
       enable = true;
       keybindings = {
         "super + Return" = "$TERMINAL";
+        "super + d" = "dmenu";
         "super + e" = "$TERMINAL -e $MAIL";
         "super + r" = "$TERMINAL -e $FILE";
         "super + w" = "$BROWSER";
