@@ -12,7 +12,7 @@ set {
 }
 ######### Output configuration ############
 #### Wallpaper ###
-output * bg ~/Pictures/wallpaper.png fill
+output * bg ~/.background-image fill
 
 ### Idle configuration ###
 
