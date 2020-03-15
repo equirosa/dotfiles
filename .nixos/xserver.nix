@@ -20,8 +20,8 @@
     services.sxhkd = {
       enable = true;
       keybindings = {
-        "super + Return" = "$TERMINAL";
-        "super + d" = "dmenu";
+        "super + Return" = "$TERMINAL & disown";
+        "super + d" = "dmenu_run";
         "super + e" = "$TERMINAL -e $MAIL";
         "super + r" = "$TERMINAL -e $FILE";
         "super + w" = "$BROWSER";
