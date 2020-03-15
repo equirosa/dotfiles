@@ -1,4 +1,4 @@
 #!/bin/sh
 [ -f "$HOME/Pictures/wallpaper.png" ] && rm "$HOME/Pictures/wallpaper.png";
-ln -s "$1" "$HOME/Pictures/wallpaper.png";
+ln -s "$(realpath $1)" "$HOME/.background-image";
 which sway 2> /dev/null && swaymsg reload
