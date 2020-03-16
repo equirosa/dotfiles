@@ -26,6 +26,7 @@
       croc magic-wormhole # Transfer stuff
       drive # stuff that i use to make Google drive less unbearable
       lf # Terminal file manager
+      poppler_utils # reading PDFs
       ripgrep # grep replacement
       spaceFM # Graphical file manager
       texlive.combined.scheme-full # LaTeX stuff
