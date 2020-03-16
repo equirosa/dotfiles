@@ -5,4 +5,6 @@
 # >  <| | | | | | |_| | | (__
 #/_/\_\_|_| |_|_|\__|_|  \___|
 
-[ -f ~/.xprofile ] && . ~/.xprofile
+#[ -f ~/.xprofile ] && . ~/.xprofile
+
+bspwm
