@@ -5,9 +5,6 @@
 #/___|___/_| |_|  \___\___/|_| |_|_| |_|\__, |
 #                                       |___/
 
-#### Source some files ####
-[ -f ./.zprofile ] && source ./.zprofile
-
 zstyle ':completion:*' menu select
 
 # Launch starship
