@@ -25,6 +25,7 @@
         "super + e" = "$TERMINAL -e $MAIL";
         "super + r" = "$TERMINAL -e $FILE";
         "super + w" = "$BROWSER";
+        "super + {_,shift + }q" = "bspc node -{c,k}";
       };
     };
   };
