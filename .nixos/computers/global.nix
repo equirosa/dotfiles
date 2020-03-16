@@ -2,6 +2,7 @@
   imports = [
     <home-manager/nixos>
     ../audio.nix
+    ../auto_upgrades.nix
     ../bat.nix
     ../flatpak.nix
     ../fonts.nix

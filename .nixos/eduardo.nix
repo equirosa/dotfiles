@@ -4,6 +4,7 @@
     ./firefox.nix
     ./kdeConnect.nix
     ./kitty.nix
+    ./udiskie.nix
     ./sway.nix
   ];
   programs = {
@@ -22,12 +23,13 @@
     isNormalUser = true;
     packages = with pkgs; [
       aerc # Mail reader
+      croc magic-wormhole # Transfer stuff
       drive # stuff that i use to make Google drive less unbearable
       lf # Terminal file manager
+      ripgrep # grep replacement
       spaceFM # Graphical file manager
       texlive.combined.scheme-full # LaTeX stuff
       zathura # Doc viewer
-      croc magic-wormhole # Transfer stuff
 
       #### Nixpkgs stuff
       nix-prefetch-git
