@@ -5,7 +5,7 @@
       vi = "nvim";
       vim = "nvim";
     };
-    sessionVariables = { EDITOR = "nvim"; };
+    #sessionVariables = { EDITOR = "nvim"; };
   };
   home-manager.users.eduardo = { pkgs, ... }: {
     programs.neovim = {

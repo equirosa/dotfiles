@@ -5,7 +5,7 @@
 
 # Environment Variables
 export BROWSER="firefox"
-export EDITOR="vim"
+#export EDITOR="vim"
 export FILE="lf"
 export IMAGE_VIEWER="imv"
 export MAIL="aerc"
