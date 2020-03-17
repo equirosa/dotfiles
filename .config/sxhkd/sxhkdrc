@@ -7,6 +7,9 @@ super + d
 super + e
   $TERMINAL -e $MAIL
 
+super + i
+      $TERMINAL -e htop
+
 super + r
   $TERMINAL -e $FILE
 
