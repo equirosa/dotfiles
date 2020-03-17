@@ -33,6 +33,9 @@
       toot # Mastodon client
       zathura # Doc viewer
 
+      #### Messaging ####
+      tdesktop
+
       #### Nixpkgs stuff
       nix-prefetch-git
       nix-prefetch-github
