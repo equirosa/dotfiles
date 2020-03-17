@@ -25,6 +25,7 @@
       aerc # Mail reader
       croc magic-wormhole # Transfer stuff
       drive # stuff that i use to make Google drive less unbearable
+      gnome3.gnome-disk-utility
       lf # Terminal file manager
       poppler_utils # reading PDFs
       ripgrep # grep replacement
