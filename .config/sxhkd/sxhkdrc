@@ -13,7 +13,7 @@ super + r
 super + w
   $BROWSER
 
-super + {_,shift + }q
-  bspc node -{c,k}
+super + q
+  xdotool windowkill "$(xdotool getactivewindow)"
 
 
