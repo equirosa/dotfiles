@@ -33,6 +33,9 @@
 (setq make-backup-files nil) ; stop creating ~ files
 (load-theme 'gruvbox-dark-hard) ;; auto-load themes
 
+;; Org mode!!!
+(add-hook 'org-mode-hook #'pandoc-mode)
+
 ;; Rust Mode stuff
 (add-hook 'rust-mode-hook
 	  (lambda ()
