@@ -5,7 +5,6 @@
     ./firefox.nix
     ./kdeConnect.nix
     ./kitty.nix
-    #./plasma.nix
     ./udiskie.nix
   ];
   programs = {
