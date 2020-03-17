@@ -3,7 +3,7 @@
     ./global.nix
     ../gaming.nix
     ../syncthing.nix
-    ../bspwm.nix
+    #../bspwm.nix
   ];
   networking = { hostName = "snowfort"; };
 }

@@ -1,11 +1,12 @@
 { config, pkgs, ... }: {
   imports = [
+    ./awesome.nix
     ./emacs.nix
     ./firefox.nix
     ./kdeConnect.nix
     ./kitty.nix
+    #./plasma.nix
     ./udiskie.nix
-    ./sway.nix
   ];
   programs = {
     spacefm = {
