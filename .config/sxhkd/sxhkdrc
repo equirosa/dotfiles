@@ -16,4 +16,5 @@ super + w
 super + q
   xdotool windowkill "$(xdotool getactivewindow)"
 
-
+super + x
+  $LOCKSCREEN
