@@ -42,6 +42,10 @@
       #### Compression ####
       zip unzip
 
+      #### Cenfotec ####
+      zoom-us
+      slack
+
       #### Java Sadness ####
       eclipses.eclipse-java
     ];
