@@ -26,7 +26,7 @@
         "super + r" = "$TERMINAL -e $FILE";
         "super + w" = "$BROWSER";
         "super + {_,shift + }q" =
-          "xdotool windowkill $(xdotool getactivewindow )";
+          "xdotool windowkill $(xdotool getactivewindow)";
       };
     };
   };
