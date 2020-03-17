@@ -51,5 +51,6 @@
       #### Java Sadness ####
       eclipses.eclipse-java
     ];
+    shell = pkgs.bashInteractive_5;
   };
 }
