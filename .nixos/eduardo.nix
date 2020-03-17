@@ -45,6 +45,7 @@
       zip unzip
 
       #### Cenfotec ####
+      gcc
       zoom-us
       slack
 
