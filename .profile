@@ -11,6 +11,7 @@ export IMAGE_VIEWER="imv"
 export MAIL="aerc"
 export READER="zathura"
 export TERMINAL="kitty"
+export LOCKSCREEN="slock"
 
 ## Less variables, mostly color
 export LESS=-R
