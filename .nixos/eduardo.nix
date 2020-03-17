@@ -31,6 +31,7 @@
       ripgrep # grep replacement
       spaceFM # Graphical file manager
       texlive.combined.scheme-full # LaTeX stuff
+      toot # Mastodon client
       zathura # Doc viewer
 
       #### Nixpkgs stuff
