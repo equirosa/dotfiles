@@ -17,7 +17,6 @@
     ../printing.nix
     ../theme.nix
     ../tor.nix
-    ../zsh.nix
     #### User Stuff ####
     ../eduardo.nix
   ];
