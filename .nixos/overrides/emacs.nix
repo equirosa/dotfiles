@@ -15,6 +15,7 @@ in emacsWithPackages (epkgs:
     go-mode
     company-go
     # Cosas de RUST
+    cargo
     rust-mode
     racer
     flycheck-rust
