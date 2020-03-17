@@ -24,6 +24,7 @@ in emacsWithPackages (epkgs:
     auto-org-md
     markdown-mode
     # Misc.
+    pandoc-mode
     all-the-icons
     password-store
     company
