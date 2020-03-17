@@ -2,6 +2,7 @@
   imports = [ ./picom.nix ];
   environment.systemPackages = with pkgs; [
     dmenu
+    sxhkd
     xclip
     xdotool
   ];
@@ -16,18 +17,18 @@
       libinput.enable = true;
     };
   };
-  home-manager.users.eduardo = { pkgs, ... }: {
-    services.sxhkd = {
-      enable = true;
-      keybindings = {
-        "super + Return" = "$TERMINAL & disown";
-        "super + d" = "dmenu_run";
-        "super + e" = "$TERMINAL -e $MAIL";
-        "super + r" = "$TERMINAL -e $FILE";
-        "super + w" = "$BROWSER";
-        "super + q" =
-          "xdotool windowkill $(xdotool getactivewindow)";
-      };
-    };
-  };
+  #home-manager.users.eduardo = { pkgs, ... }: {
+    #services.sxhkd = {
+      #enable = true;
+      #keybindings = {
+        #"super + Return" = "$TERMINAL & disown";
+        #"super + d" = "dmenu_run";
+        #"super + e" = "$TERMINAL -e $MAIL";
+        #"super + r" = "$TERMINAL -e $FILE";
+        #"super + w" = "$BROWSER";
+        #"super + q" =
+          #"xdotool windowkill $(xdotool getactivewindow)";
+      #};
+    #};
+  #};
 }
