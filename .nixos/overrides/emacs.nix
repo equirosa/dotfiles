@@ -36,6 +36,8 @@ in emacsWithPackages (epkgs:
     #### Theming ####
     gruvbox-theme
     monokai-theme
+    #### Org ####
+    babel
   ]) ++ (with epkgs.elpaPackages; [ auctex beacon ]) ++ (with pkgs; [
     emacs-all-the-icons-fonts
   ]))
