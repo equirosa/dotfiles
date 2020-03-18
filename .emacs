@@ -35,6 +35,10 @@
 
 ;; Org mode!!!
 (add-hook 'org-mode-hook #'pandoc-mode)
+(add-to-list 'org-latex-packages-alist
+	     '("AUTO" "babel" t ("pdflatex")))
+(add-to-list 'org-latex-packages-alist
+	     '("AUTO" "polyglossia" t ("xelatex" "lualatex")))
 
 ;; Rust Mode stuff
 (add-hook 'rust-mode-hook
