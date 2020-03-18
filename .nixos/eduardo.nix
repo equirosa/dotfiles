@@ -60,4 +60,7 @@
     ];
     shell = pkgs.bashInteractive_5;
   };
+  programs = {
+    dconf.enable = true;
+  };
 }
