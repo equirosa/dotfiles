@@ -31,9 +31,11 @@
       poppler_utils # reading PDFs
       ripgrep # grep replacement
       spaceFM # Graphical file manager
-      texlive.combined.scheme-full # LaTeX stuff
       toot # Mastodon client
       zathura # Doc viewer
+
+      #### Org mode things ####
+      texlive.combined.scheme-full # LaTeX stuff
 
       #### Messaging ####
       tdesktop
