@@ -1,10 +1,11 @@
 { config, pkgs, ... }: {
   imports = [
+    ./home-manager/shell/bash.nix
     ./awesome.nix
     ./emacs.nix
     ./firefox.nix
     ./kdeConnect.nix
-    ./home-manager/terminals/kitty.nix
+    ./home-manager/terminals/alacritty.nix
     ./udiskie.nix
   ];
   programs = {
