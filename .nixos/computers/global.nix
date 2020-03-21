@@ -8,7 +8,6 @@
     ../fonts.nix
     ../git.nix
     ../location.nix
-    ../kitty.nix
     ../lf.nix
     ../mpv.nix
     ../neovim.nix
