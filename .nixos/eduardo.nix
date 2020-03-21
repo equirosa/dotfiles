@@ -23,7 +23,7 @@
     isNormalUser = true;
     packages = with pkgs; [
       aerc # Mail reader
-      croc magic-wormhole # Transfer stuff
+      croc magic-wormhole ffsend # Transfer stuff
       drive # stuff that i use to make Google drive less unbearable
       gnome3.gnome-disk-utility
       ispell # spellchecking
