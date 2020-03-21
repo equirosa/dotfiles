@@ -5,7 +5,7 @@
     ./emacs.nix
     ./firefox.nix
     ./kdeConnect.nix
-    ./home-manager/terminals/alacritty.nix
+    ./home-manager/terminals/kitty.nix
     ./udiskie.nix
   ];
   programs = {
