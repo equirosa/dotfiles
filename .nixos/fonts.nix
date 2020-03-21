@@ -7,6 +7,7 @@
         monospace = [ "Fira Code" ];
         serif = [ "Ubuntu" ];
         sansSerif = [ "Ubuntu" ];
+        emoji = [ "Noto Color Emoji" ];
       };
     };
     fonts = with pkgs; [
