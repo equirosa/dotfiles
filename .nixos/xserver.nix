@@ -1,11 +1,17 @@
 { config, pkgs, ... }: {
   imports = [ ./picom.nix ];
-  environment.systemPackages = with pkgs; [
-    dmenu
-    sxhkd
-    xclip
-    xdotool
-  ];
+  environment = {
+    sessionVariables = {
+      LOCKSCREEN = "betterlockscreen -l";
+    };
+    systemPackages = with pkgs; [
+     dmenu
+     sxhkd
+     xclip
+      xdotool
+      betterlockscreen
+    ];
+  };
   services = {
     unclutter = {
       enable = true;
