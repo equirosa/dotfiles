@@ -5,7 +5,6 @@
       extraPackages = with pkgs; [
         brightnessctl
         imv # image viewer
-        libnotify # for sending custom notifications
         swayidle # idle monitoring
         swaylock # lockscreen
         qt5.qtwayland # QT compat
