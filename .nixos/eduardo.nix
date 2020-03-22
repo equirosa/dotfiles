@@ -4,6 +4,7 @@
     ./awesome.nix
     ./emacs.nix
     ./firefox.nix
+    ./gaming.nix
     ./kdeConnect.nix
     ./home-manager/terminals/kitty.nix
     ./udiskie.nix
