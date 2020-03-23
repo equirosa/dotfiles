@@ -60,9 +60,9 @@ settings:
       melpa: https://melpa.org/#/?q={}
       n: https://nixos.wiki/index.php?search={}&go=Go
       np: https://nixos.org/nixos/packages.html?channel=nixos-unstable&query={}
+      p: https://www.protondb.com/search?q={}
       snap: https://snapcraft.io/search?q={}
       v: https://wiki.voidlinux.org/index.php?search={}
       w: https://en.wikipedia.org/w/index.php?search={}
-      p: https://www.protondb.com/search?q={}
   url.start_pages:
     global: https://searx.neocities.org
