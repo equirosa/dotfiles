@@ -4,6 +4,7 @@
     ./awesome.nix
     ./emacs.nix
     ./firefox.nix
+    ./gaming.nix
     ./kdeConnect.nix
     ./home-manager/terminals/kitty.nix
     ./udiskie.nix
@@ -31,7 +32,6 @@
       libnotify # Notifiation stuff
       lf # Terminal file manager
       poppler_utils # reading PDFs
-      ripgrep # grep replacement
       spaceFM # Graphical file manager
       toot # Mastodon client
       zathura # Doc viewer

@@ -2,14 +2,16 @@
   imports = [ ./picom.nix ];
   environment = {
     sessionVariables = {
+      IMG_VIEWER = "sxiv";
       LOCKSCREEN = "betterlockscreen -l";
     };
     systemPackages = with pkgs; [
-     dmenu
-     sxhkd
-     xclip
+      dmenu
+      sxhkd
+      xclip
       xdotool
       betterlockscreen
+      sxiv
     ];
   };
   services = {
@@ -20,7 +22,11 @@
       enable = true;
       layout = "us,latam";
       xkbOptions = "grp:win_space_toggle,ctrl:nocaps";
-      libinput.enable = true;
+      libinput = {
+        enable = true;
+        disableWhileTyping = true;
+        naturalScrolling = true;
+      };
     };
   };
   home-manager.users.eduardo = { pkgs, ... }: {
