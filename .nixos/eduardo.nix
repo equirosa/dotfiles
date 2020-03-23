@@ -31,7 +31,6 @@
       ispell # spellchecking
       lf # Terminal file manager
       poppler_utils # reading PDFs
-      ripgrep # grep replacement
       spaceFM # Graphical file manager
       toot # Mastodon client
       zathura # Doc viewer
