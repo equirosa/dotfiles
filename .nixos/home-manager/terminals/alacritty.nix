@@ -28,14 +28,10 @@
         };
         font = {
           size = 12;
-          normal = {
-            family = "Fira Code";
-          };
+          normal = { family = "Fira Code"; };
         };
       };
     };
   };
-  environment.sessionVariables = {
-    TERMINAL = "alacritty";
-  };
+  environment.sessionVariables = { TERMINAL = "alacritty"; };
 }

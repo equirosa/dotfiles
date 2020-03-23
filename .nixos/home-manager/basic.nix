@@ -1,3 +1,1 @@
-{ config, pkgs, ... }: {
-  imports = [ <home-manager/nixos> ];
-}
+{ config, pkgs, ... }: { imports = [ <home-manager/nixos> ]; }

@@ -1,5 +1,5 @@
-{config, pkgs, ...}: {
-  home-manager.users.eduardo = {pkgs, ...}: {
+{ config, pkgs, ... }: {
+  home-manager.users.eduardo = { pkgs, ... }: {
     programs.starship = {
       enable = true;
       enableBashIntegration = true;

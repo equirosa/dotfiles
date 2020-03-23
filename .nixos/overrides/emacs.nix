@@ -38,6 +38,5 @@ in emacsWithPackages (epkgs:
     monokai-theme
     #### Org ####
     babel
-  ]) ++ (with epkgs.elpaPackages; [ auctex beacon ]) ++ (with pkgs; [
-    emacs-all-the-icons-fonts
-  ]))
+  ]) ++ (with epkgs.elpaPackages; [ auctex beacon ])
+  ++ (with pkgs; [ emacs-all-the-icons-fonts ]))

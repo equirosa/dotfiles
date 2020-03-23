@@ -37,7 +37,8 @@
     };
     systemPackages = with pkgs; [
       calc # Calculator
-      croc magic-wormhole # File transfer
+      croc
+      magic-wormhole # File transfer
       gopass # password manager frontend
       groff # Document formatting
       htop # monitor
