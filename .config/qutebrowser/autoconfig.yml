@@ -57,6 +57,7 @@ settings:
       d: https://duckduckgo.com/?q={}
       flathub: https://flathub.org/apps/search/{}
       gh: https://github.com/search?utf8=%E2%9C%93&q={}
+      melpa: https://melpa.org/#/?q={}
       n: https://nixos.wiki/index.php?search={}&go=Go
       np: https://nixos.org/nixos/packages.html?channel=nixos-unstable&query={}
       snap: https://snapcraft.io/search?q={}
