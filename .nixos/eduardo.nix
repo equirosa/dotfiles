@@ -33,7 +33,7 @@
     extraGroups = [ "wheel" "video" "audio" "networkmanager" ];
     home = "/home/eduardo";
     initialHashedPassword =
-      "$6$n3GzxIULPTTidjy$8TABYAaFlEo/I49XGq1WpUCxpIZzrbxddlAXudwisO7S4y2Xi1e7ZQtUp1b/F8HiXLFi.WUBEie.a9/R/ewoJ0";
+      "$6$IpW9o6X.83H$mYxouAAprMhh83PVbRrwRDk684.u9vfPjwXWBrpYEveIEirvlIh.IUXaoKFknetTGTq9xnKfM/bi.5pYaXLUU/";
     isNormalUser = true;
     packages = with pkgs; [
       croc
