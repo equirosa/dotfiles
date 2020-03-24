@@ -25,6 +25,12 @@
         enable = true;
         package = pkgs.pass.withExtensions (exts: [ exts.pass-otp ]);
       };
+      starship = {
+        enable = true;
+        enableBashIntegration = true;
+        enableZshIntegration = true;
+        enableFishIntegration = true;
+      };
     };
   };
   users.users.eduardo = {
@@ -80,7 +86,6 @@
       steam
       lutris
     ];
-    shell = pkgs.bashInteractive_5;
   };
   nix.autoOptimiseStore = true;
   nixpkgs.config.allowUnfree = true;

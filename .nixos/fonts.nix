@@ -16,7 +16,6 @@
       fira-code-symbols
       font-awesome
       liberation_ttf
-      mplus-outline-fonts
       nerdfonts
       noto-fonts
       noto-fonts-cjk
