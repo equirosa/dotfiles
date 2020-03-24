@@ -5,6 +5,7 @@
       enable = true;
       enableAutojump = true;
       historyControl = [ "erasedups" ];
+      historyFile = "$HOME/.cache/bash_history";
       historyIgnore = [ "ls" "cd" "exit" ];
     };
   };
