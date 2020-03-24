@@ -1,6 +1,7 @@
 { config, pkgs, ... }: {
   imports = [
     ./home-manager/shell/bash.nix
+    ./home-manager/window-managers/i3.nix
     ./awesome.nix
     ./emacs.nix
     ./firefox.nix
