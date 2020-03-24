@@ -31,33 +31,6 @@
       upgrade = "sudo nixos-rebuild switch --upgrade";
       nsearch = "nix-env -qaP --description";
     };
-    systemPackages = with pkgs; [
-      calc # Calculator
-      croc
-      magic-wormhole # File transfer
-      gopass # password manager frontend
-      groff # Document formatting
-      htop # monitor
-      kitty # terminal emulator
-      # nixfmt
-      qutebrowser # favourite browser
-      trash-cli # handle trashing files instead of deleting them
-      lazygit # git helper
-      neofetch # UnixPorn
-      nox # Yay but for Nix
-      speedtest-cli
-      starship # pretty prompt :P
-      syncthing
-      qsyncthingtray
-      transmission
-      transmission-remote-cli
-      youtube-dl # YouTube downloader
-      tor-browser-bundle-bin # Tor Browser (obviously)
-
-      #### Global Java Sadness ####
-      eclipses.eclipse-java
-      jetbrains.idea-community
-    ];
     variables = {
       LESS = "-R";
       LESS_TERMCAP_mb = "$(printf '%b' '[1;31m')";

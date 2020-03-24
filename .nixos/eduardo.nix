@@ -42,18 +42,26 @@
       "$6$IpW9o6X.83H$mYxouAAprMhh83PVbRrwRDk684.u9vfPjwXWBrpYEveIEirvlIh.IUXaoKFknetTGTq9xnKfM/bi.5pYaXLUU/";
     isNormalUser = true;
     packages = with pkgs; [
+      calc # calculator
       croc
       magic-wormhole
       ffsend # Transfer stuff
       drive # stuff that i use to make Google drive less unbearable
       gnome3.gnome-disk-utility
       ispell # spellchecking
+      lazygit # git for lazy people
       libnotify # Notifiation stuff
       lf # Terminal file manager
       perl530Packages.FileMimeInfo # mimetype stuff
       poppler_utils # reading PDFs
       spaceFM # Graphical file manager
+      speedtest-cli
       toot # Mastodon client
+      tor-browser-bundle-bin # Tor Browser
+      transmission
+      transmission-remote-cli
+      trash-cli # Trash files
+      youtube-dl
       zathura # Doc viewer
 
       #### Org mode things ####
@@ -66,6 +74,8 @@
       #### Nixpkgs stuff
       nix-prefetch-git
       nix-prefetch-github
+      nixfmt
+      nox
 
       #### Rust Dev ####
       cargo
@@ -81,6 +91,7 @@
 
       #### Java Sadness ####
       eclipses.eclipse-java
+      jetbrains.idea-community
 
       #### Gaming ####
       steam
