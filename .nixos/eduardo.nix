@@ -5,16 +5,12 @@
     ./awesome.nix
     ./emacs.nix
     ./firefox.nix
-    ./gaming.nix
     ./kdeConnect.nix
     ./home-manager/terminals/kitty.nix
     ./udiskie.nix
   ];
-  programs = {
-    spacefm = {
-      enable = true;
-    };
-    udevil.enable = true;
+  home-manager.users.eduardo = { pkgs, ... }: {
+
   };
   users.users.eduardo = {
     createHome = true;
@@ -61,11 +57,22 @@
 
       #### Java Sadness ####
       eclipses.eclipse-java
+
+      #### Gaming ####
+      steam lutris
     ];
     shell = pkgs.bashInteractive_5;
   };
+  nix.autoOptimiseStore = true;
   nixpkgs.config.allowUnfree = true;
   programs = {
     dconf.enable = true;
+    thefuck.enable = true;
+    spacefm.enable = true;
+    udevil.enable = true;
+  };
+  system.autoUpgrade = {
+    enable = true;
+    dates = "0/4:*:*";
   };
 }

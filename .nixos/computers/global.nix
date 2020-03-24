@@ -2,7 +2,6 @@
   imports = [
     <home-manager/nixos>
     ../audio.nix
-    ../auto_upgrades.nix
     ../bat.nix
     ../flatpak.nix
     ../fonts.nix
@@ -11,7 +10,6 @@
     ../lf.nix
     ../mpv.nix
     ../neovim.nix
-    ../nix.nix
     ../pass.nix
     ../printing.nix
     ../theme.nix
