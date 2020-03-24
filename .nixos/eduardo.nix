@@ -32,6 +32,7 @@
       ispell # spellchecking
       libnotify # Notifiation stuff
       lf # Terminal file manager
+      perl530Packages.FileMimeInfo # mimetype stuff
       poppler_utils # reading PDFs
       spaceFM # Graphical file manager
       toot # Mastodon client
