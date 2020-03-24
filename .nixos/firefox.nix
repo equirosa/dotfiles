@@ -6,10 +6,6 @@
     };
   home-manager.users.eduardo = { pkgs, ... }: {
     programs = {
-      browserpass = {
-        enable = true;
-        browsers = [ "firefox" ];
-      };
       firefox = {
         enable = true;
         package = pkgs.firefox;#-wayland;
