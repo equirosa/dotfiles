@@ -10,6 +10,7 @@
           smartBorders = "on";
           smartGaps = true;
         };
+        modifier = "Mod4";
         terminal = "$TERMINAL";
       };
     };
