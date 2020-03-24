@@ -8,9 +8,7 @@
     ../git.nix
     ../location.nix
     ../lf.nix
-    ../mpv.nix
     ../neovim.nix
-    ../pass.nix
     ../printing.nix
     ../theme.nix
     ../tor.nix

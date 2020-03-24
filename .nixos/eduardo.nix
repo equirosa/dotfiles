@@ -9,10 +9,24 @@
     ./home-manager/terminals/kitty.nix
     ./udiskie.nix
   ];
-  home-manager.users.eduardo = { pkgs, ... }:
-    {
-
+  home-manager.users.eduardo = { pkgs, ... }: {
+    home = {
+      packages = with pkgs; [ gopass  ];
     };
+    programs = {
+      mpv = {
+        enable = true;
+        config = {
+          force-window = "yes";
+          ytdl-format = "bestvideo+bestaudio";
+        };
+      };
+      password-store = {
+        enable = true;
+        package = pkgs.pass.withExtensions (exts: [ exts.pass-otp ]);
+      };
+    };
+  };
   users.users.eduardo = {
     createHome = true;
     description = "Eduardo Quiros";
