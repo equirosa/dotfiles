@@ -2,7 +2,6 @@
   imports = [
     # Import global configuration
     ./global.nix
-    ../fuck.nix
     ../virtualization.nix
   ];
   networking.hostName = "frost";
