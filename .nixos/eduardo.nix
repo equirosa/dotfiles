@@ -21,7 +21,6 @@
       "$6$n3GzxIULPTTidjy$8TABYAaFlEo/I49XGq1WpUCxpIZzrbxddlAXudwisO7S4y2Xi1e7ZQtUp1b/F8HiXLFi.WUBEie.a9/R/ewoJ0";
     isNormalUser = true;
     packages = with pkgs; [
-      aerc # Mail reader
       croc magic-wormhole ffsend # Transfer stuff
       drive # stuff that i use to make Google drive less unbearable
       gnome3.gnome-disk-utility
@@ -38,7 +37,8 @@
       texlive.combined.scheme-full # LaTeX stuff
 
       #### Messaging ####
-      tdesktop
+      aerc # Mail reader
+      tdesktop # Telegram
 
       #### Nixpkgs stuff
       nix-prefetch-git
