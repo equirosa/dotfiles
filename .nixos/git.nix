@@ -23,7 +23,5 @@
       };
     };
   };
-  users.users.eduardo.packages = with pkgs; [
-    lazygit
-  ];
+  users.users.eduardo.packages = with pkgs; [ lazygit ];
 }

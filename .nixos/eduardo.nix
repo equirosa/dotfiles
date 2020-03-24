@@ -9,9 +9,10 @@
     ./home-manager/terminals/kitty.nix
     ./udiskie.nix
   ];
-  home-manager.users.eduardo = { pkgs, ... }: {
+  home-manager.users.eduardo = { pkgs, ... }:
+    {
 
-  };
+    };
   users.users.eduardo = {
     createHome = true;
     description = "Eduardo Quiros";
@@ -21,7 +22,9 @@
       "$6$n3GzxIULPTTidjy$8TABYAaFlEo/I49XGq1WpUCxpIZzrbxddlAXudwisO7S4y2Xi1e7ZQtUp1b/F8HiXLFi.WUBEie.a9/R/ewoJ0";
     isNormalUser = true;
     packages = with pkgs; [
-      croc magic-wormhole ffsend # Transfer stuff
+      croc
+      magic-wormhole
+      ffsend # Transfer stuff
       drive # stuff that i use to make Google drive less unbearable
       gnome3.gnome-disk-utility
       ispell # spellchecking
@@ -48,7 +51,8 @@
       cargo
 
       #### Compression ####
-      zip unzip
+      zip
+      unzip
 
       #### Cenfotec ####
       gcc
@@ -59,7 +63,8 @@
       eclipses.eclipse-java
 
       #### Gaming ####
-      steam lutris
+      steam
+      lutris
     ];
     shell = pkgs.bashInteractive_5;
   };

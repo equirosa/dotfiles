@@ -6,11 +6,7 @@
       highlightMegabytes = true;
       treeView = true;
     };
-    home.sessionVariables = {
-      MONITOR = "htop";
-    };
+    home.sessionVariables = { MONITOR = "htop"; };
   };
-  environment.shellAliases = {
-    top = "htop";
-  };
+  environment.shellAliases = { top = "htop"; };
 }

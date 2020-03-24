@@ -1,14 +1,10 @@
 { config, pkgs, ... }: {
-    environment = {
-      variables = {
-        BROWSER = "firefox";
-      };
-    };
+  environment = { variables = { BROWSER = "firefox"; }; };
   home-manager.users.eduardo = { pkgs, ... }: {
     programs = {
       firefox = {
         enable = true;
-        package = pkgs.firefox;#-wayland;
+        package = pkgs.firefox; # -wayland;
         profiles = {
           default = {
             isDefault = true;

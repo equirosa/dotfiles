@@ -1,13 +1,9 @@
-{ config, pkgs, ...}: {
+{ config, pkgs, ... }: {
   environment = {
-    shellAliases = {
-      vi="vim";
-    };
-    variables = {
-      EDITOR = "vim";
-    };
+    shellAliases = { vi = "vim"; };
+    variables = { EDITOR = "vim"; };
   };
-  home-manager.users.eduardo = { pkgs, ...}: {
+  home-manager.users.eduardo = { pkgs, ... }: {
     programs.vim = {
       enable = true;
       extraConfig = ''

@@ -1,4 +1,4 @@
-{ config, pkgs, ...}: {
+{ config, pkgs, ... }: {
   imports = [ ./xserver.nix ];
   services.xserver.windowManager.exwm = {
     enable = true;

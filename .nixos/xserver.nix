@@ -15,9 +15,7 @@
     ];
   };
   services = {
-    unclutter = {
-      enable = true;
-    };
+    unclutter = { enable = true; };
     xserver = {
       enable = true;
       layout = "us,latam";
@@ -40,8 +38,7 @@
         "super + w" = "$BROWSER";
         "super + x" = "$LOCKSCREEN";
         "super + shift + p" = "emacsclient -p";
-        "super + q" =
-          ''xdotool windowkill "$(xdotool getactivewindow)"'';
+        "super + q" = ''xdotool windowkill "$(xdotool getactivewindow)"'';
       };
     };
   };
