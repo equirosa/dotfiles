@@ -1,15 +1,26 @@
 { config, pkgs, ... }: {
   imports = [
+    <home-manager/nixos>
     ./editors/neovim.nix
     ./shell/bash.nix
     ./window-managers/xorg/awesome.nix
     ./emacs.nix
+    ./lf.nix
+    ./git.nix
+    ./location.nix
+    ./theme.nix
+    ./printing.nix
+    ./tor.nix
+    ./audio.nix
+    ./flatpak.nix
+    ./fonts.nix
     ./browsers/firefox.nix
     ./kdeConnect.nix
     ./terminals/kitty.nix
     ./udiskie.nix
   ];
   environment = {
+    homeBinInPath = true;
     shellAliases = {
       aerc = "torify aerc";
       c = "cd";
@@ -23,6 +34,16 @@
       #### Nix Aliases ####
       rebuild = "sudo nixos-rebuild switch";
       nsearch = "nix-env -qaP --description";
+    };
+    variables = {
+            LESS = "-R";
+      LESS_TERMCAP_mb = "$(printf '%b' '')";
+      LESS_TERMCAP_md = "$(printf '%b' '')";
+      LESS_TERMCAP_me = "$(printf '%b' '')";
+      LESS_TERMCAP_so = "$(printf '%b' '')";
+      LESS_TERMCAP_se = "$(printf '%b' '')";
+      LESS_TERMCAP_us = "$(printf '%b' '')";
+      LESS_TERMCAP_ue = "$(printf '%b' '')";
     };
   };
   home-manager.users.eduardo = { pkgs, ... }: {
@@ -132,6 +153,7 @@
   nixpkgs.config.allowUnfree = true;
   programs = {
     dconf.enable = true;
+    gnupg.agent = { enable = true; enableSSHSupport = true; };
     spacefm.enable = true;
     thefuck.enable = true;
     udevil.enable = true;
@@ -140,4 +162,5 @@
     enable = true;
     dates = "0/4:*:*";
   };
+  time.timeZone = "America/Costa_Rica";
 }

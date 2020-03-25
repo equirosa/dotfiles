@@ -1,8 +1,7 @@
 { config, pkgs, ... }: {
   imports = [
-    ./global.nix
     ../syncthing.nix
-    #../bspwm.nix
+    ../eduardo.nix
   ];
   networking = { hostName = "snowfort"; };
 }

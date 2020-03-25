@@ -1,7 +1,7 @@
 { config, ... }: {
   imports = [
     # Import global configuration
-    ./global.nix
+    ../eduardo.nix
     ../virtualization.nix
   ];
   networking = {
