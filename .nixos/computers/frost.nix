@@ -4,7 +4,10 @@
     ./global.nix
     ../virtualization.nix
   ];
-  networking.hostName = "frost";
+  networking = {
+    hostName = "frost";
+    networkmanager.enable = true;
+  };
   programs.udevil.enable = true;
   services = {
     borgbackup.jobs = {

@@ -1,12 +1,12 @@
 { config, pkgs, ... }: {
   imports = [
-    ./home-manager/shell/bash.nix
-    ./home-manager/window-managers/i3.nix
-    ./awesome.nix
+    ./editors/neovim.nix
+    ./shell/bash.nix
+    ./window-managers/xorg/awesome.nix
     ./emacs.nix
-    ./firefox.nix
+    ./browsers/firefox.nix
     ./kdeConnect.nix
-    ./home-manager/terminals/kitty.nix
+    ./terminals/kitty.nix
     ./udiskie.nix
   ];
   home-manager.users.eduardo = { pkgs, ... }: {

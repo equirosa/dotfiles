@@ -8,7 +8,6 @@
     ../git.nix
     ../location.nix
     ../lf.nix
-    ../neovim.nix
     ../printing.nix
     ../theme.nix
     ../tor.nix
