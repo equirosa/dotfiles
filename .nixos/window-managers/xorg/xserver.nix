@@ -37,7 +37,7 @@
         "super + r" = "$TERMINAL -e $FILE";
         "super + w" = "$BROWSER";
         "super + x" = "$LOCKSCREEN";
-        "super + shift + p" = "emacsclient -p";
+        "super + shift + p" = "emacsclient -c";
         "super + q" = ''xdotool windowkill "$(xdotool getactivewindow)"'';
       };
     };
