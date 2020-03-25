@@ -10,14 +10,15 @@
     ./udiskie.nix
   ];
   home-manager.users.eduardo = { pkgs, ... }: {
-    home = {
-      packages = with pkgs; [ gopass  ];
-    };
+    home = { packages = with pkgs; [ gopass ]; };
     programs = {
-      bat = { enable = true; config = {
-        pager = "less -FR";
-        theme = "Monokai Extended";
-      }; };
+      bat = {
+        enable = true;
+        config = {
+          pager = "less -FR";
+          theme = "Monokai Extended";
+        };
+      };
       mpv = {
         enable = true;
         config = {
@@ -32,9 +33,13 @@
       starship = {
         enable = true;
         enableBashIntegration = true;
-        enableZshIntegration = true;
-        enableFishIntegration = true;
       };
+    };
+    xdg = {
+      enable = true;
+      mime.enable = true;
+      mimeApps.enable = true;
+      userDirs.enable = true;
     };
   };
   users.users.eduardo = {
