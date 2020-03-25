@@ -26,10 +26,10 @@
           ytdl-format = "bestvideo+bestaudio";
         };
       };
-      password-store = {
-        enable = true;
-        package = pkgs.pass.withExtensions (exts: [ exts.pass-otp ]);
-      };
+      # password-store = {
+      #   enable = true;
+      #   package = pkgs.pass.withExtensions (exts: [ exts.pass-otp ]);
+      # # };
       starship = {
         enable = true;
         enableBashIntegration = true;
