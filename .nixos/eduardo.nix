@@ -14,6 +14,10 @@
       packages = with pkgs; [ gopass  ];
     };
     programs = {
+      bat = { enable = true; config = {
+        pager = "less -FR";
+        theme = "Monokai Extended";
+      }; };
       mpv = {
         enable = true;
         config = {
