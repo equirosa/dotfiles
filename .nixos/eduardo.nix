@@ -132,8 +132,8 @@
   nixpkgs.config.allowUnfree = true;
   programs = {
     dconf.enable = true;
-    thefuck.enable = true;
     spacefm.enable = true;
+    thefuck.enable = true;
     udevil.enable = true;
   };
   system.autoUpgrade = {
