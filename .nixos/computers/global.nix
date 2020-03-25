@@ -15,20 +15,6 @@
   ];
   environment = {
     homeBinInPath = true;
-    shellAliases = {
-      aerc = "torify aerc";
-      c = "cd";
-      g = "git";
-      grep = "grep --colour=auto";
-      regrep = "grep -d recurse";
-      ls = "ls --color=auto --group-directories-first";
-      lg = "lazygit";
-      diff = "diff --color=auto";
-      #### Nix Stuff ####
-      rebuild = "sudo nixos-rebuild switch";
-      upgrade = "sudo nixos-rebuild switch --upgrade";
-      nsearch = "nix-env -qaP --description";
-    };
     variables = {
       LESS = "-R";
       LESS_TERMCAP_mb = "$(printf '%b' '[1;31m')";

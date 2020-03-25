@@ -9,6 +9,22 @@
     ./terminals/kitty.nix
     ./udiskie.nix
   ];
+  environment = {
+    shellAliases = {
+      aerc = "torify aerc";
+      c = "cd";
+      cat = "bat -p";
+      g = "torify git";
+      grep = "grep --colour=auto";
+      regrep = "grep -d recurse";
+      ls = "ls --color=auto --group-directories-first";
+      lg = "lazygit";
+      diff = "diff --color=auto";
+      #### Nix Aliases ####
+      rebuild = "sudo nixos-rebuild switch";
+      nsearch = "nix-env -qaP --description";
+    };
+  };
   home-manager.users.eduardo = { pkgs, ... }: {
     home = { packages = with pkgs; [ gopass ]; };
     programs = {
