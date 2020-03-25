@@ -19,6 +19,14 @@
           theme = "Monokai Extended";
         };
       };
+      keychain = {
+        enable = true;
+        agents = [ "ssh" "gpg" ];
+        enableBashIntegration = true;
+        enableXsessionIntegration = true;
+        inheritType = "local-once";
+        keys = [ "sourcehut" "github" "gitlab" "codeberg" "B77F36C3F12720B4" ];
+      };
       mpv = {
         enable = true;
         config = {
