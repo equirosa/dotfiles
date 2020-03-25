@@ -83,6 +83,7 @@
       #### Messaging ####
       aerc # Mail reader
       tdesktop # Telegram
+      signal-desktop # Signal
 
       #### Nixpkgs stuff
       nix-prefetch-git
