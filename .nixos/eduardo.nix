@@ -25,6 +25,7 @@
       aerc = "torify aerc";
       c = "cd";
       cat = "bat -p";
+      fd = "fd -I";
       g = "torify git";
       grep = "grep --colour=auto";
       regrep = "grep -d recurse";
@@ -95,6 +96,7 @@
       calc # calculator
       croc
       magic-wormhole
+      fd # replacement for 'find'
       ffsend # Transfer stuff
       drive # stuff that i use to make Google drive less unbearable
       gnome3.gnome-disk-utility
