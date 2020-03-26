@@ -1,6 +1,7 @@
 { config, pkgs, ... }: {
   imports = [
     <home-manager/nixos>
+    ./misc/32bit.nix
     ./editors/neovim.nix
     ./shell/bash.nix
     ./window-managers/xorg/awesome.nix
