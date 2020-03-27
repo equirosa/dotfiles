@@ -26,6 +26,7 @@
       c = "cd";
       cat = "bat -p";
       fd = "fd -I";
+      find = "fd";
       g = "torify git";
       grep = "grep --colour=auto";
       regrep = "grep -d recurse";
