@@ -5,25 +5,29 @@
       settings = {
         background_opacity = 0.8;
         colors = {
+          primary = {
+            background = "0x282828";
+            foreground = "0xebdbb2";
+          };
           normal = {
-            black = "0x000000";
-            red = "0xBB2222";
-            green = "0x22BB22";
-            yellow = "0xBBBB22";
-            blue = "0x2222BB";
-            magenta = "0xBB22BB";
-            cyan = "0x22BBBB";
-            white = "0xDDDDDD";
+            black = "0x282828";
+            red = "0xcc241d";
+            green = "0x98971a";
+            yellow = "0xd79921";
+            blue = "0x458588";
+            magenta = "0xb16286";
+            cyan = "0x689d6a";
+            white = "0xa89984";
           };
           bright = {
-            black = "0x888888";
-            red = "0xFF2222";
-            green = "0x22FF22";
-            yellow = "0xFFFF22";
-            blue = "0x2222FF";
-            magenta = "0xFF22FF";
-            cyan = "0x22FFFF";
-            white = "0xFFFFFF";
+            black = "0x928374";
+            red = "0xfb4934";
+            green = "0xb8bb26";
+            yellow = "0xfabd2f";
+            blue = "0x83a598";
+            magenta = "0xd3869b";
+            cyan = "0x8ec07c";
+            white = "0xebdbb2";
           };
         };
         font = {
