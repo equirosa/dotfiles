@@ -6,7 +6,7 @@ _url="$1"
 _qb_version='1.0.4'
 _proto_version=1
 _ipc_socket="${XDG_RUNTIME_DIR}/qutebrowser/ipc-$(echo "$USER" | md5sum | cut -d' ' -f1)"
-[ -f /etc/NIXOS ] && _qute_bin="$HOME/.nix-profile/bin/qutebrowser" || _qute_bin="/usr/bin/qutebrowser";
+[ -f /etc/NIXOS ] && _qute_bin="/etc/profiles/per-user/eduardo/bin/qutebrowser" || _qute_bin="/usr/bin/qutebrowser";
 
 printf '{"args": ["%s"], "target_arg": null, "version": "%s", "protocol_version": %d, "cwd": "%s"}\n' \
        "${_url}" \
