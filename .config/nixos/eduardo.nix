@@ -18,7 +18,6 @@
     ./browsers/firefox.nix
     ./kdeConnect.nix
     ./terminals/kitty.nix
-    ./udiskie.nix
   ];
   environment = {
     homeBinInPath = true;
@@ -77,6 +76,14 @@
       starship = {
         enable = true;
         enableBashIntegration = true;
+      };
+    };
+    services = {
+      udiskie = {
+        enable = true;
+        automount = true;
+        notify = true;
+        tray = "auto";
       };
     };
     xdg = {
