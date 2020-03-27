@@ -17,7 +17,7 @@
     ./fonts.nix
     ./browsers/firefox.nix
     ./kdeConnect.nix
-    ./terminals/kitty.nix
+    ./terminals/alacritty.nix
   ];
   environment = {
     homeBinInPath = true;
