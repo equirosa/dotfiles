@@ -32,6 +32,7 @@
       regrep = "grep -d recurse";
       ls = "ls --color=auto --group-directories-first";
       lg = "lazygit";
+      dateh = "date --help | grep %";
       diff = "diff --color=auto";
       #### Nix Aliases ####
       rebuild = "sudo nixos-rebuild switch";
