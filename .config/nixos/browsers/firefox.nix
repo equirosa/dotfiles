@@ -1,5 +1,5 @@
 { config, pkgs, ... }: {
-  environment = { variables = { BROWSER = "firefox"; }; };
+  #environment = { variables = { BROWSER = "firefox"; }; };
   home-manager.users.eduardo = { pkgs, ... }: {
     programs = {
       firefox = {
