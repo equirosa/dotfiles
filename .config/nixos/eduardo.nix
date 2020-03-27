@@ -40,6 +40,7 @@
     };
     variables = {
       BROWSER = "qutebrowser";
+      GTK2_RC_FILES = "$HOME/.config/gtk-2.0/gtkrc";
       IDEA_PROPERTIES = "$HOME/.config/intellij-idea/idea.properties";
       IDEA_VM_OPTIONS = "$HOME/.config/intellij-idea/idea.vmoptions";
       LESS = "-R";
