@@ -39,6 +39,7 @@
       nsearch = "nix-env -qaP --description";
     };
     variables = {
+      BROWSER = "qutebrowser";
       LESS = "-R";
       LESS_TERMCAP_mb = "$(printf '%b' '[1;31m')";
       LESS_TERMCAP_md = "$(printf '%b' '[1;36m')";
@@ -116,6 +117,7 @@
       lf # Terminal file manager
       perl530Packages.FileMimeInfo # mimetype stuff
       poppler_utils # reading PDFs
+      qutebrowser # Best browser ever
       spaceFM # Graphical file manager
       speedtest-cli
       toot # Mastodon client
