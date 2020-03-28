@@ -41,9 +41,11 @@
     variables = {
       BROWSER = "qutebrowser";
       MAIL = "torify aerc";
+      # Cleanup
       GTK2_RC_FILES = "$HOME/.config/gtk-2.0/gtkrc";
       IDEA_PROPERTIES = "$HOME/.config/intellij-idea/idea.properties";
       IDEA_VM_OPTIONS = "$HOME/.config/intellij-idea/idea.vmoptions";
+      # Less variables
       LESS = "-R";
       LESS_TERMCAP_mb = "$(printf '%b' '[1;31m')";
       LESS_TERMCAP_md = "$(printf '%b' '[1;36m')";
