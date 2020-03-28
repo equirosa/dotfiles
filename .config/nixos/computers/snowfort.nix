@@ -1,7 +1,4 @@
 { config, pkgs, ... }: {
-  imports = [
-    ../syncthing.nix
-    ../eduardo.nix
-  ];
+  imports = [ ../syncthing.nix ../eduardo.nix ];
   networking = { hostName = "snowfort"; };
 }

@@ -172,7 +172,10 @@
   nixpkgs.config.allowUnfree = true;
   programs = {
     dconf.enable = true;
-    gnupg.agent = { enable = true; enableSSHSupport = true; };
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
     spacefm.enable = true;
     thefuck.enable = true;
     udevil.enable = true;
