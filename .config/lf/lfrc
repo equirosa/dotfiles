@@ -63,9 +63,6 @@ cmd mkdir ${{
 # cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
 # map r push :rename<space>
 
-# make sure trash folder exists
-%mkdir -p ~/.trash
-
 # move current file or selected files to trash folder
 cmd trash %set -f; trash $fx
 
