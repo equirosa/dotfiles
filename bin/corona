@@ -1,6 +1,6 @@
 #!/bin/sh
 
-[ "$(stat -c %y $HOME/.cache/corona-stats 2>/dev/null | cut -d' ' -f1)" != "$(date '+%Y-%m-%d')" ] &&
+[ "$(stat -c %y $HOME/.cache/corona-stats 2>/dev/null | cut -d' ' -f1)" != "$(date '+%Y-%m-%d')" ] || [ "$1" = "-u" ] &&
 	curl -s https://corona-stats.online/CR{,?source=1} | sed 22q > ~/.cache/corona-stats
 
 cat "$HOME/.cache/corona-stats"
