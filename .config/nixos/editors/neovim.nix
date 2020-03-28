@@ -43,7 +43,7 @@
         vim-devicons
         vim-nix
         vim-surround
-        youcompleteme
+        YouCompleteMe
       ];
       viAlias = true;
       vimAlias = true;
