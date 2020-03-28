@@ -70,10 +70,10 @@
       };
       keychain = {
         enable = true;
-        agents = [ "ssh" "gpg" ];
+        agents = [ "ssh" ];
         enableBashIntegration = true;
         inheritType = "local-once";
-        keys = [ "sourcehut" "github" "gitlab" "codeberg" "B77F36C3F12720B4" ];
+        keys = [ "sourcehut" "github" "gitlab" "codeberg" ];
       };
       mpv = {
         enable = true;
