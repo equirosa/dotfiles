@@ -16,6 +16,15 @@
 
 (setf *buffer-class* 'my-buffer)
 
+;; Search engines
+(defclass my-browser (browser)
+  ((search-engines :initform
+		   '(("default"
+		      "https://duckduckgo.com/?q=~a"
+		      "https://duckduckgo.com/")
+		     ("wiki"
+		      "https://en.wikipedia.org/w/index.php?search=~a")))))
+
 ;; Make some redirections
 ;;;; ; Reddit
 ;; (defun old-reddit-hook (url)
