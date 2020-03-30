@@ -6,12 +6,12 @@
       LOCKSCREEN = "betterlockscreen -l";
     };
     systemPackages = with pkgs; [
+      betterlockscreen
       dmenu
       sxhkd
+      sxiv
       xclip
       xdotool
-      betterlockscreen
-      sxiv
     ];
   };
   services = {
