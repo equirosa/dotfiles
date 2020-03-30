@@ -8,6 +8,7 @@
     systemPackages = with pkgs; [
       betterlockscreen
       dmenu
+      maim
       sxhkd
       sxiv
       xclip
