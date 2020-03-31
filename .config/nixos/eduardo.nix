@@ -158,9 +158,13 @@
       unzip
 
       #### Cenfotec ####
+      cmake
       gcc
       zoom-us
       slack
+      qtcreator
+      gnumake
+      jetbrains.clion
 
       #### Java Sadness ####
       eclipses.eclipse-java
