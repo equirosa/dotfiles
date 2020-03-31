@@ -23,7 +23,11 @@
 		      "https://duckduckgo.com/?q=~a"
 		      "https://duckduckgo.com/")
 		     ("wiki"
-		      "https://en.wikipedia.org/w/index.php?search=~a")))))
+		      "https://en.wikipedia.org/w/index.php?search=~a"
+		      "https://en.wikipedia.org/")
+		     ("gh"
+		      "https://github.com/search?q=~a"
+		      "https://github.com")))))
 
 ;; Make some redirections
 ;;;; ; Reddit
