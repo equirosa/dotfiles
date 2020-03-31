@@ -29,6 +29,7 @@ in emacsWithPackages (epkgs:
     all-the-icons
     password-store
     company
+    keychain-environment
     evil
     magit
     pdf-tools
