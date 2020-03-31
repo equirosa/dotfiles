@@ -36,22 +36,11 @@ map O $mimeopen --ask $f
 map b &make-wallpaper $f
 
 map <bs2> set hidden! # toggle state of display for hidden files and directories
-map zz push :zip<space>$f
-#map - $./draw_img.sh $f
-#map ex extract $f
+map zz push :zip<space>
+map ex extract $f
 map L $lazygit
 
 # Custom commands
-cmd open ${{
-	case $f in
-		*.webm | *.mp4 | *.mkv) mpv --fs=yes $fx ;;
-		*) case $(file --mime-type $f -b) in
-        	text/*) $EDITOR $fx;;
-			image/*) $IMAGE_VIEWER $fx;;
-        	*) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
-    	esac
-	esac
-}}
 
 cmd mkdir ${{
 	printf "New directory: "
@@ -59,24 +48,8 @@ cmd mkdir ${{
 	mkdir $dir
 }}
 
-# define a custom 'rename' command without prompt for overwrite
-# cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
-# map r push :rename<space>
-
-# move current file or selected files to trash folder
-cmd trash %set -f; trash $fx
-
-# define a custom 'delete' command
-# cmd delete ${{
-#     set -f
-#     printf "$fx\n"
-#     printf "delete?[y/n]"
-#     read ans
-#     [ $ans = "y" ] && rm -rf $fx
-# }}
-
 # use '<delete>' key for either 'trash' or 'delete' command
-map <delete> trash #delete
+map <delete> $trash $fx #delete
 
 # extract the current file with the right command
 # (xkcd link: https://xkcd.com/1168/)
