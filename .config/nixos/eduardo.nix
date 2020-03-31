@@ -125,6 +125,7 @@
       perl530Packages.FileMimeInfo # mimetype stuff
       poppler_utils # reading PDFs
       qutebrowser # Best browser ever
+      ripgrep # grep but faster
       spaceFM # Graphical file manager
       speedtest-cli
       toot # Mastodon client
