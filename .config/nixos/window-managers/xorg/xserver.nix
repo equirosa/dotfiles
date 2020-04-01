@@ -2,7 +2,6 @@
   imports = [ ./picom.nix ];
   environment = {
     sessionVariables = {
-      IMG_VIEWER = "sxiv";
       LOCKSCREEN = "betterlockscreen -l";
     };
     systemPackages = with pkgs; [
@@ -13,6 +12,7 @@
       sxiv
       xclip
       xdotool
+      xorg.xkill
     ];
   };
   services = {

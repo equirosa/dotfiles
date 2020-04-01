@@ -41,6 +41,7 @@
     variables = {
       BROWSER = "qutebrowser";
       EDITOR = "nvim";
+      IMG = "imv";
       MAIL = "torify aerc";
       # Cleanup
       GTK2_RC_FILES = "$HOME/.config/gtk-2.0/gtkrc";
@@ -117,6 +118,7 @@
       magic-wormhole
       fd # replacement for 'find'
       ffsend # Transfer stuff
+      imv # Image viewer
       drive # stuff that i use to make Google drive less unbearable
       gnome3.gnome-disk-utility
       ispell # spellchecking
