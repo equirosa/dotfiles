@@ -34,6 +34,7 @@ in emacsWithPackages (epkgs:
     magit
     pdf-tools
     transmission
+    lua-mode
     #### Theming ####
     gruvbox-theme
     monokai-theme
