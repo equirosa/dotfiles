@@ -111,6 +111,7 @@
       "$6$IpW9o6X.83H$mYxouAAprMhh83PVbRrwRDk684.u9vfPjwXWBrpYEveIEirvlIh.IUXaoKFknetTGTq9xnKfM/bi.5pYaXLUU/";
     isNormalUser = true;
     packages = with pkgs; [
+      brave
       calc # calculator
       croc
       magic-wormhole
@@ -122,6 +123,7 @@
       lazygit # git for lazy people
       libnotify # Notifiation stuff
       lf # Terminal file manager
+      next # The other best browser ever
       perl530Packages.FileMimeInfo # mimetype stuff
       poppler_utils # reading PDFs
       qutebrowser # Best browser ever
