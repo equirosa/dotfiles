@@ -111,7 +111,12 @@
       "$6$IpW9o6X.83H$mYxouAAprMhh83PVbRrwRDk684.u9vfPjwXWBrpYEveIEirvlIh.IUXaoKFknetTGTq9xnKfM/bi.5pYaXLUU/";
     isNormalUser = true;
     packages = with pkgs; [
+      #### Browsers ####
       brave
+      next # The other best browser ever
+      qutebrowser # Best browser ever
+      tor-browser-bundle-bin # Tor Browser
+
       calc # calculator
       croc
       magic-wormhole
@@ -125,15 +130,12 @@
       lazygit # git for lazy people
       libnotify # Notifiation stuff
       lf # Terminal file manager
-      next # The other best browser ever
       perl530Packages.FileMimeInfo # mimetype stuff
       poppler_utils # reading PDFs
-      qutebrowser # Best browser ever
       ripgrep # grep but faster
       spaceFM # Graphical file manager
       speedtest-cli
       toot # Mastodon client
-      tor-browser-bundle-bin # Tor Browser
       transmission
       transmission-remote-cli
       trash-cli # Trash files
