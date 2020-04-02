@@ -117,6 +117,10 @@
       qutebrowser # Best browser ever
       tor-browser-bundle-bin # Tor Browser
 
+      #### Comms ####
+      aerc # Mail reader
+      signal-desktop # Signal
+      tdesktop # Telegram
       #### TODO: Sort these... ####
       calc # calculator
       croc
@@ -146,10 +150,6 @@
       #### Org mode things ####
       texlive.combined.scheme-full # LaTeX stuff
 
-      #### Messaging ####
-      aerc # Mail reader
-      tdesktop # Telegram
-      signal-desktop # Signal
 
       #### Nixpkgs stuff
       nix-prefetch-git
