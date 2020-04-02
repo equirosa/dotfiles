@@ -60,7 +60,6 @@
     };
   };
   home-manager.users.eduardo = { pkgs, ... }: {
-    home = { packages = with pkgs; [ gopass ]; };
     programs = {
       bat = {
         enable = true;
@@ -121,6 +120,7 @@
       imv # Image viewer
       drive # stuff that i use to make Google drive less unbearable
       gnome3.gnome-disk-utility
+      gopass # Password Manager
       ispell # spellchecking
       lazygit # git for lazy people
       libnotify # Notifiation stuff
