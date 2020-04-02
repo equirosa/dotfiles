@@ -117,6 +117,7 @@
       qutebrowser # Best browser ever
       tor-browser-bundle-bin # Tor Browser
 
+      #### TODO: Sort these... ####
       calc # calculator
       croc
       magic-wormhole
