@@ -119,6 +119,7 @@
 
       #### Comms ####
       aerc # Mail reader
+      dino # XMPP client
       qtox # Decentralized messaging platform
       signal-desktop # Signal
       tdesktop # Telegram
