@@ -135,7 +135,7 @@
       gopass # Password Manager
       ispell # spellchecking
       lazygit # git for lazy people
-      libnotify # Notifiation stuff
+      libnotify # Notification stuff
       lf # Terminal file manager
       perl530Packages.FileMimeInfo # mimetype stuff
       poppler_utils # reading PDFs
