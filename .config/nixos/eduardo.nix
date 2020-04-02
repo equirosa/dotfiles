@@ -125,6 +125,10 @@
       signal-desktop # Signal
       tdesktop # Telegram
 
+      #### FAH Stuff :) ####
+      fahviewer
+      fahcontrol
+
       #### TODO: Sort these... ####
       calc # calculator
       croc
@@ -202,6 +206,9 @@
     spacefm.enable = true;
     thefuck.enable = true;
     udevil.enable = true;
+  };
+  services = {
+    foldingathome.enable = true;
   };
   system.autoUpgrade = {
     enable = true;
