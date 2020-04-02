@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
   imports = [
     <home-manager/nixos>
     ./misc/32bit.nix
@@ -187,6 +187,12 @@
   nixpkgs.config.allowUnfree = true;
   programs = {
     dconf.enable = true;
+    firejail = {
+      enable = true;
+      wrappedBinaries = {
+        zoom-us = "${lib.getBin pkgs.zoom-us}/bin/zoom-us";
+      };
+    };
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
