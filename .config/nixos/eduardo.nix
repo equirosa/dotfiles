@@ -48,7 +48,7 @@
       IDEA_PROPERTIES = "$HOME/.config/intellij-idea/idea.properties";
       IDEA_VM_OPTIONS = "$HOME/.config/intellij-idea/idea.vmoptions";
       UNISON = "$HOME/.local/unison";
-      # Less variables
+      # "Less" variables
       LESS = "-R";
       LESS_TERMCAP_mb = "$(printf '%b' '[1;31m')";
       LESS_TERMCAP_md = "$(printf '%b' '[1;36m')";
