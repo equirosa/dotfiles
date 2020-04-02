@@ -119,8 +119,10 @@
 
       #### Comms ####
       aerc # Mail reader
+      qtox # Decentralized messaging platform
       signal-desktop # Signal
       tdesktop # Telegram
+
       #### TODO: Sort these... ####
       calc # calculator
       croc
@@ -149,7 +151,6 @@
 
       #### Org mode things ####
       texlive.combined.scheme-full # LaTeX stuff
-
 
       #### Nixpkgs stuff
       nix-prefetch-git
