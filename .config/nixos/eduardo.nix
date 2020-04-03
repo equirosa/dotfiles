@@ -130,6 +130,8 @@
       fahcontrol
 
       #### TODO: Sort these... ####
+      htop
+      gotop
       calc # calculator
       croc
       magic-wormhole
