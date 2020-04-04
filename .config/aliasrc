@@ -3,6 +3,7 @@
 # Replacements
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 alias vi="nvim"
+alias find="fd"
 
 # Torify all the things!!!!!
 alias aerc="torify aerc"
