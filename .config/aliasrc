@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-# Substitue nvim for vim
+# Replacements
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 alias vi="nvim"
 
