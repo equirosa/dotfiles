@@ -32,7 +32,6 @@ export LF_ICONS="di=:fi=:ln=:or=:ex=:*.c=:*.cc=:*.cpp=ﭱ:*
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export IDEA_PROPERTIES="$XDG_CONFIG_HOME/intellij-idea/idea.properties"
 export IDEA_VM_OPTIONS="$XDG_CONFIG_HOME/intellij-idea/idea64.vmoptions"
-export LESSKEY="$XDG_CACHE_HOME/less"
 export LESSHISTFILE=- # Disable less history file
 export UNISON="$XDG_DATA_HOME/unison"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
