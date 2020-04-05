@@ -76,14 +76,16 @@
       fahviewer
       fahcontrol
 
+      #### File Transfer ####
+      croc # Sync file transfer
+      ffsend# Async file transfer
+
       #### TODO: Sort these... ####
       bat
       htop
       gotop
       calc # calculator
-      croc
       fd # replacement for 'find'
-      ffsend # Transfer stuff
       imv # Image viewer
       drive # stuff that i use to make Google drive less unbearable
       gnome3.gnome-disk-utility
