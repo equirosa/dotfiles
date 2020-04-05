@@ -35,7 +35,7 @@ export LESSHISTFILE=- # Disable less history file
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Autolaunch
-[ "$(tty)" = "/dev/tty1" ] && exec sway
+which sway >/dev/null && [ "$(tty)" = "/dev/tty1" ] && exec sway
 
 case "$0" in
 	*zsh | *bash) eval "$(starship init $0)";;
