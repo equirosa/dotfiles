@@ -26,9 +26,9 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 
 ## Things sourced by some programs
 ### lf's icons
-export LF_ICONS="di=:fi=:ln=:or=:ex=:*.c=:*.cc=:*.cpp=ﭱ:*.js=:*.vimrc=:*.vim=:*.nix=:*.css=:*.pdf=:*.html=:*.rs=:*.rlib=:*.7z=:*.git=:*.webm=:*.mp4=:*.flac=:*.deb=:*.rpm=:*.py=:*.md=:*.json=:*.mkv=:*.go="
 ### zsh's dotfile directory
 export ZDOTDIR="$HOME/.config/zsh"
+export LF_ICONS="di=:fi=:ln=:or=:ex=:*.c=:*.cc=:*.cpp=ﭱ:*.js=:*.vimrc=:*.vim=:*.nix=:*.css=:*.pdf=:*.html=:*.rs=:*.rlib=:*.7z=:*.git=:*.webm=:*.mp4=:*.flac=:*.deb=:*.rpm=:*.py=:*.md=:*.json=:*.mkv=:*.go=:.git="
 
 # Autolaunch
 [ "$(tty)" = "/dev/tty1" ] && exec sway
