@@ -37,6 +37,7 @@ settings:
     global: false
     https://nixos.org/nixos/packages.html?channel=nixos-unstable&0ad: true
     https://searx.neocities.org/?q=pfetch: true
+    https://web.whatsapp.com/: true
   content.private_browsing:
     global: true
   content.proxy:
