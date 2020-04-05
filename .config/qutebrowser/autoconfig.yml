@@ -32,6 +32,7 @@ settings:
     '*://itch.io/*': true
     '*://tt-rss.nixnet.xyz/*': true
     '*://wallabag.nixnet.xyz/*': true
+    '*://www.nerdfonts.com/*': true
     '*://www.reddit.com/*': true
     global: false
     https://nixos.org/nixos/packages.html?channel=nixos-unstable&0ad: true
