@@ -151,6 +151,7 @@
     udevil.enable = true;
   };
   services = {
+    dnscrypt-proxy2.enable = true;
     foldingathome.enable = true;
   };
   system.autoUpgrade = {
