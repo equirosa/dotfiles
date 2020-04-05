@@ -44,6 +44,9 @@
       "$6$IpW9o6X.83H$mYxouAAprMhh83PVbRrwRDk684.u9vfPjwXWBrpYEveIEirvlIh.IUXaoKFknetTGTq9xnKfM/bi.5pYaXLUU/";
     isNormalUser = true;
     packages = with pkgs; [
+      #### Backups ####
+      restic
+
       #### Browsers ####
       brave
       next # The other best browser ever
