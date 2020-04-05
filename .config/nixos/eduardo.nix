@@ -3,7 +3,6 @@
     <home-manager/nixos>
     ./misc/32bit.nix
     ./editors/neovim.nix
-    ./shell/bash.nix
     ./window-managers/xorg/awesome.nix
     ./emacs.nix
     ./lf.nix
@@ -21,19 +20,6 @@
   ];
   environment.homeBinInPath = true;
   home-manager.users.eduardo = { pkgs, ... }: {
-    programs = {
-      keychain = {
-        enable = true;
-        agents = [ "ssh" ];
-        enableBashIntegration = true;
-        inheritType = "local-once";
-        keys = [ "sourcehut" "github" "gitlab" "codeberg" ];
-      };
-      starship = {
-        enable = true;
-        enableBashIntegration = true;
-      };
-    };
     services = {
       udiskie = {
         enable = true;
@@ -91,6 +77,7 @@
       gnome3.gnome-disk-utility
       gopass # Password Manager
       ispell # spellchecking
+      keychain # Fewer password prmpts
       lazygit # git for lazy people
       libnotify # Notification stuff
       lf # Terminal file manager
@@ -100,6 +87,7 @@
       ripgrep # grep but faster
       spaceFM # Graphical file manager
       speedtest-cli
+      starship #pretty prompt
       toot # Mastodon client
       transmission
       transmission-remote-cli
