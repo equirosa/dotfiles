@@ -26,9 +26,13 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 
 ## Things sourced by some programs
 ### lf's icons
-### zsh's dotfile directory
-export ZDOTDIR="$HOME/.config/zsh"
 export LF_ICONS="di=:fi=:ln=:or=:ex=:*.c=:*.cc=:*.cpp=ﭱ:*.js=:*.vimrc=:*.vim=:*.nix=:*.css=:*.pdf=:*.html=:*.rs=:*.rlib=:*.7z=:*.git=:*.webm=:*.mp4=:*.flac=:*.deb=:*.rpm=:*.py=:*.md=:*.json=:*.mkv=:*.go=:.git="
+
+# Cleanup
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
+export LESSKEY="$XDG_CACHE_HOME/less"
+export LESSHISTFILE=- # Disable less history file
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Autolaunch
 [ "$(tty)" = "/dev/tty1" ] && exec sway
