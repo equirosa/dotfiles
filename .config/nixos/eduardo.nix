@@ -100,14 +100,14 @@
       youtube-dl
       zathura # Doc viewer
 
-      #### Org mode things ####
-      texlive.combined.scheme-full # LaTeX stuff
-
       #### Nixpkgs stuff
       nix-prefetch-git
       nix-prefetch-github
       nixfmt
       nox
+
+      #### Org mode things ####
+      texlive.combined.scheme-full # LaTeX stuff
 
       #### Rust Dev ####
       cargo
