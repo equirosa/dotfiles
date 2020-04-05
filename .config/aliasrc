@@ -3,6 +3,8 @@
 # Replacements
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 alias vi="nvim"
+alias cat="bat -p"
+alias fd="fd -I"
 alias find="fd"
 
 # Torify all the things!!!!!
@@ -16,9 +18,11 @@ alias grep="grep --color=auto"
 alias ls="ls --color=auto --group-directories-first"
 
 # Shorten some things
+alias c="cd"
 alias g="git"
 alias l="ls -lah"
 alias lg="lazygit"
+alias dateh="date --help | rg %"
 
 ## Git
 alias gcp="git commit -a ; git push"

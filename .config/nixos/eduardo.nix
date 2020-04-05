@@ -19,46 +19,7 @@
     ./kdeConnect.nix
     ./terminals/kitty.nix
   ];
-  environment = {
-    homeBinInPath = true;
-    shellAliases = {
-      aerc = "torify aerc";
-      c = "cd";
-      cat = "bat -p";
-      fd = "fd -I";
-      find = "fd";
-      g = "torify git";
-      grep = "grep --colour=auto";
-      regrep = "grep -d recurse";
-      ls = "ls --color=auto --group-directories-first";
-      lg = "lazygit";
-      dateh = "date --help | grep %";
-      diff = "diff --color=auto";
-      #### Nix Aliases ####
-      rebuild = "sudo nixos-rebuild switch";
-      nsearch = "nix-env -qaP --description";
-    };
-    variables = {
-      BROWSER = "qutebrowser";
-      EDITOR = "nvim";
-      IMG = "imv";
-      MAIL = "torify aerc";
-      # Cleanup
-      GTK2_RC_FILES = "$HOME/.config/gtk-2.0/gtkrc";
-      IDEA_PROPERTIES = "$HOME/.config/intellij-idea/idea.properties";
-      IDEA_VM_OPTIONS = "$HOME/.config/intellij-idea/idea.vmoptions";
-      UNISON = "$HOME/.local/unison";
-      # "Less" variables
-      LESS = "-R";
-      LESS_TERMCAP_mb = "$(printf '%b' '[1;31m')";
-      LESS_TERMCAP_md = "$(printf '%b' '[1;36m')";
-      LESS_TERMCAP_me = "$(printf '%b' '[0m')";
-      LESS_TERMCAP_so = "$(printf '%b' '[01;44;33m')";
-      LESS_TERMCAP_se = "$(printf '%b' '[0m')";
-      LESS_TERMCAP_us = "$(printf '%b' '[1;32m')";
-      LESS_TERMCAP_ue = "$(printf '%b' '[0m')";
-    };
-  };
+  environment.homeBinInPath = true;
   home-manager.users.eduardo = { pkgs, ... }: {
     programs = {
       bat = {
