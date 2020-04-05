@@ -1,0 +1,17 @@
+[alias]
+	ca = commit -a
+	fire = commit -am 'Fire!!!' && push
+	pl = pull
+	ps = push
+	s = status
+
+[commit]
+	gpgSign = true
+
+[gpg]
+	program = /nix/store/0alh8jgwfnw9vig2is80vl3sb1wg66q9-gnupg-2.2.19/bin/gpg2
+
+[user]
+	email = eduardo@eduardoquiros.com
+	name = Eduardo Quiros
+	signingKey = eduardo@eduardoquiros.com

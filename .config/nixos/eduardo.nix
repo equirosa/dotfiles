@@ -6,7 +6,6 @@
     ./window-managers/xorg/awesome.nix
     ./emacs.nix
     ./lf.nix
-    ./git.nix
     ./location.nix
     ./theme.nix
     ./printing.nix
@@ -60,6 +59,9 @@
       riot-desktop # Matrix client
       signal-desktop # Signal
       tdesktop # Telegram
+
+      #### Dev Stuff ####
+      gitAndTools.gitFull
 
       #### FAH Stuff :) ####
       fahviewer
