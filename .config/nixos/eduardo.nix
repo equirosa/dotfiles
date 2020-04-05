@@ -22,13 +22,6 @@
   environment.homeBinInPath = true;
   home-manager.users.eduardo = { pkgs, ... }: {
     programs = {
-      bat = {
-        enable = true;
-        config = {
-          pager = "less -FR";
-          theme = "Monokai Extended";
-        };
-      };
       keychain = {
         enable = true;
         agents = [ "ssh" ];
@@ -91,6 +84,7 @@
       fahcontrol
 
       #### TODO: Sort these... ####
+      bat
       htop
       gotop
       calc # calculator
