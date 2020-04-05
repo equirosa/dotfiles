@@ -29,13 +29,6 @@
         inheritType = "local-once";
         keys = [ "sourcehut" "github" "gitlab" "codeberg" ];
       };
-      mpv = {
-        enable = true;
-        config = {
-          force-window = "yes";
-          ytdl-format = "bestvideo+bestaudio";
-        };
-      };
       starship = {
         enable = true;
         enableBashIntegration = true;
@@ -100,6 +93,7 @@
       lazygit # git for lazy people
       libnotify # Notification stuff
       lf # Terminal file manager
+      mpv # Video Player
       perl530Packages.FileMimeInfo # mimetype stuff
       poppler_utils # reading PDFs
       ripgrep # grep but faster
