@@ -82,7 +82,6 @@
       gotop
       calc # calculator
       croc
-      magic-wormhole
       fd # replacement for 'find'
       ffsend # Transfer stuff
       imv # Image viewer
