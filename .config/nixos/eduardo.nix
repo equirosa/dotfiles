@@ -133,7 +133,18 @@
     ];
   };
   nix.autoOptimiseStore = true;
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      (self: super: {
+        vim = super.vim.override {
+          plugins = with pkgs.vimPlugins; [
+            vim-nix
+          ];
+        };
+      })
+    ];
+  };
   programs = {
     dconf.enable = true;
     firejail = {
