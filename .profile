@@ -8,7 +8,7 @@
 export BROWSER="next"
 export EDITOR="vim"
 export FILE="lf"
-export IMAGE_VIEWER="imv"
+export IMG="imv"
 export MAIL="aerc"
 export READER="zathura"
 export TERMINAL="kitty"
