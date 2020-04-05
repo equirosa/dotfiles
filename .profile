@@ -38,7 +38,7 @@ export UNISON="$XDG_DATA_HOME/unison"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Autolaunch
-which sway >/dev/null && [ "$(tty)" = "/dev/tty1" ] && exec sway
+which sway 2>/dev/null && [ "$(tty)" = "/dev/tty1" ] && exec sway
 
 case "$0" in
 	*zsh | *bash) eval "$(starship init $0)";;
