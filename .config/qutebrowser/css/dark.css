@@ -1,0 +1,110 @@
+/* Adapted from this project:
+ * https://github.com/alphapapa/solarized-everything-css/blob/master/css/solarized-all-sites-dark.css 
+*/
+
+/* base blocks */
+header,
+div {
+    color: white;
+    background-color: black;
+},
+li {
+    color: white; 
+    background-color: black;
+},
+p {
+    color: white;    
+    background-color: black;
+},
+a { 
+    color: white; 
+    background-color: black;
+},
+span {
+    color: white; 
+    background-color: black;
+},
+code {
+    color: white; 
+    background-color: black;
+},
+input {
+    color: white; 
+    background-color: black;
+},
+td { 
+    color: white; 
+    background-color: black;
+},
+/* content blocks */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+section,
+summary,
+#content,
+.section,
+.global,
+.u-backgroundWhite {
+    color: white; 
+    background-color: black;
+},
+/* specific content (like quote) */
+strong {
+    color: white; 
+    background-color: black;
+}
+
+/* title */
+h1 {
+    color: white; 
+    background-color: black;
+},
+h2 { 
+    color: white; 
+    background-color: black;
+},
+h3 { 
+    color: white; 
+    background-color: black;
+},
+h4 { 
+    color: white; 
+    background-color: black;
+},
+h5 { 
+    color: white; 
+    background-color: black;
+},
+h6 {
+    color: white; 
+    background-color: black;
+}
+
+/* navigation */
+nav {
+    color: white; 
+    background-color: black;
+},
+#mainbar,
+#archnavbar {
+    color: white; 
+    background-color: black;
+}
+
+/* TODO not good, comment in git  */
+.blob-code span {
+    color: white; 
+    background-color: black;
+}
+/* code in flask doc */
+.highlight span {
+    color: white; 
+    background-color: black;
+}
