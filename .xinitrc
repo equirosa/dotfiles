@@ -5,6 +5,5 @@
 # >  <| | | | | | |_| | | (__
 #/_/\_\_|_| |_|_|\__|_|  \___|
 
-#[ -f ~/.xprofile ] && . ~/.xprofile
-
-bspwm
+[ -f ~/.xprofile ] && . ~/.xprofile
+exec awesome
