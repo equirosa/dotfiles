@@ -35,6 +35,8 @@ export IDEA_PROPERTIES="$XDG_CONFIG_HOME/intellij-idea/idea.properties"
 export IDEA_VM_OPTIONS="$XDG_CONFIG_HOME/intellij-idea/idea64.vmoptions"
 export LESSHISTFILE=- # Disable less history file
 export UNISON="$XDG_DATA_HOME/unison"
+export XCOMPOSEFILE="$XDG_CONFIG_HOME/X11/xcompose"
+export XCOMPOSECACHE="$XDG_CACHE_HOME/X11/xcompose"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Autolaunch
