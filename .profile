@@ -29,6 +29,7 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 export LF_ICONS="di=:fi=:ln=:or=:ex=:*.c=:*.cc=:*.cpp=ﭱ:*.js=:*.vimrc=:*.vim=:*.nix=:*.css=:*.pdf=:*.html=:*.rs=:*.rlib=:*.7z=:*.git=:*.webm=:*.mp4=:*.flac=:*.deb=:*.rpm=:*.py=:*.md=:*.json=:*.mkv=:*.go=:.git="
 
 # Cleanup
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export IDEA_PROPERTIES="$XDG_CONFIG_HOME/intellij-idea/idea.properties"
 export IDEA_VM_OPTIONS="$XDG_CONFIG_HOME/intellij-idea/idea64.vmoptions"
