@@ -1,0 +1,24 @@
+super + Return
+  $TERMINAL & disown
+
+super + d
+  dmenu_run
+
+super + e
+  $TERMINAL -e $MAIL
+
+super + q
+  xdotool windowkill "$(xdotool getactivewindow)"
+
+super + r
+  $TERMINAL -e $FILE
+
+super + shift + p
+  emacsclient -c
+
+super + w
+  $BROWSER
+
+super + x
+  $LOCK_CMD
+
