@@ -5,7 +5,7 @@
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # Environment Variables
-export BROWSER="next"
+export BROWSER="qutebrowser"
 export EDITOR="vim"
 export FILE="lf"
 export IMG="imv"
