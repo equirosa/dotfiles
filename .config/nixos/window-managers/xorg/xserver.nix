@@ -10,7 +10,6 @@
       i3lock-fancy
       maim
       sxhkd
-      sxiv
       xclip
       xdotool
       xorg.xkill
