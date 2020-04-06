@@ -7,6 +7,7 @@
     systemPackages = with pkgs; [
       betterlockscreen
       dmenu
+      i3lock-fancy
       maim
       sxhkd
       sxiv
