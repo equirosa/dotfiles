@@ -2,7 +2,8 @@
 
 # Sourcing
 . "/home/eduardo/.nix-profile/etc/profile.d/hm-session-vars.sh"
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+[ -f "$XDG_CONFIG_HOME/cleanup" ] && source "$XDG_CONFIG_HOME/cleanup"
+[ -f "$XDG_CONFIG_HOME/aliasrc" ] && source "$XDG_CONFIG_HOME/aliasrc"
 
 # Environment Variables
 export BROWSER="qutebrowser"
@@ -27,17 +28,6 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 ## Things sourced by some programs
 ### lf's icons
 export LF_ICONS="di=:fi=:ln=:or=:ex=:*.c=:*.cc=:*.cpp=ﭱ:*.js=:*.vimrc=:*.vim=:*.nix=:*.css=:*.pdf=:*.html=:*.rs=:*.rlib=:*.7z=:*.git=:*.webm=:*.mp4=:*.flac=:*.deb=:*.rpm=:*.py=:*.md=:*.json=:*.mkv=:*.go=:.git="
-
-# Cleanup
-export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
-export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
-export IDEA_PROPERTIES="$XDG_CONFIG_HOME/intellij-idea/idea.properties"
-export IDEA_VM_OPTIONS="$XDG_CONFIG_HOME/intellij-idea/idea64.vmoptions"
-export LESSHISTFILE=- # Disable less history file
-export UNISON="$XDG_DATA_HOME/unison"
-export XCOMPOSEFILE="$XDG_CONFIG_HOME/X11/xcompose"
-export XCOMPOSECACHE="$XDG_CACHE_HOME/X11/xcompose"
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Autolaunch
 which sway 2>/dev/null && [ "$(tty)" = "/dev/tty1" ] && exec sway
