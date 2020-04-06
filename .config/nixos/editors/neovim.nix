@@ -37,6 +37,7 @@
         gruvbox-community
         lf-vim
         nerdcommenter
+        vim # this is for the dracula colorscheme but the naming sucks
         vim-airline
         vim-airline-themes
         vim-css-color
