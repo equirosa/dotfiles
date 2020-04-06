@@ -5,7 +5,7 @@
       extraPackages = with pkgs; [
         brightnessctl
         swayidle # idle monitoring
-        swaylock # lockscreen
+        swaylock-fancy # lockscreen
         qt5.qtwayland # QT compat
         waybar # status bar
         wl-clipboard # clipboard
