@@ -4,7 +4,6 @@
       enable = true;
       extraPackages = with pkgs; [
         brightnessctl
-        imv # image viewer
         swayidle # idle monitoring
         swaylock # lockscreen
         qt5.qtwayland # QT compat
