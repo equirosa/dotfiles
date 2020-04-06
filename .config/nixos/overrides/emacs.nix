@@ -38,6 +38,7 @@ in emacsWithPackages (epkgs:
     #### Theming ####
     gruvbox-theme
     monokai-theme
+    dracula-theme
     #### Org ####
     babel
   ]) ++ (with epkgs.elpaPackages; [ auctex beacon ])
