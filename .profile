@@ -13,7 +13,7 @@ export IMG="imv"
 export MAIL="aerc"
 export READER="zathura"
 export TERMINAL="kitty"
-export LOCKSCREEN="betterlockscreen -l"
+export LOCK_CMD="betterlockscreen -l"
 
 ## Less variables, mostly color
 export LESS=-R
