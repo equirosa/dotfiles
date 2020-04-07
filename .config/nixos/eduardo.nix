@@ -72,6 +72,7 @@
       ffsend# Async file transfer
 
       #### TODO: Sort these... ####
+      udiskie
       bat
       htop
       gotop
