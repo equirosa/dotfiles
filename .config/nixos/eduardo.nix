@@ -26,12 +26,6 @@
         tray = "auto";
       };
     };
-    xdg = {
-      enable = true;
-      mime.enable = true;
-      mimeApps.enable = true;
-      userDirs.enable = true;
-    };
   };
   users.users.eduardo = {
     createHome = true;
