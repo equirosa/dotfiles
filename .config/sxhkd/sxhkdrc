@@ -4,6 +4,9 @@ super + Return
 super + d
   dmenu_run & disown
 
+super + i
+	$TERMINAL -e $MONITOR & disown
+
 super + e
   $TERMINAL -e $MAIL & disown
 
