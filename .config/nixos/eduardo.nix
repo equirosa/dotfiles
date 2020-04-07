@@ -17,7 +17,6 @@
     ./kdeConnect.nix
     ./terminals/kitty.nix
   ];
-  environment.homeBinInPath = true;
   home-manager.users.eduardo = { pkgs, ... }: {
     services = {
       udiskie = {

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ "$1" = "" ]; then
+	notify-send "⚠ERROR: Must specify name of file.⚠" -t 5000;
+else
+	echo "#!/bin/sh" >> "$XDG_DATA_HOME/scripts/$1" &&\
+		chmod +x "$XDG_DATA_HOME/scripts/$1" &&\
+		$EDITOR "$XDG_DATA_HOME/scripts/$1";
+fi

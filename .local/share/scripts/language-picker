@@ -1,0 +1,171 @@
+#!/bin/sh -e
+
+# Get ready for some opinions yo
+
+# Deliberate omissions:
+# - Rust: too complicated, too volatile, too young, too much work, no standard;
+#   use C or Go instead
+# - C++: garbage; too complicated, too volatile; use C or Go instead
+# - Java: garbage runtime, encourages over-engineering, too verbose, not
+#   suitable for low-level work in any capacity; use Go instead
+# - Other JVM shit: see Java; use Go instead
+# - Haskell/OCaml/some other FP meme: it is not possible to write useful
+#   programs in these languages
+# - Zig, Nim, etc: too young, reckless experimentation with bold ideas is not
+#   conducive to stable downstream code
+# - Ruby: if you really want slow code you should use Python
+# - JavaScript derivatives: if you need a build system for your JavaScript
+#   you're doing it wrong. Also they all suck on their own merits
+# - Node.js: use Go or Python you lazy piece of shit
+# - Lua: 1 indexed arrays, nuff said. Try lisp
+
+c=0
+go=0
+python=0
+lisp=-1
+
+ask() (
+	opt1=$1
+	opt2=$2
+	shift 2
+	while :
+	do
+		printf '%s' "$@" ' '
+		read answer
+		case "$answer" in
+			$opt1)
+				return 0
+				;;
+			$opt2)
+				return 1
+				;;
+		esac
+	done
+)
+
+if ask y n 'Can your problem be more-or-less solved by invoking shell ' \
+	'utilities and munging strings? [y/n]'
+then
+	echo "Try using POSIX shell. If it gets out of hand, run again."
+	exit
+fi
+
+if ask y n 'Are you here because you tried POSIX shell ' \
+	'and it got out of hand? [y/n]'
+then
+	python=$((python+1))
+	go=$((go+1))
+	c=$((c-1))
+fi
+
+if ask y n 'Is your program running in a web browser? [y/n]'
+then
+	if ask n y 'My condolances. Are you porting systems software to the ' \
+		'browser? [y/n]'
+	then
+		if ask y n 'Can you solve your problem using only HTML & CSS? [y/n]'
+		then
+			echo "Then use them."
+			exit
+		else
+			echo "Use JavaScript ES6."
+			exit
+		fi
+	else
+		c=$((c+1))
+		go=$((go-1))
+		python=-100
+	fi
+fi
+
+if ask y n 'Mobile? [y/n]'
+then
+	echo "There are no good options. Godspeed."
+	exit
+fi
+
+if ask y n 'Embedded? [y/n]'
+then
+	c=$((c+2))
+	lisp=$((lisp+2))
+	go=-100
+	python=-100
+fi
+
+if ask c l 'Is your unit for measuring performance closer to ' \
+	'mi[l]liseconds or mi[c]roseconds?'
+then
+	go=$((go+1))
+	c=$((c+1))
+	python=$((python-1))
+	lisp=$((lisp-1))
+fi
+
+if ask n y 'Can your problem be solved effectively without concurrency? [y/n]'
+then
+	lisp=$((lisp-1))
+	if ask p c "Do you want [p]reemptive or [c]ooperative multitasking? " \
+		"(answer [c] if you don't know)"
+	then
+		c=$((c+1))
+		go=$((go+1))
+		python=$((python-1))
+	else
+		go=$((go+1))
+		python=$((python+1))
+	fi
+fi
+
+if ask y n 'Do you need low-level control over data structures? [y/n]'
+then
+	c=$((c+1))
+	python=$((python-1))
+	lisp=$((lisp-1))
+else
+	go=$((go+1))
+	python=$((python+1))
+fi
+
+if ask y n 'Are you working closely with operating system interfaces? [y/n]'
+then
+	if ask l j 'Like a [l]ot or [j]ust here and there?'
+	then
+		c=$((c+1))
+		python=$((python-1))
+	else
+		c=$((c+1))
+		go=$((go+1))
+	fi
+else
+	go=$((go+1))
+	python=$((python+1))
+fi
+
+if ask y n 'Are you making a web backend? [y/n]'
+then
+	python=$((python+1))
+	lisp=$((lisp+1))
+	c=$((c-1))
+fi
+
+if [ $python -gt 0 ]
+then
+	if ask y n 'Do you care about strapping a 145 MiB runtime ' \
+		'onto your program? [y/n]'
+	then
+		python=$((python-1))
+	fi
+fi
+
+if [ $lisp -gt -2 ]
+then
+	if ask y n 'Are you writing small programs where the line between data ' \
+		'and program is blurred? [y/n]'
+	then
+		lisp=$((lisp+2))
+	fi
+fi
+
+printf '\n%s\n' "Recommendations:"
+printf '%s\t%s\n' $go "Go" $c "C" $python "Python" $lisp "Lisp" \
+	| egrep -v '(^-|^0)' | sort -r | awk '{ print NR". "$2 }'

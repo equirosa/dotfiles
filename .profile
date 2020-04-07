@@ -6,6 +6,7 @@
 [ -f "$XDG_CONFIG_HOME/aliasrc" ] && source "$XDG_CONFIG_HOME/aliasrc"
 
 # Environment Variables
+export PATH="$XDG_DATA_HOME/scripts:$PATH"
 export BROWSER="qutebrowser"
 export EDITOR="vim"
 export FILE="lf"
