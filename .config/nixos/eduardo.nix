@@ -105,6 +105,7 @@
       nix-prefetch-github
       nixfmt
       nox
+      vgo2nix
 
       #### Org mode things ####
       texlive.combined.scheme-full # LaTeX stuff
