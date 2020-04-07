@@ -2,23 +2,23 @@ super + Return
   $TERMINAL & disown
 
 super + d
-  dmenu_run
+  dmenu_run & disown
 
 super + e
-  $TERMINAL -e $MAIL
+  $TERMINAL -e $MAIL & disown
 
 super + q
   xdotool windowkill "$(xdotool getactivewindow)"
 
 super + r
-  $TERMINAL -e $FILE
+  $TERMINAL -e $FILE & disown
 
 super + shift + p
-  emacsclient -c
+  emacsclient -c & disown
 
 super + w
-  $BROWSER
+  $BROWSER & disown
 
 super + x
-  $LOCK_CMD
+  $LOCK_CMD & disown
 
