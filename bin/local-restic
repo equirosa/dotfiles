@@ -2,4 +2,4 @@
 restic -r /run/media/eduardo/2e571771-81db-41a5-a0b6-d5c6d3b8bf88/restic\
 	--verbose backup\
 	--password-command="gopass restic/snowfort"\
-	"$HOME/Pictures" "$HOME/Videos" "$HOME/books" "$HOME/Music"
+	"$HOME/Pictures" "$HOME/Videos" "$HOME/Music" "$HOME/Documents/books"
