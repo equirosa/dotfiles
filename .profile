@@ -35,3 +35,5 @@ which sway 2>/dev/null && [ "$(tty)" = "/dev/tty1" ] && exec sway
 case "$0" in
 	*zsh | *bash) eval "$(starship init $0)";;
 esac
+
+pgrep udiskie || udiskie &
