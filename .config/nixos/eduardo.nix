@@ -60,6 +60,12 @@
       fahviewer
       fahcontrol
 
+      #### File Management ####
+      lf # Terminal file manager
+      glow # Prettify markdown
+      highlight # Prettify the rest
+      mediainfo # prints info of media binary files
+
       #### File Transfer ####
       croc # Sync file transfer
       ffsend# Async file transfer
