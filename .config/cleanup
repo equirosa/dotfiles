@@ -14,3 +14,4 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Aliases
 alias nvidia-settings="nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings"
+alias startx="startx '$XDG_CONFIG_HOME/x11/xinitrc'"
