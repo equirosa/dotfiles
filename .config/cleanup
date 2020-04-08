@@ -2,10 +2,6 @@
 # This is a file dedicated to the cleanup of the $HOME directory by following
 # the XDG base directory specification
 
-export XDG_CONFIG_HOME="/home/eduardo/.config"
-export XDG_CACHE_HOME="/home/eduardo/.cache"
-export XDG_DATA_HOME="/home/eduardo/.local/share"
-
 # Environmental Variables
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export IDEA_PROPERTIES="$XDG_CONFIG_HOME/intellij-idea/idea.properties"

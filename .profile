@@ -1,5 +1,10 @@
 #!/usr/bin/env sh
 
+# XDG
+export XDG_CONFIG_HOME="/home/eduardo/.config"
+export XDG_CACHE_HOME="/home/eduardo/.cache"
+export XDG_DATA_HOME="/home/eduardo/.local/share"
+
 # Sourcing
 . "/home/eduardo/.nix-profile/etc/profile.d/hm-session-vars.sh"
 [ -f "$XDG_CONFIG_HOME/cleanup" ] && source "$XDG_CONFIG_HOME/cleanup"
