@@ -5,7 +5,6 @@
     ./editors/neovim.nix
     ./window-managers/xorg/awesome.nix
     ./emacs.nix
-    ./lf.nix
     ./location.nix
     ./theme.nix
     ./printing.nix
