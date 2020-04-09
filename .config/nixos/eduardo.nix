@@ -153,7 +153,7 @@
     udevil.enable = true;
   };
   services = {
-    #dnscrypt-proxy2.enable = true;
+    stubby.enable = true;
     foldingathome.enable = true;
   };
   system.autoUpgrade = {
