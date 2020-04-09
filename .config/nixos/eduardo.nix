@@ -65,6 +65,9 @@
       glow # Prettify markdown
       highlight # Prettify the rest
       mediainfo # prints info of media binary files
+      p7zip
+      zip
+      unzip
 
       #### File Transfer ####
       croc # Sync file transfer
@@ -112,10 +115,6 @@
 
       #### Rust Dev ####
       cargo
-
-      #### Compression ####
-      zip
-      unzip
 
       #### Cenfotec ####
       cmake
