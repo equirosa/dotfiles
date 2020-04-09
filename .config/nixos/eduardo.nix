@@ -16,16 +16,6 @@
     ./kdeConnect.nix
     ./terminals/kitty.nix
   ];
-  home-manager.users.eduardo = { pkgs, ... }: {
-    services = {
-      udiskie = {
-        enable = true;
-        automount = true;
-        notify = true;
-        tray = "auto";
-      };
-    };
-  };
   users.users.eduardo = {
     createHome = true;
     description = "Eduardo Quiros";
