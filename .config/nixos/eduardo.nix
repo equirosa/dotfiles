@@ -41,7 +41,14 @@
         enable = true;
         enableBashIntegration = true;
         settings = {
+          battery = {
+            full_symbol = "";
+            charging_symbol = "";
+            discharging_symbol = "";
+          };
           git_branch.symbol = " ";
+          golang.symbol = " ";
+          haskell.symbol = " ";
           nix_shell.symbol = " ";
           package.symbol = " ";
           python.symbol = " ";
