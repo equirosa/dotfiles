@@ -36,7 +36,7 @@ map O $mimeopen --ask $f
 map b &make-wallpaper $f
 
 map <bs2> set hidden! # toggle state of display for hidden files and directories
-map zz push :zip<space>
+map zz compress $fx
 map ex extract $f
 map L $lazygit
 
