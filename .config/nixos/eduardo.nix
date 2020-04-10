@@ -51,6 +51,7 @@
 
       #### File Management ####
       atool # Makes handling compression easier
+      exa # 'ls' replacement
       lf # Terminal file manager
       glow # Prettify markdown
       highlight # Prettify the rest
