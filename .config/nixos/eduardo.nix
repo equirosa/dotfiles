@@ -125,6 +125,7 @@
       lutris
 
       #### Utilities ####
+      alacritty
       kitty
     ];
     shell = pkgs.fish;
