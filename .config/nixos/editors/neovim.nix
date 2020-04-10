@@ -4,6 +4,7 @@
       v = "nvim";
       vi = "nvim";
       vim = "nvim";
+      vimdiff = "nvim -d";
     };
     #sessionVariables = { EDITOR = "nvim"; };
   };
