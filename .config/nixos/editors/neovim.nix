@@ -48,6 +48,7 @@
       ];
       viAlias = true;
       vimAlias = true;
+      withPython3 = true;
     };
   };
 }
