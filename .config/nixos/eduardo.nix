@@ -26,25 +26,25 @@
   environment = {
     shellAliases = {
       # Replacements
-      cat="bat -p";
-      fd="fd -I";
-      find="fd";
-      ls="exa";
-      l="exa -lh";
+      cat = "bat -p";
+      fd = "fd -I";
+      find = "fd";
+      ls = "exa";
+      l = "exa -lh";
 
       # Torifying all the things
-      aerc="torify aerc";
-      git="torify git";
-      lazygit="torify lazygit";
+      aerc = "torify aerc";
+      git = "torify git";
+      lazygit = "torify lazygit";
 
       # Shortening some things
-      c="cd";
-      dateh="date --help | rg %";
-      g="git";
-      gcp="git commit -a; git push";
-      lg="lazygit";
-      nrebuild="sudo nixos-rebuild-switch --upgrade";
-      nsearch="nix-env -qaP --description";
+      c = "cd";
+      dateh = "date --help | rg %";
+      g = "git";
+      gcp = "git commit -a; git push";
+      lg = "lazygit";
+      nrebuild = "sudo nixos-rebuild switch --upgrade";
+      nsearch = "nix-env -qaP --description";
     };
   };
   users.users.eduardo = {
@@ -94,7 +94,7 @@
 
       #### File Transfer ####
       croc # Sync file transfer
-      ffsend# Async file transfer
+      ffsend # Async file transfer
 
       #### TODO: Sort these... ####
       udiskie
@@ -117,7 +117,7 @@
       ripgrep # grep but faster
       spaceFM # Graphical file manager
       speedtest-cli
-      starship #pretty prompt
+      starship # pretty prompt
       toot # Mastodon client
       transmission
       transmission-remote-cli
@@ -166,11 +166,8 @@
     config.allowUnfree = true;
     overlays = [
       (self: super: {
-        vim = super.vim.override {
-          plugins = with pkgs.vimPlugins; [
-            vim-nix
-          ];
-        };
+        vim =
+          super.vim.override { plugins = with pkgs.vimPlugins; [ vim-nix ]; };
       })
     ];
   };
@@ -178,9 +175,7 @@
     dconf.enable = true;
     firejail = {
       enable = true;
-      wrappedBinaries = {
-        zoom-us = "${lib.getBin pkgs.zoom-us}/bin/zoom-us";
-      };
+      wrappedBinaries = { zoom-us = "${lib.getBin pkgs.zoom-us}/bin/zoom-us"; };
     };
     gnome-disks.enable = true;
     gnupg.agent = {
