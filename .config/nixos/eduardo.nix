@@ -87,6 +87,9 @@
       LESS_TERMCAP_ue="$(printf '%b' '[0m')";
     };
   };
+  hardware = {
+    cpu.intel.updateMicrocode = true;
+  };
   users.users.eduardo = {
     createHome = true;
     description = "Eduardo Quiros";
