@@ -60,6 +60,10 @@
   };
   environment = {
     shellAliases = {
+      # Cleanup
+      nvidia-settings="nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings";
+      startx="startx '$XDG_CONFIG_HOME/x11/xinitrc'";
+
       # Replacements
       cat = "bat -p";
       fd = "fd -I";
@@ -82,6 +86,16 @@
       nsearch = "nix-env -qaP --description";
     };
     variables = {
+      # Cleanup
+      GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc";
+      IDEA_PROPERTIES="$XDG_CONFIG_HOME/intellij-idea/idea.properties";
+      IDEA_VM_OPTIONS="$XDG_CONFIG_HOME/intellij-idea/idea64.vmoptions";
+      LESSHISTFILE="-"; # Disable less history file
+      UNISON="$XDG_DATA_HOME/unison";
+      XCOMPOSEFILE="$XDG_CONFIG_HOME/X11/xcompose";
+      XCOMPOSECACHE="$XDG_CACHE_HOME/X11/xcompose";
+      ZDOTDIR="$XDG_CONFIG_HOME/zsh";
+
       # Custom stuff
       PATH="$XDG_DATA_HOME/scripts:$PATH";
       BROWSER="qutebrowser";
