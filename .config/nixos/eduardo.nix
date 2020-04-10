@@ -40,6 +40,13 @@
       starship = {
         enable = true;
         enableBashIntegration = true;
+        settings = {
+          git_branch.symbol = " ";
+          nix_shell.symbol = " ";
+          package.symbol = " ";
+          python.symbol = " ";
+          rust.symbol = " ";
+        };
       };
     };
     xdg.enable = true;
