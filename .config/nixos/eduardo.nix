@@ -29,6 +29,10 @@
         agents = [ "ssh" ];
         keys = [ "sourcehut" "github" "gitlab" "codeberg" ];
       };
+      lsd = {
+        enable = true;
+        enableAliases = true;
+      };
       pazi = {
         enable = true;
         enableBashIntegration = true;
