@@ -61,7 +61,7 @@
   environment = {
     shellAliases = {
       # Cleanup
-      nvidia-settings="nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings";
+      nvidia-settings=''nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'';
       startx="startx '$XDG_CONFIG_HOME/x11/xinitrc'";
 
       # Replacements
