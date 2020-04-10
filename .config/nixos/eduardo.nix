@@ -15,6 +15,30 @@
     ./browsers/firefox.nix
     ./kdeConnect.nix
   ];
+  environment = {
+    shellAliases = {
+      # Replacements
+      cat="bat -p";
+      fd="fd -I";
+      find="fd";
+      ls="exa";
+      l="exa -lh";
+
+      # Torifying all the things
+      aerc="torify aerc";
+      git="torify git";
+      lazygit="torify lazygit";
+
+      # Shortening some things
+      c="cd";
+      dateh="date --help | rg %";
+      g="git";
+      gcp="git commit -a; git push";
+      lg="lazygit";
+      nrebuild="sudo nixos-rebuild-switch --upgrade";
+      nsearch="nix-env -qaP --description";
+    };
+  };
   users.users.eduardo = {
     createHome = true;
     description = "Eduardo Quiros";

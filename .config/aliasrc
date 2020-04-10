@@ -1,32 +1,4 @@
 #!/usr/bin/env sh
 
 # Replacements
-command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
-alias vi="nvim"
-alias cat="bat -p"
-alias fd="fd -I"
-alias find="fd"
-
-# Torify all the things!!!!!
-alias aerc="torify aerc"
-alias git="torify git"
-alias lazygit="torify lazygit"
-
-# Color output
-alias diff="diff --color=auto"
-alias grep="grep --color=auto"
-alias ls="ls --color=auto --group-directories-first"
-
-# Shorten some things
-alias c="cd"
-alias g="git"
-alias l="ls -lah"
-alias lg="lazygit"
-alias dateh="date --help | rg %"
-
-## Git
-alias gcp="git commit -a ; git push"
-
-# NixOS Stuff
-[ -f /etc/NIXOS ] && alias nrebuild="sudo nixos-rebuild switch" &&\
-	alias nsearch="nix-env -qaP --description"
+command -v nvim >/dev/null && vim="nvim" vimdiff="nvim -d"
