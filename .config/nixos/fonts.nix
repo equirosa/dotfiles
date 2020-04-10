@@ -4,9 +4,7 @@
     fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [ "Fira Code" ];
-        serif = [ "Ubuntu" ];
-        sansSerif = [ "Ubuntu" ];
+        monospace = [ "Fira Code Nerd Font" ];
         emoji = [ "Noto Color Emoji" ];
       };
     };
@@ -20,7 +18,6 @@
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-      ubuntu_font_family
     ];
   };
 }
