@@ -59,6 +59,7 @@
       p7zip
       zip
       unzip
+      lzip
 
       #### File Transfer ####
       croc # Sync file transfer
