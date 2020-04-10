@@ -204,7 +204,7 @@
       alacritty
       kitty
     ];
-    shell = pkgs.fish;
+    #shell = pkgs.fish;
   };
   nix.autoOptimiseStore = true;
   nixpkgs = {
