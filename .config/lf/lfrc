@@ -18,6 +18,9 @@ map <bs2> set hidden! # toggle state of display for hidden files and directories
 map L $lazygit
 map - $/home/eduardo/.config/lf/draw_img.sh $f
 
+# Sending
+map sc $croc send $fx
+
 ## Compression
 map	zz compress $fx
 map zx $aunpack $f
