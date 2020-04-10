@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }: {
   imports = [
     <home-manager/nixos>
+    ./terminal/kitty.nix
     ./misc/32bit.nix
     ./editors/neovim.nix
     ./window-managers/xorg/awesome.nix
@@ -234,7 +235,6 @@
 
       #### Utilities ####
       alacritty
-      kitty
     ];
     #shell = pkgs.fish;
   };
