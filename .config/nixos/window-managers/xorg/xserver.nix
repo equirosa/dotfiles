@@ -1,9 +1,7 @@
 { config, pkgs, ... }: {
   imports = [ ./picom.nix ];
   environment = {
-    sessionVariables = {
-      LOCKSCREEN = "betterlockscreen -l";
-    };
+    sessionVariables = { LOCKSCREEN = "betterlockscreen -l"; };
     systemPackages = with pkgs; [
       betterlockscreen
       dmenu

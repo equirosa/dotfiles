@@ -61,8 +61,9 @@
   environment = {
     shellAliases = {
       # Cleanup
-      nvidia-settings=''nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'';
-      startx="startx '$XDG_CONFIG_HOME/x11/xinitrc'";
+      nvidia-settings =
+        ''nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'';
+      startx = "startx '$XDG_CONFIG_HOME/x11/xinitrc'";
 
       # Replacements
       cat = "bat -p";
@@ -87,41 +88,40 @@
     };
     variables = {
       # Cleanup
-      GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc";
-      IDEA_PROPERTIES="$XDG_CONFIG_HOME/intellij-idea/idea.properties";
-      IDEA_VM_OPTIONS="$XDG_CONFIG_HOME/intellij-idea/idea64.vmoptions";
-      LESSHISTFILE="-"; # Disable less history file
-      UNISON="$XDG_DATA_HOME/unison";
-      XCOMPOSEFILE="$XDG_CONFIG_HOME/X11/xcompose";
-      XCOMPOSECACHE="$XDG_CACHE_HOME/X11/xcompose";
-      ZDOTDIR="$XDG_CONFIG_HOME/zsh";
+      GTK2_RC_FILES = "$XDG_CONFIG_HOME/gtk-2.0/gtkrc";
+      IDEA_PROPERTIES = "$XDG_CONFIG_HOME/intellij-idea/idea.properties";
+      IDEA_VM_OPTIONS = "$XDG_CONFIG_HOME/intellij-idea/idea64.vmoptions";
+      LESSHISTFILE = "-"; # Disable less history file
+      UNISON = "$XDG_DATA_HOME/unison";
+      XCOMPOSEFILE = "$XDG_CONFIG_HOME/X11/xcompose";
+      XCOMPOSECACHE = "$XDG_CACHE_HOME/X11/xcompose";
+      ZDOTDIR = "$XDG_CONFIG_HOME/zsh";
 
       # Custom stuff
-      PATH="$XDG_DATA_HOME/scripts:$PATH";
-      BROWSER="qutebrowser";
-      EDITOR="vim";
-      FILE="lf";
-      IMG="imv";
-      MAIL="aerc";
-      READER="zathura";
-      TERMINAL="kitty";
-      LOCK_CMD="i3lock-fancy -p";
-      LF_ICONS="di=:fi=:ln=:or=:ex=:*.c=:*.cc=:*.cpp=ﭱ:*.js=:*.vimrc=:*.vim=:*.nix=:*.css=:*.pdf=:*.html=:*.rs=:*.rlib=:*.7z=:*.zip=:*.tar=:*.lz=:*.git=:*.webm=:*.mp4=:*.flac=:*.deb=:*.rpm=:*.py=:*.md=:*.json=:*.mkv=:*.go=:.git=";
+      PATH = "$XDG_DATA_HOME/scripts:$PATH";
+      BROWSER = "qutebrowser";
+      EDITOR = "vim";
+      FILE = "lf";
+      IMG = "imv";
+      MAIL = "aerc";
+      READER = "zathura";
+      TERMINAL = "kitty";
+      LOCK_CMD = "i3lock-fancy -p";
+      LF_ICONS =
+        "di=:fi=:ln=:or=:ex=:*.c=:*.cc=:*.cpp=ﭱ:*.js=:*.vimrc=:*.vim=:*.nix=:*.css=:*.pdf=:*.html=:*.rs=:*.rlib=:*.7z=:*.zip=:*.tar=:*.lz=:*.git=:*.webm=:*.mp4=:*.flac=:*.deb=:*.rpm=:*.py=:*.md=:*.json=:*.mkv=:*.go=:.git=";
 
       # 'Less' stuff
-      LESS="-R";
-      LESS_TERMCAP_mb="$(printf '%b' '[1;31m')";
-      LESS_TERMCAP_md="$(printf '%b' '[1;36m')";
-      LESS_TERMCAP_me="$(printf '%b' '[0m')";
-      LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')";
-      LESS_TERMCAP_se="$(printf '%b' '[0m')";
-      LESS_TERMCAP_us="$(printf '%b' '[1;32m')";
-      LESS_TERMCAP_ue="$(printf '%b' '[0m')";
+      LESS = "-R";
+      LESS_TERMCAP_mb = "$(printf '%b' '[1;31m')";
+      LESS_TERMCAP_md = "$(printf '%b' '[1;36m')";
+      LESS_TERMCAP_me = "$(printf '%b' '[0m')";
+      LESS_TERMCAP_so = "$(printf '%b' '[01;44;33m')";
+      LESS_TERMCAP_se = "$(printf '%b' '[0m')";
+      LESS_TERMCAP_us = "$(printf '%b' '[1;32m')";
+      LESS_TERMCAP_ue = "$(printf '%b' '[0m')";
     };
   };
-  hardware = {
-    cpu.intel.updateMicrocode = true;
-  };
+  hardware = { cpu.intel.updateMicrocode = true; };
   users.users.eduardo = {
     createHome = true;
     description = "Eduardo Quiros";
