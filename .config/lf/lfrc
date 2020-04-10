@@ -41,6 +41,7 @@ map L $lazygit
 ## Compression
 map zz compress $fx
 map zx $aunpack $f
+map zl $als $f
 # Custom commands
 
 cmd mkdir ${{
