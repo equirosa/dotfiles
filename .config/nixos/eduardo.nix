@@ -84,6 +84,7 @@
       atool # Makes handling compression easier
       exa # 'ls' replacement
       lf # Terminal file manager
+      file # used to get file type
       glow # Prettify markdown
       highlight # Prettify the rest
       mediainfo # prints info of media binary files
@@ -91,6 +92,7 @@
       zip
       unzip
       lzip
+      w3m # it's a browser but i use it to display images in lf
 
       #### File Transfer ####
       croc # Sync file transfer
