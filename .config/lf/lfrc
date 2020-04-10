@@ -48,6 +48,12 @@ cmd mkdir ${{
 	mkdir $dir
 }}
 
+cmd compress ${{
+	echo "Compressed archive name: "
+	read name
+	apack "$name" $fx
+}}
+
 # use '<delete>' key for either 'trash' or 'delete' command
 map <delete> $trash $fx #delete
 
