@@ -1,4 +1,0 @@
-#!/usr/bin/env sh
-
-# Replacements
-command -v nvim >/dev/null && vim="nvim" vimdiff="nvim -d"
