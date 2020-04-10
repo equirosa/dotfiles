@@ -14,7 +14,6 @@
     ./fonts.nix
     ./browsers/firefox.nix
     ./kdeConnect.nix
-    ./terminals/kitty.nix
   ];
   users.users.eduardo = {
     createHome = true;
@@ -124,6 +123,9 @@
       #### Gaming ####
       steam
       lutris
+
+      #### Utilities ####
+      kitty
     ];
     shell = pkgs.fish;
   };
