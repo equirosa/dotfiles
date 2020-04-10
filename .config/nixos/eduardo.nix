@@ -15,6 +15,14 @@
     ./browsers/firefox.nix
     ./kdeConnect.nix
   ];
+  home-manager.users.eduardo = { pkgs, ... }: {
+    programs = {
+      pazi = {
+        enable = true;
+        enableBashIntegration = true;
+      };
+    };
+  };
   environment = {
     shellAliases = {
       # Replacements
