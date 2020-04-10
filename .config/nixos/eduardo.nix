@@ -125,6 +125,7 @@
       steam
       lutris
     ];
+    shell = pkgs.fish;
   };
   nix.autoOptimiseStore = true;
   nixpkgs = {
