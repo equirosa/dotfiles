@@ -1,4 +1,4 @@
 { config, pkgs, ... }: {
-  environment.systemPackages = with pkgs; [ pavucontrol ];
+  environment.systemPackages = with pkgs; [ pulsemixer ];
   hardware.pulseaudio = { enable = true; };
 }
