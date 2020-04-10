@@ -50,6 +50,7 @@
       fahcontrol
 
       #### File Management ####
+      atool # Makes handling compression easier
       lf # Terminal file manager
       glow # Prettify markdown
       highlight # Prettify the rest
