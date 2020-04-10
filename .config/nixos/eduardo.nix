@@ -17,11 +17,28 @@
   ];
   home-manager.users.eduardo = { pkgs, ... }: {
     programs = {
+      bash = {
+        enable = true;
+        historyControl = [ "erasedups" ];
+        historyFile = "$XDG_CACHE_HOME/bash_history";
+        historyIgnore = [ "ls" "cd" "exit" ];
+      };
+      keychain = {
+        enable = true;
+        enableBashIntegration = true;
+        agents = [ "ssh" ];
+        keys = [ "sourcehut" "github" "gitlab" "codeberg" ];
+      };
       pazi = {
         enable = true;
         enableBashIntegration = true;
       };
+      starship = {
+        enable = true;
+        enableBashIntegration = true;
+      };
     };
+    xdg.enable = true;
   };
   environment = {
     shellAliases = {
@@ -45,6 +62,29 @@
       lg = "lazygit";
       nrebuild = "sudo nixos-rebuild switch --upgrade";
       nsearch = "nix-env -qaP --description";
+    };
+    variables = {
+      # Custom stuff
+      PATH="$XDG_DATA_HOME/scripts:$PATH";
+      BROWSER="qutebrowser";
+      EDITOR="vim";
+      FILE="lf";
+      IMG="imv";
+      MAIL="aerc";
+      READER="zathura";
+      TERMINAL="kitty";
+      LOCK_CMD="i3lock-fancy -p";
+      LF_ICONS="di=:fi=:ln=:or=:ex=:*.c=:*.cc=:*.cpp=ﭱ:*.js=:*.vimrc=:*.vim=:*.nix=:*.css=:*.pdf=:*.html=:*.rs=:*.rlib=:*.7z=:*.zip=:*.tar=:*.lz=:*.git=:*.webm=:*.mp4=:*.flac=:*.deb=:*.rpm=:*.py=:*.md=:*.json=:*.mkv=:*.go=:.git=";
+
+      # 'Less' stuff
+      LESS="-R";
+      LESS_TERMCAP_mb="$(printf '%b' '[1;31m')";
+      LESS_TERMCAP_md="$(printf '%b' '[1;36m')";
+      LESS_TERMCAP_me="$(printf '%b' '[0m')";
+      LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')";
+      LESS_TERMCAP_se="$(printf '%b' '[0m')";
+      LESS_TERMCAP_us="$(printf '%b' '[1;32m')";
+      LESS_TERMCAP_ue="$(printf '%b' '[0m')";
     };
   };
   users.users.eduardo = {
