@@ -97,7 +97,6 @@
       fd # replacement for 'find'
       imv # Image viewer
       drive # stuff that i use to make Google drive less unbearable
-      gnome3.gnome-disk-utility
       gopass # Password Manager
       ispell # spellchecking
       keychain # Fewer password prmpts
@@ -175,6 +174,7 @@
         zoom-us = "${lib.getBin pkgs.zoom-us}/bin/zoom-us";
       };
     };
+    gnome-disks.enable = true;
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
