@@ -237,7 +237,13 @@
     ];
     #shell = pkgs.fish;
   };
-  nix.autoOptimiseStore = true;
+  nix = {
+    autoOptimiseStore = true;
+    gc = {
+      automatic = true;
+      dates = "monthly";
+    };
+  };
   nixpkgs.config.allowUnfree = true;
   programs = {
     dconf.enable = true;
