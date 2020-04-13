@@ -41,6 +41,7 @@
         vim # this is for the dracula colorscheme but the naming sucks
         vim-airline
         vim-airline-themes
+        vim-automkdir
         vim-css-color
         vim-devicons
         vim-nix
