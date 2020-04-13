@@ -4,4 +4,4 @@ borg create --progress \
 	~/Games/ ~/Documents/ ~/Pictures/ ~/Videos/ ~/Music/ ~/Templates/ ~/Downloads/ ~/oses/\
 	--exclude ~/Games/league-of-legends/\
 	--exclude '*/.stfolder'\
-	--compression auto,zstd,22
+	--compression auto,lz4
