@@ -11,7 +11,6 @@
   home-manager.users.eduardo = { pkgs, ... }: {
     programs.neovim = {
       enable = true;
-      package = pkgs.neovim;
       extraConfig = ''
         filetype plugin indent on
         set number relativenumber termguicolors
