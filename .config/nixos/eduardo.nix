@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }: {
   imports = [
     <home-manager/nixos>
+    ./backups/external.nix
     ./terminal/kitty.nix
     ./misc/32bit.nix
     ./editors/neovim.nix
