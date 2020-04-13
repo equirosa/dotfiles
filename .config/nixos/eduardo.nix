@@ -238,9 +238,7 @@
     #shell = pkgs.fish;
   };
   nix.autoOptimiseStore = true;
-  nixpkgs = {
-    config.allowUnfree = true;
-  };
+  nixpkgs.config.allowUnfree = true;
   programs = {
     dconf.enable = true;
     firejail = {
