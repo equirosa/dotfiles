@@ -188,7 +188,6 @@
       keychain # Fewer password prmpts
       lazygit # git for lazy people
       libnotify # Notification stuff
-      lf # Terminal file manager
       mpv # Video Player
       perl530Packages.FileMimeInfo # mimetype stuff
       poppler_utils # reading PDFs
