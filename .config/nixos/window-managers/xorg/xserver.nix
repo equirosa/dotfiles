@@ -14,6 +14,7 @@
     ];
   };
   services = {
+    redshift.enable = true;
     unclutter = { enable = true; };
     xserver = {
       enable = true;
