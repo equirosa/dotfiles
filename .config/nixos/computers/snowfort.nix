@@ -1,5 +1,6 @@
 { config, pkgs, ... }: {
-  imports = [ ../syncthing.nix ../eduardo.nix ];
+  imports =
+    [ ../window-managers/xorg/awesome.nix ../syncthing.nix ../eduardo.nix ];
   networking = { hostName = "snowfort"; };
   services.xserver.videoDrivers = [ "nvidia" ];
 }

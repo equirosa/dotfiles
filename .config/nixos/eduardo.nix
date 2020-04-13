@@ -4,7 +4,6 @@
     ./terminal/kitty.nix
     ./misc/32bit.nix
     ./editors/neovim.nix
-    ./window-managers/xorg/awesome.nix
     ./editors/emacs.nix
     ./location.nix
     ./theme.nix
