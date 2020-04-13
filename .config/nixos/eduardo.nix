@@ -99,7 +99,7 @@
       ZDOTDIR = "$XDG_CONFIG_HOME/zsh";
 
       # Custom stuff
-      PATH = "$XDG_DATA_HOME/scripts:$PATH";
+      PATH = "/home/eduardo/.local/share/scripts:$PATH";
       BROWSER = "qutebrowser";
       EDITOR = "vim";
       FILE = "lf";
