@@ -4,7 +4,7 @@
       compression = "auto,lz4";
       doInit = false;
       encryption.mode = "none";
-      exclude = [ "*/league-of-legends/*" ];
+      exclude = [ "*/league-of-legends/*" "*.stversion" "*.stfolder" ];
       extraPruneArgs = "--save-space";
       paths = [
         "/home/eduardo/Documents"
