@@ -31,6 +31,7 @@ settings:
     '*://gitlab.gnome.org/*': true
     '*://itch.io/*': true
     '*://meet.nixnet.services/*': true
+    '*://moodle.ucenfotec.ac.cr/*': true
     '*://tt-rss.nixnet.xyz/*': true
     '*://wallabag.nixnet.xyz/*': true
     '*://www.nerdfonts.com/*': true
