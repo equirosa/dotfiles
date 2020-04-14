@@ -13,5 +13,4 @@
       };
     };
   };
-  users.users.eduardo.shell = pkgs.zsh;
 }
