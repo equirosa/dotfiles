@@ -4,7 +4,7 @@
       enable = true;
       font = {
         # package = pkgs.fira-code;
-        name = "Fira Code 10";
+        name = "Fira Code Nerd Font";
       };
       iconTheme = {
         package = pkgs.papirus-icon-theme;
