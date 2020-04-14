@@ -204,6 +204,7 @@
 
       #### Utilities ####
       alacritty
+      kitty
     ];
   };
   nix = {
