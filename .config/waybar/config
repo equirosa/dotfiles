@@ -45,15 +45,16 @@
 	},
 	"memory": {
 		"interval": 30,
-		"format": "{percentage}% "
+		"format": "{percentage}%  "
 	},
 	"battery": {
-		"format-icons": ["", "", "", "", ""],
-		"format-charging": "{capacity}% ",
+		"format-icons": [" ", " ", " ", " ", " "],
+		"format-charging": "{capacity}% {icon}",
 		"format": "{capacity}% {icon}",
 		"format-full": "{icon}",
 		"states": {
-			  "critical": 10
+			  "critical": 10,
+			  "warning": 30
 		}
 	},
 	"clock": {
@@ -66,13 +67,13 @@
 	"backlight": {
 		"device": "intel_backlight",
 		"format": "{percent}% {icon}",
-		"format-icons": ["", ""]
+		"format-icons": [" ", " ", " "]
 	},
 	"idle_inhibitor": {
 		"format": "{icon}",
 		"format-icons": {
-			"activated": "",
-			"deactivated": ""
+			"activated": " ",
+			"deactivated": " "
 		}
 	}
 
