@@ -5,7 +5,6 @@
     ./shell/fish.nix
     ./shell/tools/keychain.nix
     ./shell/tools/starship.nix
-    ./terminal/kitty.nix
     ./misc/32bit.nix
     ./editors/neovim.nix
     ./editors/emacs.nix
