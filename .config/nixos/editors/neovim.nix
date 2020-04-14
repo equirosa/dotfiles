@@ -6,7 +6,6 @@
       vim = "nvim";
       vimdiff = "nvim -d";
     };
-    #sessionVariables = { EDITOR = "nvim"; };
   };
   home-manager.users.eduardo = { pkgs, ... }: {
     programs.neovim = {
@@ -38,7 +37,6 @@
         gruvbox-community
         lf-vim
         nerdcommenter
-        vim # this is for the dracula colorscheme but the naming sucks
         vim-airline
         vim-airline-themes
         vim-automkdir
