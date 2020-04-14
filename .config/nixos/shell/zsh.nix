@@ -1,4 +1,8 @@
 { config, pkgs, ... }: {
+  programs.zsh = {
+    enable = true;
+    syntaxHighlighting = { enable = true; };
+  };
   home-manager.users.eduardo = { pkgs, ... }: {
     programs.zsh = {
       enable = true;
