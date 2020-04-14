@@ -2,6 +2,7 @@
   imports = [
     <home-manager/nixos>
     ./backups/external.nix
+    ./shell/tools/keychain.nix
     ./shell/tools/starship.nix
     ./terminal/kitty.nix
     ./misc/32bit.nix
@@ -24,12 +25,6 @@
         historyControl = [ "erasedups" ];
         historyFile = "$XDG_CACHE_HOME/bash_history";
         historyIgnore = [ "ls" "cd" "exit" ];
-      };
-      keychain = {
-        enable = true;
-        enableBashIntegration = true;
-        agents = [ "ssh" ];
-        keys = [ "sourcehut" "github" "gitlab" "codeberg" ];
       };
       lsd = {
         enable = true;
