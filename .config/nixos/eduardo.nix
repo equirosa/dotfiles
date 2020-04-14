@@ -58,6 +58,9 @@
     };
     variables = {
       # Cleanup
+      XDG_CONFIG_HOME = "/home/eduardo/.config";
+      XDG_DATA_HOME = "/home/eduardo/.local/share";
+      XDG_CACHE_HOME = "/home/eduardo/.cache";
       GTK2_RC_FILES = "$XDG_CONFIG_HOME/gtk-2.0/gtkrc";
       IDEA_PROPERTIES = "$XDG_CONFIG_HOME/intellij-idea/idea.properties";
       IDEA_VM_OPTIONS = "$XDG_CONFIG_HOME/intellij-idea/idea64.vmoptions";
