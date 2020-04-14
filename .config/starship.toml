@@ -1,0 +1,25 @@
+[battery]
+charging_symbol = ""
+discharging_symbol = ""
+full_symbol = ""
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[package]
+symbol = " "
+
+[python]
+symbol = " "
+
+[rust]
+symbol = " "

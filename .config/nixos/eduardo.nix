@@ -3,7 +3,6 @@
     <home-manager/nixos>
     ./backups/external.nix
     ./shell/tools/keychain.nix
-    ./shell/tools/starship.nix
     ./misc/32bit.nix
     ./editors/neovim.nix
     ./editors/emacs.nix
@@ -205,6 +204,7 @@
       #### Utilities ####
       alacritty
       kitty
+      starship
     ];
   };
   nix = {
