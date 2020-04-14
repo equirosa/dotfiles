@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
   imports = [ ./picom.nix ];
   environment = {
-    sessionVariables = { LOCKSCREEN = "betterlockscreen -l"; };
+    sessionVariables = { LOCK_CMD = "i3lock-fancy -p"; };
     systemPackages = with pkgs; [
       betterlockscreen
       dmenu
