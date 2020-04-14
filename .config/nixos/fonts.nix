@@ -3,9 +3,7 @@
     enableFontDir = true;
     fontconfig = {
       enable = true;
-      defaultFonts = {
-        monospace = [ "Fira Code Nerd Font" ];
-      };
+      defaultFonts = { monospace = [ "Fira Code Nerd Font" ]; };
     };
     fonts = with pkgs; [
       emacs-all-the-icons-fonts
