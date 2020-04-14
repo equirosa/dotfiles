@@ -2,7 +2,6 @@
   imports = [
     <home-manager/nixos>
     ./backups/external.nix
-    ./shell/fish.nix
     ./shell/tools/keychain.nix
     ./shell/tools/starship.nix
     ./misc/32bit.nix
@@ -206,7 +205,6 @@
       #### Utilities ####
       alacritty
     ];
-    shell = pkgs.fish;
   };
   nix = {
     autoOptimiseStore = true;
