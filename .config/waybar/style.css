@@ -3,13 +3,13 @@
     border-radius: 0;
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: Fira Code Nerd Font,Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 15px;
     min-height: 0;
 }
 
 window#waybar {
-    background-color: rgba(0, 0, 0, 0.9);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    background-color: rgba(28, 28, 28, 0.9);
+    border-bottom: 3px solid rgba(092, 083, 074, 0.5);
     margin-left: 3px;
 	color: gold;
     transition-property: background-color;
@@ -32,20 +32,20 @@ window#waybar.solo {
     padding: 0 5px;
     background-color: transparent;
     border-bottom: 3px solid transparent;
-	color: gold;
+	color: #98971a;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
     background: rgba(0, 0, 0, 0.2);
     box-shadow: inherit;
-    border-bottom: 3px solid #ffffff;
+	color: #b8bb26;
+    border-bottom: 3px solid #b8bb26;
 }
 
 #workspaces button.focused {
-	color: gold;
-    background-color: #64727D;
-    border-bottom: 3px solid gold;
+	color: #b8bb26;
+    border-bottom: 3px solid #b8bb26;
 }
 
 #workspaces button.urgent {
@@ -73,8 +73,6 @@ window#waybar.solo {
 #mpd {
     padding: 0 10px;
     margin: 0 4px;
-    color: gold;
-	border-bottom: 3px solid gold;
 }
 
 @keyframes blink {
@@ -85,7 +83,7 @@ window#waybar.solo {
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
+    background-color: #fb4934;
     color: #fff;
     animation-name: blink;
     animation-duration: 0.5s;
@@ -94,13 +92,25 @@ window#waybar.solo {
     animation-direction: alternate;
 }
 
+#battery.full {
+	color: #282828;
+	background-color: #98971a;
+}
+
 label:focus {
     background-color: #000;
 }
 
+#network {
+	color: #282828;
+}
+
 #network.disconnected {
-	color: white;
-    background-color: red;
+    background-color: #fb4934;
+}
+
+#network.ethernet {
+	background-color: #b16286
 }
 
 #pulseaudio.muted {
@@ -114,36 +124,25 @@ label:focus {
     min-width: 100px;
 }
 
-#custom-media.custom-spotify {
-    background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-    background-color: #ffa000;
-}
-
 #temperature {
     background-color: #f0932b;
 }
 
 #temperature.critical {
-    background-color: #eb4d4b;
+    background-color: #cc241d;
 }
 
 #tray {
-    color: gold;
-    border-bottom: 3px solid gold;
+    background-color: #458588;
 }
 
 #idle_inhibitor {
-    color: gold;
-    border-bottom: 3px solid gold;
+    color: #fb4934;
 }
 
 #idle_inhibitor.activated {
-    background-color:gold;
-    color: black;
-    border-bottom: 3px solid gold;
+    background-color: #fb4934;
+    color: #282828;
 }
 
 #mpd {
