@@ -82,6 +82,11 @@ window#waybar.solo {
     }
 }
 
+#battery {
+	color: #282828;
+	background-color: #d79921;
+}
+
 #battery.critical:not(.charging) {
     background-color: #fb4934;
     color: #fff;
@@ -93,7 +98,6 @@ window#waybar.solo {
 }
 
 #battery.full {
-	color: #282828;
 	background-color: #98971a;
 }
 
@@ -103,6 +107,10 @@ label:focus {
 
 #network {
 	color: #282828;
+}
+
+#network.wifi {
+	background-color: #689d6a;
 }
 
 #network.disconnected {
