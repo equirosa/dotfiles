@@ -207,7 +207,7 @@
       #### Utilities ####
       alacritty
     ];
-    #shell = pkgs.fish;
+    shell = pkgs.fish;
   };
   nix = {
     autoOptimiseStore = true;
