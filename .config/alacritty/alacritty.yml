@@ -375,8 +375,10 @@ key_bindings:
   - { key: Equals,   mods: Control|Shift, action: IncreaseFontSize }
   - { key: Add,      mods: Control,       action: IncreaseFontSize }
   - { key: Minus,    mods: Control,       action: DecreaseFontSize }
-
-  - { key: PageUp,      mods: Shift,   action: ScrollPageUp,   mode: ~Alt       }
-  - { key: PageDown,    mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
-  - { key: Home,        mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
-  - { key: End,         mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
+  # Scrolling
+  - { key: Up,          mods: Shift,   action: ScrollLineUp,   mode: ~Alt }
+  - { key: Down,        mods: Shift,   action: ScrollLineDown, mode: ~Alt }
+  - { key: PageUp,      mods: Shift,   action: ScrollPageUp,   mode: ~Alt }
+  - { key: PageDown,    mods: Shift,   action: ScrollPageDown, mode: ~Alt }
+  - { key: Home,        mods: Shift,   action: ScrollToTop,    mode: ~Alt }
+  - { key: End,         mods: Shift,   action: ScrollToBottom, mode: ~Alt }
