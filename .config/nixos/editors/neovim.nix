@@ -28,6 +28,7 @@
         autocmd BufWritePost *sway/config,*waybar/* !swaymsg reload
         autocmd BufWritePre,FileWritePre *.nix %!nixfmt
         map <leader>C :w! \| !compiler <c-r>%<CR>
+        map <C-l> :Lf<CR>
       '';
       plugins = with pkgs.vimPlugins; [
         auto-pairs
