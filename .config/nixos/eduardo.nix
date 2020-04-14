@@ -21,12 +21,6 @@
   ];
   home-manager.users.eduardo = { pkgs, ... }: {
     programs = {
-      bash = {
-        enable = true;
-        historyControl = [ "erasedups" ];
-        historyFile = "$XDG_CACHE_HOME/bash_history";
-        historyIgnore = [ "ls" "cd" "exit" ];
-      };
       lsd = {
         enable = true;
         enableAliases = true;
