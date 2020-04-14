@@ -39,6 +39,7 @@
       cat = "bat -p";
       fd = "fd -I";
       find = "fd";
+      exa = "exa --git";
       ls = "exa";
       l = "exa -lh";
 
