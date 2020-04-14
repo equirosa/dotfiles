@@ -2,6 +2,7 @@
   imports = [
     <home-manager/nixos>
     ./backups/external.nix
+    ./shell/fish.nix
     ./shell/tools/keychain.nix
     ./shell/tools/starship.nix
     ./terminal/kitty.nix
