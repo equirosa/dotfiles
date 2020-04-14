@@ -17,10 +17,10 @@ output * bg ~/.background-image fill
 ### Idle configuration ###
 
 exec swayidle -w \
-	timeout 300 'swaylock -f -c 000000' \
+	timeout 300 '$LOCK_CMD' \
 	timeout 600 'swaymsg "output * dpms off"' \
 	resume 'swaymsg "output * dpms on"' \
-	before-sleep 'swaylock -f -c 000000'
+	before-sleep '$LOCK_CMD'
 
 #### Input configuration ####
 
@@ -47,7 +47,7 @@ bindsym {
 	$mod+q kill #Kill container
 	$mod+d exec $menu #Launch wofi in command mode
 	$mod+Shift+d exec $desktop #Launch wofi in desktop mode
-	$mod+x exec swaylock -F -c 000000 #Lock screen
+	$mod+x exec "$LOCK_CMD" #Lock screen
 	$mod+Shift+z swaymsg reload #Reload config
     # Move your focus around
 	$mod+$left focus left
