@@ -2,6 +2,7 @@
   imports = [
     <home-manager/nixos>
     ./backups/external.nix
+    ./shell/tools/starship.nix
     ./terminal/kitty.nix
     ./misc/32bit.nix
     ./editors/neovim.nix
@@ -37,24 +38,6 @@
       pazi = {
         enable = true;
         enableBashIntegration = true;
-      };
-      starship = {
-        enable = true;
-        enableBashIntegration = true;
-        settings = {
-          battery = {
-            full_symbol = "";
-            charging_symbol = "";
-            discharging_symbol = "";
-          };
-          git_branch.symbol = " ";
-          golang.symbol = " ";
-          haskell.symbol = " ";
-          nix_shell.symbol = " ";
-          package.symbol = " ";
-          python.symbol = " ";
-          rust.symbol = " ";
-        };
       };
     };
     xdg.enable = true;
