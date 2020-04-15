@@ -12,6 +12,7 @@
     ./tor.nix
     ./audio.nix
     ./flatpak.nix
+    ./virtuablbox.nix
     ./fonts.nix
     ./kdeConnect.nix
   ];
@@ -236,7 +237,7 @@
   };
   services = {
     stubby.enable = true;
-    foldingathome.enable = true;
+    #foldingathome.enable = true;
   };
   system.autoUpgrade = {
     enable = true;
