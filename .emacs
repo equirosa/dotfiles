@@ -31,7 +31,7 @@
 (setq delete-by-moving-to-trash t) ;; Make dired send to trash instead of deleting the files
 
 (setq make-backup-files nil) ; stop creating ~ files
-(load-theme 'dracula) ;; auto-load themes
+(load-theme 'gruvbox-dark-hard) ;; auto-load themes
 
 ;; Org mode!!!
 (add-hook 'org-mode-hook #'pandoc-mode)
