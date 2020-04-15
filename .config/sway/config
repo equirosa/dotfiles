@@ -148,9 +148,9 @@ floating_modifier $mod normal
 	bindsym XF86MonBrightnessUp exec brightnessctl s +5%
 
 	#Audio
-	bindsym XF86AudioMute amixer sset Master toggle
-	bindsym XF86AudioRaiseVolume amixer sset Master 5%+
-	bindsym XF86AudioLowerVolume amixer sset Master 5%-
+	bindsym XF86AudioMute exec amixer sset Master toggle
+	bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
+	bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
 
 	# Bleh
 	bindsym XF86Calculator exec $term -e $CALCULATOR
