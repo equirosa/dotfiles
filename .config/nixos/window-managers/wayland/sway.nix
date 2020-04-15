@@ -6,7 +6,7 @@
         bemenu
         brightnessctl
         swayidle # idle monitoring
-        swaylock-fancy # lockscreen
+        swaylock-effects # lockscreen
         qt5.qtwayland # QT compat
         waybar # status bar
         wl-clipboard # clipboard
