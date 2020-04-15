@@ -1,6 +1,6 @@
 # Variables
 set {
-    $mod Mod1
+    $mod Mod4
     $term $TERMINAL
     $left h
     $down j
