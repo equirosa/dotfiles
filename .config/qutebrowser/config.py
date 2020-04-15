@@ -1,10 +1,10 @@
 # imports
-import dracula.draw
+import theme.draw
 
 config.load_autoconfig()
 
-#Dracula Stuff
-dracula.draw.blood(c,{
+# Theme Stuff
+theme.draw.paint(c,{
     'spacing':{
         'vertical':6,
         'horizontal':8
