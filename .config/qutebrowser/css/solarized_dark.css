@@ -4,14 +4,14 @@
   border-color: #657b83 !important;
 }
 a {
-  color: #268bd2 !important;
+  color: #83a598 !important;
 }
 a:visited {
-  color: #6c71c4 !important;
+  color: #d3869b !important;
 }
 body {
   background-color: #282828 !important;
-  color: #839496 !important;
+  color: #ebdbb2 !important;
 }
 html {
   background-color: #282828 !important;
@@ -19,19 +19,19 @@ html {
 input,
 textarea {
   background-color: #282828 !important;
-  color: #839496 !important;
+  color: #ebdbb2 !important;
 }
 blockquote,
 pre {
   background-color: #928374 !important;
-  color: #839496 !important;
+  color: #83a598 !important;
 }
 .post-actions {
   background-color: #928374 !important;
 }
 .textarea-wrapper {
   background-color: #282828 !important;
-  color: #839496 !important;
+  color: #ebdbb2 !important;
 }
 .search--adv {
   background-color: #928374 !important;
