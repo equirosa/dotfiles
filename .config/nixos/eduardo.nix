@@ -12,7 +12,6 @@
     ./tor.nix
     ./audio.nix
     ./flatpak.nix
-    ./virtuablbox.nix
     ./fonts.nix
     ./kdeConnect.nix
   ];
