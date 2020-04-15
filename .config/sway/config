@@ -17,10 +17,10 @@ output * bg ~/.background-image fill
 ### Idle configuration ###
 
 exec swayidle -w \
-	timeout 300 $lock \
+	timeout 300 '$lock' \
 	timeout 600 'swaymsg "output * dpms off"' \
 	resume 'swaymsg "output * dpms on"' \
-	before-sleep $lock
+	before-sleep '$lock'
 
 #### Input configuration ####
 
