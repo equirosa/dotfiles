@@ -1,10 +1,10 @@
 # imports
-import theme.draw
+import theme.spill
 
 config.load_autoconfig()
 
 # Theme Stuff
-theme.draw.paint(c,{
+theme.spill.paint(c,{
     'spacing':{
         'vertical':6,
         'horizontal':8
