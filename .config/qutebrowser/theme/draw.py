@@ -1,22 +1,22 @@
-def blood(c, options = {}):
+def paint(c, options = {}):
     palette = {
-        'background': '#282a36',
-        'background-alt': '#282a36', 
+        'background': '#282828',
+        'background-alt': '#282828',
         'background-attention': '#181920',
-        'border': '#282a36',
-        'current-line': '#44475a',
-        'selection': '#44475a',
+        'border': '#282828',
+        'current-line': '#928374',
+        'selection': '#928374',
         'foreground': '#f8f8f2',
         'foreground-alt': '#e0e0e0',
         'foreground-attention': '#ffffff',
-        'comment': '#6272a4',
-        'cyan': '#8be9fd',
-        'green': '#50fa7b',
+        'comment': '#458588',
+        'cyan': '#8ec07c',
+        'green': '#b8bb26',
         'orange': '#ffb86c',
         'pink': '#ff79c6',
         'purple': '#bd93f9',
-        'red': '#ff5555',
-        'yellow': '#f1fa8c'
+        'red': '#fb4934',
+        'yellow': '#fabd2f'
     }   
 
     spacing = options.get('spacing', {
