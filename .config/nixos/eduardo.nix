@@ -240,7 +240,7 @@
   };
   system.autoUpgrade = {
     enable = true;
-    dates = "0/4:*:*";
+    dates = "12:00";
   };
   time.timeZone = "America/Costa_Rica";
 }
