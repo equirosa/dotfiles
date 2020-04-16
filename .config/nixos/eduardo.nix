@@ -110,7 +110,7 @@
 
       #### Browsers ####
       brave
-      firefox-wayland
+      firefox # -wayland
       next # The other best browser ever
       qutebrowser # Best browser ever
       tor-browser-bundle-bin # Tor Browser
