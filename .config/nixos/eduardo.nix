@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }: {
   imports = [
     <home-manager/nixos>
+    ./window-managers/xorg/awesome.nix
     ./backups/external.nix
     ./shell/tools/keychain.nix
     ./misc/32bit.nix
