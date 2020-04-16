@@ -23,7 +23,7 @@
       };
       removableDevice = true;
       repo = "/run/media/eduardo/2e571771-81db-41a5-a0b6-d5c6d3b8bf88/borg";
-      startAt = "hourly";
+      startAt = "0/6:*:*";
       user = "eduardo";
     };
   };
