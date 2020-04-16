@@ -3,6 +3,6 @@
   virtualisation = { libvirtd = { enable = true; }; };
   users.users.eduardo = {
     extraGroups = [ "libvirtd" ];
-    packages = with pkgs; [ virt-manager gnome3.gnome-boxes ];
+    packages = with pkgs; [ gnome3.gnome-boxes ];
   };
 }
