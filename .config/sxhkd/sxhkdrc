@@ -20,6 +20,9 @@ super + shift + p
   emacsclient -c & disown
 
 super + w
+	tor-browser
+
+super + shift + w
   $BROWSER & disown
 
 super + x
