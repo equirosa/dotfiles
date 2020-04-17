@@ -34,7 +34,7 @@
       # Cleanup
       nvidia-settings =
         ''nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'';
-      startx = "startx '$XDG_CONFIG_HOME/x11/xinitrc'";
+      startx = "startx $XDG_CONFIG_HOME/x11/xinitrc";
 
       # Replacements
       cat = "bat -p";
