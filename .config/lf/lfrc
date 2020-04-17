@@ -41,4 +41,4 @@ cmd compress ${{
 }}
 
 # use '<delete>' key for either 'trash' or 'delete' command
-map <delete> $trash $fx #delete
+map <delete> $trash-put $fx #delete
