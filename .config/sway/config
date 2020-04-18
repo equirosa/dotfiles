@@ -219,7 +219,6 @@ bindsym $mod+Shift+s gaps outer current minus 5
 exec {
 	mako&
 	redshift&
-	udiskie&
 	kdeconnect-indicator&
 	transmission-daemon&
 	syncthing&

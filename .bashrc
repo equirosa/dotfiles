@@ -19,7 +19,4 @@ if [[ $- == *i* ]]; then
 	eval "$(keychain --eval --quiet --agents ssh --inherit local-once sourcehut github gitlab codeberg)"
 	eval "$(starship init bash)"
 
-else
-	[ "$(tty)" = "/dev/tty1" ] && exec sway
-	[ "$(tty)" = "/dev/tty2" ] && startx
 fi
