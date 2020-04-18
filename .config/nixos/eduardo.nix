@@ -126,10 +126,6 @@
       #### Dev Stuff ####
       gitAndTools.gitFull
 
-      #### FAH Stuff :) ####
-      fahviewer
-      fahcontrol
-
       #### File Management ####
       atool # Makes handling compression easier
       exa # 'ls' replacement
@@ -235,10 +231,7 @@
     thefuck.enable = true;
     udevil.enable = true;
   };
-  services = {
-    stubby.enable = true;
-    #foldingathome.enable = true;
-  };
+  services = { stubby.enable = true; };
   system.autoUpgrade = {
     enable = true;
     dates = "12:00";
