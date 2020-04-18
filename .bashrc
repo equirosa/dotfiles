@@ -21,4 +21,5 @@ if [[ $- == *i* ]]; then
 
 else
 	[ "$(tty)" = "/dev/tty1" ] && exec sway
+	[ "$(tty)" = "/dev/tty2" ] && startx
 fi
