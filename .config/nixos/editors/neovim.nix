@@ -11,6 +11,9 @@
     programs.neovim = {
       enable = true;
       extraConfig = ''
+        if &shell =~# 'fish$'
+          set shell=sh
+        endif
         filetype plugin indent on
         set number relativenumber termguicolors
         set splitbelow splitright
@@ -41,11 +44,13 @@
         vim-airline
         vim-airline-themes
         vim-automkdir
-        vim-css-color
         vim-devicons
-        vim-nix
         vim-surround
         YouCompleteMe
+        # Syntax highlighting
+        vim-css-color
+        vim-fish
+        vim-nix
       ];
       viAlias = true;
       vimAlias = true;
