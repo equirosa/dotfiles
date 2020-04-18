@@ -1,7 +1,8 @@
 #!/bin/sh
 
-case "${1%%:}" in
+case "$1" in
 	*invidio.us*) exec mpv --fs=yes ydtl://"$1"	;;
-	http | https ) exec "$BROWSER" "$1" ;;
-	mailto)	exec aerc "$1" ;;
+	http* | https* ) "$BROWSER" "$1" ;;
+	mailto*)	exec aerc "$1" ;;
+	*) echo "Unhandled" ;;
 esac
