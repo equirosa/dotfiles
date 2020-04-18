@@ -3,7 +3,6 @@
     <home-manager/nixos>
     ./window-managers/xorg/awesome.nix
     ./backups/external.nix
-    ./shell/tools/keychain.nix
     ./misc/32bit.nix
     ./editors/neovim.nix
     ./editors/emacs.nix
