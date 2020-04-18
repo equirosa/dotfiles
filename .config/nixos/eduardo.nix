@@ -96,6 +96,7 @@
   };
   hardware = { cpu.intel.updateMicrocode = true; };
   users.users.eduardo = {
+    shell = pkgs.fish;
     createHome = true;
     description = "Eduardo Quiros";
     extraGroups = [ "wheel" "video" "audio" "networkmanager" ];
@@ -221,6 +222,7 @@
       enable = true;
       wrappedBinaries = { zoom-us = "${lib.getBin pkgs.zoom-us}/bin/zoom-us"; };
     };
+    fish.enable = true;
     gnome-disks.enable = true;
     gnupg.agent = {
       enable = true;
