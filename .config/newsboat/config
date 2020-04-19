@@ -1,4 +1,4 @@
 urls-source "ttrss"
-ttrss-url "https://tt-rss.nixnet.xyz"
+ttrss-url "https://tt-rss.nixnet.services"
 ttrss-login "eduardoquiros"
 ttrss-passwordeval "gopass websites/tt-rss.nixnet.xyz/eduardoquiros"
