@@ -151,6 +151,9 @@ floating_modifier $mod normal
 	bindsym XF86AudioMute exec amixer sset Master toggle
 	bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
 	bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
+	bindsym {
+		$mod+a exec $TERMINAL -e pulsemixer
+	}
 
 	# Bleh
 	bindsym XF86Calculator exec $term -e $CALCULATOR
