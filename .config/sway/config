@@ -211,7 +211,7 @@ gaps {
      inner 5
      outer 5
 }
-smart_gaps on # Maximizes size of window when it is the only window in a workspace
+smart_gaps off # Maximizes size of window when it is the only window in a workspace
 bindsym $mod+s gaps outer current plus 5
 bindsym $mod+Shift+s gaps outer current minus 5
 
