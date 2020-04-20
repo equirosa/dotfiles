@@ -223,7 +223,6 @@ exec {
 	mako&
 	redshift&
 	kdeconnect-indicator&
-	transmission-daemon&
 	syncthing&
 	qsynthingtray&
 }
