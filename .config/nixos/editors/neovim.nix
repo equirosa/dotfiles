@@ -51,6 +51,7 @@
         vim-css-color
         vim-fish
         vim-nix
+        vim-orgmode
       ];
       viAlias = true;
       vimAlias = true;
