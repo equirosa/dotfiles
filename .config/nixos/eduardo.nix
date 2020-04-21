@@ -21,6 +21,7 @@
       nvidia-settings =
         ''nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'';
       startx = "startx $XDG_CONFIG_HOME/x11/xinitrc";
+      weechat = "weechat -d $XDG_CONFIG_HOME/weechat";
 
       # Replacements
       cat = "bat -p";
@@ -54,6 +55,7 @@
       IDEA_VM_OPTIONS = "$XDG_CONFIG_HOME/intellij-idea/idea64.vmoptions";
       LESSHISTFILE = "-"; # Disable less history file
       UNISON = "$XDG_DATA_HOME/unison";
+      WEECHAT_HOME = "$XDG_CONFIG_HOME/weechat";
       XCOMPOSEFILE = "$XDG_CONFIG_HOME/X11/xcompose";
       XCOMPOSECACHE = "$XDG_CACHE_HOME/X11/xcompose";
       ZDOTDIR = "$XDG_CONFIG_HOME/zsh";
@@ -109,6 +111,7 @@
       riot-desktop # Matrix client
       signal-desktop # Signal
       tdesktop # Telegram
+      weechat # IRC + other protocols
 
       #### Dev Stuff ####
       gitAndTools.gitFull
