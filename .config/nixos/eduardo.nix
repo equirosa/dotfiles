@@ -107,10 +107,8 @@
       #### Comms ####
       aerc # Mail reader
       dino # XMPP client
-      qtox # Decentralized messaging platform
       riot-desktop # Matrix client
       signal-desktop # Signal
-      tdesktop # Telegram
       weechat # IRC + other protocols
 
       #### Dev Stuff ####
