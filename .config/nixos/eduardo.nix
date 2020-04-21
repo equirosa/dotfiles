@@ -15,19 +15,6 @@
     ./fonts.nix
     ./kdeConnect.nix
   ];
-  home-manager.users.eduardo = { pkgs, ... }: {
-    programs = {
-      lsd = {
-        enable = true;
-        enableAliases = true;
-      };
-      pazi = {
-        enable = true;
-        enableBashIntegration = true;
-      };
-    };
-    xdg.enable = true;
-  };
   environment = {
     shellAliases = {
       # Cleanup
