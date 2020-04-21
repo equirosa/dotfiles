@@ -11,7 +11,7 @@
         name = "Papirus-Dark";
       };
       theme = {
-        package = pkgs.arc-theme;
+        #package = pkgs.arc-theme;
         name = "Arc-Dark";
       };
     };
