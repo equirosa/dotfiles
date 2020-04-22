@@ -26,5 +26,4 @@ super + shift + w
   $BROWSER & disown
 
 super + x
-  $LOCK_CMD & disown
-
+	i3lock-fancy -p & disown
