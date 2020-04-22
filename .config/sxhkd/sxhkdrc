@@ -5,7 +5,7 @@ super + d
   dmenu_run & disown
 
 super + i
-	$TERMINAL -e $MONITOR & disown
+	$TERMINAL -e gotop & disown
 
 super + e
   $TERMINAL -e $MAIL & disown
