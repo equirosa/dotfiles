@@ -5,3 +5,9 @@ if status --is-interactive
 	starship init fish | source
 end
 
+if status --is-login
+	switch (tty)
+		case "*tty1"
+			startx
+	end
+end
