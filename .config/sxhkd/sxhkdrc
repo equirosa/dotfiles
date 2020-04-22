@@ -1,6 +1,9 @@
 super + Return
   $TERMINAL & disown
 
+super + a
+	$TERMINAL -e pulsemixer
+
 super + d
   dmenu_run & disown
 
