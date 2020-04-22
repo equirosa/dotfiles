@@ -1,0 +1,12 @@
+#                   _         _                    _ _ 
+# _   _  ___  _   _| |_ _   _| |__   ___        __| | |
+#| | | |/ _ \| | | | __| | | | '_ \ / _ \_____ / _` | |
+#| |_| | (_) | |_| | |_| |_| | |_) |  __/_____| (_| | |
+# \__, |\___/ \__,_|\__|\__,_|_.__/ \___|      \__,_|_|
+# |___/
+#
+# This is Eduardo's youtube-dl config file
+
+--proxy 127.0.0.1:8118 # By default, always proxy downloads through Tor
+
+--prefer-free-formats # Prefer formats free from proprietary garbage
