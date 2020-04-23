@@ -15,6 +15,7 @@
           set shell=sh
         endif
         filetype plugin indent on
+        set mouse=a
         set number relativenumber termguicolors
         set splitbelow splitright
         syntax enable
