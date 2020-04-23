@@ -121,6 +121,7 @@
       #### File Management ####
       atool # Makes handling compression easier
       exa # 'ls' replacement
+      lsd # another 'ls' replacement
       lf # Terminal file manager
       file # used to get file type
       glow # Prettify markdown
