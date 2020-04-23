@@ -30,3 +30,10 @@ super + shift + w
 
 super + x
 	i3lock-fancy -p & disown
+
+# Audio stuff
+XF86AudioMute
+	amixer sset Master toggle
+
+XF86Audio{Raise,Lower}Volume
+	amixer sset Master 5%{+,-}
