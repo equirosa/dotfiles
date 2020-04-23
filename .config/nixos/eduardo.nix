@@ -17,7 +17,7 @@
   ];
   boot.kernel.sysctl = { "vm.swappiness" = 0; };
   environment = {
-    memoryAllocator.provider = "graphene-hardened";
+    # memoryAllocator.provider = "graphene-hardened";
     shellAliases = {
       # Cleanup
       nvidia-settings =
