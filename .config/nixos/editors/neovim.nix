@@ -28,6 +28,7 @@
         let g:lf_replace_netrw = 1 "open lf when vim open a directory
         set colorcolumn=80
         autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
+        autocmd BufRead,BufNewFile *.guile set filetype=scheme
         autocmd BufWritePost *sway/config,*waybar/* !swaymsg reload
         autocmd BufWritePre,FileWritePre *.nix %!nixfmt
         map <leader>C :w! \| !compiler <c-r>%<CR>
