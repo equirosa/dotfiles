@@ -22,7 +22,10 @@
         set background=dark
         let g:gruvbox_material_background = 'hard'
         colorscheme gruvbox
-        let g:airline_theme = 'gruvbox'
+        let g:lightline = {
+        \ 'colorscheme': 'gruvbox',
+        \ }
+        set noshowmode
         set tabstop=4
         set shiftwidth=4
         set noexpandtab
@@ -43,7 +46,7 @@
         gruvbox-community
         lf-vim
         nerdcommenter
-        vim-airline
+        lightline-vim
         vim-airline-themes
         vim-automkdir
         vim-devicons
