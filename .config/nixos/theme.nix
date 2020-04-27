@@ -3,7 +3,7 @@
     gtk = {
       enable = true;
       font = {
-        # package = pkgs.fira-code;
+        package = pkgs.nerdfonts;
         name = "Fira Code Nerd Font";
       };
       iconTheme = {
@@ -11,8 +11,8 @@
         name = "Papirus-Dark";
       };
       theme = {
-        #package = pkgs.arc-theme;
-        name = "Arc-Dark";
+        package = pkgs.adapta-gtk-theme;
+        name = "Adapta-Nokto-Eta";
       };
     };
     qt = {
