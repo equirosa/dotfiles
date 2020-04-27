@@ -14,6 +14,7 @@
     ./flatpak.nix
     ./fonts.nix
     ./kdeConnect.nix
+    ./virtualization.nix
   ];
   boot.kernel.sysctl = { "vm.swappiness" = 0; };
   environment = {
