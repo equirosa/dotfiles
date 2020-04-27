@@ -30,9 +30,6 @@
       cat = "bat -p";
       fd = "fd -I";
       find = "fd";
-      exa = "exa --git";
-      ls = "exa";
-      l = "exa -lh";
 
       # Torifying all the things
       aerc = "torify aerc";
@@ -121,7 +118,6 @@
 
       #### File Management ####
       atool # Makes handling compression easier
-      exa # 'ls' replacement
       lsd # another 'ls' replacement
       lf # Terminal file manager
       file # used to get file type
