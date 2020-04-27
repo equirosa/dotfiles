@@ -6,6 +6,7 @@ if status --is-interactive
 end
 
 if status --is-login
+	pgrep -x transmission-da || transmission-daemon &;
 	switch (tty)
 		case "*tty1"
 			startx
