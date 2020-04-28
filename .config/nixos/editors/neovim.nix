@@ -47,7 +47,6 @@
         lf-vim
         nerdcommenter
         lightline-vim
-        vim-airline-themes
         vim-automkdir
         vim-devicons
         vim-surround
