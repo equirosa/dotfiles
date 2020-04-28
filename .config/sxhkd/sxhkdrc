@@ -19,6 +19,9 @@ super + q
 super + r
   $TERMINAL -e $FILE & disown
 
+super + shift + r
+	exec spacefm & disown
+
 super + shift + p
   emacsclient -c & disown
 
