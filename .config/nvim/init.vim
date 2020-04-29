@@ -1,4 +1,5 @@
 set shell=sh
+set encoding=utf-8
 
 call plug#begin()
 Plug 'tpope/vim-fugitive' " git integration for vim
