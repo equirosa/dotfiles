@@ -1,0 +1,38 @@
+set shell=sh
+
+call plug#begin()
+Plug 'tpope/vim-fugitive' " git integration for vim
+Plug 'itchyny/lightline.vim' " replace bottom statusline
+Plug 'rbgrouleff/bclose.vim' " For use with lf.vim
+Plug 'junegunn/goyo.vim'
+Plug 'ptzz/lf.vim' " Integration with lf file manager
+Plug 'morhetz/gruvbox' " gruvbox colorscheme
+Plug 'jiangmiao/auto-pairs' " automatic pairing
+" Syntax highlighting
+Plug 'dag/vim-fish' " .fish files
+Plug 'LnL7/vim-nix' " .nix files
+Plug 'ap/vim-css-color' " color previews
+call plug#end()
+
+set mouse=a
+set number relativenumber termguicolors
+set splitbelow splitright
+syntax enable
+set background=dark
+let g:gruvbox_material_background = 'hard'
+colorscheme gruvbox
+set noshowmode
+let g:lightline = {
+	\ 'colorscheme': 'gruvbox',
+	\ }
+set tabstop=4
+set shiftwidth=4
+set noexpandtab
+let g:lf_replace_netrw = 1 "open lf when vim open a directory
+set colorcolumn=80
+autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
+autocmd BufRead,BufNewFile *.guile set filetype=scheme
+autocmd BufWritePost *sway/config,*waybar/* !swaymsg reload
+autocmd BufWritePre,FileWritePre *.nix %!nixfmt
+map <leader>C :w! \| !compiler <c-r>%<CR>
+map <C-l> :Lf<CR>

@@ -5,7 +5,6 @@
     ./backups/external.nix
     ./misc/32bit.nix
     ./misc/cleanup.nix
-    ./editors/neovim.nix
     ./editors/emacs.nix
     ./location.nix
     ./theme.nix
@@ -154,6 +153,7 @@
       texlive.combined.scheme-full # LaTeX stuff
 
       #### Rust Dev ####
+      neovim
       cargo
 
       #### Cenfotec ####
