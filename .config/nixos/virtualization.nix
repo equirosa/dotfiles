@@ -8,6 +8,6 @@
   };
   users.users.eduardo = {
     extraGroups = [ "libvirtd" ];
-    packages = with pkgs; [ gnome3.gnome-boxes ];
+    packages = with pkgs; [ virt-manager ];
   };
 }
