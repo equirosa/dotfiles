@@ -1,5 +1,5 @@
 { config, pkgs, ... }: {
   imports =
-    [ ../eduardo.nix ];
+    [ ../global.nix ];
   networking = { hostName = "snowfort"; };
 }

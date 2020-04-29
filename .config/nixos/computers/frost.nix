@@ -1,7 +1,7 @@
 { config, ... }: {
   imports = [
     # Import global configuration
-    ../eduardo.nix
+    ../global.nix
     ../window-managers/wayland/sway.nix
     ../virtualization.nix
   ];
