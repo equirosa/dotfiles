@@ -133,7 +133,6 @@
       ripgrep # grep but faster
       spaceFM # Graphical file manager
       speedtest-cli
-      starship # pretty prompt
       toot # Mastodon client
       transmission
       transmission-remote-cli
@@ -155,18 +154,8 @@
       neovim
       cargo
 
-      #### Cenfotec ####
-      cmake
-      gcc
       zoom-us
       slack
-      qtcreator
-      gnumake
-      jetbrains.clion
-
-      #### Java Sadness ####
-      eclipses.eclipse-java
-      jetbrains.idea-community
 
       #### Gaming ####
       steam
