@@ -80,7 +80,6 @@
       qsyncthingtray
 
       #### Browsers ####
-      brave
       firefox # -wayland
       next # The other best browser ever
       qutebrowser # Best browser ever
