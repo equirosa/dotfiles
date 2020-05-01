@@ -41,7 +41,7 @@ pre {
 }
 .search__autocomplete > .acp-wrap > .acp--highlight {
   background-color: #928374 !important;
-  color: #eee8d5 !important;
+  color: #282828 !important;
 }
 .search__autocomplete > .acp-wrap strong {
   color: #eee8d5 !important;
@@ -57,7 +57,7 @@ pre {
 }
 .zci {
   background-color: #928374 !important;
-  color: #839496 !important;
+  color: #282828 !important;
 }
 .tile--info {
   background-color: #282828 !important;
@@ -98,7 +98,7 @@ pre {
   border-color: #928374 !important;
 }
 .news .alert .pull-info {
-  background-color: #083c4a !important;
+  background-color: #282828 !important;
 }
 .link-gray-dark,
 .text-gray-dark {
