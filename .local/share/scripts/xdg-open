@@ -2,8 +2,12 @@
 
 case "$1" in
 	*.mp4) exec mpv "$1" ;;
-	*invidio.us*) exec mpv ydtl://"$1"	;;
-	http* | https* ) "$BROWSER" "$1" ;;
+	*invidio.us* | *youtube.com*) exec mpv --ytdl=yes "$1"	;;
+	http* | https* )
+		case "$1" in
+			*.jpg | *.png) wget "$1" >> "/tmp/$1" && $IMG "/tmp/$1" & disown ;;
+			*) "$BROWSER" "$1" ;;
+		esac;;
 	mailto*)	exec aerc "$1" ;;
 	*) echo "Unhandled" ;;
 esac
