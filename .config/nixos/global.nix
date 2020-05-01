@@ -150,6 +150,9 @@
       #### Org mode things ####
       texlive.combined.scheme-full # LaTeX stuff
 
+      #### RSS ####
+      newsboat
+
       #### Rust Dev ####
       neovim
       cargo
