@@ -104,10 +104,11 @@
       highlight # Prettify the rest
       mediainfo # prints info of media binary files
       p7zip
+      perl530Packages.FileMimeInfo # mimetype stuff
+      w3m # it's a browser but i use it to display images in lf
       zip
       unzip
       lzip
-      w3m # it's a browser but i use it to display images in lf
 
       #### File Transfer ####
       croc # Sync file transfer
@@ -128,7 +129,6 @@
       lazygit # git for lazy people
       libnotify # Notification stuff
       mpv # Video Player
-      perl530Packages.FileMimeInfo # mimetype stuff
       poppler_utils # reading PDFs
       ripgrep # grep but faster
       spaceFM # Graphical file manager
