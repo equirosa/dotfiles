@@ -60,12 +60,14 @@ settings:
       a: https://wiki.archlinux.org/index.php?search={}
       aur: https://aur.archlinux.org/packages/?O=0&K={}
       d: https://duckduckgo.com/?q={}
+      e: https://ecosia.org/search?q={}
       flathub: https://flathub.org/apps/search/{}
       gh: https://github.com/search?utf8=%E2%9C%93&q={}
       melpa: https://melpa.org/#/?q={}
       n: https://nixos.wiki/index.php?search={}&go=Go
       np: https://nixos.org/nixos/packages.html?channel=nixos-unstable&query={}
       p: https://www.protondb.com/search?q={}
+      searx: https://searx.neocities.org/?q={}
       snap: https://snapcraft.io/search?q={}
       v: https://wiki.voidlinux.org/index.php?search={}
       w: https://en.wikipedia.org/w/index.php?search={}
