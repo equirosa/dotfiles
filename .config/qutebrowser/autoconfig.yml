@@ -43,7 +43,7 @@ settings:
   content.private_browsing:
     global: true
   content.proxy:
-    global: system
+    global: http://localhost:8118/
   content.webgl:
     global: false
   downloads.remove_finished:
