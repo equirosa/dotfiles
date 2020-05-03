@@ -5,9 +5,6 @@
 	ps = push
 	s = status
 
-[gpg]
-	program = /nix/store/0alh8jgwfnw9vig2is80vl3sb1wg66q9-gnupg-2.2.19/bin/gpg2
-
 [user]
 	email = eduardo@eduardoquiros.com
 	name = Eduardo Quiros
