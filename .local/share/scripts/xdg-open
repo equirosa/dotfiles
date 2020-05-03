@@ -9,5 +9,6 @@ case "$1" in
 			*) "$BROWSER" "$1" ;;
 		esac;;
 	mailto*)	exec aerc "$1" ;;
+	*.html) exec "$BROWSER" "$1" ;;
 	*) echo "Unhandled" ;;
 esac
