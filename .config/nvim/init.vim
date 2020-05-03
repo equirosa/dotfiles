@@ -42,5 +42,6 @@ autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 autocmd BufRead,BufNewFile *.guile set filetype=scheme
 autocmd BufWritePost *sway/config,*waybar/* !swaymsg reload
 autocmd BufWritePre,FileWritePre *.nix %!nixfmt
+autocmd BufWritePre * :%s/\s\+$//e
 map <leader>C :w! \| !compiler <c-r>%<CR>
 map <C-l> :Lf<CR>
