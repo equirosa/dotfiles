@@ -16,6 +16,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'ptzz/lf.vim' " Integration with lf file manager
 Plug 'morhetz/gruvbox' " gruvbox colorscheme
 Plug 'jiangmiao/auto-pairs' " automatic pairing
+Plug 'preservim/nerdcommenter' " Make some commenting easier
 " Syntax highlighting
 Plug 'dag/vim-fish' " .fish files
 Plug 'LnL7/vim-nix' " .nix files
