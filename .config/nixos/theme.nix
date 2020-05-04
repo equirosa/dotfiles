@@ -8,7 +8,7 @@
       };
       iconTheme = {
         package = pkgs.papirus-icon-theme;
-        name = "Papirus-Dark";
+        name = "ePapirus";
       };
       theme = {
         package = pkgs.adapta-gtk-theme;
