@@ -20,6 +20,8 @@ Plug 'jiangmiao/auto-pairs' " automatic pairing
 Plug 'dag/vim-fish' " .fish files
 Plug 'LnL7/vim-nix' " .nix files
 Plug 'ap/vim-css-color' " color previews
+Plug 'wlangstroth/vim-racket' " racket
+Plug 'vim-scripts/scribble.vim' " scribble
 call plug#end()
 
 set mouse=a
@@ -38,10 +40,13 @@ set shiftwidth=4
 set noexpandtab
 let g:lf_replace_netrw = 1 "open lf when vim open a directory
 set colorcolumn=80
-autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
-autocmd BufRead,BufNewFile *.guile set filetype=scheme
 autocmd BufWritePost *sway/config,*waybar/* !swaymsg reload
 autocmd BufWritePre,FileWritePre *.nix %!nixfmt
 autocmd BufWritePre * :%s/\s\+$//e
 map <leader>C :w! \| !compiler <c-r>%<CR>
 map <C-l> :Lf<CR>
+
+" Setting some filetypes
+autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
+autocmd BufRead,BufNewFile *.guile set filetype=scheme
+autocmd BufRead,BufNewFile *.scrbl set filetype=scribble
