@@ -46,6 +46,7 @@ autocmd BufWritePre,FileWritePre *.nix %!nixfmt
 autocmd BufWritePre * :%s/\s\+$//e
 map <leader>C :w! \| !compiler <c-r>%<CR>
 map <C-l> :Lf<CR>
+map <C-p> :PlugUpdate<CR>
 
 " Setting some filetypes
 autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
