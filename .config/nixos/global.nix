@@ -116,6 +116,12 @@
       ffsend # Async file transfer
 
       #### TODO: Sort these... ####
+      stig
+      skribilo
+      rofi
+      racket
+      lout
+      chiaki
       udiskie
       bat
       htop
