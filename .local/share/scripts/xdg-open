@@ -2,6 +2,7 @@
 
 case "$1" in
 	*.mp4) exec mpv "$1" ;;
+	*.pdf) exec zathura "$1";;
 	*invidio.us* | *youtube.com*) exec mpv --ytdl=yes "$1"	;;
 	http* | https* )
 		case "$1" in
