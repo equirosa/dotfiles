@@ -34,6 +34,7 @@ in emacsWithPackages (epkgs:
     magit
     pdf-tools
     transmission
+    scribble-mode
     #lua-mode
     #### Theming ####
     gruvbox-theme
