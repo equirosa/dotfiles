@@ -1,0 +1,15 @@
+output {
+	DP-3 pos 0 0 res 1920x1080
+	HDMI-A-1 pos 1920 0 res 1920x1080
+}
+
+# Inputs
+
+input {
+	"1133:16494:Logitech_K800" {
+		xkb_layout us,latam
+		xkb_options grp:win_space_toggle,ctrl:nocaps
+	}
+}
+
+focus output DP-3
