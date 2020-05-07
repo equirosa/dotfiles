@@ -25,6 +25,9 @@
       cat = "bat -p";
       fd = "fd -I";
       find = "fd";
+      ## vim -> neovim
+      vim = "nvim";
+      vimdiff = "nvim -d";
 
       # Torifying all the things
       aerc = "torify aerc";
@@ -66,7 +69,7 @@
   };
   hardware.cpu.amd.updateMicrocode = true;
   users.users.eduardo = {
-    shell = pkgs.fish;
+    #shell = pkgs.fish;
     createHome = true;
     description = "Eduardo Quiros";
     extraGroups = [ "wheel" "video" "audio" "networkmanager" ];
