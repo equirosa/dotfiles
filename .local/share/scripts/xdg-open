@@ -6,7 +6,7 @@ case "$1" in
 	*invidio.us* | *youtube.com*) exec mpv --ytdl=yes "$1"	;;
 	http* | https* )
 		case "$1" in
-			*.jpg | *.png) wget "$1" >> "/tmp/$1" && $IMG "/tmp/$1" & disown ;;
+			*.jpg | *.png) curl "$1" >> "/tmp/image" && $IMG "/tmp/image" & disown ;;
 			*) "$BROWSER" "$1" ;;
 		esac;;
 	mailto*)	exec aerc "$1" ;;
