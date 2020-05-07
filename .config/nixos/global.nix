@@ -168,7 +168,6 @@
       slack
 
       #### Gaming ####
-      steam
       lutris
 
       #### Utilities ####
