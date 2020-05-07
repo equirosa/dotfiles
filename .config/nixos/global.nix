@@ -33,6 +33,7 @@
       aerc = "torify aerc";
       git = "torify git";
       lazygit = "torify lazygit";
+      mpv = "torify mpv";
 
       # Shortening some things
       c = "cd";
