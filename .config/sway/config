@@ -7,7 +7,7 @@ set {
     $up k
     $right l
     $menu wofi -S run | xargs swaymsg exec
-    $desktop exec launch-wofi-desktop | xargs swaymsg exec
+    $desktop exec wofi -S drun | xargs swaymsg exec
 	$lock exec swaylock -S --effect-blur 20x1 -f
 }
 ######### Output configuration ############
