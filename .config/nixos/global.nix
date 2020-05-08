@@ -43,7 +43,7 @@
       gcp = "git commit -a; git push";
       lg = "lazygit";
       nrebuild = "sudo nixos-rebuild switch --upgrade";
-      nsearch = "nix-env -qaP --description";
+      nsearch = "nix-env -qaP --json";
     };
     variables = {
       # Custom stuff
