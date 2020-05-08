@@ -26,6 +26,7 @@
       fd = "fd -I";
       find = "fd";
       ## vim -> neovim
+      vi = "nvim";
       vim = "nvim";
       vimdiff = "nvim -d";
 
