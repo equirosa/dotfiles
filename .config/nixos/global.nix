@@ -102,6 +102,7 @@
       gitAndTools.gitFull
 
       #### File Management ####
+      pcmanfm # Graphical file manager
       atool # Makes handling compression easier
       lsd # another 'ls' replacement
       lf # Terminal file manager
@@ -203,9 +204,7 @@
       enable = true;
       enableSSHSupport = true;
     };
-    spacefm.enable = true;
     thefuck.enable = true;
-    udevil.enable = true;
   };
   services = { stubby.enable = true; };
   system.autoUpgrade = {
