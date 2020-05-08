@@ -149,6 +149,7 @@
       transmission
       transmission-remote-cli
       trash-cli # Trash files
+      streamlink
       youtube-dl
       zathura # Doc viewer
 
