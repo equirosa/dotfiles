@@ -49,7 +49,7 @@
       # Custom stuff
       PATH = "/home/eduardo/.local/share/scripts:$PATH";
       BROWSER = "qutebrowser";
-      EDITOR = "vim";
+      EDITOR = "nvim";
       FILE = "lf";
       IMG = "imv";
       MAIL = "aerc";
