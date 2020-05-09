@@ -1,9 +1,9 @@
 #!/bin/sh
 
 case "$1" in
-	*.mp4) exec mpv "$1" ;;
-	*.pdf) exec zathura "$1";;
-	*invidio.us* | *youtube.com*) exec mpv --ytdl=yes "$1"	;;
+	*.mp4 | *.webm) exec umpv "$1" & disown ;;
+	*.pdf) exec zathura "$1" & disown;;
+	*invidio.us* | *youtube.com*) exec umpv --ytdl=yes "$1" & disown	;;
 	http* | https* )
 		case "$1" in
 			*.jpg | *.png) curl "$1" -o "/tmp/image" && $IMG "/tmp/image" & disown ;;
