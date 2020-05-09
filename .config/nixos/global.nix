@@ -122,7 +122,6 @@
       ffsend # Async file transfer
 
       #### TODO: Sort these... ####
-      stig
       skribilo
       rofi
       racket
@@ -148,7 +147,7 @@
       speedtest-cli
       toot # Mastodon client
       transmission
-      transmission-remote-cli
+      stig
       trash-cli # Trash files
       streamlink
       youtube-dl

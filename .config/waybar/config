@@ -9,7 +9,7 @@
 		"tooltip": false
 	},
 	"custom/torrent": {
-		"on-click": "$TERMINAL -e transmission-remote-cli",
+		"on-click": "$TERMINAL -e stig",
 		"exec-if": "pgrep transmission-da",
 		"interval": 10,
 		"exec": "torrent",
