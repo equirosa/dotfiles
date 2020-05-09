@@ -1,3 +1,2 @@
-# This is the mako configuration file
-max-visible = 3
-default-timeout = 5
+max-visible=3
+default-timeout=5
