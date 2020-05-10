@@ -141,6 +141,7 @@
 
       #### RSS ####
       newsboat
+      python3 # Necessary for umpv script to work
 
       #### Rust Dev ####
       neovim
