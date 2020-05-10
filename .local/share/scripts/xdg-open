@@ -12,5 +12,5 @@ case "$1" in
 	*.jpg | *.png) "$IMG $1" & disown ;;
 	mailto*)	exec aerc "$1" ;;
 	*.html) exec "$BROWSER" "$1" ;;
-	*) echo "Unhandled" ;;
+	*)  exec /run/current-system/sw/bin/xdg-open "$1" ;;
 esac
