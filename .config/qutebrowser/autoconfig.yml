@@ -55,6 +55,10 @@ settings:
     global:
     - $EDITOR
     - '{file}'
+  spellcheck.languages:
+    global:
+    - en-US
+    - es-ES
   tabs.background:
     global: true
   url.searchengines:
