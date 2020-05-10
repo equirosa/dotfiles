@@ -20,6 +20,9 @@ bindkey l open
 bindkey h quit
 bindkey u show-urls
 
+# Macros
+macro w set browser "lynx"; open-in-browser; set browser xdg-open
+
 # Colors
 color listnormal cyan default
 color listfocus black yellow standout bold
