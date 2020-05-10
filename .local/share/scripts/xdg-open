@@ -9,6 +9,7 @@ case "$1" in
 			*.jpg | *.png) curl "$1" -o "/tmp/image" && $IMG "/tmp/image" & disown ;;
 			*) "$BROWSER" "$1" ;;
 		esac;;
+	*.jpg | *.png) "$IMG $1" & disown ;;
 	mailto*)	exec aerc "$1" ;;
 	*.html) exec "$BROWSER" "$1" ;;
 	*) echo "Unhandled" ;;
