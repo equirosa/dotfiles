@@ -8,6 +8,19 @@ auto-reload yes
 
 browser xdg-open
 
+# Controls
+bindkey j down
+bindkey k up
+bindkey j next articlelist
+bindkey k prev articlelist
+bindkey G end
+bindkey g home
+bindkey a toggle-article-read
+bindkey l open
+bindkey h quit
+bindkey u show-urls
+
+# Colors
 color listnormal cyan default
 color listfocus black yellow standout bold
 color listnormal_unread blue default
