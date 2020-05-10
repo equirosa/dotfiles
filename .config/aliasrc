@@ -26,7 +26,8 @@ alias c="cd"\
 	nrebuild="sudo nixos-rebuild switch --upgrade; flatpak update -y"\
 	nsp="nix-shell -p"\
 	rm="rm -rvI"\
-	v="$EDITOR"
+	v="$EDITOR"\
+	vi="$EDITOR"
 
 # Replacements
 alias cat="bat -p"\
