@@ -22,7 +22,7 @@ alias c="cd"\
 	dateh="date --help | grep %"\
 	g="git"\
 	lg="lazygit"\
-	nrebuild="sudo nixos-rebuild switch --upgrade"\
+	nrebuild="sudo nixos-rebuild switch --upgrade; flatpak update -y"\
 	v="$EDITOR"
 
 # Replacements
