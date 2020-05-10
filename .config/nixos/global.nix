@@ -20,31 +20,6 @@
   boot.kernel.sysctl = { "vm.swappiness" = 0; };
   environment = {
     # memoryAllocator.provider = "graphene-hardened";
-    shellAliases = {
-      # Replacements
-      cat = "bat -p";
-      fd = "fd -I";
-      find = "fd";
-      ## vim -> neovim
-      vi = "nvim";
-      vim = "nvim";
-      vimdiff = "nvim -d";
-
-      # Torifying all the things
-      aerc = "torify aerc";
-      git = "torify git";
-      lazygit = "torify lazygit";
-      mpv = "torify mpv";
-
-      # Shortening some things
-      c = "cd";
-      dateh = "date --help | rg %";
-      g = "git";
-      gcp = "git commit -a; git push";
-      lg = "lazygit";
-      nrebuild = "sudo nixos-rebuild switch --upgrade";
-      nsearch = "nix-env -qaP --json";
-    };
     variables = {
       # Custom stuff
       PATH = "/home/eduardo/.local/share/scripts:$PATH";

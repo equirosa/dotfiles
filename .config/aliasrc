@@ -10,3 +10,22 @@
 
 # In case nvim is present, replace vim with it
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
+
+# Torify all the things!
+alias aerc="torify aerc"\
+	git="torify git"\
+	lazygit="torify lazygit"\
+	mpv="torify mpv"
+
+# Shortening some commands
+alias c="cd"\
+	dateh="date --help | grep %"\
+	g="git"\
+	lg="lazygit"\
+	nrebuild="sudo nixos-rebuild switch --upgrade"\
+	v="$EDITOR"
+
+# Replacements
+alias cat="bat -p"\
+	find="fd"\
+	grep="rg"
