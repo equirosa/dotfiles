@@ -28,6 +28,7 @@ settings:
     '*://*.linuxacademy.com/*': true
     '*://*.mipanel.ferozo.com/*': true
     '*://*.www.twitch.tv/*': true
+    '*://flathub.org/*': true
     '*://fosstodon.org/*': true
     '*://gitlab.gnome.org/*': true
     '*://itch.io/*': true
