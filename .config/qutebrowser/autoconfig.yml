@@ -9,6 +9,7 @@ settings:
   bindings.commands:
     global:
       normal:
+        ',M': hint links spawn mpv {hint-url}
         ',m': spawn mpv {url}
         zl: spawn --userscript qute-pass --mode gopass
         zol: spawn --userscript qute-pass --mode gopass --otp-only
