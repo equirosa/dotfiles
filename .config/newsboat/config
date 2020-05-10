@@ -9,16 +9,16 @@ auto-reload yes
 browser xdg-open
 
 # Controls
-bindkey j down
-bindkey k up
-bindkey j next articlelist
-bindkey k prev articlelist
-bindkey G end
-bindkey g home
-bindkey a toggle-article-read
-bindkey l open
-bindkey h quit
-bindkey u show-urls
+bind-key j down
+bind-key k up
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key G end
+bind-key g home
+bind-key a toggle-article-read
+bind-key l open
+bind-key h quit
+bind-key u show-urls
 
 # Macros
 macro w set browser "lynx"; open-in-browser; set browser xdg-open
