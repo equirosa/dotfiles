@@ -15,7 +15,8 @@ command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 alias aerc="torify aerc"\
 	git="torify git"\
 	lazygit="torify lazygit"\
-	mpv="torify mpv"
+	mpv="torify mpv"\
+	toot="torify toot"
 
 # Shortening some commands
 alias c="cd"\
