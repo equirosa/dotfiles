@@ -1,0 +1,9 @@
+#!/bin/sh
+case "$1" in
+	*womble* | *soviet*) _url="sovietwomble";;
+	*mouse*) _url="ironmouse";;
+	*noble* | *lostpause*) _url="lostpause";;
+	*nano* | *rick*) _url="xrayr6";;
+esac
+
+exec streamlink -p mpv "https://twitch.tv/$_url" best & disown
