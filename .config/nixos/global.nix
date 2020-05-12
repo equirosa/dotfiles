@@ -146,9 +146,6 @@
       neovim
       cargo
 
-      zoom-us
-      slack
-
       #### Gaming ####
       lutris
 
