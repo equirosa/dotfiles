@@ -13,6 +13,7 @@ command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 
 # Torify all the things!
 alias aerc="torify aerc"\
+	drive="torify drive"\
 	git="torify git"\
 	lazygit="torify lazygit"\
 	mpv="torify mpv"\
