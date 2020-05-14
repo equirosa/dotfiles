@@ -2,7 +2,7 @@
 case "$1" in
 	*womble* | *soviet*) _url="sovietwomble";;
 	*mouse*) _url="ironmouse";;
-	*noble* | *lostpause*) _url="lostpause";;
+	*noble* | *lost* | *pause*) _url="lost_pause";;
 	*nano* | *rick*) _url="xrayr6";;
 esac
 
