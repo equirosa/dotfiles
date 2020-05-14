@@ -11,7 +11,6 @@ map <enter> shell # use enter for shell commands
 
 # dedicated keys for file opener actions
 map o $xdg-open $f
-map O $mimeopen --ask $f
 map bg &make-wallpaper $f
 
 map <bs2> set hidden! # toggle state of display for hidden files and directories
@@ -27,12 +26,6 @@ map zx $aunpack $f
 map zl $als $f
 
 # Custom commands
-
-cmd mkdir ${{
-	printf "New directory: "
-	read dir
-	mkdir $dir
-}}
 
 cmd compress ${{
 	echo "Compressed archive name: "
