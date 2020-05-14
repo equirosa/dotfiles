@@ -114,7 +114,6 @@
       libnotify # Notification stuff
       mpv # Video Player
       poppler_utils # reading PDFs
-      spaceFM # Graphical file manager
       speedtest-cli
       toot # Mastodon client
       transmission
