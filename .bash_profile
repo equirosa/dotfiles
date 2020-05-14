@@ -1,5 +1,5 @@
 #/bin/sh
 
 # Autostarts
-udiskie&
+udiskie & disown
 [ "$(tty)" = "/dev/tty1" ] && exec sway
