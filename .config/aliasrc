@@ -23,6 +23,7 @@ alias aerc="torify aerc"\
 alias c="cd"\
 	dateh="date --help | grep %"\
 	g="git"\
+	gcp="git commit -a; git push"\
 	lg="lazygit"\
 	mkdir="mkdir -pv"\
 	nrebuild="sudo nixos-rebuild switch --upgrade; flatpak update -y"\
