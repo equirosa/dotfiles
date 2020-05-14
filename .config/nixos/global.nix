@@ -141,9 +141,6 @@
       neovim
       cargo
 
-      #### Gaming ####
-      lutris
-
       #### Utilities ####
       alacritty
       kitty
