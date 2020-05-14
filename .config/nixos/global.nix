@@ -61,7 +61,6 @@
       #### Browsers ####
       firefox # -wayland
       lynx # Lightweight cli web browser
-      next # The other best browser ever
       qutebrowser # Best browser ever
       tor-browser-bundle-bin # Tor Browser
 
