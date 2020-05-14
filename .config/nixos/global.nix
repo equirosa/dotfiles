@@ -138,7 +138,6 @@
 
       #### Rust Dev ####
       neovim
-      cargo
 
       #### Utilities ####
       alacritty
