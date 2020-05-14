@@ -10,7 +10,7 @@ set scrolloff 10 # leave some space at the top and the bottom of the screen
 map <enter> shell # use enter for shell commands
 
 # dedicated keys for file opener actions
-map o $open-file $f
+map o $xdg-open $f
 map O $mimeopen --ask $f
 map bg &make-wallpaper $f
 
