@@ -1,4 +1,5 @@
 { config, pkgs, ... }: {
+  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
   programs = {
     sway = {
       enable = true;
@@ -9,6 +10,7 @@
         swaylock-effects # lockscreen
         qt5.qtwayland # QT compat
         waybar # status bar
+        wf-recorder # screen video capture
         wl-clipboard # clipboard
         wofi # menu
         xwayland # Xorg compat
@@ -18,6 +20,8 @@
         slurp
       ];
       extraSessionCommands = ''
+        export XDG_SESSION_TYPE=wayland
+        export XDG_CURRENT_DESKTOP=sway
         export SDL_VIDEODRIVER=wayland
         export QT_QPA_PLATFORM=wayland
         export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
@@ -32,6 +36,7 @@
     waybar.enable = true;
   };
   services = {
+    pipewire.enable = true;
     redshift = {
       enable = true;
       package = pkgs.redshift-wlr;
