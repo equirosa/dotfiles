@@ -52,3 +52,4 @@ map <C-p> :PlugUpdate<CR>
 autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 autocmd BufRead,BufNewFile *.guile set filetype=scheme
 autocmd BufRead,BufNewFile *.scrbl set filetype=scribble
+autocmd BufRead,BufNewFile *lfrc set filetype=conf
