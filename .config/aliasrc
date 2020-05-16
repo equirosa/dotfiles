@@ -19,6 +19,9 @@ alias aerc="torify aerc"\
 	mpv="torify mpv"\
 	toot="torify toot"
 
+# Add some colors
+alias grep="grep --color=always"
+
 # Shortening some commands
 alias c="cd"\
 	dateh="date --help | grep %"\
