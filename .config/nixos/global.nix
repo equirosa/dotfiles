@@ -74,17 +74,15 @@
       gitAndTools.gitFull
 
       #### File Management ####
+      trash-cli # Trash files
       pcmanfm # Graphical file manager
       atool # Makes handling compression easier
-      lsd # another 'ls' replacement
       lf # Terminal file manager
       file # used to get file type
       glow # Prettify markdown
       highlight # Prettify the rest
-      mediainfo # prints info of media binary files
       zip
       unzip
-      lzip
 
       #### File Transfer ####
       croc # Sync file transfer
@@ -92,14 +90,11 @@
 
       #### TODO: Sort these... ####
       skribilo
-      rofi
       racket
       lout
       chiaki
       udiskie
       bat
-      htop
-      gotop
       calc # calculator
       fd # replacement for 'find'
       imv # Image viewer
@@ -110,12 +105,10 @@
       lazygit # git for lazy people
       libnotify # Notification stuff
       mpv # Video Player
-      poppler_utils # reading PDFs
       speedtest-cli
       toot # Mastodon client
       transmission
       stig
-      trash-cli # Trash files
       streamlink
       youtube-dl
       zathura # Doc viewer
@@ -141,6 +134,8 @@
       alacritty
       kitty
       starship
+      htop
+      gotop
     ];
   };
   nix = {
