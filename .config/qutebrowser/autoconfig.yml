@@ -9,8 +9,8 @@ settings:
   bindings.commands:
     global:
       normal:
-        ',M': hint links spawn mpv {hint-url}
-        ',m': spawn mpv {url}
+        ',M': hint links spawn xdg-open {hint-url}
+        ',m': spawn xdg-open {url}
         zl: spawn --userscript qute-pass --mode gopass
         zol: spawn --userscript qute-pass --mode gopass --otp-only
   completion.web_history.max_items:
