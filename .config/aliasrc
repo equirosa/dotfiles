@@ -34,5 +34,4 @@ alias c="cd"\
 
 # Replacements
 alias cat="bat -p"\
-	find="fd"\
-	grep="rg"
+	find="fd"
