@@ -8,6 +8,7 @@ root:
   cliptimeout: 45
   concurrency: 1
   editrecipients: false
+  exportkeys: true
   nocolor: false
   noconfirm: false
   nopager: false
