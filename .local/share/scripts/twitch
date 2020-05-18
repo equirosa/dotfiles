@@ -4,6 +4,8 @@ case "$1" in
 	*mouse*) _url="ironmouse";;
 	*noble* | *lost* | *pause*) _url="lost_pause";;
 	*nano* | *rick*) _url="xrayr6";;
+	*momo*) _url="sickly_momo";;
+	*silver*) _url="siivervale";;
 esac
 
 exec streamlink -p mpv "https://twitch.tv/$_url" best & disown
