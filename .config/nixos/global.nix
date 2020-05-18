@@ -6,6 +6,7 @@
     ./misc/32bit.nix
     ./misc/cleanup.nix
     ./editors/emacs.nix
+    ./packages/insecure.nix
     ./location.nix
     ./theme.nix
     ./printing.nix
@@ -87,6 +88,9 @@
       #### File Transfer ####
       croc # Sync file transfer
       ffsend # Async file transfer
+
+      #### Gaming ####
+      lutris
 
       #### TODO: Sort these... ####
       skribilo
