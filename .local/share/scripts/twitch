@@ -6,6 +6,7 @@ case "$1" in
 	*nano* | *rick*) _url="xrayr6";;
 	*momo*) _url="sickly_momo";;
 	*silver*) _url="siivervale";;
+	*) _url="$1";;
 esac
 
 exec streamlink -p mpv "https://twitch.tv/$_url" best & disown
