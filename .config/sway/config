@@ -132,7 +132,7 @@ floating_modifier $mod normal
 	bindsym XF86MonBrightnessUp exec brightnessctl s +5%
 
 	#Audio
-	bindsym {
+	bindsym --locked {
 		$mod+a exec $TERMINAL -e pulsemixer
 		XF86AudioMute exec amixer sset Master toggle
 		XF86AudioRaiseVolume exec amixer sset Master 5%+
