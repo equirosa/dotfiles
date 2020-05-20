@@ -143,7 +143,7 @@ floating_modifier $mod normal
 	bindsym XF86Calculator exec $term -e $CALCULATOR
 
 	# Toggle transmission-daemon
-	bindsym $mod+F6 exec (pgrep -x transmission && notify-send -t 5000 "🟥 transmission daemon already running" || transmission-daemon && notify-send -t 5000 "🟢 strating transmission daemon")
+	bindsym $mod+F6 exec (pgrep -x transmission-da && notify-send -t 5000 "🟥 transmission daemon already running" || transmission-daemon && notify-send -t 5000 "🟢 strating transmission daemon")
 	bindsym $mod+Shift+F6 exec pkill transmission-da && notify-send -t 5000 "❌ stopping transmission daemon"
 
 # Scratchpad:
