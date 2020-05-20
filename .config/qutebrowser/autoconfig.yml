@@ -25,38 +25,13 @@ settings:
     global:
     - https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts
   content.javascript.enabled:
-    '*://*.github.com/*': true
-    '*://*.linuxacademy.com/*': true
-    '*://*.mipanel.ferozo.com/*': true
-    '*://*.www.twitch.tv/*': true
-    '*://127.0.0.1/*': true
-    '*://flathub.org/*': true
-    '*://fosstodon.org/*': true
-    '*://gitlab.gnome.org/*': true
-    '*://itch.io/*': true
-    '*://meet.nixnet.services/*': true
-    '*://moodle.ucenfotec.ac.cr/*': true
-    '*://tt-rss.nixnet.xyz/*': true
-    '*://wallabag.nixnet.xyz/*': true
-    '*://www.nerdfonts.com/*': true
-    '*://www.patreon.com/*': true
-    '*://www.reddit.com/*': true
-    global: false
-    https://nixos.org/nixos/packages.html?channel=nixos-unstable&0ad: true
-    https://searx.neocities.org/?q=pfetch: true
-    https://web.whatsapp.com/: true
-  content.private_browsing:
     global: true
   content.proxy:
-    global: http://localhost:8118/
+    global: system
   content.webgl:
     global: false
   downloads.remove_finished:
     global: -1
-  editor.command:
-    global:
-    - $EDITOR
-    - '{file}'
   spellcheck.languages:
     global:
     - en-US
