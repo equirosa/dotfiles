@@ -1,8 +1,6 @@
 # imports
 import theme.spill
 
-config.load_autoconfig()
-
 # Theme Stuff
 theme.spill.paint(c,{
     'spacing':{
@@ -13,3 +11,6 @@ theme.spill.paint(c,{
 
 # c.content.user_stylesheets = [ 'css/personal.css' ]
 config.set('content.javascript.enabled', False)
+
+# Load automatic config
+config.load_autoconfig()
