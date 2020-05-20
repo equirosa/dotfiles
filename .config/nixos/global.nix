@@ -136,7 +136,6 @@
 
       #### Utilities ####
       alacritty
-      kitty
       starship
       htop
       gotop
