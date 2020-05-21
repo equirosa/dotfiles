@@ -23,6 +23,11 @@ Plug 'LnL7/vim-nix' " .nix files
 Plug 'ap/vim-css-color' " color previews
 Plug 'wlangstroth/vim-racket' " racket
 Plug 'vim-scripts/scribble.vim' " scribble
+" -- Typescript stuff
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'} " For async completion
+Plug 'Shougo/deoplete.nvim' " For Denite features
+Plug 'Shougo/denite.nvim'
 call plug#end()
 
 set mouse=a
@@ -47,6 +52,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 map <leader>C :w! \| !compiler <c-r>%<CR>
 map <C-l> :Lf<CR>
 map <C-p> :PlugUpdate<CR>
+
+let g:deoplete#enable_at_startup = 1
 
 " Setting some filetypes
 autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
