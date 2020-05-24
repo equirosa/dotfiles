@@ -38,11 +38,8 @@ in emacsWithPackages (epkgs:
     transmission
     scribble-mode
     geiser
-    #lua-mode
     #### Theming ####
     gruvbox-theme
-    monokai-theme
-    dracula-theme
     #### Org ####
     babel
   ]) ++ (with epkgs.elpaPackages; [ auctex beacon ])
