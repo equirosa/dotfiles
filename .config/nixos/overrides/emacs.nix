@@ -37,6 +37,7 @@ in emacsWithPackages (epkgs:
     pdf-tools
     transmission
     scribble-mode
+    geiser
     #lua-mode
     #### Theming ####
     gruvbox-theme
