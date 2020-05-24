@@ -11,6 +11,8 @@ let
   emacsWithPackages = (pkgs.emacsPackagesGen myEmacs).emacsWithPackages;
 in emacsWithPackages (epkgs:
   (with epkgs.melpaStablePackages; [ ]) ++ (with epkgs.melpaPackages; [
+    # Completions
+    bash-completion
     # Cosas de GO
     go-mode
     company-go
