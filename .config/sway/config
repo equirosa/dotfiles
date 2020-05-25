@@ -32,6 +32,7 @@ bindsym {
 	$mod+d exec $menu #Launch wofi in command mode
 	$mod+Shift+d exec $desktop #Launch wofi in desktop mode
 	$mod+x exec $lock #Lock screen
+	$mod+Shift+e exec emacsclient -c
 	$mod+Shift+z reload #Reload config
     # Move your focus around
 	$mod+$left focus left
@@ -55,7 +56,6 @@ bindsym {
 	$mod+Shift+Right move right
 	Print exec grim ~/Pictures/screenshots/$(date --iso-8601=ns).png
 	$mod+c exec $term -e calc
-	$mod+Shift+e exec $EDITOR
 }
 floating_modifier $mod normal
 #
