@@ -27,7 +27,7 @@
       FILE = "lf";
       IMG = "imv";
       MAIL = "aerc";
-      READER = "zathura";
+      READER = "emacsclient -p";
       TERMINAL = "alacritty";
       LF_ICONS =
         "di=:fi=:ln=:or=:ex=:*.c=:*.cc=:*.cpp=ﭱ:*.js=:*.vimrc=:*.vim=:*.nix=:*.css=:*.pdf=:*.html=:*.rs=:*.rlib=:*.7z=:*.zip=:*.xz=:*.tar=:*.lz=:*.git=:*.webm=:*.mp4=:*.flac=:*.deb=:*.rpm=:*.py=:*.md=:*.json=:*.mkv=:*.go=:.git=";
@@ -115,7 +115,6 @@
       stig
       streamlink
       youtube-dl
-      zathura # Doc viewer
 
       #### Nixpkgs stuff
       nix-prefetch-git
