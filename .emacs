@@ -27,6 +27,7 @@
 
 (electric-pair-mode 1) ;; Auto-pairs
 (evil-mode 1) ;; Automatically use EVIL
+(setq doc-view-continuous t) ;; Make emacs present the whole document
 
 (setq delete-by-moving-to-trash t) ;; Make dired send to trash instead of deleting the files
 
