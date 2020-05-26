@@ -12,6 +12,7 @@ case "$1" in
 		esac;;
 	*.jpg | *.png) exec "$IMG" "$1" & disown ;;
 	mailto*)	exec aerc "$1" ;;
+	magnet*) exec stig add "$1";;
 	*.html) exec "$BROWSER" "$1" ;;
 	*)  exec /run/current-system/sw/bin/xdg-open "$1" ;;
 esac
