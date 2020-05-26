@@ -2,7 +2,6 @@
 
 case "$1" in
 	*.mp4 | *.webm | *.mkv) exec umpv "$1" & disown ;;
-	*.pdf) exec zathura "$1" & disown;;
 	*invidio.us* | *youtube.com*) exec umpv --ytdl=yes "$1" & disown	;;
 	*twitch*) exec twitch "$1" ;;
 	http* | https* )
@@ -13,6 +12,6 @@ case "$1" in
 	*.jpg | *.png) exec "$IMG" "$1" & disown ;;
 	mailto*)	exec aerc "$1" ;;
 	magnet*) exec stig add "$1";;
-	*.html) exec "$BROWSER" "$1" ;;
+	*.pdf | *.html) exec "$BROWSER" "$1" ;;
 	*)  exec /run/current-system/sw/bin/xdg-open "$1" ;;
 esac
