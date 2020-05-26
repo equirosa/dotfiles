@@ -93,9 +93,7 @@
       lutris
 
       #### TODO: Sort these... ####
-      skribilo
       racket
-      lout
       chiaki
       udiskie
       bat
