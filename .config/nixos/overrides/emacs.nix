@@ -34,7 +34,6 @@ in emacsWithPackages (epkgs:
     keychain-environment
     evil
     magit
-    pdf-tools
     transmission
     scribble-mode
     geiser
