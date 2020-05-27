@@ -48,7 +48,7 @@
     #shell = pkgs.fish;
     createHome = true;
     description = "Eduardo Quiros";
-    extraGroups = [ "wheel" "video" "audio" "networkmanager" ];
+    extraGroups = [ "wheel" "video" "audio" ];
     initialHashedPassword =
       "$6$IpW9o6X.83H$mYxouAAprMhh83PVbRrwRDk684.u9vfPjwXWBrpYEveIEirvlIh.IUXaoKFknetTGTq9xnKfM/bi.5pYaXLUU/";
     isNormalUser = true;
