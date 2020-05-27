@@ -14,3 +14,4 @@ config.set('content.javascript.enabled', False)
 
 # Load automatic config
 config.load_autoconfig()
+config.source('./redirectors.py')
