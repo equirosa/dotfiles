@@ -36,7 +36,7 @@ def _hastebin_redir(url: QUrl) -> bool:
 	return False
 
 def _invidious_instance() -> str:
-    instances = [ 'invidio.us', 'invidious.snopyta.org', 'invidious.13ad.de', 'invidious.fdn.fr' ]
+    instances = [ 'invidio.us', 'invidious.snopyta.org', 'invidious.13ad.de', 'invidious.fdn.fr', 'watch.nettohikari.com' ]
     return random.choice(instances)
 
 def _nitter_instance() -> str:
