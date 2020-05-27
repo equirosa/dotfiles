@@ -146,7 +146,6 @@
     };
   };
   networking.hosts = { "0.0.0.0" = [ "mac-nordvpn-app.firebaseio.com" ]; };
-  nixpkgs.config.allowUnfree = true;
   programs = {
     dconf.enable = true;
     firejail = {
