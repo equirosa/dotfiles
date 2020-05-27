@@ -2,7 +2,7 @@
 
 case "$1" in
 	*.mp4 | *.webm | *.mkv) exec umpv "$1" & disown ;;
-	*invidio.us* | *youtube.com*) exec umpv --ytdl=yes "$1" & disown	;;
+	*invidio* | *youtube.com*) exec umpv --ytdl=yes "$1" & disown	;;
 	*twitch*) exec streamlink -p mpv "$1" best & disown ;;
 	http* | https* )
 		case "$1" in
