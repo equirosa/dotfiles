@@ -1,5 +1,6 @@
 #!/bin/sh
 case "$1" in
+	*mel*) _url="projektmelody";;
 	*womble* | *soviet*) _url="sovietwomble";;
 	*mouse*) _url="ironmouse";;
 	*noble* | *lost* | *pause*) _url="lost_pause";;
