@@ -43,6 +43,10 @@ def _nitter_instance() -> str:
     instances = [ 'nitter.nixnet.services', 'nitter.net' ]
     return random.choice(instances)
 
+def _bibliogram_instance() -> str:
+    instances = [ 'bibliogram.snopyta.org' ]
+    return random.choice(instances)
+
 
 # Any return value other than a literal 'False' means we redirected
 REDIRECT_MAP = {
@@ -53,6 +57,8 @@ REDIRECT_MAP = {
 	"mobile.twitter.com": operator.methodcaller('setHost', _nitter_instance()),
         "youtube.com": operator.methodcaller('setHost', _invidious_instance()),
         "www.youtube.com": operator.methodcaller('setHost', _invidious_instance()),
+        "instagram.com": operator.methodcaller('setHost', _bibliogram_instance()),
+        "www.instagram.com": operator.methodcaller('setHost', _bibliogram_instance()),
 
 	# Pastebins
 	"paste.debian.net": _debian_redir,
