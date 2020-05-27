@@ -7,6 +7,7 @@
     ./misc/cleanup.nix
     ./editors/emacs.nix
     ./packages/insecure.nix
+    ./packages/unfree.nix
     ./location.nix
     ./theme.nix
     ./printing.nix
