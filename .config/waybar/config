@@ -34,7 +34,7 @@
 	"network": {
 		"on-click" : "$TERMINAL -e nmtui",
 		"interval": 30,
-		"format-ethernet": "{bandwidthDownBits} {bandwidthUpBits} {icon}",
+		"format-ethernet": "{bandwidthDownBits}  {bandwidthUpBits}  {icon}",
 		"format-wifi": "{essid} {signalStrength}% {icon}",
 		"format-disconnected": "{icon}",
 		"format-icons": {
