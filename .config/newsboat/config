@@ -24,6 +24,7 @@ bind-key T toggle-show-read-feeds
 
 # Macros
 macro w set browser "lynx"; open-in-browser-and-mark-read ; set browser "xdg-open"
+macro y set browser "youtube-dl"; open-in-browser ; set browser "xdg-open"
 
 # Colors
 color listnormal cyan default
