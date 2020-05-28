@@ -164,7 +164,10 @@
     };
     thefuck.enable = true;
   };
-  services = { stubby.enable = true; };
+  services = {
+    udisks2.enable = true;
+    stubby.enable = true;
+  };
   system.autoUpgrade = {
     enable = true;
     dates = "12:00";
