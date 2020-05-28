@@ -55,7 +55,7 @@ map <C-l> :Lf<CR>
 map <C-p> :PlugUpdate<CR>
 
 " CoC extensions
-let g:coc_global_extensions = ['coc-tsserver']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-css']
 
 " Show autocomplete when Tab is pressed
 inoremap <silent><expr> <Tab> coc#refresh()
