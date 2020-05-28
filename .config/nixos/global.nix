@@ -5,7 +5,6 @@
     ./backups/external.nix
     ./misc/32bit.nix
     ./misc/cleanup.nix
-    ./editors/emacs.nix
     ./packages/insecure.nix
     ./packages/unfree.nix
     ./location.nix
