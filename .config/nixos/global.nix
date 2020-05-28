@@ -119,6 +119,7 @@
       nix-prefetch-github
       nixfmt
       nox
+      rnix-lsp
       vgo2nix
 
       #### Org mode things ####
