@@ -9,7 +9,7 @@ theme.spill.paint(c,{
     }
 })
 
-# c.content.user_stylesheets = [ 'css/personal.css' ]
+c.content.user_stylesheets = [ 'css/personal.css' ]
 config.set('content.javascript.enabled', False)
 
 # Load automatic config
