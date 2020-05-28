@@ -5,4 +5,5 @@ borg create --progress \
 	--exclude "*/league-of-legends/*"\
 	--exclude '*/.stfolder'\
 	--exclude "*/oses/*"\
+	--exclude "*/node_modules/*"\
 	--compression auto,lz4
