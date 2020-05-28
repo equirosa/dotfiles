@@ -1407,11 +1407,6 @@ body {
 html {
   background-color: #282828 !important;
 }
-input,
-textarea {
-  background-color: #928374 !important;
-  color: #839496 !important;
-}
 tr:hover,
 blockquote,
 pre {
