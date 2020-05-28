@@ -293,6 +293,7 @@ a.filter-item:hover,
 .form-control {
   background-color: #928374 !important;
   border-color: #586e75 !important;
+  color: #282828 !important;
 }
 .pl-c {
   color: #586e75 !important;
