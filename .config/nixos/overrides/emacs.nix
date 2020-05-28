@@ -12,6 +12,7 @@ let
 in emacsWithPackages (epkgs:
   (with epkgs.melpaStablePackages; [ ]) ++ (with epkgs.melpaPackages; [
     # Completions
+    eglot
     bash-completion
     # Cosas de GO
     go-mode
