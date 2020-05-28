@@ -18,7 +18,6 @@ Plug 'morhetz/gruvbox' " gruvbox colorscheme
 Plug 'jiangmiao/auto-pairs' " automatic pairing
 Plug 'preservim/nerdcommenter' " Make some commenting easier
 " Syntax highlighting
-Plug 'dag/vim-fish' " .fish files
 Plug 'LnL7/vim-nix' " .nix files
 Plug 'ap/vim-css-color' " color previews
 Plug 'wlangstroth/vim-racket' " racket
@@ -56,9 +55,6 @@ map <C-p> :PlugUpdate<CR>
 
 " CoC extensions
 let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-css']
-
-" Show autocomplete when Tab is pressed
-inoremap <silent><expr> <Tab> coc#refresh()
 
 " Setting some filetypes
 autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
