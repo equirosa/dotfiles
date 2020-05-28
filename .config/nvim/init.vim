@@ -24,10 +24,11 @@ Plug 'ap/vim-css-color' " color previews
 Plug 'wlangstroth/vim-racket' " racket
 Plug 'vim-scripts/scribble.vim' " scribble
 " -- Typescript stuff
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'} " For async completion
-Plug 'Shougo/deoplete.nvim' " For Denite features
-Plug 'Shougo/denite.nvim'
+Plug 'pangloss/vim-javascript' " JS support
+Plug 'leafgarland/typescript-vim' " TS syntax
+Plug 'maxmellon/vim-jsx-pretty' " JS and JSX syntax
+" completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 set mouse=a
@@ -53,10 +54,14 @@ map <leader>C :w! \| !compiler <c-r>%<CR>
 map <C-l> :Lf<CR>
 map <C-p> :PlugUpdate<CR>
 
-let g:deoplete#enable_at_startup = 1
+" CoC extensions
+let g:coc_global_extensions = ['coc-tsserver']
+
+" Show autocomplete when Tab is pressed
+inoremap <silent><expr> <Tab> coc#refresh()
 
 " Setting some filetypes
 autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 autocmd BufRead,BufNewFile *.guile set filetype=scheme
 autocmd BufRead,BufNewFile *.scrbl set filetype=scribble
-autocmd BufRead,BufNewFile *lfrc set filetype=conf
+autocmd BufRead,BufNewFile *lfrc,*sway/* set filetype=conf
