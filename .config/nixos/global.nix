@@ -67,7 +67,6 @@
       aerc # Mail reader
       dino # XMPP client
       riot-desktop # Matrix client
-      signal-desktop # Signal
       weechat # IRC + other protocols
 
       #### Dev Stuff ####
