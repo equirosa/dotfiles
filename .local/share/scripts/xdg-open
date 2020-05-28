@@ -11,7 +11,7 @@ case "$1" in
 		esac;;
 	*.jpg | *.png) exec "$IMG" "$1" & disown ;;
 	mailto*)	exec aerc "$1" ;;
-	magnet*) exec stig add "$1";;
+	magnet*) exec stig add "$1"; notify-send "Torrent Added! 酪";;
 	*.pdf | *.html) exec "$BROWSER" "$1" ;;
 	*)  exec /run/current-system/sw/bin/xdg-open "$1" ;;
 esac
