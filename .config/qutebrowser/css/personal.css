@@ -1,0 +1,27 @@
+:root {
+	/*Handle background and foreground.*/
+	--gruvbox-background: #1d2021;
+	--gruvbox-foreground: #ebdbb2;
+	/*Normal colors.*/
+	--gruvbox-black: #282828;
+	--gruvbox-red: #cc241d;
+	--gruvbox-green: #98971a;
+	--gruvbox-blue: #458588;
+	--gruvbox-white: #a89984;
+	/*Bright colors.*/
+	--gruvbox-bright-black: #928374;
+}
+
+body, p, .mw-body, .toc, #content {
+	background-color: var(--gruvbox-background);
+	color: var(--gruvbox-foreground);
+}
+
+pre {
+	background-color: var(--gruvbox-bright-black);
+}
+
+/*Handle come link styles*/
+a {
+	color: var(--gruvbox-blue);
+}
