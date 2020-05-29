@@ -9,6 +9,7 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin()
+Plug 'vimwiki/vimwiki' " vim wiki, duh
 Plug 'tpope/vim-fugitive' " git integration for vim
 Plug 'itchyny/lightline.vim' " replace bottom statusline
 Plug 'rbgrouleff/bclose.vim' " For use with lf.vim
