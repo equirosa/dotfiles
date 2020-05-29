@@ -30,7 +30,7 @@ p {
 	background-color: #282828 !important;
 	color: #ebdbb2 !important;
 }
-.pt-3, .py-3, .navbar, .p-3, section#region-main, #page-wrapper #page #page-content {
+.p-5, .d-flex, .pt-3, .py-3, .navbar, .p-3, section#region-main, #page-wrapper #page #page-content {
 	background-color: #282828 !important;
 	color: #ebdbb2 !important;
 }
@@ -196,7 +196,7 @@ a.filter-item:hover,
   color: #93a1a1 !important;
 }
 .flash {
-  background-color: #928374 !important;
+  background-color: #282828 !important;
   color: #93a1a1 !important;
 }
 .gh-header-number {
@@ -629,7 +629,7 @@ qul.branches-list * {
 }
 .reponav-item,
 .pagehead-tabs-item {
-  background-color: #928374 !important;
+  background-color: #282828 !important;
   border-color: transparent !important;
   color: #839496 !important;
 }
@@ -823,7 +823,8 @@ ul.comparison-list {
   color: #839496 !important;
 }
 .pagehead.repohead {
-  background-color: #928374 !important;
+  background-color: #282828 !important;
+  border-color: #839496 !important;
 }
 .repository-content .RecentBranches {
   background-color: #928374 !important;
