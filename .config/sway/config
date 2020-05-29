@@ -32,6 +32,7 @@ bindsym {
 	$mod+d exec $menu #Launch wofi in command mode
 	$mod+Shift+d exec $desktop #Launch wofi in desktop mode
 	$mod+x exec $lock #Lock screen
+	$mod+Shift+x exec amixer sset Master toggle && $lock
 	$mod+Shift+e exec emacsclient -c
 	$mod+Shift+z reload #Reload config
     # Move your focus around
