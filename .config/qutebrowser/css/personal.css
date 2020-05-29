@@ -4,10 +4,10 @@
   border-color: #657b83 !important;
 }
 a {
-  color: #83a598 !important;
+  color: #458588 !important;
 }
 a:visited {
-  color: #d3869b !important;
+  color: #b16286 !important;
 }
 body {
   background-color: #282828 !important;
@@ -27,6 +27,11 @@ pre {
   color: #282828 !important;
 }
 p {
+	background-color: #282828 !important;
+	color: #ebdbb2 !important;
+}
+.pt-3, .py-3, .navbar, .p-3, section#region-main, #page-wrapper #page #page-content {
+	background-color: #282828 !important;
 	color: #ebdbb2 !important;
 }
 .post-actions {
@@ -1207,9 +1212,9 @@ div#simpleSearch #searchInput {
 #toc,
 #toctitle,
 .toclevel-1 {
-  background-color: #928374 !important;
-  border-color: #094352 !important;
-  color: #93a1a1 !important;
+  color: #928374 !important;
+  border-color: #458588 !important;
+  background-color: #282828 !important;
 }
 .catlinks {
   background-color: #928374 !important;
@@ -1249,6 +1254,7 @@ code {
   color: #93a1a1 !important;
 }
 div.thumbinner {
+	color: #282828 !important;
   background-color: #928374 !important;
   border-color: #094352 !important;
 }
@@ -1397,12 +1403,6 @@ body.comment {
 }
 * {
   border-color: #657b83 !important;
-}
-a {
-  color: #268bd2 !important;
-}
-a:visited {
-  color: #6c71c4 !important;
 }
 body {
   background-color: #282828 !important;
