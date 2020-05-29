@@ -12,8 +12,12 @@
 	--gruvbox-bright-black: #928374;
 }
 
-body, p, .mw-body, .toc, #content {
+body, p, .mw-body, .toc, #content, p-6 {
 	background-color: var(--gruvbox-background);
+	color: var(--gruvbox-foreground);
+}
+
+h1, h2, h3 {
 	color: var(--gruvbox-foreground);
 }
 
