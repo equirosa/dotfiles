@@ -23,6 +23,7 @@ bind-key u show-urls
 bind-key T toggle-show-read-feeds
 
 # Macros
+macro o open-in-browser-and-mark-read
 macro w set browser "lynx"; open-in-browser-and-mark-read ; set browser "xdg-open"
 macro y set browser "youtube-dl"; open-in-browser ; set browser "xdg-open"
 
