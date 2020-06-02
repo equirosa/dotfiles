@@ -1,0 +1,5 @@
+#!/bin/sh
+case "$1" in
+	"add" ) exec mv "$2" "~/Videos/watchlist/$2" ;;
+	* ) exec mv "$1" "~/Videos/watchlist/$1" ;;
+esac
