@@ -35,7 +35,8 @@ alias c="cd"\
 	nsp="nix-shell -p"\
 	rm="rm -rvI"\
 	v="$EDITOR"\
-	vi="$EDITOR"
+	vi="$EDITOR"\
+	x="xdg-open"
 
 # Replacements
 alias cat="bat -p"\
