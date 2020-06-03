@@ -10,9 +10,9 @@ settings:
     global:
       normal:
         ',M': spawn xdg-open {url}
-        ',Y': spawn youtube-dl --prefer-free-formats {url}
+        ',Y': spawn watchlist {url}
         ',m': hint links spawn xdg-open {hint-url}
-        ',y': hint links spawn youtube-dl --prefer-free-formats {hint-url}
+        ',y': hint links spawn watchlist {hint-url}
         zl: spawn --userscript qute-pass --mode gopass
         zol: spawn --userscript qute-pass --mode gopass --otp-only
   completion.web_history.max_items:
