@@ -14,6 +14,7 @@ settings:
         ',m': hint links spawn xdg-open {hint-url}
         ',y': hint links spawn watchlist {hint-url}
         arss: open javascript:location.href='https://reader.miniflux.app/bookmarklet?uri='+encodeURIComponent(window.location.href)
+        aw: open javascript:(function()%7Bvar%20url=location.href%7C%7Curl;var%20wllbg=window.open('https://wallabag.nixnet.xyz/bookmarklet?url='%20+%20encodeURIComponent(url),'_blank');%7D)();
         zl: spawn --userscript qute-pass --mode gopass
         zol: spawn --userscript qute-pass --mode gopass --otp-only
   completion.web_history.max_items:
