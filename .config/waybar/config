@@ -58,8 +58,8 @@
 		}
 	},
 	"clock": {
-		"format": "{: %H:%M}"
 		"interval": 10,
+		"format": "{: %Y/%m/%d - %a -  %R}"
 	},
 	"tray": {
 		"icon-size": 18
