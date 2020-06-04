@@ -13,6 +13,7 @@ map <enter> shell # use enter for shell commands
 map o $xdg-open $f
 map bg &make-wallpaper $f
 map M push $mkdir<space>
+map W $watchlist add $f
 
 map <bs2> set hidden! # toggle state of display for hidden files and directories
 map L $lazygit
