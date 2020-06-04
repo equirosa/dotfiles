@@ -25,6 +25,7 @@ alias grep="grep --color=always"
 # Shortening some commands
 alias c="cd"\
 	dateh="date --help | grep %"\
+	fd="fd -I"\
 	g="git"\
 	gcp="git commit -a; git push"\
 	lg="lazygit"\
