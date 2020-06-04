@@ -58,8 +58,8 @@
 		}
 	},
 	"clock": {
-		"interval": 5,
 		"format": "{: %H:%M}"
+		"interval": 10,
 	},
 	"tray": {
 		"icon-size": 18
