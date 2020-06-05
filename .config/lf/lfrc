@@ -9,7 +9,7 @@ set scrolloff 10 # leave some space at the top and the bottom of the screen
 # Custom Mappings
 map <enter> shell # use enter for shell commands
 
-# dedicated keys for file opener actions
+# dedicated keys for file actions
 map o $xdg-open $f
 map bg &make-wallpaper $f
 map M push $mkdir<space>
