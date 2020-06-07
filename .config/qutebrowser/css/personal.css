@@ -10,22 +10,27 @@
 	--gruvbox-white: #a89984;
 	/*Bright colors.*/
 	--gruvbox-bright-black: #928374;
+	--gruvbox-bright-blue: #83a598;
 }
 
-#wrap, body, p, .mw-body, .toc, #content, .p-5, p-6 {
-	background-color: var(--gruvbox-background);
-	color: var(--gruvbox-foreground);
+#wrap, body, p, .mw-body, .toc, #content, .p-5, p-6, .pagehead {
+	background-color: var(--gruvbox-background) !important;
+	color: var(--gruvbox-foreground) !important;
 }
 
-h1, h2, h3 {
-	color: var(--gruvbox-foreground);
+h1, h2, h3, .text-gray-dark {
+	color: var(--gruvbox-foreground) !important;
 }
 
 pre {
-	background-color: var(--gruvbox-bright-black);
+	background-color: var(--gruvbox-bright-black) !important;
 }
 
 /*Handle come link styles*/
 a {
 	color: var(--gruvbox-blue);
+}
+
+a:hover{
+	color: var(--gruvbox-bright-blue);
 }
