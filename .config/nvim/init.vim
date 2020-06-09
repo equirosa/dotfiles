@@ -61,3 +61,4 @@ autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 autocmd BufRead,BufNewFile *.guile set filetype=scheme
 autocmd BufRead,BufNewFile *.scrbl set filetype=scribble
 autocmd BufRead,BufNewFile *lfrc,*sway/* set filetype=conf
+autocmd BufRead,BufNewFile *.md set filetype=markdown
