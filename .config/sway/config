@@ -55,7 +55,6 @@ bindsym {
 	$mod+Shift+Down move down
 	$mod+Shift+Up move up
 	$mod+Shift+Right move right
-	Print exec grim ~/Pictures/screenshots/$(date --iso-8601=ns).png
 	$mod+c exec $term -e calc
 }
 floating_modifier $mod normal
@@ -161,7 +160,8 @@ floating_modifier $mod normal
 
 # Screenshots:
 bindsym {
-	Shift+Print exec grim -g "$(slurp)" ~/Pictures/screenshots/$(date --iso-8601=ns).png
+	Print exec grim -g "$(slurp)" ~/Pictures/screenshots/$(date --iso-8601=ns).png
+	Shift+Print exec grim ~/Pictures/screenshots/$(date --iso-8601=ns).png
 }
 
 
