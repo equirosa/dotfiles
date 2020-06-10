@@ -42,4 +42,5 @@
       package = pkgs.redshift-wlr;
     };
   };
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
 }
