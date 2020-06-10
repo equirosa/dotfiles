@@ -34,3 +34,12 @@ a {
 a:hover{
 	color: var(--gruvbox-bright-blue);
 }
+
+/*Arch wiki stuff*/
+div.archwiki-template-box.archwiki-template-box-warning {
+	background-color: var(--gruvbox-red);
+}
+div.archwiki-template-box.archwiki-template-box-tip {
+	background-color: var(--gruvbox-green);
+}
+/*Arch wiki stuff*/
