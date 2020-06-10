@@ -30,6 +30,7 @@ settings:
     - https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts
   content.javascript.enabled:
     global: false
+    https://web.whatsapp.com/: true
   content.pdfjs:
     global: true
   content.proxy:
