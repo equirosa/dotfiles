@@ -13,7 +13,7 @@
 	--gruvbox-bright-blue: #83a598;
 }
 
-.game_column, #wrap, body, p, .mw-body, .toc, #content, .p-5, p-6, .pagehead {
+code, #wrapper, .game_column, #wrap, body, p, .mw-body, .toc, #content, .p-5, p-6, .pagehead {
 	background-color: var(--gruvbox-background) !important;
 	color: var(--gruvbox-foreground) !important;
 }
@@ -26,7 +26,7 @@ pre {
 	background-color: var(--gruvbox-bright-black) !important;
 }
 
-/*Handle come link styles*/
+/*Handle some link styles*/
 a {
 	color: var(--gruvbox-blue);
 }
