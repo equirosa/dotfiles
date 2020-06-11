@@ -18,7 +18,7 @@ code, #wrapper, .game_column, #wrap, body, p, .mw-body, .toc, #content, .p-5, p-
 	color: var(--gruvbox-foreground) !important;
 }
 
-h1, h2, h3, .text-gray-dark {
+h1, h2, h3, h4, h5, h6, .text-gray-dark {
 	color: var(--gruvbox-foreground) !important;
 }
 
