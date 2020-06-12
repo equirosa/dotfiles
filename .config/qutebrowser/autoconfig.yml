@@ -41,6 +41,13 @@ settings:
     global: false
   downloads.remove_finished:
     global: -1
+  editor.command:
+    global:
+    - alacritty -e nvim
+    - -f
+    - '{file}'
+    - -c
+    - normal {line}G{column0}l
   spellcheck.languages:
     global:
     - en-US
