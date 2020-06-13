@@ -6,4 +6,4 @@ borg create --progress \
 	--exclude '*/.stfolder'\
 	--exclude "*/oses/*"\
 	--exclude "*/node_modules/*"\
-	--compression auto,zstd
+	--compression auto,zstd,10
