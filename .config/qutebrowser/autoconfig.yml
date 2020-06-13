@@ -71,5 +71,6 @@ settings:
       snap: https://snapcraft.io/search?q={}
       v: https://wiki.voidlinux.org/index.php?search={}
       w: https://en.wikipedia.org/w/index.php?search={}
+      y: https://youtube.com/search?q={}
   url.start_pages:
     global: https://searx.neocities.org
