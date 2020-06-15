@@ -4,6 +4,7 @@ case "$1" in
 	*.mp4 | *.webm | *.mkv) exec umpv "$1" & disown ;;
 	*invidio* | *nettohikari* | *youtube.com*) exec umpv --ytdl=yes "$1" & disown	;;
 	*twitch*) exec streamlink -p mpv "$1" best & disown ;;
+	magnet* | *.torrent) exec stig add "$1"; notify-send "Torrent Added! 酪";;
 	http* | https* )
 		case "$1" in
 			*.jpg | *.png) curl "$1" -o "/tmp/image" && $IMG "/tmp/image" & disown ;;
@@ -11,7 +12,6 @@ case "$1" in
 		esac;;
 	*.jpg | *.png) exec "$IMG" "$1" & disown ;;
 	mailto*)	exec aerc "$1" ;;
-	magnet* | *.torrent) exec stig add "$1"; notify-send "Torrent Added! 酪";;
 	*.pdf | *.html) exec "$BROWSER" "$1" ;;
 	*)  exec /run/current-system/sw/bin/xdg-open "$1" ;;
 esac
