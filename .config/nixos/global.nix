@@ -8,7 +8,6 @@
     ./packages/insecure.nix
     ./packages/unfree.nix
     ./location.nix
-    ./theme.nix
     ./printing.nix
     ./tor.nix
     ./audio.nix
@@ -16,7 +15,6 @@
     ./fonts.nix
     ./virtualization.nix
   ];
-  boot.kernel.sysctl = { "vm.swappiness" = 0; };
   environment = {
     # memoryAllocator.provider = "graphene-hardened";
     variables = {
@@ -59,7 +57,7 @@
       weechat # IRC + other protocols
 
       #### Dev Stuff ####
-      gitAndTools.gitFull
+      gitMinimal
 
       #### File Management ####
       trash-cli # Trash files
@@ -93,13 +91,10 @@
       keychain # Fewer password prmpts
       lazygit # git for lazy people
       libnotify # Notification stuff
-      mpv # Video Player
       speedtest-cli
       toot # Mastodon client
       transmission
       stig
-      streamlink
-      youtube-dl
 
       #### Nixpkgs stuff
       nix-prefetch-git
@@ -112,10 +107,16 @@
       #### Org mode things ####
       texlive.combined.scheme-full # LaTeX stuff
 
+      # Media Playback
+      mpv # Video Player
       python3 # Necessary for umpv script to work
+      streamlink
+      youtube-dl
 
-      #### Rust Dev ####
-      neovim
+      #### Document ####
+      neovim # EDITOR
+      nodejs # For Coc.nvim
+      pandoc # Doc processing
 
       #### Utilities ####
       alacritty
