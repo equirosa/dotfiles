@@ -30,6 +30,7 @@ settings:
     - https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts
   content.javascript.enabled:
     global: false
+    https://fosstodon.org/*: true
     https://docs.google.com/*: true
     https://drive.google.com/*: true
     https://moodle.ucenfotec.ac.cr/*: true
