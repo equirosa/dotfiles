@@ -14,7 +14,7 @@ super + e
   $TERMINAL -e $MAIL & disown
 
 super + q
-  xdotool windowkill (xdotool getactivewindow)
+  xdotool windowkill "$(xdotool getactivewindow)"
 
 super + r
   $TERMINAL -e $FILE & disown
