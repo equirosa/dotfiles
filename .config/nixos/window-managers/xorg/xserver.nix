@@ -23,7 +23,6 @@
       libinput = {
         enable = true;
         disableWhileTyping = true;
-        naturalScrolling = true;
       };
     };
   };
