@@ -12,7 +12,11 @@ symbol = " "
 [haskell]
 symbol = " "
 
+[hostname]
+ssh_only = false
+
 [nix_shell]
+use_name = true
 symbol = " "
 
 [package]
@@ -23,3 +27,6 @@ symbol = " "
 
 [rust]
 symbol = " "
+
+[username]
+show_always = true
