@@ -45,7 +45,7 @@
       qsyncthingtray
 
       #### Browsers ####
-      firefox-wayland
+      firefox
       lynx # Lightweight cli web browser
       qutebrowser # Best browser ever
       tor-browser-bundle-bin # Tor Browser
