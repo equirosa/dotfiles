@@ -8,4 +8,5 @@
 sxhkd &
 picom &
 udiskie &
+xidlehook --timer 300 "betterlockscreen -l" "" & disown
 exec awesome
