@@ -28,6 +28,8 @@ Plug 'leafgarland/typescript-vim' " TS syntax
 Plug 'maxmellon/vim-jsx-pretty' " JS and JSX syntax
 " completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 set mouse=a
