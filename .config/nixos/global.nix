@@ -94,7 +94,6 @@
       speedtest-cli
       toot # Mastodon client
       transmission
-      stig
 
       #### Nixpkgs stuff
       nix-prefetch-git
