@@ -15,4 +15,4 @@ export MONITOR="gotop"\
 # Autostarts
 udiskie & disown
 transmission-daemon & disown
-[ "$(tty)" = "/dev/tty1" ] && exec sway
+[ "$(tty)" = "/dev/tty1" ] && startx
