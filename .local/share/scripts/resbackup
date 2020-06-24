@@ -12,4 +12,5 @@ restic -r /run/media/eduardo/2e571771-81db-41a5-a0b6-d5c6d3b8bf88/restic\
 	"$HOME/Downloads"\
 	--exclude "*/league-of-legends/*"\
 	--exclude "*/oses/*"\
-	--exclude "*/node_modules/*"
+	--exclude "*/node_modules/*"\
+	--exclude "Games/battlenet"
