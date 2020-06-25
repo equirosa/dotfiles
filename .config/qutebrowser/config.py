@@ -47,7 +47,8 @@ allow_JS  = [
     "*://127.0.0.1/*",
     "https://github.com/*",
     "https://flathub.org/*",
-    "https://searx.neocities.org/*"
+    "https://searx.neocities.org/*",
+    "https://web.whatsapp.com"
 ]
 for site in allow_JS:
     with config.pattern(site) as p:
