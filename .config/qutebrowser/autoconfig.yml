@@ -29,10 +29,11 @@ settings:
     global:
     - https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts
   content.javascript.enabled:
-    global: false
-    https://fosstodon.org/*: true
+    '*://127.0.0.1/*': true
+    https://searx.neocities.org/*: true
     https://docs.google.com/*: true
     https://drive.google.com/*: true
+    https://fosstodon.org/*: true
     https://moodle.ucenfotec.ac.cr/*: true
     https://reader.miniflux.app/*: true
     https://share.tube/*: true
@@ -41,6 +42,9 @@ settings:
     global: true
   content.proxy:
     global: system
+  content.user_stylesheets:
+    https://eduardoquiros.xyz/*: null
+    global: null
   content.webgl:
     global: false
   downloads.remove_finished:
