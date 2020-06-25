@@ -53,3 +53,5 @@ allow_JS  = [
 for site in allow_JS:
     with config.pattern(site) as p:
         p.content.javascript.enabled = True
+
+c.spellcheck.languages = [ "en-US", "es-ES"]
