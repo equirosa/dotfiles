@@ -24,8 +24,6 @@ theme.spill.paint(c,{
 })
 c.content.user_stylesheets = [ 'css/personal.css' ]
 
-c.content.javascript.enabled = False
-
 config.source('./redirectors.py')
 
 # TODO Sort these
@@ -41,3 +39,16 @@ c.url.searchengines = {
 
 # Load automatic config
 # config.load_autoconfig()
+
+# JS
+c.content.javascript.enabled = False
+allow_JS  = [
+    "*://localhost/*",
+    "*://127.0.0.1/*",
+    "https://github.com/*",
+    "https://flathub.org/*",
+    "https://searx.neocities.org/*"
+]
+for site in allow_JS:
+    with config.pattern(site) as p:
+        p.content.javascript.enabled = True
