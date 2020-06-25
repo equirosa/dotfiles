@@ -32,7 +32,7 @@ config.source('./redirectors.py')
 c.content.fullscreen.window = True # Limits 'fullscreen' to window dimensions
 c.content.autoplay = False # Disables autplay of videos
 c.editor.command = [ 'alacritty', '-e', 'nvim', '{file}' ]
-c.url.open_base_url = True # Opens
+c.url.open_base_url = True # Opens search engine when no search param is given
 c.url.searchengines = {
         'DEFAULT': 'https://searx.neocities.org/?q={}',
         'a': 'https://wiki.archlinux.org/index.php?search={}'
