@@ -22,6 +22,7 @@ Plug 'LnL7/vim-nix' " .nix files
 Plug 'ap/vim-css-color' " color previews
 Plug 'wlangstroth/vim-racket' " racket
 Plug 'vim-scripts/scribble.vim' " scribble
+Plug 'cespare/vim-toml' " toml
 " -- Typescript stuff
 Plug 'pangloss/vim-javascript' " JS support
 Plug 'leafgarland/typescript-vim' " TS syntax
