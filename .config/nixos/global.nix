@@ -15,6 +15,7 @@
     ./fonts.nix
     ./virtualization.nix
   ];
+  boot = { kernelPackages = pkgs.linuxPackages_latest; };
   environment = {
     # memoryAllocator.provider = "graphene-hardened";
     variables = {
