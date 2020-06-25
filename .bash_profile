@@ -13,7 +13,7 @@ export MONITOR="gotop"\
 
 
 # Autostarts
-    eval "$(keychain --eval --quiet --agents ssh --inherit local-once sourcehut github gitlab codeberg vultr-debian)"
+eval "$(keychain --eval --quiet --agents ssh --inherit local-once sourcehut github gitlab codeberg vultr-debian)"
 udiskie & disown
 transmission-daemon & disown
 [ "$(tty)" = "/dev/tty1" ] && startx
