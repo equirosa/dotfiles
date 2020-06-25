@@ -5,20 +5,6 @@
 # Instead, create a config.py - see :help for details.
 
 config_version: 2
-settings:
-  content.javascript.enabled:
-    '*://127.0.0.1/*': true
-    '*://github.com/*': true
-    '*://mail.tutanota.com/*': true
-    '*://meet.google.com/*': true
-    '*://searx.neocities.org/*': true
-    https://docs.google.com/*: true
-    https://drive.google.com/*: true
-    https://fosstodon.org/*: true
-    https://moodle.ucenfotec.ac.cr/*: true
-    https://reader.miniflux.app/*: true
-    https://share.tube/*: true
-    https://web.whatsapp.com/: true
   content.webgl:
     global: false
   downloads.remove_finished:
