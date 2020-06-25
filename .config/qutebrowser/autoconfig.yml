@@ -6,31 +6,12 @@
 
 config_version: 2
 settings:
-  bindings.commands:
-    global:
-      normal:
-        ',M': spawn xdg-open {url}
-        ',Y': spawn watchlist {url}
-        ',m': hint links spawn xdg-open {hint-url}
-        ',y': hint links spawn watchlist {hint-url}
-        ar: open javascript:location.href='https://reader.miniflux.app/bookmarklet?uri='+encodeURIComponent(window.location.href)
-        aw: open javascript:(function()%7Bvar%20url=location.href%7C%7Curl;var%20wllbg=window.open('https://wallabag.nixnet.xyz/bookmarklet?url='%20+%20encodeURIComponent(url),'_blank');%7D)();
-        zl: spawn --userscript qute-pass --mode gopass
-        zol: spawn --userscript qute-pass --mode gopass --otp-only
-  completion.web_history.max_items:
-    global: 0
-  content.autoplay:
-    global: false
-  content.cookies.accept:
-    global: all
-  content.headers.do_not_track:
-    global: false
-  content.host_blocking.lists:
-    global:
-    - https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts
   content.javascript.enabled:
     '*://127.0.0.1/*': true
-    https://searx.neocities.org/*: true
+    '*://github.com/*': true
+    '*://mail.tutanota.com/*': true
+    '*://meet.google.com/*': true
+    '*://searx.neocities.org/*': true
     https://docs.google.com/*: true
     https://drive.google.com/*: true
     https://fosstodon.org/*: true
@@ -38,47 +19,13 @@ settings:
     https://reader.miniflux.app/*: true
     https://share.tube/*: true
     https://web.whatsapp.com/: true
-  content.pdfjs:
-    global: true
-  content.proxy:
-    global: system
-  content.user_stylesheets:
-    https://eduardoquiros.xyz/*: null
-    global: null
   content.webgl:
     global: false
   downloads.remove_finished:
     global: -1
-  editor.command:
-    global:
-    - alacritty -e nvim
-    - -f
-    - '{file}'
-    - -c
-    - normal {line}G{column0}l
   spellcheck.languages:
     global:
     - en-US
     - es-ES
   tabs.background:
     global: true
-  url.searchengines:
-    global:
-      DEFAULT: https://searx.neocities.org/?q={}
-      a: https://wiki.archlinux.org/index.php?search={}
-      aur: https://aur.archlinux.org/packages/?O=0&K={}
-      d: https://duckduckgo.com/?q={}
-      e: https://ecosia.org/search?q={}
-      flathub: https://flathub.org/apps/search/{}
-      gh: https://github.com/search?utf8=%E2%9C%93&q={}
-      melpa: https://melpa.org/#/?q={}
-      n: https://nixos.wiki/index.php?search={}&go=Go
-      np: https://nixos.org/nixos/packages.html?channel=nixos-unstable&query={}
-      p: https://www.protondb.com/search?q={}
-      searx: https://searx.neocities.org/?q={}
-      snap: https://snapcraft.io/search?q={}
-      v: https://wiki.voidlinux.org/index.php?search={}
-      w: https://en.wikipedia.org/w/index.php?search={}
-      y: https://youtube.com/search?q={}
-  url.start_pages:
-    global: https://searx.neocities.org
