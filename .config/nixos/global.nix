@@ -147,6 +147,7 @@
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
+      pinentryFlavor = "gnome3";
     };
     thefuck.enable = true;
   };
