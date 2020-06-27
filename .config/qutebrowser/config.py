@@ -49,7 +49,8 @@ allow_JS  = [
     "https://flathub.org/*",
     "https://searx.neocities.org/*",
     "https://web.whatsapp.com",
-    "https://moodle.ucenfotec.ac.cr/*"
+    "https://moodle.ucenfotec.ac.cr/*",
+    "https://reader.miniflux.app/*"
 ]
 for site in allow_JS:
     with config.pattern(site) as p:
