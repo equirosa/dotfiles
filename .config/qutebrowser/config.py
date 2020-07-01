@@ -51,6 +51,9 @@ allow_JS  = [
     "https://searx.neocities.org/*",
     "https://web.whatsapp.com",
     "https://moodle.ucenfotec.ac.cr/*",
+    "https://drive.google.com/*",
+    "https://meet.google.com/*",
+    "https://docs.google.com/*",
     "https://reader.miniflux.app/*"
 ]
 for site in allow_JS:
