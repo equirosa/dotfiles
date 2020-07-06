@@ -35,6 +35,7 @@ c.url.searchengines = {
         'DEFAULT': 'https://searx.neocities.org/?q={}',
         'a': 'https://wiki.archlinux.org/index.php?search={}',
         'd': 'https://duckduckgo.com/?q={}',
+        'e': 'https://www.ecosia.org/search?q={}',
         'f': 'https://flathub.org/apps/search/{}',
         'g': 'https://github.com/search?q={}'
         }
