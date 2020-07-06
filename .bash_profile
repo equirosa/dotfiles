@@ -17,5 +17,5 @@ export MONITOR="gotop"\
 eval "$(keychain --eval --quiet --agents ssh --inherit local-once sourcehut github gitlab codeberg vultr-debian)"
 pgrep -x syncthing >>/dev/null || syncthing & disown
 udiskie & disown
-transmission-daemon & disown
+pgrep -x transmission-da >>/dev/null || transmission-daemon & disown
 [ "$(tty)" = "/dev/tty1" ] && startx
