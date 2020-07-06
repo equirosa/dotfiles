@@ -7,5 +7,6 @@
 
 sxhkd &
 picom &
+xrandr -r 144
 xidlehook --timer 300 "betterlockscreen -l" "" & disown
 exec awesome
