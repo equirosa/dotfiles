@@ -50,7 +50,6 @@ set noexpandtab
 let g:lf_replace_netrw = 1 "open lf when vim open a directory
 set colorcolumn=80
 autocmd BufWritePost *sway/config,*waybar/* !swaymsg reload
-autocmd BufWritePre,FileWritePre *.nix %!nixfmt
 autocmd BufWritePre * :%s/\s\+$//e
 map <leader>C :w! \| !compiler <c-r>%<CR>
 map <C-l> :Lf<CR>

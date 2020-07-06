@@ -102,7 +102,6 @@
       #### Nixpkgs stuff
       nix-prefetch-git
       nix-prefetch-github
-      nixfmt
       nox
       rnix-lsp
 
