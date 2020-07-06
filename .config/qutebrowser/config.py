@@ -37,7 +37,8 @@ c.url.searchengines = {
         'd': 'https://duckduckgo.com/?q={}',
         'e': 'https://www.ecosia.org/search?q={}',
         'f': 'https://flathub.org/apps/search/{}',
-        'g': 'https://github.com/search?q={}'
+        'g': 'https://github.com/search?q={}',
+        'p': 'https://www.protondb.com/search?q={}'
         }
 
 # Load automatic config
