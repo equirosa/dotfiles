@@ -9,7 +9,9 @@
       maim
       sxhkd
       xclip
+      xdo
       xdotool
+      xidlehook
       xorg.xkill
     ];
   };
