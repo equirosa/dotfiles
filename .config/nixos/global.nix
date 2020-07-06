@@ -32,7 +32,6 @@
   };
   hardware.cpu.amd.updateMicrocode = true;
   users.users.eduardo = {
-    #shell = pkgs.fish;
     createHome = true;
     description = "Eduardo Quiros";
     extraGroups = [ "wheel" "video" "audio" ];
@@ -56,6 +55,7 @@
       dino # XMPP client
       riot-desktop # Matrix client
       weechat # IRC + other protocols
+      tut # Mastodon client
 
       #### Dev Stuff ####
       gitMinimal
@@ -77,6 +77,7 @@
 
       #### Gaming ####
       lutris
+      steam
 
       #### TODO: Sort these... ####
       racket
@@ -95,6 +96,7 @@
       speedtest-cli
       toot # Mastodon client
       transmission
+      stig
 
       #### Nixpkgs stuff
       nix-prefetch-git
@@ -102,7 +104,6 @@
       nixfmt
       nox
       rnix-lsp
-      vgo2nix
 
       #### Org mode things ####
       texlive.combined.scheme-full # LaTeX stuff
@@ -115,11 +116,12 @@
 
       #### Document ####
       neovim # EDITOR
+      fzf # fuzzy finder
       nodejs # For Coc.nvim
       pandoc # Doc processing
 
       #### Utilities ####
-      alacritty
+      kitty
       starship
       htop
       gotop
@@ -129,7 +131,7 @@
     autoOptimiseStore = true;
     gc = {
       automatic = true;
-      dates = "monthly";
+      dates = "weekly";
     };
   };
   networking.hosts = { "0.0.0.0" = [ "mac-nordvpn-app.firebaseio.com" ]; };
@@ -142,12 +144,10 @@
         zoom-us = "${lib.getBin pkgs.zoom-us}/bin/zoom-us";
       };
     };
-    fish.enable = true;
     gnome-disks.enable = true;
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-      pinentryFlavor = "gnome3";
     };
     thefuck.enable = true;
   };
