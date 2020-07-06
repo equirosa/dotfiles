@@ -11,6 +11,7 @@
     ./printing.nix
     ./tor.nix
     ./audio.nix
+    ./security.nix
     ./flatpak.nix
     ./fonts.nix
     ./virtualization.nix
