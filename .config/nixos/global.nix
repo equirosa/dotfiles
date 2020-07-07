@@ -71,6 +71,7 @@
       highlight # Prettify the rest
       zip
       unzip
+      zathura # PDF Reader
 
       #### File Transfer ####
       croc # Sync file transfer
