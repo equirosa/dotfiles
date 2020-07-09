@@ -57,7 +57,9 @@ allow_JS  = [
     "https://drive.google.com/*",
     "https://meet.google.com/*",
     "https://docs.google.com/*",
-    "https://reader.miniflux.app/*"
+    "https://reader.miniflux.app/*",
+    "https://*.protondb.com/*",
+    "https://fosstodon.org/*"
 ]
 for site in allow_JS:
     with config.pattern(site) as p:
