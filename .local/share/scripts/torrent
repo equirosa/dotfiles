@@ -1,6 +1,6 @@
 #!/bin/sh
 # Original Author: Luke Smith <https://lukesmith.xyz>
-# Modified by me (Eduardo QUirós)
+# Modified by me (Eduardo Quirós)
 
 transmission-remote -l | grep % |
 	sed " # This first sed command is to ensure a desirable order with sort
