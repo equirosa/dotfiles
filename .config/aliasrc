@@ -26,6 +26,7 @@ alias grep="grep --color=always"
 alias c="cd"\
 	dateh="date --help | grep %"\
 	fd="fd -I"\
+	flatup="flatpak update"\
 	g="git"\
 	gcp="git commit -a; git push"\
 	lg="lazygit"\
