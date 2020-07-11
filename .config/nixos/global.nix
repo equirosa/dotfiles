@@ -135,7 +135,6 @@
       dates = "weekly";
     };
   };
-  networking.hosts = { "0.0.0.0" = [ "mac-nordvpn-app.firebaseio.com" ]; };
   programs = {
     dconf.enable = true;
     firejail = {
