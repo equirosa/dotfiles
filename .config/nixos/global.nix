@@ -56,6 +56,7 @@
       dino # XMPP client
       riot-desktop # Matrix client
       weechat # IRC + other protocols
+      toot # Mastodon client
       tut # Mastodon client
 
       #### Dev Stuff ####
@@ -78,32 +79,28 @@
       ffsend # Async file transfer
 
       #### Gaming ####
-      lutris
-      steam
+      chiaki # PS4 Remote Play utility
+      lutris # General games client
+      steam #
 
       #### TODO: Sort these... ####
       racket
-      chiaki
-      udiskie
-      bat
       calc # calculator
       fd # replacement for 'find'
       imv # Image viewer
       drive # stuff that i use to make Google drive less unbearable
       gopass # Password Manager
-      ispell # spellchecking
       keychain # Fewer password prmpts
       lazygit # git for lazy people
       libnotify # Notification stuff
       speedtest-cli
-      toot # Mastodon client
-      transmission
-      stig
+      transmission # Torrent client
+      stig # Transmission frontend TUI
 
       #### Nixpkgs stuff
       nix-prefetch-git
       nix-prefetch-github
-      nox
+      nox # YAY but for nixpkgs intead of AUR
       rnix-lsp
 
       #### Org mode things ####
@@ -112,20 +109,23 @@
       # Media Playback
       mpv # Video Player
       python3 # Necessary for umpv script to work
-      streamlink
-      youtube-dl
+      streamlink # Streaming utility
+      youtube-dl # Video downloading utility
 
       #### Document ####
+      ispell # spellchecking
       neovim # EDITOR
       fzf # fuzzy finder
       nodejs # For Coc.nvim
       pandoc # Doc processing
 
       #### Utilities ####
-      kitty
-      starship
-      htop
-      gotop
+      udiskie
+      bat
+      kitty # Terminal Emulator
+      starship # Prompt
+      htop # Process viewer
+      gotop # Cooler process viewer
     ];
   };
   nix = {
