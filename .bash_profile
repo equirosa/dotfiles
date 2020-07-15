@@ -1,4 +1,5 @@
 #/bin/sh
+. ~/.nix-profile/etc/profile.d/hm-session-vars.sh
 
 # Environment Variables
 export MONITOR="gotop"\
