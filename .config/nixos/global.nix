@@ -123,6 +123,7 @@
       udiskie
       bat
       kitty # Terminal Emulator
+      st
       starship # Prompt
       htop # Process viewer
       gotop # Cooler process viewer
@@ -134,6 +135,17 @@
       automatic = true;
       dates = "weekly";
     };
+  };
+  nixpkgs = {
+    overlays = [
+      (
+        self: super: {
+          gopass = super.gopass.override {
+            passAlias = true;
+          };
+        }
+      )
+    ];
   };
   programs = {
     dconf.enable = true;
