@@ -4,10 +4,11 @@
 	pl = pull
 	ps = push
 	s = status
-
+[commit]
+	gpgSign = true
 [user]
 	email = eduardo@eduardoquiros.com
 	name = Eduardo Quiros
-	signingKey = eduardo@eduardoquiros.com
+	signingKey = 03678E9642EB6D9E99974ACFB77F36C3F12720B4
 [pull]
 	rebase = false
