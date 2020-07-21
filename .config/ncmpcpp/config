@@ -1,0 +1,8 @@
+# vim: filetype=conf
+
+execute_on_song_change = notify-send "Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current)"
+
+lyrics_directory = "~/.local/share/lyrics"
+use_console_editor = yes
+external_editor = \$EDITOR
+allow_for_physical_item_deletion = yes
