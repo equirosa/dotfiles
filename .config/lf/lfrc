@@ -9,6 +9,9 @@ set scrolloff 10 # leave some space at the top and the bottom of the screen
 # Custom Mappings
 map <enter> shell # use enter for shell commands
 
+## Drag & Drop
+map D %dragon $fx & disown
+
 # dedicated keys for file actions
 map o $xdg-open $f
 map bg &make-wallpaper $f

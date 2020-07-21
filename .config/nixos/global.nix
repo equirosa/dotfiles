@@ -65,7 +65,7 @@
 
       #### File Management ####
       trash-cli # Trash files
-      pcmanfm # Graphical file manager
+      dragon-drop # Drag and drop so I don't use another FM to drag and drop.
       atool # Makes handling compression easier
       lf # Terminal file manager
       file # used to get file type
