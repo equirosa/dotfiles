@@ -18,6 +18,21 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+-- WIDGETS
+-- CPU Monitor
+local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+-- RAM
+local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
+-- Volume
+local volumearc_widget = require("awesome-wm-widgets.volumearc-widget.volumearc")
+-- MPD integration
+local mpc = require("mpc")
+local textbox = require("wibox.widget.textbox")
+local timer = require("gears.timer")
+local mpd_widget = textbox()
+local state, title, artist, file = "stop", "", "", ""
+
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -210,8 +225,17 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
+			ram_widget(),
+			cpu_widget(),
+			volumearc_widget({
+				get_volume_cmd = 'amixer sget Master',
+				thickness = 3,
+				--main_color = '#af13f7',
+				bg_color = '#ffffff'
+			}),
             mykeyboardlayout,
             wibox.widget.systray(),
+			mpd_widget,
             mytextclock,
             s.mylayoutbox,
         },
@@ -560,4 +584,37 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
+local function update_widget()
+    local text = "Current MPD status: "
+    text = text .. tostring(artist or "") .. " - " .. tostring(title or "")
+	if state == "play" then
+		text = text .. "  "
+	end
+    if state == "pause" then
+        text = text .. "  "
+    end
+    if state == "stop" then
+        text = text .. "  "
+    end
+    mpd_widget.text = text
+end
+local connection
+local function error_handler(err)
+    mpd_widget:set_text("Error: " .. tostring(err))
+    -- Try a reconnect soon-ish
+    timer.start_new(10, function()
+        connection:send("ping")
+    end)
+end
+connection = mpc.new(nil, nil, nil, error_handler,
+    "status", function(_, result)
+        state = result.state
+    end,
+    "currentsong", function(_, result)
+        title, artist, file = result.title, result.artist, result.file
+        pcall(update_widget)
+    end)
+	mpd_widget:buttons(awful.button({}, 1, function() connection:toggle_play() end))
+
 -- }}}
