@@ -230,8 +230,6 @@ awful.screen.connect_for_each_screen(function(s)
 			volumearc_widget({
 				get_volume_cmd = 'amixer sget Master',
 				thickness = 3,
-				--main_color = '#af13f7',
-				bg_color = '#ffffff'
 			}),
             mykeyboardlayout,
             wibox.widget.systray(),
