@@ -13,6 +13,9 @@ super + i
 super + e
   $TERMINAL -e $MAIL & disown
 
+XF86Mail
+	$TERMINAL -e $MAIL
+
 super + r
   $TERMINAL -e $FILE & disown
 
