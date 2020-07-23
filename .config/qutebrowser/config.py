@@ -30,6 +30,7 @@ config.source('./redirectors.py')
 c.content.fullscreen.window = True # Limits 'fullscreen' to window dimensions
 c.content.autoplay = False # Disables autplay of videos
 c.editor.command = [ 'kitty', '-e', 'nvim', '{file}' ]
+c.url.start_pages = [ 'https://reader.miniflux.app' ]
 c.url.open_base_url = True # Opens search engine when no search param is given
 c.url.searchengines = {
         'DEFAULT': 'https://searx.neocities.org/?q={}',
