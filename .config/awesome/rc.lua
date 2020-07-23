@@ -586,16 +586,16 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 local function update_widget()
-    local text = "Current MPD status: "
+    local text = ""
     text = text .. tostring(artist or "") .. " - " .. tostring(title or "")
 	if state == "play" then
-		text = text .. "  "
+		text = "  " .. text .. "  "
 	end
     if state == "pause" then
-        text = text .. "  "
+        text = "  " .. text .. "  "
     end
     if state == "stop" then
-        text = text .. "  "
+        text = "  " .. text .. "  "
     end
     mpd_widget.text = text
 end
