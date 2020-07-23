@@ -38,5 +38,8 @@ XF86AudioMute
 XF86Audio{Raise,Lower}Volume
 	amixer sset Master 5%{+,-}
 
+XF86Audio{Play,Pause,Stop,Next,Prev}
+	mpc {play,pause,stop,next,prev}
+
 Print
 	maim -s "$HOME/Pictures/screenshots/$(date --iso-8601=ns)".png
