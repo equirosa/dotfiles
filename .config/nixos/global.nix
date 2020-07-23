@@ -129,7 +129,6 @@
       kitty # Terminal Emulator
       st
       starship # Prompt
-      htop # Process viewer
       gotop # Cooler process viewer
     ];
   };
