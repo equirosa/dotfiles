@@ -4,7 +4,6 @@
     builtins.elem (lib.getName pkg) [
       "anydesk" # TODO: Consider replacing with https://remotely.one
       "discord" # TODO: Obviously, replace with matrix or XMPP
-      "zoom-us" # TODO: Jisti is immeasurably superior
       "steam"
       "steam-runtime"
       "steam-original"

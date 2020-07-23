@@ -154,7 +154,6 @@
       enable = true;
       wrappedBinaries = {
         anydesk = "${lib.getBin pkgs.anydesk}/bin/anydesk";
-        zoom-us = "${lib.getBin pkgs.zoom-us}/bin/zoom-us";
       };
     };
     fish = { enable = true; };
