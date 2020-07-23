@@ -20,6 +20,9 @@
   environment = {
     # memoryAllocator.provider = "graphene-hardened";
     variables = {
+      # Java
+      _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=lcd";
+
       # 'Less' stuff
       LESS = "-R";
       LESS_TERMCAP_mb = "$(printf '%b' '[1;31m')";
