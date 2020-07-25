@@ -229,6 +229,7 @@ awful.screen.connect_for_each_screen(function(s)
 			cpu_widget(),
 			volumearc_widget({
 				get_volume_cmd = 'amixer sget Master',
+				main_color = "#33dd33",
 				thickness = 3,
 			}),
             mykeyboardlayout,
