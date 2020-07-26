@@ -29,7 +29,7 @@ super + shift + w
   $BROWSER & disown
 
 super + x
-	betterlockscreen -l
+	$LOCK_CMD
 
 # Audio stuff
 XF86AudioMute
