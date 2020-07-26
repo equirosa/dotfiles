@@ -15,6 +15,7 @@
     ./flatpak.nix
     ./fonts.nix
     ./virtualization.nix
+    ./theme.nix
   ];
   boot = { kernelPackages = pkgs.linuxPackages_latest; };
   environment = {
