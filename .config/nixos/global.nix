@@ -60,7 +60,7 @@
       #### Comms ####
       aerc # Mail reader
       dino # XMPP client
-      riot-desktop # Matrix client
+      element-desktop # Matrix client
       weechat # IRC + other protocols
       toot # Mastodon client
       tut # Mastodon client
