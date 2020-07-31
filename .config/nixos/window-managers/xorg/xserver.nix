@@ -32,7 +32,7 @@
     };
   };
   environment = {
-    sessionVariables = { LOCK_CMD = "i3lock-fancy -p"; };
+    sessionVariables = { LOCK_CMD = "slock"; };
     systemPackages = with pkgs; [
       dmenu
       maim
