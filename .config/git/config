@@ -6,6 +6,11 @@
 	s = status
 [commit]
 	gpgSign = true
+[merge]
+	tool = vimdiff
+	conflictStyle = diff3
+[mergetool "vimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [user]
 	email = eduardo@eduardoquiros.com
 	name = Eduardo Quiros
