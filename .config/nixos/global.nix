@@ -2,6 +2,7 @@
   imports = [
     <home-manager/nixos>
     ./window-managers/xorg/awesome.nix
+    ./window-managers/wayland/sway.nix
     ./backups/external.nix
     ./misc/32bit.nix
     ./misc/cleanup.nix
