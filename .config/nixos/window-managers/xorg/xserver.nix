@@ -34,7 +34,6 @@
   environment = {
     sessionVariables = { LOCK_CMD = "i3lock-fancy -p"; };
     systemPackages = with pkgs; [
-      betterlockscreen
       dmenu
       maim
       sxhkd
