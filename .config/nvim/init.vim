@@ -12,7 +12,6 @@ call plug#begin()
 Plug 'tpope/vim-fugitive' " git integration for vim
 Plug 'itchyny/lightline.vim' " replace bottom statusline
 Plug 'rbgrouleff/bclose.vim' " For use with lf.vim
-Plug 'junegunn/goyo.vim'
 Plug 'ptzz/lf.vim' " Integration with lf file manager
 Plug 'morhetz/gruvbox' " gruvbox colorscheme
 Plug 'preservim/nerdcommenter' " Make some commenting easier
