@@ -3,10 +3,16 @@
 	"layer": "top",
 	"modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
 	"modules-center": [],
-	"modules-right": ["custom/torrent","network","pulseaudio","backlight","memory","battery","clock","idle_inhibitor","tray"],
+	"modules-right": ["custom/layout","network","pulseaudio","backlight","memory","battery","clock","idle_inhibitor","tray"],
 	"sway/window": {
 		"format": "{}",
 		"tooltip": false
+	},
+	"custom/layout": {
+		"on-click": "",
+		"interval": 1,
+		"exec": "sway-keyboard-layout",
+		"format": "{}"
 	},
 	"custom/torrent": {
 		"on-click": "$TERMINAL -e stig",
