@@ -19,4 +19,5 @@ eval "$(keychain --eval --quiet --agents ssh --inherit local-once sourcehut gith
 pgrep -x syncthing >>/dev/null || syncthing & disown
 udiskie &
 pgrep -x transmission-da >>/dev/null || transmission-daemon & disown
-[ "$(tty)" = "/dev/tty1" ] && startx
+[ "$(tty)" = "/dev/tty1" ] && exec sway
+[ "$(tty)" = "/dev/tty2" ] && startx
