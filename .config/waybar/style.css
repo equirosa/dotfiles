@@ -57,6 +57,7 @@ window#waybar.solo {
     border-bottom: 3px solid #ffffff;
 }
 
+#custom-layout,
 #custom-torrent,
 #clock,
 #battery,
@@ -185,4 +186,8 @@ label:focus {
 
 #custom-torrent {
 	background-color: #d79921;
+}
+
+#custom-layout {
+	background-color: olive;
 }
