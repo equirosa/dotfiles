@@ -35,7 +35,7 @@
 			"default": ["", ""]
 		},
 		"scroll-step": 1,
-		"on-click": "pavucontrol"
+		"on-click": "pulsemixer"
 	},
 	"network": {
 		"on-click" : "$TERMINAL -e nmtui",
