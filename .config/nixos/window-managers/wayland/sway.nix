@@ -16,6 +16,7 @@
         xwayland # Xorg compat
         mako # notifications
         # screenshots
+        grimshot
         grim
         slurp
       ];
