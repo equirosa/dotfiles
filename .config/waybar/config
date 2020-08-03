@@ -12,7 +12,7 @@
 		"on-click": "",
 		"interval": 1,
 		"exec": "sway-keyboard-layout",
-		"format": "{}"
+		"format": " {}"
 	},
 	"custom/torrent": {
 		"on-click": "$TERMINAL -e stig",
