@@ -16,7 +16,7 @@
         xwayland # Xorg compat
         mako # notifications
         # screenshots
-        grimshot
+        sway-contrib.grimshot
         grim
         slurp
       ];
