@@ -1,7 +1,6 @@
 # Variables
 set {
     $mod Mod4
-    $term $TERMINAL
     $left h
     $down j
     $up k
@@ -27,7 +26,7 @@ exec swayidle -w \
 #### Key bindings ####
 
 bindsym {
-	$mod+Return exec $term #Launch Terminal
+	$mod+Return exec $TERMINAL #Launch Terminal
 	$mod+q kill #Kill container
 	$mod+d exec $menu #Launch wofi in command mode
 	$mod+Shift+d exec $desktop #Launch wofi in desktop mode
@@ -55,7 +54,7 @@ bindsym {
 	$mod+Shift+Down move down
 	$mod+Shift+Up move up
 	$mod+Shift+Right move right
-	$mod+c exec $term -e calc
+	$mod+c exec $TERMINAL -e calc
 }
 floating_modifier $mod normal
 #
@@ -109,23 +108,23 @@ floating_modifier $mod normal
 # Launchers:
 
 	#FeedReader
-	bindsym $mod+n exec $term -e newsboat
+	bindsym $mod+n exec $TERMINAL -e newsboat
 
 	#Launch mail client:
-	bindsym $mod+e exec $term -e $MAIL
+	bindsym $mod+e exec $TERMINAL -e $MAIL
 
 	#Launch sys monitor:
-	bindsym $mod+i exec $term -e $MONITOR
+	bindsym $mod+i exec $TERMINAL -e $MONITOR
 
 	#Launch web browser:
 	bindsym $mod+Shift+w exec $BROWSER
 	bindsym $mod+w exec tor-browser
 
 	#Launch file browser:
-	bindsym $mod+r exec $term -e $FILE
+	bindsym $mod+r exec $TERMINAL -e $FILE
 
 	#Launch nmtui
-	bindsym $mod+F12 exec $term -e nmtui
+	bindsym $mod+F12 exec $TERMINAL -e nmtui
 
 	#Brightness
 	bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
@@ -140,7 +139,7 @@ floating_modifier $mod normal
 	}
 
 	# Bleh
-	bindsym XF86Calculator exec $term -e $CALCULATOR
+	bindsym XF86Calculator exec $TERMINAL -e $CALCULATOR
 
 	# Toggle transmission-daemon
 	bindsym $mod+F6 exec (pgrep -x transmission-da && notify-send -t 5000 "🟥 transmission daemon already running" || transmission-daemon && notify-send -t 5000 "🟢 strating transmission daemon")
