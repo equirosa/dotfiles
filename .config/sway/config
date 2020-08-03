@@ -55,6 +55,8 @@ bindsym {
 	$mod+Shift+Up move up
 	$mod+Shift+Right move right
 	$mod+c exec $TERMINAL -e calc
+
+	$mod+p sticky toggle
 }
 floating_modifier $mod normal
 #
