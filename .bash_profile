@@ -11,7 +11,44 @@ export MONITOR="gotop"\
       MAIL="aerc"\
       TERMINAL="kitty"\
 	  READER="zathura"\
-      LF_ICONS="di=:fi=:ln=:or=:ex=:*.c=:*.cc=:*.cpp=ﭱ:*.js=:*.vimrc=:*.vim=:*.nix=:*.css=:*.pdf=:*.html=:*.rs=:*.rlib=:*.7z=:*.zip=:*.xz=:*.tar=:*.lz=:*.git=:*.webm=:*.mp4=:*.flac=:*.ogg=:*.deb=:*.rpm=:*.py=:*.md=:*.json=ﬥ :*.mkv=:*.go=:.git=:*.ts=ﯤ:*.xml=謹:*.drawio=謹"
+      LF_ICONS="di=:\
+fi=:\
+ln=:\
+or=:\
+ex=:\
+*.c=:\
+*.cc=:\
+*.cpp=ﭱ:\
+*.js=:\
+*.vimrc=:\
+*.vim=:\
+*.nix=:\
+*.css=:\
+*.pdf=:\
+*.html=:\
+*.rs=:\
+*.rlib=:\
+*.7z=:\
+*.zip=:\
+*.xz=:\
+*.tar=:\
+*.lz=:\
+*.git=:\
+*.webm=:\
+*.mp4=:\
+*.flac=:\
+*.ogg=:\
+*.deb=:\
+*.rpm=:\
+*.py=:\
+*.md=:\
+*.json=ﬥ :\
+*.mkv=:\
+*.go=:\
+.git=:\
+*.ts=ﯤ:\
+*.xml=謹:\
+*.drawio=謹"
 
 
 # Autostarts
