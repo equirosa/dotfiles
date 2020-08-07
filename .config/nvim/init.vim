@@ -1,5 +1,6 @@
 set shell=sh
 set encoding=utf-8
+set wrap linebreak
 
 " Install vim-plug if it isn't already
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
