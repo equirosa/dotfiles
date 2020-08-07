@@ -1,12 +1,17 @@
 #!/bin/sh
+# Author: Eduardo Quiros <eduardo@eduardoquiros.com>
+# Description: Small script to wrap around streamlink and display it in MPV.
+
+# This switch simply matches some shorthand to the known url of the streamer, if it isn't in the list, then it simply passes the parameter directly to the command at the bottom.
 case "$1" in
 	*mel*) _url="projektmelody";;
 	*womble* | *soviet*) _url="sovietwomble";;
 	*mouse*) _url="ironmouse";;
 	*noble* | *lost* | *pause*) _url="lost_pause";;
 	*nano* | *rick*) _url="xrayr6";;
+	*nux*) _url="nuxtaku";;
 	*momo*) _url="sickly_momo";;
-	*silver*) _url="siivervale";;
+	*silver*) _url="silvervale";;
 	*) _url="$1";;
 esac
 
