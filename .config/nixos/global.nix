@@ -90,7 +90,6 @@
       steam #
 
       #### TODO: Sort these... ####
-      racket
       calc # calculator
       fd # replacement for 'find'
       imv # Image viewer
