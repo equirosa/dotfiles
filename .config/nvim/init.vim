@@ -52,7 +52,7 @@ map <C-l> :Lf<CR>
 map <C-p> :PlugUpdate<CR>
 
 " CoC extensions
-let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-css']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-css', 'coc-yaml']
 
 " Setting some filetypes
 autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
