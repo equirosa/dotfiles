@@ -61,6 +61,7 @@
       aerc # Mail reader
       dino # XMPP client
       element-desktop # Matrix client
+      signal-desktop
       weechat # IRC + other protocols
       toot # Mastodon client
       tut # Mastodon client
