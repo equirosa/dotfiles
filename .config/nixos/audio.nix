@@ -2,7 +2,6 @@
   environment.systemPackages = with pkgs; [ pulsemixer ];
   hardware.pulseaudio = { enable = true; extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1"; };
   services.mpd = {
-    dbFile = "/home/eduardo/.config/mpd/databse";
     enable = true;
     extraConfig = ''
       audio_output {
