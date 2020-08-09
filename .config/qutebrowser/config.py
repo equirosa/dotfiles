@@ -22,7 +22,7 @@ theme.spill.paint(c,{
         'horizontal':0
     }
 })
-c.content.user_stylesheets = [ 'css/personal.css' ]
+# c.content.user_stylesheets = [ 'css/personal.css' ]
 
 config.source('./redirectors.py')
 
