@@ -38,7 +38,7 @@
   };
   hardware.cpu.amd.updateMicrocode = true;
   users.users.eduardo = {
-    shell = pkgs.fish;
+    #shell = pkgs.fish;
     createHome = true;
     description = "Eduardo Quiros";
     extraGroups = [ "wheel" "video" "audio" ];
