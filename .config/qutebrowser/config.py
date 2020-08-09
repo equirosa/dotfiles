@@ -60,7 +60,8 @@ allow_JS  = [
     "https://docs.google.com/*",
     "https://reader.miniflux.app/*",
     "https://*.protondb.com/*",
-    "https://fosstodon.org/*"
+    "https://fosstodon.org/*",
+    "https://peertube.co.uk/*"
 ]
 for site in allow_JS:
     with config.pattern(site) as p:
