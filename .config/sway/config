@@ -11,7 +11,7 @@ set {
 }
 ######### Output configuration ############
 #### Wallpaper ###
-output * bg ~/.background-image fill
+output * bg ~/.local/share/background-image fill
 
 ### Idle configuration ###
 

@@ -172,7 +172,7 @@ local function set_wallpaper(s)
         if type(wallpaper) == "function" then
             wallpaper = wallpaper(s)
         end
-        gears.wallpaper.maximized("/home/eduardo/.background-image", s, true)
+        gears.wallpaper.maximized("/home/eduardo/.local/share/background-image", s, true)
     end
 end
 
