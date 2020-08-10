@@ -44,3 +44,6 @@ alias c="cd"\
 command -v bat >/dev/null && alias cat="bat -p"
 command -v fd >/dev/null && alias find="fd"
 command -v rg >/dev/null && alias grep="rg"
+command -v exa >/dev/null && alias exa="exa --icons"\
+	l="exa -l"\
+	ll="exa -la"
