@@ -20,9 +20,6 @@ XF86Mail
 super + r
   $TERMINAL -e $FILE & disown
 
-super + shift + p
-  emacsclient -c & disown
-
 super + w
 	tor-browser
 
