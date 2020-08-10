@@ -52,7 +52,7 @@ ex=:\
 
 
 # Autostarts
-eval "$(keychain --eval --quiet --agents ssh --inherit local-once sourcehut github gitlab codeberg vultr-debian)"
+eval "$(keychain --eval --quiet --agents ssh --inherit local-once sourcehut github gitlab codeberg vultr-debian azure-devops)"
 pgrep -x syncthing >>/dev/null || syncthing & disown
 udiskie &
 pgrep -x transmission-da >>/dev/null || transmission-daemon & disown
