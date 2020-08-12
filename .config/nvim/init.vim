@@ -5,6 +5,8 @@ so ~/.config/nvim/plug.vim " Plug
 set shell=sh
 set encoding=utf-8
 set wrap linebreak
+set undodir=~/.local/share/nvim/undodir
+set undofile
 
 set mouse=a
 set number relativenumber termguicolors
