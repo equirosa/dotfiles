@@ -88,11 +88,9 @@
       #### Gaming ####
       chiaki # PS4 Remote Play utility
       lutris # General games client
-      steam #
+      steam # videogame store
 
       #### TODO: Sort these... ####
-      calc # calculator
-      fd # replacement for 'find'
       imv # Image viewer
       drive # stuff that i use to make Google drive less unbearable
       gopass # Password Manager
@@ -107,7 +105,7 @@
       nix-prefetch-git
       nix-prefetch-github
       nox # YAY but for nixpkgs intead of AUR
-      rnix-lsp
+      rnix-lsp # language server for Nix
 
       #### Org mode things ####
       texlive.combined.scheme-full # LaTeX stuff
@@ -126,12 +124,14 @@
       pandoc # Doc processing
 
       #### Utilities ####
-      udiskie
-      bat
+      bat # Cat replacement
+      calc # calculator
+      fd # replacement for 'find'
+      gotop # Cooler process viewer
       kitty # Terminal Emulator
       st
       starship # Prompt
-      gotop # Cooler process viewer
+      udiskie
     ];
   };
   nix = {
