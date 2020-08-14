@@ -5,8 +5,10 @@ super + a
 	$TERMINAL -e pulsemixer
 
 super + d
-  rofi -show run
-  #dmenu_run & disown
+	dmenu_run & disown
+
+super + shift + d
+	rofi -show run
 
 super + i
 	$TERMINAL -e gotop & disown
