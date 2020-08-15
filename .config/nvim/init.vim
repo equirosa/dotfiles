@@ -34,7 +34,7 @@ set noexpandtab
 let g:lf_replace_netrw = 1 "open lf when vim open a directory
 set colorcolumn=80
 autocmd BufWritePost *sway/config,*waybar/* !swaymsg reload
-autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * :%s/\s\+$//e " Remove whitespace upon saving a file
 map <leader>C :w! \| !compiler <c-r>%<CR>
 map <C-l> :Lf<CR>
 map <C-p> :PlugUpdate<CR>
