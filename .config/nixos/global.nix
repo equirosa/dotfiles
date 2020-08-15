@@ -18,7 +18,9 @@
     ./virtualization.nix
     ./theme.nix
   ];
-  boot = { kernelPackages = pkgs.linuxPackages_latest; };
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest; # Use latest available kernel
+  };
   environment = {
     # memoryAllocator.provider = "graphene-hardened";
     variables = {
