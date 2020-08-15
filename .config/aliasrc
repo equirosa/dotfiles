@@ -34,6 +34,7 @@ alias c="cd"\
 	njson="nix-env -qaP --json"\
 	mkdir="mkdir -pv"\
 	nrebuild="sudo nixos-rebuild switch --upgrade; flatpak update -y"\
+	ns="nix-shell"\
 	nsp="nix-shell -p"\
 	rm="rm -rvI"\
 	v="$EDITOR"\
