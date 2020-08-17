@@ -19,5 +19,6 @@ if [[ $- == *i* ]]; then
 
 	eval "$(keychain --eval --quiet --agents ssh --inherit local-once sourcehut github gitlab codeberg vultr-debian)"
 	eval "$(starship init bash)"
+	eval "$(direnv hook bash)"
 
 fi
