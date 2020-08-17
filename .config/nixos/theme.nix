@@ -1,4 +1,5 @@
 { config, pkgs, ... }: {
+  gtk.iconCache.enable = true;
   home-manager.users.eduardo = { pkgs, ... }: {
     gtk = {
       enable = true;
