@@ -1,87 +1,122 @@
 {
-	/*"height": 10,*/
-	"layer": "top",
-	"modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
-	"modules-center": [],
-	"modules-right": ["custom/layout","network","pulseaudio","backlight","memory","battery","clock","idle_inhibitor","tray"],
-	"sway/window": {
-		"format": "{}",
-		"tooltip": false
-	},
-	"custom/layout": {
-		"on-click": "",
-		"interval": 1,
-		"exec": "sway-keyboard-layout",
-		"format": " {}"
-	},
-	"custom/torrent": {
-		"on-click": "$TERMINAL -e stig",
-		"exec-if": "pgrep transmission-da",
-		"interval": 10,
-		"exec": "torrent",
-		"format": "{}"
-	},
-	"pulseaudio": {
-		"format": "{volume}% {icon}",
-		"format-bluetooth": "{volume}% {icon}",
-		"format-muted": "",
-		"format-iconts": {
-			"headphones": "",
-			"handsfree": "",
-			"headset": "",
-			"phone": "",
-			"portable": "",
-			"car": "",
-			"default": ["", ""]
-		},
-		"scroll-step": 1,
-		"on-click": "pulsemixer"
-	},
-	"network": {
-		"on-click" : "$TERMINAL -e nmtui",
-		"interval": 30,
-		"format-ethernet": "{bandwidthDownBits}  {bandwidthUpBits}  {icon}",
-		"format-wifi": "{essid} {signalStrength}% {icon}",
-		"format-disconnected": "{icon}",
-		"format-icons": {
-            "wifi": ["直"],
-            "ethernet": [""],
-            "disconnected": ["睊"]
-        }
-	},
-	"memory": {
-		"interval": 30,
-		"format": "{percentage}%  ",
-		"on-click": "$TERMINAL -e gotop"
-	},
-	"battery": {
-		"format-icons": [" ", " ", " ", " ", " "],
-		"format-charging": "{capacity}% {icon}",
-		"format": "{capacity}% {icon}",
-		"format-full": "{icon}",
-		"states": {
-			  "critical": 10,
-			  "warning": 30
-		}
-	},
-	"clock": {
-		"interval": 10,
-		"format": "{: %Y/%m/%d - %a -  %R}"
-	},
-	"tray": {
-		"icon-size": 18
-	},
-	"backlight": {
-		"device": "intel_backlight",
-		"format": "{percent}% {icon}",
-		"format-icons": [" ", " ", " "]
-	},
-	"idle_inhibitor": {
-		"format": "{icon}",
-		"format-icons": {
-			"activated": " ",
-			"deactivated": " "
-		}
-	}
-
+  /*"height": 10,*/
+  "layer": "top",
+  "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+  "modules-center": [],
+  "modules-right": [
+    "custom/layout",
+    "network",
+    "mpd",
+    "pulseaudio",
+    "backlight",
+    "memory",
+    "battery",
+    "clock",
+    "idle_inhibitor",
+    "tray"
+  ],
+  "sway/window": {
+    "format": "{}",
+    "tooltip": false
+  },
+  "custom/layout": {
+    "on-click": "",
+    "interval": 1,
+    "exec": "sway-keyboard-layout",
+    "format": " {}"
+  },
+  "custom/torrent": {
+    "on-click": "$TERMINAL -e stig",
+    "exec-if": "pgrep transmission-da",
+    "interval": 10,
+    "exec": "torrent",
+    "format": "{}"
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "",
+    "format-icons": {
+      "headphones": "",
+      "handsfree": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", ""]
+    },
+    "scroll-step": 1,
+    "on-click": "pulsemixer"
+  },
+  "network": {
+    "on-click": "$TERMINAL -e nmtui",
+    "interval": 30,
+    "format-ethernet": "{bandwidthDownBits}  {bandwidthUpBits}  {icon}",
+    "format-wifi": "{essid} {signalStrength}% {icon}",
+    "format-disconnected": "{icon}",
+    "format-icons": {
+      "wifi": ["直"],
+      "ethernet": [""],
+      "disconnected": ["睊"]
+    }
+  },
+  "memory": {
+    "interval": 30,
+    "format": "{percentage}%  ",
+    "on-click": "$TERMINAL -e gotop"
+  },
+  "battery": {
+    "format-icons": [" ", " ", " ", " ", " "],
+    "format-charging": "{capacity}% {icon}",
+    "format": "{capacity}% {icon}",
+    "format-full": "{icon}",
+    "states": {
+      "critical": 10,
+      "warning": 30
+    }
+  },
+  "clock": {
+    "interval": 10,
+    "format": "{: %Y/%m/%d - %a -  %R}"
+  },
+  "tray": {
+    "icon-size": 18
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": [" ", " ", " "]
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": " ",
+      "deactivated": " "
+    }
+  },
+  "mpd": {
+    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title} {elapsedTime:%M:%S} ",
+    "format-disconnected": "Disconnected ",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    "interval": 1,
+    "consume-icons": {
+      "on": " "
+    },
+    "random-icons": {
+      "off": "",
+      "on": " "
+    },
+    "repeat-icons": {
+      "on": " "
+    },
+    "single-icons": {
+      "on": "1 "
+    },
+    "state-icons": {
+      "paused": "",
+      "playing": ""
+    },
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)"
+  }
 }
