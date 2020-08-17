@@ -15,6 +15,7 @@
         wofi # menu
         xwayland # Xorg compat
         mako # notifications
+        libappindicator
         # screenshots
         sway-contrib.grimshot
         grim
@@ -22,7 +23,7 @@
       ];
       extraSessionCommands = ''
         export XDG_SESSION_TYPE=wayland
-        export XDG_CURRENT_DESKTOP=sway
+        export XDG_CURRENT_DESKTOP=Unity
         export SDL_VIDEODRIVER=wayland
         export QT_QPA_PLATFORM=wayland
         export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
