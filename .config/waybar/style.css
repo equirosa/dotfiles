@@ -173,7 +173,7 @@ label:focus {
 }
 
 #mpd {
-  background-color: #66cc99;
+  background-color: #fb4934;
 }
 
 #mpd.disconnected {
@@ -185,7 +185,7 @@ label:focus {
 }
 
 #mpd.paused {
-  background-color: #8ec07c;
+  background-color: #cc241d;
 }
 
 #custom-torrent {
