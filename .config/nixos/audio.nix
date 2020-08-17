@@ -11,6 +11,7 @@
       }
     '';
     musicDirectory = "/home/eduardo/Music";
+    user = "eduardo";
   };
   users.users.eduardo = {
     extraGroups = [ "mpd" ];
