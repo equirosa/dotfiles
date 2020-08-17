@@ -137,6 +137,11 @@ floating_modifier $mod normal
 		XF86AudioMute exec amixer sset Master toggle
 		XF86AudioRaiseVolume exec amixer sset Master 5%+
 		XF86AudioLowerVolume exec amixer sset Master 5%-
+		XF86AudioPlay exec mpc toggle
+		XF86AudioStop exec mpc stop
+		XF86AudioNext exec mpc next
+		XF86AudioPrev exec mpc prev
+
 	}
 
 	# Bleh
