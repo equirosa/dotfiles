@@ -144,6 +144,7 @@
     };
   };
   nixpkgs = {
+    config = { pulseaudio = true; };
     overlays = [
       (
         self: super: {
