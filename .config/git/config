@@ -7,10 +7,11 @@
 [commit]
 	gpgSign = true
 [merge]
-	tool = vimdiff
-	conflictStyle = diff3
-[mergetool "vimdiff"]
-	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+	tool = nvim
+[mergetool]
+	prompt = false
+[mergetool "nvim"]
+	cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
 [user]
 	email = eduardo@eduardoquiros.com
 	name = Eduardo Quiros
