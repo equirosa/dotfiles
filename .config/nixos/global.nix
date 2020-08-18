@@ -62,6 +62,7 @@
       #### Comms ####
       aerc # Mail reader
       dino # XMPP client
+      discord
       element-desktop # Matrix client
       signal-desktop
       weechat # IRC + other protocols
