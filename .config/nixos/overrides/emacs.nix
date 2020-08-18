@@ -35,7 +35,6 @@ emacsWithPackages (
         evil
         magit
         scribble-mode
-        skribe
         geiser
         #### Theming ####
         gruvbox-theme
