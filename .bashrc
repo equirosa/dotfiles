@@ -1,7 +1,6 @@
 # -*- mode: sh -*-
-
-[ -f "$HOME/.profile" ] && source "$HOME/.profile"
-[ -f "$HOME/.config/aliasrc" ] && . "$HOME/.config/aliasrc"
+# Sourcing
+. "$HOME/.config/aliasrc"
 
 # Commands that should be applied only for interactive shells.
 if [[ $- == *i* ]]; then
