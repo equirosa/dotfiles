@@ -17,7 +17,7 @@ if [[ $- == *i* ]]; then
 	shopt -s globstar
 	shopt -s checkjobs
 
-	eval "$(keychain --eval --quiet --agents ssh --inherit local-once sourcehut github gitlab codeberg vultr-debian)"
+	eval "keychain --noask --eval --quiet sourcehut github gitlab codeberg vultr-debian" >>/dev/null
 	eval "$(starship init bash)"
 	eval "$(direnv hook bash)"
 
