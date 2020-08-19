@@ -22,6 +22,9 @@ alias aerc="torify aerc"\
 # Add some colors
 alias grep="grep --color=always"
 
+# Force XDG directory spec
+alias keychain="keychain --absolute --dir $XDG_CONFIG_HOME"
+
 # Shortening some commands
 alias c="cd"\
 	dateh="date --help | grep %"\
