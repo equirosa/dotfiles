@@ -1,2 +1,7 @@
 #!/bin/sh
-gpg --encrypt "$1" && notify-send -t 5000 "🔒 encrypting..." && shred "$1" && notify-send -t 5000 "✎ ovewriting original file..." && /usr/bin/env rm "$1" && notify-send -t 5000 "❌ file deleted"
+gpg --encrypt "$1" &&\
+	notify-send -t 5000 "🔒 encrypting..." &&\
+	shred "$1" &&\
+	notify-send -t 5000 "✎ ovewriting original file..." &&\
+	/usr/bin/env rm "$1" &&\
+	notify-send -t 5000 "❌ file deleted"
