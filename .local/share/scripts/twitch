@@ -12,6 +12,7 @@ case "$1" in
 	*nux*) _url="nuxtaku";;
 	*momo*) _url="sickly_momo";;
 	*silver*) _url="silvervale";;
+	*rob*) _url="Voidzar";;
 	*) _url="$1";;
 esac
 
