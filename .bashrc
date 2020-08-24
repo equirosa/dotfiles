@@ -16,7 +16,7 @@ if [[ $- == *i* ]]; then
 	shopt -s globstar
 	shopt -s checkjobs
 
-	eval "keychain --noask --eval -q\
+	eval "keychain --inherit any --eval -q\
 		sourcehut\
 		github\
 		gitlab\
