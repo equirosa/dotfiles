@@ -10,5 +10,6 @@ picom &
 redshift &
 qsyncthingtray &
 xrandr -r 144
+xrandr --output HDMI-1 --right-of DP-1 --mode 1920x1080 -r 60
 xidlehook --timer 300 "slock" "" & disown
 exec awesome
