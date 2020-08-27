@@ -184,6 +184,11 @@
       enableSSHSupport = true;
     };
     thefuck.enable = true;
+    tmux = {
+      enable = true;
+      extraConfig = ''set -g default-command fish'';
+      terminal = "screen-256color";
+    };
   };
   services = {
     udisks2.enable = true;
