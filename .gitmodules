@@ -1,0 +1,6 @@
+[submodule "/home/eduardo/.config/awesome/awesome-wm-widgets"]
+	path = /home/eduardo/.config/awesome/awesome-wm-widgets
+	url = https://github.com/streetturtle/awesome-wm-widgets.git
+[submodule ".config/weechat/python/twitch"]
+	path = .config/weechat/python/twitch
+	url = git@github.com:mumixam/weechat-twitch.git
