@@ -4,3 +4,6 @@
 [submodule ".config/weechat/python/twitch"]
 	path = .config/weechat/python/twitch
 	url = git@github.com:mumixam/weechat-twitch.git
+[submodule ".config/weechat/python/wee-slack"]
+	path = .config/weechat/python/wee-slack
+	url = git@github.com:wee-slack/wee-slack.git
