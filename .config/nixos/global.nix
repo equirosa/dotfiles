@@ -22,8 +22,20 @@
     kernelPackages = pkgs.linuxPackages_latest; # Use latest available kernel
   };
   environment = {
+    homeBinInPath = true;
     # memoryAllocator.provider = "graphene-hardened";
     variables = {
+      # Personal stuff
+      MONITOR = "gotop";
+      BROWSER = "qutebrowser";
+      EDITOR = "nvim";
+      FILE = "lf";
+      IMG = "imv";
+      MAIL = "aerc";
+      TERMINAL = "kitty";
+      READER = "zathura";
+      LF_ICONS = "di=:fi=:ln=:or=:ex=:*.c=:*.cc=:*.cpp=ﭱ:*.js=:*.vimrc=:*.vim=:*.nix=:*.css=:*.pdf=:*.html=:*.rs=:*.rlib=:*.7z=:*.zip=:*.xz=:*.tar=:*.lz=:*.git=:*.webm=:*.mp4=:*.flac=:*.ogg=:*.opus=:*.m4a=:*.deb=:*.rpm=:*.py=:*.md=:*.json=ﬥ :*.mkv=:*.go=:.git=:*.ts=ﯤ:*.xml=謹:*.drawio=謹";
+
       # Java
       _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=lcd";
 
@@ -40,7 +52,7 @@
   };
   hardware.cpu.amd.updateMicrocode = true;
   users.users.eduardo = {
-    #shell = pkgs.fish;
+    shell = pkgs.fish;
     createHome = true;
     description = "Eduardo Quiros";
     extraGroups = [ "wheel" "video" "audio" ];
