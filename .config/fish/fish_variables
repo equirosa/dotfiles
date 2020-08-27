@@ -15,7 +15,7 @@ SETUVAR fish_color_command:00d700
 SETUVAR fish_color_comment:af00d7
 SETUVAR fish_color_cwd:008000
 SETUVAR fish_color_cwd_root:800000
-SETUVAR fish_color_end:ff00af
+SETUVAR fish_color_end:ff00ff
 SETUVAR fish_color_error:ff0000
 SETUVAR fish_color_escape:00a6b2
 SETUVAR fish_color_history_current:normal
