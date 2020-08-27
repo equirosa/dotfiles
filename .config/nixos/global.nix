@@ -24,6 +24,11 @@
   environment = {
     homeBinInPath = true;
     # memoryAllocator.provider = "graphene-hardened";
+    loginShellInit = ''
+      syncthing & disown
+      udiskie & disown
+      transmission-daemon & disown
+    '';
     shellAliases = {
       # Force some XDG compliance
     };

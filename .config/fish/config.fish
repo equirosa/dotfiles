@@ -9,10 +9,6 @@ if status --is-interactive
 end
 
 if status --is-login
-	pgrep -x syncthing >>/dev/null || syncthing & disown
-	pgrep -x udiskie >>/dev/null || udiskie & disown
-	pgrep -x transmission-da >>/dev/null || transmission-daemon & disown
-
 	switch (tty)
 		case "*tty1"
 			exec sway
