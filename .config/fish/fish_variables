@@ -5,6 +5,8 @@ SETUVAR --export SSH_AUTH_SOCK:/tmp/ssh\x2dmIvDFXUvWZR2/agent\x2e3964
 SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr_fup:flatpak\x20update\x20\x2dy
 SETUVAR _fish_abbr_g:git
+SETUVAR _fish_abbr_gpl:git\x20pull
+SETUVAR _fish_abbr_gps:git\x20push
 SETUVAR _fish_abbr_lg:torify\x20lazygit
 SETUVAR _fish_abbr_nrebuild:sudo\x20nixos\x2drebuild\x20switch\x20\x2d\x2dupgrade\x20\x26\x26\x20flatpak\x20update
 SETUVAR _fish_abbr_nsp:nix\x2dshell\x20\x2dp
