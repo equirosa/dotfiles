@@ -191,6 +191,7 @@
       enable = true;
       extraConfig = ''set -g default-command fish'';
       terminal = "screen-256color";
+      newSession = true;
     };
   };
   services = {
