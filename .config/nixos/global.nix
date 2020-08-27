@@ -24,6 +24,9 @@
   environment = {
     homeBinInPath = true;
     # memoryAllocator.provider = "graphene-hardened";
+    shellAliases = {
+      # Force some XDG compliance
+    };
     variables = {
       # Personal stuff
       MONITOR = "gotop";
