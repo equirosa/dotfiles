@@ -6,6 +6,7 @@ SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr_c:cd
 SETUVAR _fish_abbr_fup:flatpak\x20update\x20\x2dy
 SETUVAR _fish_abbr_g:git
+SETUVAR _fish_abbr_gch:git\x20checkout
 SETUVAR _fish_abbr_gpl:git\x20pull
 SETUVAR _fish_abbr_gps:git\x20push
 SETUVAR _fish_abbr_lg:torify\x20lazygit
@@ -14,6 +15,7 @@ SETUVAR _fish_abbr_nsp:nix\x2dshell\x20\x2dp
 SETUVAR _fish_abbr_nx:nix\x2denv\x20\x2dqaP\x20\x2d\x2ddescription
 SETUVAR _fish_abbr_v:\x24EDITOR
 SETUVAR _fish_abbr_vi:nvim
+SETUVAR _fish_abbr_x:xdg\x2dopen
 SETUVAR fish_color_autosuggestion:555
 SETUVAR fish_color_cancel:normal
 SETUVAR fish_color_command:00d700
