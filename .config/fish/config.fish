@@ -7,12 +7,3 @@ if status --is-interactive
 	keychain --eval --quiet -Q sourcehut gitlab github codeberg B77F36C3F12720B4 | source
 	starship init fish | source
 end
-
-if status --is-login
-	switch (tty)
-		case "*tty1"
-			exec sway
-		case "*tty2"
-			startx
-	end
-end

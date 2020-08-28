@@ -28,6 +28,8 @@
       syncthing & disown
       udiskie & disown
       transmission-daemon & disown
+      [ $(tty) = tty1 ] && exec sway
+      [ $(tty) = tty2 ] && startx
     '';
     shellAliases = {
       # Force some XDG compliance
