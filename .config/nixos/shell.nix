@@ -9,6 +9,11 @@
           "ll" = "ls -la";
         };
       };
+      direnv = {
+        enable = true;
+        enableFishIntegration = true;
+        enableNixDirenvIntegration = true;
+      };
       starship = {
         enable = true;
         enableFishIntegration = true;
