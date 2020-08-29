@@ -1,7 +1,8 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export SSH_AGENT_PID:3965
-SETUVAR --export SSH_AUTH_SOCK:/tmp/ssh\x2dmIvDFXUvWZR2/agent\x2e3964
+SETUVAR --export GPG_AGENT_INFO:/run/user/1000/gnupg/S\x2egpg\x2dagent\x3a2019\x3a1
+SETUVAR --export SSH_AGENT_PID:25184
+SETUVAR --export SSH_AUTH_SOCK:/tmp/ssh\x2dSjxCC1Schpos/agent\x2e25183
 SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr_c:cd
 SETUVAR _fish_abbr_fup:flatpak\x20update\x20\x2dy
