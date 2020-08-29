@@ -31,6 +31,9 @@
       [ $(tty) = tty1 ] && exec sway
       [ $(tty) = tty2 ] && startx
     '';
+    interactiveShellInit = ''
+      [ -z "$TMUX" ] && exec tmux a
+    '';
     shellAliases = {
       # Force some XDG compliance
     };
