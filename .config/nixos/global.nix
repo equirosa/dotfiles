@@ -25,9 +25,9 @@
     homeBinInPath = true;
     # memoryAllocator.provider = "graphene-hardened";
     loginShellInit = ''
-      syncthing & disown
-      udiskie & disown
-      transmission-daemon & disown
+      pgrep syncthing >/dev/null || syncthing & disown
+      pgrep udiskie >/dev/null || udiskie & disown
+      pgrep transmission-da >/dev/null || transmission-daemon & disown
       [ $(tty) = tty1 ] && exec sway
       [ $(tty) = tty2 ] && startx
     '';
