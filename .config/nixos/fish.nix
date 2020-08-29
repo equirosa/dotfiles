@@ -4,7 +4,8 @@
       enable = true;
       shellAbbrs = {
         "ls" = "ls -h --color=always";
-        "l" = "ls -la";
+        "l" = "ls -l";
+        "ll" = "ls -la";
       };
     };
   };

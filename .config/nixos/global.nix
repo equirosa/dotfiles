@@ -3,6 +3,7 @@
     <home-manager/nixos>
     ./window-managers/xorg/awesome.nix
     ./window-managers/wayland/sway.nix
+    ./fish.nix
     ./backups/external.nix
     ./misc/32bit.nix
     ./misc/cleanup.nix
@@ -62,7 +63,6 @@
   };
   hardware.cpu.amd.updateMicrocode = true;
   users.users.eduardo = {
-    shell = pkgs.fish;
     createHome = true;
     description = "Eduardo Quiros";
     extraGroups = [ "wheel" "video" "audio" ];
