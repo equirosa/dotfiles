@@ -2,7 +2,7 @@
   imports = [
     <home-manager/nixos>
     ./window-managers/wayland/sway.nix
-    ./fish.nix
+    ./shell.nix
     ./backups/external.nix
     ./misc/32bit.nix
     ./misc/cleanup.nix
