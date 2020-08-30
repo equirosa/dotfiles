@@ -7,6 +7,8 @@
           "ls" = "ls -h --color=always";
           "l" = "ls -l";
           "ll" = "ls -la";
+          "md" = "mkdir -p";
+          "g" = "git";
         };
       };
       direnv = {
