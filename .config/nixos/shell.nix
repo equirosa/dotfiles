@@ -22,7 +22,7 @@
         enable = true;
         enableFishIntegration = true;
         agents = [ "ssh" "gpg" ];
-        inheritType = "local-once";
+        inheritType = "local";
         keys = [
           "sourcehut"
           "github"
