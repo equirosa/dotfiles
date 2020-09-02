@@ -76,7 +76,7 @@
     }
   },
   "clock": {
-    "interval": 10,
+    "interval": 60,
     "format": "{: %Y/%m/%d - %a -  %R}"
   },
   "tray": {
