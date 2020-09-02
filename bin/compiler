@@ -5,4 +5,5 @@ case "$1" in
 	*.ms) groff -k -ms "$1" >> "$1.pdf" && rename ".ms" "" "$1.pdf";;
 	*.c) gcc "$1" -o "$1";;
 	*.cpp) g++ "$1" -o "$1";;
+	*.tex) xelatex "$1" && rm *.{aux,out,log};;
 esac
