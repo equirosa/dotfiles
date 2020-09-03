@@ -4,8 +4,8 @@
       fish = {
         enable = true;
         shellAbbrs = {
-          "l" = "ls -l";
-          "ll" = "ls -la";
+          "l" = "exa -l --icons --git";
+          "ll" = "exa -la --icons --git";
           "md" = "mkdir -p";
           "g" = "git";
         };
