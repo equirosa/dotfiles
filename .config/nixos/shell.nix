@@ -4,7 +4,6 @@
       fish = {
         enable = true;
         shellAbbrs = {
-          "ls" = "ls -h --color=always";
           "l" = "ls -l";
           "ll" = "ls -la";
           "md" = "mkdir -p";
