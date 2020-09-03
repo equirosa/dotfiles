@@ -20,7 +20,7 @@
         enableFishIntegration = true;
       };
       keychain = {
-        enable = true;
+        #enable = true;
         enableFishIntegration = true;
         agents = [ "ssh" "gpg" ];
         inheritType = "local";
