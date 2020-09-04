@@ -9,7 +9,7 @@
         swayidle # idle monitoring
         swaylock-effects # lockscreen
         qt5.qtwayland # QT compat
-        waybar # status bar
+        i3status-rust # status bar
         wf-recorder # screen video capture
         wl-clipboard # clipboard
         wofi # menu
