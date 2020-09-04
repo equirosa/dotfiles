@@ -44,7 +44,7 @@
       EDITOR = "nvim";
       FILE = "lf";
       IMG = "imv";
-      MAIL = "aerc";
+      MAIL = "torify aerc";
       TERMINAL = "alacritty";
       READER = "zathura";
       LF_ICONS = "di=:fi=:ln=:or=:ex=:*.c=:*.cc=:*.cpp=ﭱ:*.js=:*.vimrc=:*.vim=:*.nix=:*.css=:*.pdf=:*.html=:*.rs=:*.rlib=:*.7z=:*.zip=:*.xz=:*.tar=:*.lz=:*.git=:*.webm=:*.mp4=:*.flac=:*.ogg=:*.opus=:*.m4a=:*.deb=:*.rpm=:*.py=:*.md=:*.json=ﬥ :*.mkv=:*.go=:.git=:*.ts=ﯤ:*.xml=謹:*.drawio=謹";
