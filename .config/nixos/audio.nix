@@ -15,6 +15,6 @@
   };
   users.users.eduardo = {
     extraGroups = [ "mpd" ];
-    packages = with pkgs; [ mpc_cli ncmpcpp ];
+    packages = with pkgs; [ mpc_cli ncmpcpp mpdris2 ];
   };
 }
