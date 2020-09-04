@@ -7,7 +7,7 @@ path = "/"
 alias = "/"
 info_type = "available"
 unit = "GB"
-interval = 20
+interval = 60
 warning = 20.0
 alert = 10.0
 
@@ -19,17 +19,18 @@ format_swap = "{SUp}%"
 
 [[block]]
 block = "cpu"
-interval = 1
+interval = 5
+format = "{barchart}"
 
 [[block]]
 block = "load"
 interval = 1
-format = "{1m}"
+format = "{1m} {5m}"
 
 [[block]]
 block = "net"
 device = "enp3s0"
-interval = 5
+interval = 15
 use_bits = false
 
 [[block]]
