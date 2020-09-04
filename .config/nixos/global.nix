@@ -146,7 +146,6 @@
       #### Document ####
       ispell # spellchecking
       neovim # EDITOR
-      fzf # fuzzy finder
       nodejs # For Coc.nvim
       pandoc # Doc processing
 
