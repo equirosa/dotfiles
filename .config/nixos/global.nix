@@ -150,6 +150,7 @@
       pandoc # Doc processing
 
       #### Utilities ####
+      any-nix-shell
       bat # Cat replacement
       calc # calculator
       fd # replacement for 'find'

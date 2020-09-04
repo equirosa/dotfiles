@@ -9,6 +9,9 @@
           "md" = "mkdir -p";
           "g" = "git";
         };
+        interactiveShellInit = ''
+          any-nix-shell fish --info-right | source
+        '';
       };
       direnv = {
         enable = true;
