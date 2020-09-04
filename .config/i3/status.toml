@@ -3,8 +3,8 @@ icons = "awesome5"
 
 [[block]]
 block = "disk_space"
-path = "/"
-alias = "/"
+path = "/home"
+alias = "/home"
 info_type = "available"
 unit = "GB"
 interval = 60
