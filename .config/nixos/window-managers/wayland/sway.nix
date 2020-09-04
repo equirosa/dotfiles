@@ -35,7 +35,6 @@
         gtk = true;
       };
     };
-    waybar.enable = true;
   };
   services = {
     pipewire.enable = true;
