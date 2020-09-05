@@ -1,5 +1,4 @@
 { config, pkgs, ... }: {
-  environment.systemPackages = with pkgs; [ pulsemixer ];
   hardware.pulseaudio = { enable = true; extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1"; };
   services.mpd = {
     enable = true;
@@ -15,6 +14,6 @@
   };
   users.users.eduardo = {
     extraGroups = [ "mpd" ];
-    packages = with pkgs; [ mpc_cli ncmpcpp mpdris2 ];
+    packages = with pkgs; [ mpc_cli ncmpcpp mpdris2 pulsemixer ];
   };
 }
