@@ -4,7 +4,7 @@
     sway = {
       enable = true;
       extraPackages = with pkgs; [
-        bemenu
+        dmenu-wayland
         brightnessctl
         swayidle # idle monitoring
         swaylock-effects # lockscreen
