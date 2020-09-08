@@ -121,7 +121,6 @@
       imv # Image viewer
       drive # stuff that i use to make Google drive less unbearable
       gopass # Password Manager
-      keychain # Fewer password prmpts
       lazygit # git for lazy people
       libnotify # Notification stuff
       speedtest-cli
