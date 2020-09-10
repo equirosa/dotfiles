@@ -78,6 +78,9 @@
       qsyncthingtray
 
       #### Browsers ####
+      amfora
+      ncgopher
+      asuka
       firefox
       lynx # Lightweight cli web browser
       qutebrowser # Best browser ever
