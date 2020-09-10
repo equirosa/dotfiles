@@ -1,7 +1,6 @@
 #!/bin/sh
 # Small POSIX script to quickly add or replace a LICENSE file to a directory.
 if [ -f ~/Templates/licenses/"$1" ]; then
-    [ -f LICENSE ] && rm LICENSE
     sed s/'<year>'/"$(date +%Y)"/g ~/Templates/licenses/"$1" | sed s/'<name>'/"Eduardo José Quirós Alvarado"/g | \
 	sed s/'<email>'/"<eduardo@eduardoquiros.com>"/g >> LICENSE
 else
