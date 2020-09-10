@@ -31,6 +31,7 @@ let g:coc_global_extensions = [
 			\'coc-yaml',
 			\'coc-explorer',
 			\'coc-prettier',
-			\'coc-snippets'
+			\'coc-snippets',
+			\'coc-rls'
 			\]
 so ~/.config/nvim/coc/extensions/prettier.vim
