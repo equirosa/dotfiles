@@ -1,6 +1,6 @@
 " Sourcing
-so ~/.config/nvim/coc/general.vim " CoC
 so ~/.config/nvim/plug.vim " Plug
+so ~/.config/nvim/coc/general.vim " CoC
 
 set shell=sh
 set encoding=utf-8
