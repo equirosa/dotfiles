@@ -21,9 +21,9 @@
       fzf = {
         enable = true;
         enableFishIntegration = true;
-        changeDirWidgetCommand = "fd --type d";
-        defaultCommand = "fd --type f";
-        fileWidgetCommand = "fd --type f";
+        changeDirWidgetCommand = "fd -uu --type d";
+        defaultCommand = "fd -uu --type f";
+        fileWidgetCommand = "fd -uu --type f";
       };
       starship = {
         enable = true;
