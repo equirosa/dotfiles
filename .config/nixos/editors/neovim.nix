@@ -53,8 +53,7 @@
         YouCompleteMe
         # Syntax highlighting
         vim-css-color
-        vim-fish
-        vim-nix
+        vim-polyglot
       ];
       viAlias = true;
       vimAlias = true;
