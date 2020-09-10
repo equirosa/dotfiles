@@ -16,6 +16,7 @@ SETUVAR _fish_abbr_nsp:nix\x2dshell\x20\x2dp
 SETUVAR _fish_abbr_nx:nix\x2denv\x20\x2dqaP\x20\x2d\x2ddescription
 SETUVAR _fish_abbr_v:\x24EDITOR
 SETUVAR _fish_abbr_vi:nvim
+SETUVAR _fish_abbr_wl:watchlist
 SETUVAR _fish_abbr_x:xdg\x2dopen
 SETUVAR fish_color_autosuggestion:555
 SETUVAR fish_color_cancel:normal
