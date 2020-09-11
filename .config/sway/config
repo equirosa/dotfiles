@@ -5,7 +5,7 @@ set {
     $down j
     $up k
     $right l
-    $menu dmenu-wl_run #wofi -S run #| xargs swaymsg exec
+    $menu dmenu-wl_run -i #wofi -S run #| xargs swaymsg exec
     $desktop exec wofi -S drun # | xargs swaymsg exec
 	$lock exec swaylock -S --effect-blur 20x10 --clock -f
 }
