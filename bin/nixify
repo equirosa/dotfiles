@@ -2,7 +2,8 @@
 
 [ -e ./.envrc ] || echo "use nix" > .envrc && direnv allow
 [ -e shell.nix ] || [ -e default.nix ] ||\
-	cat > default.nix <<'EOF'
+	case "$1" in
+		*) cat > default.nix <<'EOF'
 with import <nixpkgs> {};
 mkShell {
 	nativeBuildInputs = [
@@ -10,5 +11,6 @@ mkShell {
 	];
 }
 EOF
+esac
 
 ${EDITOR} default.nix
