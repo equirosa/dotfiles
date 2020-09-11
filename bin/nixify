@@ -3,6 +3,7 @@
 [ -e ./.envrc ] || echo "use nix" > .envrc && direnv allow
 [ -e shell.nix ] || [ -e default.nix ] ||\
 	case "$1" in
+		rust ) mv "$HOME/Templates/nixify/rust.nix" default.nix ;;
 		*) cat > default.nix <<'EOF'
 with import <nixpkgs> {};
 mkShell {
