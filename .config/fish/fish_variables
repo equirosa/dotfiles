@@ -11,6 +11,7 @@ SETUVAR _fish_abbr_gch:git\x20checkout
 SETUVAR _fish_abbr_gpl:git\x20pull
 SETUVAR _fish_abbr_gps:git\x20push
 SETUVAR _fish_abbr_lg:torify\x20lazygit
+SETUVAR _fish_abbr_lt:exa\x20\x2dl\x20\x2d\x2dicons\x20\x2d\x2dgit\x20\x2dT
 SETUVAR _fish_abbr_nrebuild:sudo\x20nixos\x2drebuild\x20switch\x20\x2d\x2dupgrade\x20\x26\x26\x20flatpak\x20update
 SETUVAR _fish_abbr_nsp:nix\x2dshell\x20\x2dp
 SETUVAR _fish_abbr_nx:nix\x2denv\x20\x2dqaP\x20\x2d\x2ddescription
