@@ -117,7 +117,7 @@
 
       #### Gaming ####
       chiaki # PS4 Remote Play utility
-      lutris # General games client
+      #lutris # General games client
       steam # videogame store
 
       #### TODO: Sort these... ####
