@@ -13,7 +13,6 @@
       xdo
       xidlehook
       xorg.xkill
-      st
     ];
   };
   services = {
