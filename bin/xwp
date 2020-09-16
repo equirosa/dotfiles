@@ -1,0 +1,12 @@
+#!/bin/sh
+# Force program to run under xwayland instead of natively on wayland.
+
+export QT_QPA_PLATFORM="xcb"
+export GDK_BACKEND="x11"
+export XDG_SESSION_TYPE="x11"
+
+exec "$1" & disown
+
+export QT_QPA_PLATFORM="wayland-egl"\
+	GDK_BACKEND=""\
+	XDG_SESSION_TYPE="wayland"
