@@ -12,7 +12,7 @@
         i3status-rust # status bar
         wf-recorder # screen video capture
         wl-clipboard # clipboard
-        wofi # menu
+        fuzzel
         xwayland # Xorg compat
         mako # notifications
         libappindicator
