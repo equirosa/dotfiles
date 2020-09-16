@@ -4,7 +4,7 @@ case "$1" in
 	*.pdf) exec "$READER" "$1" ;;
 	*.mp4 | *.webm | *.mkv) exec umpv "$1" & disown ;;
 	*share.tube* | *peertube* ) exec umpv "$(echo $1-1080.mp4 | sed s:videos/watch:download/videos:g)";;
-	*invidio* | *nettohikari* | *youtube.com*) exec umpv "$1" & disown	;;
+	*youtu.be* | *invidio* | *nettohikari* | *youtube.com*) exec umpv "$1" & disown	;;
 	*twitch*) exec streamlink -p mpv "$1" best & disown ;;
 	magnet* | *.torrent) exec stig add "$1"; notify-send "Torrent Added! 酪";;
 	http* | https* )
