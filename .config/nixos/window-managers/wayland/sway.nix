@@ -25,7 +25,7 @@
         export XDG_SESSION_TYPE=wayland
         export XDG_CURRENT_DESKTOP=Unity
         export SDL_VIDEODRIVER=wayland
-        export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+        export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
         export _JAVA_AWT_WM_NONREPARENTING=1
         export LOCK_CMD="swaylock-fancy -p"
       '';
