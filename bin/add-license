@@ -4,5 +4,16 @@ if [ -f ~/Templates/licenses/"$1" ]; then
     sed s/'<year>'/"$(date +%Y)"/g ~/Templates/licenses/"$1" | sed s/'<name>'/"Eduardo José Quirós Alvarado"/g | \
 	sed s/'<email>'/"<eduardo@eduardoquiros.com>"/g >> LICENSE
 else
-    echo "License $1 not present in your licenses directory"
+	case "$1" in
+		gpl | gpl3) url="https://www.gnu.org/licenses/gpl-3.0.txt";;
+		agpl) url="https://www.gnu.org/licenses/agpl-3.0.txt";;
+		fdl) url="https://www.gnu.org/licenses/fdl.txt";;
+		lgpl) url="https://www.gnu.org/licenses/lgpl.txt";;
+		apache) url="https://www.apache.org/licenses/LICENSE-2.0.txt";;
+		#mit) url="https://spdx.org/licenses/MIT.html";;
+		#bsd3) url="https://spdx.org/licenses/BSD-3-Clause.html";;
+		#isc) url="https://spdx.org/licenses/ISC.html#licenseText";;
+		*) echo "License not found";;
+	esac
+	[ -z $url ] || wget "$url" -O LICENSE
 fi
