@@ -16,7 +16,6 @@
         auto-pairs
         bclose-vim
         fugitive
-        goyo
         gruvbox-community
         lf-vim
         nerdcommenter
