@@ -19,7 +19,7 @@
     ./theme.nix
   ];
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest; # Use latest available kernel
+    #kernelPackages = pkgs.linuxPackages_latest; # Use latest available kernel
   };
   environment = {
     homeBinInPath = true;
