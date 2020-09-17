@@ -59,6 +59,12 @@ set noshowmode
 let g:lightline = {
 	\ 'colorscheme': 'gruvbox',
 	\ }
+
+
+" lspconfig stuff
+lua require'nvim_lsp'.rnix.setup{}
+lua require'nvim_lsp'.jdtls.setup{}
+
 set tabstop=4
 set shiftwidth=4
 set noexpandtab
