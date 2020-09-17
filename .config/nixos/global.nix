@@ -200,7 +200,10 @@
     thefuck.enable = true;
     tmux = {
       enable = true;
-      extraConfig = ''set -g default-command fish'';
+      extraConfig = ''
+        set -g default-command fish
+        set -sg escape-time 10
+        '';
       terminal = "screen-256color";
       newSession = true;
     };
