@@ -65,6 +65,9 @@ let g:lightline = {
 lua require'nvim_lsp'.rnix.setup{}
 lua require'nvim_lsp'.jdtls.setup{}
 
+" completion-nvim
+autocmd BufEnter * lua require'completion'.on_attach()
+
 set tabstop=4
 set shiftwidth=4
 set noexpandtab
