@@ -203,6 +203,7 @@
       extraConfig = ''
         set -g default-command fish
         set -sg escape-time 10
+        set -g focus-events on
         '';
       terminal = "screen-256color";
       newSession = true;
