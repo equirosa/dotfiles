@@ -15,6 +15,7 @@ map D %dragon $fx & disown
 
 # dedicated keys for file actions
 map o $xdg-open $f
+map O $xdg-open $fx
 map bg &make-wallpaper $f
 map M push $mkdir<space>
 map W $watchlist add $f
