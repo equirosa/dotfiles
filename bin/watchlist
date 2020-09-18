@@ -1,6 +1,6 @@
 #!/bin/sh
 case "$1" in
-	http*) exec youtube-dl -o '~/Videos/watchlist/%(title)s-%(channel)s-%(id)s.%(ext)s' "$1";;
+	http*) exec youtube-dl -o '~/Videos/watchlist/%(title)s-%(channel)s-%(id)s.%(ext)s' "$1" & disown;;
 	add ) exec mv "$2" "$HOME/Videos/watchlist/" ;;
 	"") exec mpv "$HOME/Videos/watchlist/";;
 	* ) exec mv "$1" "$HOME/Videos/watchlist/" ;;
