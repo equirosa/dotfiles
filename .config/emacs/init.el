@@ -13,3 +13,4 @@
  )
 (require 'iso-transl) ;; allow some config
 (load-theme 'gruvbox-dark-hard t) ;; load preferred theme
+(global-visual-line-mode t) ;; add visual line wrapping
