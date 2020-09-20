@@ -213,7 +213,7 @@
         set -sg escape-time 10
         set -g focus-events on
         set -sa terminal-overrides ',xterm-256color:RGB'
-        '';
+      '';
       terminal = "screen-256color";
       newSession = true;
     };
