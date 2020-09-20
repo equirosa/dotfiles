@@ -6,13 +6,13 @@
       vim = "nvim";
       vimdiff = "nvim -d";
     };
-  };
-  home-manager.users.eduardo = { pkgs, ... }: {
-    programs.neovim = {
-      enable = true;
-      extraConfig = ''
-      '';
-      plugins = with pkgs.vimPlugins; [
+    systemPackages = with pkgs; [
+      (neovim.override {
+        viAlias = true;
+        vimAlias = true;
+        configure = {
+          packages.myPlugins = with pkgs.vimPlugins; {
+            start = [
         auto-pairs
         bclose-vim
         fugitive
@@ -27,10 +27,11 @@
         # Syntax highlighting
         vim-css-color
         vim-polyglot
-      ];
-      viAlias = true;
-      vimAlias = true;
-      withPython3 = true;
-    };
+            ];
+            opt = [];
+          };
+        };
+      })
+    ];
   };
 }

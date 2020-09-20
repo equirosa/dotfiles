@@ -19,23 +19,21 @@ emacsWithPackages (
     (with epkgs.melpaStablePackages; []) ++ (
       with epkgs.melpaPackages; [
         # Completions
-        eglot
         bash-completion
+        company
+        eglot
+        lsp-mode
         # Cosas de Nix
         nix-mode
-        # Cosas de Markdown
-        auto-org-md
-        markdown-mode
         # Misc.
         pandoc-mode
+        fzf
         all-the-icons
         password-store
-        company
         keychain-environment
         evil
         magit
         scribble-mode
-        geiser
         #### Theming ####
         gruvbox-theme
         #### Org ####

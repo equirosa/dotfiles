@@ -2,7 +2,9 @@
   imports = [
     <home-manager/nixos>
     ./window-managers/wayland/sway.nix
+    ./editors/neovim.nix
     ./shell.nix
+    ./kdeConnect.nix
     ./backups/external.nix
     ./misc/32bit.nix
     ./misc/cleanup.nix
@@ -147,19 +149,17 @@
 
       #### Document ####
       ispell # spellchecking
-      neovim # EDITOR
       nodejs # For Coc.nvim
       pandoc # Doc processing
 
       #### Utilities ####
-      any-nix-shell
+      any-nix-shell # Allows using 'any' shell as a base for nix-shell
       bat # Cat replacement
       calc # calculator
       fd # replacement for 'find'
       gotop # Cooler process viewer
-      kitty # Terminal Emulator
-      alacritty
-      st
+      alacritty # Terminal emulator
+      st # Terminal emulator for X
       starship # Prompt
       udiskie
     ];
