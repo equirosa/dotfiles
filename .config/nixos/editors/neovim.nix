@@ -25,6 +25,8 @@
                 vim-devicons
                 vim-surround
                 YouCompleteMe
+                # CoC
+                coc-nvim
                 # Syntax highlighting
                 vim-css-color
                 vim-polyglot
