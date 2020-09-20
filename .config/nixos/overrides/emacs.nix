@@ -23,19 +23,27 @@ emacsWithPackages (
         company
         eglot
         lsp-mode
+        lsp-ui
+        dap-mode
+        flycheck
         # Cosas de Nix
+        direnv
         nix-mode
         # Misc.
         pandoc-mode
         fzf
         all-the-icons
+        all-the-icons-dired
+        rainbow-delimiters
         password-store
         keychain-environment
         evil
         magit
         scribble-mode
         #### Theming ####
-        gruvbox-theme
+        doom-themes
+        doom-modeline
+        fira-code-mode
         #### Org ####
         babel
       ]
