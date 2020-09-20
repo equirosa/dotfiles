@@ -31,6 +31,7 @@
               ];
               opt = [ ];
             };
+            customRC = "so /home/eduardo/.config/nvim/init.vim";
           };
         })
       ];
