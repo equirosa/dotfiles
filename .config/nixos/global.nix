@@ -3,6 +3,7 @@
     <home-manager/nixos>
     ./window-managers/wayland/sway.nix
     ./editors/neovim.nix
+    ./editors/emacs.nix
     ./shell.nix
     ./kdeConnect.nix
     ./backups/external.nix
