@@ -29,20 +29,6 @@ let g:lightline = {
 	\ 'colorscheme': 'gruvbox',
 	\ }
 
-" lspconfig stuff
-lua require'nvim_lsp'.rnix.setup{}
-lua require'nvim_lsp'.jdtls.setup{}
-
-" completion-nvim
-autocmd BufEnter * lua require'completion'.on_attach()
-"" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-"" Set completeopt to have a better completion experience
-set completeopt=menuone,noinsert,noselect
-"" Avoid showing message extra message when using completion
-set shortmess+=c
-
 set tabstop=4
 set shiftwidth=4
 set noexpandtab
