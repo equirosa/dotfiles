@@ -11,33 +11,6 @@ set number relativenumber termguicolors
 set splitbelow splitright
 syntax enable
 
-" Install vim-plug if it isn't already
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin()
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'tpope/vim-fugitive' " git integration for vim
-Plug 'itchyny/lightline.vim' " replace bottom statusline
-Plug 'rbgrouleff/bclose.vim' " For use with lf.vim
-Plug 'ptzz/lf.vim' " Integration with lf file manager
-Plug 'morhetz/gruvbox' " gruvbox colorscheme
-Plug 'preservim/nerdcommenter' " Make some commenting easier
-" Syntax highlighting
-Plug 'sheerun/vim-polyglot'
-Plug 'ap/vim-css-color' " color previews
-" completion
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-Plug 'junegunn/fzf.vim'
-" Vimwiki
-Plug 'vimwiki/vimwiki'
-call plug#end()
-
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
@@ -50,16 +23,11 @@ nmap <silent> <A-l> :wincmd l<CR>
 " Theming
 set background=dark
 let g:gruvbox_material_background = 'hard'
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-endif
 colorscheme gruvbox
 set noshowmode
 let g:lightline = {
 	\ 'colorscheme': 'gruvbox',
 	\ }
-
 
 " lspconfig stuff
 lua require'nvim_lsp'.rnix.setup{}
@@ -67,6 +35,13 @@ lua require'nvim_lsp'.jdtls.setup{}
 
 " completion-nvim
 autocmd BufEnter * lua require'completion'.on_attach()
+"" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+"" Avoid showing message extra message when using completion
+set shortmess+=c
 
 set tabstop=4
 set shiftwidth=4
@@ -79,4 +54,3 @@ autocmd BufWritePre * :%s/\s\+$//e " Remove whitespace upon saving a file
 map <leader>C :w! \| !compiler <c-r>%<CR>
 map <C-z> :Lf<CR>
 map <C-p> :PlugUpdate<CR>
-
