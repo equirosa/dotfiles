@@ -27,6 +27,8 @@
 
 (all-the-icons-dired-mode)
 (doom-modeline-mode)
+(setq doom-challenger-deep-brighter-comments t
+      doom-challenger-deep-brighter-modeline t)
 (show-paren-mode)
 (electric-pair-mode)
 (rainbow-delimiters-mode)
