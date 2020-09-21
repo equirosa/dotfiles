@@ -101,6 +101,7 @@
 
       #### Dev Stuff ####
       gitMinimal
+      gibo # Generate ignore boilerplates
 
       #### File Management ####
       trash-cli # Trash files
