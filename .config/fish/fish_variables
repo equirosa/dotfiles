@@ -7,7 +7,9 @@ SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr_c:cd
 SETUVAR _fish_abbr_fup:flatpak\x20update\x20\x2dy
 SETUVAR _fish_abbr_g:git
+SETUVAR _fish_abbr_gc:git\x20commit
 SETUVAR _fish_abbr_gch:git\x20checkout
+SETUVAR _fish_abbr_gcp:git\x20commit\x20\x2da\x3b\x20git\x20push
 SETUVAR _fish_abbr_gp:gopass
 SETUVAR _fish_abbr_gpl:git\x20pull
 SETUVAR _fish_abbr_gps:git\x20push
