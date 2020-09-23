@@ -27,6 +27,8 @@
                   vim-surround
                   # CoC
                   coc-nvim
+                  fzf-vim
+                  coc-fzf
                   # Syntax highlighting
                   vim-css-color
                   vim-polyglot
