@@ -156,14 +156,19 @@
 
       #### Utilities ####
       any-nix-shell # Allows using 'any' shell as a base for nix-shell
-      bat # Cat replacement
       calc # calculator
-      fd # replacement for 'find'
       gotop # Cooler process viewer
       alacritty # Terminal emulator
       st # Terminal emulator for X
       starship # Prompt
+      tealdeer # command examples
       udiskie
+
+      #### Rust Replacements
+      bat # Cat replacement
+      exa # ls replacement
+      fd # replacement for 'find'
+      ripgrep # grep replacement
     ];
   };
   nix = {
