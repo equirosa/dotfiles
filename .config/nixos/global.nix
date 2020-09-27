@@ -50,7 +50,8 @@
       MAIL = "torify aerc";
       TERMINAL = "alacritty";
       READER = "zathura";
-      LF_ICONS = "di=:fi=:ln=:or=:ex=:*.c=:*.cc=:*.cpp=ﭱ:*.js=:*.vimrc=:*.vim=:*.nix=:*.css=:*.pdf=:*.html=:*.rs=:*.rlib=:*.7z=:*.zip=:*.xz=:*.tar=:*.lz=:*.git=:*.webm=:*.mp4=:*.flac=:*.ogg=:*.opus=:*.m4a=:*.deb=:*.rpm=:*.py=:*.md=:*.json=ﬥ :*.mkv=:*.go=:.git=:*.ts=ﯤ:*.xml=謹:*.drawio=謹";
+      LF_ICONS =
+        "di=:fi=:ln=:or=:ex=:*.c=:*.cc=:*.cpp=ﭱ:*.js=:*.vimrc=:*.vim=:*.nix=:*.css=:*.pdf=:*.html=:*.rs=:*.rlib=:*.7z=:*.zip=:*.xz=:*.tar=:*.lz=:*.git=:*.webm=:*.mp4=:*.flac=:*.ogg=:*.opus=:*.m4a=:*.deb=:*.rpm=:*.py=:*.md=:*.json=ﬥ :*.mkv=:*.go=:.git=:*.ts=ﯤ:*.xml=謹:*.drawio=謹";
 
       # Java
       _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=lcd";
@@ -181,29 +182,18 @@
   nixpkgs = {
     config = { pulseaudio = true; };
     overlays = [
-      (
-        import (
-          builtins.fetchTarball {
-            url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
-          }
-        )
-      )
-      (
-        self: super: {
-          gopass = super.gopass.override {
-            passAlias = true;
-          };
-        }
-      )
+      (import (builtins.fetchTarball {
+        url =
+          "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
+      }))
+      (self: super: { gopass = super.gopass.override { passAlias = true; }; })
     ];
   };
   programs = {
     dconf.enable = true;
     firejail = {
       enable = true;
-      wrappedBinaries = {
-        anydesk = "${lib.getBin pkgs.anydesk}/bin/anydesk";
-      };
+      wrappedBinaries = { anydesk = "${lib.getBin pkgs.anydesk}/bin/anydesk"; };
     };
     fish = { enable = true; };
     gnome-disks.enable = true;
