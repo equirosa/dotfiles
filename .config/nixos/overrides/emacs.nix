@@ -20,6 +20,7 @@ emacsWithPackages (
       with epkgs.melpaPackages; [
         # Browsers/Comms
         elpher
+        slack
         # Completions
         bash-completion
         company
