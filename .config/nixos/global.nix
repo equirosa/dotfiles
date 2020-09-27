@@ -95,6 +95,7 @@
       dino # XMPP client
       discord
       element-desktop # Matrix client
+      gomuks
       signal-desktop
       weechat # IRC + other protocols
       toot # Mastodon client
@@ -103,6 +104,7 @@
       #### Dev Stuff ####
       gitMinimal
       gibo # Generate ignore boilerplates
+      licensor # LICENSE templater
 
       #### File Management ####
       trash-cli # Trash files
@@ -140,6 +142,7 @@
       nix-prefetch-github
       nox # YAY but for nixpkgs intead of AUR
       rnix-lsp # language server for Nix
+      nixfmt
 
       #### Org mode things ####
       texlive.combined.scheme-full # LaTeX stuff
