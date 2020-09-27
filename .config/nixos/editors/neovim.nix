@@ -30,6 +30,7 @@
                   fzf-vim
                   coc-fzf
                   # Syntax highlighting
+                  rainbow
                   vim-css-color
                   vim-polyglot
                 ];

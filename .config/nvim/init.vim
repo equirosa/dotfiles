@@ -28,6 +28,7 @@ set noshowmode
 let g:lightline = {
 	\ 'colorscheme': 'gruvbox',
 	\ }
+let g:rainbow_active=1
 
 set tabstop=4
 set shiftwidth=4
