@@ -31,7 +31,7 @@
       doom-challenger-deep-brighter-modeline t)
 (show-paren-mode)
 (electric-pair-mode)
-(rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode) ;; Use rainbow delimiters in programming mode
 (global-fira-code-mode)
 
 ;; Window stuff
