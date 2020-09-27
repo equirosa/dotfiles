@@ -1,55 +1,46 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> { } }:
 let
-  myEmacs = (
-    pkgs.emacs.override {
-      withGTK3 = true;
-      withGTK2 = false;
-    }
-  ).overrideAttrs (
-    attrs: {
-      postInstall = (attrs.postInstall or "") + ''
-        rm $out/share/applications/emacs.desktop
-      '';
-    }
-  );
+  myEmacs = (pkgs.emacs.override {
+    withGTK3 = true;
+    withGTK2 = false;
+  }).overrideAttrs (attrs: {
+    postInstall = (attrs.postInstall or "") + ''
+      rm $out/share/applications/emacs.desktop
+    '';
+  });
   emacsWithPackages = (pkgs.emacsPackagesGen myEmacs).emacsWithPackages;
-in
-emacsWithPackages (
-  epkgs:
-    (with epkgs.melpaStablePackages; []) ++ (
-      with epkgs.melpaPackages; [
-        # Browsers/Comms
-        elpher
-        slack
-        # Completions
-        bash-completion
-        company
-        eglot
-        lsp-mode
-        lsp-ui
-        dap-mode
-        flycheck
-        # Cosas de Nix
-        direnv
-        nix-mode
-        # Misc.
-        pandoc-mode
-        fzf
-        rainbow-delimiters
-        password-store
-        keychain-environment
-        evil
-        magit
-        scribble-mode
-        #### Theming ####
-        doom-themes
-        doom-modeline
-        all-the-icons
-        all-the-icons-dired
-        fira-code-mode
-        #### Org ####
-        babel
-      ]
-    ) ++ (with epkgs.elpaPackages; [ auctex beacon ])
-    ++ (with pkgs; [ emacs-all-the-icons-fonts ])
-)
+in emacsWithPackages (epkgs:
+  (with epkgs.melpaStablePackages; [ ]) ++ (with epkgs.melpaPackages; [
+    # Browsers/Comms
+    elpher
+    slack
+    # Completions
+    bash-completion
+    company
+    eglot
+    lsp-mode
+    lsp-ui
+    dap-mode
+    flycheck
+    # Cosas de Nix
+    direnv
+    nix-mode
+    # Misc.
+    pandoc-mode
+    fzf
+    rainbow-delimiters
+    password-store
+    keychain-environment
+    evil
+    magit
+    scribble-mode
+    #### Theming ####
+    doom-themes
+    doom-modeline
+    all-the-icons
+    all-the-icons-dired
+    fira-code-mode
+    #### Org ####
+    babel
+  ]) ++ (with epkgs.elpaPackages; [ auctex beacon ])
+  ++ (with pkgs; [ emacs-all-the-icons-fonts ]))
