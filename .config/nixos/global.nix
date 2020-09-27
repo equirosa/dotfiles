@@ -38,7 +38,7 @@
       [ -z "$TMUX" ] && exec tmux a
     '';
     shellAliases = {
-      # Force some XDG compliance
+      melpa = "nix-env -f '<nixpkgs>' -qaP -A emacsPackages.melpaPackages";
     };
     variables = {
       # Personal stuff
