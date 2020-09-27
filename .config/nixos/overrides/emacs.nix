@@ -18,6 +18,8 @@ emacsWithPackages (
   epkgs:
     (with epkgs.melpaStablePackages; []) ++ (
       with epkgs.melpaPackages; [
+        # Browsers/Comms
+        elpher
         # Completions
         bash-completion
         company
