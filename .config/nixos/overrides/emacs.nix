@@ -35,8 +35,6 @@ emacsWithPackages (
         # Misc.
         pandoc-mode
         fzf
-        all-the-icons
-        all-the-icons-dired
         rainbow-delimiters
         password-store
         keychain-environment
@@ -46,6 +44,8 @@ emacsWithPackages (
         #### Theming ####
         doom-themes
         doom-modeline
+        all-the-icons
+        all-the-icons-dired
         fira-code-mode
         #### Org ####
         babel
