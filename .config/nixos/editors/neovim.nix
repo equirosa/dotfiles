@@ -8,38 +8,36 @@
     };
     systemPackages = with pkgs;
       [
-        (
-          neovim.override {
-            viAlias = true;
-            vimAlias = true;
-            configure = {
-              packages.myPlugins = with pkgs.vimPlugins; {
-                start = [
-                  auto-pairs
-                  bclose-vim
-                  fugitive
-                  gruvbox-community
-                  lf-vim
-                  nerdcommenter
-                  lightline-vim
-                  vim-automkdir
-                  vim-devicons
-                  vim-surround
-                  # CoC
-                  coc-nvim
-                  fzf-vim
-                  coc-fzf
-                  # Syntax highlighting
-                  rainbow
-                  vim-css-color
-                  vim-polyglot
-                ];
-                opt = [];
-              };
-              customRC = "so /home/eduardo/.config/nvim/init.vim";
+        (neovim.override {
+          viAlias = true;
+          vimAlias = true;
+          configure = {
+            packages.myPlugins = with pkgs.vimPlugins; {
+              start = [
+                auto-pairs
+                bclose-vim
+                fugitive
+                gruvbox-community
+                lf-vim
+                nerdcommenter
+                lightline-vim
+                vim-automkdir
+                vim-devicons
+                vim-surround
+                # CoC
+                coc-nvim
+                fzf-vim
+                coc-fzf
+                # Syntax highlighting
+                rainbow
+                vim-css-color
+                vim-polyglot
+              ];
+              opt = [ ];
             };
-          }
-        )
+            customRC = "so /home/eduardo/.config/nvim/init.vim";
+          };
+        })
       ];
   };
 }
