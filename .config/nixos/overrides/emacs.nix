@@ -52,6 +52,7 @@ emacsWithPackages (
         fira-code-mode
         #### Org ####
         babel
+        org-bullets
         org-brain
       ]
     ) ++ (with epkgs.elpaPackages; [ auctex beacon ])

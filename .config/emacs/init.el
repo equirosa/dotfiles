@@ -36,6 +36,9 @@
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode) ;; Use rainbow delimiters in programming mode
 (global-fira-code-mode)
 
+;; Org stuff
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
 ;; Window stuff
 (when (window-system)
   (tool-bar-mode -1)
