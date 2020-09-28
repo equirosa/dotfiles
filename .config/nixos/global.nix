@@ -38,6 +38,8 @@
       [ -z "$TMUX" ] && exec tmux a
     '';
     shellAliases = {
+      # Emacs stuff
+      elpa = "nix-env -f '<nixpkgs>' -qaP -A emacsPackages.melpaPackages";
       melpa = "nix-env -f '<nixpkgs>' -qaP -A emacsPackages.melpaPackages";
     };
     variables = {
