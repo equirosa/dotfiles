@@ -52,6 +52,7 @@ emacsWithPackages (
         fira-code-mode
         #### Org ####
         babel
+        org-brain
       ]
     ) ++ (with epkgs.elpaPackages; [ auctex beacon ])
     ++ (with pkgs; [ emacs-all-the-icons-fonts ])
