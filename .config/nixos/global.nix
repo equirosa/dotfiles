@@ -86,7 +86,6 @@
       qsyncthingtray
 
       #### Browsers ####
-      amfora
       ncgopher
       asuka
       firefox
