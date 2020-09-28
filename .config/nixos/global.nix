@@ -35,7 +35,7 @@
       [ $(tty) = tty2 ] && startx
     '';
     interactiveShellInit = ''
-      [ -z "$TMUX" ] && exec tmux a
+      [ -z "$TMUX" ] && [ -z $INSIDE_EMACS ] && exec tmux a
     '';
     shellAliases = {
       # General stuff
