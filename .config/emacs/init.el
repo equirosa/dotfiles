@@ -1,3 +1,4 @@
+;; Sane defaults
 (require 'iso-transl) ;; allow some keys (mainly accents in spanish)
 (set-face-attribute 'default nil :height 120)
 (load-theme 'doom-gruvbox t) ;; load preferred theme
