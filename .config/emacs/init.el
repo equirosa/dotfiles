@@ -3,10 +3,11 @@
 (set-face-attribute 'default nil :height 120)
 (load-theme 'doom-gruvbox t) ;; load preferred theme
 (global-visual-line-mode t) ;; add visual line wrapping
-(setq gc-cons-threshold 100000000
-      read-process-output-max (* 1024 1024) ;; 1mb
-      lsp-completion-provider :capf
-      lsp-idle-delay 0.500) ; increase gc threshold
+(setq
+ gc-cons-threshold 100000000
+ read-process-output-max (* 1024 1024) ;; 1mb
+ lsp-completion-provider :capf
+ lsp-idle-delay 0.500) ; increase gc threshold
 
 ;; Prioritise UTF-8
 (set-charset-priority 'unicode)
