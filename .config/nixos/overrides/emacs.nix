@@ -29,6 +29,9 @@ emacsWithPackages (
         lsp-ui
         dap-mode
         flycheck
+        ## Java
+        jetbrains
+        lsp-java
         # Cosas de Nix
         direnv
         nix-mode
