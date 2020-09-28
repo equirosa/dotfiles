@@ -24,6 +24,9 @@ Note: you can supply custom mpv path and options with the MPV environment
       first item is used as path to mpv binary and the rest is passed as options
       _if_ the script starts mpv. If mpv is not started by the script (i.e. mpv
       is already running), this will be ignored.
+
+NOTE#2: This script has been SLIGHTLY modified from the original (https://github.com/mpv-player/mpv/blob/master/TOOLS/umpv),
+the original script is distributed under the GNU GPLv2 license, and this modified version is, therefore, presented under the same license.
 """
 
 import sys
