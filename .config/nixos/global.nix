@@ -38,6 +38,8 @@
       [ -z "$TMUX" ] && exec tmux a
     '';
     shellAliases = {
+      # General stuff
+      nrebuild = "sudo nixos-rebuild switch --upgrade; flatpak update -y";
       # Emacs stuff
       elpa = "nix-env -f '<nixpkgs>' -qaP -A emacsPackages.melpaPackages";
       melpa = "nix-env -f '<nixpkgs>' -qaP -A emacsPackages.melpaPackages";
