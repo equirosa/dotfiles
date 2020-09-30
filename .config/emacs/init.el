@@ -40,6 +40,16 @@
 ;; Org stuff
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
+;; org-brain
+(setq org-brain-path "/home/eduardo/Documents/org"
+      org-id-track-globally t
+      org-id-locations-file "~/.emacs.d/.org-id-locations"
+      org-brain-visualize-default-choices 'all
+      org-brain-title-max-length 12
+      org-brain-include-file-entries nil
+      org-brain-file-entries-use-title nil)
+
+
 ;; Window stuff
 (when (window-system)
   (tool-bar-mode -1)
