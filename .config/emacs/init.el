@@ -26,8 +26,6 @@
 
 ;; Visuals
 (ignore-errors (set-frame-font "Fira Code-12"))
-
-(all-the-icons-dired-mode)
 (doom-modeline-mode)
 (setq doom-challenger-deep-brighter-comments t
       doom-challenger-deep-brighter-modeline t)
@@ -35,6 +33,9 @@
 (electric-pair-mode)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode) ;; Use rainbow delimiters in programming mode
 (global-fira-code-mode)
+
+;; All The Icons
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
 ;; Org stuff
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
