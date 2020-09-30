@@ -35,10 +35,11 @@ emacsWithPackages (
         # Cosas de Nix
         direnv
         nix-mode
+        # Style
+        rainbow-delimiters
         # Misc.
         pandoc-mode
         fzf
-        rainbow-delimiters
         password-store
         keychain-environment
         evil
