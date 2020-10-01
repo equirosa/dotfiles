@@ -18,6 +18,7 @@
         # screenshots
         sway-contrib.grimshot # screenshot utility
         slurp # define screen geometry
+        v4l-utils # for screen sharing
       ];
       extraSessionCommands = ''
         export XDG_SESSION_TYPE=wayland
