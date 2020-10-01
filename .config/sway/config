@@ -27,7 +27,7 @@ exec swayidle -w \
 
 bindsym {
 	$mod+Return exec $TERMINAL #Launch Terminal
-	$mod+Shift+e exec emacsclient -c
+	$mod+Shift+e exec emacs
 	$mod+q kill #Kill container
 	$mod+d exec $menu #Launch wofi in command mode
 	$mod+Shift+d exec $desktop #Launch wofi in desktop mode
