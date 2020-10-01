@@ -166,7 +166,6 @@
       calc # calculator
       gotop # Cooler process viewer
       alacritty # Terminal emulator
-      st # Terminal emulator for X
       starship # Prompt
       tealdeer # command examples
       udiskie
