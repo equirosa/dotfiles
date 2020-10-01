@@ -216,9 +216,7 @@ bindsym $mod+Shift+s gaps outer current minus 5
 exec {
 	mako&
 	redshift&
-	kdeconnect-indicator&
 	syncthing&
-	qsynthingtray&
 }
 
 include ~/.config/sway/`hostname`
