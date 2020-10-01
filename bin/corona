@@ -4,6 +4,6 @@ CORONA_FILE="$HOME/.cache/corona";
 [ -f "$CORONA_FILE" ] || touch "$CORONA_FILE";
 
 [ "$(stat -c %y $CORONA_FILE 2>/dev/null | cut -d' ' -f1)" != "$(date '+%Y-%m-%d')" ] || [ "$1" = "-u" ] &&
-	curl -s https://corona-stats.online/CR{,?source=1} | sed 22q > "$CORONA_FILE"
+	curl -s https://corona-stats.online/CR > "$CORONA_FILE"
 
 cat "$CORONA_FILE"
