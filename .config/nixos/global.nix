@@ -214,7 +214,6 @@
     tmux = {
       enable = true;
       extraConfig = ''
-        set -g default-command fish
         set -sg escape-time 10
         set -g focus-events on
         set -sa terminal-overrides ',xterm-256color:RGB'
