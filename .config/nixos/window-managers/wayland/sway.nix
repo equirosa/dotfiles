@@ -4,7 +4,7 @@
     sway = {
       enable = true;
       extraPackages = with pkgs; [
-        dmenu-wayland
+        dmenu-wayland # launcher
         brightnessctl
         swayidle # idle monitoring
         swaylock-effects # lockscreen
@@ -15,11 +15,11 @@
         fuzzel
         xwayland # Xorg compat
         mako # notifications
-        libappindicator
+        libappindicator # for interaction with notification daemon
         # screenshots
-        sway-contrib.grimshot
         grim
-        slurp
+        sway-contrib.grimshot # screenshot utility
+        slurp # define screen geometry
       ];
       extraSessionCommands = ''
         export XDG_SESSION_TYPE=wayland
