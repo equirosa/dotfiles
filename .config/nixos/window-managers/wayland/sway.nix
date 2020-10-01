@@ -12,12 +12,10 @@
         i3status-rust # status bar
         wf-recorder # screen video capture
         wl-clipboard # clipboard
-        fuzzel
         xwayland # Xorg compat
         mako # notifications
         libappindicator # for interaction with notification daemon
         # screenshots
-        grim
         sway-contrib.grimshot # screenshot utility
         slurp # define screen geometry
       ];
