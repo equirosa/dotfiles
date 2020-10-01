@@ -5,6 +5,7 @@ SETUVAR --export SSH_AGENT_PID:25184
 SETUVAR --export SSH_AUTH_SOCK:/tmp/ssh\x2dSjxCC1Schpos/agent\x2e25183
 SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr_c:cd
+SETUVAR _fish_abbr_fs:flatpak\x20search
 SETUVAR _fish_abbr_fup:flatpak\x20update\x20\x2dy
 SETUVAR _fish_abbr_g:git
 SETUVAR _fish_abbr_gc:git\x20commit
