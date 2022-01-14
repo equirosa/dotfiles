@@ -76,8 +76,8 @@ in
             ];
           };
           startup = [
-            { command = "${pkgs.mako}/bin/mako"; }
             { command = "${pkgs.autotiling}/bin/autotiling"; }
+            { command = "${pkgs.mako}/bin/mako"; }
           ];
           output = {
             "DP-1" = { mode = "1920x1080"; position = "0 0"; adaptive_sync = "on"; };
