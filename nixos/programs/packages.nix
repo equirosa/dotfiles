@@ -20,12 +20,24 @@ in
       neovim
 
       # Utilities
+      borgbackup
+      du-dust
       gopass
       gopass-jsonapi
+      ripgrep
       tealdeer
       wormhole-william
+      ytfzf
 
       # Scripts
+      (writeShellApplication {
+        name = "download-file";
+        runtimeInputs = [ yt-dlp ];
+        text = ''
+          setsid ${pkgs.yt-dlp}/bin/yt-dlp --restrict-filenames --sponsorblock-mark all \
+          --embed-subs --embed-metadata -o "%(title)s-[%(id)s].%(ext)s" "$1" >>/dev/null &
+        '';
+      })
       (writeDashScript "rem-lap" ''
         chosen=$(find "${config.xdg.dataHome}/remmina/" -name "*.remmina")
 
@@ -62,6 +74,17 @@ in
                 *.pdf ) setsid ${pdf-reader} "$1" ;;
                 * ) ${pkgs.xdg-utils}/bin/xdg-open "$1" ;;
               esac
+        '';
+      })
+      (writeShellApplication {
+        name = "xsteam";
+        runtimeInputs = [ ];
+        text = ''
+          export QT_QPA_PLATFORM="xcb"
+          export GDK_BACKEND=x11
+          export XDG_SESSION_TYPE=x11
+          export SDL_VIDEODRIVER=x11
+          exec steam
         '';
       })
     ];
