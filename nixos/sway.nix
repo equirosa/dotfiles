@@ -12,35 +12,40 @@ in
 {
   home-manager.users.kiri = { config, lib, ... }: {
     # Foot config. TODO: consider moving to own file
-    programs.foot = {
-      enable = true;
-      server.enable = false;
-      settings = {
-        colors = with colors; with gruvbox; {
-          alpha = "${opacity}";
-          regular0 = "${regular.black}";
-          regular1 = "${regular.red}";
-          regular2 = "${regular.green}";
-          regular3 = "${regular.yellow}";
-          regular4 = "${regular.blue}";
-          regular5 = "${regular.magenta}";
-          regular6 = "${regular.cyan}";
-          regular7 = "${regular.white}";
-          bright0 = "${bright.black}";
-          bright1 = "${bright.red}";
-          bright2 = "${bright.green}";
-          bright3 = "${bright.yellow}";
-          bright4 = "${bright.blue}";
-          bright5 = "${bright.magenta}";
-          bright6 = "${bright.cyan}";
-          bright7 = "${bright.white}";
-        };
-        main = {
-          bold-text-in-bright = "true";
-          font = "monospace:size=14";
-        };
-        mouse = {
-          hide-when-typing = "yes";
+    programs = {
+      mako = {
+        enable = true;
+      };
+      foot = {
+        enable = true;
+        server.enable = false;
+        settings = {
+          colors = with colors; with gruvbox; {
+            alpha = "${opacity}";
+            regular0 = "${regular.black}";
+            regular1 = "${regular.red}";
+            regular2 = "${regular.green}";
+            regular3 = "${regular.yellow}";
+            regular4 = "${regular.blue}";
+            regular5 = "${regular.magenta}";
+            regular6 = "${regular.cyan}";
+            regular7 = "${regular.white}";
+            bright0 = "${bright.black}";
+            bright1 = "${bright.red}";
+            bright2 = "${bright.green}";
+            bright3 = "${bright.yellow}";
+            bright4 = "${bright.blue}";
+            bright5 = "${bright.magenta}";
+            bright6 = "${bright.cyan}";
+            bright7 = "${bright.white}";
+          };
+          main = {
+            bold-text-in-bright = "true";
+            font = "monospace:size=14";
+          };
+          mouse = {
+            hide-when-typing = "yes";
+          };
         };
       };
     };
