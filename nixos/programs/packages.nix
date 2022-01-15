@@ -20,6 +20,11 @@ in
       # Editor
       neovim
 
+      # Nix-specific stuff
+      nix-update
+      nixpkgs-fmt
+      nixpkgs-review
+
       # Utilities
       borgbackup
       du-dust
