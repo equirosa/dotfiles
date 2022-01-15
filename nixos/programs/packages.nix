@@ -11,6 +11,7 @@ in
     home.packages = with pkgs; [
       # Browsers
       nur.repos.wolfangaukang.librewolf
+      torbrowser
 
       # Messengers
       discord # UNFREE
