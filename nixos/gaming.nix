@@ -1,4 +1,11 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+let
+  nix-gaming = import (builtins.fetchTarball "https://github.com/fufexan/nix-gaming/archive/master.tar.gz");
+in
+{
+  imports = [
+    # "nix-gaming/modules/pipewireLowLatency.nix"
+  ];
   home-manager.users.kiri = {
     home = {
       packages = with pkgs; [
@@ -8,6 +15,7 @@
         warzone2100
         wesnoth
         zeroad
+        nix-gaming.packages.x86_64-linux.rocket-league
         # Launchers
         eidolon
         lutris # General games client
@@ -39,6 +47,10 @@
       extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
     };
   };
+  nix = {
+    binaryCaches = [ "https://nix-gaming.cachix.org" ];
+    binaryCachePublicKeys = [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" ];
+  };
   nixpkgs = {
     config = {
       allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -50,4 +62,10 @@
       ];
     };
   };
+  services = {
+    pipewire = {
+      # lowLatency.enable = true;
+    };
+  };
+  security.rtkit.enable = true;
 }
