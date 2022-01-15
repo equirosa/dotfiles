@@ -46,6 +46,13 @@ in
           --embed-subs --embed-metadata -o "%(title)s-[%(id)s].%(ext)s" "$1" >>/dev/null &
         '';
       })
+      (writeShellApplication {
+        name = "nixpkgs-info-json";
+        runtimeInputs = [ ];
+        text = ''
+          nix-env --query --available --attr-path --json "$@" | ${pkgs.bat}/bin/bat --language json
+        '';
+      })
       (writeDashScript "rem-lap" ''
         chosen=$(find "${config.xdg.dataHome}/remmina/" -name "*.remmina")
 
