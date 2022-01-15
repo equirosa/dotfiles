@@ -33,6 +33,7 @@ in
       imv
       ripgrep
       tealdeer
+      trash-cli
       wormhole-william
       ytfzf
 
