@@ -12,9 +12,9 @@
         open = ''''${{for file in "$fx"; do setsid xdg-open "$file" > /dev/null 2> /dev/null & done}}'';
       };
       keybindings = {
+        "<delete>" = ''''$${pkgs.trash-cli}/bin/trash-put "$fx"'';
         D = ''&${pkgs.dragon-drop}/bin/dragon -a -x "$fx"'';
         M = ''push &${pkgs.coreutils}/bin/mkdir -p<space>'';
-        "<delete>" = ''''$${pkgs.trash-cli}/bin/trash-put "$fx"'';
       };
       previewer = {
         keybinding = "i";
