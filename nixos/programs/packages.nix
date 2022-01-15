@@ -21,6 +21,7 @@ in
       neovim
 
       # Nix-specific stuff
+      cachix
       nix-update
       nixpkgs-fmt
       nixpkgs-review
