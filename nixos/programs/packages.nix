@@ -24,6 +24,7 @@ in
       du-dust
       gopass
       gopass-jsonapi
+      imv
       ripgrep
       tealdeer
       wormhole-william
