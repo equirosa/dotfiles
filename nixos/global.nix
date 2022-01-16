@@ -28,8 +28,11 @@ in
         };
         keychain = {
           enable = true;
-          agents = [ ];
-          keys = [ "id_ed25519" ];
+          agents = [ "ssh" "gpg" ];
+          keys = [
+            "id_ed25519"
+            "B77F36C3F12720B4"
+          ];
         };
         less = {
           enable = true;
