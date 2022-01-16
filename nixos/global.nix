@@ -26,6 +26,11 @@ in
         gpg = {
           enable = true;
         };
+        keychain = {
+          enable = true;
+          agents = [ ];
+          keys = [ "id_ed25519" ];
+        };
         less = {
           enable = true;
         };
