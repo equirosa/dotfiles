@@ -8,7 +8,7 @@ let
     termMonitor = "${pkgs.bottom}/bin/btm";
     termAudio = "${pkgs.pulsemixer}/bin/pulsemixer";
   };
-  colors = (import ./colors.nix);
+  colors = import ./colors.nix;
 in
 {
   home-manager.users.kiri = { config, lib, ... }: {

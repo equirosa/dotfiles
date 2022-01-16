@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
-  abbreviations = (import ./abbreviations.nix);
-  aliases = (import ./aliases.nix);
+  abbreviations = import ./abbreviations.nix;
+  aliases = import ./aliases.nix;
 in
 {
   users.users.kiri.shell = pkgs.fish;
