@@ -7,6 +7,7 @@
   lg = "lazygit";
   ll = "ls -la";
   md = "mkdir -p";
+  nj = "nixpkgs-info-json";
   nr = "nix run nixpkgs#";
   ns = "nix search nixpkgs";
   nsp = "nix-shell -p";
