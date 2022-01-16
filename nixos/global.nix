@@ -92,4 +92,10 @@ in
     };
     udisks2.enable = true;
   };
+  system = {
+    autoUpgrade = {
+      enable = true;
+      dates = "*/6:0:0";
+    };
+  };
 }
