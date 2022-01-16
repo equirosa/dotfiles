@@ -60,7 +60,7 @@ in
           keybindings =
             let
               mod = config.wayland.windowManager.sway.config.modifier;
-              terminal = config.wayland.windowManager.sway.config.terminal;
+              inherit (config.wayland.windowManager.sway.config) terminal;
             in
             lib.mkOptionDefault {
               "${mod}+a" = "exec ${terminal} ${commonCommands.termAudio}";
