@@ -3,6 +3,7 @@ let
   lockCommand = "${pkgs.swaylock}/bin/swaylock -c 000000 -f";
   commonCommands = {
     feedReader = "${pkgs.newsboat}/bin/newsboat";
+    mailClient = "${pkgs.aerc}/bin/aerc";
     termFileManager = "${pkgs.lf}/bin/lf";
     termMonitor = "${pkgs.bottom}/bin/btm";
     termAudio = "${pkgs.pulsemixer}/bin/pulsemixer";
@@ -63,6 +64,7 @@ in
             in
             lib.mkOptionDefault {
               "${mod}+a" = "exec ${terminal} ${commonCommands.termAudio}";
+              "${mod}+e" = "exec ${terminal} ${commonCommands.mailClient}";
               "Print" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy window";
               "${mod}+n" = "exec ${terminal} ${commonCommands.feedReader}";
               "${mod}+i" = "exec ${terminal} ${commonCommands.termMonitor}";
