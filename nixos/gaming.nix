@@ -22,6 +22,7 @@ in
         legendary-gl
         # Utilities
         chiaki # PS4 Remote Play utility
+        gamemode
         mangohud
         protonup
       ];
