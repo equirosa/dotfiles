@@ -89,6 +89,7 @@ in
             };
           };
           output = {
+            "*" = { bg = "${config.xdg.cacheHome}/background_image fill"; };
             "DP-1" = { mode = "1920x1080"; position = "0 0"; adaptive_sync = "on"; };
             "HDMI-A-1" = { mode = "1920x1080"; position = "1920 0"; };
           };
