@@ -84,7 +84,7 @@ in
         runtimeInputs = [ ];
         text = ''
               case "$1" in
-                *youtube.com/watch* | *youtu.be/* | *twitch.tv/* | *peertube.co.uk/videos/* | *videos.lukesmith.xyz/w/* | *diode.zone/w/* ) setsid ${mpv}/bin/umpv "$1" & ;;
+                *youtube.com/watch* | *youtu.be/* | *twitch.tv/* | *peertube.co.uk/videos/* | *videos.lukesmith.xyz/w/* | *diode.zone/w/* | *peertube.thenewoil.xyz/videos/watch/* ) setsid ${mpv}/bin/umpv "$1" & ;;
                 http* ) firefox "$1" ;;
           *.png | *.jpg | *.jpeg ) ${pkgs.imv}/bin/imv "$1" ;;
                 *.pdf ) setsid ${pdf-reader} "$1" ;;
