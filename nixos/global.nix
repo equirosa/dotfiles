@@ -39,6 +39,10 @@ in
           enableScDaemon = false;
           enableSshSupport = true;
         };
+        syncthing = {
+          enable = true;
+          tray.enable = true;
+        };
         udiskie = {
           enable = true;
         };
