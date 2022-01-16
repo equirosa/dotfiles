@@ -11,6 +11,9 @@ in
         enable = true;
         shellAbbrs = abbreviations;
         #shellAliases = aliases;
+        interactiveShellInit = ''
+          ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+        '';
       };
     };
   };
