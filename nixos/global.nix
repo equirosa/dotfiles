@@ -95,7 +95,7 @@ in
   system = {
     autoUpgrade = {
       enable = true;
-      dates = "*/6:0:0";
+      dates = "0/4:0:0";
     };
   };
 }
