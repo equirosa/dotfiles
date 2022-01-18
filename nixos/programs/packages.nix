@@ -21,6 +21,10 @@ in
       # Editor
       neovim
 
+      # File Sharing
+      ffsend
+      wormhole-william
+
       # Nix-specific stuff
       cachix
       nix-update
@@ -36,7 +40,6 @@ in
       ripgrep
       tealdeer
       trash-cli
-      wormhole-william
       ytfzf
 
       # Scripts
