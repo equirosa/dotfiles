@@ -14,6 +14,7 @@ in
       torbrowser
 
       # Messengers
+      aerc
       discord # UNFREE
       schildichat-desktop
 
