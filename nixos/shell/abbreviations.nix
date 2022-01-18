@@ -11,6 +11,7 @@
   nr = "nix run nixpkgs#";
   ns = "nix search nixpkgs";
   nsp = "nix-shell -p";
+  tl = "tldr";
   v = "mpv";
   yf = "ytfzf";
 }
