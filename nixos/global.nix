@@ -6,6 +6,7 @@ in
   imports = [
     (import "${home-manager}/nixos")
     ./audio/default.nix
+    ./extra_security.nix
     ./gaming.nix
     ./programs/all.nix
     ./shell/default.nix
