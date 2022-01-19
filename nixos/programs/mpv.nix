@@ -20,9 +20,9 @@
   nixpkgs.overlays = [
     (self: super: {
       mpv = super.mpv-with-scripts.override {
-        scripts = [
-          self.mpvScripts.sponsorblock
-          self.mpvScripts.mpv-playlistmanager
+        scripts = with self.mpvScripts; [
+          sponsorblock
+          mpv-playlistmanager
         ];
       };
     })
