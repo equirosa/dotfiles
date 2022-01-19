@@ -96,17 +96,6 @@ in
               esac
         '';
       })
-      (writeShellApplication {
-        name = "xsteam";
-        runtimeInputs = [ ];
-        text = ''
-          export QT_QPA_PLATFORM="xcb"
-          export GDK_BACKEND=x11
-          export XDG_SESSION_TYPE=x11
-          export SDL_VIDEODRIVER=x11
-          exec steam
-        '';
-      })
     ];
   };
 }
