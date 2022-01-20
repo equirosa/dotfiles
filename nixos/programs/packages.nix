@@ -47,7 +47,7 @@ in
       (writeShellApplication {
         name = "check-modifications";
         text = ''
-          nixos-rebuild build --upgrade && ${lib.getBin pkgs.nvd}/bin/nvd diff /run/current-system ./result && rm .result
+          nixos-rebuild build --upgrade && ${lib.getBin pkgs.nvd}/bin/nvd diff /run/current-system ./result && rm ./result
         '';
       })
       (writeShellApplication {
