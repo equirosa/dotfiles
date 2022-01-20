@@ -23,6 +23,7 @@
       };
       settings = {
         incsearch = true;
+        ifs = "\\n";
         ratios = "2:4";
         wrapscroll = true;
       };
