@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
-  lockCommand = "${pkgs.swaylock}/bin/swaylock -c 000000 -f";
+  lockCommand = "${pkgs.swaylock}/bin/swaylock --image ${config.home-manager.users.kiri.xdg.cacheHome}/background_image -f";
   commonCommands = {
     feedReader = "${pkgs.newsboat}/bin/newsboat";
     mailClient = "${pkgs.aerc}/bin/aerc";
