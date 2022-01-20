@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  home-manager.users.kiri = {
+  home-manager.users.kiri = { config, ... }: {
     home = {
       sessionVariables = {
         PISTOL_CHROMA_FORMATTER = "terminal16m";
@@ -12,10 +12,12 @@
         open = ''''${{for file in "$fx"; do setsid xdg-open "$file" > /dev/null 2> /dev/null & done}}'';
       };
       keybindings = {
-        "<backspace2>" = '':set hidden!'';
+        "<backspace2>" = ":set hidden!";
         "<delete>" = ''''$${pkgs.trash-cli}/bin/trash-put "$fx"'';
         D = ''&${pkgs.dragon-drop}/bin/dragon -a -x "$fx"'';
-        M = ''push &${pkgs.coreutils}/bin/mkdir -p<space>'';
+        E = "push \$${config.home.sessionVariables.EDITOR}<space>";
+        M = "push \$mkdir<space>-p<space>";
+        T = "push \$touch<space>";
       };
       previewer = {
         keybinding = "i";
