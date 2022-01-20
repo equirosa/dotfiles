@@ -44,6 +44,12 @@ in
 
       # Scripts
       (writeShellApplication {
+        name = "check-modifications";
+        text = ''
+          nixos-rebuild build --upgrade && ${lib.getBin pkgs.nvd}/bin/nvd diff /run/current-system ./result
+        '';
+      })
+      (writeShellApplication {
         name = "download-file";
         text = ''
           setsid ${pkgs.yt-dlp}/bin/yt-dlp --restrict-filenames --sponsorblock-mark all \
