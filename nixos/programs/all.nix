@@ -1,6 +1,6 @@
 {
   imports = [
-    ./firefox.nix
+    # ./firefox.nix
     ./git.nix
     ./lf.nix
     ./mpv.nix
