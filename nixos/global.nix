@@ -78,6 +78,15 @@ in
       };
     };
   };
+  security = {
+    pam = {
+      services = {
+        login = {
+          gnupg.enable = true;
+        };
+      };
+    };
+  };
   services = {
     dnscrypt-proxy2 = {
       enable = true;
