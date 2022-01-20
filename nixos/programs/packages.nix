@@ -1,6 +1,8 @@
 { pkgs, lib, ... }:
 let
   pdf-reader = "${pkgs.zathura}/bin/zathura";
+  terminal = "${pkgs.foot}/bin/foot";
+  geminiBrowser = "${pkgs.amfora}/bin/amfora";
   writeDashScript = name: content: (pkgs.writeScriptBin "${name}" ''
     #!${pkgs.dash}/bin/dash
     ${content}
@@ -91,13 +93,14 @@ in
       (writeShellApplication {
         name = "xdg-open";
         text = ''
-              case "$1" in
-                *youtube.com/watch* | *youtu.be/* | *twitch.tv/* | *peertube.co.uk/videos/* | *videos.lukesmith.xyz/w/* | *diode.zone/w/* | *peertube.thenewoil.xyz/videos/watch/* ) setsid ${mpv}/bin/umpv "$1" & ;;
-                http* ) firefox "$1" ;;
-          *.png | *.jpg | *.jpeg ) ${pkgs.imv}/bin/imv "$1" ;;
-                *.pdf ) setsid ${pdf-reader} "$1" ;;
-                * ) ${pkgs.xdg-utils}/bin/xdg-open "$1" ;;
-              esac
+          case "$1" in
+            gemini* ) ${terminal} ${geminiBrowser} "$@" ;;
+            *youtube.com/watch* | *youtu.be/* | *twitch.tv/* | *peertube.co.uk/videos/* | *videos.lukesmith.xyz/w/* | *diode.zone/w/* | *peertube.thenewoil.xyz/videos/watch/* ) setsid ${mpv}/bin/umpv "$1" & ;;
+            http* ) firefox "$@" ;;
+            *.png | *.jpg | *.jpeg ) ${pkgs.imv}/bin/imv "$@" ;;
+            *.pdf ) setsid ${pdf-reader} "$@" ;;
+            * ) ${pkgs.xdg-utils}/bin/xdg-open "$@" ;;
+          esac
         '';
       })
     ];
