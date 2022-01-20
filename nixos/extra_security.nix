@@ -1,6 +1,7 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   imports = [ <nixpkgs/nixos/modules/profiles/hardened.nix> ];
   environment = {
+    defaultPackages = lib.mkForce [ ];
     # memoryAllocator.provider = "graphene-hardened"; # TODO: consider using this one, after a successful boot with scudo.
   };
   networking = {
