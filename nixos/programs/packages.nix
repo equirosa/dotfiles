@@ -45,7 +45,6 @@ in
       # Scripts
       (writeShellApplication {
         name = "download-file";
-        runtimeInputs = [ yt-dlp ];
         text = ''
           setsid ${pkgs.yt-dlp}/bin/yt-dlp --restrict-filenames --sponsorblock-mark all \
           --embed-subs --embed-metadata -o "%(title)s-[%(id)s].%(ext)s" "$1" >>/dev/null &
@@ -53,7 +52,6 @@ in
       })
       (writeShellApplication {
         name = "nixpkgs-info-json";
-        runtimeInputs = [ ];
         text = ''
           nix-env --query --available --attr-path --json "$@" | ${pkgs.bat}/bin/bat --language json
         '';
@@ -85,7 +83,6 @@ in
       '')
       (writeShellApplication {
         name = "xdg-open";
-        runtimeInputs = [ ];
         text = ''
               case "$1" in
                 *youtube.com/watch* | *youtu.be/* | *twitch.tv/* | *peertube.co.uk/videos/* | *videos.lukesmith.xyz/w/* | *diode.zone/w/* | *peertube.thenewoil.xyz/videos/watch/* ) setsid ${mpv}/bin/umpv "$1" & ;;
