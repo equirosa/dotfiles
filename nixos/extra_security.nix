@@ -22,6 +22,10 @@
       };
     };
   };
+  security = {
+    chromiumSuidSandbox.enable = true;
+    unprivilegedUsernsClone = true;
+  };
   services = {
     clamav = {
       daemon.enable = true;
