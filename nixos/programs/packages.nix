@@ -34,6 +34,7 @@ in
       # Utilities
       borgbackup
       du-dust
+      fd
       gopass
       gopass-jsonapi
       imv
