@@ -12,6 +12,7 @@ in
     ./shell/default.nix
     ./sway.nix
     ./theme.nix
+    ./virtualization/qemu.nix
   ];
 
   home-manager = {
