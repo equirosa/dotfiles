@@ -20,6 +20,9 @@ in
       discord # UNFREE
       schildichat-desktop
 
+      # Documents
+      libreoffice
+
       # Editor
       neovim
 
