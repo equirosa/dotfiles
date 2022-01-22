@@ -28,6 +28,7 @@ in
 
       # File Sharing
       ffsend
+      onionshare-gui
       wormhole-william
 
       # Nix-specific stuff
