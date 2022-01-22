@@ -5,11 +5,11 @@ in
 {
   imports = [
     (import "${home-manager}/nixos")
-    ./audio/default.nix
+    ./audio
     # ./extra_security.nix
     ./gaming.nix
-    ./programs/all.nix
-    ./shell/default.nix
+    ./programs
+    ./shell
     ./sway.nix
     ./theme.nix
     ./virtualization/qemu.nix
