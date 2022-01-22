@@ -56,12 +56,10 @@ in
       ytfzf
 
       # Scripts
-      (writeShellApplication {
-        name = "check-modifications";
-        text = ''
-          nixos-rebuild build --upgrade && ${lib.getBin pkgs.nvd}/bin/nvd diff /run/current-system ./result && rm ./result
-        '';
-      })
+      (writeDashScript "check-modifications" ''
+        nixos-rebuild build --upgrade && ${lib.getBin pkgs.nvd}/bin/nvd diff /run/current-system ./result && rm ./result
+      ''
+      )
       (writeShellApplication {
         name = "download-file";
         text = ''
