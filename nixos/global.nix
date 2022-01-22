@@ -72,6 +72,8 @@ in
     autoOptimiseStore = true;
     extraOptions = ''
       experimental-features = flakes nix-command
+      keep-outputs = true
+      keep-derivations = true
     '';
   };
   nixpkgs = {
