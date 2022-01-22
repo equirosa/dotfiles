@@ -64,6 +64,28 @@ in
         '';
       })
       (writeShellApplication {
+        name = "nixify";
+        text = ''
+          [ -e ./.envrc ] || echo "use nix" > .envrc && direnv allow
+          [ -e shell.nix ] || [ -e default.nix ] \
+            || cp "${config.home.homeDirectory}/Templates/nixify/$1/shell.nix" shell.nix \
+            || cat > shell.nix << 'EOF'
+          with import <nixpkgs> {};
+          mkShell {
+            nativeBuildInputs = [
+            ];
+          }
+          EOF
+
+          case "$1" in
+            "node") echo "export \$PATH=\$XDG_DATA_DIR/npm/bin:\$PATH" >> ./.envrc;;
+            *) echo "Using default envrc";;
+          esac
+
+          ${config.home.sessionVariables.EDITOR} default.nix
+        '';
+      })
+      (writeShellApplication {
         name = "nixpkgs-info-json";
         text = ''
           nix-env --query --available --attr-path --json "$@" | ${pkgs.bat}/bin/bat --language json
