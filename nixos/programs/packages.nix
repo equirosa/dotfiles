@@ -82,6 +82,12 @@ in
         ${pkgs.coreutils}/bin/printf "\033[0;"$i"m Normal: (0;$i); \033[1;"$i"m Light: (1;$i);\n"
         done
       '')
+      (writeShellApplication {
+        name = "show-nix-store-path";
+        text = ''
+          ${pkgs.coreutils}/bin/readlink -f "$(command -v "$@")"
+        '';
+      })
       (writeDashScript "watchlist" ''
         case "$1" in
           *http*) setsid ${pkgs.yt-dlp}/bin/yt-dlp --restrict-filenames\
