@@ -86,7 +86,7 @@ in
             *) echo "Using default envrc";;
           esac
 
-          ${config.home.sessionVariables.EDITOR} default.nix
+          ${config.home.sessionVariables.EDITOR} shell.nix
         '';
       })
       (writeShellApplication {
