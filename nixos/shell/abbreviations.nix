@@ -14,6 +14,7 @@
   ns = "nix search nixpkgs";
   nsp = "nix-shell -p";
   tl = "tldr";
+  u = "umpv";
   v = "$EDITOR";
   yf = "ytfzf";
 }
