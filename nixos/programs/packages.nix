@@ -38,6 +38,7 @@ in
 
       # Utilities
       borgbackup
+      czkawka
       du-dust
       fd
       gopass
