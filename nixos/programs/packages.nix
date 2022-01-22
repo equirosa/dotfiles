@@ -22,6 +22,8 @@ in
 
       # Documents
       libreoffice
+      pandoc
+      tectonic
 
       # Editor
       neovim
@@ -29,13 +31,16 @@ in
       # File Sharing
       ffsend
       onionshare-gui
+      transmission
+      tremc
       wormhole-william
 
       # Nix-specific stuff
       cachix
-      nix-update
       nixpkgs-fmt
       nixpkgs-review
+      nix-update
+      nox
 
       # Utilities
       borgbackup
