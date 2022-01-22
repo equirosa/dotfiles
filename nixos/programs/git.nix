@@ -28,6 +28,7 @@
         ignores = [
           "*~"
           "*.swp"
+          ".direnv"
         ];
         signing = {
           key = "03678E9642EB6D9E99974ACFB77F36C3F12720B4";
