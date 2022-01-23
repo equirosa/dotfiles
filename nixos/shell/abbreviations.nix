@@ -13,6 +13,8 @@
   nr = "nix run nixpkgs#";
   ns = "nix search nixpkgs";
   nsp = "nix-shell -p";
+	pll = "git pull";
+	psh = "git push";
   tl = "tldr";
   u = "umpv";
   v = "$EDITOR";
