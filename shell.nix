@@ -1,6 +1,6 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 mkShell {
   nativeBuildInputs = [
-	  rnix-lsp
+    rnix-lsp
   ];
 }
