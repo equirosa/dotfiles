@@ -21,11 +21,27 @@
       enable = true;
       package = pkgs.emacsPgtkGcc;
       extraPackages = epkgs: with epkgs; [
+        # Programming
+        company
+        tree-sitter
+        tree-sitter-langs
         # Miscellaneous
         evil # Vi keybinds
 
+        # Nix
+        envrc
+        nix-mode
+        nixpkgs-fmt
+
         # Org
         org-superstar
+
+        # Style
+        all-the-icons
+        all-the-icons-dired
+        doom-modeline
+        gruvbox-theme
+        rainbow-delimiters
       ];
     };
   };
