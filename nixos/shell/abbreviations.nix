@@ -19,5 +19,6 @@
   tl = "tldr";
   u = "umpv";
   v = "$EDITOR";
+  wl = "watchlist";
   yf = "ytfzf";
 }
