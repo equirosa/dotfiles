@@ -1,5 +1,6 @@
 {
   imports = [
+    ./emacs.nix
     ./firefox.nix
     ./git.nix
     ./lf.nix
