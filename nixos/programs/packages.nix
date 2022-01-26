@@ -131,7 +131,7 @@ in
         text = ''
           case "$1" in
             gemini* ) ${terminal} ${geminiBrowser} "$@" ;;
-            *youtube.com/watch* | *youtu.be/* | *twitch.tv/* | *peertube.co.uk/videos/* | *videos.lukesmith.xyz/w/* | *diode.zone/w/* | *peertube.thenewoil.xyz/videos/watch/* ) setsid ${mpv}/bin/umpv "$1" & ;;
+            *youtube.com/watch* | *youtu.be/* | *twitch.tv/* | *bitcointv.com/w/* | *peertube.co.uk/videos/* | *videos.lukesmith.xyz/w/* | *diode.zone/w/* | *peertube.thenewoil.xyz/videos/watch/* ) setsid ${mpv}/bin/umpv "$1" & ;;
             http* ) firefox "$@" ;;
             *.png | *.jpg | *.jpeg ) ${pkgs.imv}/bin/imv "$@" ;;
             *.pdf ) setsid ${pdf-reader} "$@" ;;
