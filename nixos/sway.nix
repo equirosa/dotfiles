@@ -81,6 +81,7 @@ in
             { command = "${pkgs.autotiling}/bin/autotiling"; }
             { command = "${pkgs.mako}/bin/mako"; }
             { command = "${pkgs.schildichat-desktop}/bin/schildichat-desktop"; }
+            { command = ''${pkgs.swayidle}/bin/swayidle -w timeout 300 '${lockCommand}' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"; before-sleep '${lockCommand}''; }
           ];
           input = {
             "*" = {
