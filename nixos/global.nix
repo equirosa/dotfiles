@@ -62,6 +62,7 @@ in
       };
     };
   };
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   networking = {
     hostFiles = [
       "${pkgs.stevenblack-blocklist}/hosts"
