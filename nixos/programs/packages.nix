@@ -43,6 +43,7 @@ in
       nox
 
       # Utilities
+      archiver
       borgbackup
       czkawka
       du-dust
