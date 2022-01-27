@@ -5,9 +5,9 @@
   gca = "git commit -a";
   gp = "gopass";
   gpn = "gopass new";
-  l = "ls -l";
+  l = "ls -lh";
   lg = "lazygit";
-  ll = "ls -la";
+  ll = "ls -lah";
   m = "mpv";
   md = "mkdir -p";
   nj = "nixpkgs-info-json";
