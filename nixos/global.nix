@@ -70,7 +70,9 @@ in
     ];
   };
   nix = {
-    autoOptimiseStore = true;
+    settings = {
+      auto-optimise-store = true;
+    };
     extraOptions = ''
       experimental-features = flakes nix-command
       keep-outputs = true
