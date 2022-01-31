@@ -1,25 +1,18 @@
 { pkgs, lib, ... }: {
-  imports = [ <nixpkgs/nixos/modules/profiles/hardened.nix> ];
+  imports = [
+    # <nixpkgs/nixos/modules/profiles/hardened.nix>
+    ./firejail.nix
+  ];
   environment = {
-    defaultPackages = lib.mkForce [ ];
+    defaultPackages = lib.mkForce [ ]; # Remove default packages
     # memoryAllocator.provider = "graphene-hardened"; # TODO: consider using this one, after a successful boot with scudo.
   };
   networking = {
     firewall = {
+      # Close firewall
       enable = true;
       allowedTCPPorts = [ ];
       allowedUDPPorts = [ ];
-    };
-  };
-  programs = {
-    firejail = {
-      enable = true;
-      wrappedBinaries = {
-        firefox = {
-          executable = "${pkgs.lib.getBin pkgs.firefox}/bin/firefox";
-          profile = "${pkgs.firejail}/etc/firejail/firefox.profile";
-        };
-      };
     };
   };
   security = {
