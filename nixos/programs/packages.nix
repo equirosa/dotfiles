@@ -12,6 +12,7 @@ in
   home-manager.users.kiri = { config, ... }: {
     home.packages = with pkgs; [
       # Browsers
+      nur.repos.wolfangaukang.librewolf
       torbrowser
 
       # Messengers
