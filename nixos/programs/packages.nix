@@ -18,7 +18,6 @@ in
       # Messengers
       aerc
       discord # UNFREE
-      schildichat-desktop
 
       # Documents
       libreoffice
