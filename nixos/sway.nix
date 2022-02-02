@@ -44,9 +44,7 @@ in
             bold-text-in-bright = "true";
             font = "monospace:size=14";
           };
-          mouse = {
-            hide-when-typing = "yes";
-          };
+          mouse = { };
         };
       };
     };
