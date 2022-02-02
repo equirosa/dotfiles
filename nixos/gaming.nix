@@ -6,6 +6,15 @@ in
   imports = [
     # "nix-gaming/modules/pipewireLowLatency.nix"
   ];
+  programs.firejail = {
+    enable = true;
+    wrappedBinaries = {
+      wesnoth = {
+        executable = "${pkgs.wesnoth}/bin/wesnoth";
+        profile = "${pkgs.firejail}/etc/firejail/wesnoth.profile";
+      };
+    };
+  };
   home-manager.users.kiri = {
     home = {
       packages = with pkgs; [
@@ -13,7 +22,6 @@ in
         openra
         taisei
         warzone2100
-        wesnoth
         zeroad
         nix-gaming.packages.x86_64-linux.rocket-league
         # Launchers
