@@ -4,7 +4,7 @@
     ./firejail.nix
   ];
   environment = {
-    defaultPackages = lib.mkForce [ ]; # Remove default packages
+    defaultPackages = lib.mkForce [ ]; # Remove default packages to reduce attack surface.
     # memoryAllocator.provider = "graphene-hardened"; # TODO: consider using this one, after a successful boot with scudo.
   };
   networking = {
