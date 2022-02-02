@@ -6,6 +6,7 @@
   gp = "gopass";
   gpn = "gopass new";
   l = "ls -lh";
+  lb = "lsblk";
   lg = "lazygit";
   ll = "ls -lah";
   m = "mpv";
