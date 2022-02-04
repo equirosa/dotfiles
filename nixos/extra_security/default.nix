@@ -4,7 +4,8 @@
     ./firejail.nix
   ];
   environment = {
-    defaultPackages = lib.mkForce [ ]; # Remove default packages to reduce attack surface.
+    # Remove default packages to reduce attack surface.
+    defaultPackages = lib.mkForce [ ];
     # memoryAllocator.provider = "graphene-hardened"; # TODO: consider using this one, after a successful boot with scudo.
   };
   networking = {
@@ -15,7 +16,7 @@
       allowedUDPPorts = [ ];
     };
   };
-# TODO: consider not using electron so I don't have to enable this.
+  # TODO: consider not using electron so I don't have to enable this.
   security = {
     chromiumSuidSandbox.enable = true;
     unprivilegedUsernsClone = true;
