@@ -1,6 +1,6 @@
 { pkgs, lib, ... }: {
   imports = [
-    # <nixpkgs/nixos/modules/profiles/hardened.nix>
+    <nixpkgs/nixos/modules/profiles/hardened.nix>
     ./firejail.nix
   ];
   environment = {
