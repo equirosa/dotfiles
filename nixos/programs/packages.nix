@@ -68,6 +68,14 @@ in
         '';
       })
       (writeShellApplication {
+        name = "join-class";
+        text = ''
+          chosen="''$(${pkgs.wofi}/bin/wofi --show dmenu < ~/links | cut -d ' ' -f2)"
+          [ -z "''${chosen}" ] && exit 1
+          xdg-open "''${chosen}"
+        '';
+      })
+      (writeShellApplication {
         name = "nixify";
         text = ''
           [ -e ./.envrc ] || echo "use nix" > .envrc && direnv allow
