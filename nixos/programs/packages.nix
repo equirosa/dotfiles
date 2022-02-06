@@ -17,7 +17,6 @@ in
 
       # Messengers
       aerc
-      discord # UNFREE
 
       # Documents
       libreoffice
