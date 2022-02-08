@@ -11,7 +11,6 @@ in
       firefox = {
         enable = true;
         extensions = with pkgs.nur; with repos.rycee.firefox-addons; [
-          clearurls
           gopass-bridge
           privacy-redirect
           tridactyl
