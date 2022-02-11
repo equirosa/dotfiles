@@ -66,6 +66,13 @@ in
         '';
       })
       (writeShellApplication {
+        name = "emoji";
+        runtimeInputs = with pkgs; [ wl-clipboard wofi ];
+        text = ''
+          ${pkgs.wofi-emoji}/bin/wofi-emoji
+        '';
+      })
+      (writeShellApplication {
         name = "join-class";
         text = ''
           chosen="''$(${pkgs.wofi}/bin/wofi --show dmenu < ~/links | cut -d ' ' -f2)"
