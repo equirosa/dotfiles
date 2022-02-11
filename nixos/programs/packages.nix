@@ -61,7 +61,7 @@ in
       (writeShellApplication {
         name = "download-file";
         text = ''
-          setsid ${pkgs.yt-dlp}/bin/yt-dlp --restrict-filenames --sponsorblock-mark all \
+          setsid ${pkgs.yt-dlp}/bin/yt-dlp --sponsorblock-mark all \
           --embed-subs --embed-metadata -o "%(title)s-[%(id)s].%(ext)s" "$1" >>/dev/null &
         '';
       })
@@ -122,7 +122,7 @@ in
       })
       (writeDashScript "watchlist" ''
         case "$1" in
-          *http*) setsid ${pkgs.yt-dlp}/bin/yt-dlp --restrict-filenames\
+          *http*) setsid ${pkgs.yt-dlp}/bin/yt-dlp \
             --sponsorblock-mark all\
             --embed-subs\
             --embed-metadata\
