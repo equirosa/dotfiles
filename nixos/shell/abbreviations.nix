@@ -22,4 +22,7 @@
   v = "$EDITOR";
   wl = "watchlist";
   yf = "ytfzf";
+  # trash-cli
+  te = "trash-empty";
+  tp = "trash-put";
 }
