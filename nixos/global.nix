@@ -14,7 +14,7 @@ in
     ./theme.nix
     ./virtualization/qemu.nix
   ];
-
+  location.provider = "geoclue2";
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
