@@ -36,9 +36,9 @@ in
       alejandra
       cachix
       comma
+      nix-update
       nixpkgs-fmt
       nixpkgs-review
-      nix-update
       nox
 
       # Utilities
