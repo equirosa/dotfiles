@@ -33,7 +33,9 @@ in
       wormhole-william
 
       # Nix-specific stuff
+      alejandra
       cachix
+      comma
       nixpkgs-fmt
       nixpkgs-review
       nix-update
