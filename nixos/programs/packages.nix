@@ -117,7 +117,7 @@ in
         chosen=$(${pkgs.coreutils}/bin/printf "$chosen" | menu)
 
         ${pkgs.remmina}/bin/remmina -c "$chosen"
-      '') */
+        '') */
       (writeDashScript "show-ansi-escapes" ''
         for i in 30 31 32 33 34 35 36 37 38; do
         ${pkgs.coreutils}/bin/printf "\033[0;"$i"m Normal: (0;$i); \033[1;"$i"m Light: (1;$i);\n"
