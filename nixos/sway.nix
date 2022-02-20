@@ -64,11 +64,11 @@ in
               "${mod}+Shift+f" = "floating toggle";
               "${mod}+a" = "exec ${terminal} ${commonCommands.termAudio}";
               "${mod}+e" = "exec ${terminal} ${commonCommands.mailClient}";
-              "Print" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy window";
-              "${mod}+n" = "exec ${terminal} ${commonCommands.feedReader}";
               "${mod}+i" = "exec ${terminal} ${commonCommands.termMonitor}";
+              "${mod}+n" = "exec ${terminal} ${commonCommands.feedReader}";
               "${mod}+r" = "exec ${terminal} ${commonCommands.termFileManager}";
               "${mod}+x" = "exec ${lockCommand}";
+              "Print" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy window";
             };
           assigns = {
             "9" = [
