@@ -61,6 +61,7 @@ in
               inherit (config.wayland.windowManager.sway.config) terminal;
             in
             lib.mkOptionDefault {
+              "${mod}+Shift+f" = "floating toggle";
               "${mod}+a" = "exec ${terminal} ${commonCommands.termAudio}";
               "${mod}+e" = "exec ${terminal} ${commonCommands.mailClient}";
               "Print" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy window";
