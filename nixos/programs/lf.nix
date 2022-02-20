@@ -18,6 +18,7 @@
         E = "push \$${config.home.sessionVariables.EDITOR}<space>";
         M = "push \$mkdir<space>-p<space>";
         T = "push \$touch<space>";
+        U = ''''${pkgs.mpv}/bin/umpv "$fx"'';
       };
       previewer = {
         keybinding = "i";
