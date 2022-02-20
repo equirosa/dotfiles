@@ -71,7 +71,7 @@ in
             };
           assigns = {
             "9" = [
-              { class = "^SchildiChat"; }
+              { class = "^Element"; }
               { class = "^discord"; }
             ];
           };
