@@ -110,14 +110,14 @@ in
           nix-env --query --available --attr-path --json "$@" | ${pkgs.bat}/bin/bat --language json
         '';
       })
-      (writeDashScript "rem-lap" ''
+      /* (writeDashScript "rem-lap" ''
         chosen=$(find "${config.xdg.dataHome}/remmina/" -name "*.remmina")
 
         [ "$(${pkgs.coreutils}/bin/printf "$chosen" | ${pkgs.coreutils}/bin/wc -l)" -gt 1 ] &&\
         chosen=$(${pkgs.coreutils}/bin/printf "$chosen" | menu)
 
         ${pkgs.remmina}/bin/remmina -c "$chosen"
-      '')
+      '') */
       (writeDashScript "show-ansi-escapes" ''
         for i in 30 31 32 33 34 35 36 37 38; do
         ${pkgs.coreutils}/bin/printf "\033[0;"$i"m Normal: (0;$i); \033[1;"$i"m Light: (1;$i);\n"
