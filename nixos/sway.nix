@@ -13,6 +13,7 @@ in
 {
   home-manager.users.kiri = { config, lib, ... }: {
     # Foot config. TODO: consider moving to own file
+    home = { packages = with pkgs; [ wl-clipboard ]; };
     programs = {
       mako = {
         enable = true;
