@@ -62,6 +62,7 @@ in
               inherit (config.wayland.windowManager.sway.config) terminal;
             in
             lib.mkOptionDefault {
+              "${mod}+Shift+e" = "exec emacsclient -c";
               "${mod}+Shift+f" = "floating toggle";
               "${mod}+a" = "exec ${terminal} ${commonCommands.termAudio}";
               "${mod}+e" = "exec ${terminal} ${commonCommands.mailClient}";
