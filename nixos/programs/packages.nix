@@ -33,7 +33,7 @@ in
       wormhole-william
 
       # Nix-specific stuff
-      alejandra
+      alejandra # TODO: determine whether I keep this or nixpkgs-fmt
       cachix
       comma
       nix-update
