@@ -39,7 +39,6 @@ in
       nix-update
       nixpkgs-fmt
       nixpkgs-review
-      nox
 
       # Utilities
       archiver
