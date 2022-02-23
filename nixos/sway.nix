@@ -4,6 +4,7 @@ let
   commonCommands = {
     feedReader = "${pkgs.newsboat}/bin/newsboat";
     mailClient = "${pkgs.aerc}/bin/aerc";
+		terminal = "kitty";
     termFileManager = "${pkgs.lf}/bin/lf";
     termMonitor = "${pkgs.bottom}/bin/btm";
     termAudio = "${pkgs.pulsemixer}/bin/pulsemixer";
@@ -53,7 +54,7 @@ in
       sway = {
         enable = true;
         config = {
-          terminal = "${pkgs.foot}/bin/foot";
+          terminal = "${commonCommands.terminal}";
           menu = "${pkgs.bemenu}/bin/bemenu-run | ${pkgs.findutils}/bin/xargs swaymsg exec --";
           modifier = "Mod4";
           keybindings =
