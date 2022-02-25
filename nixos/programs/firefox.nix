@@ -10,13 +10,13 @@ in
     programs = {
       firefox = {
         enable = true;
-        extensions = with pkgs.nur; with repos.rycee.firefox-addons; [
+        /* extensions = with pkgs.nur; with repos.rycee.firefox-addons; [
           gopass-bridge
           privacy-redirect
           tridactyl
           ublock-origin
           repos.pborzenkov.firefox-addons.wallabagger
-        ];
+        ]; */
         profiles = {
           default = {
             settings = commonSettings;
