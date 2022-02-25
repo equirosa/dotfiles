@@ -4,7 +4,7 @@ let
   commonCommands = {
     feedReader = "${pkgs.newsboat}/bin/newsboat";
     mailClient = "${pkgs.aerc}/bin/aerc";
-		terminal = "kitty";
+    terminal = "kitty";
     termFileManager = "${pkgs.lf}/bin/lf";
     termMonitor = "${pkgs.bottom}/bin/btm";
     termAudio = "${pkgs.pulsemixer}/bin/pulsemixer";

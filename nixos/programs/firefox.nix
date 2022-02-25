@@ -16,7 +16,7 @@ in
           tridactyl
           ublock-origin
           repos.pborzenkov.firefox-addons.wallabagger
-        ]; */
+          ]; */
         profiles = {
           default = {
             settings = commonSettings;
