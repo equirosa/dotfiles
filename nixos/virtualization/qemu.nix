@@ -17,7 +17,7 @@
   users.users.kiri = {
     extraGroups = [ "libvirtd" ];
     packages = with pkgs; [
-      # virt-manager
+      virt-manager
       quickemu
     ];
   };
