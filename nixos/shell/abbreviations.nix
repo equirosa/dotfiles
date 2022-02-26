@@ -21,7 +21,7 @@
   u = "umpv";
   v = "$EDITOR";
   wl = "watchlist";
-  yf = "ytfzf";
+  yf = "ytfzf --detach --preview-side=right --thumb-viewer=icat --show-thumbnails";
   # trash-cli
   te = "trash-empty";
   tp = "trash-put";
