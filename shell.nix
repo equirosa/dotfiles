@@ -1,7 +1,8 @@
-with import <nixpkgs> { };
-mkShell {
-  nativeBuildInputs = [
-    rnix-lsp
-    statix
-  ];
-}
+with import <nixpkgs> {};
+  mkShell {
+    nativeBuildInputs = [
+      alejandra
+      rnix-lsp
+      statix
+    ];
+  }
