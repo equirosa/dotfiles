@@ -1,4 +1,8 @@
-{ pkgs, lib, ... }: {
+{ pkgs
+, lib
+, ...
+}:
+{
   imports = [
     # <nixpkgs/nixos/modules/profiles/hardened.nix>
     ./firejail.nix
@@ -17,14 +21,16 @@
     };
   };
   # TODO: consider not using electron so I don't have to enable this.
-  /* security = {
-    chromiumSuidSandbox.enable = true;
-    unprivilegedUsernsClone = true;
-    };
-    services = {
-    clamav = {
-    daemon.enable = true;
-    updater.enable = true;
-    };
-    }; */
+  /*
+     security = {
+   chromiumSuidSandbox.enable = true;
+   unprivilegedUsernsClone = true;
+   };
+   services = {
+   clamav = {
+   daemon.enable = true;
+   updater.enable = true;
+   };
+   };
+   */
 }

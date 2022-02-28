@@ -1,20 +1,26 @@
-{ pkgs, lib, ... }: {
+{ pkgs
+, lib
+, ...
+}:
+{
   programs = {
     firejail = {
       enable = true;
       wrappedBinaries = {
         discord = {
-          executable = "${pkgs.discord}/bin/discord";
-          profile = "${pkgs.firejail}/etc/firejail/discord.profile";
+          executable = "${ pkgs.discord }/bin/discord";
+          profile = "${ pkgs.firejail }/etc/firejail/discord.profile";
         };
         element-desktop = {
-          executable = "${pkgs.element-desktop}/bin/element-desktop";
-          profile = "${pkgs.firejail}/etc/firejail/element-desktop.profile";
+          executable = "${ pkgs.element-desktop }/bin/element-desktop";
+          profile = "${ pkgs.firejail }/etc/firejail/element-desktop.profile";
         };
-        /* firefox = {
-          executable = "${pkgs.lib.getBin pkgs.firefox}/bin/firefox";
-          profile = "${pkgs.firejail}/etc/firejail/firefox.profile";
-          }; */
+        /*
+           firefox = {
+         executable = "${pkgs.lib.getBin pkgs.firefox}/bin/firefox";
+         profile = "${pkgs.firejail}/etc/firejail/firefox.profile";
+         };
+         */
       };
     };
   };

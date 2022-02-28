@@ -16,9 +16,6 @@
   programs.dconf.enable = true;
   users.users.kiri = {
     extraGroups = [ "libvirtd" ];
-    packages = with pkgs; [
-      virt-manager
-      quickemu
-    ];
+    packages = with pkgs; [ virt-manager quickemu ];
   };
 }

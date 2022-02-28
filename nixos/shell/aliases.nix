@@ -1,3 +1,1 @@
-{
-  cat = "${pkgs.bat}/bin/bat -p";
-}
+{ cat = "${ pkgs.bat }/bin/bat -p"; }
