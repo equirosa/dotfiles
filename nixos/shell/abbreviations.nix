@@ -19,7 +19,7 @@
   psh = "git push";
   tl = "tldr";
   u = "umpv";
-  v = "$EDITOR";
+  v = "nvim";
   wl = "watchlist";
   yf = "ytfzf --detach --preview-side=right --thumb-viewer=icat --show-thumbnails";
   # trash-cli
