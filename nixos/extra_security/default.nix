@@ -1,23 +1,23 @@
-{ pkgs
-, lib
-, ...
-}:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     # <nixpkgs/nixos/modules/profiles/hardened.nix>
     ./firejail.nix
   ];
   environment = {
     # Remove default packages to reduce attack surface.
-    defaultPackages = lib.mkForce [ ];
+    defaultPackages = lib.mkForce [];
     # memoryAllocator.provider = "graphene-hardened"; # TODO: consider using this one, after a successful boot with scudo.
   };
   networking = {
     firewall = {
       # Close firewall
       enable = true;
-      allowedTCPPorts = [ ];
-      allowedUDPPorts = [ ];
+      allowedTCPPorts = [];
+      allowedUDPPorts = [];
     };
   };
   # TODO: consider not using electron so I don't have to enable this.

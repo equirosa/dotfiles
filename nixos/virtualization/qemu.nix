@@ -1,8 +1,8 @@
-{ config
-, pkgs
-, ...
-}:
 {
+  config,
+  pkgs,
+  ...
+}: {
   boot.extraModprobeConfig = "options kvm_amd nested=1";
   virtualisation = {
     libvirtd = {
@@ -15,7 +15,7 @@
   };
   programs.dconf.enable = true;
   users.users.kiri = {
-    extraGroups = [ "libvirtd" ];
-    packages = with pkgs; [ virt-manager quickemu ];
+    extraGroups = ["libvirtd"];
+    packages = with pkgs; [virt-manager quickemu];
   };
 }

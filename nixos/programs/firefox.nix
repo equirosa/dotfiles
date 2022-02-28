@@ -1,14 +1,13 @@
-{ pkgs
-, gtk3
-, ...
-}:
-let
+{
+  pkgs,
+  gtk3,
+  ...
+}: let
   commonSettings = {
     "browser.contentblocking.category" = "strict";
     "extensions.pocket.enabled" = false;
   };
-in
-{
+in {
   home-manager.users.kiri = {
     programs = {
       firefox = {
@@ -22,7 +21,7 @@ in
          repos.pborzenkov.firefox-addons.wallabagger
          ];
          */
-        profiles = { default = { settings = commonSettings; }; };
+        profiles = {default = {settings = commonSettings;};};
       };
     };
   };

@@ -3,8 +3,7 @@
     enable = true;
     autoReload = true;
     browser = "xdg-open";
-    extraConfig =
-      ''
+    extraConfig = ''
       article-sort-order date-desc
       confirm-exit yes
       download-full-page yes
@@ -61,7 +60,7 @@
       miniflux-url "https://reader.miniflux.app"
       miniflux-login "nuclearcoffee"
       miniflux-passwordeval "gopass show websites/miniflux.app/nuclearcoffee"
-      '';
+    '';
     reloadThreads = 12;
   };
 }
