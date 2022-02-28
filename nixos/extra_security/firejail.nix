@@ -15,10 +15,6 @@
           executable = "${pkgs.lib.getBin pkgs.firefox}/bin/firefox";
           profile = "${pkgs.firejail}/etc/firejail/firefox.profile";
           }; */
-        qutebrowser = {
-          executable = "${pkgs.qutebrowser}/bin/qutebrowser";
-          profile = "${pkgs.firejail}/etc/firejail/qutebrowser.profile";
-        };
       };
     };
   };
