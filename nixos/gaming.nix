@@ -34,18 +34,18 @@ in
         mangohud
         protonup
       ];
-      file = {
+      /* file = {
         "5.21-GE-1" = {
-          recursive = true;
-          source = pkgs.fetchFromGitHub {
-            owner = "GloriousEggroll";
-            repo = "proton-ge-custom";
-            rev = "5.21-GE-1";
-            sha256 = "sha256-zefu/8DWhdQmoAFZiWr1S6UvLtRunNT+kSF5Qe1Y0nA=";
-          };
-          target = ".steam/root/compatibilitytools.d/Proton-5.21-GE-1";
+        recursive = true;
+        source = pkgs.fetchFromGitHub {
+        owner = "GloriousEggroll";
+        repo = "proton-ge-custom";
+        rev = "5.21-GE-1";
+        sha256 = "sha256-zefu/8DWhdQmoAFZiWr1S6UvLtRunNT+kSF5Qe1Y0nA=";
         };
-      };
+        target = ".steam/root/compatibilitytools.d/Proton-5.21-GE-1";
+        };
+        }; */
     };
   };
   programs.steam.enable = true;
