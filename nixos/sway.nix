@@ -55,7 +55,7 @@ in
         enable = true;
         config = {
           terminal = "${commonCommands.terminal}";
-          menu = "${pkgs.bemenu}/bin/bemenu-run | ${pkgs.findutils}/bin/xargs swaymsg exec --";
+          menu = "${pkgs.rofi-wayland}/bin/rofi -show run | ${pkgs.findutils}/bin/xargs swaymsg exec --";
           modifier = "Mod4";
           keybindings =
             let
