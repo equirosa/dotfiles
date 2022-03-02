@@ -84,6 +84,13 @@ in {
           '';
         }
       )
+      (writeShellApplication {
+        name = "feed";
+        text = ''
+          URI="''${1//piped.kavin.rocks/youtube.com}"
+          xdg-open "https://reader.miniflux.app/bookmarklet?uri=''${URI}"
+        '';
+      })
       (
         writeShellApplication
         {
