@@ -20,7 +20,7 @@ in {
   home-manager.users.kiri = {config, ...}: {
     home.packages = with pkgs; [
       # Browsers
-      torbrowser
+      tor-browser-bundle-bin
       # Messengers
       aerc
       # Documents
