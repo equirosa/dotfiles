@@ -33,6 +33,7 @@
           nix-mode
           nixpkgs-fmt
           # Org
+          org-super-agenda
           org-superstar
           org-timeline
           # Style
