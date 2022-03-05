@@ -4,6 +4,7 @@
   ...
 }: let
   pdf-reader = "${pkgs.zathura}/bin/zathura";
+  dmenu-command = "${pkgs.rofi-wayland}/bin/rofi -dmenu";
   terminal = "${pkgs.foot}/bin/foot";
   geminiBrowser = "${pkgs.amfora}/bin/amfora";
   writeDashScript = name: content: (
@@ -96,7 +97,7 @@ in {
         {
           name = "join-class";
           text = ''
-            chosen="''$(${pkgs.wofi}/bin/wofi --show dmenu < ~/links | cut -d ' ' -f2)"
+            chosen="''$(${dmenu-command} < ~/links | cut -d ' ' -f2)"
             [ -z "''${chosen}" ] && exit 1
             xdg-open "''${chosen}"
           '';
