@@ -34,6 +34,7 @@
           nixpkgs-fmt
           # Org
           org-superstar
+          org-timeline
           # Style
           all-the-icons
           all-the-icons-dired
