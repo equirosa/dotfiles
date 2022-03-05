@@ -25,8 +25,9 @@
           tree-sitter
           tree-sitter-langs
           # Miscellaneous
-          evil
+          linum-relative
           # Vi keybinds
+          evil
           # Nix
           envrc
           nix-mode
