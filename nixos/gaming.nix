@@ -27,7 +27,7 @@ in {
         zeroad
         nix-gaming.packages.x86_64-linux.rocket-league
         # Launchers
-        eidolon
+        # eidolon
         lutris
         # General games client
         legendary-gl
