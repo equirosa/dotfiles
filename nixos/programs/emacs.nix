@@ -26,6 +26,7 @@
           tree-sitter-langs
           # Miscellaneous
           linum-relative
+          undo-tree
           # Vi keybinds
           evil
           # Nix
