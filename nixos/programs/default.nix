@@ -22,6 +22,7 @@ in {
     home.packages = with pkgs; [
       # Browsers
       tor-browser-bundle-bin
+      qutebrowser
       # Messengers
       aerc
       # Documents
