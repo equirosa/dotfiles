@@ -21,7 +21,7 @@
   u = "umpv";
   v = "nvim";
   wl = "watchlist";
-  yf = "ytfzf --detach --preview-side=right --thumb-viewer=icat --show-thumbnails";
+  yf = "ytfzf --detach";
   # trash-cli
   te = "trash-empty";
   tp = "trash-put";
