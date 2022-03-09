@@ -34,8 +34,8 @@
           nix-mode
           nixpkgs-fmt
           # Org
+          org-modern
           org-super-agenda
-          org-superstar
           org-timeline
           # Style
           all-the-icons
