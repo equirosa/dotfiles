@@ -12,8 +12,9 @@
     termMonitor = "${pkgs.bottom}/bin/btm";
     termAudio = "${pkgs.pulsemixer}/bin/pulsemixer";
   };
-  colors = import ./colors.nix;
+  colors = import ../../colors.nix;
 in {
+  imports = [./bar];
   home-manager.users.kiri = {
     config,
     lib,
@@ -65,6 +66,7 @@ in {
       sway = {
         enable = true;
         config = {
+          bars = [{}];
           terminal = "${commonCommands.terminal}";
           menu = "${pkgs.rofi-wayland}/bin/rofi -show run | ${pkgs.findutils}/bin/xargs swaymsg exec --";
           modifier = "Mod4";
@@ -89,11 +91,6 @@ in {
             {command = "${pkgs.autotiling}/bin/autotiling";}
             {command = "${pkgs.mako}/bin/mako";}
             {command = "element-desktop";}
-            {
-              command = ''${pkgs.swayidle}/bin/swayidle -w timeout 300 '${lockCommand}' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"; before-sleep '${
-                  lockCommand
-                }'';
-            }
           ];
           input = {
             "*" = {
@@ -132,8 +129,27 @@ in {
   # NixOS specific stuff
   programs.sway.enable = true;
   # Sway doesn't launch if enabled only by Home Manager. TODO: report upstream
-  security.pam.services.swaylock = {};
+  # security.pam.services.swaylock = {};
   services = {pipewire.enable = true;};
+  systemd.user = {
+    services = {
+      swayidle = {
+        description = "Idle Manager for Wayland";
+        documentation = ["man:swayidle(1)"];
+        wantedBy = ["sway-session.target"];
+        partOf = ["graphical-session.target"];
+        path = [pkgs.bash];
+        serviceConfig = {
+          ExecStart = ''
+            ${pkgs.swayidle}/bin/swayidle -w -d \
+            timeout 300 '${lockCommand}' \
+            timeout 600 '${pkgs.sway}/bin/swaymsg "output * dpms off"' \
+            resume '${pkgs.sway}/bin/swaymsg "output * dpms on"'
+          '';
+        };
+      };
+    };
+  };
   xdg = {
     portal = {
       enable = true;

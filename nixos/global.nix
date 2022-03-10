@@ -11,9 +11,9 @@ in {
     ./backups
     ./extra_security
     ./gaming.nix
+    ./graphical/wayland/sway.nix
     ./programs
     ./shell
-    ./sway.nix
     ./theme.nix
     ./virtualization/qemu.nix
   ];
