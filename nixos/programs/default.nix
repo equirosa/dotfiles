@@ -55,6 +55,7 @@ in {
       gopass
       gopass-jsonapi
       imv
+      prs
       ripgrep
       tealdeer
       trash-cli
