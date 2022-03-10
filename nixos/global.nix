@@ -8,6 +8,7 @@ in {
   imports = [
     (import "${home-manager}/nixos")
     ./audio
+    ./backups
     ./extra_security
     ./gaming.nix
     ./programs
