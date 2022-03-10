@@ -5,7 +5,12 @@
         enable = true;
         aliases = {};
         attributes = ["*.pdf diff=pdf"];
-        extraConfig = {init = {defaultBranch = "main";};};
+        extraConfig = {
+          init = {defaultBranch = "main";};
+          merge = {
+            tool = "nvimdiff";
+          };
+        };
         delta = {
           enable = true;
           options = {
