@@ -81,6 +81,16 @@ in {
       (
         writeShellApplication
         {
+          name = "download-music-playlist";
+          runtimeInputs = [yt-dlp];
+          text = ''
+            ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Playlists/Playlists.sh"}
+          '';
+        }
+      )
+      (
+        writeShellApplication
+        {
           name = "emoji";
           runtimeInputs = with pkgs; [wl-clipboard wofi];
           text = ''
@@ -141,7 +151,7 @@ in {
         }
       )
       /*
-         (writeDashScript "rem-lap" ''
+       (writeDashScript "rem-lap" ''
        chosen=$(find "${config.xdg.dataHome}/remmina/" -name "*.remmina")
        
        [ "$(${pkgs.coreutils}/bin/printf "$chosen" | ${pkgs.coreutils}/bin/wc -l)" -gt 1 ] &&\
