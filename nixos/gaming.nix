@@ -22,6 +22,7 @@ in {
       packages = with pkgs; [
         # Games
         openra
+        polymc
         taisei
         warzone2100
         zeroad
