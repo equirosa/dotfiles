@@ -26,6 +26,7 @@ in {
         taisei
         warzone2100
         zeroad
+        nur.repos.dukzcry.gamescope
         nix-gaming.packages.x86_64-linux.rocket-league
         # Launchers
         # eidolon
