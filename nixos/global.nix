@@ -56,6 +56,12 @@ in {
     hostFiles = ["${pkgs.stevenblack-blocklist}/hosts" "${pkgs.stevenblack-blocklist}/alternates/gambling/hosts"];
   };
   nix = {
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 30d";
+      persistent = true;
+    };
     settings = {auto-optimise-store = true;};
     extraOptions = ''
       experimental-features = flakes nix-command
