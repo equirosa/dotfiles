@@ -25,6 +25,7 @@ in {
       qutebrowser
       # Messengers
       aerc
+      signal-desktop
       # Documents
       libreoffice
       pandoc
