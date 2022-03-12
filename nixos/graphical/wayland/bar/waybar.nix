@@ -35,6 +35,9 @@
             unlocked = "";
           };
         };
+        memory = {
+          format = "{}% ";
+        };
         "tray" = {
           spacing = 10;
         };
