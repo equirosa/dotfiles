@@ -38,6 +38,19 @@
         memory = {
           format = "{}% ";
         };
+        "sway/workspaces" = {
+          "format" = "{name}: {icon}";
+          "format-icons" = {
+            "1" = "";
+            "2" = "";
+            "3" = "";
+            "8" = "";
+            "9" = "";
+            "urgent" = "";
+            "focused" = "";
+            "default" = "";
+          };
+        };
         "tray" = {
           spacing = 10;
         };
