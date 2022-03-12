@@ -3,6 +3,7 @@
   lib,
   ...
 }: let
+  notify = ''${pkgs.libnotify}/bin/notify-send -t 5000'';
   pdf-reader = "${pkgs.zathura}/bin/zathura";
   dmenu-command = "${pkgs.rofi-wayland}/bin/rofi -dmenu";
   terminal = "${pkgs.foot}/bin/foot";
@@ -99,6 +100,15 @@ in {
           '';
         }
       )
+      (writeShellApplication {
+        name = "encrypt";
+        text = ''
+          ${pkgs.gnupg}/bin/gpg --encrypt --recipient "eduardo@eduardoquiros.com" "$1" \
+          && ${notify} "🔒 encrypting..." \
+          && ${pkgs.coreutils}/bin/shred --remove "$1" \
+          && ${notify} "❌ file deleted"
+        '';
+      })
       (writeShellApplication {
         name = "feed-subscribe";
         text = ''
