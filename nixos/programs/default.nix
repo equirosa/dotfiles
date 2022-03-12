@@ -102,8 +102,8 @@ in {
       (writeShellApplication {
         name = "feed-subscribe";
         text = ''
-          URI="''${1//piped.kavin.rocks/youtube.com}"
-          xdg-open "https://reader.miniflux.app/bookmarklet?uri=''${URI}"
+          YOUTUBE_URI="''${1//piped.kavin.rocks/youtube.com}"
+          xdg-open "https://reader.miniflux.app/bookmarklet?uri=''${YOUTUBE_URI}"
         '';
       })
       (
