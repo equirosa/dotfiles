@@ -21,7 +21,23 @@ in {
     ...
   }: {
     # Foot config. TODO: consider moving to own file
-    home = {packages = with pkgs; [wl-clipboard];};
+    home = {
+      packages = with pkgs; [
+        wl-clipboard
+        (writeShellApplication {
+          name = "sway-shot";
+          text = ''
+            ${pkgs.grim}/bin/grim -g "$(sway-geometry)" - | ${pkgs.swappy}/bin/swappy -f -
+          '';
+        })
+        (writeShellApplication {
+          name = "sway-geometry";
+          text = ''
+            swaymsg -t get_tree | ${pkgs.jq}/bin/jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | ${pkgs.slurp}/bin/slurp
+          '';
+        })
+      ];
+    };
     programs = {
       mako = {enable = true;};
       foot = {
@@ -84,7 +100,7 @@ in {
               "${mod}+n" = "exec ${terminal} ${commonCommands.feedReader}";
               "${mod}+r" = "exec ${terminal} ${commonCommands.termFileManager}";
               "${mod}+x" = "exec ${lockCommand}";
-              "Print" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy window";
+              "Print" = "exec sway-shot";
             };
           assigns = {"9" = [{class = "^Element";} {class = "^discord";}];};
           startup = [
