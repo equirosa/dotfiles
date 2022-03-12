@@ -46,6 +46,7 @@ in {
       nix-update
       nixpkgs-fmt
       nixpkgs-review
+      rnix-lsp
       # Utilities
       archiver
       borgbackup
