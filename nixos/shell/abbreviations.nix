@@ -22,6 +22,11 @@
   v = "nvim";
   wl = "watchlist";
   yf = "ytfzf --detach";
+  # Download stuff
+  dmp = "download-music-playlist";
+  dmu = "download-music-unique";
+  dvp = "download-video-playlist";
+  dvu = "download-video-unique";
   # trash-cli
   te = "trash-empty";
   tp = "trash-put";

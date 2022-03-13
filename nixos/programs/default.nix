@@ -86,7 +86,33 @@ in {
           name = "download-music-playlist";
           runtimeInputs = [yt-dlp];
           text = ''
+            SOURCE_FILE="Source - Playlists.txt"
+            [ -z "''${SOURCE_FILE}" ] && touch "''${SOURCE_FILE}"
             ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Playlists/Playlists.sh"}
+          '';
+        }
+      )
+      (
+        writeShellApplication
+        {
+          name = "download-video-playlist";
+          runtimeInputs = [yt-dlp];
+          text = ''
+            SOURCE_FILE="Source - Playlists.txt"
+            [ -z "''${SOURCE_FILE}" ] && touch "''${SOURCE_FILE}"
+            ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts/Playlists/Playlists.sh"}
+          '';
+        }
+      )
+      (
+        writeShellApplication
+        {
+          name = "download-video-unique";
+          runtimeInputs = [yt-dlp];
+          text = ''
+            SOURCE_FILE="Source - Unique.txt"
+            [ -z "''${SOURCE_FILE}" ] && touch "''${SOURCE_FILE}"
+            ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts/Unique/Unique.sh"}
           '';
         }
       )
