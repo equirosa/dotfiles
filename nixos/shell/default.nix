@@ -14,7 +14,20 @@
         fileWidgetCommand = "${pkgs.fd}/bin/fd -uu --type f";
         fileWidgetOptions = ["--preview '${pkgs.pistol}/bin/pistol {}'"];
       };
-      starship = {enable = true;};
+      starship = {
+        enable = true;
+        settings = {
+          git_commit = {
+            commit_hash_length = 4;
+            tag_symbol = " ";
+          };
+          golang.symbol = " ";
+          hostname.ssh_only = true;
+          lua.symbol = " ";
+          python.symbol = " ";
+          rust.symbol = " ";
+        };
+      };
       zoxide.enable = true;
     };
   };
