@@ -51,7 +51,7 @@
         };
       };
     in {
-      snowfort =
+      snowfortBorgbase =
         basicBorgJob "snowfort"
         // rec {
           paths = "/home/kiri/";
@@ -61,6 +61,16 @@
             passCommand = "cat /home/kiri/.borg_pass";
           };
           repo = "hvwib450@hvwib450.repo.borgbase.com:repo";
+        };
+      snowfortExternalDrive =
+        basicBorgJob "snowfort"
+        // rec {
+          paths = "/home/kiri/";
+          exclude = map (x: paths + x) common-excludes;
+          encryption = {
+            mode = "none";
+          };
+          repo = "/run/media/kiri/2e571771-81db-41a5-a0b6-d5c6d3b8bf88/borg/";
         };
     };
   };
