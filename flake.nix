@@ -22,9 +22,12 @@
         pkgs.mkShell
         {
           buildInputs = with pkgs; [
-            alejandra
             rnix-lsp
             statix
+            (writeShellApplication {
+              name = "format";
+              text = ''${pkgs.alejandra}/bin/alejandra "$(pwd)"'';
+            })
           ];
         }
     );
