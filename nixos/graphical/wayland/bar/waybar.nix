@@ -14,7 +14,7 @@
         modules-center = ["sway/window"];
         modules-right = ["idle_inhibitor" "sway/language" "keyboard-state" "cpu" "tray" "clock"];
         clock = {
-          format-alt = "{:%a, %d. %b %H:%M}";
+          format = "{:%a, %d. %b %H:%M}";
         };
         "cpu" = {
           format = "{usage}%  ";
