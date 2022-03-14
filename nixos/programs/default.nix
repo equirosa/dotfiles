@@ -87,7 +87,7 @@ in {
           runtimeInputs = [yt-dlp];
           text = ''
             SOURCE_FILE="Source - Playlists.txt"
-            [ -z "''${SOURCE_FILE}" ] && touch "''${SOURCE_FILE}"
+            touch "''${SOURCE_FILE}"
             ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Playlists/Playlists.sh"}
           '';
         }
@@ -99,7 +99,7 @@ in {
           runtimeInputs = [yt-dlp];
           text = ''
             SOURCE_FILE="Source - Playlists.txt"
-            [ -z "''${SOURCE_FILE}" ] && touch "''${SOURCE_FILE}"
+            touch "''${SOURCE_FILE}"
             ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts/Playlists/Playlists.sh"}
           '';
         }
@@ -111,7 +111,7 @@ in {
           runtimeInputs = [yt-dlp];
           text = ''
             SOURCE_FILE="Source - Unique.txt"
-            [ -z "''${SOURCE_FILE}" ] && touch "''${SOURCE_FILE}"
+            touch "''${SOURCE_FILE}"
             ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts/Unique/Unique.sh"}
           '';
         }
