@@ -100,7 +100,7 @@ in {
           text = ''
             SOURCE_FILE="Source - Playlists.txt"
             touch "''${SOURCE_FILE}"
-            ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts/Playlists/Playlists.sh"}
+            ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Playlists/Playlists.sh"}
           '';
         }
       )
@@ -112,7 +112,7 @@ in {
           text = ''
             SOURCE_FILE="Source - Unique.txt"
             touch "''${SOURCE_FILE}"
-            ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts/Unique/Unique.sh"}
+            ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Unique/Unique.sh"}
           '';
         }
       )
