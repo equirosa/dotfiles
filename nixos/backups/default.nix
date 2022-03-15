@@ -42,7 +42,7 @@
         extraPruneArgs = "--save-space";
         compression = "auto,zstd,8";
         doInit = false;
-        startAt = "hourly";
+        startAt = "0/6:0:0";
         user = "kiri";
         persistentTimer = true;
         prune.keep = {
