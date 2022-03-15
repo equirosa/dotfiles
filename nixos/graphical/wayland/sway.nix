@@ -107,6 +107,8 @@ in {
             {command = "${pkgs.autotiling}/bin/autotiling";}
             {command = "${pkgs.mako}/bin/mako";}
             {command = "element-desktop";}
+            # TODO: find a way to not call i3status at all instead of killing the bar on lunch
+            {command = "pkill swaybar";}
           ];
           input = {
             "*" = {
