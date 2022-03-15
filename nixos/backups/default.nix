@@ -19,6 +19,8 @@
         "*/venv"
         "*/.venv"
         "*/.stfolder"
+        ".local/share/Steam"
+        ".steam"
       ];
       common-includes = [
         "/home/kiri/Documents/"
