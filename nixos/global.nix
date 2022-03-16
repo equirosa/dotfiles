@@ -28,11 +28,14 @@ in {
           enable = true;
           nix-direnv.enable = true;
         };
-        gpg = {enable = true;};
+        gpg = {
+          enable = true;
+        };
         keychain = {
           enable = true;
-          agents = ["ssh"];
-          keys = ["id_ed25519"];
+          agents = ["ssh" "gpg"];
+          keys = ["id_ed25519" "B77F36C3F12720B4"];
+          extraFlags = ["--quiet" "--noask"];
         };
         less = {enable = true;};
         ssh = {enable = true;};
@@ -40,8 +43,14 @@ in {
       services = {
         gpg-agent = {
           enable = true;
+          defaultCacheTtl = 34560000;
+          maxCacheTtl = 34560000;
           enableScDaemon = false;
           enableSshSupport = true;
+          extraConfig = ''
+            allow-emacs-pinentry
+            allow-loopback-pinentry
+          '';
         };
         syncthing = {
           enable = true;
