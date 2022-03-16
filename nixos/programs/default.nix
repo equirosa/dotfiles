@@ -31,6 +31,7 @@ in {
       libreoffice
       pandoc
       tectonic
+      texlive.combined.scheme-full
       # Editor
       neovim
       # File Sharing
