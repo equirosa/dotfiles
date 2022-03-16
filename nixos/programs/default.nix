@@ -17,7 +17,7 @@
     ''
   );
 in {
-  imports = [./emacs.nix ./firefox.nix ./git.nix ./kitty.nix ./lf.nix ./mpv.nix ./newsboat.nix];
+  imports = [./emacs.nix ./firefox.nix ./flatpak.nix ./git.nix ./kitty.nix ./lf.nix ./mpv.nix ./newsboat.nix];
 
   home-manager.users.kiri = {config, ...}: {
     home.packages = with pkgs; [
