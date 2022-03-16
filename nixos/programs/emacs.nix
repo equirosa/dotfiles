@@ -37,6 +37,9 @@
           org-modern
           org-super-agenda
           org-timeline
+          org-roam
+          org-roam-ui
+          org-roam-bibtex
           # Style
           all-the-icons
           all-the-icons-dired
