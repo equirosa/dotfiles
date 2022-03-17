@@ -12,12 +12,15 @@
         ];
         modules-left = ["sway/workspaces" "sway/mode"];
         modules-center = ["sway/window"];
-        modules-right = ["idle_inhibitor" "sway/language" "keyboard-state" "cpu" "tray" "clock"];
+        modules-right = ["idle_inhibitor" "sway/language" "disk" "memory" "keyboard-state" "cpu" "tray" "clock"];
         clock = {
           format = "{:%Y-%m-%d | %H:%M}";
         };
         "cpu" = {
           format = "{usage}%  ";
+        };
+        disk = {
+          format = "{free}/{total}";
         };
         "idle_inhibitor" = {
           format = "{icon}";
