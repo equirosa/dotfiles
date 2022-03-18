@@ -73,7 +73,7 @@
           encryption = {
             mode = "none";
           };
-          repo = "/run/media/kiri/2e571771-81db-41a5-a0b6-d5c6d3b8bf881/borg/";
+          repo = "/run/media/kiri/2e571771-81db-41a5-a0b6-d5c6d3b8bf88/borg/";
         };
     };
   };
