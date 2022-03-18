@@ -22,6 +22,9 @@
         ".local/share/Steam"
         ".steam"
         ".var"
+        "*/rocket-league"
+        "*/rocketleague"
+        ".m2"
       ];
       common-includes = [
         "/home/kiri/Documents/"
