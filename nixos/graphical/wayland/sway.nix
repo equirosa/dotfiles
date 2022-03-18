@@ -100,6 +100,7 @@ in {
               "${mod}+n" = "exec ${terminal} ${commonCommands.feedReader}";
               "${mod}+r" = "exec ${terminal} ${commonCommands.termFileManager}";
               "${mod}+x" = "exec ${lockCommand}";
+              "${mod}+p" = "exec emoji";
               "Print" = "exec sway-shot";
             };
           assigns = {"9" = [{class = "^Element";} {class = "^discord";}];};
