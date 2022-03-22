@@ -188,16 +188,14 @@ in {
           '';
         }
       )
-      /*
-       (writeDashScript "rem-lap" ''
-       chosen=$(find "${config.xdg.dataHome}/remmina/" -name "*.remmina")
-       
-       [ "$(${pkgs.coreutils}/bin/printf "$chosen" | ${pkgs.coreutils}/bin/wc -l)" -gt 1 ] &&\
-       chosen=$(${pkgs.coreutils}/bin/printf "$chosen" | menu)
-       
-       ${pkgs.remmina}/bin/remmina -c "$chosen"
-       '')
-       */
+      (writeDashScript "rem-lap" ''
+        chosen=$(find "${config.xdg.dataHome}/remmina/" -name "*.remmina")
+
+        [ "$(${pkgs.coreutils}/bin/printf "$chosen" | ${pkgs.coreutils}/bin/wc -l)" -gt 1 ] &&\
+        chosen=$(${pkgs.coreutils}/bin/printf "$chosen" | menu)
+
+        ${pkgs.remmina}/bin/remmina -c "$chosen"
+      '')
       (
         writeDashScript
         "show-ansi-escapes"
