@@ -4,24 +4,18 @@
   ...
 }: {
   programs = {
-    firejail = {
+    firejail = let
+      inherit (lib) genAttrs;
+      wrappedPackageNames = [
+        "discord"
+        "element-desktop"
+      ];
+    in {
       enable = true;
-      wrappedBinaries = {
-        discord = {
-          executable = "${pkgs.discord}/bin/discord";
-          profile = "${pkgs.firejail}/etc/firejail/discord.profile";
-        };
-        element-desktop = {
-          executable = "${pkgs.element-desktop}/bin/element-desktop";
-          profile = "${pkgs.firejail}/etc/firejail/element-desktop.profile";
-        };
-        /*
-           firefox = {
-         executable = "${pkgs.lib.getBin pkgs.firefox}/bin/firefox";
-         profile = "${pkgs.firejail}/etc/firejail/firefox.profile";
-         };
-         */
-      };
+      wrappedBinaries = genAttrs wrappedPackageNames (packageName: {
+        executable = "${lib.getBin pkgs.${packageName}}/bin/${packageName}";
+        profile = "${pkgs.firejail}/etc/firejail/${packageName}.profile";
+      });
     };
   };
 }
