@@ -3,6 +3,7 @@
   clo = "curl -LO";
   cnf = "command-not-found";
   gca = "git commit -a";
+  gch = "git checkout";
   gp = "gopass";
   gpn = "gopass new";
   l = "ls -lh";
