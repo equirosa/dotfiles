@@ -33,7 +33,6 @@
     xdg.configFile = {
       "pistol/pistol.conf".text = ''
               application/pdf ${pkgs.poppler_utils}/bin/pdftotext %pistol-filename% -
-        image/* ${pkgs.viu}/bin/viu %pistol-filename%
         inode/directory ${pkgs.lsd}/bin/lsd -1 %pistol-filename%
         video/* ${pkgs.mediainfo}/bin/mediainfo %pistol-filename%
       '';
