@@ -30,6 +30,8 @@
   dmu = "download-music-unique";
   dvp = "download-video-playlist";
   dvu = "download-video-unique";
+  # Nix
+  up = "sudo nixos-rebuild switch --upgrade";
   # trash-cli
   te = "trash-empty";
   tp = "trash-put";
