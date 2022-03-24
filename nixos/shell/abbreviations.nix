@@ -22,6 +22,7 @@
   v = "nvim";
   wl = "watchlist";
   yf = "ytfzf --detach --show-thumbnails --thumb-viewer=kitty";
+  yl = "ytfzf --loop --detach --show-thumbnails --thumb-viewer=kitty";
   # Download stuff
   dmp = "download-music-playlist";
   dmu = "download-music-unique";
