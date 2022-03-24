@@ -17,6 +17,7 @@
         M = "push \$mkdir<space>-p<space>";
         T = "push \$touch<space>";
         U = ''''${pkgs.mpv}/bin/umpv "$fx"'';
+        zx = ''''$${pkgs.archiver}/bin/arc unarchive "$fx"'';
       };
       previewer = {
         keybinding = "i";
