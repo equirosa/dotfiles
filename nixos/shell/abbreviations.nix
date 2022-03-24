@@ -16,6 +16,7 @@
   nr = "nix run nixpkgs#";
   ns = "nix search nixpkgs";
   nsp = "nix-shell -p";
+  nup = "nix-update --test --review --commit --review --build";
   pll = "git pull";
   psh = "git push";
   tl = "tldr";
