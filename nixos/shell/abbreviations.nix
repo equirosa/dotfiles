@@ -35,4 +35,7 @@
   # trash-cli
   te = "trash-empty";
   tp = "trash-put";
+  # Quickemu
+  qe = "quickemu";
+  qg = "quickget";
 }
