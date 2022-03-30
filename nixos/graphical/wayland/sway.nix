@@ -82,7 +82,7 @@ in {
       sway = {
         enable = true;
         config = {
-          bars = [{}];
+          bars = [];
           terminal = "${commonCommands.terminal}";
           menu = "${pkgs.rofi-wayland}/bin/rofi -show run | ${pkgs.findutils}/bin/xargs swaymsg exec --";
           modifier = "Mod4";
@@ -108,8 +108,6 @@ in {
             {command = "${pkgs.autotiling}/bin/autotiling";}
             {command = "${pkgs.mako}/bin/mako";}
             {command = "element-desktop";}
-            # TODO: find a way to not call i3status at all instead of killing the bar on lunch
-            {command = "pkill swaybar";}
           ];
           input = {
             "*" = {
