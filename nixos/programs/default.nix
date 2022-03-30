@@ -41,12 +41,9 @@ in {
       tremc
       wormhole-william
       # Nix-specific stuff
-      alejandra
-      # TODO: determine whether I keep this or nixpkgs-fmt
       cachix
       comma
       nix-update
-      nixpkgs-fmt
       nixpkgs-review
       rnix-lsp
       # Utilities
