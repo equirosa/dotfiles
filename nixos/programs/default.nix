@@ -185,6 +185,19 @@ in {
           '';
         }
       )
+      (writeShellApplication {
+        name = "password-menu";
+        text = ''
+          [ -z "$1" ] && ${notify} "Needs a subcommand to be run." && exit 1
+          SUBCOMMAND="''${1}"
+
+          CHOSEN="$(${pkgs.gopass}/bin/gopass ls -f | ${dmenu-command})"
+
+          [ -z "''${CHOSEN}" ] && ${notify} "You have to select an entry." && exit 1
+
+          exec ${pkgs.gopass}/bin/gopass "''${SUBCOMMAND}" -c "''${CHOSEN}"
+        '';
+      })
       (writeDashScript "rem-lap" ''
         chosen=$(find "${config.xdg.dataHome}/remmina/" -name "*.remmina")
 
