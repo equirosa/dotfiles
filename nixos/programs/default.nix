@@ -6,6 +6,7 @@
   notify = ''${pkgs.libnotify}/bin/notify-send -t 5000'';
   pdf-reader = "${pkgs.zathura}/bin/zathura";
   dmenu-command = "${pkgs.rofi-wayland}/bin/rofi -dmenu";
+  exitWithNoArguments = ''[ $# -eq 0 ] && ${notify} "No arguments provided. Exitting..." && exit 1'';
   terminal = "${pkgs.foot}/bin/foot";
   geminiBrowser = "${pkgs.amfora}/bin/amfora";
   writeDashScript = name: content: (
@@ -193,7 +194,7 @@ in {
       (writeShellApplication {
         name = "password-menu";
         text = ''
-          [ -z "$1" ] && ${notify} "Needs a subcommand to be run." && exit 1
+          ${exitWithNoArguments}
           SUBCOMMAND="''${1}"
 
           CHOSEN="$(${pkgs.gopass}/bin/gopass ls -f | ${dmenu-command})"
