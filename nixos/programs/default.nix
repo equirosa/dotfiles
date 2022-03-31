@@ -136,7 +136,12 @@ in {
       (writeShellApplication {
         name = "feed-subscribe";
         text = ''
-          YOUTUBE_URI="''${1//piped.kavin.rocks/youtube.com}"
+          if [ $# -eq 0 ]; then
+            URL="$(${dmenu-command} -p Enter URL)"
+          else
+            URL="''${1}"
+          fi
+          YOUTUBE_URI="''${URL//piped.kavin.rocks/youtube.com}"
           xdg-open "https://reader.miniflux.app/bookmarklet?uri=''${YOUTUBE_URI}"
         '';
       })
