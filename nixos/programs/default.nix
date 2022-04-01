@@ -28,6 +28,9 @@ in {
       aerc
       # Documents
       libreoffice
+      hunspell
+      hunspellDicts.en-us-large
+      hunspellDicts.es-any
       pandoc
       tectonic
       texlive.combined.scheme-full
