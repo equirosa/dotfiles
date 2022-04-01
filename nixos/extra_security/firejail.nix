@@ -9,6 +9,8 @@
       wrappedPackageNames = [
         "discord"
         "element-desktop"
+        "qutebrowser"
+        "signal-desktop"
       ];
     in {
       enable = true;

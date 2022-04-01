@@ -24,10 +24,8 @@ in {
     home.packages = with pkgs; [
       # Browsers
       tor-browser-bundle-bin
-      qutebrowser
       # Messengers
       aerc
-      signal-desktop
       # Documents
       libreoffice
       pandoc
