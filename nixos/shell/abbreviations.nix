@@ -1,4 +1,5 @@
 {
+  cat = "bat -p";
   cl = "curl -L";
   clo = "curl -LO";
   cnf = "command-not-found";
