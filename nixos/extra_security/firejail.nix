@@ -9,6 +9,8 @@
       wrappedPackageNames = [
         "discord"
         "element-desktop"
+        "firefox"
+        "librewolf"
         "qutebrowser"
         "signal-desktop"
       ];
