@@ -13,6 +13,8 @@
   ll = "ls -lah";
   m = "mpv";
   md = "mkdir -p";
+  nb = "nix build";
+  nba = "nix-build -A";
   nj = "nixpkgs-info-json";
   nr = "nix run nixpkgs#";
   ns = "nix search nixpkgs";
