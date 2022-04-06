@@ -109,10 +109,6 @@ in {
         enable = true;
         dns.enable = true;
       };
-      relay = {
-        enable = true;
-        role = "bridge";
-      };
     };
     udisks2.enable = true;
   };
