@@ -202,7 +202,7 @@ in {
 
           [ -z "''${CHOSEN}" ] && ${notify} "You have to select an entry." && exit 1
 
-          exec ${pkgs.gopass}/bin/gopass "''${SUBCOMMAND}" -c "''${CHOSEN}"
+          exec ${pkgs.gopass}/bin/gopass "''${SUBCOMMAND}" -c -o "''${CHOSEN}"
         '';
       })
       (writeDashScript "rem-lap" ''
