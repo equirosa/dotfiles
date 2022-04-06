@@ -64,6 +64,10 @@ in {
             bright6 = "${bright.cyan}";
             bright7 = "${bright.white}";
           };
+          key-bindings = {
+            scrollback-up-line = "Control+Shift+k";
+            scrollback-down-line = "Control+Shift+k";
+          };
           main = {
             bold-text-in-bright = "true";
             font = "monospace:size=14";
