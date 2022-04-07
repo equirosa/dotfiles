@@ -77,9 +77,10 @@ in {
       };
     };
     services = {
-      gammastep = {
+      wlsunset = {
         enable = true;
-        provider = "geoclue2";
+        latitude = "-20.0";
+        longitude = "-80.0";
       };
     };
     wayland.windowManager = {
