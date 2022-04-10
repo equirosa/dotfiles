@@ -66,7 +66,7 @@ in {
           };
           key-bindings = {
             scrollback-up-line = "Control+Shift+k";
-            scrollback-down-line = "Control+Shift+k";
+            scrollback-down-line = "Control+Shift+j";
           };
           main = {
             bold-text-in-bright = "true";
