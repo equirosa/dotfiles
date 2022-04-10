@@ -4,7 +4,7 @@
   ...
 }: let
   notify = ''${pkgs.libnotify}/bin/notify-send -t 5000'';
-  pdf-reader = "${pkgs.zathura}/bin/zathura";
+  pdf-reader = "emacsclient -c";
   dmenu-command = "${pkgs.rofi-wayland}/bin/rofi -dmenu";
   exitWithNoArguments = ''[ $# -eq 0 ] && ${notify} "No arguments provided. Exitting..." && exit 1'';
   terminal = "${pkgs.foot}/bin/foot";
