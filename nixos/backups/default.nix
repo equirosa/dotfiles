@@ -26,6 +26,11 @@
         "*/rocketleague"
         ".m2"
       ];
+      games-excludes = [
+      "battlenet"
+      "epic"
+      "rocket-league"
+      ];
       common-includes = [
         "/home/kiri/Documents/"
         "/home/kiri/Downloads/"
@@ -61,7 +66,7 @@
         basicBorgJob "snowfort"
         // rec {
           paths = "/home/kiri/";
-          exclude = map (x: paths + x) common-excludes;
+          exclude = map (x: paths + x) common-excludes ++ map (dir: paths + "Games/" + dir) games-excludes;
           encryption = {
             mode = "keyfile";
             passCommand = "cat /home/kiri/.borg_pass";
@@ -72,7 +77,7 @@
         basicBorgJob "snowfort"
         // rec {
           paths = "/home/kiri/";
-          exclude = map (x: paths + x) common-excludes;
+          exclude = map (x: paths + x) common-excludes ++ map (dir: paths + "Games/" + dir) games-excludes;
           encryption = {
             mode = "none";
           };
