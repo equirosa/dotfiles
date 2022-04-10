@@ -23,6 +23,8 @@ in {
   home-manager.users.kiri = {config, ...}: {
     home.packages = with pkgs; [
       # Browsers
+      firefox
+      librewolf
       tor-browser-bundle-bin
       # Messengers
       aerc
