@@ -33,6 +33,7 @@ in {
         legendary-gl
         # Utilities
         chiaki
+        wineWowPackages.waylandFull
         # PS4 Remote Play utility
         gamemode
         mangohud
