@@ -27,9 +27,9 @@
         ".m2"
       ];
       games-excludes = [
-      "battlenet"
-      "epic"
-      "rocket-league"
+        "battlenet"
+        "epic"
+        "rocket-league"
       ];
       common-includes = [
         "/home/kiri/Documents/"
