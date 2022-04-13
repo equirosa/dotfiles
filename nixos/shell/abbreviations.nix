@@ -1,3 +1,7 @@
+let
+  nixenvString = "nix-env -f '<nixpkgs>' -qaP";
+  ytfzf = "ytfzf --detach --show-thumbnails --thumb-viewer=kitty";
+in
 {
   cat = "bat -p";
   cl = "curl -L";
@@ -13,8 +17,6 @@
   ll = "ls -lah";
   m = "mpv";
   md = "mkdir -p";
-  nb = "nix build";
-  nba = "nix-build -A";
   nj = "nixpkgs-info-json";
   nr = "nix run nixpkgs#";
   ns = "nix search nixpkgs";
@@ -26,18 +28,24 @@
   u = "umpv";
   v = "nvim";
   wl = "watchlist";
-  yf = "ytfzf --detach --show-thumbnails --thumb-viewer=kitty";
-  yl = "ytfzf --loop --detach --show-thumbnails --thumb-viewer=kitty";
+  yf = "${ytfzf}";
+  yl = "${ytfzf} --loop";
   # Download stuff
   dmp = "download-music-playlist";
   dmu = "download-music-unique";
   dvp = "download-video-playlist";
   dvu = "download-video-unique";
   # Nix
+  elpa = "${nixenvString} emacsPackages.elpaPackages";
+  melpa = "${nixenvString} emacsPackages.melpaPackages";
+  nb = "nix build";
+  nba = "nix-build -A";
+  nodep = "${nixenvString} nodePackages";
   up = "sudo nixos-rebuild switch --upgrade";
   # trash-cli
   te = "trash-empty";
   tp = "trash-put";
+  tr = "trash-restore";
   # Quickemu
   qe = "quickemu";
   qg = "quickget";

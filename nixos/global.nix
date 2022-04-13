@@ -1,10 +1,14 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{ config
+, pkgs
+, ...
+}:
+let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-in {
+  defaults = {
+    editor = "emacsclient -c";
+  };
+in
+{
   imports = [
     (import "${home-manager}/nixos")
     ./audio
@@ -21,7 +25,7 @@ in {
     useUserPackages = true;
     useGlobalPkgs = true;
     users.kiri = {
-      home = {sessionVariables = {EDITOR = "${pkgs.neovim}/bin/nvim";};};
+      home = { sessionVariables = { EDITOR = "${defaults.editor}"; }; };
       programs = {
         direnv = {
           enable = true;
