@@ -23,6 +23,8 @@
             scripts = with self.mpvScripts; [
               mpv-playlistmanager
               sponsorblock
+              thumbnail
+              youtube-quality
             ];
           };
       }
