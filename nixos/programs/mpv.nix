@@ -24,7 +24,6 @@
               mpv-playlistmanager
               sponsorblock
               thumbnail
-              youtube-quality
             ];
           };
       }
