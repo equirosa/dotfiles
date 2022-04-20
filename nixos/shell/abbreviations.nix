@@ -42,6 +42,12 @@ in
   nb = "nix build";
   nba = "nix-build -A";
   nodep = "${nixenvString} nodePackages";
+  nph = "nix profile history";
+  npi = "nix profile install";
+  npl = "nix profile list";
+  npr = "nix profile remove";
+  nprb = "nix profile rollback";
+  npu = "nix profile upgrade";
   up = "sudo nixos-rebuild switch --upgrade";
   # trash-cli
   te = "trash-empty";
