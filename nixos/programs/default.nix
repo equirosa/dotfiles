@@ -167,23 +167,9 @@ in
           {
             name = "nixify";
             text = ''
-              [ -e ./.envrc ] || echo "use nix" > .envrc && direnv allow
-              [ -e shell.nix ] || [ -e default.nix ] \
-                || cp "${config.home.homeDirectory}/Templates/nixify/$1/shell.nix" shell.nix \
-                || cat > shell.nix << 'EOF'
-              with import <nixpkgs> {};
-              mkShell {
-                nativeBuildInputs = [
-                ];
-              }
-              EOF
-
-              case "$1" in
-                "node") echo "export \$PATH=\$XDG_DATA_DIR/npm/bin:\$PATH" >> ./.envrc;;
-                *) echo "Using default envrc";;
-              esac
-
-              ${config.home.sessionVariables.EDITOR} shell.nix
+              ${exitWithNoArguments}
+              ${pkgs.nix}/bin/nix flake new -t github:nix-community/nix-direnv "''${1}" && ${pkgs.direnv}/bin/direnv allow
+              ${config.home.sessionVariables.EDITOR} flake.nix
             '';
           }
       )
