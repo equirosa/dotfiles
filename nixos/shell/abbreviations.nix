@@ -7,6 +7,7 @@ in
   cl = "curl -L";
   clo = "curl -LO";
   cnf = "command-not-found";
+  duts = "dust";
   gca = "git commit -a";
   gch = "git checkout";
   gp = "gopass";
