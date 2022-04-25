@@ -12,6 +12,7 @@ in
   gch = "git checkout";
   gp = "gopass";
   gpn = "gopass new";
+  icat = "kitty +kitten icat";
   l = "ls -lh";
   lb = "lsblk";
   lg = "lazygit";
