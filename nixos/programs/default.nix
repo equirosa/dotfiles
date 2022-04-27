@@ -246,7 +246,7 @@ in
                 gemini* ) ${terminal} ${geminiBrowser} "$@" ;;
                 *youtube.com/watch* | *youtu.be/* | *twitch.tv/* | *bitcointv.com/w/* | *peertube.co.uk/w/* | *videos.lukesmith.xyz/w/* | *diode.zone/w/* | *peertube.thenewoil.xyz/videos/watch/* | *share.tube/w/* ) setsid ${mpv}/bin/umpv "$1" & ;;
                 http* ) librewolf "$@" ;;
-                *.png | *.jpg | *.jpeg ) ${pkgs.imv}/bin/imv "$@" ;;
+                *.png | *.jpg | *.jpeg | *.webp ) ${pkgs.imv}/bin/imv "$@" ;;
                 *.pdf ) setsid ${pdf-reader} "$@" ;;
                 * ) ${pkgs.xdg-utils}/bin/xdg-open "$@" ;;
               esac
