@@ -63,7 +63,6 @@ in
       gopass-jsonapi
       imv
       libnotify
-      prs
       ripgrep
       tealdeer
       trash-cli
