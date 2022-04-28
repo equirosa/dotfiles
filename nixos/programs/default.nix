@@ -27,6 +27,8 @@ in
       firefox
       librewolf
       tor-browser-bundle-bin
+      lagrange
+      amfora
       # Messengers
       aerc
       # Documents
