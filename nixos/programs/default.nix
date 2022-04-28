@@ -56,6 +56,7 @@ in
       # Utilities
       archiver
       borgbackup
+      kopia
       czkawka
       du-dust
       fd
