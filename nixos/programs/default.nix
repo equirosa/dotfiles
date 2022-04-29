@@ -26,6 +26,7 @@ in
       # Browsers
       firefox
       librewolf
+      qutebrowser
       tor-browser-bundle-bin
       lagrange
       amfora

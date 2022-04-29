@@ -8,7 +8,6 @@
       inherit (lib) genAttrs;
       wrappedPackageNames = [
         "element-desktop"
-        "qutebrowser"
         "signal-desktop"
       ];
     in {
