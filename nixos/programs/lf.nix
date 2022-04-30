@@ -34,7 +34,7 @@
     xdg.configFile = {
       "pistol/pistol.conf".text = ''
         text/* ${pkgs.bat}/bin/bat --plain --paging=never --force-colorization %pistol-filename% -
-        application/pdf ${pkgs.poppler_utils}/bin/pdftotext %pistol-filename% -
+        application/pdf ${pkgs.poppler_utils}/bin/pdftotext -layout %pistol-filename% -
         inode/directory ${pkgs.lsd}/bin/lsd -1 %pistol-filename%
         video/* ${pkgs.mediainfo}/bin/mediainfo %pistol-filename%
       '';
