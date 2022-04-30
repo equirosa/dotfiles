@@ -72,6 +72,17 @@ in
       ytfzf
       # Scripts
       (
+        writeShellApplication {
+          name = "2webm";
+          runtimeInputs = [ ffmpeg ];
+          text = ''
+            file="''$(realpath "''${1}")"
+            basename="''${file%.*}"
+            ffmpeg -i "''${file}" "''${basename}.webm"
+          '';
+        }
+      )
+      (
         writeDashScript
           "check-modifications"
           ''
