@@ -73,6 +73,18 @@ in
       # Scripts
       (
         writeShellApplication {
+          name = "2pdf";
+          runtimeInputs = [ pandoc libreoffice ];
+          text = ''
+            ${exitWithNoArguments}
+            case "''${1}" in
+              *.odt ) libreoffice --headless --convert-to pdf "''${1}" ;;
+            esac
+          '';
+        }
+      )
+      (
+        writeShellApplication {
           name = "2webm";
           runtimeInputs = [ ffmpeg ];
           text = ''
