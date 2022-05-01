@@ -157,7 +157,6 @@ in
   # NixOS specific stuff
   programs.sway.enable = true;
   # Sway doesn't launch if enabled only by Home Manager. TODO: report upstream
-  # security.pam.services.swaylock = {};
   services = { pipewire.enable = true; };
   systemd.user = {
     services = {
