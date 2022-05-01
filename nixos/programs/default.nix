@@ -24,6 +24,7 @@ in
   home-manager.users.kiri = { config, ... }: {
     home.packages = with pkgs; [
       # Browsers
+      buku # play with bookmarks
       firefox
       librewolf
       qutebrowser
