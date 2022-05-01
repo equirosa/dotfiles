@@ -119,7 +119,7 @@ in
   system = {
     autoUpgrade = {
       enable = true;
-      dates = "0/4:0:0";
+      dates = "weekly";
     };
   };
 }
