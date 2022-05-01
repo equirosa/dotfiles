@@ -138,6 +138,9 @@ in
                 position = "1920 0";
               };
             };
+            window.commands = [
+              { command = "kill"; criteria = { app_id = "firefox"; title = "Firefox — Sharing Indicator"; }; }
+            ];
           };
           extraSessionCommands = ''
             export SDL_VIDEODRIVER=wayland
