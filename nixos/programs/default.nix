@@ -88,6 +88,7 @@ in
           name = "2webm";
           runtimeInputs = [ ffmpeg ];
           text = ''
+            ${exitWithNoArguments}
             file="''$(realpath "''${1}")"
             basename="''${file%.*}"
             ffmpeg -i "''${file}" "''${basename}.webm"
@@ -106,6 +107,7 @@ in
           {
             name = "download-file";
             text = ''
+              ${exitWithNoArguments}
               setsid ${pkgs.yt-dlp}/bin/yt-dlp --sponsorblock-mark all \
               --embed-subs --embed-metadata -o "%(title)s-[%(id)s].%(ext)s" "$1" >>/dev/null &
             '';
