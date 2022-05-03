@@ -11,18 +11,10 @@
   home-manager.users.kiri = {
     services.emacs = {
       enable = true;
-      client = { enable = true; };
+      client = { enable = true; arguments = [ "-c" "-a 'emacs'" ]; };
+      defaultEditor = true;
       socketActivation.enable = false;
-    };
-    programs.emacs = {
-      enable = true;
       package = pkgs.emacsPgtkNativeComp;
-
-      extraPackages = epkgs:
-        with epkgs; [
-          # Utilities
-          vterm
-        ];
     };
     home.packages = with pkgs; [ sqlite gcc ];
   };
