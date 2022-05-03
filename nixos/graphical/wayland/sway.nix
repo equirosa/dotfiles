@@ -41,7 +41,34 @@ in
         ];
       };
       programs = {
-        mako = { enable = true; };
+        mako = {
+          enable = true;
+          backgroundColor = "#2e3440";
+          borderColor = "#88c0d0";
+          borderRadius = 15;
+          borderSize = 2;
+          defaultTimeout = 5000;
+          font = "monospace 14";
+          height = 110;
+          layer = "top"; # Consider overlay
+          markup = true;
+          sort = "-time";
+          extraConfig = ''
+            [urgency=low]
+            border-color=#cccccc
+
+            [urgency=normal]
+            border-color=#d08770
+
+            [urgency=high]
+            border-color=#bf616a
+            default-timeout=0
+
+            [category=mpd]
+            default-timeout=2000
+            group-by=category
+          '';
+        };
         foot = {
           enable = true;
           server.enable = false;
