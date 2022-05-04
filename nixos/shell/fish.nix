@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }:
 let
   abbreviations = import ./abbreviations.nix;
-  aliases = import ./aliases.nix;
+  aliases = import ./aliases.nix {inherit pkgs;};
 in
 {
   users.users.kiri.shell = pkgs.fish;
@@ -9,7 +9,7 @@ in
     programs = {
       fish = {
         enable = true;
-        # shellAliases = aliases;
+        shellAliases = aliases;
         shellAbbrs = abbreviations;
         interactiveShellInit = ''
           ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source

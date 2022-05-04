@@ -3,7 +3,7 @@ let
   ytfzf = "ytfzf --detach --show-thumbnails --thumb-viewer=kitty";
 in
 {
-  cat = "bat -p";
+  # cat = "bat -p";
   cl = "curl -L";
   clo = "curl -LO";
   cnf = "command-not-found";
