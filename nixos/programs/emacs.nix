@@ -14,7 +14,17 @@
       client = { enable = true; arguments = [ "-c" "-a 'emacs'" ]; };
       defaultEditor = true;
       socketActivation.enable = false;
-      package = pkgs.emacsPgtkNativeComp;
+      package = (pkgs.emacsWithPackagesFromUsePackage {
+        config = "/home/kiri/.config/emacs/init.el";
+        package = pkgs.emacsPgtkNativeComp;
+        alwaysEnsure = true;
+        alwaysTangle = false;
+        extraEmacsPackages = epkgs:
+          with epkgs; [
+            # Utilities
+            vterm
+          ];
+      });
     };
     home.packages = with pkgs; [ sqlite gcc ];
   };
