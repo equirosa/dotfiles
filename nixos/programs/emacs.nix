@@ -14,6 +14,9 @@
       client = { enable = true; arguments = [ "-c" "-a 'emacs'" ]; };
       defaultEditor = true;
       socketActivation.enable = false;
+    };
+    programs.emacs = {
+      enable = true;
       package = (pkgs.emacsWithPackagesFromUsePackage {
         config = "/home/kiri/.config/emacs/init.el";
         package = pkgs.emacsPgtkNativeComp;
