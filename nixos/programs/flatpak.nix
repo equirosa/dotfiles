@@ -24,7 +24,7 @@
         description = "Flatpak Update Timer";
         requiredBy = ["timers.target"];
         timerConfig = {
-          OnCalendar = "0/4:0:0";
+          OnCalendar = "12:0:0";
           Unit = "flatpak-upgrade.service";
         };
       };
