@@ -12,7 +12,7 @@
         description = "Automatically Update Flatpaks";
         documentation = ["man:flatpak(1)"];
         wantedBy = ["default.target"];
-        path = [pkgs.bash];
+        path = with pkgs; [bash flatpak];
         serviceConfig = {
           ExecStart = ''flatpak update --assumeyes'';
         };
