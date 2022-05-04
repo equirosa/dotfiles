@@ -4,9 +4,6 @@
 }:
 let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-  defaults = {
-    editor = "emacsclient";
-  };
 in
 {
   imports = [
@@ -25,7 +22,6 @@ in
     useUserPackages = true;
     useGlobalPkgs = true;
     users.kiri = {
-      home = { sessionVariables = { EDITOR = "${defaults.editor}"; }; };
       programs = {
         direnv = {
           enable = true;
