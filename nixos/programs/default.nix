@@ -72,94 +72,74 @@ in
       trash-cli
       ytfzf
       # Scripts
-      (
-        writeShellApplication {
-          name = "2pdf";
-          runtimeInputs = [ pandoc libreoffice ];
-          text = ''
-            ${exitWithNoArguments}
-            case "''${1}" in
-              *.odt ) libreoffice --headless --convert-to pdf "''${1}" ;;
-            esac
-          '';
-        }
+      (writeShellApplication {
+        name = "2pdf";
+        runtimeInputs = [ pandoc libreoffice ];
+        text = ''
+          ${exitWithNoArguments}
+          case "''${1}" in
+            *.odt ) libreoffice --headless --convert-to pdf "''${1}" ;;
+          esac
+        '';
+      })
+      (writeShellApplication {
+        name = "2webm";
+        runtimeInputs = [ ffmpeg ];
+        text = ''
+          ${exitWithNoArguments}
+          file="''$(realpath "''${1}")"
+          basename="''${file%.*}"
+          ffmpeg -i "''${file}" "''${basename}.webm"
+        '';
+      })
+      (writeDashScript
+        "check-modifications"
+        ''
+          nixos-rebuild build --upgrade && ${lib.getBin pkgs.nvd}/bin/nvd diff /run/current-system ./result && rm ./result
+        ''
       )
-      (
-        writeShellApplication {
-          name = "2webm";
-          runtimeInputs = [ ffmpeg ];
-          text = ''
-            ${exitWithNoArguments}
-            file="''$(realpath "''${1}")"
-            basename="''${file%.*}"
-            ffmpeg -i "''${file}" "''${basename}.webm"
-          '';
-        }
-      )
-      (
-        writeDashScript
-          "check-modifications"
-          ''
-            nixos-rebuild build --upgrade && ${lib.getBin pkgs.nvd}/bin/nvd diff /run/current-system ./result && rm ./result
-          ''
-      )
-      (
-        writeShellApplication
-          {
-            name = "download-file";
-            text = ''
-              ${exitWithNoArguments}
-              setsid ${pkgs.yt-dlp}/bin/yt-dlp --sponsorblock-mark all \
-              --embed-subs --embed-metadata -o "%(title)s-[%(id)s].%(ext)s" "$1" >>/dev/null &
-            '';
-          }
-      )
-      (
-        writeShellApplication
-          {
-            name = "download-music-playlist";
-            runtimeInputs = [ yt-dlp ];
-            text = ''
-              SOURCE_FILE="Source - Playlists.txt"
-              touch "''${SOURCE_FILE}"
-              ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Playlists/Playlists.sh"}
-            '';
-          }
-      )
-      (
-        writeShellApplication
-          {
-            name = "download-video-playlist";
-            runtimeInputs = [ yt-dlp ];
-            text = ''
-              SOURCE_FILE="Source - Playlists.txt"
-              touch "''${SOURCE_FILE}"
-              ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Playlists/Playlists.sh"}
-            '';
-          }
-      )
-      (
-        writeShellApplication
-          {
-            name = "download-video-unique";
-            runtimeInputs = [ yt-dlp ];
-            text = ''
-              SOURCE_FILE="Source - Unique.txt"
-              touch "''${SOURCE_FILE}"
-              ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Unique/Unique.sh"}
-            '';
-          }
-      )
-      (
-        writeShellApplication
-          {
-            name = "emoji";
-            runtimeInputs = with pkgs; [ wl-clipboard wofi ];
-            text = ''
-              ${pkgs.wofi-emoji}/bin/wofi-emoji
-            '';
-          }
-      )
+      (writeShellApplication {
+        name = "download-file";
+        text = ''
+          ${exitWithNoArguments}
+          setsid ${pkgs.yt-dlp}/bin/yt-dlp --sponsorblock-mark all \
+          --embed-subs --embed-metadata -o "%(title)s-[%(id)s].%(ext)s" "$1" >>/dev/null &
+        '';
+      })
+      (writeShellApplication {
+        name = "download-music-playlist";
+        runtimeInputs = [ yt-dlp ];
+        text = ''
+          SOURCE_FILE="Source - Playlists.txt"
+          touch "''${SOURCE_FILE}"
+          ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Playlists/Playlists.sh"}
+        '';
+      })
+      (writeShellApplication {
+        name = "download-video-playlist";
+        runtimeInputs = [ yt-dlp ];
+        text = ''
+          SOURCE_FILE="Source - Playlists.txt"
+          touch "''${SOURCE_FILE}"
+          ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Playlists/Playlists.sh"}
+        '';
+      })
+      (writeShellApplication {
+        name = "download-video-unique";
+        runtimeInputs = [ yt-dlp ];
+        text = ''
+          SOURCE_FILE="Source - Unique.txt"
+          touch "''${SOURCE_FILE}"
+          ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Unique/Unique.sh"}
+        '';
+      })
+      (writeShellApplication {
+        name = "emoji";
+        runtimeInputs = with pkgs; [ wl-clipboard wofi ];
+        text = ''
+          ${pkgs.wofi-emoji}/bin/wofi-emoji
+        '';
+      })
       (writeShellApplication {
         name = "encrypt";
         text = ''
@@ -181,37 +161,28 @@ in
           xdg-open "https://reader.miniflux.app/bookmarklet?uri=''${YOUTUBE_URI}"
         '';
       })
-      (
-        writeShellApplication
-          {
-            name = "join-class";
-            text = ''
-              chosen="''$(${dmenu-command} < ~/links | cut -d ' ' -f2)"
-              [ -z "''${chosen}" ] && exit 1
-              xdg-open "''${chosen}"
-            '';
-          }
-      )
-      (
-        writeShellApplication
-          {
-            name = "nixify";
-            text = ''
-              ${exitWithNoArguments}
-              ${pkgs.nix}/bin/nix flake new -t github:nix-community/nix-direnv "''${1}" && ${pkgs.direnv}/bin/direnv allow
-              ${config.home.sessionVariables.EDITOR} flake.nix
-            '';
-          }
-      )
-      (
-        writeShellApplication
-          {
-            name = "nixpkgs-info-json";
-            text = ''
-              nix-env --query --available --attr-path --json "$@" | ${pkgs.bat}/bin/bat --language json
-            '';
-          }
-      )
+      (writeShellApplication {
+        name = "join-class";
+        text = ''
+          chosen="''$(${dmenu-command} < ~/links | cut -d ' ' -f2)"
+          [ -z "''${chosen}" ] && exit 1
+          xdg-open "''${chosen}"
+        '';
+      })
+      (writeShellApplication {
+        name = "nixify";
+        text = ''
+          ${exitWithNoArguments}
+          ${pkgs.nix}/bin/nix flake new -t github:nix-community/nix-direnv "''${1}" && ${pkgs.direnv}/bin/direnv allow
+          ''${EDITOR} flake.nix
+        '';
+      })
+      (writeShellApplication {
+        name = "nixpkgs-info-json";
+        text = ''
+          nix-env --query --available --attr-path --json "$@" | ${pkgs.bat}/bin/bat --language json
+        '';
+      })
       (writeShellApplication {
         name = "password-menu";
         text = ''
@@ -233,57 +204,47 @@ in
 
         ${pkgs.remmina}/bin/remmina -c "$chosen"
       '')
-      (
-        writeDashScript
-          "show-ansi-escapes"
-          ''
-            for i in 30 31 32 33 34 35 36 37 38; do
-            ${pkgs.coreutils}/bin/printf "\033[0;"$i"m Normal: (0;$i); \033[1;"$i"m Light: (1;$i);\n"
-            done
-          ''
+      (writeDashScript "show-ansi-escapes"
+        ''
+          for i in 30 31 32 33 34 35 36 37 38; do
+          ${pkgs.coreutils}/bin/printf "\033[0;"$i"m Normal: (0;$i); \033[1;"$i"m Light: (1;$i);\n"
+          done
+        ''
       )
-      (
-        writeShellApplication
-          {
-            name = "show-nix-store-path";
-            text = ''
-              ${pkgs.coreutils}/bin/readlink -f "$(command -v "$@")"
-            '';
-          }
+      (writeShellApplication {
+        name = "show-nix-store-path";
+        text = ''
+          ${pkgs.coreutils}/bin/readlink -f "$(command -v "$@")"
+        '';
+      })
+      (writeDashScript "watchlist"
+        ''
+          case "$1" in
+            *http*) setsid ${pkgs.yt-dlp}/bin/yt-dlp \
+              --sponsorblock-mark all\
+              --embed-subs\
+              --embed-metadata\
+              -o "${config.home.homeDirectory}/Videos/watchlist/$(date +%s)-%(title)s-[%(id)s].%(ext)s"\
+            "$1" >>/dev/null & ;;
+            "") setsid ${pkgs.mpv}/bin/umpv "${config.home.homeDirectory}/Videos/watchlist/" ;;
+            *) setsid mv "$1" "${config.home.homeDirectory}/Videos/watchlist/$(date +%s)-$1" ;;
+          esac
+        ''
       )
-      (
-        writeDashScript
-          "watchlist"
-          ''
-            case "$1" in
-              *http*) setsid ${pkgs.yt-dlp}/bin/yt-dlp \
-                --sponsorblock-mark all\
-                --embed-subs\
-                --embed-metadata\
-                -o "${config.home.homeDirectory}/Videos/watchlist/$(date +%s)-%(title)s-[%(id)s].%(ext)s"\
-              "$1" >>/dev/null & ;;
-              "") setsid ${pkgs.mpv}/bin/umpv "${config.home.homeDirectory}/Videos/watchlist/" ;;
-              *) setsid mv "$1" "${config.home.homeDirectory}/Videos/watchlist/$(date +%s)-$1" ;;
-            esac
-          ''
-      )
-      (
-        writeShellApplication
-          {
-            name = "xdg-open";
-            text = ''
-              case "$1" in
-                gemini* ) ${terminal} ${geminiBrowser} "$@" ;;
-                *youtube.com/watch* | *youtu.be/* | *twitch.tv/* | *bitcointv.com/w/* | *peertube.co.uk/w/* | *videos.lukesmith.xyz/w/* | *diode.zone/w/* | *peertube.thenewoil.xyz/videos/watch/* | *share.tube/w/* ) setsid ${mpv}/bin/umpv "$1" & ;;
-                http* ) librewolf "$@" ;;
-                *.org ) emacsclient -c "$1" ;;
-                *.png | *.jpg | *.jpeg | *.webp ) ${pkgs.imv}/bin/imv "$@" ;;
-                *.pdf ) setsid ${pdf-reader} "$@" ;;
-                * ) ${pkgs.xdg-utils}/bin/xdg-open "$@" ;;
-              esac
-            '';
-          }
-      )
+      (writeShellApplication {
+        name = "xdg-open";
+        text = ''
+          case "$1" in
+            gemini* ) ${terminal} ${geminiBrowser} "$@" ;;
+            *youtube.com/watch* | *youtu.be/* | *twitch.tv/* | *bitcointv.com/w/* | *peertube.co.uk/w/* | *videos.lukesmith.xyz/w/* | *diode.zone/w/* | *peertube.thenewoil.xyz/videos/watch/* | *share.tube/w/* ) setsid ${mpv}/bin/umpv "$1" & ;;
+            http* ) librewolf "$@" ;;
+            *.org ) emacsclient -c "$1" ;;
+            *.png | *.jpg | *.jpeg | *.webp ) ${pkgs.imv}/bin/imv "$@" ;;
+            *.pdf ) setsid ${pdf-reader} "$@" ;;
+            * ) ${pkgs.xdg-utils}/bin/xdg-open "$@" ;;
+          esac
+        '';
+      })
     ];
   };
 }
