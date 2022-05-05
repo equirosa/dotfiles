@@ -162,6 +162,12 @@ in
         '';
       })
       (writeShellApplication {
+        name = "gen-ssh-key";
+        text = ''
+          ssh-keygen -t ed25519 -a 100
+        '';
+      })
+      (writeShellApplication {
         name = "join-class";
         text = ''
           chosen="''$(${dmenu-command} < ~/links | cut -d ' ' -f2)"
