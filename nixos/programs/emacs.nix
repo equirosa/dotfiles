@@ -26,9 +26,10 @@
           with epkgs; [
             # Utilities
             vterm
+            pkgs.gcc
+            pkgs.sqlite
           ];
       });
     };
-    home.packages = with pkgs; [ sqlite gcc ];
   };
 }
