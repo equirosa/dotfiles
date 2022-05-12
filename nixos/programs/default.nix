@@ -59,13 +59,13 @@ in
       # Utilities
       archiver
       borgbackup
-      kopia
       czkawka
       du-dust
       fd
       gopass
       gopass-jsonapi
       imv
+      kopia
       libnotify
       ripgrep
       tealdeer
