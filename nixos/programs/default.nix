@@ -73,6 +73,15 @@ in
       ytfzf
       # Scripts
       (writeShellApplication {
+        name = "2ogg";
+        text = ''
+          ${exitWithNoArguments}
+          file="''$(realpath "''${1}")"
+          basename="''${file%.*}"
+          ${pkgs.ffmpeg}/bin/ffmpeg -i "''${file}" "''${basename}.ogg"
+        '';
+      })
+      (writeShellApplication {
         name = "2pdf";
         runtimeInputs = [ pandoc libreoffice ];
         text = ''
@@ -90,6 +99,20 @@ in
           file="''$(realpath "''${1}")"
           basename="''${file%.*}"
           ffmpeg -i "''${file}" "''${basename}.webm"
+        '';
+      })
+      (writeShellApplication {
+        name = "2webp";
+        runtimeInputs = [ libwebp ];
+        text = ''
+          ${exitWithNoArguments}
+          file="''$(realpath "''${1}")"
+          basename="''${file%.*}"
+          case "''${1}" in
+          *.jpg | *.jpeg ) cwebp -q 80 "''${file}" -o "''${basename}.webp" ;;
+          *.png ) cwebp -lossless "''${file}" -o "''${basename}.webp" ;;
+          * ) printf "Can't handle that file extension..." && exit 1 ;;
+          esac
         '';
       })
       (writeDashScript
