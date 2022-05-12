@@ -11,14 +11,14 @@
       commands = { open = ''''${{for file in "$fx"; do setsid xdg-open "$file" > /dev/null 2> /dev/null & done}}''; };
       keybindings = {
         "<backspace2>" = ":set hidden!";
-        "<delete>" = ''''$${pkgs.trash-cli}/bin/trash-put "$fx"'';
-        D = ''&${pkgs.xdragon}/bin/dragon -a -x "$fx"'';
+        "<delete>" = "\$${pkgs.trash-cli}/bin/trash-put \"$fx\"";
+        D = "&${pkgs.xdragon}/bin/dragon -a -x \"$fx\"";
         E = "push \$${config.home.sessionVariables.EDITOR}<space>";
         L = "$${pkgs.lazygit}/bin/lazygit";
         M = "push \$mkdir<space>-p<space>";
         T = "push \$touch<space>";
-        U = ''''${pkgs.mpv}/bin/umpv "$fx"'';
-        zx = ''''$${pkgs.archiver}/bin/arc unarchive "$fx"'';
+        U = "\${pkgs.mpv}/bin/umpv \"$fx\"";
+        zx = "\$${pkgs.archiver}/bin/arc unarchive \"$fx\"";
       };
       previewer = {
         keybinding = "i";
