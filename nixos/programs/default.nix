@@ -59,6 +59,7 @@ in
       # Utilities
       archiver
       borgbackup
+      cryfs
       czkawka
       du-dust
       fd
