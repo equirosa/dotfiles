@@ -131,6 +131,7 @@ in
                   "${mod}+Shift+f" = "floating toggle";
                   "${mod}+Shift+t" = "exec ${terminal} ${commonCommands.transmissionClient}";
                   "${mod}+a" = "exec ${terminal} ${commonCommands.termAudio}";
+                  "${mod}+s" = "exec search";
                   "${mod}+e" = "exec ${terminal} ${commonCommands.mailClient}";
                   "${mod}+i" = "exec ${terminal} ${commonCommands.termMonitor}";
                   "${mod}+n" = "exec ${terminal} ${commonCommands.feedReader}";
