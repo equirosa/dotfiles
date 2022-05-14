@@ -22,6 +22,9 @@ in
     useUserPackages = true;
     useGlobalPkgs = true;
     users.kiri = {
+      home = {
+        sessionVariables = { BROWSER = "${pkgs.firefox}/bin/firefox"; };
+      };
       programs = {
         direnv = {
           enable = true;
