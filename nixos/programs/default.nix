@@ -237,6 +237,14 @@ in
 
         ${pkgs.remmina}/bin/remmina -c "$chosen"
       '')
+      (writeShellApplication {
+        name = "search";
+        text = ''
+          SEARCH_SITE="search.brave.com/search?q="
+          INPUT="$(${dmenu-command} -p "Search term")"
+          ${config.home.sessionVariables.BROWSER} "''${SEARCH_SITE}''${INPUT}"
+        '';
+      })
       (writeDashScript "show-ansi-escapes"
         ''
           for i in 30 31 32 33 34 35 36 37 38; do
