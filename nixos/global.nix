@@ -34,9 +34,7 @@ in
           enable = true;
           agents = [ "ssh" "gpg" ];
           keys = [ "id_ed25519" "B77F36C3F12720B4" ];
-          extraFlags = [
-            "--quiet"
-          ];
+          extraFlags = [ "--quiet" ];
         };
         less = { enable = true; };
         ssh = { enable = true; };
