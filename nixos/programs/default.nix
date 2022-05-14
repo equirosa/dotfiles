@@ -26,7 +26,7 @@ in
       # Browsers
       buku # play with bookmarks
       firefox
-      librewolf
+      # librewolf
       qutebrowser
       nyxt
       tor-browser-bundle-bin
