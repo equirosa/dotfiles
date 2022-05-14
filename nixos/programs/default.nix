@@ -30,6 +30,7 @@ in
       qutebrowser
       nyxt
       tor-browser-bundle-bin
+      # TODO: decide between the next two
       lagrange
       amfora
       # Messengers
@@ -40,9 +41,11 @@ in
       hunspellDicts.en-us-large
       hunspellDicts.es-any
       pandoc
+      # TODO: decide between the next two
       tectonic
       texlive.combined.scheme-full
       # Editor
+      # TODO: consider using the home-manager built-in way
       neovim
       # File Sharing
       ffsend
