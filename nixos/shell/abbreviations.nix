@@ -42,7 +42,7 @@ in
   elpa = "${nixenvString} emacsPackages.elpaPackages";
   melpa = "${nixenvString} emacsPackages.melpaPackages";
   nb = "nix build";
-  nba = "nix-build -A";
+  nbf = "nix build -f ./.";
   nodep = "${nixenvString} nodePackages";
   nph = "nix profile history";
   npi = "nix profile install";
