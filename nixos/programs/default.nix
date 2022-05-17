@@ -185,7 +185,7 @@ in
             URL="''${1}"
           fi
           YOUTUBE_URI="''${URL//piped.kavin.rocks/youtube.com}"
-          xdg-open "https://reader.miniflux.app/bookmarklet?uri=''${YOUTUBE_URI}"
+          ${config.home.sessionVariables.BROWSER} "https://reader.miniflux.app/bookmarklet?uri=''${YOUTUBE_URI}"
         '';
       })
       (writeShellApplication {
