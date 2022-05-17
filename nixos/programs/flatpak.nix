@@ -9,24 +9,29 @@
   systemd.user = {
     services = {
       flatpak-upgrade = {
+        after = ["network-online.target"];
         description = "Automatically Update Flatpaks";
         documentation = ["man:flatpak(1)"];
-        wantedBy = ["default.target"];
+        wants = ["network-online.target"];
+        wantedBy = ["multi-user.target"];
         path = with pkgs; [bash flatpak];
         serviceConfig = {
-          ExecStart = ''flatpak update --assumeyes'';
+          ExecStart = ''flatpak --user update --assumeyes'';
+          Type = "oneshot";
         };
       };
     };
     timers = {
       flatpak-upgrade-timer = {
         after = ["nixos-upgrade.service"];
-        description = "Flatpak Update Timer";
+        description = "Update flatpaks at mid-day";
         requiredBy = ["timers.target"];
         timerConfig = {
           OnCalendar = "12:0:0";
           Unit = "flatpak-upgrade.service";
+          Persistent = true;
         };
+        wantedBy = ["timers.target"];
       };
     };
   };
