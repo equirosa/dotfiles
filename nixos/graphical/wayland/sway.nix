@@ -138,6 +138,7 @@ in
                   "${mod}+r" = "exec ${terminal} ${commonCommands.termFileManager}";
                   "${mod}+x" = "exec ${lockCommand}";
                   "${mod}+p" = "exec emoji";
+                  "${mod}+w" = "exec ${config.home.sessionVariables.BROWSER}";
                   "${mod}+z" = "exec password-menu show";
                   "${mod}+Shift+z" = "exec password-menu otp";
                   "Print" = "exec sway-shot";
