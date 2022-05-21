@@ -18,6 +18,9 @@ in
     ./theme.nix
     ./virtualization/qemu.nix
   ];
+  users.users.kiri = {
+    extraGroups = [ "adbusers" ];
+  };
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
@@ -113,6 +116,7 @@ in
     };
     udisks2.enable = true;
   };
+  programs.adb.enable = true;
   system = {
     autoUpgrade = {
       enable = true;
