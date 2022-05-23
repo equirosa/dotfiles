@@ -8,7 +8,7 @@ let
   dmenu-command = "${pkgs.rofi-wayland}/bin/rofi -dmenu";
   exitWithNoArguments = ''[ $# -eq 0 ] && ${notify} "No arguments provided. Exitting..." && exit 1'';
   terminal = "${pkgs.foot}/bin/foot";
-  geminiBrowser = "${pkgs.amfora}/bin/amfora";
+  geminiBrowser = "${pkgs.lagrange}/bin/lagrange";
   writeDashScript = name: content: (
     pkgs.writeScriptBin
       "${name}"
