@@ -17,7 +17,7 @@
     };
     programs.emacs = {
       enable = true;
-      package = (pkgs.emacsWithPackagesFromUsePackage {
+      package = pkgs.emacsWithPackagesFromUsePackage {
         config = "/home/kiri/.config/emacs/init.el";
         package = pkgs.emacsPgtkNativeComp;
         alwaysEnsure = true;
@@ -29,7 +29,7 @@
             pkgs.gcc
             pkgs.sqlite
           ];
-      });
+      };
     };
   };
 }
