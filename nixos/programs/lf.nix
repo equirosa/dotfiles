@@ -25,6 +25,7 @@
         source = "${pkgs.pistol}/bin/pistol";
       };
       settings = {
+        icons = true;
         incsearch = true;
         ifs = "\\n";
         ratios = "2:4";
