@@ -279,6 +279,7 @@ in
             gemini* ) ${terminal} ${geminiBrowser} "$@" ;;
             *youtube.com/watch* | *youtu.be/* | *twitch.tv/* | *bitcointv.com/w/* | *peertube.co.uk/w/* | *videos.lukesmith.xyz/w/* | *diode.zone/w/* | *peertube.thenewoil.xyz/videos/watch/* | *share.tube/w/* ) setsid ${mpv}/bin/umpv "$1" & ;;
             http* | *.html ) ${config.home.sessionVariables.BROWSER} "$@" ;;
+            magnet* | *.torrent ) transmission-remote -a "''${1}" && ${notify} "Torrent Added! ✅" && exit 0 ;;
             *.org ) emacsclient -c "$1" ;;
             *.png | *.jpg | *.jpeg | *.webp ) ${pkgs.imv}/bin/imv "$@" ;;
             *.pdf ) setsid ${pdf-reader} "$@" ;;
