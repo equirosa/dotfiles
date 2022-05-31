@@ -16,7 +16,7 @@
         wantedBy = ["multi-user.target"];
         path = with pkgs; [bash flatpak];
         serviceConfig = {
-          ExecStart = ''flatpak --user update --assumeyes'';
+          ExecStart = ''${pkgs.flatpak}/bin/flatpak --user update --assumeyes'';
           Type = "oneshot";
         };
       };
