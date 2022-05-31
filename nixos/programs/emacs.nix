@@ -1,17 +1,21 @@
-{ config
-, pkgs
-, ...
+{
+  config,
+  pkgs,
+  ...
 }: {
   nixpkgs.overlays = [
     (
       import
-        (builtins.fetchTarball { url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz"; })
+      (builtins.fetchTarball {url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";})
     )
   ];
   home-manager.users.kiri = {
     services.emacs = {
       enable = true;
-      client = { enable = true; arguments = [ "-c" "-a 'emacs'" ]; };
+      client = {
+        enable = true;
+        arguments = ["-c" "-a 'emacs'"];
+      };
       defaultEditor = true;
       socketActivation.enable = false;
     };

@@ -1,6 +1,6 @@
-{ pkgs, ... }: {
-  home-manager.users.kiri = { config, ... }: {
-    home.packages = [ pkgs.mpv ];
+{pkgs, ...}: {
+  home-manager.users.kiri = {config, ...}: {
+    home.packages = [pkgs.mpv];
     xdg.configFile = {
       "mpv.conf" = {
         target = "mpv/mpv.conf";
@@ -19,13 +19,12 @@
   nixpkgs.overlays = [
     (
       self: super: {
-        mpv =
-          super.mpv-with-scripts.override {
-            scripts = with self.mpvScripts; [
-              mpv-playlistmanager
-              sponsorblock
-            ];
-          };
+        mpv = super.mpv-with-scripts.override {
+          scripts = with self.mpvScripts; [
+            mpv-playlistmanager
+            sponsorblock
+          ];
+        };
       }
     )
   ];

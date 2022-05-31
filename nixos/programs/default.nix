@@ -1,8 +1,8 @@
-{ pkgs
-, lib
-, ...
-}:
-let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   notify = ''${pkgs.libnotify}/bin/notify-send -t 5000'';
   pdf-reader = "${pkgs.zathura}/bin/zathura";
   dmenu-command = "${pkgs.rofi-wayland}/bin/rofi -dmenu";
@@ -11,17 +11,16 @@ let
   geminiBrowser = "${pkgs.lagrange}/bin/lagrange";
   writeDashScript = name: content: (
     pkgs.writeScriptBin
-      "${name}"
-      ''
-        #!${pkgs.dash}/bin/dash
-        ${content}
-      ''
+    "${name}"
+    ''
+      #!${pkgs.dash}/bin/dash
+      ${content}
+    ''
   );
-in
-{
-  imports = [ ./emacs.nix ./flatpak.nix ./git.nix ./kitty.nix ./lf.nix ./mpv.nix ./newsboat.nix ];
+in {
+  imports = [./emacs.nix ./flatpak.nix ./git.nix ./kitty.nix ./lf.nix ./mpv.nix ./newsboat.nix];
 
-  home-manager.users.kiri = { config, ... }: {
+  home-manager.users.kiri = {config, ...}: {
     home.packages = with pkgs; [
       # Browsers
       buku # play with bookmarks
@@ -87,7 +86,7 @@ in
       })
       (writeShellApplication {
         name = "2pdf";
-        runtimeInputs = [ pandoc libreoffice ];
+        runtimeInputs = [pandoc libreoffice];
         text = ''
           ${exitWithNoArguments}
           case "''${1}" in
@@ -97,7 +96,7 @@ in
       })
       (writeShellApplication {
         name = "2webm";
-        runtimeInputs = [ ffmpeg ];
+        runtimeInputs = [ffmpeg];
         text = ''
           ${exitWithNoArguments}
           file="''$(realpath "''${1}")"
@@ -107,7 +106,7 @@ in
       })
       (writeShellApplication {
         name = "2webp";
-        runtimeInputs = [ libwebp ];
+        runtimeInputs = [libwebp];
         text = ''
           ${exitWithNoArguments}
           file="''$(realpath "''${1}")"
@@ -119,7 +118,8 @@ in
           esac
         '';
       })
-      (writeDashScript
+      (
+        writeDashScript
         "check-modifications"
         ''
           nixos-rebuild build --upgrade && ${lib.getBin pkgs.nvd}/bin/nvd diff /run/current-system ./result && rm ./result
@@ -135,7 +135,7 @@ in
       })
       (writeShellApplication {
         name = "download-music-playlist";
-        runtimeInputs = [ yt-dlp ];
+        runtimeInputs = [yt-dlp];
         text = ''
           SOURCE_FILE="Source - Playlists.txt"
           touch "''${SOURCE_FILE}"
@@ -144,7 +144,7 @@ in
       })
       (writeShellApplication {
         name = "download-video-playlist";
-        runtimeInputs = [ yt-dlp ];
+        runtimeInputs = [yt-dlp];
         text = ''
           SOURCE_FILE="Source - Playlists.txt"
           touch "''${SOURCE_FILE}"
@@ -153,7 +153,7 @@ in
       })
       (writeShellApplication {
         name = "download-video-unique";
-        runtimeInputs = [ yt-dlp ];
+        runtimeInputs = [yt-dlp];
         text = ''
           SOURCE_FILE="Source - Unique.txt"
           touch "''${SOURCE_FILE}"
@@ -162,7 +162,7 @@ in
       })
       (writeShellApplication {
         name = "emoji";
-        runtimeInputs = with pkgs; [ wl-clipboard wofi ];
+        runtimeInputs = with pkgs; [wl-clipboard wofi];
         text = ''
           ${pkgs.wofi-emoji}/bin/wofi-emoji
         '';
@@ -245,7 +245,8 @@ in
           ${config.home.sessionVariables.BROWSER} "''${SEARCH_SITE}''${INPUT}"
         '';
       })
-      (writeDashScript "show-ansi-escapes"
+      (
+        writeDashScript "show-ansi-escapes"
         ''
           for i in 30 31 32 33 34 35 36 37 38; do
           ${pkgs.coreutils}/bin/printf "\033[0;"$i"m Normal: (0;$i); \033[1;"$i"m Light: (1;$i);\n"
@@ -258,7 +259,8 @@ in
           ${pkgs.coreutils}/bin/readlink -f "$(command -v "$@")"
         '';
       })
-      (writeDashScript "watchlist"
+      (
+        writeDashScript "watchlist"
         ''
           case "$1" in
             *http*) setsid ${pkgs.yt-dlp}/bin/yt-dlp \

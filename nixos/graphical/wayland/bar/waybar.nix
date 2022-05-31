@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home-manager.users.kiri.programs.waybar = {
     enable = true;
     settings = {
@@ -10,9 +10,9 @@
           "DP-1"
           "HDMI-A-1"
         ];
-        modules-left = [ "sway/workspaces" "sway/mode" ];
-        modules-center = [ "sway/window" ];
-        modules-right = [ "idle_inhibitor" "sway/language" "disk" "network" "memory" "keyboard-state" "cpu" "tray" "clock" ];
+        modules-left = ["sway/workspaces" "sway/mode"];
+        modules-center = ["sway/window"];
+        modules-right = ["idle_inhibitor" "sway/language" "disk" "network" "memory" "keyboard-state" "cpu" "tray" "clock"];
         clock = {
           format = "{:%Y-%m-%d | %H:%M}";
         };
