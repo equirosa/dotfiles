@@ -25,6 +25,7 @@
         "*/rocket-league"
         "*/rocketleague"
         ".m2"
+        "*/torrented"
       ];
       games-excludes = [
         "battlenet"
