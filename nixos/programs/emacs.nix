@@ -19,7 +19,7 @@
       enable = true;
       package = pkgs.emacsWithPackagesFromUsePackage {
         config = "/home/kiri/.config/emacs/init.el";
-        package = pkgs.emacsPgtkNativeComp;
+        package = pkgs.emacsNativeComp;
         alwaysEnsure = true;
         alwaysTangle = false;
         extraEmacsPackages = epkgs:
