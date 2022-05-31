@@ -1,1 +1,1 @@
-{pkgs,...}:{cat = "${pkgs.bat}/bin/bat -p";}
+{pkgs, ...}: {cat = "${pkgs.bat}/bin/bat --plain";}
