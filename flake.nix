@@ -15,6 +15,7 @@
 
     nixpkgsFor = forAllSystems (system: import nixpkgs {inherit system;});
   in {
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     devShell = forAllSystems (
       system: let
         pkgs = nixpkgsFor.${system};
@@ -24,10 +25,6 @@
           buildInputs = with pkgs; [
             rnix-lsp
             statix
-            (writeShellApplication {
-              name = "format";
-              text = ''${pkgs.alejandra}/bin/alejandra "$(pwd)"'';
-            })
           ];
         }
     );
