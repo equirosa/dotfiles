@@ -32,6 +32,7 @@
             vterm
             pkgs.gcc
             pkgs.sqlite
+            pkgs.unzip
           ];
       };
     };
