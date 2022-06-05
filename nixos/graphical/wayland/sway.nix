@@ -146,6 +146,7 @@ in {
             {command = "${pkgs.autotiling}/bin/autotiling";}
             {command = "${pkgs.mako}/bin/mako";}
             {command = "element-desktop";}
+            {command = "${pkgs.transmission}/bin/transmission-daemon";}
           ];
           input = {
             "*" = {
