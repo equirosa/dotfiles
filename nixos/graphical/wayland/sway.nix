@@ -204,7 +204,17 @@ in {
   # NixOS specific stuff
   programs.sway.enable = true;
   # Sway doesn't launch if enabled only by Home Manager. TODO: report upstream
-  services = {pipewire.enable = true;};
+  services = {
+    pipewire.enable = true;
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.greetd}/bin/agreety --cmd sway";
+        };
+      };
+    };
+  };
   systemd.user = {
     services = {
       swayidle = {
