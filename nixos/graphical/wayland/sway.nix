@@ -21,7 +21,6 @@ in {
     lib,
     ...
   }: {
-    # Foot config. TODO: consider moving to own file
     xdg.configFile."electron-flags.conf" = {
       text = ''
         --enable-features=UseOzonePlatform
@@ -74,6 +73,7 @@ in {
           group-by=category
         '';
       };
+      # Foot config. TODO: consider moving to own file
       foot = {
         enable = true;
         server.enable = false;
