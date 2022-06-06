@@ -19,6 +19,7 @@ in {
   };
   home-manager.users.kiri = {
     home = {
+      # sessionVariables.WINE_FULLSCREEN_FSR = 1;
       packages = with pkgs; [
         # Games
         openra
