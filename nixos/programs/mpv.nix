@@ -9,6 +9,9 @@
           save-position-on-quit
           # screenshot-directory=${config.xdg.userDirs.pictures}/screenshots # TODO: fix this resolution upstream?
           gpu-context=wayland
+          hwdec=auto-safe
+          vo=gpu
+          profile=gpu-hq
           screenshot-directory=/home/kiri/Pictures/screenshots
           slang=en,eng
           ytdl-format='bestvideo[height<=?1080]+bestaudio/best'
