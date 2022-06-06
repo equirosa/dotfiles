@@ -27,6 +27,7 @@
         ".m2"
         "*/torrented"
         "*/unhidden"
+        "*/.thumbnails"
       ];
       games-excludes = [
         "battlenet"
