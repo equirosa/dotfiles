@@ -22,6 +22,12 @@ in {
     ...
   }: {
     # Foot config. TODO: consider moving to own file
+    xdg.configFile."electron-flags.conf" = {
+      text = ''
+        --enable-features=UseOzonePlatform
+        --ozone-platform=wayland
+      '';
+    };
     home = {
       packages = with pkgs; [
         wl-clipboard
