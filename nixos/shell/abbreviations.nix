@@ -1,5 +1,5 @@
 let
-  nixenvString = "nix-env -f '<nixpkgs>' -qaP";
+  nixenvString = ''nix-env -f "<nixpkgs>" -qaP'';
   ytfzf = "ytfzf --detach --show-thumbnails --thumb-viewer=kitty";
 in {
   # cat = "bat -p";
@@ -40,8 +40,8 @@ in {
   dvp = "download-video-playlist";
   dvu = "download-video-unique";
   # Nix
-  elpa = "${nixenvString} emacsPackages.elpaPackages";
-  melpa = "${nixenvString} emacsPackages.melpaPackages";
+  elpa = "${nixenvString} emacs.pkgs.elpaPackages";
+  melpa = "${nixenvString} emacs.pkgs.melpaPackages";
   nb = "nix build";
   nbf = "nix build -f ./.";
   nodep = "${nixenvString} nodePackages";
