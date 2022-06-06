@@ -28,7 +28,7 @@ in {
         (writeShellApplication {
           name = "sway-shot";
           text = ''
-            ${pkgs.grim}/bin/grim -g "$(sway-geometry)" - | ${pkgs.pngquant}/bin/pngquant - | ${pkgs.swappy}/bin/swappy -f -
+            ${pkgs.grim}/bin/grim -g "$(sway-geometry)" - | ${pkgs.pngquant}/bin/pngquant --strip - | ${pkgs.swappy}/bin/swappy -f -
           '';
         })
         (writeShellApplication {
