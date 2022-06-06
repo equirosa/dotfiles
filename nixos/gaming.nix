@@ -37,13 +37,17 @@ in {
         chiaki
         wineWowPackages.waylandFull
         # PS4 Remote Play utility
-        gamemode
         mangohud
         protonup
       ];
     };
   };
-  programs.steam.enable = true;
+  programs = {
+    gamemode = {
+      enable = true;
+    };
+    steam.enable = true;
+  };
   hardware = {
     opengl = {
       driSupport = true;
