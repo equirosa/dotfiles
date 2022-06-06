@@ -143,6 +143,15 @@ in {
         '';
       })
       (writeShellApplication {
+        name = "download-music-unique";
+        runtimeInputs = [yt-dlp];
+        text = ''
+          SOURCE_FILE="Source - Unique.txt"
+          touch "''${SOURCE_FILE}"
+          ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Unique/Unique.sh"}
+        '';
+      })
+      (writeShellApplication {
         name = "download-video-playlist";
         runtimeInputs = [yt-dlp];
         text = ''
