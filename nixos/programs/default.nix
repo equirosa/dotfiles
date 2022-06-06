@@ -211,12 +211,6 @@ in {
         '';
       })
       (writeShellApplication {
-        name = "nixpkgs-info-json";
-        text = ''
-          nix-env --query --available --attr-path --json "$@" | ${pkgs.bat}/bin/bat --language json
-        '';
-      })
-      (writeShellApplication {
         name = "password-menu";
         text = ''
           ${exitWithNoArguments}

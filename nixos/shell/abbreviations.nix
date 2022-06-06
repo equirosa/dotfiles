@@ -22,7 +22,6 @@ in {
   m = "mpv";
   md = "mkdir -p";
   nf = "nix fmt";
-  nj = "nixpkgs-info-json";
   nr = "nix run nixpkgs#";
   ns = "nix search nixpkgs";
   nsp = "nix-shell -p";
