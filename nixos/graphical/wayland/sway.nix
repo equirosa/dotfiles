@@ -125,7 +125,7 @@ in {
           in
             lib.mkOptionDefault
             {
-              "${mod}+Shift+e" = "exec emacsclient -c";
+              "${mod}+Shift+e" = "exec emacsclient --create-frame";
               "${mod}+Shift+f" = "floating toggle";
               "${mod}+Shift+t" = "exec ${terminal} ${commonCommands.transmissionClient}";
               "${mod}+a" = "exec ${terminal} ${commonCommands.termAudio}";
