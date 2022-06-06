@@ -202,8 +202,8 @@ in {
     };
   };
   # NixOS specific stuff
-  programs.sway.enable = true;
   # Sway doesn't launch if enabled only by Home Manager. TODO: report upstream
+  programs.sway.enable = true;
   services = {
     pipewire.enable = true;
     greetd = {
