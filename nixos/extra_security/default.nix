@@ -6,6 +6,7 @@
   imports = [
     # <nixpkgs/nixos/modules/profiles/hardened.nix>
     ./firejail.nix
+    ./sudo.nix
   ];
   environment = {
     # Remove default packages to reduce attack surface.
