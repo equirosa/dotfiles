@@ -234,7 +234,7 @@ in {
         chosen=$(find "${config.xdg.dataHome}/remmina/" -name "*.remmina")
 
         [ "$(${pkgs.coreutils}/bin/printf "$chosen" | ${pkgs.coreutils}/bin/wc -l)" -gt 1 ] &&\
-        chosen=$(${pkgs.coreutils}/bin/printf "$chosen" | menu)
+        chosen=$(${pkgs.coreutils}/bin/printf "$chosen" | ${dmenu-command})
 
         ${pkgs.remmina}/bin/remmina -c "$chosen"
       '')
