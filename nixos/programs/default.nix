@@ -9,17 +9,8 @@
   exitWithNoArguments = ''[ $# -eq 0 ] && ${notify} "No arguments provided. Exitting..." && exit 1'';
   terminal = "${pkgs.foot}/bin/foot";
   geminiBrowser = "${pkgs.lagrange}/bin/lagrange";
-  writeDashScript = name: content: (
-    pkgs.writeScriptBin
-    "${name}"
-    ''
-      #!${pkgs.dash}/bin/dash
-      ${content}
-    ''
-  );
 in {
   imports = [./emacs.nix ./flatpak.nix ./git.nix ./kitty.nix ./lf.nix ./mpv.nix ./newsboat.nix];
-
   home-manager.users.kiri = {config, ...}: {
     home.packages = with pkgs; [
       # Browsers
@@ -118,13 +109,12 @@ in {
           esac
         '';
       })
-      (
-        writeDashScript
-        "check-modifications"
-        ''
+      (writeShellApplication {
+        name = "check-modifications";
+        text = ''
           nixos-rebuild build --upgrade && ${lib.getBin pkgs.nvd}/bin/nvd diff /run/current-system ./result && rm ./result
-        ''
-      )
+        '';
+      })
       (writeShellApplication {
         name = "download-file";
         text = ''
@@ -230,14 +220,17 @@ in {
           exec ${pkgs.gopass}/bin/gopass "''${SUBCOMMAND}" -c -o "''${CHOSEN}"
         '';
       })
-      (writeDashScript "rem-lap" ''
-        chosen=$(find "${config.xdg.dataHome}/remmina/" -name "*.remmina")
+      (writeShellApplication {
+        name = "rem-lap";
+        text = ''
+          chosen=$(find "${config.xdg.dataHome}/remmina/" -name "*.remmina")
 
-        [ "$(${pkgs.coreutils}/bin/printf "$chosen" | ${pkgs.coreutils}/bin/wc -l)" -gt 1 ] &&\
-        chosen=$(${pkgs.coreutils}/bin/printf "$chosen" | ${dmenu-command})
+          [ "$(${pkgs.coreutils}/bin/printf "$chosen" | ${pkgs.coreutils}/bin/wc -l)" -gt 1 ] &&\
+          chosen=$(${pkgs.coreutils}/bin/printf "$chosen" | ${dmenu-command})
 
-        ${pkgs.remmina}/bin/remmina -c "$chosen"
-      '')
+          ${pkgs.remmina}/bin/remmina -c "$chosen"
+        '';
+      })
       (writeShellApplication {
         name = "search";
         text = ''
@@ -246,23 +239,23 @@ in {
           ${config.home.sessionVariables.BROWSER} "''${SEARCH_SITE}''${INPUT}"
         '';
       })
-      (
-        writeDashScript "show-ansi-escapes"
-        ''
+      (writeShellApplication {
+        name = "show-ansi-escapes";
+        text = ''
           for i in 30 31 32 33 34 35 36 37 38; do
           ${pkgs.coreutils}/bin/printf "\033[0;"$i"m Normal: (0;$i); \033[1;"$i"m Light: (1;$i);\n"
           done
-        ''
-      )
+        '';
+      })
       (writeShellApplication {
         name = "show-nix-store-path";
         text = ''
           ${pkgs.coreutils}/bin/readlink -f "$(command -v "$@")"
         '';
       })
-      (
-        writeDashScript "watchlist"
-        ''
+      (writeShellApplication {
+        name = "watchlist";
+        text = ''
           case "$1" in
             *http*) setsid ${pkgs.yt-dlp}/bin/yt-dlp \
               --sponsorblock-mark all\
@@ -273,8 +266,8 @@ in {
             "") setsid ${pkgs.mpv}/bin/umpv "${config.home.homeDirectory}/Videos/watchlist/" ;;
             *) setsid mv "$1" "${config.home.homeDirectory}/Videos/watchlist/$(date +%s)-$1" ;;
           esac
-        ''
-      )
+        '';
+      })
       (writeShellApplication {
         name = "xdg-open";
         text = ''
