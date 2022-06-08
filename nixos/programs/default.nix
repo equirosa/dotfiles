@@ -76,6 +76,16 @@ in {
       ytfzf
       # Scripts
       (writeShellApplication {
+        name = "2mkv";
+        runtimeInputs = [ffmpeg-full];
+        text = ''
+          ${exitWithNoArguments}
+          file="''$(realpath "''${1}")"
+          basename="''${file%.*}"
+          ffmpeg -i "''${file}" -c:v libsvtav1 -preset 5 -crf 32 -g 240 -pix_fmt yuv420p10le -c:a libopus "''${basename}.mkv"
+        '';
+      })
+      (writeShellApplication {
         name = "2ogg";
         text = ''
           ${exitWithNoArguments}
@@ -92,16 +102,6 @@ in {
           case "''${1}" in
             *.odt ) libreoffice --headless --convert-to pdf "''${1}" ;;
           esac
-        '';
-      })
-      (writeShellApplication {
-        name = "2webm";
-        runtimeInputs = [ffmpeg];
-        text = ''
-          ${exitWithNoArguments}
-          file="''$(realpath "''${1}")"
-          basename="''${file%.*}"
-          ffmpeg -i "''${file}" "''${basename}.webm"
         '';
       })
       (writeShellApplication {
