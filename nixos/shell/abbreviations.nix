@@ -11,10 +11,14 @@ in {
   cp = "cp --reflink";
   duts = "dust";
   fex = "fd --extension";
+  # Git
   gca = "git commit -a";
   gch = "git checkout";
+  pll = "git pull";
+  psh = "git push";
+  # Gopass
   gp = "gopass";
-  gpn = "gopass new";
+  gn = "gopass new";
   icat = "kitty +kitten icat";
   l = "ls -lh";
   lb = "lsblk";
@@ -27,8 +31,6 @@ in {
   ns = "nix search nixpkgs";
   nsp = "nix-shell -p";
   nup = "nix-update --test --review --commit --review --build";
-  pll = "git pull";
-  psh = "git push";
   tl = "tldr";
   u = "umpv";
   v = "nvim";
