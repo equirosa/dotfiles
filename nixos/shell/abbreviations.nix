@@ -10,6 +10,7 @@ in {
   cnf = "command-not-found";
   cp = "cp --reflink";
   duts = "dust";
+  fex = "fd --extension";
   gca = "git commit -a";
   gch = "git checkout";
   gp = "gopass";
