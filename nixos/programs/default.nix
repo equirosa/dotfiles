@@ -274,7 +274,7 @@ in {
         name = "xdg-open";
         text = ''
           case "$1" in
-            gemini* ) ${terminal} ${geminiBrowser} "$@" ;;
+            gemini* ) ${geminiBrowser} "$@" ;;
             *youtube.com/watch* | *youtu.be/* | *tilvids.com/w/* | *twitch.tv/* | *bitcointv.com/w/* | *peertube.co.uk/w/* | *videos.lukesmith.xyz/w/* | *diode.zone/w/* | *peertube.thenewoil.xyz/videos/watch/* | *share.tube/w/* ) setsid ${mpv}/bin/umpv "$1" & ;;
             http* | *.html ) ${config.home.sessionVariables.BROWSER} "$@" ;;
             magnet* | *.torrent ) transmission-remote -a "''${1}" && ${notify} "Torrent Added! ✅" && exit 0 ;;
