@@ -205,7 +205,9 @@ in {
         name = "nixify";
         text = ''
           ${exitWithNoArguments}
-          ${pkgs.nix}/bin/nix flake new -t github:nix-community/nix-direnv "''${1}" && ${pkgs.direnv}/bin/direnv allow
+          ${pkgs.nix}/bin/nix flake new -t github:nix-community/nix-direnv "''${1}" \
+          && cd "''${1}" \
+          && ${pkgs.direnv}/bin/direnv allow
           ''${EDITOR} flake.nix
         '';
       })
