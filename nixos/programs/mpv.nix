@@ -14,7 +14,7 @@
           profile=gpu-hq
           screenshot-directory=/home/kiri/Pictures/screenshots
           slang=en,eng
-          ytdl-format='bestvideo[height<=?1080]+bestaudio/best'
+          ytdl-format='(bestvideo[height<=1080]+bestaudio)[ext=webm]/bestvideo[height<=1080]+bestaudio/best[height<=1080]/bestvideo+bestaudio/best'
         '';
       };
     };
