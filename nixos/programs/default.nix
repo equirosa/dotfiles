@@ -183,7 +183,7 @@ in {
           else
             URL="''${1}"
           fi
-          YOUTUBE_URI="''${URL//piped.kavin.rocks/youtube.com}"
+          YOUTUBE_URI="$(sed 's/piped.kavin.rocks/youtube.com/g; s/piped.mint.lgbt/youtube.com/g' <<< "''${URL}")"
           ${config.home.sessionVariables.BROWSER} "https://reader.miniflux.app/bookmarklet?uri=''${YOUTUBE_URI}"
         '';
       })
