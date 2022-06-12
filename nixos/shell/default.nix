@@ -21,6 +21,11 @@
           ".yaml" = "${bold};${yellow}";
         };
       };
+      lsd = {
+        enable = true;
+        enableAliases = true;
+        settings = {date = "relative";};
+      };
       fzf = {
         enable = true;
         changeDirWidgetCommand = "${pkgs.fd}/bin/fd -uu --type d";
