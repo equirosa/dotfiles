@@ -245,7 +245,7 @@ in {
         name = "show-ansi-escapes";
         text = ''
           for i in 30 31 32 33 34 35 36 37 38; do
-          ${pkgs.coreutils}/bin/printf "\033[0;''${i}m Normal: (0;''${i}); \033[1;''${i}m Light: (1;''${i});\n"
+          ${pkgs.coreutils}/bin/printf "\033[0;''${i}m Normal: (0;''${i}); \033[1;''${i}m Bold: (1;''${i});\n"
           done
         '';
       })
