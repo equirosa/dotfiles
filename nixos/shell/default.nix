@@ -6,6 +6,21 @@
         enable = true;
         config = {pager = "${pkgs.less}/bin/less -FR";};
       };
+      dircolors = {
+        enable = true;
+        settings = let
+          bold = "01";
+          green = "32";
+          yellow = "33";
+        in {
+          OTHER_WRITABLE = "30;46";
+          ".sh" = "${bold};${green}";
+          ".csv" = "${bold};${yellow}";
+          ".json" = "${bold};${yellow}";
+          ".toml" = "${bold};${yellow}";
+          ".yaml" = "${bold};${yellow}";
+        };
+      };
       fzf = {
         enable = true;
         changeDirWidgetCommand = "${pkgs.fd}/bin/fd -uu --type d";
