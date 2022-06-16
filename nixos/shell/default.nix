@@ -12,6 +12,7 @@
           bold = "01";
           green = "32";
           yellow = "33";
+          pink = "35";
         in {
           OTHER_WRITABLE = "30;46";
           ".sh" = "${bold};${green}";
@@ -19,6 +20,7 @@
           ".json" = "${bold};${yellow}";
           ".toml" = "${bold};${yellow}";
           ".yaml" = "${bold};${yellow}";
+          ".mkv" = "${bold};${pink}";
         };
       };
       lsd = {
