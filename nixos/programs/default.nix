@@ -18,7 +18,6 @@ in {
       firefox
       # librewolf
       qutebrowser
-      nyxt
       tor-browser-bundle-bin
       lagrange
       # Messengers
