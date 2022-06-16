@@ -7,7 +7,6 @@
     firejail = let
       inherit (lib) genAttrs;
       wrappedPackageNames = [
-        "element-desktop"
         "signal-desktop"
       ];
     in {

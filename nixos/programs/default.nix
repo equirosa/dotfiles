@@ -25,6 +25,7 @@ in {
       amfora
       # Messengers
       aerc
+      element-desktop
       # Documents
       libreoffice
       hunspell
