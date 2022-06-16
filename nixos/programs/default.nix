@@ -20,9 +20,7 @@ in {
       qutebrowser
       nyxt
       tor-browser-bundle-bin
-      # TODO: decide between the next two
       lagrange
-      amfora
       # Messengers
       aerc
       element-desktop
