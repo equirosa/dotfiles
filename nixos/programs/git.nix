@@ -7,6 +7,7 @@
         attributes = ["*.pdf diff=pdf"];
         extraConfig = {
           # init = {defaultBranch = "main";};
+          diff.algorithm = "histogram";
           merge = {
             tool = "nvimdiff";
           };
