@@ -7,6 +7,11 @@
   pdf-reader = "${pkgs.zathura}/bin/zathura";
   dmenu-command = "${pkgs.rofi-wayland}/bin/rofi -dmenu";
   exitWithNoArguments = ''[ $# -eq 0 ] && ${notify} "No arguments provided. Exitting..." && exit 1'';
+  getFile = ''file="$(readlink -f "''${1}")"'';
+  getExt = ''ext=''${file##*.}'';
+  getDir = ''directory=''${file%/*}'';
+  getBase = ''base=''${file%.*}'';
+  backupFile = ''bak="''${file}.bak"; mv "''${file}" "''${bak}"'';
   terminal = "${pkgs.foot}/bin/foot";
   geminiBrowser = "${pkgs.lagrange}/bin/lagrange";
 in {
@@ -69,18 +74,19 @@ in {
         runtimeInputs = [ffmpeg-full];
         text = ''
           ${exitWithNoArguments}
-          file="''$(realpath "''${1}")"
-          basename="''${file%.*}"
-          ffmpeg -i "''${file}" -c:v libsvtav1 -preset 5 -crf 32 -g 240 -pix_fmt yuv420p10le -c:a libopus "''${basename}.mkv"
+          ${getFile}
+          ${getBase}
+          ${backupFile}
+          ffmpeg -i "''${file}.bak" -c:v libsvtav1 -preset 5 -crf 32 -g 240 -pix_fmt yuv420p10le -c:a libopus "''${base}.mkv"
         '';
       })
       (writeShellApplication {
         name = "2ogg";
         text = ''
           ${exitWithNoArguments}
-          file="''$(realpath "''${1}")"
-          basename="''${file%.*}"
-          ${pkgs.ffmpeg}/bin/ffmpeg -i "''${file}" "''${basename}.ogg"
+          ${getFile}
+          ${getBase}
+          ${pkgs.ffmpeg}/bin/ffmpeg -i "''${file}" "''${base}.ogg"
         '';
       })
       (writeShellApplication {
@@ -88,8 +94,10 @@ in {
         runtimeInputs = [pandoc libreoffice];
         text = ''
           ${exitWithNoArguments}
-          case "''${1}" in
-            *.odt ) libreoffice --headless --convert-to pdf "''${1}" ;;
+          ${getFile}
+          ${getExt}
+          case "''${ext}" in
+            odt ) libreoffice --headless --convert-to pdf "''${1}" ;;
           esac
         '';
       })
@@ -98,11 +106,12 @@ in {
         runtimeInputs = [libwebp];
         text = ''
           ${exitWithNoArguments}
-          file="''$(realpath "''${1}")"
-          basename="''${file%.*}"
-          case "''${1}" in
-          *.jpg | *.jpeg ) cwebp -q 80 "''${file}" -o "''${basename}.webp" ;;
-          *.png ) cwebp -lossless "''${file}" -o "''${basename}.webp" ;;
+          ${getFile}
+          ${getBase}
+          ${getExt}
+          case "''${ext}" in
+          jpg | jpeg ) cwebp -q 80 "''${file}" -o "''${base}.webp" ;;
+          png ) cwebp -lossless "''${file}" -o "''${base}.webp" ;;
           * ) printf "Can't handle that file extension..." && exit 1 ;;
           esac
         '';
@@ -181,7 +190,7 @@ in {
           else
             URL="''${1}"
           fi
-          YOUTUBE_URI="$(sed 's/piped.kavin.rocks/youtube.com/g; s/piped.mint.lgbt/youtube.com/g s/il.ax/youtube.com/g' <<< "''${URL}")"
+          YOUTUBE_URI="$(sed -e 's/piped.kavin.rocks/youtube.com/g' -e 's/piped.mint.lgbt/youtube.com/g' -e 's/il.ax/youtube.com/g' -e 'piped.privacy.com.de/youtube.com/g' <<< "''${URL}")"
           ${config.home.sessionVariables.BROWSER} "https://reader.miniflux.app/bookmarklet?uri=''${YOUTUBE_URI}"
         '';
       })
@@ -225,8 +234,8 @@ in {
         text = ''
           chosen=$(find "${config.xdg.dataHome}/remmina/" -name "*.remmina")
 
-          [ "$(${pkgs.coreutils}/bin/printf "$chosen" | ${pkgs.coreutils}/bin/wc -l)" -gt 1 ] &&\
-          chosen=$(${pkgs.coreutils}/bin/printf "$chosen" | ${dmenu-command})
+          [ "$(${pkgs.coreutils}/bin/wc -l <<< "''${chosen}")" -gt 1 ] &&\
+          chosen=$(${pkgs.coreutils}/bin/printf "''${chosen}" | ${dmenu-command})
 
           ${pkgs.remmina}/bin/remmina -c "$chosen"
         '';
@@ -234,7 +243,8 @@ in {
       (writeShellApplication {
         name = "search";
         text = ''
-          SEARCH_SITE="search.brave.com/search?q="
+          SEARCH_OPTIONS="search.nixnet.services/search?q=\nyoutube.com/results?search_query=\ngithub.com/search?q="
+          SEARCH_SITE="$(echo -e "''${SEARCH_OPTIONS}" | ${dmenu-command} -p "Search website")"
           INPUT="$(${dmenu-command} -p "Search term")"
           ${config.home.sessionVariables.BROWSER} "''${SEARCH_SITE}''${INPUT}"
         '';
@@ -256,7 +266,7 @@ in {
       (writeShellApplication {
         name = "watchlist";
         text = ''
-          case "$1" in
+          case "''${1}" in
             *http*) setsid ${pkgs.yt-dlp}/bin/yt-dlp \
               --sponsorblock-mark all\
               --embed-subs\
@@ -264,22 +274,22 @@ in {
               -o "${config.home.homeDirectory}/Videos/watchlist/$(date +%s)-%(title)s-[%(id)s].%(ext)s"\
             "$1" >>/dev/null & ;;
             "") setsid ${pkgs.mpv}/bin/umpv "${config.home.homeDirectory}/Videos/watchlist/" ;;
-            *) setsid mv "$1" "${config.home.homeDirectory}/Videos/watchlist/$(date +%s)-$1" ;;
+            *) setsid mv "''${1}" "${config.home.homeDirectory}/Videos/watchlist/$(date +%s)-''${1}" ;;
           esac
         '';
       })
       (writeShellApplication {
         name = "xdg-open";
         text = ''
-          case "$1" in
-            gemini* ) ${geminiBrowser} "$@" ;;
-            *youtube.com/watch* | *youtu.be/* | *tilvids.com/w/* | *twitch.tv/* | *bitcointv.com/w/* | *peertube.co.uk/w/* | *videos.lukesmith.xyz/w/* | *diode.zone/w/* | *peertube.thenewoil.xyz/videos/watch/* | *share.tube/w/* ) setsid ${mpv}/bin/umpv "$1" & ;;
-            http* | *.html ) ${config.home.sessionVariables.BROWSER} "$@" ;;
+          case "''${1}" in
+            gemini* ) ${geminiBrowser} "''${@}" ;;
+            *youtube.com/watch* | *youtu.be/* | *tilvids.com/w/* | *twitch.tv/* | *bitcointv.com/w/* | *peertube.co.uk/w/* | *videos.lukesmith.xyz/w/* | *diode.zone/w/* | *peertube.thenewoil.xyz/videos/watch/* | *share.tube/w/* ) setsid ${mpv}/bin/umpv "''${1}" & ;;
+            http* | *.html ) ${config.home.sessionVariables.BROWSER} "''${@}" ;;
             magnet* | *.torrent ) transmission-remote -a "''${1}" && ${notify} "Torrent Added! ✅" && exit 0 ;;
-            *.org ) emacsclient --create-frame "$1" ;;
-            *.png | *.jpg | *.jpeg | *.webp ) ${pkgs.imv}/bin/imv "$@" ;;
-            *.pdf ) setsid ${pdf-reader} "$@" ;;
-            * ) ${pkgs.xdg-utils}/bin/xdg-open "$@" ;;
+            *.org ) emacsclient --create-frame "''${1}" ;;
+            *.png | *.jpg | *.jpeg | *.webp ) ${pkgs.imv}/bin/imv "''${@}" ;;
+            *.pdf ) setsid ${pdf-reader} "''${@}" ;;
+            * ) ${pkgs.xdg-utils}/bin/xdg-open "''${@}" ;;
           esac
         '';
       })
