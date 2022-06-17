@@ -4,6 +4,7 @@
   ...
 }: let
   commonSettings = {
+    "browser.bookmarks.showMobileBookmarks" = true;
     "browser.contentblocking.category" = "strict";
     "extensions.pocket.enabled" = false;
   };
@@ -13,7 +14,7 @@ in {
       firefox = {
         enable = true;
         /*
-           extensions = with pkgs.nur; with repos.rycee.firefox-addons; [
+         extensions = with pkgs.nur; with repos.rycee.firefox-addons; [
          gopass-bridge
          privacy-redirect
          tridactyl
@@ -22,6 +23,12 @@ in {
          ];
          */
         profiles = {default = {settings = commonSettings;};};
+        package = pkgs.firefox.override {
+          cfg = {
+            enableGnomeExtensions = false;
+            enableTridactylNative = true;
+          };
+        };
       };
     };
   };
