@@ -186,7 +186,7 @@ in {
           else
             URL="''${1}"
           fi
-          YOUTUBE_URI="$(sed -e 's/piped.kavin.rocks/youtube.com/g' -e 's/piped.mint.lgbt/youtube.com/g' -e 's/il.ax/youtube.com/g' -e 'piped.privacy.com.de/youtube.com/g' <<< "''${URL}")"
+          YOUTUBE_URI="$(sed -e 's/piped.kavin.rocks/youtube.com/g' -e 's/piped.mint.lgbt/youtube.com/g' -e 's/il.ax/youtube.com/g' -e 's/piped.privacy.com.de/youtube.com/g' <<< "''${URL}")"
           ${config.home.sessionVariables.BROWSER} "https://reader.miniflux.app/bookmarklet?uri=''${YOUTUBE_URI}"
         '';
       })
