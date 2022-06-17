@@ -27,12 +27,16 @@
         alwaysEnsure = true;
         alwaysTangle = false;
         extraEmacsPackages = epkgs:
-          with epkgs; [
+          with epkgs;
+          with pkgs; [
             # Utilities
             vterm
+            # Normal Packages
             pkgs.gcc
             pkgs.sqlite
             pkgs.unzip
+            pkgs.tectonic
+            pkgs.texlive.combined.scheme-full
           ];
       };
     };
