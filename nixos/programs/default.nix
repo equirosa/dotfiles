@@ -239,7 +239,7 @@ in {
       (writeShellApplication {
         name = "search";
         text = ''
-          SEARCH_OPTIONS="search.nixnet.services/search?q=\nyoutube.com/results?search_query=\ngithub.com/search?q="
+          SEARCH_OPTIONS="search.nixnet.services/search?q=\nyoutube.com/results?search_query=\ngithub.com/search?q=\nnixos.wiki/index.php?search="
           SEARCH_SITE="$(echo -e "''${SEARCH_OPTIONS}" | ${dmenu-command} -p "Search website")"
           INPUT="$(${dmenu-command} -p "Search term")"
           ${config.home.sessionVariables.BROWSER} "''${SEARCH_SITE}''${INPUT}"
