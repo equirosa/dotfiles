@@ -199,7 +199,7 @@ in {
       (writeShellApplication {
         name = "join-class";
         text = ''
-          chosen="$(${dmenu-command} < ~/links.csv | cut -d ' ,' -f2)"
+          chosen="$(${dmenu-command} < ~/links.csv | cut -d ',' -f2)"
           [ -z "''${chosen}" ] && exit 1
           xdg-open "''${chosen}"
         '';
