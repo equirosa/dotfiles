@@ -14,7 +14,12 @@
         documentation = ["man:flatpak(1)"];
         wants = ["network-online.target"];
         wantedBy = ["multi-user.target"];
-        path = with pkgs; [bash flatpak];
+        path = let
+          env = pkgs.buildEnv {
+            name = "flatpak-update-env";
+            paths = [pkgs.flatpak];
+          };
+        in [env];
         serviceConfig = {
           ExecStart = ''${pkgs.flatpak}/bin/flatpak --user update --assumeyes'';
           Type = "oneshot";
