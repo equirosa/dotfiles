@@ -29,7 +29,7 @@ in {
       aerc
       element-desktop
       # Documents
-      libreoffice
+      onlyoffice-bin
       hunspell
       hunspellDicts.en-us-large
       hunspellDicts.es-any
