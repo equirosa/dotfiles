@@ -26,6 +26,7 @@ in {
     users.kiri = {
       home = {
         sessionVariables = {BROWSER = "${pkgs.firefox}/bin/firefox";};
+        stateVersion = config.system.stateVersion;
       };
       programs = {
         direnv = {
