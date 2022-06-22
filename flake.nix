@@ -3,11 +3,13 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
   outputs = {
     self,
     nixpkgs,
+    sops-nix,
   }: let
     supportedSystems = ["x86_64-linux"];
 
