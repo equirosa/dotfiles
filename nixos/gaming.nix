@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  nix-gaming = import (builtins.fetchTarball "https://github.com/fufexan/nix-gaming/archive/master.tar.gz");
+  # nix-gaming = import (builtins.fetchTarball "https://github.com/fufexan/nix-gaming/archive/master.tar.gz");
 in {
   imports = [
     # "nix-gaming/modules/pipewireLowLatency.nix"
@@ -28,7 +28,7 @@ in {
         warzone2100
         zeroad
         # nur.repos.dukzcry.gamescope
-        nix-gaming.packages.x86_64-linux.rocket-league
+        # nix-gaming.packages.x86_64-linux.rocket-league
         # Launchers
         lutris
         # General games client
