@@ -78,6 +78,7 @@ in {
       persistent = true;
     };
     settings = {auto-optimise-store = true;};
+    package = pkgs.nixUnstable;
     extraOptions = ''
       experimental-features = flakes nix-command
       keep-outputs = true
