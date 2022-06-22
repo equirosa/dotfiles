@@ -39,7 +39,6 @@ in {
       neovim
       # File Sharing
       ffsend
-      onionshare-gui
       transmission
       tremc
       wormhole-william
