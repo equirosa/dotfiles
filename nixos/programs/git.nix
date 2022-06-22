@@ -7,7 +7,10 @@
         attributes = ["*.pdf diff=pdf"];
         extraConfig = {
           # init = {defaultBranch = "main";};
-          diff.algorithm = "histogram";
+          diff = {
+            algorithm = "histogram";
+            sopsdiffer.textconv = "sops -d";
+          };
           merge = {
             tool = "nvimdiff";
           };
