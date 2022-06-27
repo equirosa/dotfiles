@@ -31,7 +31,7 @@ in {
   nr = "nix run nixpkgs#";
   ns = "nix search nixpkgs";
   nsp = "nix-shell -p";
-  nup = "nix-update --test --review --commit --review --build";
+  nup = "nix-update --test --commit --review";
   tl = "tldr";
   u = "umpv";
   v = "nvim";
