@@ -10,9 +10,13 @@
         enable = true;
         settings = let
           bold = "01";
+          red = "31";
           green = "32";
           yellow = "33";
+          blue = "34";
           pink = "35";
+          teal = "36";
+          grey = "37";
         in {
           OTHER_WRITABLE = "30;46";
           ".sh" = "${bold};${green}";
