@@ -51,6 +51,8 @@ in {
       # LSP TODO: move these into editor-only paths
       rnix-lsp
       rust-analyzer
+      nodePackages.typescript-language-server
+      sumneko-lua-language-server
       # Utilities
       archiver
       borgbackup
