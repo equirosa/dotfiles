@@ -25,6 +25,8 @@
           ".toml" = "${bold};${yellow}";
           ".yaml" = "${bold};${yellow}";
           ".mkv" = "${bold};${pink}";
+          ".md" = "${bold};${teal}";
+          ".org" = "${bold};${teal}";
         };
       };
       lsd = {
