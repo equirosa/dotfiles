@@ -48,7 +48,9 @@ in {
       nix-update
       nixpkgs-review
       statix
+      # LSP TODO: move these into editor-only paths
       rnix-lsp
+      rust-analyzer
       # Utilities
       archiver
       borgbackup
