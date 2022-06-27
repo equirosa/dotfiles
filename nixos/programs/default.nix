@@ -47,6 +47,7 @@ in {
       comma
       nix-update
       nixpkgs-review
+      statix
       rnix-lsp
       # Utilities
       archiver
