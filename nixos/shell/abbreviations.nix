@@ -16,6 +16,7 @@ in {
   gch = "git checkout";
   pll = "git pull";
   psh = "git push";
+  pur = "git pull upstream master --rebase";
   # Gopass
   gp = "gopass";
   gn = "gopass new";
