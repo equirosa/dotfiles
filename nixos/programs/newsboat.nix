@@ -1,4 +1,10 @@
 {
+  pkgs,
+  config,
+  ...
+}: let
+  resetBrowser = ''set browser "xdg-open"'';
+in {
   home-manager.users.kiri.programs.newsboat = {
     enable = true;
     autoReload = true;
@@ -27,11 +33,11 @@
       bind-key O open-in-browser-and-mark-read
 
       # Macros
-      macro m set browser "mpv"; open-in-browser-and-mark-read; set browser "xdg-open"
-      macro u set browser "umpv"; open-in-browser-and-mark-read; set browser "xdg-open"
-      macro w set browser "w3m"; open-in-browser-and-mark-read ; set browser "xdg-open"
-      macro b set browser "firefox"; open-in-browser-and-mark-read ; set browser "xdg-open"
-      macro d set browser "watchlist"; open-in-browser-and-mark-read ; set browser "xdg-open"
+      macro m set browser "${pkgs.mpv}/bin/mpv"; open-in-browser-and-mark-read; ${resetBrowser}
+      macro u set browser "${pkgs.mpv}/bin/umpv"; open-in-browser-and-mark-read; ${resetBrowser}
+      macro w set browser "${pkgs.w3m}/bin/w3m"; open-in-browser-and-mark-read ; ${resetBrowser}
+      macro b set browser "firefox"; open-in-browser-and-mark-read ; ${resetBrowser}
+      macro d set browser "watchlist"; open-in-browser-and-mark-read ; ${resetBrowser}
 
       # Colors
       color listnormal white default
