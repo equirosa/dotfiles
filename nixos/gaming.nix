@@ -2,9 +2,7 @@
   pkgs,
   lib,
   ...
-}: let
-  # nix-gaming = import (builtins.fetchTarball "https://github.com/fufexan/nix-gaming/archive/master.tar.gz");
-in {
+}: {
   imports = [
     # "nix-gaming/modules/pipewireLowLatency.nix"
   ];
