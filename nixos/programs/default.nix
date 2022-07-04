@@ -193,7 +193,7 @@ in {
           else
             URL="''${1}"
           fi
-          YOUTUBE_URI="$(sed -e 's/piped.kavin.rocks/youtube.com/g' -e 's/piped.mint.lgbt/youtube.com/g' -e 's/il.ax/youtube.com/g' -e 's/piped.privacy.com.de/youtube.com/g' <<< "''${URL}")"
+          YOUTUBE_URI="$(sed -e 's/piped.kavin.rocks/youtube.com/g' -e 's/piped.mint.lgbt/youtube.com/g' -e 's/il.ax/youtube.com/g' -e 's/piped.privacy.com.de/youtube.com/g' -e 's/piped.esmailelbob.xyz/youtube.com/g' <<< "''${URL}")"
           ${config.home.sessionVariables.BROWSER} "https://reader.miniflux.app/bookmarklet?uri=''${YOUTUBE_URI}"
         '';
       })
@@ -246,7 +246,7 @@ in {
       (writeShellApplication {
         name = "search";
         text = ''
-          SEARCH_OPTIONS="search.nixnet.services/search?q=\nyoutube.com/results?search_query=\ngithub.com/search?q=\nnixos.wiki/index.php?search="
+          SEARCH_OPTIONS="search.nixnet.services/search?q=\nyoutube.com/results?search_query=\ngithub.com/search?q=\nnixos.wiki/index.php?search=\nprotondb.com/search?q="
           SEARCH_SITE="$(echo -e "''${SEARCH_OPTIONS}" | ${dmenu-command} -p "Search website")"
           INPUT="$(${dmenu-command} -p "Search term")"
           ${config.home.sessionVariables.BROWSER} "''${SEARCH_SITE}''${INPUT}"
