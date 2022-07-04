@@ -187,6 +187,7 @@ in {
           export MOZ_ENABLE_WAYLAND=1
           export QT_QPA_PLATFORM=wayland
           export QT_QPA_PLATORMTHEME=qt5ct
+          export GTK_USE_PORTAL=1
           export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
           export SDL_VIDEODRIVER=wayland
           export XDG_CURRENT_DESKTOP=sway
@@ -237,7 +238,6 @@ in {
   xdg = {
     portal = {
       enable = true;
-      gtkUsePortal = true;
       wlr = {
         enable = true;
       };
