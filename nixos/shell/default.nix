@@ -2,6 +2,7 @@
   imports = [./fish.nix];
   home-manager.users.kiri = {
     programs = {
+      bash.enable = true;
       bat = {
         enable = true;
         config = {pager = "${pkgs.less}/bin/less -FR";};
