@@ -67,6 +67,7 @@ in {
       imv
       kopia
       libnotify
+      qpwgraph
       ripgrep
       tealdeer
       trash-cli
