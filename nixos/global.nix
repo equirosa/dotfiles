@@ -25,7 +25,10 @@ in {
     useGlobalPkgs = true;
     users.kiri = {
       home = {
-        sessionVariables = {BROWSER = "${pkgs.firefox}/bin/firefox";};
+        sessionVariables = {
+          BROWSER = "${pkgs.firefox}/bin/firefox";
+          EDITOR = "emacs";
+        };
         inherit (config.system) stateVersion;
       };
       programs = {
