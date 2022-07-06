@@ -21,7 +21,7 @@
       allowedUDPPorts = [];
     };
   };
-  nix.allowedUsers = ["@wheel"];
+  nix.settings.allowed-users = ["@wheel"];
   # TODO: consider not using electron so I don't have to enable this.
   /*
    security = {
