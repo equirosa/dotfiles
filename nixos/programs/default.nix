@@ -45,13 +45,6 @@ in {
       nix-update
       nixpkgs-review
       statix
-      # LSP TODO: move these into editor-only paths
-      rnix-lsp
-      rust-analyzer
-      nodePackages.typescript
-      nodePackages.typescript-language-server
-      nodePackages.prettier
-      sumneko-lua-language-server
       # Utilities
       archiver
       borgbackup

@@ -19,16 +19,18 @@
         alwaysTangle = false;
         extraEmacsPackages = epkgs:
           with epkgs;
-          with pkgs; [
-            # Utilities
-            vterm
-            # Normal Packages
-            pkgs.gcc
-            pkgs.sqlite
-            pkgs.unzip
-            pkgs.tectonic
-            pkgs.texlive.combined.scheme-full
-          ];
+          with pkgs;
+            [
+              # Utilities
+              vterm
+              # Normal Packages
+              pkgs.gcc
+              pkgs.sqlite # For org-roam
+              pkgs.unzip
+              pkgs.tectonic
+              pkgs.texlive.combined.scheme-full
+            ]
+            ++ import ./editorPackages.nix {inherit pkgs;};
       };
     };
   };
