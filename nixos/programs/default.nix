@@ -34,9 +34,6 @@ in {
       hunspellDicts.en-us-large
       hunspellDicts.es-any
       pandoc
-      # Editor
-      # TODO: consider using the home-manager built-in way
-      neovim
       # File Sharing
       ffsend
       transmission
