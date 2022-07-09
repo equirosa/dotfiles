@@ -15,7 +15,7 @@
   terminal = "${pkgs.foot}/bin/foot";
   geminiBrowser = "${pkgs.lagrange}/bin/lagrange";
 in {
-  imports = [./emacs.nix ./flatpak.nix ./git.nix ./kitty.nix ./lf.nix ./mpv.nix ./newsboat.nix];
+  imports = [./emacs.nix ./flatpak.nix ./git.nix ./kitty.nix ./lf.nix ./mpv.nix ./neovim.nix ./newsboat.nix];
   home-manager.users.kiri = {config, ...}: {
     home.packages = with pkgs; [
       # Browsers
