@@ -1,14 +1,15 @@
 let
   nixenvString = ''nix-env -f "<nixpkgs>" -qaP'';
   ytfzf = "ytfzf --detach --show-thumbnails --thumb-viewer=kitty";
-in {
+in
+{
   # cat = "bat -p";
   ba = "buku --add";
   be = "buku --export ~/Documents/bookmarks.org";
   cl = "curl -L";
   clo = "curl -LO";
   cnf = "command-not-found";
-  cp = "cp --reflink";
+  cp = "cp --reflink=always";
   duts = "dust";
   fex = "fd --extension";
   # Git
