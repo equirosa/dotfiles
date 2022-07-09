@@ -1,10 +1,10 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 with pkgs; [
   # LSP
-  rnix-lsp
-  rust-analyzer
+  nodePackages.prettier
   nodePackages.typescript
   nodePackages.typescript-language-server
-  nodePackages.prettier
+  rnix-lsp
+  rust-analyzer
   sumneko-lua-language-server
 ]
