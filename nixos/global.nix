@@ -1,10 +1,11 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{ config
+, pkgs
+, ...
+}:
+let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-in {
+in
+{
   imports = [
     (import "${home-manager}/nixos")
     ./audio
@@ -18,7 +19,7 @@ in {
     ./virtualization/qemu.nix
   ];
   users.users.kiri = {
-    extraGroups = ["adbusers"];
+    extraGroups = [ "adbusers" ];
   };
   home-manager = {
     useUserPackages = true;
@@ -36,15 +37,15 @@ in {
           enable = true;
           nix-direnv.enable = true;
         };
-        gpg = {enable = true;};
+        gpg = { enable = true; };
         keychain = {
           enable = true;
-          agents = ["ssh" "gpg"];
-          keys = ["id_ed25519" "B77F36C3F12720B4"];
-          extraFlags = ["--quiet"];
+          agents = [ "ssh" "gpg" ];
+          keys = [ "id_ed25519" "B77F36C3F12720B4" ];
+          extraFlags = [ "--quiet" ];
         };
-        less = {enable = true;};
-        ssh = {enable = true;};
+        less = { enable = true; };
+        ssh = { enable = true; };
       };
       services = {
         gpg-agent = {
@@ -62,14 +63,14 @@ in {
           enable = true;
           tray.enable = true;
         };
-        udiskie = {enable = true;};
+        udiskie = { enable = true; };
       };
     };
   };
   boot.kernelPackages = pkgs.linuxPackages_latest;
   hardware.enableRedistributableFirmware = true;
   networking = {
-    hostFiles = ["${pkgs.stevenblack-blocklist}/hosts" "${pkgs.stevenblack-blocklist}/alternates/gambling/hosts"];
+    hostFiles = [ "${pkgs.stevenblack-blocklist}/hosts" "${pkgs.stevenblack-blocklist}/alternates/gambling/hosts" ];
   };
   nix = {
     gc = {
@@ -78,7 +79,7 @@ in {
       options = "--delete-older-than 30d";
       persistent = true;
     };
-    settings = {auto-optimise-store = true;};
+    settings = { auto-optimise-store = true; };
     package = pkgs.nixUnstable;
     extraOptions = ''
       experimental-features = flakes nix-command
@@ -91,18 +92,18 @@ in {
       packageOverrides = pkgs: {
         nur =
           import
-          (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz")
-          {inherit pkgs;};
+            (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz")
+            { inherit pkgs; };
       };
     };
   };
-  security = {pam = {services = {login = {gnupg.enable = true;};};};};
+  security = { pam = { services = { login = { gnupg.enable = true; }; }; }; };
   services = {
     dnscrypt-proxy2 = {
       enable = true;
       settings = {
         sources.public-resolvers = {
-          urls = ["https://download.dnscrypt.info/resolvers-list/v2/public-resolvers.md"];
+          urls = [ "https://download.dnscrypt.info/resolvers-list/v2/public-resolvers.md" ];
           cache_file = "public-resolvers.md";
           minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
           refresh_delay = 72;
@@ -125,4 +126,5 @@ in {
       dates = "weekly";
     };
   };
+  zramSwap.enable = true;
 }
