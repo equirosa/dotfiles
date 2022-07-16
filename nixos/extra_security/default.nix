@@ -14,11 +14,16 @@
     # memoryAllocator.provider = "graphene-hardened"; # TODO: consider using this one, after a successful boot with scudo.
   };
   networking = {
-    firewall = {
+    firewall = let
+    openPortRanges = [{from=3000; to=4000;}];
+    in
+    {
       # Close firewall
       enable = true;
       allowedTCPPorts = [];
+      allowedTCPPortRanges = openPortRanges;
       allowedUDPPorts = [];
+      allowedUDPPortRanges = openPortRanges;
     };
   };
   nix.settings.allowed-users = ["@wheel"];
