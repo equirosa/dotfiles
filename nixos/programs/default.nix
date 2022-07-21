@@ -51,6 +51,7 @@ in {
       cryfs
       czkawka
       du-dust
+      fclones
       fd
       gopass
       gopass-jsonapi
