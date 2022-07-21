@@ -63,7 +63,7 @@ in
           enable = true;
           tray.enable = true;
         };
-        udiskie = { enable = true; };
+        udiskie.enable = true;
       };
     };
   };
