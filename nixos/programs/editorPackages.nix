@@ -1,9 +1,8 @@
 { pkgs, ... }:
 with pkgs; [
   # LSP
+  deno
   nodePackages.prettier
-  nodePackages.typescript
-  nodePackages.typescript-language-server
   nodePackages.yaml-language-server
   rnix-lsp
   rust-analyzer
