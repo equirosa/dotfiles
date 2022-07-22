@@ -1,11 +1,12 @@
-{ config
-, pkgs
-, ...
+{
+  config,
+  pkgs,
+  ...
 }: {
   home-manager.users.kiri = {
     programs.neovim = {
       enable = true;
-      extraPackages = [ ] ++ import ./editorPackages.nix { inherit pkgs; };
+      extraPackages = [] ++ import ./editorPackages.nix {inherit pkgs;};
       extraConfig = ''
         lua ./init.lua
       '';
