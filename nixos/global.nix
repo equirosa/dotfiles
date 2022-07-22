@@ -80,7 +80,7 @@ in {
     };
     settings = {auto-optimise-store = true;};
     package = pkgs.nixUnstable;
-    registry.nixpkgs.flake = inputs.nixpkgs;
+    # registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = ''
       experimental-features = flakes nix-command
       keep-outputs = true
