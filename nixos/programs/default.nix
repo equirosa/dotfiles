@@ -53,8 +53,6 @@ in {
       du-dust
       fclones
       fd
-      gopass
-      gopass-jsonapi
       imv
       kopia
       libnotify
@@ -63,6 +61,8 @@ in {
       tealdeer
       trash-cli
       ytfzf
+      # Password
+      prs
       # Scripts
       (writeShellApplication {
         name = "2mkv";
@@ -217,11 +217,9 @@ in {
         name = "password-menu";
         text = ''
           ${exitWithNoArguments}
-          SUBCOMMAND="''${1}"
+          CHOSEN="$(prs list --list | ${dmenu-command})"
 
-          CHOSEN="$(${pkgs.gopass}/bin/gopass ls -f | ${dmenu-command})"
-
-          exec ${pkgs.gopass}/bin/gopass "''${SUBCOMMAND}" -c -o "''${CHOSEN}"
+          exec prs copy --quiet "''${CHOSEN}"
         '';
       })
       (writeShellApplication {
