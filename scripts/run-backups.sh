@@ -5,12 +5,12 @@ LBLUE="\033[1;34m"
 LGREEN="\033[1;32m"
 NC="\033[0m"
 
-print_success () {
-  printf "%b%s%b\n" "${LGREEN}" "${1}" "${NC}"
+print_success() {
+	printf "%b%s%b\n" "${LGREEN}" "${1}" "${NC}"
 }
 
-print_announce () {
-  printf "%b%s%b\n" "${LBLUE}" "${1}" "${NC}"
+print_announce() {
+	printf "%b%s%b\n" "${LBLUE}" "${1}" "${NC}"
 }
 
 print_announce "Starting Backup to BorgBase"
@@ -37,12 +37,12 @@ borg create --progress --verbose --stats --checkpoint-interval 600 hvwib450@hvwi
 	--exclude "*/.direnv/" \
 	--exclude "*/.git/" \
 	--exclude "*/.var/" \
-	--exclude "*/target/"\
-	--exclude "*/torrented"\
-	--exclude "*/unhidden"\
-	--exclude "*/.thumbnails"\
-	--compression auto,zstd,8 && \
-    print_announce "PRUNING" && \
-    borg prune --progress --verbose --stats --save-space --keep-daily=7 --keep-monthly=-1 --keep-weekly=4 --keep-within=1d \
-	 hvwib450@hvwib450.repo.borgbase.com:repo && \
-    print_success "BACKUP TO BORGBASE SUCCESSFUL!"
+	--exclude "*/target/" \
+	--exclude "*/torrented" \
+	--exclude "*/unhidden" \
+	--exclude "*/.thumbnails" \
+	--compression auto,zstd,8 &&
+	print_announce "PRUNING" &&
+	borg prune --progress --verbose --stats --save-space --keep-daily=7 --keep-monthly=-1 --keep-weekly=4 --keep-within=1d \
+		hvwib450@hvwib450.repo.borgbase.com:repo &&
+	print_success "BACKUP TO BORGBASE SUCCESSFUL!"
