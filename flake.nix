@@ -25,6 +25,7 @@
         pkgs.mkShell
         {
           buildInputs = with pkgs; [
+            alejandra
             rnix-lsp
             statix
           ];
