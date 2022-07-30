@@ -234,6 +234,12 @@ in {
         '';
       })
       (writeShellApplication {
+        name = "run-backups";
+        text = ''
+          ${builtins.readFile "/home/kiri/dotfiles/scripts/run-backups.sh"}
+        '';
+      })
+      (writeShellApplication {
         name = "search";
         text = ''
           SEARCH_OPTIONS="search.nixnet.services/search?q=\nyoutube.com/results?search_query=\ngithub.com/search?q=\nnixos.wiki/index.php?search=\nprotondb.com/search?q="
