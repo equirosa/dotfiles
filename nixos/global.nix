@@ -123,7 +123,7 @@ in {
   system = {
     autoUpgrade = {
       enable = true;
-      dates = "weekly";
+      dates = "daily";
     };
   };
   zramSwap.enable = true;
