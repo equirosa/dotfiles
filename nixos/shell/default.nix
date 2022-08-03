@@ -5,7 +5,10 @@
       bash.enable = true;
       bat = {
         enable = true;
-        config = {pager = "${pkgs.less}/bin/less -FR";};
+        config = {
+          pager = "${pkgs.less}/bin/less -FR";
+          theme = "gruvbox-dark";
+        };
       };
       dircolors = {
         enable = true;
