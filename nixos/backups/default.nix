@@ -18,6 +18,7 @@
         "*/.tox"
         "*/venv"
         "*/.venv"
+        "*/.direnv"
         "*/.stfolder"
         ".local/share/Steam"
         ".steam"
