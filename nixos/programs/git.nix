@@ -37,7 +37,9 @@
       };
       lazygit = {
         enable = true;
-        settings = {};
+        settings = {
+          git.paging.pager = "delta --dark --paging=never --24-bit-color=never";
+        };
       };
       gh = {
         enable = true;
