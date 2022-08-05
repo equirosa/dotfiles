@@ -64,6 +64,7 @@ in {
         };
         udiskie.enable = true;
       };
+      xdg.userDirs.enable = true;
     };
   };
   boot.kernelPackages = pkgs.linuxPackages_latest;

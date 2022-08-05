@@ -7,12 +7,11 @@
         text = ''
           force-window=yes
           save-position-on-quit
-          # screenshot-directory=${config.xdg.userDirs.pictures}/screenshots # TODO: fix this resolution upstream?
+          screenshot-directory=${config.xdg.userDirs.pictures}/screenshots
           gpu-context=wayland
           hwdec=auto-safe
           vo=gpu
           profile=gpu-hq
-          screenshot-directory=/home/kiri/Pictures/screenshots
           slang=en,eng
           ytdl-format='(bestvideo[height<=1080]+bestaudio)[ext=webm]/bestvideo[height<=1080]+bestaudio/best[height<=1080]/bestvideo+bestaudio/best'
         '';
