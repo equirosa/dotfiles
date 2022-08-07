@@ -20,12 +20,6 @@
       # sessionVariables.WINE_FULLSCREEN_FSR = 1;
       packages = with pkgs; [
         # Games
-        openra
-        polymc
-        taisei
-        warzone2100
-        zeroad
-        # nur.repos.dukzcry.gamescope
         # nix-gaming.packages.x86_64-linux.rocket-league
         # Launchers
         lutris
