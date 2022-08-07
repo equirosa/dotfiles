@@ -26,6 +26,7 @@ in {
   ns = "nix search nixpkgs";
   nsp = "nix-shell -p";
   nup = "nix-update --test --commit --review";
+  sen = "export EDITOR=nvim";
   sid = "setsid";
   tl = "tldr";
   u = "umpv";
