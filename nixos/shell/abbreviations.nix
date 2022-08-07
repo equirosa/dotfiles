@@ -45,8 +45,10 @@ in {
   gcb = "git checkout -b";
   gch = "git checkout";
   gcm = "git checkout master || git checkout main";
+  gl = "git log --oneline --decorate --graph --all";
   pll = "git pull";
   psh = "git push";
+  psf = "git push --force-with-lease";
   pum = "git pull upstream master";
   pump = "git pull upstream master && git push";
   pur = "git pull upstream master --rebase";
