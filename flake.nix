@@ -1,35 +1,25 @@
 {
   description = "Kiri's NixOS configuration";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    sops-nix.url = "github:Mic92/sops-nix";
-  };
+  inputs.devshell.url = "github:numtide/devshell";
+  inputs.flake-utils.url = "github:numtide/flake-utils";
 
   outputs = {
     self,
+    flake-utils,
+    devshell,
     nixpkgs,
-    sops-nix,
-  }: let
-    supportedSystems = ["x86_64-linux"];
+  }:
+    flake-utils.lib.eachDefaultSystem (system: {
+      devShell = let
+        pkgs = import nixpkgs {
+          inherit system;
 
-    forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-
-    nixpkgsFor = forAllSystems (system: import nixpkgs {inherit system;});
-  in {
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
-    devShell = forAllSystems (
-      system: let
-        pkgs = nixpkgsFor.${system};
+          overlays = [devshell.overlay];
+        };
       in
-        pkgs.mkShell
-        {
-          buildInputs = with pkgs; [
-            alejandra
-            rnix-lsp
-            statix
-          ];
-        }
-    );
-  };
+        pkgs.devshell.mkShell {
+          imports = [(pkgs.devshell.importTOML ./devshell.toml)];
+        };
+    });
 }
