@@ -12,7 +12,7 @@
       keybindings = {
         "<backspace2>" = ":set hidden!";
         "<delete>" = "\$${pkgs.trash-cli}/bin/trash-put \"$fx\"";
-        D = "&${pkgs.xdragon}/bin/dragon -a -x \"$fx\"";
+        D = "&${pkgs.xdragon}/bin/dragon --all --and-exit \"$fx\"";
         E = "push \$${config.home.sessionVariables.EDITOR}<space>";
         L = "$${pkgs.lazygit}/bin/lazygit";
         M = "push \$mkdir<space>-p<space>";
