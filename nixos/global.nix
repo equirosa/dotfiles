@@ -9,6 +9,7 @@ in {
     (import "${home-manager}/nixos")
     ./audio
     ./backups
+    ./btrfs.nix
     ./extra_security
     ./gaming.nix
     ./graphical/wayland/sway.nix
