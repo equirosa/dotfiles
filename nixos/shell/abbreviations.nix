@@ -46,6 +46,7 @@ in {
   gch = "git checkout";
   gcm = "git checkout master || git checkout main";
   gl = "git log --oneline --decorate --graph --all";
+  gr = "git revert";
   pll = "git pull";
   psh = "git push";
   psf = "git push --force-with-lease";
