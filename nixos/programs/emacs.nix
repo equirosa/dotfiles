@@ -26,9 +26,9 @@
               # Normal Packages
               pkgs.gcc
               pkgs.sqlite # For org-roam
-              pkgs.unzip
+              pkgs.unzip # To export as docx
               pkgs.tectonic
-              pkgs.texlive.combined.scheme-full
+              pkgs.texlive.combined.scheme-full # For latex exports
             ]
             ++ import ./editorPackages.nix {inherit pkgs;};
       };
