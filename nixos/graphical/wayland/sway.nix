@@ -47,8 +47,8 @@ in {
     programs = {
       mako = {
         enable = true;
-        backgroundColor = "#2e3440";
-        borderColor = "#88c0d0";
+        backgroundColor = "#${colors.gruvbox.background}";
+        borderColor = "#${colors.gruvbox.bright.yellow}";
         borderRadius = 15;
         borderSize = 2;
         defaultTimeout = 5000;
@@ -57,18 +57,19 @@ in {
         layer = "top"; # Consider overlay
         markup = true;
         sort = "-time";
-        extraConfig = ''
+        extraConfig = with colors.gruvbox.bright; ''
           [urgency=low]
-          border-color=#cccccc
+          border-color=#${green}
 
           [urgency=normal]
-          border-color=#d08770
+          border-color=#${yellow}
 
           [urgency=high]
-          border-color=#bf616a
+          border-color=#${red}
           default-timeout=0
 
           [category=mpd]
+          border-color=#${blue}
           default-timeout=2000
           group-by=category
         '';
