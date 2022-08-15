@@ -1,8 +1,8 @@
-{
-  pkgs,
-  lib,
-  ...
-}: let
+{ pkgs
+, lib
+, ...
+}:
+let
   notify = ''${pkgs.libnotify}/bin/notify-send -t 5000'';
   pdf-reader = "${pkgs.zathura}/bin/zathura";
   dmenu-command = "${pkgs.rofi-wayland}/bin/rofi -dmenu";
@@ -14,9 +14,10 @@
   backupFile = ''bak="''${file}.bak"; mv "''${file}" "''${bak}"'';
   terminal = "${pkgs.foot}/bin/foot";
   geminiBrowser = "${pkgs.lagrange}/bin/lagrange";
-in {
-  imports = [./emacs.nix ./flatpak.nix ./git.nix ./kitty.nix ./lf.nix ./mpv.nix ./neovim.nix ./newsboat.nix];
-  home-manager.users.kiri = {config, ...}: {
+in
+{
+  imports = [ ./emacs.nix ./flatpak.nix ./git.nix ./kitty.nix ./lf.nix ./mpv.nix ./neovim.nix ./newsboat.nix ];
+  home-manager.users.kiri = { config, ... }: {
     home.packages = with pkgs; [
       # Browsers
       buku # play with bookmarks
@@ -66,7 +67,7 @@ in {
       # Scripts
       (writeShellApplication {
         name = "2mkv";
-        runtimeInputs = [ffmpeg-full];
+        runtimeInputs = [ ffmpeg-full ];
         text = ''
           ${exitWithNoArguments}
           ${getFile}
@@ -86,7 +87,7 @@ in {
       })
       (writeShellApplication {
         name = "2pdf";
-        runtimeInputs = [pandoc libreoffice];
+        runtimeInputs = [ pandoc libreoffice ];
         text = ''
           ${exitWithNoArguments}
           ${getFile}
@@ -98,7 +99,7 @@ in {
       })
       (writeShellApplication {
         name = "2webp";
-        runtimeInputs = [libwebp];
+        runtimeInputs = [ libwebp ];
         text = ''
           ${exitWithNoArguments}
           ${getFile}
@@ -127,7 +128,7 @@ in {
       })
       (writeShellApplication {
         name = "download-music-playlist";
-        runtimeInputs = [yt-dlp];
+        runtimeInputs = [ yt-dlp ];
         text = ''
           SOURCE_FILE="Source - Playlists.txt"
           touch "''${SOURCE_FILE}"
@@ -136,7 +137,7 @@ in {
       })
       (writeShellApplication {
         name = "download-music-unique";
-        runtimeInputs = [yt-dlp];
+        runtimeInputs = [ yt-dlp ];
         text = ''
           SOURCE_FILE="Source - Unique.txt"
           touch "''${SOURCE_FILE}"
@@ -145,7 +146,7 @@ in {
       })
       (writeShellApplication {
         name = "download-video-playlist";
-        runtimeInputs = [yt-dlp];
+        runtimeInputs = [ yt-dlp ];
         text = ''
           SOURCE_FILE="Source - Playlists.txt"
           touch "''${SOURCE_FILE}"
@@ -154,7 +155,7 @@ in {
       })
       (writeShellApplication {
         name = "download-video-unique";
-        runtimeInputs = [yt-dlp];
+        runtimeInputs = [ yt-dlp ];
         text = ''
           SOURCE_FILE="Source - Unique.txt"
           touch "''${SOURCE_FILE}"
@@ -163,7 +164,7 @@ in {
       })
       (writeShellApplication {
         name = "emoji";
-        runtimeInputs = with pkgs; [wl-clipboard wofi];
+        runtimeInputs = with pkgs; [ wl-clipboard wofi ];
         text = ''
           ${pkgs.wofi-emoji}/bin/wofi-emoji
         '';

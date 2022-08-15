@@ -1,7 +1,6 @@
-{
-  pkgs,
-  config,
-  ...
+{ pkgs
+, config
+, ...
 }: {
   services = {
     beesd.filesystems = {
@@ -12,7 +11,7 @@
     btrfs = {
       autoScrub = {
         enable = true;
-        fileSystems = ["/"];
+        fileSystems = [ "/" ];
       };
     };
   };

@@ -1,7 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }: {
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
@@ -12,7 +11,7 @@
     programs.neovim = {
       enable = true;
       package = pkgs.neovim-nightly;
-      extraPackages = [] ++ import ./editorPackages.nix {inherit pkgs;};
+      extraPackages = [ ] ++ import ./editorPackages.nix { inherit pkgs; };
       extraConfig = ''
         lua ./init.lua
       '';

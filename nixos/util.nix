@@ -1,7 +1,7 @@
-{
-  config,
-  pkgs,
-  configDir,
+{ config
+, pkgs
+, configDir
+,
 }: {
   # Produces an expression that can be passed to `home.file` or
   # `xdg.configFile` that symlinks all dirs in `sourceDir`
@@ -10,8 +10,10 @@
   # `sourceDir` is relative to `./.`.
   symlinkDirContents = sourceDir: targetDir:
     with pkgs.lib;
-      mapAttrs' (
+    mapAttrs'
+      (
         name: _:
-          nameValuePair (targetDir + "/${name}") {source = config.lib.file.mkOutOfStoreSymlink ("${configDir}/" + sourceDir + "/${name}");}
-      ) (builtins.readDir (./. + "/${sourceDir}"));
+          nameValuePair (targetDir + "/${name}") { source = config.lib.file.mkOutOfStoreSymlink ("${configDir}/" + sourceDir + "/${name}"); }
+      )
+      (builtins.readDir (./. + "/${sourceDir}"));
 }

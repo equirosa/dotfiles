@@ -1,7 +1,6 @@
-{
-  pkgs,
-  lib,
-  ...
+{ pkgs
+, lib
+, ...
 }: {
   imports = [
     # "nix-gaming/modules/pipewireLowLatency.nix"
@@ -43,16 +42,16 @@
     opengl = {
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages32 = with pkgs.pkgsi686Linux; [libva];
+      extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
     };
   };
   nix.settings = {
-    substituters = ["https://nix-gaming.cachix.org"];
-    trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
+    substituters = [ "https://nix-gaming.cachix.org" ];
+    trusted-public-keys = [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" ];
   };
   nixpkgs = {
     config = {
-      allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) ["steam" "steam-runtime" "steam-run" "steam-original"];
+      allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "steam" "steam-runtime" "steam-run" "steam-original" ];
     };
   };
   services = {

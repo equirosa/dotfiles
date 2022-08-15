@@ -1,12 +1,11 @@
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }: {
   nixpkgs.overlays = [
     (
       import
-      (builtins.fetchTarball {url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";})
+        (builtins.fetchTarball { url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz"; })
     )
   ];
   home-manager.users.kiri = {
@@ -20,17 +19,17 @@
         extraEmacsPackages = epkgs:
           with epkgs;
           with pkgs;
-            [
-              # Utilities
-              vterm
-              # Normal Packages
-              pkgs.gcc
-              pkgs.sqlite # For org-roam
-              pkgs.unzip # To export as docx
-              pkgs.tectonic
-              pkgs.texlive.combined.scheme-full # For latex exports
-            ]
-            ++ import ./editorPackages.nix {inherit pkgs;};
+          [
+            # Utilities
+            vterm
+            # Normal Packages
+            pkgs.gcc
+            pkgs.sqlite # For org-roam
+            pkgs.unzip # To export as docx
+            pkgs.tectonic
+            pkgs.texlive.combined.scheme-full # For latex exports
+          ]
+          ++ import ./editorPackages.nix { inherit pkgs; };
       };
     };
   };
