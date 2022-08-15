@@ -16,6 +16,7 @@ in {
         shellAbbrs = abbreviations;
         interactiveShellInit = ''
           ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+          set -gx EDITOR nvim
         '';
         plugins = [
           {
