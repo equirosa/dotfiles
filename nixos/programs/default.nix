@@ -237,7 +237,7 @@ in
       (writeShellApplication {
         name = "run-backups";
         text = ''
-          ${builtins.readFile "/home/kiri/dotfiles/scripts/run-backups.sh"}
+          ${builtins.readFile "${config.home.homeDirectory}/dotfiles/scripts/run-backups.sh"}
         '';
       })
       (writeShellApplication {
