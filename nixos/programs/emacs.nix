@@ -13,7 +13,7 @@
       enable = true;
       client = {
         enable = true;
-        arguments = ["-c" "-a 'emacs'"];
+        arguments = [ "-c" "-a 'emacs'" ];
       };
       defaultEditor = true;
       socketActivation.enable = false;
