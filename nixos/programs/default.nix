@@ -187,7 +187,7 @@ in
             URL="''${1}"
           fi
           YOUTUBE_URI="$(sed -e 's/piped.kavin.rocks/youtube.com/g' -e 's/piped.mint.lgbt/youtube.com/g' -e 's/il.ax/youtube.com/g' -e 's/piped.privacy.com.de/youtube.com/g' -e 's/piped.esmailelbob.xyz/youtube.com/g' <<< "''${URL}")"
-          ${config.home.sessionVariables.BROWSER} "https://reader.miniflux.app/bookmarklet?uri=''${YOUTUBE_URI}"
+          ${config.home.sessionVariables.BROWSER} -p default "https://reader.miniflux.app/bookmarklet?uri=''${YOUTUBE_URI}"
         '';
       })
       (writeShellApplication {
@@ -201,7 +201,7 @@ in
         text = ''
           chosen="$(${dmenu-command} < ~/links.csv | cut -d ',' -f2)"
           [ -z "''${chosen}" ] && exit 1
-          xdg-open "''${chosen}"
+          ${config.home.sessionVariables.BROWSER} -p default "''${chosen}"
         '';
       })
       (writeShellApplication {
