@@ -1,14 +1,9 @@
-{ pkgs
-, lib
-, ...
-}: {
+{ pkgs, lib, ... }: {
   programs = {
     firejail =
       let
         inherit (lib) genAttrs;
-        wrappedPackageNames = [
-          "signal-desktop"
-        ];
+        wrappedPackageNames = [ "signal-desktop" ];
       in
       {
         enable = true;

@@ -1,7 +1,4 @@
-{ pkgs
-, lib
-, ...
-}: {
+{ pkgs, lib, ... }: {
   imports = [
     # <nixpkgs/nixos/modules/profiles/hardened.nix>
     ./firejail.nix
@@ -15,12 +12,10 @@
   networking = {
     firewall =
       let
-        openPortRanges = [
-          {
-            from = 3000;
-            to = 4000;
-          }
-        ];
+        openPortRanges = [{
+          from = 3000;
+          to = 4000;
+        }];
       in
       {
         # Close firewall

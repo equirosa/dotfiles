@@ -1,3 +1,1 @@
-{ pkgs, ... }: {
-  imports = [ ./waybar.nix ];
-}
+{ pkgs, ... }: { imports = [ ./waybar.nix ]; }

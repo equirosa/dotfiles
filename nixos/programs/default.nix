@@ -1,7 +1,4 @@
-{ pkgs
-, lib
-, ...
-}:
+{ pkgs, lib, ... }:
 let
   notify = ''${pkgs.libnotify}/bin/notify-send -t 5000'';
   dmenu-command = "${pkgs.rofi-wayland}/bin/rofi -dmenu";
