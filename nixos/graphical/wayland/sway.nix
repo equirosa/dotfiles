@@ -1,7 +1,4 @@
-{ pkgs
-, config
-, ...
-}:
+{ pkgs, config, ... }:
 let
   lockCommand = "${pkgs.swaylock}/bin/swaylock --image ${config.home-manager.users.kiri.xdg.cacheHome}/background_image -f";
   commonCommands = {
@@ -132,24 +129,23 @@ in
                 mod = config.wayland.windowManager.sway.config.modifier;
                 inherit (config.wayland.windowManager.sway.config) terminal;
               in
-              lib.mkOptionDefault
-                {
-                  "${mod}+Shift+e" = "exec emacsclient --create-frame";
-                  "${mod}+Shift+f" = "floating toggle";
-                  "${mod}+Shift+t" = "exec ${terminal} ${commonCommands.transmissionClient}";
-                  "${mod}+a" = "exec ${terminal} ${commonCommands.termAudio}";
-                  "${mod}+s" = "exec search";
-                  "${mod}+e" = "exec ${terminal} ${commonCommands.mailClient}";
-                  "${mod}+i" = "exec ${terminal} ${commonCommands.termMonitor}";
-                  "${mod}+n" = "exec ${terminal} ${commonCommands.feedReader}";
-                  "${mod}+r" = "exec ${terminal} ${commonCommands.termFileManager}";
-                  "${mod}+x" = "exec ${lockCommand}";
-                  "${mod}+p" = "exec emoji";
-                  "${mod}+w" = "exec ${config.home.sessionVariables.BROWSER}";
-                  "${mod}+z" = "exec password-menu show";
-                  "${mod}+Shift+z" = "exec password-menu otp";
-                  "Print" = "exec sway-shot";
-                };
+              lib.mkOptionDefault {
+                "${mod}+Shift+e" = "exec emacsclient --create-frame";
+                "${mod}+Shift+f" = "floating toggle";
+                "${mod}+Shift+t" = "exec ${terminal} ${commonCommands.transmissionClient}";
+                "${mod}+a" = "exec ${terminal} ${commonCommands.termAudio}";
+                "${mod}+s" = "exec search";
+                "${mod}+e" = "exec ${terminal} ${commonCommands.mailClient}";
+                "${mod}+i" = "exec ${terminal} ${commonCommands.termMonitor}";
+                "${mod}+n" = "exec ${terminal} ${commonCommands.feedReader}";
+                "${mod}+r" = "exec ${terminal} ${commonCommands.termFileManager}";
+                "${mod}+x" = "exec ${lockCommand}";
+                "${mod}+p" = "exec emoji";
+                "${mod}+w" = "exec ${config.home.sessionVariables.BROWSER}";
+                "${mod}+z" = "exec password-menu show";
+                "${mod}+Shift+z" = "exec password-menu otp";
+                "Print" = "exec sway-shot";
+              };
             assigns = {
               "1" = [{ app_id = "org.remmina.Remmina"; }];
               "9" = [{ class = "^Element"; }];
@@ -178,15 +174,13 @@ in
                 position = "1920 0";
               };
             };
-            window.commands = [
-              {
-                command = "kill";
-                criteria = {
-                  app_id = "firefox";
-                  title = "Firefox — Sharing Indicator";
-                };
-              }
-            ];
+            window.commands = [{
+              command = "kill";
+              criteria = {
+                app_id = "firefox";
+                title = "Firefox — Sharing Indicator";
+              };
+            }];
           };
           extraSessionCommands = ''
             export GDK_BACKEND="wayland,x11"
@@ -215,11 +209,7 @@ in
     pipewire.enable = true;
     greetd = {
       enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.greetd.greetd}/bin/agreety --cmd sway";
-        };
-      };
+      settings = { default_session = { command = "${pkgs.greetd.greetd}/bin/agreety --cmd sway"; }; };
     };
   };
   systemd.user = {
@@ -244,9 +234,7 @@ in
   xdg = {
     portal = {
       enable = true;
-      wlr = {
-        enable = true;
-      };
+      wlr = { enable = true; };
     };
   };
 }
