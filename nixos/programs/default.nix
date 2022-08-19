@@ -4,7 +4,6 @@
 }:
 let
   notify = ''${pkgs.libnotify}/bin/notify-send -t 5000'';
-  pdf-reader = "${pkgs.zathura}/bin/zathura";
   dmenu-command = "${pkgs.rofi-wayland}/bin/rofi -dmenu";
   exitWithNoArguments = ''[ $# -eq 0 ] && ${notify} "No arguments provided. Exitting..." && exit 1'';
   getFile = ''file="$(readlink -f "''${1}")"'';
@@ -288,7 +287,7 @@ in
             magnet* | *.torrent ) transmission-remote -a "''${1}" && ${notify} "Torrent Added! ✅" && exit 0 ;;
             *.org ) emacsclient --create-frame "''${1}" ;;
             *.png | *.jpg | *.jpeg | *.webp ) ${pkgs.imv}/bin/imv "''${@}" ;;
-            *.pdf ) setsid ${pdf-reader} "''${@}" ;;
+            *.pdf ) setsid ${config.home.sessionVariables.BROWSER} -p default "''${@}" ;;
             * ) ${pkgs.xdg-utils}/bin/xdg-open "''${@}" ;;
           esac
         '';
