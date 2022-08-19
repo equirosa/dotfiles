@@ -150,7 +150,10 @@ in
                   "${mod}+Shift+z" = "exec password-menu otp";
                   "Print" = "exec sway-shot";
                 };
-            assigns = { "9" = [{ class = "^Element"; }]; };
+            assigns = {
+              "1" = [{ app_id = "org.remmina.Remmina"; }];
+              "9" = [{ class = "^Element"; }];
+            };
             startup = [
               { command = "${pkgs.autotiling}/bin/autotiling"; }
               { command = "${pkgs.mako}/bin/mako"; }
