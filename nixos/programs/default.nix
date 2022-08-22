@@ -48,7 +48,6 @@ in
       cryfs
       czkawka
       du-dust
-      fclones
       fd
       imv
       kopia
