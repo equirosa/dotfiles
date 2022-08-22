@@ -16,13 +16,14 @@
           from = 3000;
           to = 4000;
         }];
+        open-ports = [ 19000 ];
       in
       {
         # Close firewall
         enable = true;
-        allowedTCPPorts = [ ];
+        allowedTCPPorts = open-ports;
         allowedTCPPortRanges = openPortRanges;
-        allowedUDPPorts = [ ];
+        allowedUDPPorts = open-ports;
         allowedUDPPortRanges = openPortRanges;
       };
   };
