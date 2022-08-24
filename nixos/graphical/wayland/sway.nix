@@ -110,6 +110,7 @@ in
         };
       };
       services = {
+        flameshot.enable = true;
         wlsunset = {
           enable = true;
           latitude = "-20.0";
@@ -144,7 +145,7 @@ in
                 "${mod}+w" = "exec ${config.home.sessionVariables.BROWSER}";
                 "${mod}+z" = "exec password-menu show";
                 "${mod}+Shift+z" = "exec password-menu otp";
-                "Print" = "exec sway-shot";
+                "Print" = "exec flameshot gui";
               };
             assigns = {
               "1" = [{ app_id = "org.remmina.Remmina"; }];
