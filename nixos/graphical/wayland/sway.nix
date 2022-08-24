@@ -174,13 +174,21 @@ in
                 position = "1920 0";
               };
             };
-            window.commands = [{
-              command = "kill";
-              criteria = {
-                app_id = "firefox";
-                title = "Firefox — Sharing Indicator";
-              };
-            }];
+            window.commands = [
+              {
+                command = "kill";
+                criteria = {
+                  app_id = "firefox";
+                  title = "Firefox — Sharing Indicator";
+                };
+              }
+              {
+                command = "floating enable, fullscreen disable, move absolute position 0 0, border pixel 0";
+                criteria = {
+                  app_id = "flameshot";
+                };
+              }
+            ];
           };
           extraSessionCommands = ''
             export GDK_BACKEND="wayland,x11"
