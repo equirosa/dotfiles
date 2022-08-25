@@ -11,7 +11,8 @@
     programs.neovim = {
       enable = true;
       package = pkgs.neovim-nightly;
-      extraPackages = [ ] ++ import ./editorPackages.nix { inherit pkgs; };
+      extraPackages = with pkgs; [ gcc gnumake ] # Needed for Treesitter and telescope-fzf-native
+        ++ import ./editorPackages.nix { inherit pkgs; };
       extraConfig = ''
         lua ./init.lua
       '';
