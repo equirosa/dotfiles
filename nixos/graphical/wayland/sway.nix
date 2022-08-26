@@ -27,6 +27,7 @@ in
       };
       home = {
         packages = with pkgs; [
+          grim
           wl-clipboard
           (writeShellApplication {
             name = "sway-shot";
