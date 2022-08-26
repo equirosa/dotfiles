@@ -109,7 +109,7 @@ in
             terminal = "${commonCommands.terminal}";
             menu = "${pkgs.rofi-wayland}/bin/rofi -show run | ${pkgs.findutils}/bin/xargs swaymsg exec --";
             modifier = "Mod4";
-            keybindings =
+            keybindings = with commonCommands;
               let
                 mod = config.wayland.windowManager.sway.config.modifier;
                 inherit (config.wayland.windowManager.sway.config) terminal;
@@ -117,13 +117,13 @@ in
               lib.mkOptionDefault {
                 "${mod}+Shift+e" = "exec emacsclient --create-frame";
                 "${mod}+Shift+f" = "floating toggle";
-                "${mod}+Shift+t" = "exec ${terminal} ${commonCommands.transmissionClient}";
-                "${mod}+a" = "exec ${terminal} ${commonCommands.termAudio}";
+                "${mod}+Shift+t" = "exec ${terminal} ${transmissionClient}";
+                "${mod}+a" = "exec ${terminal} ${termAudio}";
                 "${mod}+s" = "exec search";
-                "${mod}+e" = "exec ${terminal} ${commonCommands.mailClient}";
-                "${mod}+i" = "exec ${terminal} ${commonCommands.termMonitor}";
-                "${mod}+n" = "exec ${terminal} ${commonCommands.feedReader}";
-                "${mod}+r" = "exec ${terminal} ${commonCommands.termFileManager}";
+                "${mod}+e" = "exec ${terminal} ${mailClient}";
+                "${mod}+i" = "exec ${terminal} ${termMonitor}";
+                "${mod}+n" = "exec ${terminal} ${feedReader}";
+                "${mod}+r" = "exec ${terminal} ${termFileManager}";
                 "${mod}+x" = "exec ${lockCommand}";
                 "${mod}+p" = "exec emoji";
                 "${mod}+w" = "exec ${config.home.sessionVariables.BROWSER}";
