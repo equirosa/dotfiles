@@ -25,24 +25,7 @@ in
           --ozone-platform=wayland
         '';
       };
-      home = {
-        packages = with pkgs; [
-          grim
-          wl-clipboard
-          (writeShellApplication {
-            name = "sway-shot";
-            text = ''
-              ${pkgs.grim}/bin/grim -g "$(sway-geometry)" - | ${pkgs.pngquant}/bin/pngquant --strip - | ${pkgs.swappy}/bin/swappy -f -
-            '';
-          })
-          (writeShellApplication {
-            name = "sway-geometry";
-            text = ''
-              swaymsg -t get_tree | ${pkgs.jq}/bin/jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | ${pkgs.slurp}/bin/slurp
-            '';
-          })
-        ];
-      };
+      home = { packages = with pkgs; [ grim wl-clipboard ]; };
       programs = {
         mako = {
           enable = true;
