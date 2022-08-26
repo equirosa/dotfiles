@@ -14,7 +14,11 @@
       extraPackages = with pkgs; [ gcc gnumake ] # Needed for Treesitter and telescope-fzf-native
         ++ import ./editorPackages.nix { inherit pkgs; };
       extraConfig = ''
-        lua ./init.lua
+        lua << EOF
+        ${builtins.readFile (builtins.fetchurl {
+            url = "https://raw.githubusercontent.com/equirosa/nvim-config/master/init.lua";
+            })}
+        EOF
       '';
       viAlias = true;
       vimAlias = true;
