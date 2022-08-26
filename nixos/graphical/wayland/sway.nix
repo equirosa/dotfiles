@@ -191,6 +191,14 @@ in
                 };
               }
             ];
+            workspaceOutputAssign =
+              let
+                inherit (lib.lists) forEach;
+                leftWorkspaces = [ "1" "2" "3" "4" "5" ];
+                rightWorkspaces = [ "6" "7" "8" "9" ];
+              in
+              forEach leftWorkspaces (space: { output = "DP-1"; workspace = "${space}"; }) ++
+              forEach rightWorkspaces (space: { output = "HDMI-A-1"; workspace = "${space}"; });
           };
           extraSessionCommands = ''
             export GDK_BACKEND="wayland,x11"
