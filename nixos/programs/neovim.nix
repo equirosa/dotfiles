@@ -20,6 +20,9 @@
             })}
         EOF
       '';
+      plugins = with pkgs.vimPlugins; [
+        vim-fugitive
+      ];
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
