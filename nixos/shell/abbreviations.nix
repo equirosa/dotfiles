@@ -20,6 +20,7 @@ in
   md = "mkdir -p";
   ned = "nix-env -qaP --description";
   nf = "nix fmt";
+  nfu = "nix flake upate --commit-lock-file";
   nr = "nix run nixpkgs#";
   nrp = "nixpkgs-review pr --post-result";
   ns = "nix search nixpkgs";
