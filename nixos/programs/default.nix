@@ -16,7 +16,6 @@ in
   home-manager.users.kiri = { config, ... }: {
     home.packages = with pkgs; [
       # Browsers
-      buku # play with bookmarks
       firefox
       # librewolf
       qutebrowser
@@ -254,9 +253,7 @@ in
       })
       (writeShellApplication {
         name = "show-nix-store-path";
-        text = ''
-          ${pkgs.coreutils}/bin/readlink -f "$(command -v "$@")"
-        '';
+        text = '' ${pkgs.coreutils}/bin/readlink -f "$(command -v "$@")" '';
       })
       (writeShellApplication {
         name = "watchlist";
