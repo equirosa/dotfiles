@@ -154,6 +154,10 @@ in
             };
             startup = [
               { command = "${pkgs.autotiling}/bin/autotiling"; }
+              {
+                command = "systemctl --user restart waybar.service";
+                always = true;
+              }
               { command = "${pkgs.mako}/bin/mako"; }
               { command = "element-desktop"; }
               { command = "${pkgs.transmission}/bin/transmission-daemon"; }
