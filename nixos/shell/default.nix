@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./fish.nix ];
+  imports = [ ./bash.nix ./fish.nix ];
   home-manager.users.kiri = {
     programs = {
       bash.enable = true;
