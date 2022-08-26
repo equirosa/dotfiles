@@ -17,7 +17,6 @@ in
     home.packages = with pkgs; [
       # Browsers
       firefox
-      # librewolf
       qutebrowser
       tor-browser-bundle-bin
       lagrange
