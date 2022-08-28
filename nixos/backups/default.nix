@@ -54,7 +54,7 @@
           };
           extraCreateArgs = "--verbose --stats --checkpoint-interval 600";
           extraPruneArgs = "--save-space";
-          compression = "auto,zstd,8";
+          compression = "auto,zstd,10";
           doInit = false;
           startAt = "0/6:0:0";
           user = "kiri";

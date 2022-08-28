@@ -41,7 +41,7 @@ borg create --progress --verbose --stats --checkpoint-interval 600 hvwib450@hvwi
 	--exclude "*/torrented" \
 	--exclude "*/unhidden" \
 	--exclude "*/.thumbnails" \
-	--compression auto,zstd,8 &&
+	--compression auto,zstd,10 &&
 	print_announce "PRUNING" &&
 	borg prune --progress --verbose --stats --save-space --keep-daily=7 --keep-monthly=-1 --keep-weekly=4 --keep-within=1d \
 		hvwib450@hvwib450.repo.borgbase.com:repo &&
