@@ -15,9 +15,7 @@
         ++ import ./editorPackages.nix { inherit pkgs; };
       extraConfig = ''
         lua << EOF
-        ${builtins.readFile (builtins.fetchurl {
-            url = "https://raw.githubusercontent.com/equirosa/nvim-config/master/init.lua";
-            })}
+        ${builtins.readFile ../../nvim/init.lua }
         EOF
       '';
       plugins = with pkgs.vimPlugins; [
