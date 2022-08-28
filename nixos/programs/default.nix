@@ -56,7 +56,8 @@ in
       trash-cli
       ytfzf
       # Password
-      prs
+      gopass
+      gopass-jsonapi
       # Scripts
       (writeShellApplication {
         name = "2mkv";
@@ -211,9 +212,18 @@ in
         name = "password-menu";
         text = ''
           ${exitWithNoArguments}
-          CHOSEN="$(prs list --list | ${dmenu-command})"
+          CHOSEN="$(gopass list --flat | ${dmenu-command})"
 
-          exec prs copy --quiet "''${CHOSEN}"
+          exec gopass show --clip "''${CHOSEN}"
+        '';
+      })
+      (writeShellApplication {
+        name = "otp-menu";
+        text = ''
+          ${exitWithNoArguments}
+          CHOSEN="$(gopass list --flat | ${dmenu-command})"
+
+          exec gopass otp --clip "''${CHOSEN}"
         '';
       })
       (writeShellApplication {

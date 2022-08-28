@@ -68,7 +68,7 @@ in
         urls-source "miniflux"
         miniflux-url "https://reader.miniflux.app"
         miniflux-login "nuclearcoffee"
-        miniflux-passwordeval "${pkgs.prs}/bin/prs show --first websites/miniflux.app/nuclearcoffee"
+        miniflux-passwordeval "${pkgs.gopass}/bin/gopass show --password websites/miniflux.app/nuclearcoffee"
       '';
       reloadThreads = 12;
     };

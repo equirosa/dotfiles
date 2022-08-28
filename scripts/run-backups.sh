@@ -1,4 +1,4 @@
-BORG_PASSPHRASE="$(prs show -q backups/borg/snowfort/borgbase)"
+BORG_PASSPHRASE="$(gopass show --password backups/borg/snowfort/borgbase)"
 export BORG_PASSPHRASE
 BORG_BACKUP_FORMAT="{hostname}-{user}-{now}"
 LBLUE="\033[1;34m"
