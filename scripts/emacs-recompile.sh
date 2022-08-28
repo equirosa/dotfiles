@@ -1,1 +1,1 @@
-emacs --batch --eval '(batch-byte-compile "~/.config/emacs/*.el")'
+find "${HOME}/.config/emacs" -name "*.el" -exec emacs --quick --batch -f batch-byte-compile {} \;
