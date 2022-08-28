@@ -8,7 +8,7 @@
         enable = true;
         config = {
           pager = "${pkgs.less}/bin/less -FR";
-          theme = "gruvbox-dark";
+          theme = "TwoDark";
         };
       };
       dircolors = {
