@@ -20,6 +20,7 @@ in
       qutebrowser
       tor-browser-bundle-bin
       lagrange
+      nyxt
       # Messengers
       aerc
       element-desktop
