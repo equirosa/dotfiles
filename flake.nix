@@ -1,15 +1,19 @@
 {
   description = "Kiri's NixOS configuration";
 
-  inputs.devshell.url = "github:numtide/devshell";
-  inputs.flake-utils.url = "github:numtide/flake-utils";
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    devshell.url = "github:numtide/devshell";
+    flake-utils.url = "github:numtide/flake-utils";
+    home-manager.url = "github:nix-community/home-manager";
+  };
 
-  outputs =
+  outputs = inputs @
     { self
     , flake-utils
     , devshell
     , nixpkgs
-    ,
+    , home-manager
     }:
     flake-utils.lib.eachDefaultSystem (system: {
       devShell =
