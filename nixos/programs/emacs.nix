@@ -18,7 +18,7 @@
     programs.emacs = {
       enable = true;
       package = pkgs.emacsWithPackagesFromUsePackage {
-        config = "/home/kiri/.config/emacs/init.el";
+        config = ../../emacs/init.el;
         package = pkgs.emacsNativeComp;
         alwaysEnsure = true;
         alwaysTangle = false;
@@ -28,12 +28,13 @@
           [
             # Utilities
             vterm
-            # Normal Packages
-            pkgs.gcc
-            pkgs.sqlite # For org-roam
-            pkgs.unzip # To export as docx
-            pkgs.tectonic
-            pkgs.texlive.combined.scheme-full # For latex exports
+          ] # Normal Packages
+          ++ [
+            gcc
+            sqlite # For org-roam
+            unzip # To export as docx
+            tectonic
+            texlive.combined.scheme-full # For latex exports
           ]
           ++ import ./editorPackages.nix { inherit pkgs; };
       };
