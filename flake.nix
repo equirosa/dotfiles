@@ -8,7 +8,8 @@
     home-manager.url = "github:nix-community/home-manager";
   };
 
-  outputs = inputs @
+  outputs =
+    inputs @
     { self
     , flake-utils
     , devshell
