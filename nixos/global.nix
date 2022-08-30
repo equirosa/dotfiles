@@ -27,7 +27,6 @@ in
       home = {
         sessionVariables = {
           BROWSER = "${pkgs.firefox}/bin/firefox";
-          EDITOR = "emacs";
         };
         inherit (config.system) stateVersion;
       };
