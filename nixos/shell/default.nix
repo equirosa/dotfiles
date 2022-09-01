@@ -2,8 +2,6 @@
   imports = [ ./bash.nix ./fish.nix ];
   home-manager.users.kiri = {
     programs = {
-      atuin.enable = true;
-      bash.enable = true;
       bat = {
         enable = true;
         config = {
