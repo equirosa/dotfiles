@@ -14,6 +14,7 @@
           merge = {
             tool = "nvimdiff";
           };
+          push = { autoSetupRemote = true; };
         };
         delta = {
           enable = true;
