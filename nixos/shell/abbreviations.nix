@@ -23,6 +23,7 @@ in
   nfu = "nix flake upate --commit-lock-file";
   nr = "nix run nixpkgs#";
   nrp = "nixpkgs-review pr --post-result";
+  nrw = "nixpkgs-review wip";
   ns = "nix search nixpkgs";
   nsp = "nix-shell -p";
   nup = "nix-update --test --commit --review";
