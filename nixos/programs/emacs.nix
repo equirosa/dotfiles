@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   nixpkgs.overlays = [
     (import
       (builtins.fetchTarball {
@@ -10,7 +14,7 @@
       enable = true;
       client = {
         enable = true;
-        arguments = [ "-c" "-a 'emacs'" ];
+        arguments = ["-c" "-a 'emacs'"];
       };
       defaultEditor = true;
       socketActivation.enable = false;
@@ -25,18 +29,18 @@
         extraEmacsPackages = epkgs:
           with epkgs;
           with pkgs;
-          [
-            # Utilities
-            vterm
-          ] # Normal Packages
-          ++ [
-            gcc
-            sqlite # For org-roam
-            unzip # To export as docx
-            tectonic
-            texlive.combined.scheme-full # For latex exports
-          ]
-          ++ import ./editorPackages.nix { inherit pkgs; };
+            [
+              # Utilities
+              vterm
+            ] # Normal Packages
+            ++ [
+              gcc
+              sqlite # For org-roam
+              unzip # To export as docx
+              tectonic
+              texlive.combined.scheme-full # For latex exports
+            ]
+            ++ import ./editorPackages.nix {inherit pkgs;};
       };
     };
   };

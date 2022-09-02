@@ -1,6 +1,6 @@
-{ pkgs, ... }: {
-  home-manager.users.kiri = { config, ... }: {
-    home.packages = [ pkgs.mpv ];
+{pkgs, ...}: {
+  home-manager.users.kiri = {config, ...}: {
+    home.packages = [pkgs.mpv];
     xdg.configFile = {
       "mpv.conf" = {
         target = "mpv/mpv.conf";

@@ -1,4 +1,8 @@
-{ pkgs, config, ... }: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   home-manager.users.kiri.programs.i3status-rust = {
     enable = true;
     bars.top = {

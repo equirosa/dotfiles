@@ -3,8 +3,8 @@
     programs = {
       git = {
         enable = true;
-        aliases = { };
-        attributes = [ "*.pdf diff=pdf" ];
+        aliases = {};
+        attributes = ["*.pdf diff=pdf"];
         extraConfig = {
           # init = {defaultBranch = "main";};
           diff = {
@@ -14,7 +14,7 @@
           merge = {
             tool = "nvimdiff";
           };
-          push = { autoSetupRemote = true; };
+          push = {autoSetupRemote = true;};
         };
         delta = {
           enable = true;
@@ -28,7 +28,7 @@
             whitespace-error-style = "22 reverse";
           };
         };
-        ignores = [ "*~" "*.swp" ".direnv" ];
+        ignores = ["*~" "*.swp" ".direnv"];
         signing = {
           key = "03678E9642EB6D9E99974ACFB77F36C3F12720B4";
           signByDefault = true;

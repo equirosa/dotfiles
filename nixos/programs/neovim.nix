@@ -1,6 +1,7 @@
-{ config
-, pkgs
-, ...
+{
+  config,
+  pkgs,
+  ...
 }: {
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
@@ -11,11 +12,12 @@
     programs.neovim = {
       enable = true;
       package = pkgs.neovim-nightly;
-      extraPackages = with pkgs; [ gcc gnumake ] # Needed for Treesitter and telescope-fzf-native
-        ++ import ./editorPackages.nix { inherit pkgs; };
+      extraPackages = with pkgs;
+        [gcc gnumake] # Needed for Treesitter and telescope-fzf-native
+        ++ import ./editorPackages.nix {inherit pkgs;};
       extraConfig = ''
         lua << EOF
-        ${builtins.readFile ../../nvim/init.lua }
+        ${builtins.readFile ../../nvim/init.lua}
         EOF
       '';
       plugins = with pkgs.vimPlugins; [

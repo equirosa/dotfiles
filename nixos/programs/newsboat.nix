@@ -1,13 +1,12 @@
-{ pkgs
-, config
-, ...
-}:
-let
-  resetBrowser = ''set browser "xdg-open"'';
-  programs = { setsid = "${pkgs.util-linux}/bin/setsid"; };
-in
 {
-  home-manager.users.kiri = { config, ... }: {
+  pkgs,
+  config,
+  ...
+}: let
+  resetBrowser = ''set browser "xdg-open"'';
+  programs = {setsid = "${pkgs.util-linux}/bin/setsid";};
+in {
+  home-manager.users.kiri = {config, ...}: {
     programs.newsboat = {
       enable = true;
       autoReload = true;

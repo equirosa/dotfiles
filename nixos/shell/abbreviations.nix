@@ -1,8 +1,7 @@
 let
   nixenvString = ''nix-env -f "<nixpkgs>" -qaP'';
   ytfzf = "ytfzf --detach --show-thumbnails --thumb-viewer=kitty";
-in
-{
+in {
   # General
   cl = "curl -L";
   clo = "curl -LO";

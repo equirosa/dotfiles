@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   virtualisation.docker.enable = true;
-  users.users.kiri.extraGroups = [ "docker" ];
+  users.users.kiri.extraGroups = ["docker"];
 }

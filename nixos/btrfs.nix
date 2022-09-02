@@ -1,6 +1,7 @@
-{ pkgs
-, config
-, ...
+{
+  pkgs,
+  config,
+  ...
 }: {
   services = {
     beesd.filesystems = {
@@ -8,13 +9,13 @@
         spec = "/";
         hashTableSizeMB = 1024;
         verbosity = "crit";
-        extraOptions = [ "--loadavg-target" "3.5" ];
+        extraOptions = ["--loadavg-target" "3.5"];
       };
     };
     btrfs = {
       autoScrub = {
         enable = true;
-        fileSystems = [ "/" ];
+        fileSystems = ["/"];
       };
     };
   };
