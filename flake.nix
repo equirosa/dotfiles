@@ -20,7 +20,6 @@
       devShell = let
         pkgs = import nixpkgs {
           inherit system;
-
           overlays = [devshell.overlay];
         };
       in
