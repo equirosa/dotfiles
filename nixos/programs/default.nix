@@ -161,9 +161,9 @@ in {
       })
       (writeShellApplication {
         name = "emoji";
-        runtimeInputs = with pkgs; [wl-clipboard wofi];
+        runtimeInputs = [];
         text = ''
-          ${pkgs.wofi-emoji}/bin/wofi-emoji
+          ${pkgs.rofimoji}/bin/rofimoji --clipboarder wl-copy --action type copy
         '';
       })
       (writeShellApplication {
