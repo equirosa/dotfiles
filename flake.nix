@@ -16,6 +16,7 @@
     home-manager,
   }:
     flake-utils.lib.eachDefaultSystem (system: {
+      formatter = nixpkgs.legacyPackages.${system}.treefmt;
       devShell = let
         pkgs = import nixpkgs {
           inherit system;
