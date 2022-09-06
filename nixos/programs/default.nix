@@ -25,7 +25,7 @@ in {
       nyxt
       # Messengers
       aerc
-      element-desktop
+      element-desktop-wayland
       # Documents
       onlyoffice-bin
       hunspell
