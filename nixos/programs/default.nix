@@ -161,9 +161,14 @@ in {
       })
       (writeShellApplication {
         name = "emoji";
-        runtimeInputs = [];
+        runtimeInputs = [
+          (rofimoji.override {
+            rofi = pkgs.rofi-wayland;
+            x11Support = false;
+          })
+        ];
         text = ''
-          ${pkgs.rofimoji}/bin/rofimoji --clipboarder wl-copy --action type copy
+          rofimoji --clipboarder wl-copy --action type copy
         '';
       })
       (writeShellApplication {
