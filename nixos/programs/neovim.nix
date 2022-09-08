@@ -3,10 +3,15 @@
   pkgs,
   ...
 }: {
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+    }))
+  ];
   home-manager.users.kiri = {
     programs.neovim = {
       enable = true;
-      package = pkgs.neovim;
+      package = pkgs.neovim-nightly;
       extraPackages = with pkgs;
         [gcc] # Needed for Treesitter
         ++ import ./editorPackages.nix {inherit pkgs;};
