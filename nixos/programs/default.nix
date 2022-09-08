@@ -4,6 +4,7 @@
   ...
 }: let
   notify = ''${pkgs.libnotify}/bin/notify-send -t 5000'';
+  cat = "${pkgs.bat}/bin/bat --plain";
   dmenu-command = "${pkgs.rofi-wayland}/bin/rofi -dmenu";
   exitWithNoArguments = ''[ $# -eq 0 ] && ${notify} "No arguments provided. Exitting..." && exit 1'';
   getFile = ''file="$(readlink -f "''${1}")"'';
@@ -289,6 +290,12 @@ in {
       (writeShellApplication {
         name = "show-nix-store-path";
         text = ''${pkgs.coreutils}/bin/readlink -f "$(command -v "$@")" '';
+      })
+      (writeShellApplication {
+        name = "show-script";
+        text = ''
+        ${cat} "$(show-nix-store-path "''${1}")"
+        '';
       })
       (writeShellApplication {
         name = "watchlist";
