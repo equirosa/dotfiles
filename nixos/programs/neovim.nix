@@ -13,7 +13,7 @@
       enable = true;
       package = pkgs.neovim-nightly;
       extraPackages = with pkgs;
-        [gcc gnumake] # Needed for Treesitter and telescope-fzf-native
+        [gcc] # Needed for Treesitter
         ++ import ./editorPackages.nix {inherit pkgs;};
       extraConfig = ''
         lua << EOF
@@ -21,6 +21,7 @@
         EOF
       '';
       plugins = with pkgs.vimPlugins; [
+        telescope-fzf-native-nvim
         vim-fugitive
       ];
       viAlias = true;
