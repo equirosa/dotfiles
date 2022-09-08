@@ -177,7 +177,7 @@ in {
           })
         ];
         text = ''
-          rofimoji --clipboarder wl-copy --action type copy
+          rofimoji --clipboarder wl-copy --action type copy --typer wtype
         '';
       })
       (writeShellApplication {
