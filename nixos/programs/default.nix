@@ -209,6 +209,12 @@ in {
         '';
       })
       (writeShellApplication {
+        name = "git-remove-merged-branches";
+        text = ''
+        git for-each-ref --format '%(refname:short)' refs/heads | grep -v "master\|main\|dev" | xargs git branch -D
+        '';
+      })
+      (writeShellApplication {
         name = "join-class";
         text = ''
           chosen="$(${dmenu-command} < ~/links.csv | cut -d ',' -f2)"
