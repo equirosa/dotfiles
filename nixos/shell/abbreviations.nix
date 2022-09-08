@@ -27,6 +27,8 @@ in {
   nsp = "nix-shell -p";
   nup = "nix-update --test --commit --review";
   sid = "setsid";
+  snp = "show-nix-store-path";
+  ss = "show-script";
   tl = "tldr";
   u = "umpv";
   v = "nvim";
@@ -63,8 +65,6 @@ in {
   dvp = "download-video-playlist";
   dvu = "download-video-unique";
   # Nix
-  elpa = "${nixenvString} emacs.pkgs.elpaPackages";
-  melpa = "${nixenvString} emacs.pkgs.melpaPackages";
   nb = "nix build";
   nbf = "nix build -f ./.";
   nodep = "${nixenvString} nodePackages";
