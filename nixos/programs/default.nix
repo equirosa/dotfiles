@@ -206,11 +206,11 @@ in {
       (writeShellApplication {
         name = "link2youtube";
         text = ''
-        sed -e 's/piped.kavin.rocks/youtube.com/g' \
-            -e 's/piped.mint.lgbt/youtube.com/g' \
-            -e 's/il.ax/youtube.com/g' \
-            -e 's/piped.privacy.com.de/youtube.com/g' \
-            -e 's/piped.esmailelbob.xyz/youtube.com/g'
+          sed -e 's/piped.kavin.rocks/youtube.com/g' \
+              -e 's/piped.mint.lgbt/youtube.com/g' \
+              -e 's/il.ax/youtube.com/g' \
+              -e 's/piped.privacy.com.de/youtube.com/g' \
+              -e 's/piped.esmailelbob.xyz/youtube.com/g'
         '';
       })
       (writeShellApplication {
@@ -304,7 +304,7 @@ in {
       (writeShellApplication {
         name = "show-script";
         text = ''
-        ${cat} "$(show-nix-store-path "''${1}")"
+          ${cat} "$(show-nix-store-path "''${1}")"
         '';
       })
       (writeShellApplication {
