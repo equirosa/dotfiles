@@ -1,5 +1,4 @@
-{
-  opacity = "0.8";
+let
   gruvbox = {
     foreground = "ebdbb2";
     background = "1d2021";
@@ -24,4 +23,7 @@
       white = "a89984";
     };
   };
+in {
+  opacity = "0.8";
+  selected = gruvbox;
 }

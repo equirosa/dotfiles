@@ -31,8 +31,8 @@ in {
     programs = {
       mako = {
         enable = true;
-        backgroundColor = "#${colors.gruvbox.background}";
-        borderColor = "#${colors.gruvbox.bright.yellow}";
+        backgroundColor = "#${colors.selected.background}";
+        borderColor = "#${colors.selected.bright.yellow}";
         borderRadius = 15;
         borderSize = 2;
         defaultTimeout = 5000;
@@ -41,7 +41,7 @@ in {
         layer = "top"; # Consider overlay
         markup = true;
         sort = "-time";
-        extraConfig = with colors.gruvbox.bright; ''
+        extraConfig = with colors.selected.bright; ''
           [urgency=low]
           border-color=#${green}
 
@@ -64,7 +64,7 @@ in {
         server.enable = false;
         settings = {
           colors = with colors;
-          with gruvbox; {
+          with selected; {
             alpha = "${opacity}";
             regular0 = "${regular.black}";
             regular1 = "${regular.red}";
