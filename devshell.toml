@@ -3,9 +3,5 @@
 package = "devshell.cli"
 help = "Per project developer environments"
 
-[[commands]]
-package = "treefmt"
-help = "Format code with treefmt"
-
 [devshell]
 packages = ["alejandra", "shfmt", "stylua"]
