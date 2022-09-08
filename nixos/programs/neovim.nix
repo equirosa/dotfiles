@@ -21,6 +21,7 @@
         EOF
       '';
       plugins = with pkgs.vimPlugins; [
+        packer-nvim
         telescope-fzf-native-nvim
         vim-fugitive
       ];
