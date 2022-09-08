@@ -41,6 +41,7 @@ in {
       hunspellDicts.en-us-large
       hunspellDicts.es-any
       pandoc
+      tectonic
       # File Sharing
       ffsend
       transmission
