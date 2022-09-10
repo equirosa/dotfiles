@@ -17,7 +17,7 @@
   };
   home-manager.users.kiri = {
     home = {
-      # sessionVariables.WINE_FULLSCREEN_FSR = 1;
+      sessionVariables.WINE_FULLSCREEN_FSR = 1;
       packages = with pkgs; [
         # Games
         # nix-gaming.packages.x86_64-linux.rocket-league
@@ -26,8 +26,8 @@
         # General games client
         legendary-gl
         # Utilities
-        chiaki
-        # PS4 Remote Play utility
+        chiaki # PS4 Remote Play utility
+        gamescope
         mangohud
         protonup
       ];
