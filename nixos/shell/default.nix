@@ -37,12 +37,15 @@
         enableAliases = true;
         settings = {date = "relative";};
       };
-      fzf = {
+      fzf = let
+        fileCommand = "${pkgs.ripgrep}/bin/rg --files";
+      in {
         enable = true;
-        changeDirWidgetCommand = "${pkgs.fd}/bin/fd -uu --type d";
+        changeDirWidgetCommand = "${pkgs.fd}/bin/fd --type d";
         changeDirWidgetOptions = ["--preview '${pkgs.lsd}/bin/lsd -1 {}'"];
-        defaultCommand = "${pkgs.fd}/bin/fd -uu --type f";
-        fileWidgetCommand = "${pkgs.fd}/bin/fd -uu --type f";
+        defaultCommand = "${fileCommand}";
+        defaultOptions = ["--height 100%" "--border"];
+        fileWidgetCommand = "${fileCommand}";
         fileWidgetOptions = ["--preview '${pkgs.pistol}/bin/pistol {}'"];
       };
       starship = {
