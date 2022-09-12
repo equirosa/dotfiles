@@ -13,7 +13,7 @@
       enable = true;
       package = pkgs.neovim-nightly;
       extraPackages = with pkgs;
-        [gcc] # Needed for Treesitter
+        [] # Needed for Teesitter
         ++ import ./editorPackages.nix {inherit pkgs;};
       extraConfig = ''
         lua << EOF
@@ -24,6 +24,11 @@
         packer-nvim
         telescope-fzf-native-nvim
         vim-fugitive
+        (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
+        nvim-ts-rainbow
+        nvim-treesitter-textobjects
+        nvim-treesitter-refactor
+        nvim-treesitter-context
       ];
       viAlias = true;
       vimAlias = true;
