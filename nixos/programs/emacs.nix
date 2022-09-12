@@ -29,10 +29,8 @@
         extraEmacsPackages = epkgs:
           with epkgs;
           with pkgs;
-            [
-              # Utilities
-              vterm
-            ] # Normal Packages
+          # Normal Packages
+            []
             ++ [
               gcc
               sqlite # For org-roam
