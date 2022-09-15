@@ -16,7 +16,6 @@ in {
     ./programs
     ./shell
     ./theme.nix
-    ./virtualization/docker.nix
     ./virtualization/qemu.nix
   ];
   users.users.kiri = {
