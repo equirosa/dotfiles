@@ -27,7 +27,6 @@ in {
         --ozone-platform=wayland
       '';
     };
-    home = {packages = with pkgs; [grim wl-clipboard];};
     programs = {
       mako = {
         enable = true;
@@ -60,18 +59,11 @@ in {
       };
       home = {
         packages = with pkgs; [
-          grim
           wl-clipboard
           (writeShellApplication {
             name = "sway-shot";
             text = ''
-              ${pkgs.grim}/bin/grim -g "$(sway-geometry)" - | ${pkgs.pngquant}/bin/pngquant --strip - | ${pkgs.swappy}/bin/swappy -f -
-            '';
-          })
-          (writeShellApplication {
-            name = "sway-geometry";
-            text = ''
-              swaymsg -t get_tree | ${pkgs.jq}/bin/jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | ${pkgs.slurp}/bin/slurp
+              ${pkgs.sway-contrib.grimshot}/bin/grimshot save - | ${pkgs.pngquant}/bin/pngquant --strip - | ${pkgs.swappy}/bin/swappy -f -
             '';
           })
         ];
@@ -112,25 +104,25 @@ in {
           server.enable = false;
           settings = {
             colors = with colors;
-              with selected; {
-                alpha = "${opacity}";
-                regular0 = "${regular.black}";
-                regular1 = "${regular.red}";
-                regular2 = "${regular.green}";
-                regular3 = "${regular.yellow}";
-                regular4 = "${regular.blue}";
-                regular5 = "${regular.magenta}";
-                regular6 = "${regular.cyan}";
-                regular7 = "${regular.white}";
-                bright0 = "${bright.black}";
-                bright1 = "${bright.red}";
-                bright2 = "${bright.green}";
-                bright3 = "${bright.yellow}";
-                bright4 = "${bright.blue}";
-                bright5 = "${bright.magenta}";
-                bright6 = "${bright.cyan}";
-                bright7 = "${bright.white}";
-              };
+            with selected; {
+              alpha = "${opacity}";
+              regular0 = "${regular.black}";
+              regular1 = "${regular.red}";
+              regular2 = "${regular.green}";
+              regular3 = "${regular.yellow}";
+              regular4 = "${regular.blue}";
+              regular5 = "${regular.magenta}";
+              regular6 = "${regular.cyan}";
+              regular7 = "${regular.white}";
+              bright0 = "${bright.black}";
+              bright1 = "${bright.red}";
+              bright2 = "${bright.green}";
+              bright3 = "${bright.yellow}";
+              bright4 = "${bright.blue}";
+              bright5 = "${bright.magenta}";
+              bright6 = "${bright.cyan}";
+              bright7 = "${bright.white}";
+            };
             key-bindings = {
               scrollback-up-line = "Control+Shift+k";
               scrollback-down-line = "Control+Shift+j";
@@ -139,7 +131,7 @@ in {
               bold-text-in-bright = "true";
               font = "monospace:size=14";
             };
-            mouse = { };
+            mouse = {};
           };
           key-bindings = {
             scrollback-up-line = "Control+Shift+k";
@@ -154,7 +146,6 @@ in {
       };
     };
     services = {
-      flameshot.enable = true;
       wlsunset = {
         enable = true;
         latitude = "-20.0";
@@ -188,7 +179,7 @@ in {
               "${mod}+w" = "exec ${config.home.sessionVariables.BROWSER}";
               "${mod}+z" = "exec password-menu show";
               "${mod}+Shift+z" = "exec password-menu otp";
-              "Print" = "exec flameshot gui";
+              "Print" = "exec sway-shot";
             };
           assigns = {
             "1" = [{app_id = "org.remmina.Remmina";}];
@@ -228,12 +219,6 @@ in {
               criteria = {
                 app_id = "firefox";
                 title = "Firefox — Sharing Indicator";
-              };
-            }
-            {
-              command = "floating enable, fullscreen disable, move absolute position 0 0, border pixel 0";
-              criteria = {
-                app_id = "flameshot";
               };
             }
           ];
