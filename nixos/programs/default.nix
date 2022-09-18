@@ -92,7 +92,7 @@ in {
             ${exitWithNoArguments}
             ${getFile}
             ${getBase}
-            ${pkgs.ffmpeg}/bin/ffmpeg -i "''${file}" "''${base}.ogg"
+            ${pkgs.ffmpeg}/bin/ffmpeg -i "''${file}" -vn -c:a libopus -b:a 96k "''${base}.ogg"
           '';
         })
         (writeShellApplication {
