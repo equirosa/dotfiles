@@ -122,14 +122,14 @@ in {
         config = {
           bars = [];
           terminal = "${commonCommands.terminal}";
-          menu = "${dmenuCommand}";
+          menu = "${commonCommands.dmenuCommand}";
           modifier = "Mod4";
           keybindings = with commonCommands; let
             mod = config.wayland.windowManager.sway.config.modifier;
             inherit (config.wayland.windowManager.sway.config) terminal;
           in
             lib.mkOptionDefault {
-              "${mod}+Shift+d" = "${desktopCommand}";
+              "${mod}+Shift+d" = "${commonCommands.desktopCommand}";
               "${mod}+Shift+e" = "exec emacsclient --create-frame";
               "${mod}+Shift+f" = "floating toggle";
               "${mod}+Shift+t" = "exec ${terminal} ${transmissionClient}";
