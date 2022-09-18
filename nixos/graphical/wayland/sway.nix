@@ -5,6 +5,8 @@
 }: let
   lockCommand = "${pkgs.swaylock}/bin/swaylock --image ${config.home-manager.users.kiri.xdg.cacheHome}/background_image -f";
   commonCommands = {
+    dmenuCommand = "${pkgs.rofi-wayland}/bin/rofi -show run | ${pkgs.busybox}/bin/xargs swaymsg exec --";
+    desktopCommand = "${pkgs.rofi-wayland}/bin/rofi -show drun | ${pkgs.busybox}/bin/xargs swaymsg exec --";
     feedReader = "${pkgs.newsboat}/bin/newsboat";
     mailClient = "${pkgs.aerc}/bin/aerc";
     terminal = "kitty";
@@ -33,7 +35,9 @@ in {
         (writeShellApplication {
           name = "sway-shot";
           text = ''
-            ${pkgs.sway-contrib.grimshot}/bin/grimshot save window - | ${pkgs.pngquant}/bin/pngquant --strip - | ${pkgs.swappy}/bin/swappy -f -
+            ${pkgs.sway-contrib.grimshot}/bin/grimshot save window - \
+              | ${pkgs.pngquant}/bin/pngquant --strip - \
+              | ${pkgs.swappy}/bin/swappy -f -
           '';
         })
       ];
@@ -118,13 +122,14 @@ in {
         config = {
           bars = [];
           terminal = "${commonCommands.terminal}";
-          menu = "${pkgs.rofi-wayland}/bin/rofi -show run | ${pkgs.findutils}/bin/xargs swaymsg exec --";
+          menu = "${dmenuCommand}";
           modifier = "Mod4";
           keybindings = with commonCommands; let
             mod = config.wayland.windowManager.sway.config.modifier;
             inherit (config.wayland.windowManager.sway.config) terminal;
           in
             lib.mkOptionDefault {
+              "${mod}+Shift+d" = "${desktopCommand}";
               "${mod}+Shift+e" = "exec emacsclient --create-frame";
               "${mod}+Shift+f" = "floating toggle";
               "${mod}+Shift+t" = "exec ${terminal} ${transmissionClient}";
