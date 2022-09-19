@@ -250,7 +250,6 @@ in {
           text = ''
             ${exitWithNoArguments}
             CHOSEN="$(gopass list --flat | ${dmenu-command})"
-
             exec gopass show --clip "''${CHOSEN}"
           '';
         })
@@ -259,7 +258,6 @@ in {
           text = ''
             ${exitWithNoArguments}
             CHOSEN="$(gopass list --flat | ${dmenu-command})"
-
             exec gopass otp --clip "''${CHOSEN}"
           '';
         })
