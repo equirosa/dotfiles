@@ -307,16 +307,18 @@ in {
         })
         (writeShellApplication {
           name = "watchlist";
-          text = ''
+          text = let
+            videoDir = "${config.xdg.userDirs.videos}";
+          in ''
             case "''${1}" in
               *http*) setsid ${pkgs.yt-dlp}/bin/yt-dlp \
                 --sponsorblock-mark all\
                 --embed-subs\
                 --embed-metadata\
-                -o "${config.home.homeDirectory}/Videos/watchlist/$(date +%s)-%(title)s-[%(id)s].%(ext)s"\
+                -o "${videoDir}/watchlist/$(date +%s)-%(title)s-[%(id)s].%(ext)s"\
               "$1" >>/dev/null & ;;
-              "") setsid ${pkgs.mpv}/bin/umpv "${config.home.homeDirectory}/Videos/watchlist/" ;;
-              *) setsid mv "''${1}" "${config.home.homeDirectory}/Videos/watchlist/$(date +%s)-''${1}" ;;
+              "") setsid ${pkgs.mpv}/bin/umpv "${videoDir}/watchlist/" ;;
+              *) setsid mv "''${1}" "${videoDir}/watchlist/$(date +%s)-''${1}" ;;
             esac
           '';
         })
