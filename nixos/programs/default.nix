@@ -275,7 +275,7 @@ in {
         (writeShellApplication {
           name = "run-backups";
           text = ''
-            ${builtins.readFile "${config.home.homeDirectory}/dotfiles/scripts/run-backups.sh"}
+            ${builtins.readFile ../../scripts/run-backups.sh}
           '';
         })
         (writeShellApplication {
