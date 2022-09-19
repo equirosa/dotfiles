@@ -209,7 +209,8 @@ in {
                 -e 's/piped.mint.lgbt/youtube.com/g' \
                 -e 's/il.ax/youtube.com/g' \
                 -e 's/piped.privacy.com.de/youtube.com/g' \
-                -e 's/piped.esmailelbob.xyz/youtube.com/g'
+                -e 's/piped.esmailelbob.xyz/youtube.com/g' \
+                -e 's/yt.jae.fi/youtube.com/g'
           '';
         })
         (writeShellApplication {
