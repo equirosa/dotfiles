@@ -14,7 +14,7 @@ in {
       };
       keybindings = {};
       settings = {background_opacity = "${colors.opacity}";};
-      theme = "Gruvbox Dark Hard";
+      theme = "Doom Vibrant";
     };
   };
 }
