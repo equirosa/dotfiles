@@ -12,7 +12,18 @@
       };
       lf = {
         enable = true;
-        commands = {open = ''''${{for file in "$fx"; do setsid xdg-open "$file" > /dev/null 2> /dev/null & done}}'';};
+        commands = {
+          on-cd = ''
+            &{{
+            printf "\033]0; $(pwd | sed "s|$HOME|~|") - lf\007" > /dev/tty
+            }}
+          '';
+          open = ''
+            ''${{for file in "$fx"; do
+            setsid xdg-open "$file" > /dev/null 2> /dev/null &
+            done}}
+          '';
+        };
         keybindings = {
           "<backspace2>" = ":set hidden!";
           "<delete>" = "\$${pkgs.trash-cli}/bin/trash-put \"$fx\"";
