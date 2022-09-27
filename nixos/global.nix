@@ -35,6 +35,16 @@ in {
         direnv = {
           enable = true;
           nix-direnv.enable = true;
+          config = {
+            global = {
+              bash_path = "${pkgs.bash}/bin/bash";
+              load_dotenv = true;
+              strict_env = true;
+            };
+            whitelist = {
+              prefix = ["/home/kiri/projects"];
+            };
+          };
         };
         gpg = {
           enable = true;
