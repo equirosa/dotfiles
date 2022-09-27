@@ -36,7 +36,10 @@ in {
           enable = true;
           nix-direnv.enable = true;
         };
-        gpg = {enable = true;};
+        gpg = {
+          enable = true;
+          settings.default-key = "03678E9642EB6D9E99974ACFB77F36C3F12720B4";
+        };
         keychain = {
           enable = true;
           agents = ["ssh" "gpg"];
