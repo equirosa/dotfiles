@@ -16,12 +16,8 @@
   networking = {
     firewall = let
       openPortRanges = [
-        {
-          from = 3000;
-          to = 4000;
-        }
       ];
-      open-ports = [19000];
+      open-ports = [];
     in {
       # Close firewall
       enable = true;
