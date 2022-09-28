@@ -153,7 +153,7 @@ in {
             inherit (config.wayland.windowManager.sway.config) terminal;
           in
             lib.mkOptionDefault {
-              "${mod}+Shift+d" = "${commonCommands.desktopCommand}";
+              "${mod}+Shift+d" = "exec ${commonCommands.desktopCommand}";
               "${mod}+Shift+e" = "exec emacsclient --create-frame";
               "${mod}+Shift+f" = "floating toggle";
               "${mod}+Shift+t" = "exec ${terminal} ${transmissionClient}";
