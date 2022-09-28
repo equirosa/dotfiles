@@ -115,6 +115,30 @@ in {
         latitude = "-20.0";
         longitude = "-80.0";
       };
+      swayidle = {
+        enable = true;
+        events = [
+          {
+            event = "before-sleep";
+            command = "${lockCommand}";
+          }
+          {
+            event = "lock";
+            command = "${lockCommand}";
+          }
+        ];
+        timeouts = [
+          {
+            timeout = 300;
+            command = "${lockCommand}";
+          }
+          {
+            timeout = 600;
+            command = ''${pkgs.sway}/bin/swaymsg "output * dpms off"'';
+            resumeCommand = ''${pkgs.sway}/bin/swaymsg "output * dpms on"'';
+          }
+        ];
+      };
     };
     wayland.windowManager = {
       sway = {
@@ -229,25 +253,6 @@ in {
     greetd = {
       enable = true;
       settings = {default_session = {command = "${pkgs.greetd.greetd}/bin/agreety --cmd sway";};};
-    };
-  };
-  systemd.user = {
-    services = {
-      swayidle = {
-        description = "Idle Manager for Wayland";
-        documentation = ["man:swayidle(1)"];
-        wantedBy = ["sway-session.target"];
-        partOf = ["graphical-session.target"];
-        path = [pkgs.bash];
-        serviceConfig = {
-          ExecStart = ''
-            ${pkgs.swayidle}/bin/swayidle -w -d \
-            timeout 300 '${lockCommand}' \
-            timeout 600 '${pkgs.sway}/bin/swaymsg "output * dpms off"' \
-            resume '${pkgs.sway}/bin/swaymsg "output * dpms on"'
-          '';
-        };
-      };
     };
   };
   xdg = {
