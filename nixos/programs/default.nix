@@ -316,7 +316,7 @@ in {
                 --embed-metadata\
                 -o "${videoDir}/watchlist/$(date +%s)-%(title)s-[%(id)s].%(ext)s"\
               "$1" >>/dev/null & ;;
-              "") setsid ${pkgs.mpv}/bin/umpv "${videoDir}/watchlist/" ;;
+              "") setsid umpv "${videoDir}/watchlist/" ;;
               *) setsid mv "''${1}" "${videoDir}/watchlist/$(date +%s)-''${1}" ;;
             esac
           '';
@@ -326,7 +326,7 @@ in {
           text = ''
             case "''${1}" in
               gemini* ) ${geminiBrowser} "''${@}" ;;
-              *youtube.com/watch* | *youtu.be/* | *tilvids.com/w/* | *twitch.tv/* | *bitcointv.com/w/* | *peertube.co.uk/w/* | *videos.lukesmith.xyz/w/* | *diode.zone/w/* | *peertube.thenewoil.xyz/videos/watch/* | *share.tube/w/* ) setsid ${mpv}/bin/umpv "''${1}" & ;;
+              *youtube.com/watch* | *youtu.be/* | *tilvids.com/w/* | *twitch.tv/* | *bitcointv.com/w/* | *peertube.co.uk/w/* | *videos.lukesmith.xyz/w/* | *diode.zone/w/* | *peertube.thenewoil.xyz/videos/watch/* | *share.tube/w/* ) setsid umpv "''${1}" & ;;
               http* | *.html ) ${config.home.sessionVariables.BROWSER} "''${@}" ;;
               magnet* | *.torrent ) transmission-remote -a "''${1}" && ${notify} "Torrent Added! ✅" && exit 0 ;;
               *.org ) emacsclient --create-frame "''${1}" ;;
