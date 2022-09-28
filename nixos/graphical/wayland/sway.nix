@@ -216,7 +216,8 @@ in {
             leftWorkspaces = range 1 5;
             rightWorkspaces = range 6 9;
           in
-            forEach leftWorkspaces (space: {
+            forEach leftWorkspaces
+            (space: {
               output = "DP-1";
               workspace = "${toString space}";
             })
