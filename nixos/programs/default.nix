@@ -68,7 +68,6 @@ in {
         libnotify
         qpwgraph
         ripgrep
-        tealdeer
         trash-cli
         ytfzf
         # Password
