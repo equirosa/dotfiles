@@ -23,7 +23,6 @@ in
     ./kitty.nix
     ./lf.nix
     ./mpv.nix
-    ./neovim.nix
     ./newsboat
   ];
   home-manager.users.kiri = { config, ... }: {
