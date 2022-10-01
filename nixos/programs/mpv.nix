@@ -10,6 +10,7 @@
         gpu-context = "wayland";
         hwdec = "auto-safe";
         vo = "gpu";
+        osc = true;
         slang = "en,eng";
         alang = "en,eng";
         ytdl-format = "(bestvideo[height<=1080]+bestaudio)[ext=webm]/bestvideo[height<=1080]+bestaudio/best[height<=1080]/bestvideo+bestaudio/best";
