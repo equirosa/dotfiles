@@ -23,7 +23,7 @@ in {
     ./lf.nix
     ./mpv.nix
     ./neovim.nix
-    ./newsboat.nix
+    ./newsboat
   ];
   home-manager.users.kiri = {config, ...}: {
     xdg.configFile."tofi/config".text = ''
