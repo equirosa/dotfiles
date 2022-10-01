@@ -1,8 +1,8 @@
-{
-  pkgs,
-  lib,
-  ...
-}: let
+{ pkgs
+, lib
+, ...
+}:
+let
   notify = ''${pkgs.libnotify}/bin/notify-send -t 5000'';
   cat = "${pkgs.bat}/bin/bat --plain";
   dmenu-command = "${pkgs.tofi}/bin/tofi";
@@ -14,7 +14,8 @@
   backupFile = ''bak="''${file}.bak"; mv "''${file}" "''${bak}"'';
   terminal = "${pkgs.foot}/bin/foot";
   geminiBrowser = "${pkgs.lagrange}/bin/lagrange";
-in {
+in
+{
   imports = [
     ./emacs.nix
     ./flatpak.nix
@@ -25,7 +26,7 @@ in {
     ./neovim.nix
     ./newsboat
   ];
-  home-manager.users.kiri = {config, ...}: {
+  home-manager.users.kiri = { config, ... }: {
     xdg.configFile."tofi/config".text = ''
       width = 100%
       height = 100%
@@ -88,7 +89,7 @@ in {
         # Scripts
         (writeShellApplication {
           name = "2mkv";
-          runtimeInputs = [ffmpeg-full];
+          runtimeInputs = [ ffmpeg-full ];
           text = ''
             ${exitWithNoArguments}
             ${getFile}
@@ -108,7 +109,7 @@ in {
         })
         (writeShellApplication {
           name = "2pdf";
-          runtimeInputs = [pandoc libreoffice];
+          runtimeInputs = [ pandoc libreoffice ];
           text = ''
             ${exitWithNoArguments}
             ${getFile}
@@ -120,7 +121,7 @@ in {
         })
         (writeShellApplication {
           name = "2webp";
-          runtimeInputs = [libwebp];
+          runtimeInputs = [ libwebp ];
           text = ''
             ${exitWithNoArguments}
             ${getFile}
@@ -149,7 +150,7 @@ in {
         })
         (writeShellApplication {
           name = "download-music-playlist";
-          runtimeInputs = [yt-dlp];
+          runtimeInputs = [ yt-dlp ];
           text = ''
             SOURCE_FILE="Source - Playlists.txt"
             touch "''${SOURCE_FILE}"
@@ -158,7 +159,7 @@ in {
         })
         (writeShellApplication {
           name = "download-music-unique";
-          runtimeInputs = [yt-dlp];
+          runtimeInputs = [ yt-dlp ];
           text = ''
             SOURCE_FILE="Source - Unique.txt"
             touch "''${SOURCE_FILE}"
@@ -167,7 +168,7 @@ in {
         })
         (writeShellApplication {
           name = "download-video-playlist";
-          runtimeInputs = [yt-dlp];
+          runtimeInputs = [ yt-dlp ];
           text = ''
             SOURCE_FILE="Source - Playlists.txt"
             touch "''${SOURCE_FILE}"
@@ -176,7 +177,7 @@ in {
         })
         (writeShellApplication {
           name = "download-video-unique";
-          runtimeInputs = [yt-dlp];
+          runtimeInputs = [ yt-dlp ];
           text = ''
             SOURCE_FILE="Source - Unique.txt"
             touch "''${SOURCE_FILE}"
@@ -186,7 +187,7 @@ in {
         (writeShellApplication {
           name = "emoji";
           runtimeInputs = [
-            (rofimoji.override {rofi = pkgs.rofi-wayland;})
+            (rofimoji.override { rofi = pkgs.rofi-wayland; })
           ];
           text = ''
             rofimoji --clipboarder wl-copy --action type copy --typer wtype
@@ -285,7 +286,7 @@ in {
         })
         (writeShellApplication {
           name = "run-backups";
-          runtimeInputs = with pkgs; [borgbackup];
+          runtimeInputs = with pkgs; [ borgbackup ];
           text = ''
             ${builtins.readFile ../../scripts/run-backups.sh}
           '';
@@ -319,20 +320,22 @@ in {
         })
         (writeShellApplication {
           name = "watchlist";
-          text = let
-            videoDir = "${config.xdg.userDirs.videos}";
-          in ''
-            case "''${1}" in
-              *http*) setsid ${pkgs.yt-dlp}/bin/yt-dlp \
-                --sponsorblock-mark all\
-                --embed-subs\
-                --embed-metadata\
-                -o "${videoDir}/watchlist/$(date +%s)-%(title)s-[%(id)s].%(ext)s"\
-              "$1" >>/dev/null & ;;
-              "") setsid umpv "${videoDir}/watchlist/" ;;
-              *) setsid mv "''${1}" "${videoDir}/watchlist/$(date +%s)-''${1}" ;;
-            esac
-          '';
+          text =
+            let
+              videoDir = "${config.xdg.userDirs.videos}";
+            in
+            ''
+              case "''${1}" in
+                *http*) setsid ${pkgs.yt-dlp}/bin/yt-dlp \
+                  --sponsorblock-mark all\
+                  --embed-subs\
+                  --embed-metadata\
+                  -o "${videoDir}/watchlist/$(date +%s)-%(title)s-[%(id)s].%(ext)s"\
+                "$1" >>/dev/null & ;;
+                "") setsid umpv "${videoDir}/watchlist/" ;;
+                *) setsid mv "''${1}" "${videoDir}/watchlist/$(date +%s)-''${1}" ;;
+              esac
+            '';
         })
         (writeShellApplication {
           name = "xdg-open";
@@ -350,6 +353,6 @@ in {
           '';
         })
       ]
-      ++ import ./editorPackages.nix {inherit pkgs;};
+      ++ import ./editorPackages.nix { inherit pkgs; };
   };
 }

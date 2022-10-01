@@ -1,12 +1,13 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}: let
+{ pkgs
+, config
+, lib
+, ...
+}:
+let
   abbreviations = import ./abbreviations.nix;
-  aliases = import ./aliases.nix {inherit pkgs;};
-in {
+  aliases = import ./aliases.nix { inherit pkgs; };
+in
+{
   users.users.kiri.shell = pkgs.fish;
   home-manager.users.kiri = {
     programs = {

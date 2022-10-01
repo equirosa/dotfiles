@@ -1,10 +1,11 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{ config
+, pkgs
+, ...
+}:
+let
   colors = import ../colors.nix;
-in {
+in
+{
   home-manager.users.kiri = {
     programs.kitty = {
       enable = true;
@@ -12,8 +13,8 @@ in {
         name = "monospace";
         size = 14;
       };
-      keybindings = {};
-      settings = {background_opacity = "${colors.opacity}";};
+      keybindings = { };
+      settings = { background_opacity = "${colors.opacity}"; };
       theme = "Doom Vibrant";
     };
   };

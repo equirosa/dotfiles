@@ -1,7 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }: {
   nixpkgs.overlays = [
     (import
@@ -14,7 +13,7 @@
       enable = true;
       client = {
         enable = true;
-        arguments = ["-c" "-a 'emacs'"];
+        arguments = [ "-c" "-a 'emacs'" ];
       };
       defaultEditor = true;
       socketActivation.enable = false;
@@ -30,15 +29,15 @@
           with epkgs;
           with pkgs;
           # Normal Packages
-            []
-            ++ [
-              gcc
-              sqlite # For org-roam
-              unzip # To export as docx
-              tectonic
-              texlive.combined.scheme-full # For latex exports
-            ]
-            ++ import ./editorPackages.nix {inherit pkgs;};
+          [ ]
+          ++ [
+            gcc
+            sqlite # For org-roam
+            unzip # To export as docx
+            tectonic
+            texlive.combined.scheme-full # For latex exports
+          ]
+          ++ import ./editorPackages.nix { inherit pkgs; };
       };
     };
     xdg.configFile = {

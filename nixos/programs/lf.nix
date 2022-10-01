@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  home-manager.users.kiri = {config, ...}: {
+{ pkgs, ... }: {
+  home-manager.users.kiri = { config, ... }: {
     programs = {
       pistol = {
         enable = true;

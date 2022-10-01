@@ -1,8 +1,8 @@
-{pkgs, ...}: {
-  home-manager.users.kiri = {config, ...}: {
+{ pkgs, ... }: {
+  home-manager.users.kiri = { config, ... }: {
     programs.mpv = {
       enable = true;
-      defaultProfiles = ["gpu-hq"];
+      defaultProfiles = [ "gpu-hq" ];
       config = {
         force-window = true;
         save-position-on-quit = "";

@@ -1,7 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }: {
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
@@ -13,8 +12,8 @@
       enable = true;
       package = pkgs.neovim-nightly;
       extraPackages = with pkgs;
-        [] # Needed for Teesitter
-        ++ import ./editorPackages.nix {inherit pkgs;};
+        [ ] # Needed for Teesitter
+        ++ import ./editorPackages.nix { inherit pkgs; };
       extraConfig = ''
         lua << EOF
         ${builtins.readFile ../../nvim/init.lua}
