@@ -6,7 +6,8 @@ in {
   cl = "curl -L";
   clo = "curl -LO";
   cnf = "command-not-found";
-  cp = "cp --reflink=always";
+  cp = "cp --reflink=always -i";
+  mv = "mv -i";
   duts = "dust";
   e = "$EDITOR";
   fex = "fd --extension";
