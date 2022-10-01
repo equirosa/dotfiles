@@ -273,6 +273,7 @@ in {
         })
         (writeShellApplication {
           name = "run-backups";
+          runtimeInputs = with pkgs; [borgbackup];
           text = ''
             ${builtins.readFile ../../scripts/run-backups.sh}
           '';
