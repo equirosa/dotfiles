@@ -12,12 +12,10 @@ in
   duts = "dust";
   e = "$EDITOR";
   fex = "fd --extension";
-  mfs = "mpv --fs";
   l = "ls -lh";
   lb = "lsblk";
   lg = "lazygit";
   ll = "ls -lah";
-  m = "mpv";
   md = "mkdir -p";
   ned = "nix-env -qaP --description";
   nf = "nix fmt";
@@ -32,12 +30,16 @@ in
   snp = "show-nix-store-path";
   ss = "show-script";
   tl = "tldr";
-  u = "umpv";
   v = "nvim";
   wl = "watchlist";
   yf = "${ytfzf}";
   yl = "${ytfzf} --loop";
   x = "xdg-open";
+  # Mpv
+  m = "mpv";
+  mfs = "mpv --fs";
+  sm = "setsid mpv";
+  u = "umpv";
   # Flatpak
   fi = "flatpak install --assumeyes";
   fs = "flatpak search";
