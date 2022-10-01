@@ -193,7 +193,7 @@ in {
           name = "feed-subscribe";
           text = ''
             if [ $# -eq 0 ]; then
-              URL="$(${dmenu-command} -p Enter URL)"
+              URL="$(${dmenu-command} --prompt-text Enter URL)"
             else
               URL="''${1}"
             fi
@@ -281,8 +281,8 @@ in {
           name = "search";
           text = ''
             SEARCH_OPTIONS="searx.nixnet.services/search?q=\nyoutube.com/results?search_query=\ngithub.com/search?q=\nnixos.wiki/index.php?search=\nprotondb.com/search?q="
-            SEARCH_SITE="$(echo -e "''${SEARCH_OPTIONS}" | ${dmenu-command} -p "Search website")"
-            INPUT="$(${dmenu-command} -p "Search term")"
+            SEARCH_SITE="$(echo -e "''${SEARCH_OPTIONS}" | ${dmenu-command} --prompt-text "Search website")"
+            INPUT="$(${dmenu-command} --prompt-text "Search term")"
             ${config.home.sessionVariables.BROWSER} "''${SEARCH_SITE}''${INPUT}"
           '';
         })
