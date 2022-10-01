@@ -35,7 +35,7 @@ in {
         bind-key O open-in-browser-and-mark-read
 
         # Macros
-        macro m set browser "${pkgs.mpv}/bin/mpv --speed=3.14 --pause"; open-in-browser-and-mark-read; ${resetBrowser}
+        macro m set browser "${pkgs.mpv}/bin/mpv --pause"; open-in-browser-and-mark-read; ${resetBrowser}
         macro u set browser "${pkgs.mpv}/bin/umpv"; open-in-browser-and-mark-read; ${resetBrowser}
         macro w set browser "${pkgs.w3m}/bin/w3m"; open-in-browser-and-mark-read ; ${resetBrowser}
         macro b set browser "${config.home.sessionVariables.BROWSER}"; open-in-browser-and-mark-read ; ${resetBrowser}
