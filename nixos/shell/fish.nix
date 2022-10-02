@@ -9,7 +9,7 @@ let
 in
 {
   users.users.kiri.shell = pkgs.fish;
-  home-manager.users.kiri = {
+  home-manager.users.kiri = { config, ... }: {
     programs = {
       fish = {
         enable = true;
@@ -17,6 +17,7 @@ in
         shellAbbrs = abbreviations;
         interactiveShellInit = ''
           ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+        '' + lib.optionalString config.programs.neovim.enable ''
           set -gx EDITOR nvim
         '';
         plugins = [
