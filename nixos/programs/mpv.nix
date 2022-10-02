@@ -15,14 +15,19 @@
         alang = "en,eng";
         ytdl-format = "(bestvideo[height<=1080]+bestaudio)[ext=webm]/bestvideo[height<=1080]+bestaudio/best[height<=1080]/bestvideo+bestaudio/best";
       };
-      profiles = {
-        "protocol.https" = {
-          profile-desc = "Profile for web videos";
-          speed = 3.14;
-          keep-open = "";
+      profiles =
+        let
+          webProtocol = {
+            profile-desc = "Profile for web videos";
+            speed = 3.14;
+            keep-open = "";
+            ytdl-format = "(bestvideo[height<=720]+bestaudio)[ext=webm]/bestvideo[height<=720]+bestaudio/best[height<=720]/bestvideo+bestaudio/best";
+          };
+        in
+        {
+          "protocol.https" = webProtocol;
+          "protocol.http" = webProtocol;
         };
-        "protocol.http".profile = "protocol.https";
-      };
       scripts = with pkgs.mpvScripts; [
         mpv-playlistmanager
         sponsorblock
