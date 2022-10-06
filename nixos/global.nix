@@ -28,7 +28,7 @@ in
     users.kiri = {
       home = {
         sessionVariables = {
-          BROWSER = "${pkgs.firefox}/bin/firefox";
+          BROWSER = "${pkgs.firefox}/bin/firefox -p default";
         };
         inherit (config.system) stateVersion;
       };
