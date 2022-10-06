@@ -51,7 +51,14 @@
   };
   nixpkgs = {
     config = {
-      allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "steam" "steam-runtime" "steam-run" "steam-original" "mongodb-compass" "mongodb" ];
+      allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+        "mongodb"
+        "mongodb-compass"
+        "steam-original"
+        "steam-run"
+        "steam-runtime"
+        "steam"
+      ];
     };
   };
   services = {
