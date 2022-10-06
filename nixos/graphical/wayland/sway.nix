@@ -172,8 +172,8 @@ in
               "Print" = "exec sway-shot";
             };
             assigns = {
-              "1" = [{ app_id = "org.remmina.Remmina"; }];
-              "9" = [{ class = "^Element"; }];
+              "1" = [{ class = "^Element"; }];
+              "6" = [{ app_id = "org.remmina.Remmina"; }];
             };
             startup = [
               { command = "${pkgs.autotiling}/bin/autotiling"; }
@@ -195,12 +195,12 @@ in
               "*" = { bg = "${config.xdg.cacheHome}/background_image fill"; };
               "DP-1" = {
                 mode = "1920x1080";
-                position = "0 0";
+                position = "1920 0";
                 adaptive_sync = "on";
               };
               "HDMI-A-1" = {
                 mode = "1920x1080";
-                position = "1920 0";
+                position = "0 0";
               };
             };
             window.commands = [
@@ -215,8 +215,8 @@ in
             workspaceOutputAssign =
               let
                 inherit (lib.lists) forEach range;
-                leftWorkspaces = range 1 5;
-                rightWorkspaces = range 6 9;
+                rightWorkspaces = range 1 5;
+                leftWorkspaces = range 6 9;
               in
               forEach leftWorkspaces
                 (space: {
@@ -253,10 +253,6 @@ in
   programs.sway.enable = true;
   services = {
     pipewire.enable = true;
-    greetd = {
-      enable = true;
-      settings = { default_session = { command = "${pkgs.greetd.greetd}/bin/agreety --cmd sway"; }; };
-    };
   };
   xdg = {
     portal = {
