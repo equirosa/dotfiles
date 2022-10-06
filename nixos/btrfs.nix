@@ -5,7 +5,7 @@
   services = {
     beesd.filesystems = {
       home = {
-        spec = "LABEL=home";
+        spec = "/home";
         hashTableSizeMB = 1024;
         verbosity = "crit";
         extraOptions = [ "--loadavg-target" "2.5" ];
