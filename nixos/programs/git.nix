@@ -6,7 +6,7 @@
         aliases = { };
         attributes = [ "*.pdf diff=pdf" ];
         extraConfig = {
-          # init = {defaultBranch = "main";};
+          init.defaultBranch = "main";
           diff = {
             algorithm = "histogram";
             sopsdiffer.textconv = "sops -d";
