@@ -18,6 +18,7 @@ in
 {
   imports = [
     ./emacs.nix
+    ./neovim.nix
     ./flatpak.nix
     ./git.nix
     ./kitty.nix
