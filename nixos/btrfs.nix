@@ -6,7 +6,7 @@
     beesd.filesystems = {
       home = {
         spec = "/home";
-        hashTableSizeMB = 1024;
+        hashTableSizeMB = 4096;
         verbosity = "crit";
         extraOptions = [ "--loadavg-target" "2.5" ];
       };
