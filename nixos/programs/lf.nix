@@ -29,7 +29,7 @@
           "<delete>" = "\$${pkgs.trash-cli}/bin/trash-put \"$fx\"";
           D = "&${pkgs.xdragon}/bin/dragon --all --and-exit \"$fx\"";
           E = "push \$${config.home.sessionVariables.EDITOR}<space>";
-          L = "$${pkgs.lazygit}/bin/lazygit";
+          L = "\$${pkgs.lazygit}/bin/lazygit";
           M = "push \$mkdir<space>-p<space>";
           T = "push \$touch<space>";
           U = "\${pkgs.mpv}/bin/umpv \"$fx\"";
