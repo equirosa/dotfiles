@@ -7,6 +7,12 @@ let
   cat = "${pkgs.bat}/bin/bat --plain";
   dmenu-command = "${pkgs.tofi}/bin/tofi";
   exitWithNoArguments = ''[ $# -eq 0 ] && ${notify} "No arguments provided. Exitting..." && exit 1'';
+  backupIfDuplicate = (ext: ''if [ "''${ext}" = "${ext}" ];
+  then
+  ${backupFile}
+  export file="''${file}.bak"
+  fi
+  '');
   getFile = ''file="$(readlink -f "''${1}")"'';
   getExt = ''ext=''${file##*.}'';
   getDir = ''directory=''${file%/*}'';
@@ -94,8 +100,9 @@ in
             ${exitWithNoArguments}
             ${getFile}
             ${getBase}
-            ${backupFile}
-            ffmpeg -i "''${file}.bak" -c:v libsvtav1 -preset 5 -crf 32 -g 240 -pix_fmt yuv420p10le -c:a libopus "''${base}.mkv"
+            ${getExt}
+            ${backupIfDuplicate "mkv"}
+            ffmpeg -i "''${file}" -c:v libsvtav1 -preset 5 -crf 32 -g 240 -pix_fmt yuv420p10le -c:a libopus "''${base}.mkv"
           '';
         })
         (writeShellApplication {
