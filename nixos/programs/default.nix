@@ -17,6 +17,7 @@ let
   getExt = ''ext=''${file##*.}'';
   getDir = ''directory=''${file%/*}'';
   getBase = ''base=''${file%.*}'';
+  scriptAudio = "-c:a libopus -b:a 96k";
   backupFile = ''bak="''${file}.bak"; mv "''${file}" "''${bak}"'';
   terminal = "${pkgs.foot}/bin/foot";
   geminiBrowser = "${pkgs.lagrange}/bin/lagrange";
@@ -102,7 +103,7 @@ in
             ${getBase}
             ${getExt}
             ${backupIfDuplicate "mkv"}
-            ffmpeg -i "''${file}" -c:v libsvtav1 -preset 5 -crf 32 -g 240 -pix_fmt yuv420p10le -c:a libopus "''${base}.mkv"
+            ffmpeg -i "''${file}" -c:v libsvtav1 -preset 5 -crf 32 -g 240 -pix_fmt yuv420p10le ${scriptAudio} "''${base}.mkv"
           '';
         })
         (writeShellApplication {
@@ -111,7 +112,7 @@ in
             ${exitWithNoArguments}
             ${getFile}
             ${getBase}
-            ${pkgs.ffmpeg}/bin/ffmpeg -i "''${file}" -vn -c:a libopus -b:a 96k "''${base}.ogg"
+            ${pkgs.ffmpeg}/bin/ffmpeg -i "''${file}" -vn ${scriptAudio} "''${base}.ogg"
           '';
         })
         (writeShellApplication {
