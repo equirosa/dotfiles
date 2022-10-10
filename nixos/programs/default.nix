@@ -32,6 +32,7 @@ in
     ./lf.nix
     ./mpv.nix
     ./newsboat
+    ./rofi.nix
   ];
   home-manager.users.kiri = { config, ... }: {
     xdg.configFile."tofi/config".text = ''
