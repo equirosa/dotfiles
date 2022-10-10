@@ -7,12 +7,12 @@ let
   cat = "${pkgs.bat}/bin/bat --plain";
   dmenu-command = "${pkgs.tofi}/bin/tofi";
   exitWithNoArguments = ''[ $# -eq 0 ] && ${notify} "No arguments provided. Exitting..." && exit 1'';
-  backupIfDuplicate = (ext: ''if [ "''${ext}" = "${ext}" ];
+  backupIfDuplicate = ext: ''if [ "''${ext}" = "${ext}" ];
   then
   ${backupFile}
   export file="''${file}.bak"
   fi
-  '');
+  '';
   getFile = ''file="$(readlink -f "''${1}")"'';
   getExt = ''ext=''${file##*.}'';
   getDir = ''directory=''${file%/*}'';
