@@ -5,8 +5,8 @@
 let
   lockCommand = "${pkgs.swaylock}/bin/swaylock --image ${config.home-manager.users.kiri.xdg.cacheHome}/background_image -f";
   commonCommands = {
-    dmenuCommand = "${pkgs.tofi}/bin/tofi-run | ${pkgs.busybox}/bin/xargs swaymsg exec --";
-    desktopCommand = "${pkgs.tofi}/bin/tofi-drun | ${pkgs.busybox}/bin/xargs swaymsg exec --";
+    dmenuCommand = "rofi -show run | ${pkgs.busybox}/bin/xargs swaymsg exec --";
+    desktopCommand = "rofi -show drun | ${pkgs.busybox}/bin/xargs swaymsg exec --";
     feedReader = "${pkgs.newsboat}/bin/newsboat";
     mailClient = "${pkgs.aerc}/bin/aerc";
     terminal = "kitty";
