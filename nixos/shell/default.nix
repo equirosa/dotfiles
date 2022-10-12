@@ -25,7 +25,7 @@
             dataFiles = [ "csv" "json" "toml" "yaml" ];
             mediaFiles = [ "mkv" "mp4" "webm" "webp" ];
             docFiles = [ "md" "org" "docx" "odt" ];
-            extAttrs = (extList: color: (genAttrs (map (ext: ".${ext}") extList) (ext: "${bold};${color}")));
+            extAttrs = extList: color: (genAttrs (map (ext: ".${ext}") extList) (ext: "${bold};${color}"));
           in
           recursiveUpdate
             {
