@@ -155,6 +155,7 @@ in
               mShift = "${mod}+Shift";
             in
             lib.mkOptionDefault {
+              "${mShift}+a" = "exec qpwgraph";
               "${mShift}+d" = "exec ${commonCommands.desktopCommand}";
               "${mShift}+e" = "exec emacsclient --create-frame";
               "${mShift}+f" = "floating toggle";
