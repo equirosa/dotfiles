@@ -39,7 +39,6 @@ in
       [
         # Browsers
         firefox
-        qutebrowser
         tor-browser-bundle-bin
         lagrange
         nyxt
