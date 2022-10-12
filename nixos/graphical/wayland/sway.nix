@@ -152,12 +152,13 @@ in
             keybindings = with commonCommands; let
               mod = config.wayland.windowManager.sway.config.modifier;
               inherit (config.wayland.windowManager.sway.config) terminal;
+              mShift = "${mod}+Shift";
             in
             lib.mkOptionDefault {
-              "${mod}+Shift+d" = "exec ${commonCommands.desktopCommand}";
-              "${mod}+Shift+e" = "exec emacsclient --create-frame";
-              "${mod}+Shift+f" = "floating toggle";
-              "${mod}+Shift+t" = "exec ${terminal} ${transmissionClient}";
+              "${mShift}+d" = "exec ${commonCommands.desktopCommand}";
+              "${mShift}+e" = "exec emacsclient --create-frame";
+              "${mShift}+f" = "floating toggle";
+              "${mShift}+t" = "exec ${terminal} ${transmissionClient}";
               "${mod}+a" = "exec ${terminal} ${termAudio}";
               "${mod}+s" = "exec search";
               "${mod}+e" = "exec ${terminal} ${mailClient}";
