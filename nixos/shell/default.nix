@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   imports = [ ./bash.nix ./fish.nix ];
   home-manager.users.kiri = {
     programs = {
@@ -13,6 +13,7 @@
         enable = true;
         settings =
           let
+            inherit (lib) genAttrs recursiveUpdate;
             bold = "01";
             red = "31";
             green = "32";
@@ -21,18 +22,21 @@
             pink = "35";
             teal = "36";
             grey = "37";
+            dataFiles = [ "csv" "json" "toml" "yaml" ];
+            mediaFiles = [ "mkv" "mp4" "webm" "webp" ];
+            docFiles = [ "md" "org" "docx" "odt" ];
+            extAttrs = (extList: color: (genAttrs (map (ext: ".${ext}") extList) (ext: "${bold};${color}")));
           in
-          {
-            OTHER_WRITABLE = "30;46";
-            ".sh" = "${bold};${green}";
-            ".csv" = "${bold};${yellow}";
-            ".json" = "${bold};${yellow}";
-            ".toml" = "${bold};${yellow}";
-            ".yaml" = "${bold};${yellow}";
-            ".mkv" = "${bold};${pink}";
-            ".md" = "${bold};${teal}";
-            ".org" = "${bold};${teal}";
-          };
+          recursiveUpdate
+            {
+              OTHER_WRITABLE = "30;46";
+              ".sh" = "${bold};${green}";
+            }
+            (recursiveUpdate
+              (extAttrs dataFiles yellow)
+              (recursiveUpdate
+                (extAttrs docFiles teal)
+                (extAttrs mediaFiles pink)));
       };
       lsd = {
         enable = true;
