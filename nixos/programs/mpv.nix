@@ -27,6 +27,10 @@
         {
           "protocol.https" = webProtocol;
           "protocol.http" = webProtocol;
+          "extension.gif" = {
+            osc = "no";
+            loop-file = "";
+          };
         };
       scripts = with pkgs.mpvScripts; [
         mpv-playlistmanager
