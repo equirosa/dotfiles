@@ -2,7 +2,8 @@
   services = {
     borgbackup.jobs =
       let
-        common-excludes = [
+        paths = "/home/kiri/";
+        common-excludes = map (x: paths + x) [
           # Largest cache dirs
           ".cache"
           "*/.cache"
@@ -31,7 +32,7 @@
           "*/unhidden"
           "*/.thumbnails"
         ];
-        games-excludes = [
+        games-excludes = map (dir: paths + "Games/" + dir) [
           "battlenet"
           "epic"
           "rocket-league"
@@ -48,6 +49,7 @@
           "/home/kiri/projects/"
         ];
         basicBorgJob = name: {
+          inherit paths;
           environment = {
             BORG_UNKNOWN_UNENCRYPTED_REPO_ACCESS_IS_OK = "yes";
             BORG_RSH = "ssh -i /home/kiri/.ssh/id_ed25519";
@@ -70,9 +72,8 @@
       {
         snowfortBorgbase =
           basicBorgJob "snowfort"
-          // rec {
-            paths = "/home/kiri/";
-            exclude = map (x: paths + x) common-excludes ++ map (dir: paths + "Games/" + dir) games-excludes;
+          // {
+            exclude = common-excludes ++ games-excludes;
             encryption = {
               mode = "keyfile";
               passCommand = "cat /home/kiri/.borg_pass";
@@ -81,10 +82,9 @@
           };
         snowfortExternalDrive =
           basicBorgJob "snowfort"
-          // rec {
-            paths = "/home/kiri/";
-            exclude = map (x: paths + x) common-excludes ++ map (dir: paths + "Games/" + dir) games-excludes;
-            encryption = { mode = "none"; };
+          // {
+            exclude = common-excludes ++ games-excludes;
+            encryption.mode = "none";
             removableDevice = true;
             repo = "/run/media/kiri/2e571771-81db-41a5-a0b6-d5c6d3b8bf88/borg/";
           };
