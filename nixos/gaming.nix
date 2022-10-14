@@ -1,7 +1,9 @@
 { pkgs
 , lib
 , ...
-}: {
+}:
+let inherit (builtins) attrValues elem; in
+{
   imports = [
     # "nix-gaming/modules/pipewireLowLatency.nix"
   ];
@@ -17,32 +19,31 @@
   home-manager.users.kiri = {
     home = {
       sessionVariables.WINE_FULLSCREEN_FSR = 1;
-      packages = with pkgs; [
-        # Games
-        # nix-gaming.packages.x86_64-linux.rocket-league
-        # Launchers
-        lutris
-        # General games client
-        legendary-gl
-        # Utilities
-        chiaki # PS4 Remote Play utility
-        gamescope
-        mangohud
-        protonup
-      ];
+      packages = attrValues {
+        inherit (pkgs)
+          # Games
+          # nix-gaming.packages.x86_64-linux.rocket-league
+          # Launchers
+          lutris
+          # General games client
+          legendary-gl
+          # Utilities
+          chiaki# PS4 Remote Play utility
+          gamescope
+          mangohud
+          protonup;
+      };
     };
   };
   programs = {
-    gamemode = {
-      enable = true;
-    };
+    gamemode = { enable = true; };
     steam.enable = true;
   };
   hardware = {
     opengl = {
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+      extraPackages32 = attrValues { inherit (pkgs.pkgsi686Linux) libva; };
     };
   };
   nix.settings = {
@@ -51,7 +52,7 @@
   };
   nixpkgs = {
     config = {
-      allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+      allowUnfreePredicate = pkg: elem (lib.getName pkg) [
         "mongodb"
         "mongodb-compass"
         "steam-original"
