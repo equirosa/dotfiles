@@ -33,12 +33,12 @@ in
     ./mpv.nix
     ./newsboat
     ./rofi.nix
+    ./browsers/firefox.nix
   ];
   home-manager.users.kiri = { config, ... }: {
     home.packages = with pkgs;
       [
         # Browsers
-        firefox
         tor-browser-bundle-bin
         lagrange
         nyxt
