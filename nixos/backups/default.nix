@@ -54,6 +54,7 @@
             BORG_UNKNOWN_UNENCRYPTED_REPO_ACCESS_IS_OK = "yes";
             BORG_RSH = "ssh -i /home/kiri/.ssh/id_ed25519";
           };
+          exclude = common-excludes ++ games-excludes;
           extraCreateArgs = "--verbose --stats --checkpoint-interval 600";
           extraPruneArgs = "--save-space";
           compression = "auto,zstd,10";
@@ -74,7 +75,6 @@
         snowfortBorgbase = recursiveUpdate
           (basicBorgJob "snowfort")
           {
-            exclude = common-excludes ++ games-excludes;
             encryption = {
               mode = "keyfile";
               passCommand = "cat /home/kiri/.borg_pass";
@@ -84,7 +84,6 @@
         snowfortExternalDrive = recursiveUpdate
           (basicBorgJob "snowfort")
           {
-            exclude = common-excludes ++ games-excludes;
             encryption.mode = "none";
             removableDevice = true;
             repo = "/run/media/kiri/2e571771-81db-41a5-a0b6-d5c6d3b8bf88/borg/";
