@@ -31,22 +31,23 @@
           "*/torrented"
           "*/unhidden"
           "*/.thumbnails"
+          "*/legendary"
         ];
         games-excludes = map (dir: paths + "Games/" + dir) [
           "battlenet"
           "epic"
           "rocket-league"
         ];
-        common-includes = [
-          "/home/kiri/Documents/"
-          "/home/kiri/Downloads/"
-          "/home/kiri/Games/itch/"
-          "/home/kiri/Music/"
-          "/home/kiri/Sync/"
-          "/home/kiri/Templates/"
-          "/home/kiri/Videos/"
-          "/home/kiri/dotfiles/"
-          "/home/kiri/projects/"
+        common-includes = map (dir: paths + dir) [
+          "Documents/"
+          "Downloads/"
+          "Games/itch/"
+          "Music/"
+          "Sync/"
+          "Templates/"
+          "Videos/"
+          "dotfiles/"
+          "projects/"
         ];
         basicBorgJob = name: {
           inherit paths;
