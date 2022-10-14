@@ -3,35 +3,34 @@
     borgbackup.jobs =
       let
         paths = "/home/kiri/";
-        common-excludes = map (x: paths + x) [
+        common-excludes = map (x: paths + "*/" + x) [
           # Largest cache dirs
           ".cache"
-          "*/.cache"
-          "*/cache2" # firefox
-          "*/Cache"
+          "cache2" # firefox
+          "Cache"
           ".config/Slack/logs"
           ".config/Code/CachedData"
           ".container-diff"
           ".npm/_cacache"
           # Work related dirs
-          "*/node_modules"
-          "*/bower_components"
-          "*/_build"
-          "*/.tox"
-          "*/venv"
-          "*/.venv"
-          "*/.direnv"
-          "*/.stfolder"
+          "node_modules"
+          "bower_components"
+          "_build"
+          ".tox"
+          "venv"
+          ".venv"
+          ".direnv"
+          ".stfolder"
           ".local/share/Steam"
           ".steam"
           ".var"
-          "*/rocket-league"
-          "*/rocketleague"
+          "rocket-league"
+          "rocketleague"
           ".m2"
-          "*/torrented"
-          "*/unhidden"
-          "*/.thumbnails"
-          "*/legendary"
+          "torrented"
+          "unhidden"
+          ".thumbnails"
+          "legendary"
         ];
         games-excludes = map (dir: paths + "Games/" + dir) [
           "battlenet"
