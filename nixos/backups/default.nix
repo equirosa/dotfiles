@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, lib, ... }: {
   services = {
     borgbackup.jobs =
       let
@@ -68,11 +68,12 @@
             monthly = -1;
           };
         };
+        inherit (lib) recursiveUpdate;
       in
       {
-        snowfortBorgbase =
-          basicBorgJob "snowfort"
-          // {
+        snowfortBorgbase = recursiveUpdate
+          (basicBorgJob "snowfort")
+          {
             exclude = common-excludes ++ games-excludes;
             encryption = {
               mode = "keyfile";
@@ -80,9 +81,9 @@
             };
             repo = "hvwib450@hvwib450.repo.borgbase.com:repo";
           };
-        snowfortExternalDrive =
-          basicBorgJob "snowfort"
-          // {
+        snowfortExternalDrive = recursiveUpdate
+          (basicBorgJob "snowfort")
+          {
             exclude = common-excludes ++ games-excludes;
             encryption.mode = "none";
             removableDevice = true;
