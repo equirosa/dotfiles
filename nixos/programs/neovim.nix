@@ -1,7 +1,21 @@
 { config
 , pkgs
+, lib
+, vimUtils
 , ...
-}: {
+}:
+let
+  pluginGit = ref: repo: vimUtils.buildVimPluginFrom2Nix {
+    pname = "${lib.strings.sanitizeDerivationName repo}";
+    version = ref;
+    src = builtins.fetchGit {
+      url = "https://github.com/${repo}.git";
+      inherit ref;
+    };
+  };
+  pluginGitHead = pluginGit "HEAD";
+in
+{
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
       url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
