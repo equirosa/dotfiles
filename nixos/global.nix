@@ -18,7 +18,6 @@ in
     ./shell
     ./theme.nix
     ./virtualization/qemu.nix
-    ./mongodb.nix
   ];
   users.users.kiri = {
     extraGroups = [ "adbusers" ];
