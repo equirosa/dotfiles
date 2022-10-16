@@ -4,6 +4,7 @@
 , ...
 }:
 let
+  inherit (lib) optionalString;
   abbreviations = import ./abbreviations.nix;
   aliases = import ./aliases.nix { inherit pkgs; };
 in
@@ -15,12 +16,12 @@ in
         enable = true;
         shellAliases = aliases;
         shellAbbrs = abbreviations;
-        loginShellInit = '''' + lib.optionalString config.wayland.windowManager.sway.enable ''
+        loginShellInit = '''' + optionalString config.wayland.windowManager.sway.enable ''
           ${builtins.readFile ./autolaunch_sway.fish}
         '';
         interactiveShellInit = ''
           ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
-        '' + lib.optionalString config.programs.neovim.enable ''
+        '' + optionalString config.programs.neovim.enable ''
           set -gx EDITOR nvim
         '';
         plugins = [
