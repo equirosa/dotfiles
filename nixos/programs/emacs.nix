@@ -25,6 +25,7 @@
         package = pkgs.emacsNativeComp;
         alwaysEnsure = true;
         alwaysTangle = false;
+        defaultInitFile = true;
         extraEmacsPackages = epkgs:
           with epkgs;
           with pkgs;
@@ -39,10 +40,6 @@
           ]
           ++ import ./editorPackages.nix { inherit pkgs; };
       };
-    };
-    xdg.configFile = {
-      "emacs/init.el".source = ../../emacs/init.el;
-      "emacs/early-init.el".source = ../../emacs/early-init.el;
     };
   };
 }
