@@ -176,6 +176,7 @@ in
             assigns = {
               "1" = [{ class = "^Element"; }];
               "6" = [{ app_id = "org.remmina.Remmina"; }];
+              "9" = [{ class = "^Steam"; }];
             };
             startup = [
               { command = "${pkgs.autotiling}/bin/autotiling"; }
