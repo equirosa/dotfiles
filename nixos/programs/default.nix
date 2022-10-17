@@ -27,7 +27,6 @@ in
     ./emacs.nix
     ./neovim.nix
     ./flatpak.nix
-    ./git.nix
     ./kitty.nix
     ./lf.nix
     ./mpv.nix
@@ -36,6 +35,7 @@ in
     ./browsers/firefox.nix
   ];
   home-manager.users.kiri = { config, ... }: {
+    imports = [ ./git.nix ];
     home.packages = with pkgs;
       [
         # Browsers
