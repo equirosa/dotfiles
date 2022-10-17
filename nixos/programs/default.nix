@@ -318,7 +318,7 @@ in
           name = "watchlist";
           text =
             let
-              videoDir = "${config.xdg.userDirs.videos}";
+              inherit (config.xdg.userDirs) videos;
             in
             ''
               case "''${1}" in
@@ -326,10 +326,10 @@ in
                   --sponsorblock-mark all\
                   --embed-subs\
                   --embed-metadata\
-                  -o "${videoDir}/watchlist/$(date +%s)-%(title)s-[%(id)s].%(ext)s"\
+                  -o "${videos}/watchlist/$(date +%s)-%(title)s-[%(id)s].%(ext)s"\
                 "$1" >>/dev/null & ;;
-                "") setsid umpv "${videoDir}/watchlist/" ;;
-                *) setsid mv "''${1}" "${videoDir}/watchlist/$(date +%s)-''${1}" ;;
+                "") setsid umpv "${videos}/watchlist/" ;;
+                *) setsid mv "''${1}" "${videos}/watchlist/$(date +%s)-''${1}" ;;
               esac
             '';
         })
