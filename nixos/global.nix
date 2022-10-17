@@ -92,7 +92,10 @@ in
       xdg.userDirs.enable = true;
     };
   };
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot = {
+    tmpOnTmpfs = true;
+    kernelPackages = pkgs.linuxPackages_latest;
+  };
   hardware.enableRedistributableFirmware = true;
   networking = {
     hostFiles = [ "${pkgs.stevenblack-blocklist}/hosts" "${pkgs.stevenblack-blocklist}/alternates/gambling/hosts" ];
