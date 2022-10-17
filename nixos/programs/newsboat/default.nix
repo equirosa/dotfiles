@@ -1,4 +1,4 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 let
   resetBrowser = ''set browser "xdg-open"'';
 in
