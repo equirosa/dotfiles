@@ -17,6 +17,7 @@ in
     ./programs
     ./shell
     ./theme.nix
+    ./virtualization/podman.nix
     ./virtualization/qemu.nix
   ];
   users.users.kiri = {
