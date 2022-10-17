@@ -8,38 +8,36 @@
         url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
       }))
   ];
-  home-manager.users.kiri = {
-    services.emacs = {
+  services.emacs = {
+    enable = true;
+    client = {
       enable = true;
-      client = {
-        enable = true;
-        arguments = [ "-c" "-a 'emacs'" ];
-      };
-      defaultEditor = true;
-      socketActivation.enable = false;
+      arguments = [ "-c" "-a 'emacs'" ];
     };
-    programs.emacs = {
-      enable = true;
-      package = pkgs.emacsWithPackagesFromUsePackage {
-        config = ../../emacs/init.el;
-        package = pkgs.emacsPgtkNativeComp;
-        alwaysEnsure = true;
-        alwaysTangle = false;
-        defaultInitFile = true;
-        extraEmacsPackages = epkgs:
-          with epkgs;
-          with pkgs;
-          # Normal Packages
-          [ ]
-          ++ [
-            gcc
-            sqlite # For org-roam
-            unzip # To export as docx
-            tectonic
-            texlive.combined.scheme-full # For latex exports
-          ]
-          ++ import ./editorPackages.nix { inherit pkgs; };
-      };
+    defaultEditor = true;
+    socketActivation.enable = false;
+  };
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacsWithPackagesFromUsePackage {
+      config = ../../emacs/init.el;
+      package = pkgs.emacsPgtkNativeComp;
+      alwaysEnsure = true;
+      alwaysTangle = false;
+      defaultInitFile = true;
+      extraEmacsPackages = epkgs:
+        with epkgs;
+        with pkgs;
+        # Normal Packages
+        [ ]
+        ++ [
+          gcc
+          sqlite # For org-roam
+          unzip # To export as docx
+          tectonic
+          texlive.combined.scheme-full # For latex exports
+        ]
+        ++ import ./editorPackages.nix { inherit pkgs; };
     };
   };
 }

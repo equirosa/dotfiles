@@ -24,18 +24,20 @@ let
 in
 {
   imports = [
-    ./emacs.nix
-    ./neovim.nix
     ./flatpak.nix
-    ./kitty.nix
-    ./lf.nix
-    ./mpv.nix
-    ./newsboat
-    ./rofi.nix
-    ./browsers/firefox.nix
   ];
   home-manager.users.kiri = { config, ... }: {
-    imports = [ ./git.nix ];
+    imports = [
+      ./browsers/firefox.nix
+      ./emacs.nix
+      ./git.nix
+      ./kitty.nix
+      ./lf.nix
+      ./mpv.nix
+      ./neovim.nix
+      ./newsboat
+      ./rofi.nix
+    ];
     home.packages = with pkgs;
       [
         # Browsers
