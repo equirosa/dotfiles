@@ -112,7 +112,7 @@ in
             ${exitWithNoArguments}
             ${getFile}
             ${getBase}
-            ${pkgs.ffmpeg}/bin/ffmpeg -i "''${file}" -vn ${scriptAudio} "''${base}.ogg"
+            ${ffmpeg}/bin/ffmpeg -i "''${file}" -vn ${scriptAudio} "''${base}.ogg"
           '';
         })
         (writeShellApplication {
@@ -145,14 +145,14 @@ in
         (writeShellApplication {
           name = "check-modifications";
           text = ''
-            nixos-rebuild build --upgrade && ${lib.getBin pkgs.nvd}/bin/nvd diff /run/current-system ./result && rm ./result
+            nixos-rebuild build --upgrade && ${lib.getBin nvd}/bin/nvd diff /run/current-system ./result && rm ./result
           '';
         })
         (writeShellApplication {
           name = "download-file";
           text = ''
             ${exitWithNoArguments}
-            setsid ${pkgs.yt-dlp}/bin/yt-dlp --sponsorblock-mark all \
+            setsid ${yt-dlp}/bin/yt-dlp --sponsorblock-mark all \
             --embed-subs --embed-metadata -o "%(title)s-[%(id)s].%(ext)s" "$1" >>/dev/null &
           '';
         })
@@ -204,9 +204,9 @@ in
         (writeShellApplication {
           name = "encrypt";
           text = ''
-            ${pkgs.gnupg}/bin/gpg --encrypt --recipient "eduardo@eduardoquiros.com" "$1" \
+            ${gnupg}/bin/gpg --encrypt --recipient "eduardo@eduardoquiros.com" "$1" \
             && ${notify} "🔒 encrypting..." \
-            && ${pkgs.coreutils}/bin/shred --remove "$1" \
+            && ${coreutils}/bin/shred --remove "$1" \
             && ${notify} "❌ file deleted"
           '';
         })
@@ -259,9 +259,9 @@ in
           name = "nixify";
           text = ''
             ${exitWithNoArguments}
-            ${pkgs.nix}/bin/nix flake new -t github:numtide/devshell ."''${1}" \
+            nix flake new -t github:numtide/devshell ."''${1}" \
             && cd "''${1}" \
-            && ${pkgs.direnv}/bin/direnv allow
+            && ${direnv}/bin/direnv allow
             ''${EDITOR} flake.nix
           '';
         })
@@ -286,10 +286,10 @@ in
           text = ''
             chosen=$(find "${config.xdg.dataHome}/remmina/" -name "*.remmina")
 
-            [ "$(${pkgs.coreutils}/bin/wc -l <<< "''${chosen}")" -gt 1 ] &&\
-            chosen=$(${pkgs.coreutils}/bin/printf "''${chosen}" | ${dmenu-command})
+            [ "$(${coreutils}/bin/wc -l <<< "''${chosen}")" -gt 1 ] &&\
+            chosen=$(${coreutils}/bin/printf "''${chosen}" | ${dmenu-command})
 
-            ${pkgs.remmina}/bin/remmina -c "$chosen"
+            ${remmina}/bin/remmina -c "$chosen"
           '';
         })
         (writeShellApplication {
@@ -312,13 +312,13 @@ in
           name = "show-ansi-escapes";
           text = ''
             for i in 30 31 32 33 34 35 36 37 38; do
-            ${pkgs.coreutils}/bin/printf "\033[0;''${i}m Normal: (0;''${i}); \033[1;''${i}m Bold: (1;''${i});\n"
+            ${coreutils}/bin/printf "\033[0;''${i}m Normal: (0;''${i}); \033[1;''${i}m Bold: (1;''${i});\n"
             done
           '';
         })
         (writeShellApplication {
           name = "show-nix-store-path";
-          text = ''${pkgs.coreutils}/bin/readlink -f "$(command -v "$@")" '';
+          text = ''${coreutils}/bin/readlink -f "$(command -v "$@")" '';
         })
         (writeShellApplication {
           name = "show-script";
@@ -334,7 +334,7 @@ in
             in
             ''
               case "''${1}" in
-                *http*) setsid ${pkgs.yt-dlp}/bin/yt-dlp \
+                *http*) setsid ${yt-dlp}/bin/yt-dlp \
                   --sponsorblock-mark all\
                   --embed-subs\
                   --embed-metadata\
@@ -354,9 +354,9 @@ in
               http* | *.html ) ${config.home.sessionVariables.BROWSER} "''${@}" ;;
               magnet* | *.torrent ) transmission-remote -a "''${1}" && ${notify} "Torrent Added! ✅" && exit 0 ;;
               *.org ) emacsclient --create-frame "''${1}" ;;
-              *.png | *.jpg | *.jpeg | *.webp ) ${pkgs.imv}/bin/imv "''${@}" ;;
+              *.png | *.jpg | *.jpeg | *.webp ) ${imv}/bin/imv "''${@}" ;;
               *.pdf ) setsid ${config.home.sessionVariables.BROWSER} -p default "''${@}" ;;
-              * ) ${pkgs.xdg-utils}/bin/xdg-open "''${@}" ;;
+              * ) ${xdg-utils}/bin/xdg-open "''${@}" ;;
             esac
           '';
         })
