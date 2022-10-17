@@ -26,6 +26,15 @@ in
   imports = [
     ./flatpak.nix
   ];
+  nixpkgs.overlays = [
+    (import
+      (builtins.fetchTarball {
+        url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
+      }))
+    (import (builtins.fetchTarball {
+      url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+    }))
+  ];
   home-manager.users.kiri = { config, ... }: {
     imports = [
       ./browsers/firefox.nix
