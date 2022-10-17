@@ -42,6 +42,7 @@ in
   u = "umpv";
   # Flatpak
   fi = "flatpak install --assumeyes";
+  fl = "flatpak list";
   fs = "flatpak search";
   fu = "flatpak update --assumeyes";
   fun = "flatpak uninstall --assumeyes";
