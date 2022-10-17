@@ -22,7 +22,7 @@
       enable = true;
       package = pkgs.emacsWithPackagesFromUsePackage {
         config = ../../emacs/init.el;
-        package = pkgs.emacsNativeComp;
+        package = pkgs.emacsPgtkNativeComp;
         alwaysEnsure = true;
         alwaysTangle = false;
         defaultInitFile = true;
