@@ -54,6 +54,7 @@ in
         hunspellDicts.es-any
         pandoc
         tectonic
+        texlive.combined.scheme-full # For latex exports
         # File Sharing
         ffsend
         transmission

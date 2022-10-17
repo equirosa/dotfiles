@@ -25,19 +25,9 @@
       alwaysEnsure = true;
       alwaysTangle = false;
       defaultInitFile = true;
-      extraEmacsPackages = epkgs:
-        with epkgs;
-        with pkgs;
-        # Normal Packages
-        [ ]
-        ++ [
-          gcc
-          sqlite # For org-roam
-          unzip # To export as docx
-          tectonic
-          texlive.combined.scheme-full # For latex exports
-        ]
-        ++ import ./editorPackages.nix { inherit pkgs; };
+      extraEmacsPackages = epkgs: builtins.attrValues {
+        inherit (epkgs);
+      };
     };
   };
 }
