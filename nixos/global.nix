@@ -14,6 +14,7 @@ in
     ./extra_security
     ./gaming.nix
     ./graphical/wayland/sway.nix
+    ./printing.nix
     ./programs
     ./shell
     ./theme.nix
