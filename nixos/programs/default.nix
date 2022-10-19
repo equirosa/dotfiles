@@ -3,6 +3,7 @@
 , ...
 }:
 let
+  inherit (builtins) attrValues;
   notify = ''${pkgs.libnotify}/bin/notify-send -t 5000'';
   cat = "${pkgs.bat}/bin/bat --plain";
   dmenu-command = "rofi -dmenu";
@@ -294,7 +295,7 @@ in
         })
         (writeShellApplication {
           name = "run-backups";
-          runtimeInputs = with pkgs; [ borgbackup ];
+          runtimeInputs = attrValues { inherit (pkgs) borgbackup; };
           text = ''
             ${builtins.readFile ../../scripts/run-backups.sh}
           '';
