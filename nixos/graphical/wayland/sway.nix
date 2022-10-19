@@ -178,8 +178,11 @@ in
               "6" = [{ app_id = "org.remmina.Remmina"; }];
               "9" = [{ class = "^Steam"; }];
             };
-            floating.criteria = [{ title = "Steam - Update News"; }
-              { title = "Steam - News"; }];
+            floating.criteria = [
+              { title = "Steam - Update News"; }
+              { title = "Steam - News"; }
+              { title = "Steam - Self Updater"; }
+            ];
             startup = [
               { command = "${pkgs.autotiling}/bin/autotiling"; }
               {
