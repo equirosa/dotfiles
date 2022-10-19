@@ -1,8 +1,11 @@
 { config
 , pkgs
 , configDir
+, lib
 ,
-}: {
+}:
+let inherit (builtins) readDir; in
+{
   # Produces an expression that can be passed to `home.file` or
   # `xdg.configFile` that symlinks all dirs in `sourceDir`
   # to the relative string `targetDir`.
@@ -15,5 +18,6 @@
         name: _:
           nameValuePair (targetDir + "/${name}") { source = config.lib.file.mkOutOfStoreSymlink ("${configDir}/" + sourceDir + "/${name}"); }
       )
-      (builtins.readDir (./. + "/${sourceDir}"));
+      (readDir (./. + "/${sourceDir}"));
+  getAllFromDir = dir: lib.attrsets.mapAttrsToList (name: type: name) (readDir dir);
 }
