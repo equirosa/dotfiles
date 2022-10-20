@@ -1,4 +1,4 @@
-{ ... }: {
+{
   home-manager.users.kiri = {
     programs = {
       bash = {
