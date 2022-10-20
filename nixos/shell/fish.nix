@@ -12,11 +12,10 @@ in
 {
   users.users.kiri.shell = pkgs.fish;
   home-manager.users.kiri = { config, ... }: {
-  home.packages = attrValues {inherit (pkgs) jq;};
+    home.packages = attrValues { inherit (pkgs) jq; };
     programs = {
       fish = {
         enable = true;
-        shellAliases = aliases;
         shellAbbrs = abbreviations;
         loginShellInit = '''' + optionalString config.wayland.windowManager.sway.enable ''
           ${builtins.readFile ./autolaunch_sway.fish}

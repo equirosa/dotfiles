@@ -1,6 +1,7 @@
 { pkgs, lib, ... }: {
   imports = [ ./bash.nix ./fish.nix ];
   home-manager.users.kiri = {
+    home.shellAliases = import ./aliases.nix { inherit pkgs; };
     programs = {
       bat = {
         enable = true;
