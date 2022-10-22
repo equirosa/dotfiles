@@ -58,6 +58,7 @@ let inherit (lib) optionalString; in
         incsearch = true;
         ifs = "\\n";
         ratios = "2:4";
+        shell = "${pkgs.dash}/bin/dash";
         wrapscroll = true;
       };
     };
