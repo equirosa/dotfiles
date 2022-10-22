@@ -8,6 +8,6 @@
     defaultNetwork.dnsname.enable = true;
   };
   home-manager.users.kiri = {
-    home.packages = builtins.attrValues {inherit (pkgs) distrobox;};
+    home.packages = builtins.attrValues { inherit (pkgs) distrobox; };
   };
 }
