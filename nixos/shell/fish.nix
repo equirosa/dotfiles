@@ -17,7 +17,7 @@ in
       fish = {
         enable = true;
         shellAbbrs = abbreviations;
-        loginShellInit = '''' + optionalString config.wayland.windowManager.sway.enable ''
+        loginShellInit = optionalString config.wayland.windowManager.sway.enable ''
           ${builtins.readFile ./autolaunch_sway.fish}
         '';
         interactiveShellInit = ''
