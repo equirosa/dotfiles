@@ -36,20 +36,19 @@ let inherit (lib) optionalString; in
             lf -remote "send ''${id} cd ''${result}"
           }}'';
       };
-      keybindings = let inherit (config.home.sessionVariables) EDITOR; in
-        {
-          "<backspace2>" = ":set hidden!";
-          "<delete>" = "\$${pkgs.trash-cli}/bin/trash-put \"$fx\"";
-          D = "&${pkgs.xdragon}/bin/dragon --all --and-exit \"$fx\"";
-          E = "push \$${EDITOR}<space>";
-          L = "\$${pkgs.lazygit}/bin/lazygit";
-          M = "push \$mkdir<space>-p<space>";
-          T = "push \$touch<space>";
-          U = "\${pkgs.mpv}/bin/umpv \"$fx\"";
-          e = ''''$${EDITOR}<space>$fx'';
-          zi = ":zi";
-          zx = "\$${pkgs.archiver}/bin/arc unarchive \"$fx\"";
-        };
+      keybindings = {
+        "<backspace2>" = ":set hidden!";
+        "<delete>" = "\$${pkgs.trash-cli}/bin/trash-put \"$fx\"";
+        D = "&${pkgs.xdragon}/bin/dragon --all --and-exit \"$fx\"";
+        E = "push \$${EDITOR}<space>";
+        L = "\$${pkgs.lazygit}/bin/lazygit";
+        M = "push \$mkdir<space>-p<space>";
+        T = "push \$touch<space>";
+        U = "\${pkgs.mpv}/bin/umpv \"$fx\"";
+        e = ''''$${EDITOR}<space>$fx'';
+        zi = ":zi";
+        zx = "\$${pkgs.archiver}/bin/arc unarchive \"$fx\"";
+      };
       previewer = {
         keybinding = "i";
         source = "${pkgs.pistol}/bin/pistol";
