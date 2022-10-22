@@ -1,4 +1,6 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, lib, ... }:
+let inherit (lib) optionalString; in
+{
   programs = {
     pistol = {
       enable = true;
@@ -22,6 +24,17 @@
           setsid xdg-open "$file" > /dev/null 2> /dev/null &
           done}}
         '';
+        z = optionalString config.programs.zoxide.enable ''
+          %{{
+            result="$(zoxide query --exclude "''${PWD}" -- "$@")"
+            lf -remote "send ''${id} cd ''${result}"
+          }}
+        '';
+        zi = optionalString config.programs.zoxide.enable ''
+          ''${{
+            result="$(zoxide query -i -- "$@")"
+            lf -remote "send ''${id} cd ''${result}"
+          }}'';
       };
       keybindings = let inherit (config.home.sessionVariables) EDITOR; in
         {
@@ -34,6 +47,7 @@
           T = "push \$touch<space>";
           U = "\${pkgs.mpv}/bin/umpv \"$fx\"";
           e = ''''$${EDITOR}<space>$fx'';
+          zi = ":zi";
           zx = "\$${pkgs.archiver}/bin/arc unarchive \"$fx\"";
         };
       previewer = {
