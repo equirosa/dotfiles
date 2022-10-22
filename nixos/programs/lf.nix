@@ -1,5 +1,23 @@
 { config, pkgs, lib, ... }:
-let inherit (lib) optionalString; in
+let
+  inherit (lib) recursiveUpdate;
+  inherit (lib.attrsets) optionalAttrs;
+  zoxideEnabled = config.programs.zoxide.enable;
+  zoxideCommands = {
+    zoxide = ''
+      %{{
+        result="$(zoxide query --exclude "''${PWD}" -- "$@")"
+        lf -remote "send ''${id} cd ''${result}"
+      }}
+    '';
+    zoxide_interactive = ''
+      ''${{
+        result="$(zoxide query -i -- "$@")"
+        lf -remote "send ''${id} cd ''${result}"
+      }}
+    '';
+  };
+in
 {
   programs = {
     pistol = {
@@ -13,42 +31,39 @@ let inherit (lib) optionalString; in
     };
     lf = {
       enable = true;
-      commands = {
-        on-cd = ''
-          &{{
-          printf "\033]0; $(pwd | sed "s|$HOME|~|") - lf\007" > /dev/tty
-          }}
-        '';
-        open = ''
-          ''${{for file in "$fx"; do
-          setsid xdg-open "$file" > /dev/null 2> /dev/null &
-          done}}
-        '';
-        z = optionalString config.programs.zoxide.enable ''
-          %{{
-            result="$(zoxide query --exclude "''${PWD}" -- "$@")"
-            lf -remote "send ''${id} cd ''${result}"
-          }}
-        '';
-        zi = optionalString config.programs.zoxide.enable ''
-          ''${{
-            result="$(zoxide query -i -- "$@")"
-            lf -remote "send ''${id} cd ''${result}"
-          }}'';
-      };
-      keybindings = {
-        "<backspace2>" = ":set hidden!";
-        "<delete>" = "\$${pkgs.trash-cli}/bin/trash-put \"$fx\"";
-        D = "&${pkgs.xdragon}/bin/dragon --all --and-exit \"$fx\"";
-        E = "push \$${EDITOR}<space>";
-        L = "\$${pkgs.lazygit}/bin/lazygit";
-        M = "push \$mkdir<space>-p<space>";
-        T = "push \$touch<space>";
-        U = "\${pkgs.mpv}/bin/umpv \"$fx\"";
-        e = ''''$${EDITOR}<space>$fx'';
-        zi = ":zi";
-        zx = "\$${pkgs.archiver}/bin/arc unarchive \"$fx\"";
-      };
+      commands = recursiveUpdate
+        {
+          on-cd = ''
+            &{{
+            printf "\033]0; $(pwd | sed "s|$HOME|~|") - lf\007" > /dev/tty
+            }}
+          '';
+          open = ''
+            ''${{for file in "$fx"; do
+            setsid xdg-open "$file" > /dev/null 2> /dev/null &
+            done}}
+          '';
+        }
+        (optionalAttrs
+          zoxideEnabled
+          zoxideCommands);
+      keybindings = recursiveUpdate
+        {
+          "<backspace2>" = ":set hidden!";
+          "<delete>" = "\$${pkgs.trash-cli}/bin/trash-put \"$fx\"";
+          D = "&${pkgs.xdragon}/bin/dragon --all --and-exit \"$fx\"";
+          E = "push \${EDITOR}<space>";
+          L = "\$${pkgs.lazygit}/bin/lazygit";
+          M = "push \$mkdir<space>-p<space>";
+          T = "push \$touch<space>";
+          U = "umpv \"$fx\"";
+          e = ''''${EDITOR}<space>$fx'';
+          zx = "\$${pkgs.archiver}/bin/arc unarchive \"$fx\"";
+        }
+        (optionalAttrs zoxideEnabled {
+          zi = ":zoxide_interactive";
+          zz = "push :zoxide<space>";
+        });
       previewer = {
         keybinding = "i";
         source = "${pkgs.pistol}/bin/pistol";
