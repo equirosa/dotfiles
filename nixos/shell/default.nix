@@ -26,6 +26,7 @@
             dataFiles = [ "csv" "json" "toml" "yaml" ];
             mediaFiles = [ "mkv" "mp4" "webm" "webp" ];
             docFiles = [ "md" "org" "docx" "odt" ];
+            pdf = [ "pdf" ];
             extAttrs = extList: color: (genAttrs (map (ext: ".${ext}") extList) (ext: "${bold};${color}"));
           in
           recursiveUpdate
@@ -37,7 +38,9 @@
               (extAttrs dataFiles yellow)
               (recursiveUpdate
                 (extAttrs docFiles teal)
-                (extAttrs mediaFiles pink)));
+                (recursiveUpdate
+                  (extAttrs mediaFiles pink)
+                  (extAttrs pdf red))));
       };
       lsd = {
         enable = true;
