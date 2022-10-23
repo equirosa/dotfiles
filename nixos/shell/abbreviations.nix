@@ -70,6 +70,7 @@ in
   dvp = "download-video-playlist";
   dvu = "download-video-unique";
   # Nix
+  c = "check-modifications";
   nb = "nix build";
   nbf = "nix build -f ./.";
   nodep = "${nixenvString} nodePackages";
@@ -79,7 +80,7 @@ in
   npr = "nix profile remove";
   nprb = "nix profile rollback";
   npu = "nix profile upgrade";
-  up = "sudo nixos-rebuild switch --upgrade";
+  up = "sudo nixos-rebuild switch --upgrade --profile-name";
   # trash-cli
   rm = "trash-put";
   te = "trash-empty";
