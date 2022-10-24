@@ -124,7 +124,8 @@ in
             ${getFile}
             ${getExt}
             case "''${ext}" in
-              odt ) libreoffice --headless --convert-to pdf "''${1}" ;;
+              odt | docx ) libreoffice --headless --convert-to pdf "''${1}" ;;
+              * ) printf "I can't handle that format yet!\n"
             esac
           '';
         })
