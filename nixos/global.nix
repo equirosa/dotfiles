@@ -3,7 +3,8 @@
 , ...
 }:
 let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+  inherit (builtins) fetchTarball;
+  home-manager = fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
 in
 {
   imports = [
@@ -100,7 +101,10 @@ in
   };
   hardware.enableRedistributableFirmware = true;
   networking = {
-    hostFiles = [ "${pkgs.stevenblack-blocklist}/hosts" "${pkgs.stevenblack-blocklist}/alternates/gambling/hosts" ];
+    hostFiles = [
+      "${pkgs.stevenblack-blocklist}/hosts"
+      "${pkgs.stevenblack-blocklist}/alternates/gambling/hosts"
+    ];
   };
   nix = {
     gc = {
@@ -123,7 +127,7 @@ in
       packageOverrides = pkgs: {
         nur =
           import
-            (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz")
+            (fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz")
             { inherit pkgs; };
       };
     };
