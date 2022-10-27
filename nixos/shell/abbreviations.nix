@@ -80,7 +80,7 @@ in
   npr = "nix profile remove";
   nprb = "nix profile rollback";
   npu = "nix profile upgrade";
-  up = "sudo nixos-rebuild switch --upgrade --profile-name";
+  up = ''sudo nixos-rebuild switch --upgrade --profile-name "$(date +%s)-"'';
   # trash-cli
   rm = "trash-put";
   te = "trash-empty";
