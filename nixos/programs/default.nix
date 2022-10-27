@@ -3,7 +3,7 @@
 , ...
 }:
 let
-  inherit (builtins) attrValues readFile;
+  inherit (builtins) attrValues readFile fetchTarball;
   notify = ''${pkgs.libnotify}/bin/notify-send -t 5000'';
   cat = "${pkgs.bat}/bin/bat --plain";
   dmenu-command = "rofi -dmenu";
@@ -29,10 +29,10 @@ in
   ];
   nixpkgs.overlays = [
     (import
-      (builtins.fetchTarball {
+      (fetchTarball {
         url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
       }))
-    (import (builtins.fetchTarball {
+    (import (fetchTarball {
       url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
     }))
   ];
