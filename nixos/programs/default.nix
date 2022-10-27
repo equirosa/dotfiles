@@ -113,6 +113,8 @@ in
             ${exitWithNoArguments}
             ${getFile}
             ${getBase}
+            ${getExt}
+            ${backupIfDuplicate "ogg"}
             ${ffmpeg}/bin/ffmpeg -i "''${file}" -vn ${scriptAudio} "''${base}.ogg"
           '';
         })
