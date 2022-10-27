@@ -3,7 +3,7 @@
 , ...
 }:
 let
-  inherit (builtins) attrValues;
+  inherit (builtins) attrValues readFile;
   notify = ''${pkgs.libnotify}/bin/notify-send -t 5000'';
   cat = "${pkgs.bat}/bin/bat --plain";
   dmenu-command = "rofi -dmenu";
@@ -164,7 +164,7 @@ in
           text = ''
             SOURCE_FILE="Source - Playlists.txt"
             touch "''${SOURCE_FILE}"
-            ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Playlists/Playlists.sh"}
+            ${readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Playlists/Playlists.sh"}
           '';
         })
         (writeShellApplication {
@@ -173,7 +173,7 @@ in
           text = ''
             SOURCE_FILE="Source - Unique.txt"
             touch "''${SOURCE_FILE}"
-            ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Unique/Unique.sh"}
+            ${readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Unique/Unique.sh"}
           '';
         })
         (writeShellApplication {
@@ -182,7 +182,7 @@ in
           text = ''
             SOURCE_FILE="Source - Playlists.txt"
             touch "''${SOURCE_FILE}"
-            ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Playlists/Playlists.sh"}
+            ${readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Playlists/Playlists.sh"}
           '';
         })
         (writeShellApplication {
@@ -191,7 +191,7 @@ in
           text = ''
             SOURCE_FILE="Source - Unique.txt"
             touch "''${SOURCE_FILE}"
-            ${builtins.readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Unique/Unique.sh"}
+            ${readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Unique/Unique.sh"}
           '';
         })
         (writeShellApplication {
@@ -298,7 +298,7 @@ in
           name = "run-backups";
           runtimeInputs = attrValues { inherit (pkgs) borgbackup; };
           text = ''
-            ${builtins.readFile ../../scripts/run-backups.sh}
+            ${readFile ../../scripts/run-backups.sh}
           '';
         })
         (writeShellApplication {
