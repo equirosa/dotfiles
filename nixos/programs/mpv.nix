@@ -6,6 +6,7 @@
       force-window = true;
       save-position-on-quit = "";
       screenshot-directory = "${config.xdg.userDirs.pictures}/screenshots";
+      screenshot-format="png";
       gpu-context = "wayland";
       hwdec = "auto-safe";
       vo = "gpu";
