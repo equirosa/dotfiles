@@ -55,7 +55,7 @@ in
         lagrange
         nyxt
         # Messengers
-        aerc
+        aerc catimg
         element-desktop
         # Documents
         onlyoffice-bin
