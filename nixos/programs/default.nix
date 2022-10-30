@@ -77,6 +77,8 @@ in
         nix-update
         nixpkgs-review
         statix
+        # LISP
+        sbcl
         # Utilities
         archiver
         borgbackup
