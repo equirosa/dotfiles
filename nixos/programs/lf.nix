@@ -52,11 +52,11 @@ in
           "<backspace2>" = ":set hidden!";
           "<delete>" = "\$${pkgs.trash-cli}/bin/trash-put \"$fx\"";
           D = "&${pkgs.xdragon}/bin/dragon --all --and-exit \"$fx\"";
-          E = "push \$EDITOR<space>";
+          E = "push \$\${EDITOR}<space>";
           L = "\$${pkgs.lazygit}/bin/lazygit";
           M = "push \$mkdir<space>-p<space>";
           T = "push \$touch<space>";
-          e = "\${EDITOR} $fx";
+          e = "\$\${EDITOR} $fx";
           U = ''umpv "$fx"'';
           zx = "\$${pkgs.archiver}/bin/arc unarchive \"$fx\"";
         }
@@ -78,5 +78,6 @@ in
       };
     };
   };
+  # TODO: consider contributing a default icons file for this module
   xdg.configFile."lf/icons".source = builtins.fetchurl "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
 }
