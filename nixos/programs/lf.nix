@@ -52,12 +52,12 @@ in
           "<backspace2>" = ":set hidden!";
           "<delete>" = "\$${pkgs.trash-cli}/bin/trash-put \"$fx\"";
           D = "&${pkgs.xdragon}/bin/dragon --all --and-exit \"$fx\"";
-          E = "push \${EDITOR}<space>";
+          E = "push \$EDITOR<space>";
           L = "\$${pkgs.lazygit}/bin/lazygit";
           M = "push \$mkdir<space>-p<space>";
           T = "push \$touch<space>";
-          U = "umpv \"$fx\"";
-          e = ''''${EDITOR}<space>$fx'';
+          e = "\${EDITOR} $fx";
+          U = ''umpv "$fx"'';
           zx = "\$${pkgs.archiver}/bin/arc unarchive \"$fx\"";
         }
         (optionalAttrs zoxideEnabled {
