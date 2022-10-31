@@ -30,8 +30,7 @@ let inherit (builtins) attrValues elem; in
           # Utilities
           chiaki# PS4 Remote Play utility
           gamescope
-          mangohud
-          protonup;
+          mangohud;
       };
     };
   };
