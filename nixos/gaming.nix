@@ -53,8 +53,6 @@ let inherit (builtins) attrValues elem; in
   nixpkgs = {
     config = {
       allowUnfreePredicate = pkg: elem (lib.getName pkg) [
-        "mongodb"
-        "mongodb-compass"
         "steam-original"
         "steam-run"
         "steam-runtime"
