@@ -78,6 +78,7 @@ in
   npi = "nix profile install";
   npl = "nix profile list";
   npr = "nix profile remove";
+  npra = "nix profile remove '.*'";
   nprb = "nix profile rollback";
   npu = "nix profile upgrade";
   up = ''sudo nixos-rebuild switch --upgrade --profile-name "$(date +%s)-"'';
