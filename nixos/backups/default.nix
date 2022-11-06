@@ -2,8 +2,8 @@
   services = {
     borgbackup.jobs =
       let
-        paths = "/home/kiri/";
-        common-excludes = map (x: paths + "*/" + x) [
+        homeDir = "/home/kiri/";
+        common-excludes = map (x: homeDir + "*/" + x) [
           # Largest cache dirs
           ".cache"
           ".config/Code/CachedData"
@@ -32,12 +32,13 @@
           "unhidden"
           "venv"
         ];
-        games-excludes = map (dir: paths + "Games/" + dir) [
+        games-excludes = map (dir: homeDir + "Games/" + dir) [
           "battlenet"
           "epic"
           "rocket-league"
         ];
-        common-includes = map (dir: paths + dir) [
+        common-includes = map (dir: homeDir + dir) [
+          "Desktop/"
           "Documents/"
           "Downloads/"
           "Games/itch/"
@@ -49,7 +50,7 @@
           "projects/"
         ];
         basicBorgJob = name: {
-          inherit paths;
+          paths = common-includes;
           environment = {
             BORG_UNKNOWN_UNENCRYPTED_REPO_ACCESS_IS_OK = "yes";
             BORG_RSH = "ssh -i /home/kiri/.ssh/id_ed25519";
@@ -70,10 +71,11 @@
           };
         };
         inherit (lib) recursiveUpdate;
+        inherit (config.netrowking) hostName;
       in
       {
         snowfortBorgbase = recursiveUpdate
-          (basicBorgJob "snowfort")
+          (basicBorgJob hostName)
           {
             encryption = {
               mode = "keyfile";
@@ -82,7 +84,7 @@
             repo = "hvwib450@hvwib450.repo.borgbase.com:repo";
           };
         snowfortExternalDrive = recursiveUpdate
-          (basicBorgJob "snowfort")
+          (basicBorgJob hostName)
           {
             encryption.mode = "none";
             removableDevice = true;
