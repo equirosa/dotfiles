@@ -3,7 +3,7 @@
 , ...
 }:
 let
-  inherit (builtins) attrValues readFile fetchTarball;
+  inherit (builtins) attrValues readFile fetchTarball replaceStrings;
   notify = ''${pkgs.libnotify}/bin/notify-send -t 5000'';
   cat = "${pkgs.bat}/bin/bat --plain";
   dmenu-command = "rofi -dmenu";
@@ -69,7 +69,7 @@ in
         ffsend
         transmission
         tremc
-        wormhole-william
+        wormhole-rs
         # Nix-specific stuff
         cachix
         comma
@@ -105,7 +105,8 @@ in
             ${getBase}
             ${getExt}
             ${backupIfDuplicate "mkv"}
-            ffmpeg -i "''${file}" -c:v libsvtav1 -preset 5 -crf 32 -g 240 -pix_fmt yuv420p10le ${scriptAudio} "''${base}.mkv"
+            ffmpeg -i "''${file}" -c:v libsvtav1 -preset 5 -crf 32 \
+            -g 240 -pix_fmt yuv420p10le ${scriptAudio} "''${base}.mkv"
           '';
         })
         (writeShellApplication {
@@ -135,7 +136,7 @@ in
         (writeShellApplication {
           name = "2webp";
           runtimeInputs = [ libwebp ];
-          text = ''
+          text = replaceStrings [ "cwebp" ] [ "${libwebp}/bin/cwebp" ] ''
             ${exitWithNoArguments}
             ${getFile}
             ${getBase}
@@ -150,7 +151,8 @@ in
         (writeShellApplication {
           name = "check-modifications";
           text = ''
-            nixos-rebuild build --upgrade && ${lib.getBin nvd}/bin/nvd diff /run/current-system ./result && rm ./result
+            nixos-rebuild build --upgrade \
+            && ${nvd}/bin/nvd diff /run/current-system ./result && rm ./result
           '';
         })
         (writeShellApplication {
@@ -158,7 +160,8 @@ in
           text = ''
             ${exitWithNoArguments}
             setsid ${yt-dlp}/bin/yt-dlp --sponsorblock-mark all \
-            --embed-subs --embed-metadata -o "%(title)s-[%(id)s].%(ext)s" "$1" >>/dev/null &
+            --embed-subs --embed-metadata \
+            -o "%(title)s-[%(id)s].%(ext)s" "$1" >>/dev/null &
           '';
         })
         (writeShellApplication {
