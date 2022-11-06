@@ -87,7 +87,6 @@ in
         du-dust
         fd
         imv
-        kopia
         libnotify
         qpwgraph
         ripgrep
