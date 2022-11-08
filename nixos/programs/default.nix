@@ -122,13 +122,13 @@ in
         })
         (writeShellApplication {
           name = "2pdf";
-          runtimeInputs = [ pandoc ];
+          runtimeInputs = [ pandoc libreoffice ];
           text = ''
             ${exitWithNoArguments}
             ${getFile}
             ${getExt}
             case "''${ext}" in
-              # odt | docx ) , libreoffice --headless --convert-to pdf "''${1}" ;;
+              odt | docx ) libreoffice --headless --convert-to pdf "''${1}" ;;
               * ) printf "I can't handle that format yet!\n"
             esac
           '';
