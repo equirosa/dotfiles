@@ -3,7 +3,8 @@
 , ...
 }:
 let
-  lockCommand = "${pkgs.swaylock}/bin/swaylock --image ${config.home-manager.users.kiri.xdg.cacheHome}/background_image -f";
+  inherit (config.home-manager.users.kiri.xdg) cacheHome;
+  lockCommand = "${pkgs.swaylock}/bin/swaylock --image ${cacheHome}/background_image -f";
   commonCommands = {
     dmenuCommand = "rofi -show run | ${pkgs.busybox}/bin/xargs swaymsg exec --";
     desktopCommand = "rofi -show drun | ${pkgs.busybox}/bin/xargs swaymsg exec --";
@@ -200,7 +201,7 @@ in
               };
             };
             output = {
-              "*" = { bg = "${config.xdg.cacheHome}/background_image fill"; };
+              "*" = { bg = "${cacheHome}/background_image fill"; };
               "DP-1" = {
                 mode = "1920x1080";
                 position = "1920 0";

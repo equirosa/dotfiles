@@ -11,7 +11,7 @@
       {
         enable = true;
         wrappedBinaries = genAttrs wrappedPackageNames (packageName: {
-          executable = "${lib.getBin pkgs.${packageName}}/bin/${packageName}";
+          executable = "${pkgs.${packageName}}/bin/${packageName}";
           profile = "${pkgs.firejail}/etc/firejail/${packageName}.profile";
         });
       };

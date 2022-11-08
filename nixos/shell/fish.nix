@@ -11,32 +11,36 @@ let
 in
 {
   users.users.kiri.shell = pkgs.fish;
-  home-manager.users.kiri = { config, ... }: {
-    home.packages = attrValues { inherit (pkgs) jq; };
-    programs = {
-      fish = {
-        enable = true;
-        shellAbbrs = abbreviations;
-        loginShellInit = optionalString config.wayland.windowManager.sway.enable ''
-          ${builtins.readFile ./autolaunch_sway.fish}
-        '';
-        interactiveShellInit = ''
-          ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
-        '' + optionalString config.programs.neovim.enable ''
-          set -gx EDITOR nvim
-        '';
-        plugins = [
-          {
-            name = "done";
-            src = pkgs.fetchFromGitHub {
-              owner = "franciscolourenco";
-              repo = "done";
-              rev = "1.16.5";
-              sha256 = "sha256-E0wveeDw1VzEH2kzn63q9hy1xkccfxQHBV2gVpu2IdQ=";
-            };
-          }
-        ];
+  home-manager.users.kiri = { config, ... }:
+    let
+      inherit (config.programs) neovim;
+      inherit (config.wayland.windowManager) sway;
+    in
+    {
+      home.packages = attrValues { inherit (pkgs) jq; };
+      programs = {
+        fish = {
+          enable = true;
+          shellAbbrs = abbreviations;
+          loginShellInit = optionalString sway.enable ''
+            ${builtins.readFile ./autolaunch_sway.fish}
+          '';
+          interactiveShellInit = ''
+            ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+            ${optionalString neovim.enable "set -gx EDITOR nvim"}
+          '';
+          plugins = [
+            {
+              name = "done";
+              src = pkgs.fetchFromGitHub {
+                owner = "franciscolourenco";
+                repo = "done";
+                rev = "1.16.5";
+                sha256 = "sha256-E0wveeDw1VzEH2kzn63q9hy1xkccfxQHBV2gVpu2IdQ=";
+              };
+            }
+          ];
+        };
       };
     };
-  };
 }
