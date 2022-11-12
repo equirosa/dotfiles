@@ -5,7 +5,7 @@
 }:
 let
   inherit (lib) optionalString;
-  inherit (builtins) attrValues;
+  inherit (builtins) attrValues readFile;
   abbreviations = import ./abbreviations.nix;
   aliases = import ./aliases.nix { inherit pkgs; };
 in
@@ -23,7 +23,7 @@ in
           enable = true;
           shellAbbrs = abbreviations;
           loginShellInit = optionalString sway.enable ''
-            ${builtins.readFile ./autolaunch_sway.fish}
+            ${readFile ./autolaunch_sway.fish}
           '';
           interactiveShellInit = ''
             ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
