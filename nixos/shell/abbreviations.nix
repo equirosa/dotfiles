@@ -26,6 +26,7 @@ in
   ns = "nix search nixpkgs";
   nsp = "nix-shell -p";
   nup = "nix-update --test --commit --review";
+  qr = "qrencode -t ansiutf8";
   sid = "setsid";
   snp = "show-nix-store-path";
   ss = "show-script";
@@ -81,7 +82,7 @@ in
   npra = "nix profile remove '.*'";
   nprb = "nix profile rollback";
   npu = "nix profile upgrade";
-  up = ''sudo nixos-rebuild switch --upgrade --profile-name "$(date +%s)-"'';
+  up = ''sudo nixos-rebuild switch --upgrade --profile-name $(date +%s)-'';
   # trash-cli
   rm = "trash-put";
   te = "trash-empty";

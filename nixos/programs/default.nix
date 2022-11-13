@@ -55,7 +55,8 @@ in
         lagrange
         nyxt
         # Messengers
-        aerc catimg
+        aerc
+        catimg
         element-desktop
         # Documents
         onlyoffice-bin
@@ -89,6 +90,7 @@ in
         imv
         libnotify
         qpwgraph
+        qrencode
         ripgrep
         trash-cli
         ytfzf
