@@ -14,7 +14,6 @@
     , devshell
     , nixpkgs
     , home-manager
-    ,
     }:
     flake-utils.lib.eachDefaultSystem (system: {
       formatter = nixpkgs.legacyPackages.${system}.treefmt;
