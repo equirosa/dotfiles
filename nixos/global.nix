@@ -101,9 +101,9 @@ in
   };
   hardware.enableRedistributableFirmware = true;
   networking = {
-    hostFiles = [
-      "${pkgs.stevenblack-blocklist}/hosts"
-      "${pkgs.stevenblack-blocklist}/alternates/gambling/hosts"
+    hostFiles = map (x: "${pkgs.stevenblack-blocklist}/" + x) [
+      "hosts"
+      "alternates/gambling/hosts"
     ];
   };
   nix = {
