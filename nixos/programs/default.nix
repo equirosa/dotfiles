@@ -146,6 +146,7 @@ in
             case "''${ext}" in
             jpg | jpeg ) cwebp -q 80 "''${file}" -o "''${base}.webp" ;;
             png ) cwebp -lossless "''${file}" -o "''${base}.webp" ;;
+            webp ) printf "File is already WEBP" && exit 1 ;;
             * ) printf "Can't handle that file extension..." && exit 1 ;;
             esac
           '';
