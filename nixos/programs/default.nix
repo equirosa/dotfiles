@@ -229,19 +229,7 @@ in
             else
               URL="''${1}"
             fi
-            YOUTUBE_URI="$(link2youtube <<< "''${URL}")"
-            ${config.home.sessionVariables.BROWSER} -p default "https://reader.miniflux.app/bookmarklet?uri=''${YOUTUBE_URI}"
-          '';
-        })
-        (writeShellApplication {
-          name = "link2youtube";
-          text = ''
-            sed -e 's/piped.kavin.rocks/youtube.com/g' \
-                -e 's/piped.mint.lgbt/youtube.com/g' \
-                -e 's/il.ax/youtube.com/g' \
-                -e 's/piped.privacy.com.de/youtube.com/g' \
-                -e 's/piped.esmailelbob.xyz/youtube.com/g' \
-                -e 's/yt.jae.fi/youtube.com/g'
+            ${config.home.sessionVariables.BROWSER} -p default "https://reader.miniflux.app/bookmarklet?uri=''${URL}"
           '';
         })
         (writeShellApplication {
