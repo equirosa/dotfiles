@@ -4,7 +4,7 @@
 , ...
 }:
 let
-  inherit (lib) optionalString;
+  inherit (lib) getExe optionalString;
   inherit (builtins) attrValues readFile;
   abbreviations = import ./abbreviations.nix;
   aliases = import ./aliases.nix { inherit pkgs; };
@@ -26,7 +26,7 @@ in
             ${readFile ./autolaunch_sway.fish}
           '';
           interactiveShellInit = ''
-            ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+            ${getExe pkgs.any-nix-shell} fish --info-right | source
             ${optionalString neovim.enable "set -gx EDITOR nvim"}
           '';
           plugins = [

@@ -1,7 +1,12 @@
 { config
 , pkgs
+, lib
 , ...
-}: {
+}:
+let
+  inherit (lib) getExe;
+in
+{
   services = {
     flatpak.enable = true;
   };
@@ -22,7 +27,7 @@
           in
           [ env ];
         serviceConfig = {
-          ExecStart = ''${pkgs.flatpak}/bin/flatpak --user update --assumeyes'';
+          ExecStart = ''${getExe pkgs.flatpak} --user update --assumeyes'';
           Type = "oneshot";
         };
       };

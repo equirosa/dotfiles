@@ -1,9 +1,11 @@
 { config
 , pkgs
+, lib
 , ...
 }:
 let
   inherit (builtins) fetchTarball;
+  inherit (lib) getExe;
   home-manager = fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
 in
 {
@@ -31,7 +33,7 @@ in
     users.kiri = {
       home = {
         sessionVariables = {
-          BROWSER = "${pkgs.firefox}/bin/firefox -p default";
+          BROWSER = "${getExe pkgs.firefox} -p default";
         };
         inherit (config.system) stateVersion;
       };
@@ -41,7 +43,7 @@ in
           nix-direnv.enable = true;
           config = {
             global = {
-              bash_path = "${pkgs.bash}/bin/bash";
+              bash_path = "${getExe pkgs.bash}";
               load_dotenv = true;
               strict_env = true;
             };

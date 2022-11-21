@@ -1,4 +1,8 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+let
+  inherit (lib) getExe;
+in
+{
   imports = [ ./bash.nix ./fish.nix ];
   home-manager.users.kiri = {
     home.shellAliases = import ./aliases.nix { inherit pkgs; };
@@ -6,7 +10,7 @@
       bat = {
         enable = true;
         config = {
-          pager = "${pkgs.less}/bin/less -FR";
+          pager = "${getExe pkgs.less} -FR";
           theme = "TwoDark";
         };
       };
@@ -49,16 +53,16 @@
       };
       fzf =
         let
-          fileCommand = "${pkgs.ripgrep}/bin/rg --files";
+          fileCommand = "${getExe pkgs.ripgrep} --files";
         in
         {
           enable = true;
-          changeDirWidgetCommand = "${pkgs.fd}/bin/fd --type d";
-          changeDirWidgetOptions = [ "--preview '${pkgs.lsd}/bin/lsd -1 {}'" ];
+          changeDirWidgetCommand = "${getExe pkgs.fd} --type d";
+          changeDirWidgetOptions = [ "--preview '${getExe pkgs.lsd} -1 {}'" ];
           defaultCommand = "${fileCommand}";
           defaultOptions = [ "--height 100%" "--border" ];
           fileWidgetCommand = "${fileCommand}";
-          fileWidgetOptions = [ "--preview '${pkgs.pistol}/bin/pistol {}'" ];
+          fileWidgetOptions = [ "--preview '${getExe pkgs.pistol} {}'" ];
         };
       starship = {
         enable = true;

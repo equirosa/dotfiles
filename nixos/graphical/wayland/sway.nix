@@ -1,20 +1,22 @@
 { pkgs
 , config
+, lib
 , ...
 }:
 let
   inherit (config.home-manager.users.kiri.xdg) cacheHome;
-  lockCommand = "${pkgs.swaylock}/bin/swaylock --image ${cacheHome}/background_image -f";
+  inherit (lib) getExe;
+  lockCommand = "${getExe pkgs.swaylock} --image ${cacheHome}/background_image -f";
   commonCommands = {
     dmenuCommand = "rofi -show run | ${pkgs.busybox}/bin/xargs swaymsg exec --";
     desktopCommand = "rofi -show drun | ${pkgs.busybox}/bin/xargs swaymsg exec --";
-    feedReader = "${pkgs.newsboat}/bin/newsboat";
-    mailClient = "${pkgs.aerc}/bin/aerc";
+    feedReader = "${getExe pkgs.newsboat}";
+    mailClient = "${getExe pkgs.aerc}";
     terminal = "kitty";
-    termFileManager = "${pkgs.lf}/bin/lf";
-    termMonitor = "${pkgs.bottom}/bin/btm";
-    termAudio = "${pkgs.pulsemixer}/bin/pulsemixer";
-    transmissionClient = "${pkgs.tremc}/bin/tremc";
+    termFileManager = "${getExe pkgs.lf}";
+    termMonitor = "${getExe pkgs.bottom}";
+    termAudio = "${getExe pkgs.pulsemixer}";
+    transmissionClient = "${getExe pkgs.tremc}";
   };
   colors = import ../../colors.nix;
 in
@@ -37,9 +39,9 @@ in
           (writeShellApplication {
             name = "sway-shot";
             text = ''
-              ${pkgs.sway-contrib.grimshot}/bin/grimshot save window - \
-                | ${pkgs.pngquant}/bin/pngquant --strip - \
-                | ${pkgs.swappy}/bin/swappy -f -
+              ${getExe pkgs.sway-contrib.grimshot} save window - \
+                | ${getExe pkgs.pngquant} --strip - \
+                | ${getExe pkgs.swappy} -f -
             '';
           })
         ];
@@ -185,12 +187,12 @@ in
               { title = "Steam - Self Updater"; }
             ];
             startup = [
-              { command = "${pkgs.autotiling}/bin/autotiling"; }
+              { command = "${getExe pkgs.autotiling}"; }
               {
                 command = "systemctl --user restart waybar.service";
                 always = true;
               }
-              { command = "${pkgs.mako}/bin/mako"; }
+              { command = "${getExe pkgs.mako}"; }
               { command = "element-desktop"; }
               { command = "${pkgs.transmission}/bin/transmission-daemon"; }
             ];

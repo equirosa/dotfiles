@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 let
-  inherit (lib) recursiveUpdate;
+  inherit (lib) getExe recursiveUpdate;
   inherit (lib.attrsets) optionalAttrs;
   zoxideEnabled = config.programs.zoxide.enable;
   zoxideCommands = {
@@ -23,10 +23,10 @@ in
     pistol = {
       enable = true;
       config = {
-        "text/*" = "${pkgs.bat}/bin/bat --plain --paging=never --force-colorization %pistol-filename% -";
+        "text/*" = "${getExe pkgs.bat} --plain --paging=never --force-colorization %pistol-filename% -";
         "application/pdf" = "${pkgs.poppler_utils}/bin/pdftotext -layout %pistol-filename% -";
-        "inode/directory" = "${pkgs.lsd}/bin/lsd -1 %pistol-filename%";
-        "video/*" = "${pkgs.mediainfo}/bin/mediainfo %pistol-filename%";
+        "inode/directory" = "${getExe pkgs.lsd} -1 %pistol-filename%";
+        "video/*" = "${getExe pkgs.mediainfo} %pistol-filename%";
       };
     };
     lf = {
@@ -51,14 +51,14 @@ in
         {
           "<backspace2>" = ":set hidden!";
           "<delete>" = "\$${pkgs.trash-cli}/bin/trash-put \"$fx\"";
-          D = "&${pkgs.xdragon}/bin/dragon --all --and-exit \"$fx\"";
+          D = "&${getExe pkgs.xdragon} --all --and-exit \"$fx\"";
           E = "push \$\${EDITOR}<space>";
-          L = "\$${pkgs.lazygit}/bin/lazygit";
+          L = "\$${getExe pkgs.lazygit}";
           M = "push \$mkdir<space>-p<space>";
           T = "push \$touch<space>";
           e = "\$\${EDITOR} $fx";
           U = ''umpv "$fx"'';
-          zx = "\$${pkgs.archiver}/bin/arc unarchive \"$fx\"";
+          zx = "\$${getExe pkgs.archiver} unarchive \"$fx\"";
         }
         (optionalAttrs zoxideEnabled {
           zi = ":zoxide_interactive";
@@ -66,14 +66,14 @@ in
         });
       previewer = {
         keybinding = "i";
-        source = "${pkgs.pistol}/bin/pistol";
+        source = "${getExe pkgs.pistol}";
       };
       settings = {
         icons = true;
         incsearch = true;
         ifs = "\\n";
         ratios = "2:4";
-        shell = "${pkgs.dash}/bin/dash";
+        shell = "${getExe pkgs.dash}";
         wrapscroll = true;
       };
     };

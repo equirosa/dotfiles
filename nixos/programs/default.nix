@@ -4,8 +4,9 @@
 }:
 let
   inherit (builtins) attrValues readFile fetchTarball replaceStrings;
-  notify = ''${pkgs.libnotify}/bin/notify-send -t 5000'';
-  cat = "${pkgs.bat}/bin/bat --plain";
+  inherit (lib) getExe;
+  notify = ''${getExe pkgs.libnotify} -t 5000'';
+  cat = "${getExe pkgs.bat} --plain";
   dmenu-command = "rofi -dmenu";
   exitWithNoArguments = ''[ $# -eq 0 ] && ${notify} "No arguments provided. Exitting..." && exit 1'';
   backupIfDuplicate = ext: ''if [ "''${ext}" = "${ext}" ];
@@ -20,8 +21,8 @@ let
   getBase = ''base=''${file%.*}'';
   scriptAudio = "-c:a libopus -b:a 96k";
   backupFile = ''bak="''${file}.bak"; mv "''${file}" "''${bak}"'';
-  terminal = "${pkgs.foot}/bin/foot";
-  geminiBrowser = "${pkgs.lagrange}/bin/lagrange";
+  terminal = "${getExe pkgs.foot}";
+  geminiBrowser = "${getExe pkgs.lagrange}";
 in
 {
   imports = [
@@ -119,7 +120,7 @@ in
             ${getBase}
             ${getExt}
             ${backupIfDuplicate "ogg"}
-            ${ffmpeg}/bin/ffmpeg -i "''${file}" -vn ${scriptAudio} "''${base}.ogg"
+            ${getExe ffmpeg} -i "''${file}" -vn ${scriptAudio} "''${base}.ogg"
           '';
         })
         (writeShellApplication {
@@ -155,14 +156,14 @@ in
           name = "check-modifications";
           text = ''
             nixos-rebuild build --upgrade \
-            && ${nvd}/bin/nvd diff /run/current-system ./result && rm ./result
+            && ${getExe nvd} diff /run/current-system ./result && rm ./result
           '';
         })
         (writeShellApplication {
           name = "download-file";
           text = ''
             ${exitWithNoArguments}
-            setsid ${yt-dlp}/bin/yt-dlp --sponsorblock-mark all \
+            setsid ${getExe yt-dlp} --sponsorblock-mark all \
             --embed-subs --embed-metadata \
             -o "%(title)s-[%(id)s].%(ext)s" "$1" >>/dev/null &
           '';
@@ -215,7 +216,7 @@ in
         (writeShellApplication {
           name = "encrypt";
           text = ''
-            ${gnupg}/bin/gpg --encrypt --recipient "eduardo@eduardoquiros.com" "$1" \
+            ${getExe gnupg} --encrypt --recipient "eduardo@eduardoquiros.com" "$1" \
             && ${notify} "🔒 encrypting..." \
             && ${coreutils}/bin/shred --remove "$1" \
             && ${notify} "❌ file deleted"
@@ -260,7 +261,7 @@ in
             ${exitWithNoArguments}
             nix flake new -t github:numtide/devshell ."''${1}" \
             && cd "''${1}" \
-            && ${direnv}/bin/direnv allow
+            && ${getExe direnv} allow
             ''${EDITOR} flake.nix
           '';
         })
@@ -288,7 +289,7 @@ in
             [ "$(${coreutils}/bin/wc -l <<< "''${chosen}")" -gt 1 ] &&\
             chosen=$(${coreutils}/bin/printf "''${chosen}" | ${dmenu-command})
 
-            ${remmina}/bin/remmina -c "$chosen"
+            ${getExe remmina} -c "$chosen"
           '';
         })
         (writeShellApplication {
@@ -333,7 +334,7 @@ in
             in
             ''
               case "''${1}" in
-                *http*) setsid ${yt-dlp}/bin/yt-dlp \
+                *http*) setsid ${getExe yt-dlp} \
                   --sponsorblock-mark all\
                   --embed-subs\
                   --embed-metadata\
@@ -353,7 +354,7 @@ in
               http* | *.html ) ${config.home.sessionVariables.BROWSER} "''${@}" ;;
               magnet* | *.torrent ) transmission-remote -a "''${1}" && ${notify} "Torrent Added! ✅" && exit 0 ;;
               *.org ) emacsclient --create-frame "''${1}" ;;
-              *.png | *.jpg | *.jpeg | *.webp ) ${imv}/bin/imv "''${@}" ;;
+              *.png | *.jpg | *.jpeg | *.webp ) ${getExe imv} "''${@}" ;;
               *.pdf ) setsid ${config.home.sessionVariables.BROWSER} -p default "''${@}" ;;
               * ) ${xdg-utils}/bin/xdg-open "''${@}" ;;
             esac
