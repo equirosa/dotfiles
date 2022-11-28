@@ -153,6 +153,10 @@ in
           '';
         })
         (writeShellApplication {
+          name = "change-background";
+          text = readFile ../../scripts/change_background.sh;
+        })
+        (writeShellApplication {
           name = "check-modifications";
           text = ''
             nixos-rebuild build --upgrade \
