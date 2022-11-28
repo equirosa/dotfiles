@@ -2,7 +2,7 @@
 let
   inherit (lib) getExe recursiveUpdate;
   inherit (lib.attrsets) optionalAttrs;
-  zoxideEnabled = config.programs.zoxide.enable;
+  inherit (config.programs) zoxide;
   zoxideCommands = {
     zoxide = ''
       %{{
@@ -45,7 +45,7 @@ in
           '';
         }
         (optionalAttrs
-          zoxideEnabled
+          zoxide.enable
           zoxideCommands);
       keybindings = recursiveUpdate
         {
@@ -60,7 +60,7 @@ in
           U = ''umpv "$fx"'';
           zx = "\$${getExe pkgs.archiver} unarchive \"$fx\"";
         }
-        (optionalAttrs zoxideEnabled {
+        (optionalAttrs zoxide.enable {
           zi = ":zoxide_interactive";
           zz = "push :zoxide<space>";
         });
