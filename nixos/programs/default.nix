@@ -29,10 +29,9 @@ in
     ./flatpak.nix
   ];
   nixpkgs.overlays = [
-    (import
-      (fetchTarball {
-        url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-      }))
+    (import (fetchTarball {
+      url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
+    }))
     (import (fetchTarball {
       url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
     }))
@@ -188,6 +187,15 @@ in
             SOURCE_FILE="Source - Unique.txt"
             touch "''${SOURCE_FILE}"
             ${readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Unique/Unique.sh"}
+          '';
+        })
+        (writeShellApplication {
+          name = "download-video-channel";
+          runtimeInputs = [ yt-dlp ];
+          text = ''
+            SOURCE_FILE="Source - Channels.txt"
+            touch "''${SOURCE_FILE}"
+            ${readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Channels/Channels.sh"}
           '';
         })
         (writeShellApplication {
