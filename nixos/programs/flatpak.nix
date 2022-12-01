@@ -4,32 +4,21 @@
 , ...
 }:
 let
-  inherit (lib) getExe;
+  inherit (lib) attrValues getExe;
 in
 {
   services = {
     flatpak.enable = true;
   };
-  systemd.user = {
-    services = {
-      flatpak-upgrade = {
-        after = [ "network-online.target" ];
-        description = "Automatically Update Flatpaks";
-        documentation = [ "man:flatpak(1)" ];
-        wants = [ "network-online.target" ];
-        wantedBy = [ "multi-user.target" ];
-        path =
-          let
-            env = pkgs.buildEnv {
-              name = "flatpak-update-env";
-              paths = [ pkgs.flatpak ];
-            };
-          in
-          [ env ];
-        serviceConfig = {
-          ExecStart = ''${getExe pkgs.flatpak} --user update --assumeyes'';
-          Type = "oneshot";
-        };
+  systemd = {
+    services.update-flatpak = {
+      serviceConfig = {
+        Type = "oneshot";
+        User = "kiri";
+        path = attrValues { inherit (pkgs) flatpak; };
+        script = ''
+          flatpak update --assumeyes
+        '';
       };
     };
     timers = {
@@ -38,8 +27,8 @@ in
         description = "Update flatpaks at mid-day";
         requiredBy = [ "timers.target" ];
         timerConfig = {
-          OnCalendar = "12:0:0";
-          Unit = "flatpak-upgrade.service";
+          OnCalendar = "0/6:0:0";
+          Unit = "update-flatpak.service";
           Persistent = true;
         };
         wantedBy = [ "timers.target" ];
