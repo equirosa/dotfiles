@@ -44,6 +44,7 @@ let inherit (builtins) attrValues elem; in
       driSupport32Bit = true;
       extraPackages32 = attrValues { inherit (pkgs.pkgsi686Linux) libva; };
     };
+    steam-hardware.enable = true;
   };
   nix.settings = {
     substituters = [ "https://nix-gaming.cachix.org" ];
