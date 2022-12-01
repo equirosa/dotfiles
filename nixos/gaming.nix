@@ -18,7 +18,6 @@ let inherit (builtins) attrValues elem; in
   };
   home-manager.users.kiri = {
     home = {
-      sessionVariables.WINE_FULLSCREEN_FSR = 1;
       packages = attrValues {
         inherit (pkgs)
           # Games
