@@ -163,6 +163,12 @@ in
           '';
         })
         (writeShellApplication {
+          name = "code2png";
+          text = replaceStrings [ "silicon" ] [ "${getExe silicon}" ] ''
+            ${readFile ../../scripts/code2png.sh}
+          '';
+        })
+        (writeShellApplication {
           name = "download-file";
           text = ''
             ${exitWithNoArguments}
