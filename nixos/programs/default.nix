@@ -41,6 +41,7 @@ in
       ./browsers/firefox.nix
       ./emacs.nix
       ./git.nix
+      ./editors/helix.nix
       ./kitty.nix
       ./lf.nix
       ./mpv.nix
