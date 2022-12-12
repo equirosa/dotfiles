@@ -4,4 +4,9 @@ package = "devshell.cli"
 help = "Per project developer environments"
 
 [devshell]
-packages = ["alejandra", "shfmt", "stylua", "nixpkgs-fmt"]
+packages = [
+"alejandra",
+"nixpkgs-fmt",
+"shfmt",
+"stylua",
+]
