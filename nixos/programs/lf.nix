@@ -22,12 +22,24 @@ in
   programs = {
     pistol = {
       enable = true;
-      config = {
-        "text/*" = "${getExe pkgs.bat} --plain --paging=never --force-colorization %pistol-filename% -";
-        "application/pdf" = "${pkgs.poppler_utils}/bin/pdftotext -layout %pistol-filename% -";
-        "inode/directory" = "${getExe pkgs.lsd} -1 %pistol-filename%";
-        "video/*" = "${getExe pkgs.mediainfo} %pistol-filename%";
-      };
+      associations = [
+        {
+          mime = "text/*";
+          command = "${getExe pkgs.bat} --plain --paging=never --force-colorization %pistol-filename% -";
+        }
+        {
+          mime = "application/pdf";
+          command = "${pkgs.poppler_utils}/bin/pdftotext -layout %pistol-filename% -";
+        }
+        {
+          mime = "inode/directory";
+          command = "${getExe pkgs.lsd} -1 %pistol-filename%";
+        }
+        {
+          mime = "video/*";
+          command = "${getExe pkgs.mediainfo} %pistol-filename%";
+        }
+      ];
     };
     lf = {
       enable = true;
