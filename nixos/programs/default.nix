@@ -23,6 +23,9 @@ let
   backupFile = ''bak="''${file}.bak"; mv "''${file}" "''${bak}"'';
   terminal = "${getExe pkgs.foot}";
   geminiBrowser = "${getExe pkgs.lagrange}";
+  nixFilesIn = dir: lib.attrsets.mapAttrsToList (name: _: "${dir}/${name}")
+    (lib.attrsets.filterAttrs (name: _: lib.strings.hasSuffix ".nix" name)
+      (builtins.readDir dir));
 in
 {
   imports = [
@@ -41,14 +44,13 @@ in
       ./browsers/firefox.nix
       ./emacs.nix
       ./git.nix
-      ./editors/helix.nix
       ./kitty.nix
       ./lf.nix
       ./mpv.nix
       ./neovim.nix
       ./newsboat
       ./rofi.nix
-    ];
+    ] ++ nixFilesIn ./editors;
     home.packages = with pkgs;
       [
         # Browsers
