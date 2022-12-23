@@ -154,7 +154,7 @@ in
             modifier = "Mod4";
             keybindings = with commonCommands; let
               mod = config.wayland.windowManager.sway.config.modifier;
-              inherit (config.wayland.windowManager.sway.config) terminal;
+              inherit terminal;
               mShift = "${mod}+Shift";
             in
             lib.mkOptionDefault {
