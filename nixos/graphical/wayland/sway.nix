@@ -178,7 +178,7 @@ in
             };
             assigns = {
               "1" = [{ app_id = "org.remmina.Remmina"; }];
-              "5" = [{ class = "^Steam"; }];
+              "6" = [{ class = "^Steam"; }];
               "9" = [{ class = "^Element"; }];
             };
             floating.criteria = [
@@ -206,12 +206,12 @@ in
               "*" = { bg = "${cacheHome}/background_image fill"; };
               "DP-1" = {
                 mode = "1920x1080";
-                position = "1920 0";
+                position = "0 0";
                 adaptive_sync = "on";
               };
               "HDMI-A-1" = {
                 mode = "1920x1080";
-                position = "0 0";
+                position = "1920 0";
               };
             };
             window.commands = [
@@ -226,8 +226,8 @@ in
             workspaceOutputAssign =
               let
                 inherit (lib.lists) forEach range;
-                leftWorkspaces = range 1 5;
-                rightWorkspaces = range 6 9;
+                leftWorkspaces = range 1 6;
+                rightWorkspaces = range 7 9;
               in
               forEach leftWorkspaces
                 (space: {
