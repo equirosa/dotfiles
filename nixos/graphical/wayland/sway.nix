@@ -177,9 +177,9 @@ in
               "Print" = "exec sway-shot";
             };
             assigns = {
-              "1" = [{ class = "^Element"; }];
-              "6" = [{ app_id = "org.remmina.Remmina"; }];
-              "9" = [{ class = "^Steam"; }];
+              "1" = [{ app_id = "org.remmina.Remmina"; }];
+              "5" = [{ class = "^Steam"; }];
+              "9" = [{ class = "^Element"; }];
             };
             floating.criteria = [
               { title = "Steam - Update News"; }
@@ -226,8 +226,8 @@ in
             workspaceOutputAssign =
               let
                 inherit (lib.lists) forEach range;
-                rightWorkspaces = range 1 5;
-                leftWorkspaces = range 6 9;
+                leftWorkspaces = range 1 5;
+                rightWorkspaces = range 6 9;
               in
               forEach leftWorkspaces
                 (space: {
