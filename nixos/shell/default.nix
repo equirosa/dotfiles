@@ -64,6 +64,7 @@ in
           fileWidgetCommand = "${fileCommand}";
           fileWidgetOptions = [ "--preview '${getExe pkgs.pistol} {}'" ];
         };
+      navi = { enable = true; };
       starship = {
         enable = true;
         settings = {
