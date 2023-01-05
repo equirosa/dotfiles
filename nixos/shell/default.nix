@@ -68,10 +68,7 @@ in
       starship = {
         enable = true;
         settings = {
-          git_commit = {
-            commit_hash_length = 4;
-            tag_symbol = " ";
-          };
+          git_commit.commit_hash_length = 4;
           golang.symbol = " ";
           hostname.ssh_only = true;
           lua.symbol = " ";
