@@ -14,7 +14,7 @@ let
     mailClient = "${getExe pkgs.aerc}";
     terminal = "kitty";
     termFileManager = "${getExe pkgs.lf}";
-    termMonitor = "${getExe pkgs.bottom}";
+    termMonitor = "${getExe pkgs.btop}";
     termAudio = "${getExe pkgs.pulsemixer}";
     transmissionClient = "${getExe pkgs.tremc}";
   };
