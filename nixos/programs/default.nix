@@ -26,6 +26,7 @@ let
   filesIn = dir: ext: lib.attrsets.mapAttrsToList (name: _: "${dir}/${name}")
     (lib.attrsets.filterAttrs (name: _: lib.strings.hasSuffix ".${ext}" name)
       (builtins.readDir dir));
+  scriptFiles = filesIn ../../scripts "sh";
 in
 {
   imports = [
