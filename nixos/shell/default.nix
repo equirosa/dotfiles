@@ -74,6 +74,7 @@ in
           lua.symbol = " ";
           python.symbol = " ";
           rust.symbol = " ";
+          sudo.disabled = false;
         };
       };
       zoxide.enable = true;
