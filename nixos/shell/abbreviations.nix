@@ -7,7 +7,7 @@ in
   cl = "curl -L";
   clo = "curl -LO";
   cnf = "command-not-found";
-  cp = "cp --reflink=always -i";
+  cp = "cp -i";
   mv = "mv -i";
   duts = "dust";
   e = "$EDITOR";
