@@ -1,10 +1,16 @@
-{ pkgs, ... }: {
+{ pkgs
+, lib
+, ...
+}:
+let
+  inherit (lib) genAttrs;
+  languageList = [ "elm" "lua" "nix" ];
+  generateLanguages = langList: map (langName: { name = "${langName}"; auto-format = true; }) langList;
+in
+{
   programs.helix = {
     enable = true;
-    languages = [
-      { name = "elm"; auto-format = true; }
-      { name = "nix"; auto-format = true; }
-    ];
+    languages = generateLanguages languageList;
     settings = {
       theme = "onedark";
       editor = {
