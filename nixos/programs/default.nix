@@ -12,7 +12,7 @@ let
   backupIfDuplicate = ext: ''if [ "''${ext}" = "${ext}" ];
   then
   ${backupFile}
-  export file="''${file}.bak"
+  file="''${file}.bak"
   fi
   '';
   getFile = ''file="$(readlink -f "''${1}")"'';
