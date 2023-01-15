@@ -379,7 +379,6 @@ in
             esac
           '';
         })
-      ]
-      ++ import ./editorPackages.nix { inherit pkgs; };
+      ];
   };
 }

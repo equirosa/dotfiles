@@ -19,9 +19,7 @@ in
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-nightly;
-    extraPackages = with pkgs;
-      [ ] # Needed for Teesitter
-      ++ import ./editorPackages.nix { inherit pkgs; };
+    extraPackages = with pkgs; [ ];
     extraConfig = ''
       lua << EOF
       ${builtins.readFile ../../nvim/init.lua}
