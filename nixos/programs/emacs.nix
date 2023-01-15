@@ -19,9 +19,6 @@
       alwaysEnsure = true;
       alwaysTangle = false;
       defaultInitFile = true;
-      extraEmacsPackages = epkgs: builtins.attrValues {
-        inherit (epkgs);
-      };
     };
   };
 }
