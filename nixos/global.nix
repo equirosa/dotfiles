@@ -63,7 +63,6 @@ in
           extraFlags = [ "--quiet" ];
         };
         less = { enable = true; };
-        nix-index.enable = true;
         ssh = { enable = true; };
         tealdeer = {
           enable = true;
