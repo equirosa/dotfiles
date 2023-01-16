@@ -12,9 +12,19 @@
         ];
         modules-left = [ "sway/workspaces" "sway/mode" ];
         modules-center = [ "sway/window" ];
-        modules-right = [ "idle_inhibitor" "sway/language" "disk" "network" "memory" "keyboard-state" "cpu" "tray" "clock" ];
+        modules-right = [
+          "idle_inhibitor"
+          "sway/language"
+          "disk"
+          "network"
+          "memory"
+          "keyboard-state"
+          "cpu"
+          "tray"
+          "clock"
+        ];
         clock = { format = "{:%Y-%m-%d | %H:%M}"; };
-        "cpu" = { format = "{load} - {usage}%  "; };
+        cpu = { format = "{load} - {usage}%  "; };
         disk = { format = "{free}/{total}"; };
         idle_inhibitor = {
           format = "{icon}";
@@ -39,8 +49,8 @@
           format-disconnected = "disconnected";
         };
         "sway/workspaces" = {
-          "format" = "{name}: {icon}";
-          "format-icons" = {
+          format = "{name}: {icon}";
+          format-icons = {
             "1" = "";
             "2" = "";
             "3" = "";
@@ -52,7 +62,7 @@
             "urgent" = "";
           };
         };
-        "tray" = { spacing = 10; };
+        tray = { spacing = 10; };
       };
     };
     systemd = { enable = true; };

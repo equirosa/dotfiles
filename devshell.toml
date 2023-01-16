@@ -8,6 +8,7 @@ packages = [
 "alejandra",
 "nixpkgs-fmt",
 "nodePackages.bash-language-server",
+"rnix-lsp",
 "shfmt",
 "stylua",
 ]

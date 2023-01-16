@@ -1,6 +1,6 @@
 { pkgs, lib, ... }:
 let
-  inherit (lib) getExe;
+  inherit (lib) getExe genAttrs recursiveUpdate;
 in
 {
   imports = [ ./bash.nix ./fish.nix ];
@@ -18,7 +18,6 @@ in
         enable = true;
         settings =
           let
-            inherit (lib) genAttrs recursiveUpdate;
             bold = "01";
             red = "31";
             green = "32";

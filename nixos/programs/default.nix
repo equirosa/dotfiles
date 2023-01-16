@@ -4,29 +4,42 @@
 }:
 let
   inherit (builtins) attrValues readFile fetchTarball replaceStrings;
-  inherit (lib) getExe;
+  inherit (lib) getExe optionalString;
   notify = ''${getExe pkgs.libnotify} -t 5000'';
   cat = "${getExe pkgs.bat} --plain";
   dmenu-command = "rofi -dmenu";
-  exitWithNoArguments = ''[ $# -eq 0 ] && ${notify} "No arguments provided. Exitting..." && exit 1'';
-  backupIfDuplicate = ext: ''if [ "''${ext}" = "${ext}" ];
-  then
-  ${backupFile}
-  file="''${file}.bak"
-  fi
+  backupIfDuplicate = ext: ''
+    if [ "''${ext}" = "${ext}" ]; then
+    bak="''${file}.bak"; mv "''${file}" "''${bak}"
+    file="''${file}.bak"
+    fi
   '';
-  getFile = ''file="$(readlink -f "''${1}")"'';
-  getExt = ''ext=''${file##*.}'';
-  getDir = ''directory=''${file%/*}'';
-  getBase = ''base=''${file%.*}'';
   scriptAudio = "-c:a libopus -b:a 96k";
-  backupFile = ''bak="''${file}.bak"; mv "''${file}" "''${bak}"'';
   terminal = "${getExe pkgs.foot}";
   geminiBrowser = "${getExe pkgs.lagrange}";
-  filesIn = dir: ext: lib.attrsets.mapAttrsToList (name: _: "${dir}/${name}")
+  filesIn = { dir, ext }: lib.attrsets.mapAttrsToList (name: _: "${dir}/${name}")
     (lib.attrsets.filterAttrs (name: _: lib.strings.hasSuffix ".${ext}" name)
       (builtins.readDir dir));
-  scriptFiles = filesIn ../../scripts "sh";
+  scriptFiles = filesIn { dir = ../../scripts; ext = "sh"; };
+  shellApplicationWithInputs =
+    { name
+    , runtimeInputs ? [ ]
+    , text
+    , getFile ? false || getExt || getBase || getDir
+    , getExt ? false
+    , getBase ? false
+    , getDir ? false
+    }: (pkgs.writeShellApplication {
+      inherit name runtimeInputs;
+      text = ''
+        [ $# -eq 0 ] && ${notify} "No arguments provided. Exitting..." && exit 1
+        ${optionalString getFile ''file="$(readlink -f "''${1}")"'' }
+        ${optionalString getExt ''ext=''${file##*.}''}
+        ${optionalString getBase ''base=''${file%.*}''}
+        ${optionalString getDir ''directory=''${file%/*}''}
+        ${text}
+      '';
+    });
 in
 {
   imports = [
@@ -51,7 +64,7 @@ in
       ./neovim.nix
       ./newsboat
       ./rofi.nix
-    ] ++ filesIn ./editors "nix";
+    ] ++ filesIn { dir = ./editors; ext = "nix"; };
     home.packages = with pkgs;
       [
         # Browsers
@@ -99,51 +112,43 @@ in
         gopass
         gopass-jsonapi
         # Scripts
-        (writeShellApplication {
+        (shellApplicationWithInputs {
           name = "2mkv";
           runtimeInputs = [ ffmpeg-full ];
+          getBase = true;
+          getExt = true;
           text = ''
-            ${exitWithNoArguments}
-            ${getFile}
-            ${getBase}
-            ${getExt}
             ${backupIfDuplicate "mkv"}
             ffmpeg -i "''${file}" -c:v libsvtav1 -preset 5 -crf 32 \
             -g 240 -pix_fmt yuv420p10le ${scriptAudio} "''${base}.mkv"
           '';
         })
-        (writeShellApplication {
+        (shellApplicationWithInputs {
           name = "2ogg";
+          getBase = true;
+          getExt = true;
           text = ''
-            ${exitWithNoArguments}
-            ${getFile}
-            ${getBase}
-            ${getExt}
             ${backupIfDuplicate "ogg"}
             ${getExe ffmpeg} -i "''${file}" -vn ${scriptAudio} "''${base}.ogg"
           '';
         })
-        (writeShellApplication {
+        (shellApplicationWithInputs {
           name = "2pdf";
           runtimeInputs = [ pandoc libreoffice ];
+          getExt = true;
           text = ''
-            ${exitWithNoArguments}
-            ${getFile}
-            ${getExt}
             case "''${ext}" in
               odt | docx ) libreoffice --headless --convert-to pdf "''${1}" ;;
               * ) printf "I can't handle that format yet!\n"
             esac
           '';
         })
-        (writeShellApplication {
+        (shellApplicationWithInputs {
           name = "2webp";
           runtimeInputs = [ libwebp ];
+          getExt = true;
+          getBase = true;
           text = replaceStrings [ "cwebp" ] [ "${libwebp}/bin/cwebp" ] ''
-            ${exitWithNoArguments}
-            ${getFile}
-            ${getBase}
-            ${getExt}
             case "''${ext}" in
             jpg | jpeg ) cwebp -q 80 "''${file}" -o "''${base}.webp" ;;
             png ) cwebp -lossless "''${file}" -o "''${base}.webp" ;;
@@ -169,10 +174,9 @@ in
             ${readFile ../../scripts/code2png.sh}
           '';
         })
-        (writeShellApplication {
+        (shellApplicationWithInputs {
           name = "download-file";
           text = ''
-            ${exitWithNoArguments}
             setsid ${getExe yt-dlp} --sponsorblock-mark all \
             --embed-subs --embed-metadata \
             -o "%(title)s-[%(id)s].%(ext)s" "$1" >>/dev/null &
@@ -225,9 +229,7 @@ in
         })
         (writeShellApplication {
           name = "emoji";
-          runtimeInputs = [
-            (rofimoji.override { rofi = rofi-wayland; })
-          ];
+          runtimeInputs = [ (rofimoji.override { rofi = rofi-wayland; }) ];
           text = ''
             rofimoji --clipboarder wl-copy --action type copy --typer wtype
           '';
@@ -274,28 +276,25 @@ in
             ${config.home.sessionVariables.BROWSER} -p default "''${chosen}"
           '';
         })
-        (writeShellApplication {
+        (shellApplicationWithInputs {
           name = "nixify";
           text = ''
-            ${exitWithNoArguments}
             nix flake new -t github:numtide/devshell ."''${1}" \
             && cd "''${1}" \
             && ${getExe direnv} allow
             ''${EDITOR} flake.nix
           '';
         })
-        (writeShellApplication {
+        (shellApplicationWithInputs {
           name = "password-menu";
           text = ''
-            ${exitWithNoArguments}
             CHOSEN="$(gopass list --flat | ${dmenu-command})"
             exec gopass show --clip "''${CHOSEN}"
           '';
         })
-        (writeShellApplication {
+        (shellApplicationWithInputs {
           name = "otp-menu";
           text = ''
-            ${exitWithNoArguments}
             CHOSEN="$(gopass list --flat | ${dmenu-command})"
             exec gopass otp --clip "''${CHOSEN}"
           '';
