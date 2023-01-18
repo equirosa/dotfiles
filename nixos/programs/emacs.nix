@@ -15,7 +15,7 @@
     enable = true;
     package = pkgs.emacsWithPackagesFromUsePackage {
       config = ../../emacs/init.el;
-      package = pkgs.emacsPgtk;
+      package = pkgs.emacsUnstable;
       alwaysEnsure = true;
       alwaysTangle = false;
       defaultInitFile = true;
