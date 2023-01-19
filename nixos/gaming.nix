@@ -4,9 +4,7 @@
 }:
 let inherit (builtins) attrValues elem; in
 {
-  imports = [
-    # "nix-gaming/modules/pipewireLowLatency.nix"
-  ];
+  imports = [ ];
   programs.firejail = {
     enable = true;
     wrappedBinaries = {
@@ -58,11 +56,6 @@ let inherit (builtins) attrValues elem; in
         "steam-runtime"
         "steam"
       ];
-    };
-  };
-  services = {
-    pipewire = {
-      # lowLatency.enable = true;
     };
   };
   security.rtkit.enable = true;
