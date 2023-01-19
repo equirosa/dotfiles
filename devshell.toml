@@ -5,7 +5,6 @@ help = "Per project developer environments"
 
 [devshell]
 packages = [
-"alejandra",
 "nixpkgs-fmt",
 "nodePackages.bash-language-server",
 "rnix-lsp",
