@@ -7,7 +7,7 @@ let
 in
 {
   programs.kitty = {
-    enable = true;
+    enable = false;
     font = {
       name = "monospace";
       size = 14;

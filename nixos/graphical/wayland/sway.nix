@@ -12,7 +12,7 @@ let
     desktopCommand = "rofi -show drun | ${pkgs.busybox}/bin/xargs swaymsg exec --";
     feedReader = "${getExe pkgs.newsboat}";
     mailClient = "${getExe pkgs.aerc}";
-    terminal = "kitty";
+    terminal = "foot";
     termFileManager = "${getExe pkgs.lf}";
     termMonitor = "${getExe pkgs.btop}";
     termAudio = "${getExe pkgs.pulsemixer}";
