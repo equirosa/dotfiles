@@ -1,2 +1,9 @@
 /* This is a file with replacements I want to have that won't be expanded by fish */
-{ pkgs, ... }: { cat = "${pkgs.bat}/bin/bat --plain"; }
+{ pkgs
+, lib
+, ...
+}:
+let
+  inherit (lib) getExe;
+in
+{ cat = "${getExe pkgs.bat} --plain"; }
