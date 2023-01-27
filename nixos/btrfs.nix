@@ -14,7 +14,7 @@
       settings = {
         snapshot_preserve_min = "2d";
         volume."/" = {
-          subvolume = "/home";
+          subvolume.home.snapshot_create = "always";
           snapshot_dir = ".snapshots";
         };
       };
