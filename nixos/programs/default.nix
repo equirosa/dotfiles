@@ -134,7 +134,7 @@ in
         })
         (shellApplicationWithInputs {
           name = "2pdf";
-          runtimeInputs = [ pandoc libreoffice ];
+          runtimeInputs = [ pandoc ];
           getExt = true;
           text = ''
             case "''${ext}" in
