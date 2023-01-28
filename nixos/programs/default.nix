@@ -109,6 +109,7 @@ in
         trash-cli
         ytfzf
         # Password
+        bitwarden
         gopass
         gopass-jsonapi
         # Scripts
