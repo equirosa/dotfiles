@@ -17,23 +17,15 @@ let
 in
 {
   programs.neovim = {
-    package = pkgs.neovim-nightly;
+    enable = false;
+    package = pkgs.neovim;
     extraPackages = with pkgs; [ ];
     extraConfig = ''
       lua << EOF
       ${builtins.readFile ../../nvim/init.lua}
       EOF
     '';
-    plugins = with pkgs.vimPlugins; [
-      packer-nvim
-      telescope-fzf-native-nvim
-      vim-fugitive
-      (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
-      nvim-ts-rainbow
-      nvim-treesitter-textobjects
-      nvim-treesitter-refactor
-      nvim-treesitter-context
-    ];
+    plugins = with pkgs.vimPlugins; [ ];
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
