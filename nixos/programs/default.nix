@@ -65,6 +65,10 @@ in
       ./newsboat
       ./rofi.nix
     ] ++ filesIn { dir = ./editors; ext = "nix"; };
+    programs.rbw = {
+      enable = true;
+      settings = { email = "bitwarden@eduardoquiros.com"; pinentry = "gnome3"; };
+    };
     home.packages = with pkgs;
       [
         # Browsers
