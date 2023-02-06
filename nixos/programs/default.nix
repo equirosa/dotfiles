@@ -21,7 +21,7 @@ let
     (lib.attrsets.filterAttrs (name: _: lib.strings.hasSuffix ".${ext}" name)
       (builtins.readDir dir));
   scriptFiles = filesIn { dir = ../../scripts; ext = "sh"; };
-  getExeList = list: map (x: "${getExe pkgs.${x}}") list;
+  getExeList = map (x: "${getExe pkgs.${x}}");
   shellApplicationWithInputs =
     { name
     , runtimeInputs ? [ ]
