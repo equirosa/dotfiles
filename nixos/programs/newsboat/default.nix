@@ -63,7 +63,7 @@ in
       urls-source "miniflux"
       miniflux-url "https://reader.miniflux.app"
       miniflux-login "nuclearcoffee"
-      miniflux-passwordeval "${pkgs.rbw}/bin/rbw get Miniflux"
+      miniflux-passwordeval "${pkgs.rbw}/bin/rbw get 3fbefc6e-da23-4507-9d1e-af980166fdff"
     '';
     reloadThreads = 12;
   };
