@@ -187,7 +187,7 @@ in
         })
         (writeShellApplication {
           name = "download-music-playlist";
-          text = replaceString [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
+          text = replaceStrings [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
             SOURCE_FILE="Source - Playlists.txt"
             touch "''${SOURCE_FILE}"
             ${readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Playlists/Playlists.sh"}
@@ -195,7 +195,7 @@ in
         })
         (writeShellApplication {
           name = "download-music-unique";
-          text = replaceString [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
+          text = replaceStrings [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
             SOURCE_FILE="Source - Unique.txt"
             touch "''${SOURCE_FILE}"
             ${readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Unique/Unique.sh"}
@@ -203,7 +203,7 @@ in
         })
         (writeShellApplication {
           name = "download-video-channel";
-          text = replaceString [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
+          text = replaceStrings [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
             SOURCE_FILE="Source - Channels.txt"
             touch "''${SOURCE_FILE}"
             ${readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Channels/Channels.sh"}
@@ -211,7 +211,7 @@ in
         })
         (writeShellApplication {
           name = "download-video-playlist";
-          text = replaceString [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
+          text = replaceStrings [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
             SOURCE_FILE="Source - Playlists.txt"
             touch "''${SOURCE_FILE}"
             ${readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Playlists/Playlists.sh"}
@@ -220,7 +220,7 @@ in
         (writeShellApplication {
           name = "download-video-unique";
           runtimeInputs = [ yt-dlp ];
-          text = ''
+          text = replaceStrings [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
             SOURCE_FILE="Source - Unique.txt"
             touch "''${SOURCE_FILE}"
             ${readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Unique/Unique.sh"}
