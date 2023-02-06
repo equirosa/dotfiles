@@ -21,6 +21,7 @@ let
     (lib.attrsets.filterAttrs (name: _: lib.strings.hasSuffix ".${ext}" name)
       (builtins.readDir dir));
   scriptFiles = filesIn { dir = ../../scripts; ext = "sh"; };
+  getExeList = list: map (x: "${getExe pkgs.${x}}") list;
   shellApplicationWithInputs =
     { name
     , runtimeInputs ? [ ]
@@ -115,7 +116,6 @@ in
         # Password
         bitwarden
         gopass
-        gopass-jsonapi
         # Scripts
         (shellApplicationWithInputs {
           name = "2mkv";
@@ -317,8 +317,7 @@ in
         })
         (writeShellApplication {
           name = "run-backups";
-          runtimeInputs = attrValues { inherit (pkgs) borgbackup; };
-          text = ''
+          text = replaceStrings [ "rbw" "borg" ] (getExeList [ "rbw" "borgbackup" ]) ''
             ${readFile ../../scripts/run-backups.sh}
           '';
         })
