@@ -139,18 +139,16 @@ in
         })
         (shellApplicationWithInputs {
           name = "2pdf";
-          runtimeInputs = [ pandoc ];
           getExt = true;
           text = ''
             case "''${ext}" in
-              odt | docx ) libreoffice --headless --convert-to pdf "''${1}" ;;
+              odt | docx ) ${getExe libreoffice} --headless --convert-to pdf "''${1}" ;;
               * ) printf "I can't handle that format yet!\n"
             esac
           '';
         })
         (shellApplicationWithInputs {
           name = "2webp";
-          runtimeInputs = [ libwebp ];
           getExt = true;
           getBase = true;
           text = replaceStrings [ "cwebp" ] [ "${libwebp}/bin/cwebp" ] ''
@@ -189,8 +187,7 @@ in
         })
         (writeShellApplication {
           name = "download-music-playlist";
-          runtimeInputs = [ yt-dlp ];
-          text = ''
+          text = replaceString [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
             SOURCE_FILE="Source - Playlists.txt"
             touch "''${SOURCE_FILE}"
             ${readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Playlists/Playlists.sh"}
@@ -198,8 +195,7 @@ in
         })
         (writeShellApplication {
           name = "download-music-unique";
-          runtimeInputs = [ yt-dlp ];
-          text = ''
+          text = replaceString [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
             SOURCE_FILE="Source - Unique.txt"
             touch "''${SOURCE_FILE}"
             ${readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Unique/Unique.sh"}
@@ -207,8 +203,7 @@ in
         })
         (writeShellApplication {
           name = "download-video-channel";
-          runtimeInputs = [ yt-dlp ];
-          text = ''
+          text = replaceString [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
             SOURCE_FILE="Source - Channels.txt"
             touch "''${SOURCE_FILE}"
             ${readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Channels/Channels.sh"}
@@ -216,8 +211,7 @@ in
         })
         (writeShellApplication {
           name = "download-video-playlist";
-          runtimeInputs = [ yt-dlp ];
-          text = ''
+          text = replaceString [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
             SOURCE_FILE="Source - Playlists.txt"
             touch "''${SOURCE_FILE}"
             ${readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Playlists/Playlists.sh"}
