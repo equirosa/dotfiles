@@ -311,7 +311,7 @@ in
         })
         (writeShellApplication {
           name = "run-backups";
-          text = replaceStrings [ "rbw" "borg" ] (getExeList [ "rbw" "borgbackup" ]) ''
+          text = replaceStrings [ "rbw" "borg " ] (getExeList [ "rbw" "borgbackup" ]) ''
             ${readFile ../../scripts/run-backups.sh}
           '';
         })
