@@ -173,9 +173,8 @@ in
         })
         (writeShellApplication {
           name = "code2png";
-          text = replaceStrings [ "silicon" ] [ "${getExe silicon}" ] ''
-            ${readFile ../../scripts/code2png.sh}
-          '';
+          text = replaceStrings [ "silicon" ] [ "${getExe silicon}" ]
+            (readFile ../../scripts/code2png.sh);
         })
         (shellApplicationWithInputs {
           name = "download-file";
