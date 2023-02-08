@@ -219,7 +219,6 @@ in
         })
         (writeShellApplication {
           name = "download-video-unique";
-          runtimeInputs = [ yt-dlp ];
           text = replaceStrings [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
             SOURCE_FILE="Source - Unique.txt"
             touch "''${SOURCE_FILE}"
@@ -286,17 +285,8 @@ in
         })
         (shellApplicationWithInputs {
           name = "password-menu";
-          text = ''
-            CHOSEN="$(gopass list --flat | ${dmenu-command})"
-            exec gopass show --clip "''${CHOSEN}"
-          '';
-        })
-        (shellApplicationWithInputs {
-          name = "otp-menu";
-          text = ''
-            CHOSEN="$(gopass list --flat | ${dmenu-command})"
-            exec gopass otp --clip "''${CHOSEN}"
-          '';
+          runtimeInputs = [ wtype ];
+          text = ''${getExe rofi-rbw}'';
         })
         (writeShellApplication {
           name = "rem-lap";
