@@ -266,14 +266,6 @@ in
                 | xargs git branch -D
           '';
         })
-        (writeShellApplication {
-          name = "join-class";
-          text = ''
-            chosen="$(${dmenu-command} < ~/links.csv | cut -d ',' -f2)"
-            [ -z "''${chosen}" ] && exit 1
-            ${config.home.sessionVariables.BROWSER} -p default "''${chosen}"
-          '';
-        })
         (shellApplicationWithInputs {
           name = "nixify";
           text = ''
