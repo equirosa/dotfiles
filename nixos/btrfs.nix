@@ -9,12 +9,12 @@
       verbosity = "crit";
       extraOptions = [ "--loadavg-target" "2.5" ];
     };
-    btrbk.instances."home" = {
+    btrbk.instances."btrbk" = {
       onCalendar = "*:0/10";
       settings = {
         snapshot_preserve_min = "2d";
         volume."/" = {
-          subvolume.home.snapshot_create = "always";
+          subvolume = "home";
           snapshot_dir = ".snapshots";
         };
       };
