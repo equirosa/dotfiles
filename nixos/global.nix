@@ -24,7 +24,7 @@ in
     ./virtualization/qemu.nix
   ];
   users.users.kiri = {
-    extraGroups = [ "adbusers" ];
+    extraGroups = [ "adbusers" "ipfs" ];
   };
   home-manager = {
     useUserPackages = true;
@@ -147,6 +147,7 @@ in
         };
       };
     };
+    kubo = { enable = true; };
     pipewire = {
       enable = true;
       alsa = {
