@@ -4,21 +4,12 @@
 }:
 let inherit (builtins) attrValues elem; in
 {
-  imports = [ ];
-  programs.firejail = {
-    enable = true;
-    wrappedBinaries = {
-      wesnoth = {
-        executable = "${pkgs.wesnoth}/bin/wesnoth";
-        profile = "${pkgs.firejail}/etc/firejail/wesnoth.profile";
-      };
-    };
-  };
   home-manager.users.kiri = {
     home = {
       packages = attrValues {
         inherit (pkgs)
           # Games
+          wesnoth
           # nix-gaming.packages.x86_64-linux.rocket-league
           # Launchers
           lutris
@@ -33,7 +24,7 @@ let inherit (builtins) attrValues elem; in
     };
   };
   programs = {
-    gamemode = { enable = true; };
+    gamemode.enable = true;
     steam.enable = true;
   };
   hardware = {
