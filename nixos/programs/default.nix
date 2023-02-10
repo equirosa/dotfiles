@@ -74,7 +74,6 @@ in
       [
         # Browsers
         tor-browser-bundle-bin
-        lagrange
         nyxt
         # Messengers
         aerc
@@ -95,7 +94,6 @@ in
         # Nix-specific stuff
         cachix
         comma
-        nix-template
         nix-update
         nixpkgs-review
         statix
