@@ -9,15 +9,17 @@
       verbosity = "crit";
       extraOptions = [ "--loadavg-target" "2.5" ];
     };
-    btrbk.instances."btrbk" = {
-      onCalendar = "*:0/10";
-      settings = {
-        snapshot_preserve_min = "2d";
-        volume."/" = {
-          subvolume = "home";
-          snapshot_dir = ".snapshots";
-        };
+    snapper = {
+      configs.home = {
+        subvolume = "/home";
+        extraConfig = ''
+          ALLOW_USERS="kiri"
+          TIMELINE_CREATE=yes
+          TIMELINE_CLEANUP=yes
+        '';
       };
+      cleanupInterval = "2d";
+      snapshotInterval = "*:0/10";
     };
     btrfs.autoScrub = {
       enable = true;
