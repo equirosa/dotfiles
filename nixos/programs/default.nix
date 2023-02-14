@@ -35,9 +35,9 @@ let
       text = ''
         [ $# -eq 0 ] && ${notify} "No arguments provided. Exitting..." && exit 1
         ${optionalString getFile ''file="$(readlink -f "''${1}")"'' }
-        ${optionalString getExt ''ext=''${file##*.}''}
-        ${optionalString getBase ''base=''${file%.*}''}
-        ${optionalString getDir ''directory=''${file%/*}''}
+        ${optionalString getExt "ext=\${file##*.}"}
+        ${optionalString getBase "base=\${file%.*}"}
+        ${optionalString getDir "directory=\${file%/*}"}
         ${text}
       '';
     });
