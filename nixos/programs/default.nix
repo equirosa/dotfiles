@@ -76,6 +76,7 @@ in
         aerc
         catimg
         element-desktop
+        signal-desktop
         # Documents
         onlyoffice-bin
         hunspell
