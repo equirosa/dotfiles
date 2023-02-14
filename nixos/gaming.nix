@@ -31,7 +31,7 @@ let inherit (builtins) attrValues elem; in
     opengl = {
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages32 = attrValues { inherit (pkgs.pkgsi686Linux) libva; };
+      extraPackages32 = [ pkgs.pkgsi686Linux.libva ];
     };
     steam-hardware.enable = true;
   };

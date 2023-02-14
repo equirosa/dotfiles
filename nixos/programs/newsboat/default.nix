@@ -1,6 +1,7 @@
 { pkgs, config, ... }:
 let
   resetBrowser = ''set browser "xdg-open"'';
+  inherit (config.home.sessionVariables) BROWSER;
 in
 {
   programs.newsboat = {
@@ -34,7 +35,7 @@ in
       macro m set browser "mpv --keep-open=no --pause"; open-in-browser-and-mark-read; ${resetBrowser}
       macro u set browser "umpv"; open-in-browser-and-mark-read; ${resetBrowser}
       macro w set browser "${pkgs.w3m}/bin/w3m"; open-in-browser-and-mark-read ; ${resetBrowser}
-      macro b set browser "${config.home.sessionVariables.BROWSER}"; open-in-browser-and-mark-read ; ${resetBrowser}
+      macro b set browser "${BROWSER}"; open-in-browser-and-mark-read ; ${resetBrowser}
       macro d set browser "watchlist"; open-in-browser-and-mark-read ; ${resetBrowser}
 
       # Colors
