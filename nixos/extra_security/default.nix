@@ -27,17 +27,4 @@
       };
   };
   nix.settings.allowed-users = [ "@wheel" ];
-  # TODO: consider not using electron so I don't have to enable this.
-  /*
-    security = {
-    chromiumSuidSandbox.enable = true;
-    unprivilegedUsernsClone = true;
-    };
-    services = {
-    clamav = {
-    daemon.enable = true;
-    updater.enable = true;
-    };
-    };
-  */
 }
