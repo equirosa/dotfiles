@@ -262,10 +262,8 @@ in
   # NixOS specific stuff
   # Sway doesn't launch if enabled only by Home Manager. TODO: report upstream
   programs.sway.enable = true;
-  xdg = {
-    portal = {
-      enable = true;
-      wlr = { enable = true; };
-    };
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
   };
 }
