@@ -7,7 +7,6 @@ let
   inherit (lib) getExe optionalString;
   inherit (builtins) attrValues readFile;
   abbreviations = import ./abbreviations.nix;
-  aliases = import ./aliases.nix { inherit pkgs; };
 in
 {
   users.users.kiri.shell = pkgs.fish;
@@ -17,7 +16,7 @@ in
       inherit (config.wayland.windowManager) sway;
     in
     {
-      home.packages = attrValues { inherit (pkgs) jq; };
+      home.packages = [ pkgs.jq ];
       programs = {
         fish = {
           enable = true;
