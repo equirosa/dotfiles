@@ -23,9 +23,7 @@ in
     ./virtualization/podman.nix
     ./virtualization/qemu.nix
   ];
-  users.users.kiri = {
-    extraGroups = [ "adbusers" "ipfs" ];
-  };
+  users.users.kiri = { extraGroups = [ "adbusers" "ipfs" ]; };
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
@@ -101,6 +99,7 @@ in
     kernelPackages = pkgs.linuxPackages_latest;
   };
   hardware.enableRedistributableFirmware = true;
+  hardware.keyboard.zsa.enable = true;
   networking = {
     hostFiles = map (x: "${pkgs.stevenblack-blocklist}/" + x) [
       "hosts"
