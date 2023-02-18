@@ -13,7 +13,7 @@ let
       inherit ref;
     };
   };
-  pluginGitHead = pluginGit "HEAD";
+  pluginLatest = pluginGit "HEAD";
 in
 {
   programs.neovim = {
