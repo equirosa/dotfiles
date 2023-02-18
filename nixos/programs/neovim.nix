@@ -17,8 +17,7 @@ let
 in
 {
   programs.neovim = {
-    enable = false;
-    package = pkgs.neovim;
+    enable = true;
     extraPackages = with pkgs; [ ];
     extraConfig = ''
       lua << EOF
