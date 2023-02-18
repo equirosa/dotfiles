@@ -3,7 +3,7 @@ let
   inherit (lib) getExe genAttrs recursiveUpdate;
 in
 {
-  imports = [ ./bash.nix ./fish.nix ];
+  imports = [ ./fish.nix ];
   home-manager.users.kiri = {
     home.shellAliases = import ./aliases.nix { inherit pkgs lib; };
     programs = {
