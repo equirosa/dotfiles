@@ -1,5 +1,4 @@
 let
-  nixenvString = ''nix-env -f "<nixpkgs>" -qaP'';
   ytfzf = "ytfzf --detach --show-thumbnails --thumb-viewer=kitty";
 in
 {
@@ -41,11 +40,12 @@ in
   mfs = "mpv --fs";
   sm = "setsid mpv";
   u = "umpv";
+  umfs = "umpv --fs";
   # Flatpak
   fi = "flatpak install --assumeyes";
   fl = "flatpak list";
   fs = "flatpak search";
-  fu = "flatpak update --assumeyes";
+  fu = "flatpak update --assumeyes && flatpak uninstall --unused --assumeyes";
   fun = "flatpak uninstall --assumeyes";
   # Git
   gca = "git commit -a";
@@ -60,9 +60,6 @@ in
   pum = "git pull upstream master";
   pump = "git pull upstream master && git push";
   pur = "git pull upstream master --rebase";
-  # Gopass
-  gp = "gopass";
-  gn = "gopass new";
   # Kitty
   icat = "kitty +kitten icat";
   # Download stuff
@@ -74,7 +71,6 @@ in
   c = "check-modifications";
   nb = "nix build";
   nbf = "nix build -f ./.";
-  nodep = "${nixenvString} nodePackages";
   nph = "nix profile history";
   npi = "nix profile install";
   npl = "nix profile list";
