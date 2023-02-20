@@ -11,7 +11,7 @@ in
         enable = true;
         config = {
           pager = "${getExe pkgs.less} -FR";
-          theme = "TwoDark";
+          theme = "gruvbox-dark";
         };
       };
       dircolors = {
