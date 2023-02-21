@@ -2,6 +2,7 @@
 , pkgs
 , lib
 , vimUtils
+, fileContents
 , ...
 }:
 let
@@ -21,10 +22,13 @@ in
     extraPackages = with pkgs; [ ];
     extraConfig = ''
       lua << EOF
-      ${builtins.readFile ../../nvim/init.lua}
+      ${lib.fileContents ../../nvim/init.lua}
       EOF
     '';
-    plugins = with pkgs.vimPlugins; [ nvim-treesitter.withAllGrammars ];
+    plugins = with pkgs.vimPlugins; [
+      nvim-treesitter.withAllGrammars
+      packer-nvim
+    ];
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
