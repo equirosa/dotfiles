@@ -2,7 +2,6 @@
 , pkgs
 , lib
 , vimUtils
-, fileContents
 , ...
 }:
 let
@@ -15,6 +14,7 @@ let
     };
   };
   pluginLatest = pluginGit "HEAD";
+  inherit (lib) fileContents;
 in
 {
   programs.neovim = {
@@ -22,7 +22,7 @@ in
     extraPackages = with pkgs; [ ];
     extraConfig = ''
       lua << EOF
-      ${lib.fileContents ../../nvim/init.lua}
+      ${fileContents ../../nvim/init.lua}
       EOF
     '';
     plugins = with pkgs.vimPlugins; [
