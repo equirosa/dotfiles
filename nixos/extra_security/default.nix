@@ -4,6 +4,7 @@
 }: {
   imports = [
     # <nixpkgs/nixos/modules/profiles/hardened.nix>
+    ./kernel.nix
     ./sudo.nix
   ];
   environment = {
