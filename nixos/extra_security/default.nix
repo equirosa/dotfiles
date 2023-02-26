@@ -1,7 +1,12 @@
 { pkgs
 , lib
 , ...
-}: {
+}:
+let
+  openPortRanges = [ ];
+  open-ports = [ ];
+in
+{
   imports = [
     # <nixpkgs/nixos/modules/profiles/hardened.nix>
     ./kernel.nix
@@ -12,10 +17,6 @@
     defaultPackages = lib.mkForce [ ];
   };
   networking.firewall =
-    let
-      openPortRanges = [ ];
-      open-ports = [ ];
-    in
     {
       # Close firewall
       enable = true;
@@ -24,5 +25,11 @@
       allowedUDPPorts = open-ports;
       allowedUDPPortRanges = openPortRanges;
     };
-    nix.settings.allowed-users = [ "@wheel" ];
+  nix.settings.allowed-users = [ "@wheel" ];
+  security = {
+    apparmor = {
+      enable = true;
+      killUnconfinedConfinables = true;
+    };
+  };
 }
