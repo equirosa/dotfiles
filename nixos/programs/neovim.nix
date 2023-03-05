@@ -25,7 +25,8 @@ in
       ${fileContents ../../nvim/init.lua}
       EOF
     '';
-    plugins = with pkgs.vimPlugins; [ # Plugins managed directly by Nix
+    plugins = with pkgs.vimPlugins; [
+      # Plugins managed directly by Nix
       nvim-treesitter.withAllGrammars # So it is compiled on system rebuild
       lazy-nvim # To avoid bootstrapping
       lazy-lsp-nvim # This already calls a nix shell anyway so might as well stick it here
