@@ -38,6 +38,7 @@ in
     withRuby = false;
   };
   xdg.configFile."nvim/lua" = {
+    enable = true;
     recursive = true;
     source = ../../nvim/lua;
   };
