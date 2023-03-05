@@ -37,4 +37,8 @@ in
     withPython3 = false;
     withRuby = false;
   };
+  xdg.configFile."nvim/lua" = {
+    recursive = true;
+    source = ../../nvim/lua;
+  };
 }
