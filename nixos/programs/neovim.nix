@@ -19,19 +19,16 @@ in
 {
   programs.neovim = {
     enable = true;
-    extraPackages = with pkgs; [ ];
     extraConfig = ''
       lua << EOF
       ${fileContents ../../nvim/init.lua}
       EOF
     '';
+    extraPackages = with pkgs; [ gcc gnumake ];
     plugins = with pkgs.vimPlugins; [
       # Plugins managed directly by Nix
-      nvim-treesitter.withAllGrammars # So it is compiled on system rebuild
-      nvim-treesitter-textobjects
       lazy-nvim # To avoid bootstrapping
       lazy-lsp-nvim # This already calls a nix shell anyway so might as well stick it here
-      telescope-fzf-native-nvim
     ];
     viAlias = true;
     vimAlias = true;
