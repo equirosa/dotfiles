@@ -156,6 +156,10 @@ in
             esac
           '';
         })
+        (writeShellApplication{
+          name = "nvim-clean";
+          text = lib.fileContents ../../scripts/nvim-clean.sh;
+        })
         (writeShellApplication {
           name = "change-background";
           text = readFile ../../scripts/change_background.sh;
