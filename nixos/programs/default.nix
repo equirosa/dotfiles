@@ -156,7 +156,7 @@ in
             esac
           '';
         })
-        (writeShellApplication{
+        (writeShellApplication {
           name = "nvim-clean";
           text = lib.fileContents ../../scripts/nvim-clean.sh;
         })
