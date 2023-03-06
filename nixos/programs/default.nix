@@ -21,6 +21,7 @@ let
     (lib.attrsets.filterAttrs (name: _: lib.strings.hasSuffix ".${ext}" name)
       (builtins.readDir dir));
   scriptFiles = filesIn { dir = ../../scripts; ext = "sh"; };
+  nixFiles = dir: filesIn { inherit dir; ext = "nix"; };
   getExeList = map (x: "${getExe pkgs.${x}}");
   shellApplicationWithInputs =
     { name
@@ -62,7 +63,7 @@ in
       ./neovim.nix
       ./newsboat
       ./rofi.nix
-    ] ++ filesIn { dir = ./editors; ext = "nix"; };
+    ] ++ nixFiles ./editors;
     programs.rbw = {
       enable = true;
       settings = { email = "bitwarden@eduardoquiros.com"; pinentry = "gnome3"; };
