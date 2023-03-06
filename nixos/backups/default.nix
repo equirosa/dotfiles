@@ -6,10 +6,9 @@
         common-excludes = map (x: homeDir + "*/" + x) [
           # Largest cache dirs
           ".cache"
-          ".config/Code/CachedData"
-          ".config/Slack/logs"
+          ".config"
           ".container-diff"
-          ".npm/_cacache"
+          ".npm"
           "Cache"
           "cache2" # firefox
           # Work related dirs
@@ -32,7 +31,7 @@
           "unhidden"
           "venv"
         ];
-        games-excludes = map (dir: homeDir + "Games/" + dir) [
+        games-excludes = map (dir: "Games/" + dir) [
           "battlenet"
           "epic"
           "rocket-league"
