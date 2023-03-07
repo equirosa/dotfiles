@@ -12,8 +12,8 @@
     ];
     mutableExtensionsDir = false;
     userSettings = {
-      "files.autoSave" = "off";
       "[nix]"."editor.tabSize" = 2;
+      "files.autoSave" = "off";
       "workbench.iconTheme" = "material-icon-theme";
     };
   };
