@@ -11,6 +11,7 @@
     userSettings = {
       "files.autoSave" = "off";
       "[nix]"."editor.tabSize" = 2;
+      "workbench.iconTheme" = "material-icon-theme";
     };
   };
 }
