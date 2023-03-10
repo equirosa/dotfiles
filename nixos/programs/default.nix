@@ -76,7 +76,7 @@ in
         # Messengers
         aerc
         catimg
-        element-desktop
+        element-desktop-wayland
         signal-desktop
         # Documents
         onlyoffice-bin
