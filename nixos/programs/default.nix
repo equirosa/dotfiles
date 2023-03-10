@@ -63,6 +63,7 @@ in
       ./neovim.nix
       ./newsboat
       ./rofi.nix
+      ./thunderbird.nix
     ] ++ nixFiles ./editors;
     programs.rbw = {
       enable = true;
