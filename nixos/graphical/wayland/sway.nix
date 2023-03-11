@@ -40,7 +40,7 @@ in
             name = "sway-shot";
             text = ''
               ${getExe pkgs.sway-contrib.grimshot} save window - \
-                | ${getExe pkgs.pngquant} --strip - \
+                | ${getExe pkgs.pngquant} --skip-if-larger --strip - \
                 | ${getExe pkgs.swappy} -f -
             '';
           })
