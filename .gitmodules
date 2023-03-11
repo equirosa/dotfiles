@@ -1,6 +1,0 @@
-[submodule "nvim"]
-	path = nvim
-	url = git@github.com:equirosa/nvim-config
-[submodule "emacs"]
-	path = emacs
-	url = git@git.sr.ht:~eduardo_quiros/emacs-config

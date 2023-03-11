@@ -55,12 +55,10 @@ in
   home-manager.users.kiri = { config, ... }: {
     imports = [
       ./browsers/firefox.nix
-      ./emacs.nix
       ./git.nix
       ./terminal
       ./lf.nix
       ./mpv.nix
-      ./neovim.nix
       ./newsboat
       ./rofi.nix
       ./thunderbird.nix

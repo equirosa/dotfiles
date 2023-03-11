@@ -14,8 +14,8 @@
   programs.emacs = {
     enable = true;
     package = pkgs.emacsWithPackagesFromUsePackage {
-      config = ../../emacs/init.el;
-      package = pkgs.emacs;
+      config = ./emacs-config/init.el;
+      # package = pkgs.emacs;
       alwaysEnsure = true;
       alwaysTangle = false;
       defaultInitFile = true;
