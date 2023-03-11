@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  home-manager.users.kiri.programs.waybar = {
+  programs.waybar = {
     enable = true;
     settings = {
       mainBar = {

@@ -21,12 +21,12 @@ let
   colors = import ../../colors.nix;
 in
 {
-  imports = [ ./bar ./notifications.nix ];
   home-manager.users.kiri =
     { config
     , lib
     , ...
     }: {
+  imports = [ ./bar ./notifications.nix ];
       xdg.configFile."electron-flags.conf" = {
         text = ''
           --enable-features=UseOzonePlatform

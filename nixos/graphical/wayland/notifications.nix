@@ -3,7 +3,7 @@ let
   colors = import ../../colors.nix;
 in
 {
-  home-manager.users.kiri.services.mako = {
+  services.mako = {
     enable = true;
     backgroundColor = "#${colors.selected.background}";
     borderColor = "#${colors.selected.bright.yellow}";
