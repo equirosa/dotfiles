@@ -87,10 +87,8 @@ in
         pandoc
         tectonic
         # File Sharing
-        ffsend
         transmission
         tremc
-        wormhole-rs
         # Nix-specific stuff
         cachix
         comma
@@ -99,9 +97,7 @@ in
         statix
         # Utilities
         archiver
-        borgbackup
         cryfs
-        czkawka
         du-dust
         fd
         imv
@@ -110,7 +106,6 @@ in
         qrencode
         ripgrep
         trash-cli
-        ytfzf
         # Password
         bitwarden
         gopass
