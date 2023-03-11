@@ -18,6 +18,23 @@
           block = "keyboard_layout";
           driver = "sway";
         }
+        {
+          block = "cpu";
+          interval = 1;
+        }
+        {
+          block = "load";
+          format = "{1m}";
+          interval = 1;
+        }
+        {
+          block = "sound";
+        }
+        {
+          block = "time";
+          format = "%a %d/%m %R";
+          interval = 60;
+        }
       ];
     };
   };
