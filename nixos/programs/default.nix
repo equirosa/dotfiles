@@ -57,7 +57,7 @@ in
       ./browsers/firefox.nix
       ./emacs.nix
       ./git.nix
-      ./kitty.nix
+      ./terminal
       ./lf.nix
       ./mpv.nix
       ./neovim.nix
