@@ -23,6 +23,10 @@
           driver = "sway";
         }
         {
+          block = "memory";
+          interval = 1;
+        }
+        {
           block = "cpu";
           interval = 1;
         }
