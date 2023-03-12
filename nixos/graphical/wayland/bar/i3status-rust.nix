@@ -5,7 +5,7 @@
   programs.i3status-rust = {
     enable = true;
     bars.default = {
-      icons = "awesome5";
+      icons = "material-nf";
       theme = "gruvbox-dark";
       blocks = [
         {
