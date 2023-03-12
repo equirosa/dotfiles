@@ -1,1 +1,1 @@
-{ pkgs, ... }: { imports = [ ./waybar.nix ]; }
+{ pkgs, ... }: { imports = [ ./i3status-rust.nix ]; }

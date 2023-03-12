@@ -81,7 +81,11 @@ in
         sway = {
           enable = true;
           config = {
-            bars = [ ];
+            bars = [{
+              fonts.size = 10.0;
+              statusCommand = "i3status-rs ${config.xdg.configHome}/i3status-rust/config-default.toml";
+              position = "top";
+            }];
             terminal = "${commonCommands.terminal}";
             menu = "${commonCommands.dmenuCommand}";
             modifier = "Mod4";
@@ -121,12 +125,8 @@ in
             ];
             startup = [
               { command = "${getExe pkgs.autotiling}"; }
-              {
-                command = "systemctl --user restart waybar.service";
-                always = true;
-              }
               { command = "${getExe pkgs.mako}"; }
-              { command = "element-desktop"; }
+              { command = "${getExe pkgs.element-desktop-wayland}"; }
               { command = "${pkgs.transmission}/bin/transmission-daemon"; }
             ];
             input = {
