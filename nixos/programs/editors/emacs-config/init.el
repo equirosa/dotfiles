@@ -49,11 +49,6 @@
   "Kill the currently focused buffer."
   (interactive)
   (kill-buffer (current-buffer)))
-(defun kiri/remove-keybind (key scope)
-  "Remove keybind from scope."
-  (if scope "g"
-    (global-set-key (kbd key) nil)
-    (local-set-key (kbd key) nil)))
 (global-set-key (kbd "C-x k") 'kiri/kill-this-buffer)
 (global-set-key (kbd "C-x w") 'delete-frame)
 (global-set-key [remap eval-last-sexp] 'pp-eval-last-sexp)
