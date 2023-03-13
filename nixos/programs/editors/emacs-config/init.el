@@ -97,11 +97,12 @@
    ("C-z" . helm-select-action)
    ("<tab>" . helm-execute-persistent-action))
   :custom
-  (helm-mini-default-sources '(helm-source-buffers-list
-                               helm-source-recentf
-                               helm-source-bookmarks
-                               helm-source-bookmark-set
-                               helm-source-buffer-not-found)
+  (helm-mini-default-sources
+   '(helm-source-buffers-list
+     helm-source-recentf
+     helm-source-bookmarks
+     helm-source-bookmark-set
+     helm-source-buffer-not-found)
    helm-ff-skip-boring-files t))
 (use-package helm-flyspell
   :after (helm)
