@@ -36,13 +36,14 @@
   :bind ("C-c b" . bool-flip-do-flip))
 (use-package hl-todo
   :custom
-  (hl-todo-keyword-faces '(("TODO"   . "#FF0000")
-			   ("FIXME"  . "#FF0000")
-			   ("DEBUG"  . "#A020F0")
-			   ("GOTCHA" . "#FF4500")
-			   ("HACK"   . "#D79921")
-			   ("STUB"   . "#1E90FF")
-			   ("DONE"   . "#00FF00")))
+  (hl-todo-keyword-faces
+	 '(("TODO"   . "#FF0000")
+		 ("FIXME"  . "#FF0000")
+		 ("DEBUG"  . "#A020F0")
+		 ("GOTCHA" . "#FF4500")
+		 ("HACK"   . "#D79921")
+		 ("STUB"   . "#1E90FF")
+		 ("DONE"   . "#00FF00")))
   :hook (prog-mode))
 ;; Keybinds (for comfort)
 (defun kiri/kill-this-buffer ()
@@ -134,8 +135,8 @@
   :hook prog-mode)
 ;; Tree-sitter
 (use-package tree-sitter
-  :init (global-tree-sitter-mode))
-(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+  :init (global-tree-sitter-mode)
+  :hook (tree-sitter-after-on-hook . tree-sitter-hl-mode))
 (use-package tree-sitter-langs)
 (use-package tree-sitter-indent
   :hook rust-mode)
@@ -200,7 +201,9 @@
   :hook org-mode)
 ;; Modernize Orgmode
 (use-package org-modern
-  :hook org-mode
+  :hook
+  org-mode
+  (org-agenda-finalize-hook . org-modern-agenda)
   :custom
   (org-element-use-cache t)
   (org-hide-emphasis-markers t)
@@ -214,17 +217,16 @@
   (org-startup-with-inline-images "inlineimages")
   (org-startup-with-inline-images t)
   (org-ellipsis "  ")
-  :config
-  (add-hook 'org-agenda-finalize-hook #'org-modern-agenda))
 (use-package org-link-beautify ; Pretty links
   :hook org-mode)
 (use-package org
   :config
-  (add-to-list 'org-structure-template-alist '("jv" . "src java"))
-  (add-to-list 'org-structure-template-alist '("js" . "src javascript"))
-  (add-to-list 'org-structure-template-alist '("g" . "src go"))
-  (add-to-list 'org-structure-template-alist '("r" . "src rust"))
-  (add-to-list 'org-structure-template-alist '("ex" . "example"))
+  (dolist (elem '(("jv" . "src java")
+                ("js" . "src javascript")
+                ("g" . "src go")
+                ("r" . "src rust")
+                ("ex" . "example")))
+  (add-to-list 'org-structure-template-alist elem))
   :custom
   ;; Org Export
   (org-latex-toc-command "\\tableofcontents \\clearpage")
@@ -278,9 +280,10 @@
 ;; BibLaTeX settings
 ;; bibtex-mode
 (setq bibtex-dialect 'biblatex)
-(defvar bib-files-directory (directory-files
-			     (concat (getenv "HOME") "/Documents/bibliography") t
-			     "^[A-Z|a-z].+.bib$"))
+(defvar bib-files-directory
+  (directory-files
+   (concat (getenv "HOME") "/Documents/bibliography") t
+   "^[A-Z|a-z].+.bib$"))
 (defvar pdf-files-directory (concat (getenv "HOME") "/Documents/bibliography/pdf"))
 ;; Helm + BibTeX
 (use-package helm-bibtex
@@ -348,15 +351,10 @@
 	      ("C-c o" . 'eglot-code-action-organize-imports)
 	      ("C-c r" . 'eglot-rename)))
 ;; Language modes
-(use-package elm-mode)
-(use-package fish-mode)
-(use-package go-mode)
-(use-package lua-mode)
-(use-package nix-mode)
-(use-package python-mode)
+(dolist (mode '(elm-mode fish-mode go-mode lua-mode nix-mode python-mode rust-mode))
+  (use-package mode))
 (use-package elpy
   :hook (python-mode . 'elpy-enable))
-(use-package rust-mode)
 (use-package rustic
   :hook rust-mode
   :custom
