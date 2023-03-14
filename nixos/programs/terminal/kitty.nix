@@ -14,6 +14,6 @@ in
     };
     keybindings = { };
     settings = { background_opacity = "${colors.opacity}"; };
-    theme = "Gruvbox Dark Hard";
+    # theme = "Gruvbox Dark Hard";
   };
 }
