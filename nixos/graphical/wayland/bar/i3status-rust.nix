@@ -21,6 +21,10 @@
         {
           block = "keyboard_layout";
           driver = "sway";
+          mappings = {
+            "English (US)" = "🇺🇸";
+            "Spanish (Latin American)" = "🇨🇷";
+          };
         }
         {
           block = "memory";
