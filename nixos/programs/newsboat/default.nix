@@ -1,7 +1,30 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 let
   resetBrowser = ''set browser "xdg-open"'';
   inherit (config.home.sessionVariables) BROWSER;
+  inherit (lib) getExe;
+  macroList = [
+    { key = "m"; action = "mpv --keep-open=no --pause"; }
+    { key = "u"; action = "umpv"; }
+    { key = "w"; action = "${getExe pkgs.w3m}"; }
+    { key = "b"; action = BROWSER; }
+    { key = "d"; action = "watchlist"; }
+  ];
+  controlsList = [
+    { key = "j"; action = "down"; }
+    { key = "k"; action = "up"; }
+    { key = "j"; action = "next articlelist"; }
+    { key = "k"; action = "prev articlelist"; }
+    { key = "G"; action = "end"; }
+    { key = "g"; action = "home"; }
+    { key = "a"; action = "toggle-article-read"; }
+    { key = "l"; action = "open"; }
+    { key = "h"; action = "quit"; }
+    { key = "u"; action = "show-urls"; }
+    { key = "T"; action = "toggle-show-read-feeds"; }
+    { key = "O"; action = "open-in-browser-and-mark-read"; }
+  ];
+  convertToString = list: builtins.concatStringsSep "\n" list;
 in
 {
   programs.newsboat = {
@@ -15,28 +38,11 @@ in
       show-read-articles no
       show-read-feeds no
 
-      browser xdg-open
-
       # Controls
-      bind-key j down
-      bind-key k up
-      bind-key j next articlelist
-      bind-key k prev articlelist
-      bind-key G end
-      bind-key g home
-      bind-key a toggle-article-read
-      bind-key l open
-      bind-key h quit
-      bind-key u show-urls
-      bind-key T toggle-show-read-feeds
-      bind-key O open-in-browser-and-mark-read
+      ${convertToString (map (control: "bind-key ${control.key} ${control.action}") controlsList)}
 
       # Macros
-      macro m set browser "mpv --keep-open=no --pause"; open-in-browser-and-mark-read; ${resetBrowser}
-      macro u set browser "umpv"; open-in-browser-and-mark-read; ${resetBrowser}
-      macro w set browser "${pkgs.w3m}/bin/w3m"; open-in-browser-and-mark-read ; ${resetBrowser}
-      macro b set browser "${BROWSER}"; open-in-browser-and-mark-read ; ${resetBrowser}
-      macro d set browser "watchlist"; open-in-browser-and-mark-read ; ${resetBrowser}
+      ${convertToString (map (macro: "macro ${macro.key} set browser \"${macro.action}\"; open-in-browser-and-mark-read; ${resetBrowser}") macroList)}
 
       # Colors
       color listnormal white default
