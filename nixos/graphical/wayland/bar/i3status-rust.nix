@@ -44,8 +44,8 @@
           format = "{output_name} {volume}";
           # on_click = "pavucontrol --tab=3";
           mappings = {
-            "alsa_output.pci-0000_00_1f.3.analog-stereo" = "";
-            "alsa_output.usb-SteelSeries_Arctis_Nova_Pro_Wireless-00.iec958-stereo" = "";
+            "alsa_output.pci-0000_00_1f.3.analog-stereo" = "💻";
+            "alsa_output.usb-SteelSeries_Arctis_Nova_Pro_Wireless-00.iec958-stereo" = "🎧";
           };
         }
         {
