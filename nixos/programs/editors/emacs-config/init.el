@@ -135,9 +135,10 @@
 (use-package rainbow-delimiters
   :hook prog-mode)
 ;; Tree-sitter
-(use-package tree-sitter
-  :init (global-tree-sitter-mode))
-(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+(use-package treesit
+  :custom (treesit-auto-install 'prompt))
+(use-package treesit-auto
+  :config (global-treesit-auto-mode))
 (use-package tree-sitter-langs)
 (use-package tree-sitter-indent
   :hook rust-mode)
