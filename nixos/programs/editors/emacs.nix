@@ -19,7 +19,7 @@ in
     inherit enable;
     package = pkgs.emacsWithPackagesFromUsePackage {
       config = ./emacs-config/init.el;
-      # package = pkgs.emacs;
+      package = pkgs.emacsPgtk;
       alwaysEnsure = true;
       alwaysTangle = false;
       defaultInitFile = true;
