@@ -4,7 +4,17 @@
 }:
 let
   inherit (lib) genAttrs;
-  langList = [ "elm" "lua" "nix" ];
+  langList = [
+    "bash"
+    "elm"
+    "javascript"
+    "typescript"
+    "jsx"
+    "tsx"
+    "lua"
+    "nix"
+    "rust"
+  ];
   generatedLanguages = map (langName: { name = "${langName}"; auto-format = true; }) langList;
 in
 {
