@@ -24,6 +24,19 @@ let
     { key = "T"; action = "toggle-show-read-feeds"; }
     { key = "O"; action = "open-in-browser-and-mark-read"; }
   ];
+  articleColors = [
+      { pattern = "(^Feed:.*|^Title:.*|^Author:.*)"; color = "cyan default bold"; }
+      { pattern = "(^Link:.*|^Date:.*)"; color = "default default"; }
+      { pattern = "https?://[^ ]+"; color = "green default"; }
+      { pattern = "^(Title):.*$"; color = "blue default"; }
+      { pattern = "\\[[0-9][0-9]*\\]"; color = "magenta default bold"; }
+      { pattern = "\\[image\\ [0-9]+\\]"; color = "green default bold"; }
+      { pattern = "\\[embedded flash: [0-9][0-9]*\\]"; color = "green default bold"; }
+      { pattern = ":.*\\(link\\)$"; color = "cyan default"; }
+      { pattern = ":.*\\(image\\)$"; color = "blue default"; }
+      { pattern = ":.*\\(embedded flash\\)$"; color = "magenta default"; }
+      { pattern = "(^.$ .*|^.# .*)"; color = "yellow default bold"; }
+  ];
   convertToString = list: builtins.concatStringsSep "\n" list;
 in
 {
@@ -54,17 +67,7 @@ in
 
       highlight all "---.*---" yellow
       highlight feedlist ".*(0/0))" black
-      highlight article "(^Feed:.*|^Title:.*|^Author:.*)" cyan default bold
-      highlight article "(^Link:.*|^Date:.*)" default default
-      highlight article "https?://[^ ]+" green default
-      highlight article "^(Title):.*$" blue default
-      highlight article "\\[[0-9][0-9]*\\]" magenta default bold
-      highlight article "\\[image\\ [0-9]+\\]" green default bold
-      highlight article "\\[embedded flash: [0-9][0-9]*\\]" green default bold
-      highlight article ":.*\\(link\\)$" cyan default
-      highlight article ":.*\\(image\\)$" blue default
-      highlight article ":.*\\(embedded flash\\)$" magenta default
-      highlight article "(^.$ .*|^.# .*)" yellow default bold
+      ${convertToString (map (highlight: "\"${highlight.pattern}\" ${highlight.color}") articleColors)}
 
       # Miniflux stuff
       urls-source "miniflux"
