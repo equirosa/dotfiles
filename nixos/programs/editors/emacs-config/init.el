@@ -122,6 +122,8 @@
   (which-key-idle-secondary-delay 0.5)
   :config (which-key-setup-side-window-bottom))
 ;; Theme
+(use-package beacon
+	:config (beacon-mode 1))
 (use-package doom-themes
   :custom
   (doom-themes-enable-bold t)
