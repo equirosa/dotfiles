@@ -1,9 +1,13 @@
 { config
 , pkgs
 , ...
-}: {
+}:
+let
+  enable = true;
+in
+{
   services.emacs = {
-    enable = true;
+    inherit enable;
     client = {
       enable = true;
       arguments = [ "-c" "-a 'emacs'" ];
@@ -12,7 +16,7 @@
     socketActivation.enable = false;
   };
   programs.emacs = {
-    enable = true;
+    inherit enable;
     package = pkgs.emacsWithPackagesFromUsePackage {
       config = ./emacs-config/init.el;
       # package = pkgs.emacs;
