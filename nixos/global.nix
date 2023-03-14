@@ -31,6 +31,7 @@ in
       home = {
         sessionVariables = {
           BROWSER = "${getExe pkgs.firefox} -p default";
+          TERMINAL_BROWSER = "${getExe pkgs.w3m}";
         };
         inherit (config.system) stateVersion;
       };
