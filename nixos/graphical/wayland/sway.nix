@@ -7,12 +7,12 @@ let
   inherit (config.home-manager.users.kiri.xdg) cacheHome;
   inherit (lib) getExe;
   lockCommand = "${getExe pkgs.swaylock} --image ${cacheHome}/background_image -f";
+  terminal = "${getExe pkgs.foot}";
   commonCommands = {
     dmenuCommand = "rofi -show run | ${pkgs.busybox}/bin/xargs swaymsg exec --";
     desktopCommand = "rofi -show drun | ${pkgs.busybox}/bin/xargs swaymsg exec --";
     feedReader = "${getExe pkgs.newsboat}";
     mailClient = "${getExe pkgs.aerc}";
-    terminal = "${getExe pkgs.kitty}";
     termFileManager = "${getExe pkgs.lf}";
     termMonitor = "${getExe pkgs.btop}";
     termAudio = "${getExe pkgs.pulsemixer}";
@@ -86,7 +86,7 @@ in
               statusCommand = "i3status-rs ${config.xdg.configHome}/i3status-rust/config-default.toml";
               position = "top";
             }];
-            terminal = "${commonCommands.terminal}";
+            inherit terminal;
             menu = "${commonCommands.dmenuCommand}";
             modifier = "Mod4";
             keybindings = with commonCommands; let

@@ -56,13 +56,13 @@ in
     imports = [
       ./browsers/firefox.nix
       ./git.nix
-      ./terminal
       ./lf.nix
       ./mpv.nix
       ./newsboat
       ./rofi.nix
       ./thunderbird.nix
-    ] ++ nixFiles ./editors;
+    ] ++ nixFiles ./editors
+    ++ nixFiles ./terminal;
     programs.rbw = {
       enable = true;
       settings = { email = "bitwarden@eduardoquiros.com"; pinentry = "gnome3"; };

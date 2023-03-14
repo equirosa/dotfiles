@@ -7,13 +7,13 @@ let
 in
 {
   programs.kitty = {
-    enable = true;
+    enable = false;
     font = {
       name = "monospace";
       size = 14;
     };
     keybindings = { };
     settings = { background_opacity = "${colors.opacity}"; };
-    # theme = "Gruvbox Dark Hard";
+    theme = "Gruvbox Dark Hard";
   };
 }
