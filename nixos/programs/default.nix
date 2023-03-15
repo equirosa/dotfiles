@@ -57,12 +57,12 @@ in
       ./browsers/firefox.nix
       ./git.nix
       ./lf.nix
+      ./terminal/foot.nix
       ./mpv.nix
       ./newsboat
       ./rofi.nix
       ./thunderbird.nix
-    ] ++ nixFiles ./editors
-    ++ nixFiles ./terminal;
+    ] ++ nixFiles ./editors;
     programs.rbw = {
       enable = true;
       settings = { email = "bitwarden@eduardoquiros.com"; pinentry = "gnome3"; };
