@@ -135,8 +135,7 @@
 (use-package rainbow-delimiters
   :hook prog-mode)
 ;; Tree-sitter
-(use-package treesit
-  :custom (treesit-auto-install 'prompt))
+(setq treesit-auto-install 'prompt)
 (use-package treesit-auto
   :config (global-treesit-auto-mode))
 (use-package tree-sitter-langs)
