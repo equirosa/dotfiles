@@ -202,6 +202,7 @@
 (use-package org-auto-tangle
   :hook org-mode)
 ;; Modernize Orgmode
+(use-package gnuplot)
 (use-package org-modern
   :hook org-mode
   :custom
