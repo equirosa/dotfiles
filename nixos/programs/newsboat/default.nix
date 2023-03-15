@@ -37,7 +37,7 @@ let
       { pattern = ":.*\\(embedded flash\\)$"; color = "magenta default"; }
       { pattern = "(^.$ .*|^.# .*)"; color = "yellow default bold"; }
   ];
-  convertToString = list: builtins.concatStringsSep "\n" list;
+  convertToString = builtins.concatStringsSep "\n";
 in
 {
   programs.newsboat = {
