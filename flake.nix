@@ -21,16 +21,6 @@
     }:
     flake-utils.lib.eachDefaultSystem (system: {
       formatter = nixpkgs.legacyPackages.${system}.treefmt;
-      devShell =
-        let
-          pkgs = import nixpkgs {
-            inherit system;
-            overlays = [ devshell.overlay ];
-          };
-        in
-        pkgs.devshell.mkShell {
-          imports = [ (pkgs.devshell.importTOML ./devshell.toml) ];
-        };
       nixosConfigurations = {
         hostname = nixpkgs.lib.nixosSystem {
           inherit system;
