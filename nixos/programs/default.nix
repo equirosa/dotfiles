@@ -92,6 +92,7 @@ in
         comma
         nix-update
         nixpkgs-review
+        rnix-lsp
         statix
         # Utilities
         archiver
