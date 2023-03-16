@@ -25,17 +25,17 @@ let
     { key = "O"; action = "open-in-browser-and-mark-read"; }
   ];
   articleColors = [
-      { pattern = "(^Feed:.*|^Title:.*|^Author:.*)"; color = "cyan default bold"; }
-      { pattern = "(^Link:.*|^Date:.*)"; color = "default default"; }
-      { pattern = "https?://[^ ]+"; color = "green default"; }
-      { pattern = "^(Title):.*$"; color = "blue default"; }
-      { pattern = "\\[[0-9][0-9]*\\]"; color = "magenta default bold"; }
-      { pattern = "\\[image\\ [0-9]+\\]"; color = "green default bold"; }
-      { pattern = "\\[embedded flash: [0-9][0-9]*\\]"; color = "green default bold"; }
-      { pattern = ":.*\\(link\\)$"; color = "cyan default"; }
-      { pattern = ":.*\\(image\\)$"; color = "blue default"; }
-      { pattern = ":.*\\(embedded flash\\)$"; color = "magenta default"; }
-      { pattern = "(^.$ .*|^.# .*)"; color = "yellow default bold"; }
+    { pattern = "(^Feed:.*|^Title:.*|^Author:.*)"; color = "cyan default bold"; }
+    { pattern = "(^Link:.*|^Date:.*)"; color = "default default"; }
+    { pattern = "https?://[^ ]+"; color = "green default"; }
+    { pattern = "^(Title):.*$"; color = "blue default"; }
+    { pattern = "\\[[0-9][0-9]*\\]"; color = "magenta default bold"; }
+    { pattern = "\\[image\\ [0-9]+\\]"; color = "green default bold"; }
+    { pattern = "\\[embedded flash: [0-9][0-9]*\\]"; color = "green default bold"; }
+    { pattern = ":.*\\(link\\)$"; color = "cyan default"; }
+    { pattern = ":.*\\(image\\)$"; color = "blue default"; }
+    { pattern = ":.*\\(embedded flash\\)$"; color = "magenta default"; }
+    { pattern = "(^.$ .*|^.# .*)"; color = "yellow default bold"; }
   ];
   convertToString = builtins.concatStringsSep "\n";
 in
