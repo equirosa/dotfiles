@@ -22,8 +22,8 @@
     flake-utils.lib.eachDefaultSystem (system: {
       formatter = nixpkgs.legacyPackages.${system}.treefmt;
       nixosConfigurations = {
-        hostname = nixpkgs.lib.nixosSystem {
-          inherit system;
+        snowfort = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
           modules = [
             ./configuration.nix
             home-manager.nixosModules.home-manager
