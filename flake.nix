@@ -19,7 +19,10 @@
     , home-manager
     , nur
     }:
-    flake-utils.lib.eachDefaultSystem (system: {
+    flake-utils.lib.eachDefaultSystem (system:
+    let pkgs = nixpkgs.legacyPackages.${system}; in
+    {
+      devShells.default = import ./shell.nix {inherit pkgs;};
       formatter = nixpkgs.legacyPackages.${system}.treefmt;
       nixosConfigurations = {
         snowfort = nixpkgs.lib.nixosSystem {
