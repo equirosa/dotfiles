@@ -18,6 +18,7 @@
     , nixpkgs
     , home-manager
     , nur
+    , ...
     }:
     flake-utils.lib.eachDefaultSystem (system:
     let pkgs = nixpkgs.legacyPackages.${system}; in
@@ -28,7 +29,7 @@
         snowfort = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./configuration.nix
+            /etc/nixos/configuation.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {
