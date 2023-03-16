@@ -25,7 +25,7 @@ in
             ${readFile ./autolaunch_sway.fish}
           '';
           interactiveShellInit = ''
-            ${getExe pkgs.any-nix-shell} fish --info-right | source
+            ${getExe pkgs.nix-your-shell} fish | source
             ${optionalString neovim.enable "set -gx EDITOR nvim"}
           '';
           plugins = [
