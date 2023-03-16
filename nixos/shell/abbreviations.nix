@@ -1,6 +1,3 @@
-let
-  ytfzf = "ytfzf --detach --show-thumbnails --thumb-viewer=kitty";
-in
 {
   # General
   cl = "curl -L";
@@ -32,8 +29,6 @@ in
   tl = "tldr";
   v = "nvim";
   wl = "watchlist";
-  yf = "${ytfzf}";
-  yl = "${ytfzf} --loop";
   x = "xdg-open";
   # Mpv
   m = "mpv";
