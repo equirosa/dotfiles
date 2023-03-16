@@ -334,7 +334,9 @@
   :after (magit)
   :hook magit-mode)
 (use-package diff-hl
-  :config (global-diff-hl-mode))
+  :config
+  (global-diff-hl-mode)
+  (diff-hl-flydiff-mode))
 ;; Direnv Stuff
 (use-package envrc
   :init (envrc-global-mode))
