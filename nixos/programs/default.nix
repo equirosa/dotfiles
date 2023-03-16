@@ -163,7 +163,7 @@ in
         (writeShellApplication {
           name = "check-modifications";
           text = ''
-            nixos-rebuild build --upgrade \
+            nixos-rebuild build \
             && ${getExe nvd} diff /run/current-system ./result && rm ./result
           '';
         })
