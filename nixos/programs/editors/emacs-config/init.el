@@ -51,6 +51,8 @@
   (kill-buffer (current-buffer)))
 (global-set-key (kbd "C-x k") 'kiri/kill-this-buffer)
 (global-set-key (kbd "C-x w") 'delete-frame)
+(global-set-key (kbd "C-c s s") 'replace-string)
+(global-set-key (kbd "C-c s r") 'replace-regexp)
 (global-set-key [remap eval-last-sexp] 'pp-eval-last-sexp)
 ;; Auto-pairs
 (electric-pair-mode)
