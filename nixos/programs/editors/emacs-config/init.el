@@ -363,7 +363,6 @@
 ;; Language modes
 (use-package elm-mode)
 (use-package fish-mode)
-(use-package go-mode)
 (use-package lua-mode)
 (use-package nix-mode)
 (use-package python-mode)
