@@ -17,6 +17,7 @@
   nf = "nix fmt";
   nfu = "nix flake upate --commit-lock-file";
   nr = "nix run nixpkgs#";
+  nrh = "nixpkgs-review rev HEAD";
   nrp = "nixpkgs-review pr --post-result";
   nrw = "nixpkgs-review wip";
   ns = "nix search nixpkgs";
