@@ -364,9 +364,6 @@
 (use-package elm-mode)
 (use-package fish-mode)
 (use-package nix-mode)
-(use-package python-mode)
-(use-package elpy
-  :hook (python-mode . 'elpy-enable))
 (use-package rust-mode)
 (use-package rustic
   :hook rust-mode
