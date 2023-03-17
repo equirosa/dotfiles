@@ -369,8 +369,6 @@
   :hook rust-mode
   :custom
   (rustic-lsp-client 'eglot))
-(use-package sly
-  :custom (inferior-lisp-program "sbcl"))
 (use-package typescript-mode)
 ;; Nix-specific stuff
 (use-package nix-update
