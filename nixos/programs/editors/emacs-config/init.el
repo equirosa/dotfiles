@@ -11,20 +11,22 @@
   (package-refresh-contents)
   (package-install 'use-package))
 (require 'use-package)
-(setq use-package-always-ensure 't)
+(custom-set-variables '(use-package-always-ensure 't))
 ;; TODO: sort these later...
 (recentf-mode 1)
-(setq history-length 25
-      save-interprogram-paste-before-kill t)
+(custom-set-variables
+ '(history-length 25)
+ '(save-interprogram-paste-before-kill t))
 (savehist-mode)
 (save-place-mode)
 ;; Move custom file
-(setq custom-file (locate-user-emacs-file "custom-vars.el"))
+(custom-set-variables '(custom-file (locate-user-emacs-file "custom-vars.el")))
 (load custom-file 'noerror 'nomessage)
 ;; Keyboard-centric user interface
-(setq inhibit-startup-message t
-      cursor-type 'bar
-      visible-bell t)
+(custom-set-variables
+ '(cursor-type 'bar)
+ '(inhibit-startup-message t)
+ '(visible-bell t))
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
@@ -59,8 +61,9 @@
 (electric-pair-mode)
 ;; Prioritise UTF-8
 (set-charset-priority 'unicode)
-(setq default-process-coding-system '(utf-8-unix . utf-8-unix)
-      locale-coding-system 'utf-8)
+(custom-set-variables
+ '(default-process-coding-system '(utf-8-unix . utf-8-unix))
+ '(locale-coding-system 'utf-8))
 (set-terminal-coding-system 'utf-8)
 (set-language-environment 'utf-8)
 (set-keyboard-coding-system 'utf-8)
@@ -72,13 +75,14 @@
   :config
   (add-to-list 'recentf-exclude '(no-littering-etc-directory no-littering-var-directory)))
 ;; Sane backups
-(setq vc-make-backup-files t
-      version-control t
-      kept-new-versions 10
-      kept-old-versions 0
-      delete-old-versions t
-      backup-by-copying t
-      backup-directory-alist '(("." . "~/.local/share/emacs/per-save")))
+(custom-set-variables
+ '(vc-make-backup-files t)
+ '(version-control t)
+ '(kept-new-versions 10)
+ '(kept-old-versions 0)
+ '(delete-old-versions t)
+ '(backup-by-copying t)
+ '(backup-directory-alist '(("." . "~/.local/share/emacs/per-save"))))
 ;; Ligatures
 (use-package fira-code-mode
 	:if window-system
@@ -126,7 +130,7 @@
   :config (which-key-setup-side-window-bottom))
 ;; Theme
 (use-package beacon
-	:config (beacon-mode 1))
+  :config (beacon-mode 1))
 (use-package doom-themes
   :custom
   (doom-themes-enable-bold t)
@@ -138,7 +142,7 @@
 (use-package rainbow-delimiters
   :hook prog-mode)
 ;; Tree-sitter
-(setq treesit-auto-install 'prompt)
+(custom-set-variables '(treesit-auto-install 'prompt))
 (use-package treesit-auto
   :config (global-treesit-auto-mode))
 (use-package tree-sitter-langs)
@@ -178,8 +182,6 @@
   (add-to-list 'completion-at-point-functions backends))
   (advice-add 'pcomplete-completions-at-point :around #'cape-wrap-silent)
   (advice-add 'pcomplete-completions-at-point :around #'cape-wrap-purify))
-;; General Performance
-(setq large-file-warning-threshold 100000000)
 ;; Sensible line breaking
 (add-hook 'text-mode-hook 'visual-line-mode)
 ;; Overwrite selected text
@@ -189,8 +191,9 @@
 ;; Set default, fixed and variable pitch fonts
 ;; Use M-x menu-set-font to view available fonts
 (defvar kiri/default-font-size 130)
-(setq tab-width 2
-      x-stretch-cursor t)
+(custom-set-variables
+ '(tab-width 2)
+ '(x-stretch-cursor t))
 (use-package mixed-pitch
   :hook text-mode
   :init
@@ -238,7 +241,7 @@
   ;; Org Agenda
   (org-agenda-files '("~/Documents/org/agenda.org")))
 ;; Org-Roam basic configuration
-(setq org-directory (concat (getenv "HOME") "/Documents/org-roam/"))
+(custom-set-variables '(org-directory (concat (getenv "HOME") "/Documents/org-roam/")))
 (use-package org-roam
   :after (org)
   :custom
@@ -278,12 +281,14 @@
 ;; Spell checking for bibtex
 (add-hook 'bibtex-mode-hook 'flyspell-mode)
 ;; Change Fields and format
-(setq bibtex-user-optional-fields '(("keywords" "Keywords to describe the entry" "")
-				    ("file" "Link to document file." ":"))
-      bibtex-align-at-equal-sign t)
+(custom-set-variables
+ '(bibtex-user-optional-fields
+	 '(("keywords" "Keywords to describe the entry" ""))
+	 ("file" "Link to document file." ":"))
+ '(bibtex-align-at-equal-sign t))
 ;; BibLaTeX settings
 ;; bibtex-mode
-(setq bibtex-dialect 'biblatex)
+(custom-set-variables '(bibtex-dialect 'biblatex))
 (defvar bib-files-directory (directory-files
 			     (concat (getenv "HOME") "/Documents/bibliography") t
 			     "^[A-Z|a-z].+.bib$"))
@@ -394,7 +399,7 @@
 ;; Reading
 (use-package nov)
 ;; Dired
-(setq delete-by-moving-to-trash t)
+(custom-set-variables '(delete-by-moving-to-trash t))
 (add-hook 'dired-mode-hook 'auto-revert-mode)
 (use-package all-the-icons-dired
   :hook dired-mode
