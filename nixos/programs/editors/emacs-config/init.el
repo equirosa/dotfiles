@@ -188,7 +188,7 @@
 ;; Overwrite selected text
 (delete-selection-mode t)
 ;; Scroll to the first and last line of the buffer
-(setq scroll-error-top-bottom t)
+(custom-set-variables '(scroll-error-top-bottom t))
 ;; Set default, fixed and variable pitch fonts
 ;; Use M-x menu-set-font to view available fonts
 (defvar kiri/default-font-size 130)
