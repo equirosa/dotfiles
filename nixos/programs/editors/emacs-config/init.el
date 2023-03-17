@@ -173,13 +173,14 @@
 (use-package cape
   :defer 10
   :init
-  (dolist (backends
-	   '( cape-file
+  (dolist
+			(backends
+			 '( cape-file
 	      cape-dabbrev
 	      cape-keyword
 	      cape-ispell
 	      cape-symbol))
-  (add-to-list 'completion-at-point-functions backends))
+		(add-to-list 'completion-at-point-functions backends))
   (advice-add 'pcomplete-completions-at-point :around #'cape-wrap-silent)
   (advice-add 'pcomplete-completions-at-point :around #'cape-wrap-purify))
 ;; Sensible line breaking
