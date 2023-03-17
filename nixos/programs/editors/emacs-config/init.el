@@ -369,7 +369,6 @@
   :hook rust-mode
   :custom
   (rustic-lsp-client 'eglot))
-(use-package typescript-mode)
 ;; Nix-specific stuff
 (use-package nix-update
   :after (nix-mode))
