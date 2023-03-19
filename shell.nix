@@ -6,6 +6,7 @@ mkShell {
     rnix-lsp
     shfmt
     stylua
+    nodePackages.bash-language-server
   ];
   shellHook = ''
     # ...
