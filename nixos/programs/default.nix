@@ -71,7 +71,6 @@ in
       [
         # Browsers
         tor-browser-bundle-bin
-        nyxt
         # Messengers
         aerc
         catimg
