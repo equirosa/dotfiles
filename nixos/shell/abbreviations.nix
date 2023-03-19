@@ -64,7 +64,8 @@
   dvp = "download-video-playlist";
   dvu = "download-video-unique";
   # Nix
-  c = "check-modifications";
+  cm = "check-modifications";
+  cu = "check-updates";
   nb = "nix build";
   nbf = "nix build -f ./.";
   nph = "nix profile history";
