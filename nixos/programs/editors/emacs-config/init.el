@@ -397,11 +397,5 @@
 (use-package all-the-icons-dired
   :hook dired-mode
   :diminish)
-(use-package dired-ranger
-  :bind (:map dired-mode-map
-              ("W" . dired-ranger-copy)
-              ("X" . dired-ranger-move)
-              ("Y" . dired-ranger-paste))
-  :diminish)
 (provide 'init)
 ;;; init.el ends here
