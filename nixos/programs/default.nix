@@ -22,7 +22,7 @@ in
       ./browsers/firefox.nix
       ./git.nix
       ./lf.nix
-      ./terminal/foot.nix
+      ./terminal
       ./mpv.nix
       ./newsboat
       ./rofi.nix
