@@ -170,7 +170,7 @@ in
   system = {
     autoUpgrade = {
       enable = true;
-      dates = "daily";
+      dates = "05:00:00";
     };
   };
   zramSwap.enable = true;
