@@ -9,6 +9,9 @@
       theme = "gruvbox-dark";
       blocks = [
         {
+          block = "focused_window";
+        }
+        {
           block = "disk_space";
           path = "/";
           alias = "/";
