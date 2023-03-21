@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
   programs.thunderbird = {
     enable = true;
-    package = pkgs.thunderbird-wayland;
+    package = pkgs.thunderbird;
     profiles = {
       main = {
         isDefault = true;
