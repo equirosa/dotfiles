@@ -18,6 +18,7 @@
           warning = 20.0;
           alert = 10.0;
         }
+        { block = "net"; }
         {
           block = "keyboard_layout";
           driver = "sway";
