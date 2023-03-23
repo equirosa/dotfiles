@@ -149,15 +149,13 @@ in
                 position = "1920 0";
               };
             };
-            window.commands = [
-              {
-                command = "kill";
-                criteria = {
-                  app_id = "firefox";
-                  title = "Firefox — Sharing Indicator";
-                };
-              }
-            ];
+            window.commands = [{
+              command = "kill";
+              criteria = {
+                app_id = "firefox";
+                title = "Firefox — Sharing Indicator";
+              };
+            }];
             workspaceOutputAssign =
               let
                 inherit (lib.lists) forEach range;
