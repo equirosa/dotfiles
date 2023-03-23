@@ -116,7 +116,8 @@ in
             assigns = {
               "1" = [{ app_id = "org.remmina.Remmina"; }];
               "6" = [{ class = "^Steam"; }];
-              "9" = [{ app_id = "^Element"; }];
+              "9" = [{ app_id = "^Element"; }
+                { app_id = "thunderbird"; }];
             };
             floating.criteria = [
               { title = "Steam - Update News"; }
