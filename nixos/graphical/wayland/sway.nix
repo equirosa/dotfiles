@@ -127,6 +127,7 @@ in
               { command = "${getExe pkgs.autotiling}"; }
               { command = "${getExe pkgs.mako}"; }
               { command = "${getExe pkgs.element-desktop-wayland}"; }
+              { command = "${getExe pkgs.thunderbird}"; }
               { command = "${pkgs.transmission}/bin/transmission-daemon"; }
             ];
             input = {
