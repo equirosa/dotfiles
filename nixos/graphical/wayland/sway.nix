@@ -197,6 +197,6 @@ in
   programs.sway.enable = true;
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
+    wlr.enable = config.programs.sway.enable;
   };
 }
