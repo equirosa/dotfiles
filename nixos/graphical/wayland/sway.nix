@@ -8,16 +8,14 @@ let
   inherit (lib) getExe;
   lockCommand = "${getExe pkgs.swaylock} --image ${cacheHome}/background_image -f";
   terminal = "${getExe pkgs.foot}";
-  commonCommands = {
-    dmenuCommand = "rofi -show run | ${pkgs.busybox}/bin/xargs swaymsg exec --";
-    desktopCommand = "rofi -show drun | ${pkgs.busybox}/bin/xargs swaymsg exec --";
-    feedReader = "${getExe pkgs.newsboat}";
-    mailClient = "${getExe pkgs.aerc}";
-    termFileManager = "${getExe pkgs.lf}";
-    termMonitor = "${getExe pkgs.btop}";
-    termAudio = "${getExe pkgs.pulsemixer}";
-    transmissionClient = "${getExe pkgs.tremc}";
-  };
+  dmenuCommand = "rofi -show run | ${pkgs.busybox}/bin/xargs swaymsg exec --";
+  desktopCommand = "rofi -show drun | ${pkgs.busybox}/bin/xargs swaymsg exec --";
+  feedReader = "${getExe pkgs.newsboat}";
+  mailClient = "${getExe pkgs.aerc}";
+  termFileManager = "${getExe pkgs.lf}";
+  termMonitor = "${getExe pkgs.btop}";
+  termAudio = "${getExe pkgs.pulsemixer}";
+  transmissionClient = "${getExe pkgs.tremc}";
   colors = import ../../colors.nix;
 in
 {
@@ -87,32 +85,33 @@ in
               position = "top";
             }];
             inherit terminal;
-            menu = "${commonCommands.dmenuCommand}";
+            menu = "${dmenuCommand}";
             modifier = "Mod4";
-            keybindings = with commonCommands; let
-              mod = config.wayland.windowManager.sway.config.modifier;
-              inherit terminal;
-              mShift = "${mod}+Shift";
-            in
-            lib.mkOptionDefault {
-              "${mShift}+a" = "exec qpwgraph";
-              "${mShift}+d" = "exec ${commonCommands.desktopCommand}";
-              "${mShift}+e" = "exec emacsclient --create-frame";
-              "${mShift}+f" = "floating toggle";
-              "${mShift}+t" = "exec ${terminal} ${transmissionClient}";
-              "${mod}+a" = "exec ${terminal} ${termAudio}";
-              "${mod}+s" = "exec search";
-              "${mod}+e" = "exec ${terminal} ${mailClient}";
-              "${mod}+i" = "exec ${terminal} ${termMonitor}";
-              "${mod}+n" = "exec ${terminal} ${feedReader}";
-              "${mod}+r" = "exec ${terminal} ${termFileManager}";
-              "${mod}+x" = "exec ${lockCommand}";
-              "${mod}+p" = "exec emoji";
-              "${mod}+w" = "exec ${config.home.sessionVariables.BROWSER}";
-              "${mod}+z" = "exec password-menu show";
-              "${mod}+Shift+z" = "exec password-menu otp";
-              "Print" = "exec sway-shot";
-            };
+            keybindings =
+              let
+                mod = config.wayland.windowManager.sway.config.modifier;
+                inherit terminal;
+                mShift = "${mod}+Shift";
+              in
+              lib.mkOptionDefault {
+                "${mShift}+a" = "exec qpwgraph";
+                "${mShift}+d" = "exec ${desktopCommand}";
+                "${mShift}+e" = "exec emacsclient --create-frame";
+                "${mShift}+f" = "floating toggle";
+                "${mShift}+t" = "exec ${terminal} ${transmissionClient}";
+                "${mod}+a" = "exec ${terminal} ${termAudio}";
+                "${mod}+s" = "exec search";
+                "${mod}+e" = "exec ${terminal} ${mailClient}";
+                "${mod}+i" = "exec ${terminal} ${termMonitor}";
+                "${mod}+n" = "exec ${terminal} ${feedReader}";
+                "${mod}+r" = "exec ${terminal} ${termFileManager}";
+                "${mod}+x" = "exec ${lockCommand}";
+                "${mod}+p" = "exec emoji";
+                "${mod}+w" = "exec ${config.home.sessionVariables.BROWSER}";
+                "${mod}+z" = "exec password-menu show";
+                "${mod}+Shift+z" = "exec password-menu otp";
+                "Print" = "exec sway-shot";
+              };
             assigns = {
               "1" = [{ app_id = "org.remmina.Remmina"; }];
               "6" = [{ class = "^Steam"; }];
