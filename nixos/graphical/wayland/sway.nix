@@ -25,12 +25,10 @@ in
     , ...
     }: {
       imports = [ ./bar ./notifications.nix ];
-      xdg.configFile."electron-flags.conf" = {
-        text = ''
-          --enable-features=UseOzonePlatform
-          --ozone-platform=wayland
-        '';
-      };
+      xdg.configFile."electron-flags.conf".text = ''
+        --enable-features=UseOzonePlatform
+        --ozone-platform=wayland
+      '';
       home = {
         packages = with pkgs; [
           wl-clipboard
