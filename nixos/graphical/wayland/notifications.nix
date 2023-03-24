@@ -3,10 +3,10 @@ let
   colors = import ../../colors.nix;
 in
 {
-  services.mako = {
+  services.mako = with colors.selected; {
     enable = true;
-    backgroundColor = "#${colors.selected.background}";
-    borderColor = "#${colors.selected.bright.yellow}";
+    backgroundColor = "#${background}";
+    borderColor = "#${bright.yellow}";
     borderRadius = 15;
     borderSize = 2;
     defaultTimeout = 5000;
@@ -15,7 +15,7 @@ in
     layer = "top"; # Consider overlay
     markup = true;
     sort = "-time";
-    extraConfig = with colors.selected.bright; ''
+    extraConfig = with regular; ''
       [urgency=low]
       border-color=#${green}
 
