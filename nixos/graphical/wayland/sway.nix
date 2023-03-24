@@ -166,18 +166,18 @@ in
               ++ assignWorkspace { list = rightWorkspaces; output = "HDMI-A-1"; };
           };
           extraSessionCommands = ''
-            export GDK_BACKEND="wayland,x11"
-            export MOZ_ENABLE_WAYLAND=1
-            export QT_QPA_PLATFORM=wayland
-            export QT_QPA_PLATORMTHEME=qt5ct
-            export GTK_USE_PORTAL=1
-            export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-            export SDL_VIDEODRIVER=wayland
-            export XDG_CURRENT_DESKTOP=sway
-            export XDG_CURRENT_SESSION_TYPE=wayland
-            export XDG_SESSION_DESKTOP=sway
-            export XDG_SESSION_TYPE=wayland
-            export _JAVA_AWT_WM_NONREPARENTING=1
+            export GDK_BACKEND='wayland,x11' \
+            MOZ_ENABLE_WAYLAND=1 \
+            QT_QPA_PLATFORM=wayland \
+            QT_QPA_PLATORMTHEME=qt5ct \
+            GTK_USE_PORTAL=1 \
+            QT_WAYLAND_DISABLE_WINDOWDECORATION=1 \
+            SDL_VIDEODRIVER=wayland \
+            XDG_CURRENT_DESKTOP=sway \
+            XDG_CURRENT_SESSION_TYPE=wayland \
+            XDG_SESSION_DESKTOP=sway \
+            XDG_SESSION_TYPE=wayland \
+            _JAVA_AWT_WM_NONREPARENTING=1
           '';
           systemdIntegration = true;
           wrapperFeatures.gtk = true;
