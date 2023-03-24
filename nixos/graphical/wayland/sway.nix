@@ -160,16 +160,10 @@ in
                 inherit (lib.lists) forEach range;
                 leftWorkspaces = range 1 6;
                 rightWorkspaces = range 7 9;
+                assignWorkspace = { list, output }: forEach list (space: { output = "${output}"; workspace = "${toString space}"; });
               in
-              forEach leftWorkspaces
-                (space: {
-                  output = "DP-1";
-                  workspace = "${toString space}";
-                })
-              ++ forEach rightWorkspaces (space: {
-                output = "HDMI-A-1";
-                workspace = "${toString space}";
-              });
+              assignWorkspace { list = leftWorkspaces; output = "DP-1"; }
+              ++ assignWorkspace { list = rightWorkspaces; output = "HDMI-A-1"; };
           };
           extraSessionCommands = ''
             export GDK_BACKEND="wayland,x11"
