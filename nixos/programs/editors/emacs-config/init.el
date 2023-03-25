@@ -263,13 +263,6 @@
 		("C-c n t" . org-roam-tag-add)
 		("C-c n a" . org-roam-alias-add)
 		("C-c n l" . org-roam-buffer-toggle)))))
-(use-package org-roam-ui
-  :after org-roam
-  :custom
-  (org-roam-ui-sync-theme t)
-  (org-roam-ui-follow t)
-  (org-roam-ui-update-on-save t)
-  (org-roam-ui-open-on-start t))
 ;; Search stuff with Deft
 (use-package deft
   :custom
