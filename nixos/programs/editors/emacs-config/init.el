@@ -363,6 +363,10 @@
   :hook rust-mode
   :custom
   (rustic-lsp-client 'eglot))
+(use-package tide
+	:hook ((typescript-ts-mode . tide-setup)
+				 (tsx-ts-mode . tide-setup)
+				 (typescript-ts-mode . tide-hl-identifier-mode)))
 ;; Nix-specific stuff
 (use-package nix-update
   :after (nix-mode))
