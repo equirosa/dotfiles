@@ -7,8 +7,9 @@ let
   inherit (builtins) attrValues readFile fetchTarball replaceStrings;
   inherit (lib) getExe optionalString;
   inherit (config.home.sessionVariables) BROWSER;
+  aliases = import ../shell/aliases.nix { inherit pkgs lib; };
+  inherit (aliases) cat;
   notify = ''${getExe pkgs.libnotify} -t 5000'';
-  cat = "${getExe pkgs.bat} --plain";
   dmenu-command = "rofi -dmenu";
   backupIfDuplicate = ext: ''
     if [ "''${ext}" = "${ext}" ]; then
