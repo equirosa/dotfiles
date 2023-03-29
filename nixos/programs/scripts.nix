@@ -8,8 +8,9 @@ let
   inherit (lib) getExe optionalString;
   default-programs = import ../default-programs.nix;
   inherit (default-programs) http-browser;
+  aliases = import ../shell/aliases.nix { inherit pkgs lib; };
+  inherit (aliases) cat;
   notify = ''${getExe pkgs.libnotify} -t 5000'';
-  cat = "${getExe pkgs.bat} --plain";
   dmenu-command = "rofi -dmenu";
   backupIfDuplicate = ext: ''
     if [ "''${ext}" = "${ext}" ]; then
@@ -283,15 +284,15 @@ in
     (writeShellApplication {
       name = "xdg-open";
       text = ''
-        case "''${1}" in
-          gemini* ) ${geminiBrowser} "''${1}" ;;
-          *youtube.com/watch* | *youtu.be/* | *tilvids.com/w/* | *twitch.tv/* | *bitcointv.com/w/* | *peertube.co.uk/w/* | *videos.lukesmith.xyz/w/* | *diode.zone/w/* | *peertube.thenewoil.xyz/videos/watch/* | *share.tube/w/* ) setsid umpv "''${1}" & ;;
-          http* | *.html ) ${http-browser} "''${1}" ;;
-          magnet* | *.torrent ) transmission-remote -a "''${1}" && ${notify} "Torrent Added! ✅" && exit 0 ;;
-          *.org ) emacsclient --create-frame "''${1}" ;;
-          *.png | *.jpg | *.jpeg | *.webp ) ${getExe imv} "''${1}" ;;
-          *.pdf ) setsid ${http-browser} "''${1}" ;;
-          * ) ${xdg-utils}/bin/xdg-open "''${1}" ;;
+        case "''${1%%:*}" in
+          gemini) ${geminiBrowser} "''${1}" ;;
+          http|https|*.html) ${http-browser} "''${1}" ;;
+          magnet|*.torrent)
+            transmission-remote -a "''${1}" && ${notify} "Torrent Added! ✅";;
+          *.org) emacsclient --create-frame "''${1}" ;;
+          *.png|*.jpg|*.jpeg|*.webp) ${getExe imv} "''${1}" ;;
+          *.pdf) setsid ${http-browser} "''${1}" ;;
+          *) ${xdg-utils}/bin/xdg-open "''${1}" ;;
         esac
       '';
     })
