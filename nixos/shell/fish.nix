@@ -4,8 +4,8 @@
 , ...
 }:
 let
-  inherit (lib) getExe optionalString;
-  inherit (builtins) attrValues readFile;
+  inherit (lib) getExe optionalString fileContents;
+  inherit (builtins) attrValues;
   abbreviations = import ./abbreviations.nix;
 in
 {
@@ -22,7 +22,7 @@ in
           enable = true;
           shellAbbrs = abbreviations;
           loginShellInit = optionalString sway.enable ''
-            ${readFile ./autolaunch_sway.fish}
+            ${fileContents ./autolaunch_sway.fish}
           '';
           interactiveShellInit = ''
             ${getExe pkgs.nix-your-shell} fish | source

@@ -4,8 +4,8 @@
 , ...
 }:
 let
-  inherit (builtins) attrValues readFile fetchTarball replaceStrings;
-  inherit (lib) getExe optionalString;
+  inherit (builtins) attrValues replaceStrings;
+  inherit (lib) getExe optionalString fileContents;
   inherit (import ../default-programs.nix { inherit pkgs lib; }) http-browser terminal-http-browser;
   inherit (import ../shell/aliases.nix { inherit pkgs lib; }) cat;
   notify = ''${getExe pkgs.libnotify} -t 5000'';
@@ -94,11 +94,11 @@ in
     })
     (writeShellApplication {
       name = "nvim-clean";
-      text = lib.fileContents ../../scripts/nvim-clean.sh;
+      text = fileContents ../../scripts/nvim-clean.sh;
     })
     (writeShellApplication {
       name = "change-background";
-      text = readFile ../../scripts/change_background.sh;
+      text = fileContents ../../scripts/change_background.sh;
     })
     (writeShellApplication {
       name = "check-modifications";
@@ -111,7 +111,7 @@ in
     (writeShellApplication {
       name = "code2png";
       text = replaceStrings [ "silicon" ] [ "${getExe silicon}" ]
-        (readFile ../../scripts/code2png.sh);
+        (fileContents ../../scripts/code2png.sh);
     })
     (shellApplicationWithInputs {
       name = "download-file";
@@ -126,7 +126,7 @@ in
       text = replaceStrings [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
         SOURCE_FILE="Source - Playlists.txt"
         touch "''${SOURCE_FILE}"
-        ${readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Playlists/Playlists.sh"}
+        ${fileContents "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Playlists/Playlists.sh"}
       '';
     })
     (writeShellApplication {
@@ -134,7 +134,7 @@ in
       text = replaceStrings [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
         SOURCE_FILE="Source - Unique.txt"
         touch "''${SOURCE_FILE}"
-        ${readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Unique/Unique.sh"}
+        ${fileContents "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Unique/Unique.sh"}
       '';
     })
     (writeShellApplication {
@@ -142,7 +142,7 @@ in
       text = replaceStrings [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
         SOURCE_FILE="Source - Channels.txt"
         touch "''${SOURCE_FILE}"
-        ${readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Channels/Channels.sh"}
+        ${fileContents "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Channels/Channels.sh"}
       '';
     })
     (writeShellApplication {
@@ -150,7 +150,7 @@ in
       text = replaceStrings [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
         SOURCE_FILE="Source - Playlists.txt"
         touch "''${SOURCE_FILE}"
-        ${readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Playlists/Playlists.sh"}
+        ${fileContents "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Playlists/Playlists.sh"}
       '';
     })
     (writeShellApplication {
@@ -158,7 +158,7 @@ in
       text = replaceStrings [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
         SOURCE_FILE="Source - Unique.txt"
         touch "''${SOURCE_FILE}"
-        ${readFile "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Unique/Unique.sh"}
+        ${fileContents "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Unique/Unique.sh"}
       '';
     })
     (writeShellApplication {
@@ -230,7 +230,7 @@ in
     (writeShellApplication {
       name = "run-backups";
       text = replaceStrings [ "rbw" "borg " ] [ "${getExe rbw}" "${getExe borgbackup} " ] ''
-        ${readFile ../../scripts/run-backups.sh}
+        ${fileContents ../../scripts/run-backups.sh}
       '';
     })
     (writeShellApplication {
