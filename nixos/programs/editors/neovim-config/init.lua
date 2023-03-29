@@ -35,7 +35,6 @@ I hope you enjoy your Neovim journey,
 
 P.S. You can delete this when you're done too. It's your config now :)
 --]]
-
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
@@ -75,23 +74,44 @@ require("lazy").setup({
 
 	-- NOTE: This is where your plugins related to LSP can be installed.
 	--  The configuration is done below. Search for lspconfig to find it below.
-	{ -- LSP Configuration & Plugins
-		"neovim/nvim-lspconfig",
+	{
+		"dundalek/lazy-lsp.nvim",
 		dependencies = {
-			-- Automatically install LSPs to stdpath for neovim
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
-
-			-- Useful status updates for LSP
-			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+			"neovim/nvim-lspconfig",
 			{ "j-hui/fidget.nvim", opts = {} },
 
 			-- Additional lua configuration, makes nvim stuff amazing!
-			"folke/neodev.nvim",
+			{ "folke/neodev.nvim", opts = {} },
+		},
+		opts = {
+			excluded_servers = {},
+			-- Default config passed to all servers to specify on_attach callback and other options.
+			default_config = {
+				flags = {
+					debounce_text_changes = 150,
+				},
+				-- on_attach = on_attach,
+				-- capabilities = capabilities,
+			},
+			-- Override config for specific servers that will passed down to lspconfig setup.
+			-- Note that the default_config will be nerged with this specific configuration so you don't need to specify everything twice.
+			configs = {
+				lua_ls = {
+					settings = {
+						Lua = {
+							diagnostics = {
+								-- Get the language server to recognize the `vim` global
+								globals = { "vim" },
+							},
+						},
+					},
+				},
+			},
 		},
 	},
 
-	{ -- Autocompletion
+	{
+		-- Autocompletion
 		"hrsh7th/nvim-cmp",
 		dependencies = { "hrsh7th/cmp-nvim-lsp", "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip" },
 	},
@@ -112,7 +132,8 @@ require("lazy").setup({
 			},
 		},
 	},
-	{ -- Adds git releated signs to the gutter, as well as utilities for managing changes
+	{
+		-- Adds git releated signs to the gutter, as well as utilities for managing changes
 		"lewis6991/gitsigns.nvim",
 		opts = {
 			-- See `:help gitsigns.txt`
@@ -126,7 +147,8 @@ require("lazy").setup({
 		},
 	},
 
-	{ -- Theme inspired by Atom
+	{
+		-- Theme inspired by Atom
 		"navarasu/onedark.nvim",
 		priority = 1000,
 		config = function()
@@ -134,7 +156,8 @@ require("lazy").setup({
 		end,
 	},
 
-	{ -- Set lualine as statusline
+	{
+		-- Set lualine as statusline
 		"nvim-lualine/lualine.nvim",
 		-- See `:help lualine.txt`
 		opts = {
@@ -147,7 +170,8 @@ require("lazy").setup({
 		},
 	},
 
-	{ -- Add indentation guides even on blank lines
+	{
+		-- Add indentation guides even on blank lines
 		"lukas-reineke/indent-blankline.nvim",
 		-- Enable `lukas-reineke/indent-blankline.nvim`
 		-- See `:help indent_blankline.txt`
@@ -198,7 +222,8 @@ require("lazy").setup({
 		},
 	},
 
-	{ -- Highlight, edit, and navigate code
+	{
+		-- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
@@ -338,10 +363,8 @@ require("nvim-treesitter.configs").setup({
 		"help",
 		"vim",
 	},
-
 	-- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
 	auto_install = false,
-
 	highlight = { enable = true },
 	indent = { enable = true, disable = { "python" } },
 	incremental_selection = {
@@ -450,52 +473,9 @@ local on_attach = function(_, bufnr)
 	end, { desc = "Format current buffer with LSP" })
 end
 
--- Enable the following language servers
---  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
---
---  Add any additional override configuration in the following tables. They will be passed to
---  the `settings` field of the server config. You must look up that documentation yourself.
-local servers = {
-	-- clangd = {},
-	-- gopls = {},
-	-- pyright = {},
-	-- rust_analyzer = {},
-	-- tsserver = {},
-
-	lua_ls = {
-		Lua = {
-			workspace = { checkThirdParty = false },
-			telemetry = { enable = false },
-		},
-	},
-}
-
--- Setup neovim lua configuration
-require("neodev").setup()
-
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-
--- Setup mason so it can manage external tooling
-require("mason").setup()
-
--- Ensure the servers above are installed
-local mason_lspconfig = require("mason-lspconfig")
-
-mason_lspconfig.setup({
-	ensure_installed = vim.tbl_keys(servers),
-})
-
-mason_lspconfig.setup_handlers({
-	function(server_name)
-		require("lspconfig")[server_name].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = servers[server_name],
-		})
-	end,
-})
 
 -- nvim-cmp setup
 local cmp = require("cmp")
