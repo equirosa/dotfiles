@@ -6,10 +6,8 @@
 let
   inherit (builtins) attrValues readFile fetchTarball replaceStrings;
   inherit (lib) getExe optionalString;
-  inherit (default-programs) http-browser;
-  default-programs = import ../default-programs.nix { inherit pkgs lib; };
-  aliases = import ../shell/aliases.nix { inherit pkgs lib; };
-  inherit (aliases) cat;
+  inherit (import ../default-programs.nix { inherit pkgs lib; }) http-browser terminal-http-browser;
+  inherit (import ../shell/aliases.nix { inherit pkgs lib; }) cat;
   notify = ''${getExe pkgs.libnotify} -t 5000'';
   dmenu-command = "rofi -dmenu";
   backupIfDuplicate = ext: ''
