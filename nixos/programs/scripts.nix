@@ -6,6 +6,7 @@
 let
   inherit (builtins) attrValues readFile fetchTarball replaceStrings;
   inherit (lib) getExe optionalString;
+  inherit (config.home.sessionVariables) BROWSER;
   notify = ''${getExe pkgs.libnotify} -t 5000'';
   cat = "${getExe pkgs.bat} --plain";
   dmenu-command = "rofi -dmenu";
@@ -184,7 +185,7 @@ in
         else
           URL="''${1}"
         fi
-        ${config.home.sessionVariables.BROWSER} -p default "https://reader.miniflux.app/bookmarklet?uri=''${URL}"
+        ${BROWSER} -p default "https://reader.miniflux.app/bookmarklet?uri=''${URL}"
       '';
     })
     (writeShellApplication {
@@ -238,7 +239,7 @@ in
         SEARCH_OPTIONS="searx.nixnet.services/search?q=\nyoutube.com/results?search_query=\ngithub.com/search?q=\nnixos.wiki/index.php?search=\nprotondb.com/search?q="
         SEARCH_SITE="$(echo -e "''${SEARCH_OPTIONS}" | ${dmenu-command} --prompt-text "Search website")"
         INPUT="$(${dmenu-command} --prompt-text "Search term")"
-        ${config.home.sessionVariables.BROWSER} "''${SEARCH_SITE}''${INPUT}"
+        ${BROWSER} "''${SEARCH_SITE}''${INPUT}"
       '';
     })
     (writeShellApplication {
@@ -284,7 +285,7 @@ in
         case "''${1}" in
           gemini* ) ${geminiBrowser} "''${@}" ;;
           *youtube.com/watch* | *youtu.be/* | *tilvids.com/w/* | *twitch.tv/* | *bitcointv.com/w/* | *peertube.co.uk/w/* | *videos.lukesmith.xyz/w/* | *diode.zone/w/* | *peertube.thenewoil.xyz/videos/watch/* | *share.tube/w/* ) setsid umpv "''${1}" & ;;
-          http* | *.html ) ${config.home.sessionVariables.BROWSER} "''${@}" ;;
+          http* | *.html ) ${BROWSER} "''${@}" ;;
           magnet* | *.torrent ) transmission-remote -a "''${1}" && ${notify} "Torrent Added! ✅" && exit 0 ;;
           *.org ) emacsclient --create-frame "''${1}" ;;
           *.png | *.jpg | *.jpeg | *.webp ) ${getExe imv} "''${@}" ;;
