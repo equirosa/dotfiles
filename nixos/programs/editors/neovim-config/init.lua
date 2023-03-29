@@ -301,6 +301,11 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- Move across vim windows
+vim.keymap.set({ "n", "v" }, "<C-j>", vim.cmd.wincmd("j"), { expr = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<C-k>", vim.cmd.wincmd("k"), { expr = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<C-l>", vim.cmd.wincmd("l"), { expr = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<C-h>", vim.cmd.wincmd("h"), { expr = true, silent = true })
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
