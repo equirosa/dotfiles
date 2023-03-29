@@ -289,7 +289,7 @@ in
           magnet* | *.torrent ) transmission-remote -a "''${1}" && ${notify} "Torrent Added! ✅" && exit 0 ;;
           *.org ) emacsclient --create-frame "''${1}" ;;
           *.png | *.jpg | *.jpeg | *.webp ) ${getExe imv} "''${@}" ;;
-          *.pdf ) setsid ${config.home.sessionVariables.BROWSER} -p default "''${@}" ;;
+          *.pdf ) setsid ${BROWSER} "''${@}" ;;
           * ) ${xdg-utils}/bin/xdg-open "''${@}" ;;
         esac
       '';
