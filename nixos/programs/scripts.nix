@@ -283,14 +283,14 @@ in
       name = "xdg-open";
       text = ''
         case "''${1}" in
-          gemini* ) ${geminiBrowser} "''${@}" ;;
+          gemini* ) ${geminiBrowser} "''${1}" ;;
           *youtube.com/watch* | *youtu.be/* | *tilvids.com/w/* | *twitch.tv/* | *bitcointv.com/w/* | *peertube.co.uk/w/* | *videos.lukesmith.xyz/w/* | *diode.zone/w/* | *peertube.thenewoil.xyz/videos/watch/* | *share.tube/w/* ) setsid umpv "''${1}" & ;;
-          http* | *.html ) ${BROWSER} "''${@}" ;;
+          http* | *.html ) ${BROWSER} "''${1}" ;;
           magnet* | *.torrent ) transmission-remote -a "''${1}" && ${notify} "Torrent Added! ✅" && exit 0 ;;
           *.org ) emacsclient --create-frame "''${1}" ;;
-          *.png | *.jpg | *.jpeg | *.webp ) ${getExe imv} "''${@}" ;;
-          *.pdf ) setsid ${BROWSER} "''${@}" ;;
-          * ) ${xdg-utils}/bin/xdg-open "''${@}" ;;
+          *.png | *.jpg | *.jpeg | *.webp ) ${getExe imv} "''${1}" ;;
+          *.pdf ) setsid ${BROWSER} "''${1}" ;;
+          * ) ${xdg-utils}/bin/xdg-open "''${1}" ;;
         esac
       '';
     })
