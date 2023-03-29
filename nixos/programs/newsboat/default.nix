@@ -7,7 +7,7 @@ let
   macroList = [
     { key = "m"; action = "mpv --keep-open=no --pause"; }
     { key = "u"; action = "umpv"; }
-    # { key = "w"; action = TERMINAL_BROWSER; }
+    { key = "w"; action = terminal-http-browser; }
     { key = "b"; action = http-browser; }
     { key = "d"; action = "watchlist"; }
   ];
