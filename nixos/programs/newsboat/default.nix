@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }:
 let
   resetBrowser = ''set browser "xdg-open"'';
-  inherit (default-programs) http-browser;
+  inherit (default-programs) http-browser terminal-http-browser;
   default-programs = import ../../default-programs.nix { inherit pkgs lib; };
   inherit (lib) getExe;
   macroList = [
