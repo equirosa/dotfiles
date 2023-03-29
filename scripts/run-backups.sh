@@ -30,6 +30,7 @@ borg create --progress --verbose --stats --checkpoint-interval 600 hvwib450@hvwi
 	--exclude "*/league-of-legends/*" \
 	--exclude "*/node_modules/*" \
 	--exclude "*/oses/*" \
+	--exclude '*/.stversions' \
 	--exclude '*/.stfolder' \
 	--exclude '*/battlenet' \
 	--exclude '*/epic' \

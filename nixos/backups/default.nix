@@ -17,6 +17,7 @@
           ".m2"
           ".steam"
           ".stfolder"
+          ".stversions"
           ".thumbnails"
           ".tox"
           ".var"
