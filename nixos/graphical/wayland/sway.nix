@@ -6,8 +6,8 @@
 let
   inherit (config.home-manager.users.kiri.xdg) cacheHome;
   inherit (lib) getExe;
-  default-programs = import ../../default-programs.nix;
   inherit (default-programs) http-browser;
+  default-programs = import ../../default-programs.nix { inherit pkgs lib; };
   lockCommand = "${getExe pkgs.swaylock} --image ${cacheHome}/background_image -f";
   terminal = "${getExe pkgs.foot}";
   dmenuCommand = "rofi -show run | ${pkgs.busybox}/bin/xargs swaymsg exec --";

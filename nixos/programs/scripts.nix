@@ -6,8 +6,8 @@
 let
   inherit (builtins) attrValues readFile fetchTarball replaceStrings;
   inherit (lib) getExe optionalString;
-  default-programs = import ../default-programs.nix;
   inherit (default-programs) http-browser;
+  default-programs = import ../default-programs.nix { inherit pkgs lib; };
   aliases = import ../shell/aliases.nix { inherit pkgs lib; };
   inherit (aliases) cat;
   notify = ''${getExe pkgs.libnotify} -t 5000'';
