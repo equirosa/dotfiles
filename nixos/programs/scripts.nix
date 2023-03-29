@@ -20,8 +20,8 @@ let
   '';
   scriptAudio = "-c:a libopus -b:a 96k";
   check-updates = ''
-    nixos-rebuild build --upgrade \
-    && ${getExe pkgs.nvd} diff /run/current-system ./result && rm ./result
+    nixos-rebuild build --upgrade &&
+    ${getExe pkgs.nvd} diff /run/current-system ./result && rm ./result
   '';
   check-modifications = replaceStrings [ "--upgrade" ] [ "" ] check-updates;
   terminal = "${getExe pkgs.foot}";

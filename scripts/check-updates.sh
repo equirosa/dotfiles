@@ -1,2 +1,2 @@
-nixos-rebuild build --upgrade \
-    && nvd diff /run/current-system ./result && rm ./result
+nixos-rebuild build --upgrade &&
+	nvd diff /run/current-system ./result && rm ./result

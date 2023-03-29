@@ -23,7 +23,7 @@
     flake-utils.lib.eachDefaultSystem (system:
     let pkgs = nixpkgs.legacyPackages.${system}; in
     {
-      devShells.default = import ./shell.nix {inherit pkgs;};
+      devShells.default = import ./shell.nix { inherit pkgs; };
       formatter = nixpkgs.legacyPackages.${system}.treefmt;
       nixosConfigurations = {
         snowfort = nixpkgs.lib.nixosSystem {
