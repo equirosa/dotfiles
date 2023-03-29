@@ -98,6 +98,20 @@ require("lazy").setup({
 
 	-- Useful plugin to show you pending keybinds.
 	{ "folke/which-key.nvim", opts = {} },
+	{
+		"akinsho/git-conflict.nvim",
+		version = "*",
+		opts = {
+			default_mappings = {
+				ours = "o",
+				theirs = "t",
+				none = "0",
+				both = "b",
+				next = "n",
+				prev = "p",
+			},
+		},
+	},
 	{ -- Adds git releated signs to the gutter, as well as utilities for managing changes
 		"lewis6991/gitsigns.nvim",
 		opts = {
