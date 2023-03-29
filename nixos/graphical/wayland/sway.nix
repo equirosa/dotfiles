@@ -6,6 +6,8 @@
 let
   inherit (config.home-manager.users.kiri.xdg) cacheHome;
   inherit (lib) getExe;
+  default-programs = import ../../default-programs.nix;
+  inherit (default-programs) http-browser;
   lockCommand = "${getExe pkgs.swaylock} --image ${cacheHome}/background_image -f";
   terminal = "${getExe pkgs.foot}";
   dmenuCommand = "rofi -show run | ${pkgs.busybox}/bin/xargs swaymsg exec --";
@@ -105,7 +107,7 @@ in
                 "${mod}+r" = "exec ${terminal} ${termFileManager}";
                 "${mod}+x" = "exec ${lockCommand}";
                 "${mod}+p" = "exec emoji";
-                "${mod}+w" = "exec ${config.home.sessionVariables.BROWSER}";
+                "${mod}+w" = "exec ${http-browser}";
                 "${mod}+z" = "exec password-menu show";
                 "${mod}+Shift+z" = "exec password-menu otp";
                 "Print" = "exec sway-shot";

@@ -28,13 +28,7 @@ in
     useUserPackages = true;
     useGlobalPkgs = true;
     users.kiri = {
-      home = {
-        sessionVariables = {
-          BROWSER = "${getExe pkgs.firefox} -p default";
-          TERMINAL_BROWSER = "${getExe pkgs.w3m}";
-        };
-        inherit (config.system) stateVersion;
-      };
+      home = { inherit (config.system) stateVersion; };
       programs = {
         direnv = {
           enable = true;

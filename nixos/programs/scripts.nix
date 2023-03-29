@@ -6,7 +6,8 @@
 let
   inherit (builtins) attrValues readFile fetchTarball replaceStrings;
   inherit (lib) getExe optionalString;
-  inherit (config.home.sessionVariables) BROWSER;
+  default-programs = import ../default-programs.nix;
+  inherit (default-programs) http-browser;
   notify = ''${getExe pkgs.libnotify} -t 5000'';
   cat = "${getExe pkgs.bat} --plain";
   dmenu-command = "rofi -dmenu";
@@ -185,7 +186,7 @@ in
         else
           URL="''${1}"
         fi
-        ${BROWSER} -p default "https://reader.miniflux.app/bookmarklet?uri=''${URL}"
+        ${http-browser} -p default "https://reader.miniflux.app/bookmarklet?uri=''${URL}"
       '';
     })
     (writeShellApplication {
@@ -239,7 +240,7 @@ in
         SEARCH_OPTIONS="searx.nixnet.services/search?q=\nyoutube.com/results?search_query=\ngithub.com/search?q=\nnixos.wiki/index.php?search=\nprotondb.com/search?q="
         SEARCH_SITE="$(echo -e "''${SEARCH_OPTIONS}" | ${dmenu-command} --prompt-text "Search website")"
         INPUT="$(${dmenu-command} --prompt-text "Search term")"
-        ${BROWSER} "''${SEARCH_SITE}''${INPUT}"
+        ${http-browser} "''${SEARCH_SITE}''${INPUT}"
       '';
     })
     (writeShellApplication {
@@ -285,11 +286,11 @@ in
         case "''${1}" in
           gemini* ) ${geminiBrowser} "''${1}" ;;
           *youtube.com/watch* | *youtu.be/* | *tilvids.com/w/* | *twitch.tv/* | *bitcointv.com/w/* | *peertube.co.uk/w/* | *videos.lukesmith.xyz/w/* | *diode.zone/w/* | *peertube.thenewoil.xyz/videos/watch/* | *share.tube/w/* ) setsid umpv "''${1}" & ;;
-          http* | *.html ) ${BROWSER} "''${1}" ;;
+          http* | *.html ) ${http-browser} "''${1}" ;;
           magnet* | *.torrent ) transmission-remote -a "''${1}" && ${notify} "Torrent Added! ✅" && exit 0 ;;
           *.org ) emacsclient --create-frame "''${1}" ;;
           *.png | *.jpg | *.jpeg | *.webp ) ${getExe imv} "''${1}" ;;
-          *.pdf ) setsid ${BROWSER} "''${1}" ;;
+          *.pdf ) setsid ${http-browser} "''${1}" ;;
           * ) ${xdg-utils}/bin/xdg-open "''${1}" ;;
         esac
       '';
