@@ -6,7 +6,10 @@
 let
   inherit (builtins) attrValues replaceStrings;
   inherit (lib) getExe optionalString fileContents;
-  inherit (import ../default-programs.nix { inherit pkgs lib; }) http-browser terminal-http-browser;
+  inherit (import ../default-programs.nix { inherit pkgs lib; })
+    http-browser
+    terminal-http-browser
+    gemini-browser;
   inherit (import ../shell/aliases.nix { inherit pkgs lib; }) cat;
   notify = ''${getExe pkgs.libnotify} -t 5000'';
   dmenu-command = "rofi -dmenu";
@@ -22,8 +25,6 @@ let
     ${getExe pkgs.nvd} diff /run/current-system ./result && rm ./result
   '';
   check-modifications = replaceStrings [ "--upgrade" ] [ "" ] check-updates;
-  terminal = "${getExe pkgs.foot}";
-  geminiBrowser = "${getExe pkgs.lagrange}";
   # scriptFiles = filesIn { dir = ../../scripts; ext = "sh"; };
   getExeList = map (x: "${getExe pkgs.${x}}");
   shellApplicationWithInputs =
@@ -283,7 +284,7 @@ in
       name = "xdg-open";
       text = ''
         case "''${1%%:*}" in
-          gemini) ${geminiBrowser} "''${1}" ;;
+          gemini) ${gemini-browser} "''${1}" ;;
           http|https|*.html) ${http-browser} "''${1}" ;;
           magnet|*.torrent)
             transmission-remote -a "''${1}" && ${notify} "Torrent Added! ✅";;

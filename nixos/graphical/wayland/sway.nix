@@ -5,17 +5,20 @@
 }:
 let
   inherit (config.home-manager.users.kiri.xdg) cacheHome;
-  inherit (lib) getExe;
-  inherit (import ../../default-programs.nix { inherit pkgs lib; }) http-browser terminal-http-browser;
+  inherit (lib) getExe fileContents;
+  inherit (builtins) replaceStrings;
+  inherit (import ../../default-programs.nix { inherit pkgs lib; })
+    http-browser
+    terminal
+    terminal-http-browser
+    terminal-feed-reader
+    terminal-audio
+    terminal-monitor
+    terminal-file-manager
+    terminal-mail-client;
   lockCommand = "${getExe pkgs.swaylock} --image ${cacheHome}/background_image -f";
-  terminal = "${getExe pkgs.foot}";
   dmenuCommand = "rofi -show run | ${pkgs.busybox}/bin/xargs swaymsg exec --";
   desktopCommand = "rofi -show drun | ${pkgs.busybox}/bin/xargs swaymsg exec --";
-  feedReader = "${getExe pkgs.newsboat}";
-  mailClient = "${getExe pkgs.aerc}";
-  termFileManager = "${getExe pkgs.lf}";
-  termMonitor = "${getExe pkgs.btop}";
-  termAudio = "${getExe pkgs.pulsemixer}";
   transmissionClient = "${getExe pkgs.tremc}";
   colors = import ../../colors.nix;
 in
@@ -98,12 +101,12 @@ in
                 "${mShift}+e" = "exec emacsclient --create-frame";
                 "${mShift}+f" = "floating toggle";
                 "${mShift}+t" = "exec ${terminal} ${transmissionClient}";
-                "${mod}+a" = "exec ${terminal} ${termAudio}";
+                "${mod}+a" = "exec ${terminal} ${terminal-audio}";
                 "${mod}+s" = "exec search";
-                "${mod}+e" = "exec ${terminal} ${mailClient}";
-                "${mod}+i" = "exec ${terminal} ${termMonitor}";
-                "${mod}+n" = "exec ${terminal} ${feedReader}";
-                "${mod}+r" = "exec ${terminal} ${termFileManager}";
+                "${mod}+e" = "exec ${terminal} ${terminal-mail-client}";
+                "${mod}+i" = "exec ${terminal} ${terminal-monitor}";
+                "${mod}+n" = "exec ${terminal} ${terminal-feed-reader}";
+                "${mod}+r" = "exec ${terminal} ${terminal-file-manager}";
                 "${mod}+x" = "exec ${lockCommand}";
                 "${mod}+p" = "exec emoji";
                 "${mod}+w" = "exec ${http-browser}";

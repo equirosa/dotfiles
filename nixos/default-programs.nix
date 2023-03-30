@@ -3,6 +3,13 @@ let
   inherit (lib) getExe;
 in
 {
-  http-browser = "${getExe pkgs. firefox} -p default";
-  terminal-http-browser = "${getExe pkgs. w3m}";
+  gemini-browser = "${getExe pkgs.lagrange}";
+  http-browser = "${getExe pkgs.firefox} -p default";
+  terminal = "${getExe pkgs.foot}";
+  terminal-http-browser = "${getExe pkgs.w3m}";
+  terminal-monitor = "${getExe pkgs.btop}";
+  terminal-audio = "${getExe pkgs.pulsemixer}";
+  terminal-file-manager = "${getExe pkgs.lf}";
+  terminal-mail-client = "${getExe pkgs.aerc}";
+  terminal-feed-reader = "${getExe pkgs.newsboat}";
 }
