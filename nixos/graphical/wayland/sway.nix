@@ -89,13 +89,11 @@ in
               statusCommand = "i3status-rs ${config.xdg.configHome}/i3status-rust/config-default.toml";
               position = "top";
             }];
-            inherit terminal;
             menu = "${dmenuCommand}";
             modifier = "Mod4";
             keybindings =
               let
                 mod = config.wayland.windowManager.sway.config.modifier;
-                inherit terminal;
                 mShift = "${mod}+Shift";
               in
               lib.mkOptionDefault {
