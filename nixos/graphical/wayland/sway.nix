@@ -124,6 +124,7 @@ in
                 { app_id = "thunderbird"; }];
             };
             floating.criteria = [
+              { title = "Friends List"; class = "Steam"; }
               { title = "Steam - Update News"; }
               { title = "Steam - News"; }
               { title = "Steam - Self Updater"; }
