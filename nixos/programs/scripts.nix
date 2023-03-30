@@ -269,7 +269,7 @@ in
         in
         ''
           case "''${1}" in
-            *http*) setsid ${getExe yt-dlp} \
+            http*) setsid ${getExe yt-dlp} \
               --sponsorblock-mark all\
               --embed-subs\
               --embed-metadata\
