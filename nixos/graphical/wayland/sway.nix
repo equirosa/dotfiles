@@ -38,10 +38,13 @@ in
           wl-clipboard
           (writeShellApplication {
             name = "sway-shot";
-            text = ''
-              ${getExe pkgs.sway-contrib.grimshot} save window - \
-                | ${getExe pkgs.pngquant} --skip-if-larger --strip - \
-                | ${getExe pkgs.swappy} -f -
+            text = replaceStrings [ "grimshot" "pngquant" "swappy" ]
+              [
+                "${getExe pkgs.sway-contrib.grimshot}"
+                "${getExe pkgs.pngquant}"
+                "${getExe pkgs.swappy}"
+              ] ''
+              ${fileContents ../../../scripts/sway-shot.sh}
             '';
           })
         ];
