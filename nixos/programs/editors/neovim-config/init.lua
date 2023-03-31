@@ -371,6 +371,17 @@ require("nvim-treesitter.configs").setup({
 	-- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
 	auto_install = false,
 	highlight = { enable = true },
+	rainbow = {
+		query = {
+			"rainbow-parens",
+			html = "rainbow-tags",
+		},
+		strategy = {
+			rainbow.strategy,
+			globals,
+			commonlisp = rainbow.strategy["local"],
+		},
+	},
 	indent = { enable = true, disable = { "python" } },
 	incremental_selection = {
 		enable = true,
