@@ -109,7 +109,7 @@ in
       persistent = true;
     };
     settings = { auto-optimise-store = true; };
-    package = pkgs.nixUnstable;
+    package = pkgs.nixVersions.stable;
     # registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = ''
       experimental-features = flakes nix-command
