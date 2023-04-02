@@ -117,7 +117,7 @@ in
               };
             assigns = {
               "1" = [{ app_id = "org.remmina.Remmina"; }];
-              "6" = [{ class = "^Steam"; }];
+              "6" = [{ class = "^Steam"; } { title = "Steam"; }];
               "9" = [{ app_id = "^Element"; }
                 { app_id = "thunderbird"; }];
             };
