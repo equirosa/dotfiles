@@ -36,7 +36,7 @@
         }
         {
           block = "load";
-          format = " $1m.eng(w:4) ";
+          format = " $icon $1m.eng(w:4) ";
           interval = 1;
         }
         {
