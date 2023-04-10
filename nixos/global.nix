@@ -16,6 +16,7 @@ in
     ./extra_security
     ./gaming.nix
     ./graphical/wayland/sway.nix
+    ./hardware/zsa.nix
     ./printing.nix
     ./programs
     ./shell
@@ -94,7 +95,6 @@ in
     kernelPackages = pkgs.linuxPackages_latest;
   };
   hardware.enableRedistributableFirmware = true;
-  hardware.keyboard.zsa.enable = true;
   networking = {
     hostFiles = map (x: "${pkgs.stevenblack-blocklist}/" + x) [
       "hosts"
