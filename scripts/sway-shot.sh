@@ -1,3 +1,3 @@
-grimshot save window - |
-	pngquant --skip-if-larger --strip - |
-	swappy -f -
+grimshot save window - \
+	| pngquant --skip-if-larger --strip - \
+	| swappy -f -

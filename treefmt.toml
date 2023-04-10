@@ -16,6 +16,9 @@ options = [
   "--indent",
   "0",  # indent with tabs
   "--simplify",  # simplify the code
+	"--case-indent",
+	"--binary-next-line",
+	"--posix",
   "--write",  # write back to the file
 ]
 includes = ["*.sh"]
