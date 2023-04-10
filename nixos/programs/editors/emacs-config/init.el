@@ -343,7 +343,8 @@
 (use-package envrc
   :init (envrc-global-mode))
 ;; Keychain
-(use-package keychain-environment)
+(use-package keychain-environment
+	:config(keychain-refresh-environment))
 ;; LSP
 (use-package eglot
   :hook
