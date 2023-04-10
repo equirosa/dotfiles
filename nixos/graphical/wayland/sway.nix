@@ -28,7 +28,7 @@ in
     , lib
     , ...
     }: {
-      imports = [ ./bar ./notifications.nix ];
+      imports = [ ./bar.nix ./notifications.nix ];
       xdg.configFile."electron-flags.conf".text = ''
         --enable-features=UseOzonePlatform
         --ozone-platform=wayland
