@@ -51,7 +51,7 @@
         {
           block = "time";
           format = {
-            full = " $icon $timestamp.datetime(f:'%a %Y-%m-%d %R %Z') ";
+            full = " $icon $timestamp.datetime(f:'%a %Y-%m-%d %R') ";
             short = " $icon $timestamp.datetime(f:%R) ";
           };
           interval = 60;
