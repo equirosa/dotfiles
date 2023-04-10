@@ -1,6 +1,7 @@
 { pkgs, lib, ... }:
 let
   inherit (lib) getExe genAttrs recursiveUpdate;
+  colors = import ../colors.nix;
 in
 {
   imports = [ ./fish.nix ];
@@ -17,33 +18,24 @@ in
       dircolors = {
         enable = true;
         settings =
+          with colors.ansi;
           let
-            bold = "01";
-            red = "31";
-            green = "32";
-            yellow = "33";
-            blue = "34";
-            pink = "35";
-            teal = "36";
-            grey = "37";
             dataFiles = [ "csv" "json" "toml" "yaml" ];
             mediaFiles = [ "mkv" "mp4" "webm" "webp" ];
             docFiles = [ "md" "org" "docx" "odt" ];
             pdf = [ "pdf" ];
-            extAttrs = extList: color: (genAttrs (map (ext: ".${ext}") extList) (ext: "${bold};${color}"));
+            extAttrs = extList: color:
+              (genAttrs (map (ext: ".${ext}") extList)
+                (ext: "${bold};${color}"));
           in
-          recursiveUpdate
-            {
-              OTHER_WRITABLE = "30;46";
-              ".sh" = "${bold};${green}";
-            }
-            (recursiveUpdate
-              (extAttrs dataFiles yellow)
-              (recursiveUpdate
-                (extAttrs docFiles teal)
-                (recursiveUpdate
-                  (extAttrs mediaFiles pink)
-                  (extAttrs pdf red))));
+          {
+            OTHER_WRITABLE = "30;46";
+            ".sh" = "${bold};${green}";
+          } //
+          (extAttrs dataFiles yellow) //
+          (extAttrs docFiles teal) //
+          (extAttrs mediaFiles pink) //
+          (extAttrs pdf red);
       };
       lsd = {
         enable = true;

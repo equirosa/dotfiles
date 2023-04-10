@@ -24,9 +24,16 @@ let
     nixos-rebuild build --upgrade &&
     ${getExe pkgs.nvd} diff /run/current-system ./result && rm ./result
   '';
-  check-modifications = replaceStrings [ "--upgrade" ] [ "" ] check-updates;
+  check-modifications = replaceStrings [ "--upgrade" ] [ "--fast" ] check-updates;
   # scriptFiles = filesIn { dir = ../../scripts; ext = "sh"; };
   getExeList = map (x: "${getExe pkgs.${x}}");
+  shellApplicationFromList = nameList:
+    map
+      (name: pkgs.writeShellApplication {
+        inherit name;
+        text = fileContents ../../scripts/${name}.sh;
+      })
+      nameList;
   shellApplicationWithInputs =
     { name
     , runtimeInputs ? [ ]
@@ -94,14 +101,6 @@ in
       '';
     })
     (writeShellApplication {
-      name = "nvim-clean";
-      text = fileContents ../../scripts/nvim-clean.sh;
-    })
-    (writeShellApplication {
-      name = "change-background";
-      text = fileContents ../../scripts/change_background.sh;
-    })
-    (writeShellApplication {
       name = "check-modifications";
       text = check-modifications;
     })
@@ -125,40 +124,40 @@ in
     (writeShellApplication {
       name = "download-music-playlist";
       text = replaceStrings [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
-        SOURCE_FILE="Source - Playlists.txt"
-        touch "''${SOURCE_FILE}"
+        source_file="Source - Playlists.txt"
+        touch "''${source_file}"
         ${fileContents "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Playlists/Playlists.sh"}
       '';
     })
     (writeShellApplication {
       name = "download-music-unique";
       text = replaceStrings [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
-        SOURCE_FILE="Source - Unique.txt"
-        touch "''${SOURCE_FILE}"
+        source_file="Source - Unique.txt"
+        touch "''${source_file}"
         ${fileContents "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Unique/Unique.sh"}
       '';
     })
     (writeShellApplication {
       name = "download-video-channel";
       text = replaceStrings [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
-        SOURCE_FILE="Source - Channels.txt"
-        touch "''${SOURCE_FILE}"
+        source_file="Source - Channels.txt"
+        touch "''${source_file}"
         ${fileContents "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Channels/Channels.sh"}
       '';
     })
     (writeShellApplication {
       name = "download-video-playlist";
       text = replaceStrings [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
-        SOURCE_FILE="Source - Playlists.txt"
-        touch "''${SOURCE_FILE}"
+        source_file="Source - Playlists.txt"
+        touch "''${source_file}"
         ${fileContents "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Playlists/Playlists.sh"}
       '';
     })
     (writeShellApplication {
       name = "download-video-unique";
       text = replaceStrings [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
-        SOURCE_FILE="Source - Unique.txt"
-        touch "''${SOURCE_FILE}"
+        source_file="Source - Unique.txt"
+        touch "''${source_file}"
         ${fileContents "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Unique/Unique.sh"}
       '';
     })
@@ -182,25 +181,17 @@ in
       name = "feed-subscribe";
       text = ''
         if [ $# -eq 0 ]; then
-          URL="$(${dmenu-command} --prompt-text Enter URL)"
+          url="$(${dmenu-command} --prompt-text Enter url)"
         else
-          URL="''${1}"
+          url="''${1}"
         fi
-        ${http-browser} -p default "https://reader.miniflux.app/bookmarklet?uri=''${URL}"
+        ${http-browser} -p default "https://reader.miniflux.app/bookmarklet?uri=''${url}"
       '';
     })
     (writeShellApplication {
       name = "gen-ssh-key";
       text = ''
         ssh-keygen -t ed25519 -a 100
-      '';
-    })
-    (writeShellApplication {
-      name = "git-remove-merged-branches";
-      text = ''
-        git for-each-ref --format '%(refname:short)' refs/heads \
-            | grep -v "master\|main\|dev" \
-            | xargs git branch -D
       '';
     })
     (shellApplicationWithInputs {
@@ -228,27 +219,19 @@ in
         ${getExe remmina} -c "$chosen"
       '';
     })
-    (writeShellApplication {
+    (writeShellApplication rec {
       name = "run-backups";
       text = replaceStrings [ "rbw" "borg " ] [ "${getExe rbw}" "${getExe borgbackup} " ] ''
-        ${fileContents ../../scripts/run-backups.sh}
+        ${fileContents ../../scripts/${name}.sh}
       '';
     })
     (writeShellApplication {
       name = "search";
       text = ''
-        SEARCH_OPTIONS="searx.nixnet.services/search?q=\nyoutube.com/results?search_query=\ngithub.com/search?q=\nnixos.wiki/index.php?search=\nprotondb.com/search?q="
-        SEARCH_SITE="$(echo -e "''${SEARCH_OPTIONS}" | ${dmenu-command} --prompt-text "Search website")"
-        INPUT="$(${dmenu-command} --prompt-text "Search term")"
-        ${http-browser} "''${SEARCH_SITE}''${INPUT}"
-      '';
-    })
-    (writeShellApplication {
-      name = "show-ansi-escapes";
-      text = ''
-        for i in 30 31 32 33 34 35 36 37 38; do
-        ${coreutils}/bin/printf "\033[0;''${i}m Normal: (0;''${i}); \033[1;''${i}m Bold: (1;''${i});\n"
-        done
+        search_options="searx.nixnet.services/search?q=\nyoutube.com/results?search_query=\ngithub.com/search?q=\nnixos.wiki/index.php?search=\nprotondb.com/search?q="
+        search_site="$(echo -e "''${search_options}" | ${dmenu-command} --prompt-text "Search website")"
+        input="$(${dmenu-command} --prompt-text "Search term")"
+        ${http-browser} "''${search_site}''${input}"
       '';
     })
     (writeShellApplication {
@@ -269,7 +252,7 @@ in
           watchlistDir = "${config.xdg.userDirs.videos}/watchlist";
         in
         ''
-          [ $# -eq 0 ] && setsid umpv "${watchlistDir}" ;;
+          [ $# -eq 0 ] && setsid umpv "${watchlistDir}"
           path="''${1%%:*}"
           case "''${path}" in
             http|https) setsid ${getExe yt-dlp} \
@@ -297,5 +280,9 @@ in
         esac
       '';
     })
+  ] ++ shellApplicationFromList [
+    "change-background"
+    "git-remove-merged-branches"
+    "nvim-clean"
   ];
 }
