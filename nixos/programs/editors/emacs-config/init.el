@@ -36,6 +36,8 @@
   (volatile-highlights-mode t))
 (use-package bool-flip
   :bind ("C-c b" . bool-flip-do-flip))
+(use-package deadgrep
+	:bind ("C-x p g" . deadgrep))
 (use-package hl-todo
   :custom
   (hl-todo-keyword-faces
@@ -357,6 +359,7 @@
 ;; Language modes
 (use-package elm-mode)
 (use-package fish-mode)
+(use-package lua-mode)
 (use-package nix-mode)
 (use-package rust-mode)
 (use-package rustic
