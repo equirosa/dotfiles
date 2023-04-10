@@ -265,18 +265,20 @@ in
       name = "watchlist";
       text =
         let
-          inherit (config.xdg.userDirs) videos;
+          dateSecond = "$(date +%s)";
+          watchlistDir = "${config.xdg.userDirs.videos}/watchlist";
         in
         ''
-          case "''${1}" in
-            http*) setsid ${getExe yt-dlp} \
+          [ $# -eq 0 ] && setsid umpv "${watchlistDir}" ;;
+          path="''${1%%:*}"
+          case "''${path}" in
+            http|https) setsid ${getExe yt-dlp} \
               --sponsorblock-mark all\
               --embed-subs\
               --embed-metadata\
-              -o "${videos}/watchlist/$(date +%s)-%(title)s-[%(id)s].%(ext)s"\
-            "$1" >>/dev/null & ;;
-            "") setsid umpv "${videos}/watchlist/" ;;
-            *) setsid mv "''${1}" "${videos}/watchlist/$(date +%s)-''${1}" ;;
+              -o "${watchlistDir}/${dateSecond}-%(title)s-[%(id)s].%(ext)s"\
+            "''${1}" >>/dev/null & ;;
+            *) setsid mv "''${1}" "${watchlistDir}/${dateSecond}-''${1}" ;;
           esac
         '';
     })
