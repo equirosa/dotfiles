@@ -9,14 +9,10 @@
       theme = "gruvbox-dark";
       blocks = [
         {
-          block = "focused_window";
-        }
-        {
           block = "disk_space";
           path = "/";
-          alias = "/";
           info_type = "available";
-          unit = "GB";
+          alert_unit = "GB";
           interval = 60;
           warning = 20.0;
           alert = 10.0;
@@ -40,12 +36,12 @@
         }
         {
           block = "load";
-          format = "{1m}";
+          format = " $1m.eng(w:4) ";
           interval = 1;
         }
         {
           block = "sound";
-          format = "{output_name} {volume}";
+          format = " $icon $output_name{ $volume|} ";
           # on_click = "pavucontrol --tab=3";
           mappings = {
             "alsa_output.pci-0000_00_1f.3.analog-stereo" = "💻";
@@ -54,7 +50,10 @@
         }
         {
           block = "time";
-          format = "%a %d/%m %R";
+          format = {
+            full = " $icon $timestamp.datetime(f:'%a %Y-%m-%d %R %Z') ";
+            short = " $icon $timestamp.datetime(f:%R) ";
+          };
           interval = 60;
         }
       ];
