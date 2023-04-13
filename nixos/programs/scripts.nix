@@ -96,10 +96,6 @@ in
       '';
     })
     (writeShellApplication {
-      name = "check-modifications";
-      text = check-modifications;
-    })
-    (writeShellApplication {
       name = "config-check";
       text = replaceStrings [ "nvd" ] [ "${getExe pkgs.nvd}" ] ''
         ${fileContents ../../scripts/config-check.sh}
