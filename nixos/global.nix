@@ -17,6 +17,7 @@ in
     ./gaming.nix
     ./graphical/wayland/sway.nix
     ./hardware/zsa.nix
+    ./services/ipfs.nix
     ./services/jellyfin.nix
     ./printing.nix
     ./programs
@@ -25,7 +26,7 @@ in
     ./virtualization/podman.nix
     ./virtualization/qemu.nix
   ];
-  users.users.kiri = { extraGroups = [ "adbusers" "ipfs" ]; };
+  users.users.kiri = { extraGroups = [ "adbusers" ]; };
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
@@ -84,7 +85,6 @@ in
         };
       };
     };
-    kubo = { enable = true; };
     pipewire = {
       enable = true;
       alsa = {
