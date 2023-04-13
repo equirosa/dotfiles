@@ -21,7 +21,7 @@ let
   '';
   scriptAudio = "-c:a libopus -b:a 96k";
   getExeList = map (x: "${getExe pkgs.${x}}");
-  stringsReplace = [ "rbw" "borg " ];
+  stringsReplace = [ "rbw" ];
   shellApplicationFromList = nameList:
     map
       (name: pkgs.writeShellApplication {
@@ -280,6 +280,5 @@ in
     "change-background"
     "git-remove-merged-branches"
     "nvim-clean"
-    "run-backups"
   ];
 }
