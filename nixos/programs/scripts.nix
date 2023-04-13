@@ -262,7 +262,7 @@ in
           esac
         '';
     })
-    (writeShellApplication {
+    (shellApplicationWithInputs {
       name = "xdg-open";
       text = ''
         case "''${1%%:*}" in
