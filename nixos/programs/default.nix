@@ -3,10 +3,7 @@
 , ...
 }:
 let
-  filesIn = { dir, ext }: lib.attrsets.mapAttrsToList (name: _: "${dir}/${name}")
-    (lib.attrsets.filterAttrs (name: _: lib.strings.hasSuffix ".${ext}" name)
-      (builtins.readDir dir));
-  nixFiles = dir: filesIn { inherit dir; ext = "nix"; };
+  inherit (import ../util.nix { inherit pkgs lib; }) nixFilesIn;
 in
 {
   imports = [
@@ -28,7 +25,7 @@ in
       ./rofi.nix
       ./scripts.nix
       ./thunderbird.nix
-    ] ++ nixFiles ./editors;
+    ] ++ nixFilesIn ./editors;
     programs.rbw = {
       enable = true;
       settings = { email = "bitwarden@eduardoquiros.com"; pinentry = "gnome3"; };
