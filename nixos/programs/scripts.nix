@@ -20,11 +20,6 @@ let
     fi
   '';
   scriptAudio = "-c:a libopus -b:a 96k";
-  check-updates = ''
-    nixos-rebuild build --upgrade &&
-    ${getExe pkgs.nvd} diff /run/current-system ./result && rm ./result
-  '';
-  check-modifications = replaceStrings [ "--upgrade" ] [ "--fast" ] check-updates;
   # scriptFiles = filesIn { dir = ../../scripts; ext = "sh"; };
   getExeList = map (x: "${getExe pkgs.${x}}");
   shellApplicationFromList = nameList:
@@ -105,8 +100,10 @@ in
       text = check-modifications;
     })
     (writeShellApplication {
-      name = "check-updates";
-      text = check-updates;
+      name = "config-check";
+      text = replaceStrings [ "nvd" ] [ "${getExe pkgs.nvd}" ] ''
+        ${fileContents ../../scripts/config-check.sh}
+      '';
     })
     (writeShellApplication {
       name = "code2png";
