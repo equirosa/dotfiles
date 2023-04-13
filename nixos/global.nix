@@ -31,63 +31,6 @@ in
     useGlobalPkgs = true;
     users.kiri = {
       home = { inherit (config.system) stateVersion; };
-      programs = {
-        direnv = {
-          enable = true;
-          nix-direnv.enable = true;
-          config = {
-            global = {
-              bash_path = "${getExe pkgs.bash}";
-              load_dotenv = true;
-              strict_env = true;
-            };
-            whitelist = {
-              prefix = [ "/home/kiri/projects" ];
-            };
-          };
-        };
-        gpg = {
-          enable = true;
-          settings.default-key = "03678E9642EB6D9E99974ACFB77F36C3F12720B4";
-        };
-        keychain = {
-          enable = true;
-          agents = [ "ssh" "gpg" ];
-          keys = [ "id_ed25519" "B77F36C3F12720B4" ];
-          extraFlags = [ "--quiet" ];
-        };
-        less.enable = true;
-        ssh.enable = true;
-        tealdeer = {
-          enable = true;
-          settings = {
-            display = {
-              compact = false;
-              use_pager = false;
-            };
-            updates.auto_update = true;
-          };
-        };
-      };
-      services = {
-        gpg-agent = {
-          enable = true;
-          defaultCacheTtl = 34560000;
-          maxCacheTtl = 34560000;
-          enableScDaemon = false;
-          enableSshSupport = true;
-          pinentryFlavor = "gnome3";
-          extraConfig = ''
-            allow-emacs-pinentry
-            allow-loopback-pinentry
-          '';
-        };
-        syncthing = {
-          enable = true;
-          tray.enable = true;
-        };
-        udiskie.enable = true;
-      };
       xdg.userDirs.enable = true;
     };
   };
