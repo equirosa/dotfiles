@@ -14,6 +14,9 @@
           tool = "nvimdiff";
         };
         push = { autoSetupRemote = true; };
+        url = {
+          "ssh://git@github.com/".insteadOf = "https://github.com/";
+        };
       };
       delta = {
         enable = true;
