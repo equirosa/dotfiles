@@ -21,17 +21,15 @@ let
   '';
   scriptAudio = "-c:a libopus -b:a 96k";
   getExeList = map (x: "${getExe pkgs.${x}}");
-  stringsReplace = [ "rbw" "silicon" "nvd" ];
-  shellApplicationFromList = nameList:
-    map
-      (name: pkgs.writeShellApplication {
-        inherit name;
-        text = replaceStrings
-          stringsReplace
-          (getExeList stringsReplace)
-          ''${fileContents ../../scripts/${name}.sh}'';
-      })
-      nameList;
+  stringsToReplace = [ "rbw" "silicon" "nvd" ];
+  shellApplicationFromList = map
+    (name: pkgs.writeShellApplication {
+      inherit name;
+      text = replaceStrings
+        stringsToReplace
+        (getExeList stringsToReplace)
+        ''${fileContents ../../scripts/${name}.sh}'';
+    });
   shellApplicationWithInputs =
     { name
     , runtimeInputs ? [ ]
@@ -154,15 +152,6 @@ in
       '';
     })
     (writeShellApplication {
-      name = "encrypt";
-      text = ''
-        ${getExe gnupg} --encrypt --recipient "eduardo@eduardoquiros.com" "$1" \
-        && ${notify} "🔒 encrypting..." \
-        && ${coreutils}/bin/shred --remove "$1" \
-        && ${notify} "❌ file deleted"
-      '';
-    })
-    (writeShellApplication {
       name = "feed-subscribe";
       text = ''
         if [ $# -eq 0 ]; then
@@ -170,13 +159,7 @@ in
         else
           url="''${1}"
         fi
-        ${http-browser} -p default "https://reader.miniflux.app/bookmarklet?uri=''${url}"
-      '';
-    })
-    (writeShellApplication {
-      name = "gen-ssh-key";
-      text = ''
-        ssh-keygen -t ed25519 -a 100
+        ${http-browser} "https://reader.miniflux.app/bookmarklet?uri=''${url}"
       '';
     })
     (shellApplicationWithInputs {
@@ -218,10 +201,6 @@ in
         input="$(${dmenu-command} --prompt-text "Search term")"
         ${http-browser} "''${search_site}''${input}"
       '';
-    })
-    (writeShellApplication {
-      name = "show-nix-store-path";
-      text = ''${coreutils}/bin/readlink -f "$(command -v "$@")" '';
     })
     (writeShellApplication {
       name = "show-script";
@@ -269,7 +248,9 @@ in
     "change-background"
     "code2png"
     "config-check"
+    "gen-ssh-key"
     "git-remove-merged-branches"
     "nvim-clean"
+    "show-nix-store-path"
   ];
 }
