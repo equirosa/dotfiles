@@ -3,10 +3,6 @@
 #+description: Kiri's config for GNU Emacs using literate programming.
 #+PROPERTY: header-args:emacs-lisp :tangle yes
 #+begin_src emacs-lisp
-;;; package -- Summary
-;;; Commentary:
-;;; This is my init file
-;;; Code:
 ;; Define and initialise package repositories
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -405,6 +401,4 @@
 (use-package all-the-icons-dired
   :hook dired-mode
   :diminish)
-(provide 'init)
-;;; init.el ends here
 #+end_src
