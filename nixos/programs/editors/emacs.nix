@@ -18,10 +18,10 @@ in
   programs.emacs = {
     inherit enable;
     package = pkgs.emacsWithPackagesFromUsePackage {
-      config = ./emacs-config/init.el;
+      config = ./emacs-config/config.org;
       package = pkgs.emacsPgtk;
       alwaysEnsure = true;
-      alwaysTangle = false;
+      alwaysTangle = true;
       defaultInitFile = true;
     };
   };
