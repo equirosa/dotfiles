@@ -21,7 +21,7 @@ let
   '';
   scriptAudio = "-c:a libopus -b:a 96k";
   getExeList = map (x: "${getExe pkgs.${x}}");
-  stringsReplace = [ "rbw" ];
+  stringsReplace = [ "rbw" "silicon" "nvd" ];
   shellApplicationFromList = nameList:
     map
       (name: pkgs.writeShellApplication {
@@ -29,7 +29,7 @@ let
         text = replaceStrings
           stringsReplace
           (getExeList stringsReplace)
-          fileContents ../../scripts/${name}.sh;
+          ''${fileContents ../../scripts/${name}.sh}'';
       })
       nameList;
   shellApplicationWithInputs =
@@ -97,17 +97,6 @@ in
         * ) printf "Can't handle that file extension..." && exit 1 ;;
         esac
       '';
-    })
-    (writeShellApplication {
-      name = "config-check";
-      text = replaceStrings [ "nvd" ] [ "${getExe pkgs.nvd}" ] ''
-        ${fileContents ../../scripts/config-check.sh}
-      '';
-    })
-    (writeShellApplication {
-      name = "code2png";
-      text = replaceStrings [ "silicon" ] [ "${getExe silicon}" ]
-        (fileContents ../../scripts/code2png.sh);
     })
     (shellApplicationWithInputs {
       name = "download-file";
@@ -278,6 +267,8 @@ in
     })
   ] ++ shellApplicationFromList [
     "change-background"
+    "code2png"
+    "config-check"
     "git-remove-merged-branches"
     "nvim-clean"
   ];
