@@ -20,13 +20,16 @@ let
     fi
   '';
   scriptAudio = "-c:a libopus -b:a 96k";
-  # scriptFiles = filesIn { dir = ../../scripts; ext = "sh"; };
   getExeList = map (x: "${getExe pkgs.${x}}");
+  stringsReplace = [ "rbw" "borg " ];
   shellApplicationFromList = nameList:
     map
       (name: pkgs.writeShellApplication {
         inherit name;
-        text = fileContents ../../scripts/${name}.sh;
+        text = replaceStrings
+          stringsReplace
+          (getExeList stringsReplace)
+          fileContents ../../scripts/${name}.sh;
       })
       nameList;
   shellApplicationWithInputs =
@@ -277,5 +280,6 @@ in
     "change-background"
     "git-remove-merged-branches"
     "nvim-clean"
+    "run-backups"
   ];
 }
