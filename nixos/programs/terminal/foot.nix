@@ -10,6 +10,7 @@ in
       colors = with colors;
         with selected; {
           alpha = "${opacity}";
+          background = "${regular.black}";
           regular0 = "${regular.black}";
           regular1 = "${regular.red}";
           regular2 = "${regular.green}";
