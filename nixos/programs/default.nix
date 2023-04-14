@@ -52,9 +52,9 @@ in
         # Nix-specific stuff
         cachix
         comma
+        nil
         nix-update
         nixpkgs-review
-        rnix-lsp
         statix
         # Utilities
         archiver
