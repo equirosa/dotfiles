@@ -36,6 +36,17 @@ It's useful to be able to flip booleans on command instead of having to delete a
   (use-package bool-flip
     :bind ("C-c b" . bool-flip-do-flip))
 #+end_src
+* Consistent backup files
+#+begin_src emacs-lisp
+  (custom-set-variables
+   '(vc-make-backup-files t)
+   '(version-control t)
+   '(kept-new-versions 10)
+   '(kept-old-versions 0)
+   '(delete-old-versions t)
+   '(backup-by-copying t)
+   '(backup-directory-alist '(("." . "~/.local/share/emacs/per-save"))))
+#+end_src
 * TODO Sort all of these
 #+begin_src emacs-lisp
   (recentf-mode 1)
@@ -88,15 +99,6 @@ It's useful to be able to flip booleans on command instead of having to delete a
   (use-package no-littering
     :config
     (add-to-list 'recentf-exclude '(no-littering-etc-directory no-littering-var-directory)))
-  ;; Sane backups
-  (custom-set-variables
-   '(vc-make-backup-files t)
-   '(version-control t)
-   '(kept-new-versions 10)
-   '(kept-old-versions 0)
-   '(delete-old-versions t)
-   '(backup-by-copying t)
-   '(backup-directory-alist '(("." . "~/.local/share/emacs/per-save"))))
   ;; Ligatures
   (use-package fira-code-mode
     :if window-system
