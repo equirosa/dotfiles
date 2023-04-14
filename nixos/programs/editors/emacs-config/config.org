@@ -362,7 +362,7 @@ It's useful to be able to flip booleans on command instead of having to delete a
   ;; LSP
   (use-package eglot
     :hook
-    (prog-mode . eglot-ensure)
+    ('(prog-mode markdown-mode) . eglot-ensure)
     (before-save . eglot-format)
     :bind (:map eglot-mode-map
           ("C-c d" . 'xref-find-definitions)
