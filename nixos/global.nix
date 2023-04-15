@@ -36,7 +36,7 @@ in
     };
   };
   boot = {
-    tmpOnTmpfs = true;
+    tmp.useTmpfs = true;
     kernelPackages = pkgs.linuxPackages_latest;
   };
   hardware.enableRedistributableFirmware = true;
