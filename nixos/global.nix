@@ -110,5 +110,5 @@ in
       dates = "05:00:00";
     };
   };
-  zramSwap.enable = true;
+  zramSwap.enable = false;
 }
