@@ -56,7 +56,7 @@ in
       name = "2mkv";
       getBase = true;
       getExt = true;
-      text = replaceStrings ["ffmpeg"] [ (getExe ffmpeg-full) ] ''
+      text = replaceStrings [ "ffmpeg" ] [ (getExe ffmpeg-full) ] ''
         ${backupIfDuplicate "mkv"}
         ffmpeg -i "''${file}" -c:v libsvtav1 -preset 5 -crf 32 \
         -g 240 -pix_fmt yuv420p10le ${scriptAudio} "''${base}.mkv"
