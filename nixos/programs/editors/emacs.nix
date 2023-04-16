@@ -18,7 +18,7 @@ in
   programs.emacs = {
     inherit enable;
     package = pkgs.emacsWithPackagesFromUsePackage {
-      config = ./emacs-config/config.org;
+      config = ./emacs-config/config.el;
       package = pkgs.emacsPgtk;
       alwaysEnsure = true;
       alwaysTangle = true;

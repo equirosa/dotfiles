@@ -1,1 +1,2 @@
 **/.direnv
+/nixos/programs/editors/emacs-config/config.el
