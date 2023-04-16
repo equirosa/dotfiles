@@ -4,15 +4,14 @@
 , ...
 }:
 let
-  inherit (builtins) attrValues replaceStrings;
+  inherit (builtins) replaceStrings;
   inherit (lib) getExe optionalString fileContents;
   inherit (import ../default-programs.nix { inherit pkgs lib; })
     http-browser
-    terminal-http-browser
     gemini-browser;
   inherit (import ../shell/aliases.nix { inherit pkgs lib; }) cat;
-  notify = ''${getExe pkgs.libnotify} -t 5000'';
-  dmenu-command = "rofi -dmenu";
+  notify = "${getExe pkgs.libnotify} -t 5000";
+  menu-program = "rofi -dmenu";
   backupIfDuplicate = ext: ''
     if [ "''${ext}" = "${ext}" ]; then
     bak="''${file}.bak"; mv "''${file}" "''${bak}"
@@ -28,7 +27,7 @@ let
       text = replaceStrings
         stringsToReplace
         (getExeList stringsToReplace)
-        ''${fileContents ../../scripts/${name}.sh}'';
+        "${fileContents ../../scripts/${name}.sh}";
     });
   shellApplicationWithInputs =
     { name
@@ -55,10 +54,9 @@ in
     # Scripts
     (shellApplicationWithInputs {
       name = "2mkv";
-      runtimeInputs = [ ffmpeg-full ];
       getBase = true;
       getExt = true;
-      text = ''
+      text = replaceStrings ["ffmpeg"] [ (getExe ffmpeg-full) ] ''
         ${backupIfDuplicate "mkv"}
         ffmpeg -i "''${file}" -c:v libsvtav1 -preset 5 -crf 32 \
         -g 240 -pix_fmt yuv420p10le ${scriptAudio} "''${base}.mkv"
@@ -155,7 +153,7 @@ in
       name = "feed-subscribe";
       text = ''
         if [ $# -eq 0 ]; then
-          url="$(${dmenu-command} --prompt-text Enter url)"
+          url="$(${menu-program} --prompt-text Enter url)"
         else
           url="''${1}"
         fi
@@ -182,7 +180,7 @@ in
         chosen=$(find "${config.xdg.dataHome}/remmina/" -name "*.remmina")
 
         [ "$(${coreutils}/bin/wc -l <<< "''${chosen}")" -gt 1 ] &&\
-        chosen=$(${coreutils}/bin/printf "''${chosen}" | ${dmenu-command})
+        chosen=$(${coreutils}/bin/printf "''${chosen}" | ${menu-program})
 
         ${getExe remmina} -c "$chosen"
       '';
@@ -197,8 +195,8 @@ in
       name = "search";
       text = ''
         search_options="searx.nixnet.services/search?q=\nyoutube.com/results?search_query=\ngithub.com/search?q=\nnixos.wiki/index.php?search=\nprotondb.com/search?q="
-        search_site="$(echo -e "''${search_options}" | ${dmenu-command} --prompt-text "Search website")"
-        input="$(${dmenu-command} --prompt-text "Search term")"
+        search_site="$(echo -e "''${search_options}" | ${menu-program} --prompt-text "Search website")"
+        input="$(${menu-program} --prompt-text "Search term")"
         ${http-browser} "''${search_site}''${input}"
       '';
     })
