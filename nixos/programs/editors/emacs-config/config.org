@@ -47,6 +47,21 @@ It's useful to be able to flip booleans on command instead of having to delete a
    '(backup-by-copying t)
    '(backup-directory-alist '(("." . "~/.local/share/emacs/per-save"))))
 #+end_src
+* Programming Languages
+** Nix
+#+begin_src emacs-lisp
+  (use-package nix-mode)
+  (use-package nix-update
+    :after (nix-mode))
+  (use-package nix-modeline)
+#+end_src
+** Misc.
+These are all for different languages but really only install the required packages.
+#+begin_src emacs-lisp
+  (use-package elm-mode)
+  (use-package fish-mode)
+  (use-package lua-mode)
+#+end_src
 * TODO Sort all of these
 #+begin_src emacs-lisp
   (recentf-mode 1)
@@ -372,10 +387,6 @@ It's useful to be able to flip booleans on command instead of having to delete a
           ("C-c o" . 'eglot-code-action-organize-imports)
           ("C-c r" . 'eglot-rename)))
   ;; Language modes
-  (use-package elm-mode)
-  (use-package fish-mode)
-  (use-package lua-mode)
-  (use-package nix-mode)
   (use-package rust-mode)
   (use-package rustic
     :hook rust-mode
@@ -385,10 +396,6 @@ It's useful to be able to flip booleans on command instead of having to delete a
     :hook ((typescript-ts-mode . tide-setup)
            (tsx-ts-mode . tide-setup)
            (typescript-ts-mode . tide-hl-identifier-mode)))
-  ;; Nix-specific stuff
-  (use-package nix-update
-    :after (nix-mode))
-  (use-package nix-modeline)
   ;; Vterm
   (use-package multi-vterm
     :bind (("C-c C-v v" . multi-vterm)
