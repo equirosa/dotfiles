@@ -5,13 +5,11 @@ in
 {
   gemini-browser = "${getExe pkgs.lagrange}";
   http-browser = "${getExe pkgs.firefox} -p default";
-  terminal = {
-    program = "${getExe pkgs.foot}";
-    http-browser = "${getExe pkgs.w3m}";
-    monitor = "${getExe pkgs.btop}";
-    audio = "${getExe pkgs.pulsemixer}";
-    file-manager = "${getExe pkgs.lf}";
-    mail-client = "${getExe pkgs.aerc}";
-    feed-reader = "${getExe pkgs.newsboat}";
-  };
+  terminal = "${getExe pkgs.foot}";
+  terminal-http-browser = "${getExe pkgs.w3m}";
+  terminal-monitor = "${getExe pkgs.btop}";
+  terminal-audio = "${getExe pkgs.pulsemixer}";
+  terminal-file-manager = "${getExe pkgs.lf}";
+  terminal-mail-client = "${getExe pkgs.aerc}";
+  terminal-feed-reader = "${getExe pkgs.newsboat}";
 }
