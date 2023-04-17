@@ -5,7 +5,6 @@
 }:
 let
   inherit (builtins) fetchTarball;
-  inherit (lib) getExe;
   home-manager = fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
 in
 {
@@ -26,7 +25,6 @@ in
     ./virtualization/podman.nix
     ./virtualization/qemu.nix
   ];
-  users.users.kiri = { extraGroups = [ "adbusers" ]; };
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
@@ -61,16 +59,6 @@ in
       keep-derivations = true
     '';
   };
-  nixpkgs = {
-    config = {
-      packageOverrides = pkgs: {
-        nur =
-          import
-            (fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz")
-            { inherit pkgs; };
-      };
-    };
-  };
   security = { pam = { services = { login = { gnupg.enable = true; }; }; }; };
   services = {
     dbus.packages = [ pkgs.gcr ];
@@ -103,7 +91,6 @@ in
     };
     udisks2.enable = true;
   };
-  programs.adb.enable = true;
   system = {
     autoUpgrade = {
       enable = true;
