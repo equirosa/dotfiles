@@ -62,6 +62,26 @@ These are all for different languages but really only install the required packa
   (use-package fish-mode)
   (use-package lua-mode)
 #+end_src
+* Graphical Tweaks
+** Disable unused bars
+#+begin_src emacs-lisp
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1)
+#+end_src
+** Volatile Highlights
+Persistent highlights are distracting, this should fix it.
+#+begin_src emacs-lisp
+    (use-package volatile-highlights
+    :config
+    (volatile-highlights-mode t))
+#+end_src
+** Fonts/Ligatures
+#+begin_src emacs-lisp
+  (use-package fira-code-mode
+    :if window-system
+    :hook prog-mode)
+#+end_src
 * TODO Sort all of these
 #+begin_src emacs-lisp
   (recentf-mode 1)
@@ -78,13 +98,7 @@ These are all for different languages but really only install the required packa
    '(cursor-type 'bar)
    '(inhibit-startup-message t)
    '(visible-bell t))
-  (tool-bar-mode -1)
-  (menu-bar-mode -1)
-  (scroll-bar-mode -1)
   (defalias 'yes-or-no-p 'y-or-n-p)
-  (use-package volatile-highlights
-    :config
-    (volatile-highlights-mode t))
   (use-package deadgrep
     :bind ("C-x p g" . deadgrep))
   (use-package hl-todo
@@ -114,10 +128,6 @@ These are all for different languages but really only install the required packa
   (use-package no-littering
     :config
     (add-to-list 'recentf-exclude '(no-littering-etc-directory no-littering-var-directory)))
-  ;; Ligatures
-  (use-package fira-code-mode
-    :if window-system
-    :hook prog-mode)
   ;; Helm config
   (use-package helm
     :init
