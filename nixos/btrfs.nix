@@ -1,7 +1,4 @@
-{ pkgs
-, config
-, ...
-}: {
+_: {
   services = {
     beesd.filesystems.home = {
       spec = "/home";
