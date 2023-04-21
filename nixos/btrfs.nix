@@ -4,7 +4,7 @@ _: {
       spec = "/home";
       hashTableSizeMB = 4096;
       verbosity = "crit";
-      extraOptions = [ "--loadavg-target" "2.5" ];
+      extraOptions = [ "--loadavg-target" "2.0" ];
     };
     snapper = {
       configs.home = {
