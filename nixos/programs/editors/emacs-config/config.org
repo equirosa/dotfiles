@@ -82,6 +82,26 @@ Persistent highlights are distracting, this should fix it.
     :if window-system
     :hook prog-mode)
 #+end_src
+* Snippets
+#+begin_src emacs-lisp
+  (use-package yasnippet
+    :config (yas-global-mode 1))
+  (use-package yasnippet-snippets)
+#+end_src
+* Language Server Protocol
+#+begin_src emacs-lisp
+  (use-package eglot
+    :hook
+    ('(prog-mode markdown-mode) . eglot-ensure)
+    (before-save . eglot-format)
+    :bind (:map eglot-mode-map
+          ("C-c d" . 'xref-find-definitions)
+          ("C-c a" . 'eglot-code-actions)
+          ("C-c f" . 'eglot-format)
+          ("C-c h" . 'eldoc)
+          ("C-c o" . 'eglot-code-action-organize-imports)
+          ("C-c r" . 'eglot-rename)))
+#+end_src
 * TODO Sort all of these
 #+begin_src emacs-lisp
   (recentf-mode 1)
@@ -385,18 +405,6 @@ Persistent highlights are distracting, this should fix it.
   ;; Keychain
   (use-package keychain-environment
     :config(keychain-refresh-environment))
-  ;; LSP
-  (use-package eglot
-    :hook
-    ('(prog-mode markdown-mode) . eglot-ensure)
-    (before-save . eglot-format)
-    :bind (:map eglot-mode-map
-          ("C-c d" . 'xref-find-definitions)
-          ("C-c a" . 'eglot-code-actions)
-          ("C-c f" . 'eglot-format)
-          ("C-c h" . 'eldoc)
-          ("C-c o" . 'eglot-code-action-organize-imports)
-          ("C-c r" . 'eglot-rename)))
   ;; Language modes
   (use-package rust-mode)
   (use-package rustic
@@ -412,8 +420,6 @@ Persistent highlights are distracting, this should fix it.
     :bind (("C-c C-v v" . multi-vterm)
            ("C-c C-v n" . multi-vterm-next)
            ("C-c C-v p" . multi-vterm-prev)))
-  ;; Snippets
-  (use-package yasnippet)
   ;; Markdown
   (use-package markdown-mode
     :mode ("README\\.md\\'" . gfm-mode)
