@@ -8,9 +8,9 @@ let
   inherit (lib) getExe optionalString fileContents;
   inherit (import ../default-programs.nix { inherit pkgs lib; })
     http-browser
+    notify
     gemini-browser;
   inherit (import ../shell/aliases.nix { inherit pkgs lib; }) cat;
-  notify = "${getExe pkgs.libnotify} -t 5000";
   menu-program = "rofi -dmenu";
   backupIfDuplicate = ext: ''
     if [ "''${ext}" = "${ext}" ]; then

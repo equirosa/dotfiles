@@ -5,6 +5,7 @@ in
 {
   gemini-browser = "${getExe pkgs.lagrange}";
   http-browser = "${getExe pkgs.firefox} -p default";
+  notify = "${getExe pkgs.libnotify} -t 5000";
   terminal = "${getExe pkgs.foot}";
   terminal-http-browser = "${getExe pkgs.w3m}";
   terminal-monitor = "${getExe pkgs.btop}";
