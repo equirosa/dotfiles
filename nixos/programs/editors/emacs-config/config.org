@@ -2,6 +2,7 @@
 #+author: Eduardo Quirós (Kiri)
 #+description: Kiri's config for GNU Emacs using literate programming.
 #+PROPERTY: header-args:emacs-lisp :tangle yes
+#+auto-tangle: t
 * Define and initialize package repositories
 #+begin_src emacs-lisp
   ;; Define and initialise package repositories
@@ -47,7 +48,8 @@ It's useful to be able to flip booleans on command instead of having to delete a
    '(backup-by-copying t)
    '(backup-directory-alist '(("." . "~/.local/share/emacs/per-save"))))
 #+end_src
-* Programming Languages
+* Language Support
+Packages used to add support for some languages.
 ** Nix
 #+begin_src emacs-lisp
   (use-package nix-mode)
@@ -55,12 +57,34 @@ It's useful to be able to flip booleans on command instead of having to delete a
     :after (nix-mode))
   (use-package nix-modeline)
 #+end_src
+** Rust
+#+begin_src emacs-lisp
+  (use-package rust-mode)
+  (use-package rustic
+    :hook rust-mode
+    :custom
+    (rustic-lsp-client 'eglot))
+#+end_src
+** Typescript
+#+begin_src emacs-lisp
+  (use-package tide
+    :hook ((typescript-ts-mode . tide-setup)
+           (tsx-ts-mode . tide-setup)
+           (typescript-ts-mode . tide-hl-identifier-mode)))
+#+end_src
 ** Misc.
 These are all for different languages but really only install the required packages.
 #+begin_src emacs-lisp
   (use-package elm-mode)
   (use-package fish-mode)
   (use-package lua-mode)
+#+end_src
+** Markdown
+#+begin_src emacs-lisp
+  (use-package markdown-mode
+    :mode ("README\\.md\\'" . gfm-mode)
+    :custom (markdown-command "pandoc --from=markdown --to=html5")
+    :custom-face (markdown-code-face ((t (:inherit 'org-block)))))
 #+end_src
 * Graphical Tweaks
 ** Disable unused bars
@@ -72,7 +96,7 @@ These are all for different languages but really only install the required packa
 ** Volatile Highlights
 Persistent highlights are distracting, this should fix it.
 #+begin_src emacs-lisp
-    (use-package volatile-highlights
+  (use-package volatile-highlights
     :config
     (volatile-highlights-mode t))
 #+end_src
@@ -92,7 +116,8 @@ Persistent highlights are distracting, this should fix it.
 #+begin_src emacs-lisp
   (use-package eglot
     :hook
-    ('(prog-mode markdown-mode) . eglot-ensure)
+    (prog-mode . eglot-ensure)
+    (markdown-mode . eglot-ensure)
     (before-save . eglot-format)
     :bind (:map eglot-mode-map
           ("C-c d" . 'xref-find-definitions)
@@ -101,6 +126,13 @@ Persistent highlights are distracting, this should fix it.
           ("C-c h" . 'eldoc)
           ("C-c o" . 'eglot-code-action-organize-imports)
           ("C-c r" . 'eglot-rename)))
+#+end_src
+* Org
+Configuration for all things org-mode.
+** Auto Tangle
+#+begin_src emacs-lisp
+  (use-package org-auto-tangle
+    :hook org-mode)
 #+end_src
 * TODO Sort all of these
 #+begin_src emacs-lisp
@@ -119,8 +151,6 @@ Persistent highlights are distracting, this should fix it.
    '(inhibit-startup-message t)
    '(visible-bell t))
   (defalias 'yes-or-no-p 'y-or-n-p)
-  (use-package deadgrep
-    :bind ("C-x p g" . deadgrep))
   (use-package hl-todo
     :custom
     (hl-todo-keyword-faces
@@ -265,9 +295,6 @@ Persistent highlights are distracting, this should fix it.
   ;; Required for proportional font
   (use-package org-appear
     :hook org-mode)
-  ;; Tangle
-  (use-package org-auto-tangle
-    :hook org-mode)
   ;; Modernize Orgmode
   (use-package gnuplot)
   (use-package org-modern
@@ -405,26 +432,11 @@ Persistent highlights are distracting, this should fix it.
   ;; Keychain
   (use-package keychain-environment
     :config(keychain-refresh-environment))
-  ;; Language modes
-  (use-package rust-mode)
-  (use-package rustic
-    :hook rust-mode
-    :custom
-    (rustic-lsp-client 'eglot))
-  (use-package tide
-    :hook ((typescript-ts-mode . tide-setup)
-           (tsx-ts-mode . tide-setup)
-           (typescript-ts-mode . tide-hl-identifier-mode)))
   ;; Vterm
   (use-package multi-vterm
     :bind (("C-c C-v v" . multi-vterm)
            ("C-c C-v n" . multi-vterm-next)
            ("C-c C-v p" . multi-vterm-prev)))
-  ;; Markdown
-  (use-package markdown-mode
-    :mode ("README\\.md\\'" . gfm-mode)
-    :custom (markdown-command "pandoc --from=markdown --to=html5")
-    :custom-face (markdown-code-face ((t (:inherit 'org-block)))))
   ;; Modeline
   (use-package doom-modeline
     :config (doom-modeline-mode))
