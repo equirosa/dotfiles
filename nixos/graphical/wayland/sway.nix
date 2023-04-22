@@ -129,6 +129,7 @@ in
             ];
             startup = [
               { command = "${getExe pkgs.autotiling}"; }
+              { command = http-browser; }
               { command = "${getExe pkgs.mako}"; }
               { command = "${getExe pkgs.element-desktop-wayland}"; }
               { command = "${getExe pkgs.thunderbird}"; }
