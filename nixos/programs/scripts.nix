@@ -110,6 +110,13 @@ in
         ${fileContents "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Playlists/Playlists.sh"}
       '';
     })
+    (writeShellApplication{
+      name = "gaming";
+      runtimeInputs = [xdg-user-dirs];
+      text = ''
+      gamescope -e -- steam -tenfoot -steamos
+      '';
+    })
     (writeShellApplication {
       name = "download-music-unique";
       text = replaceStrings [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
