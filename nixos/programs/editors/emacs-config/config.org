@@ -3,6 +3,29 @@
 #+description: Kiri's config for GNU Emacs using literate programming.
 #+PROPERTY: header-args:emacs-lisp :tangle yes
 #+auto-tangle: t
+* General config
+** Simplify confirmations
+#+begin_src emacs-lisp
+  (defalias 'yes-or-no-p 'y-or-n-p)
+#+end_src
+** Keyboard-centric interface
+#+begin_src emacs-lisp
+  (custom-set-variables
+   '(cursor-type 'bar)
+   '(inhibit-startup-message t)
+   '(visible-bell t))
+#+end_src
+** Use separate custom file
+This helps keep the =init.el= clean
+#+begin_src emacs-lisp
+  (custom-set-variables '(custom-file (locate-user-emacs-file "custom-vars.el")))
+  (load custom-file 'noerror 'nomessage)
+#+end_src
+** Auto-pairs
+Automatically add an ending pair for opening brackets
+#+begin_src emacs-lisp
+  (electric-pair-mode)
+#+end_src
 * Define and initialize package repositories
 #+begin_src emacs-lisp
   ;; Define and initialise package repositories
@@ -181,15 +204,6 @@ General configuration for org-mode
    '(save-interprogram-paste-before-kill t))
   (savehist-mode)
   (save-place-mode)
-  ;; Move custom file
-  (custom-set-variables '(custom-file (locate-user-emacs-file "custom-vars.el")))
-  (load custom-file 'noerror 'nomessage)
-  ;; Keyboard-centric user interface
-  (custom-set-variables
-   '(cursor-type 'bar)
-   '(inhibit-startup-message t)
-   '(visible-bell t))
-  (defalias 'yes-or-no-p 'y-or-n-p)
   (use-package hl-todo
     :custom
     (hl-todo-keyword-faces
@@ -211,8 +225,6 @@ General configuration for org-mode
   (global-set-key (kbd "C-c s s") 'replace-string)
   (global-set-key (kbd "C-c s r") 'replace-regexp)
   (global-set-key [remap eval-last-sexp] 'pp-eval-last-sexp)
-  ;; Auto-pairs
-  (electric-pair-mode)
   ;; Prevent littering
   (use-package no-littering
     :config
