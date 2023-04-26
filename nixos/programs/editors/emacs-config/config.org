@@ -2,7 +2,7 @@
 #+author: Eduardo Quirós (Kiri)
 #+description: Kiri's config for GNU Emacs using literate programming.
 #+PROPERTY: header-args:emacs-lisp :tangle yes
-#+auto-tangle: t
+#+auto_tangle: t
 * General config
 ** Simplify confirmations
 #+begin_src emacs-lisp
