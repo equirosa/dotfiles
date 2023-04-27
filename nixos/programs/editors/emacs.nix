@@ -18,7 +18,7 @@ in
     inherit enable;
     package = pkgs.emacsWithPackagesFromUsePackage {
       config = ./emacs-config/config.el;
-      package = pkgs.emacsPgtk;
+      package = pkgs.emacsUnstable;
       alwaysEnsure = true;
       alwaysTangle = false;
       defaultInitFile = true;
