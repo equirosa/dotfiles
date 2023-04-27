@@ -22,7 +22,3 @@ options = [
 	"--write",            # write back to the file
 ]
 includes = ["*.sh"]
-
-[formatter.lua]
-command = "stylua"
-includes = [ "*.lua" ]
