@@ -5,6 +5,7 @@
 #+auto_tangle: t
 * General config
 ** Simplify confirmations
+This is recommended against, but it's kinda the only way I can tolerate the confirmation dialogs.
 #+begin_src emacs-lisp
   (defalias 'yes-or-no-p 'y-or-n-p)
 #+end_src
