@@ -110,11 +110,11 @@ in
         ${fileContents "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Playlists/Playlists.sh"}
       '';
     })
-    (writeShellApplication{
+    (writeShellApplication {
       name = "gaming";
-      runtimeInputs = [xdg-user-dirs];
+      runtimeInputs = [ xdg-user-dirs ];
       text = ''
-      gamescope -e -- steam -tenfoot -steamos
+        gamescope -e -- steam -tenfoot -steamos
       '';
     })
     (writeShellApplication {
