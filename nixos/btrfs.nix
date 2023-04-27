@@ -15,7 +15,7 @@ _: {
           TIMELINE_CLEANUP=yes
         '';
       };
-      cleanupInterval = "30d";
+      cleanupInterval = "7d";
       snapshotInterval = "*:0/10";
     };
     btrfs.autoScrub = {
