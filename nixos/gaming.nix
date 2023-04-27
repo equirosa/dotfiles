@@ -59,4 +59,5 @@ let inherit (builtins) attrValues elem; in
       ];
     };
   };
+  security.rtkit.enable = true;
 }
