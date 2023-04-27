@@ -23,7 +23,6 @@ in
           enable = true;
           shellAbbrs = abbreviations;
           loginShellInit = optionalString sway.enable ''
-            ${fileContents ./autolaunch_sway.fish}
           '';
           interactiveShellInit = ''
             ${getExe pkgs.nix-your-shell} fish | source
