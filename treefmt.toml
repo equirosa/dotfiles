@@ -6,20 +6,20 @@ command = "nixpkgs-fmt"
 # Command-line arguments for the command
 options = []
 # Glob pattern of files to include
-includes = [ "*.nix" ]
+includes = ["*.nix"]
 # Glob patterns of files to exclude
 excludes = []
 
 [formatter.shell]
 command = "shfmt"
 options = [
-  "--indent",
-  "0",  # indent with tabs
-  "--simplify",  # simplify the code
+	"--indent",
+	"0",                  # indent with tabs
+	"--simplify",         # simplify the code
 	"--case-indent",
 	"--binary-next-line",
 	"--posix",
-  "--write",  # write back to the file
+	"--write",            # write back to the file
 ]
 includes = ["*.sh"]
 
