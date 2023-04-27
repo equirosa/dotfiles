@@ -10,7 +10,7 @@ let
 in
 {
   users.users.kiri.shell = pkgs.fish;
-  programs.fish.enable = true;
+  programs.fish={enable = true;useBabelfish= true;};
   home-manager.users.kiri = { config, ... }:
     let
       inherit (config.programs) neovim;
