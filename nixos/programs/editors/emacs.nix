@@ -20,7 +20,7 @@ in
       config = ./emacs-config/config.el;
       package = pkgs.emacsPgtk;
       alwaysEnsure = true;
-      alwaysTangle = true;
+      alwaysTangle = false;
       defaultInitFile = true;
     };
   };
