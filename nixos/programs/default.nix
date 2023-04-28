@@ -8,6 +8,7 @@ in
 {
   imports = [
     ./flatpak.nix
+    ./editors/emacs.nix
   ];
   nixpkgs.overlays = [
     (import (fetchTarball {
@@ -25,7 +26,8 @@ in
       ./rofi.nix
       ./scripts.nix
       ./thunderbird.nix
-    ] ++ nixFilesIn ./editors;
+      ./editors/neovim.nix
+    ];
     programs.rbw = {
       enable = true;
       settings = { email = "bitwarden@eduardoquiros.com"; pinentry = "gnome3"; };
