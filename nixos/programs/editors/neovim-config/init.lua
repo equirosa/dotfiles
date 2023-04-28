@@ -84,7 +84,9 @@ require("lazy").setup({
       { "folke/neodev.nvim", opts = {} },
     },
     opts = {
-      excluded_servers = {},
+      excluded_servers = {
+        -- Deprecated
+        "sqls" },
       -- Default config passed to all servers to specify on_attach callback and other options.
       default_config = {
         flags = {
