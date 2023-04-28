@@ -6,20 +6,26 @@ let inherit (builtins) attrValues elem; in
 {
   home-manager.users.kiri = {
     home = {
-      packages = attrValues {
-        inherit (pkgs)
-          # Games
-          # nix-gaming.packages.x86_64-linux.rocket-league
-          # Launchers
-          lutris
-          prismlauncher
-          # General games client
-          legendary-gl
-          # Utilities
-          chiaki# PS4 Remote Play utility
-          gamescope
-          mangohud;
-      };
+      packages = with pkgs; [
+        # Games
+        # nix-gaming.packages.x86_64-linux.rocket-league
+        # Launchers
+        lutris
+        prismlauncher
+        # General games client
+        (writeShellApplication {
+          name = "gaming";
+          runtimeInputs = [ xdg-user-dirs ];
+          text = ''
+            gamescope -e -- steam -tenfoot -steamos
+          '';
+        })
+        legendary-gl
+        # Utilities
+        chiaki # PS4 Remote Play utility
+        gamescope
+        mangohud
+      ];
     };
   };
   programs = {

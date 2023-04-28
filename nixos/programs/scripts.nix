@@ -111,13 +111,6 @@ in
       '';
     })
     (writeShellApplication {
-      name = "gaming";
-      runtimeInputs = [ xdg-user-dirs ];
-      text = ''
-        gamescope -e -- steam -tenfoot -steamos
-      '';
-    })
-    (writeShellApplication {
       name = "download-music-unique";
       text = replaceStrings [ "yt-dlp" ] [ "${getExe yt-dlp}" ] ''
         source_file="Source - Unique.txt"
