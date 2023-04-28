@@ -9,7 +9,6 @@ let inherit (builtins) attrValues elem; in
       packages = attrValues {
         inherit (pkgs)
           # Games
-          wesnoth
           # nix-gaming.packages.x86_64-linux.rocket-league
           # Launchers
           lutris
