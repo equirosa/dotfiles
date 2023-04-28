@@ -86,7 +86,9 @@ require("lazy").setup({
     opts = {
       excluded_servers = {
         -- Deprecated
-        "sqls" },
+        "rnix",
+        "sqls",
+      },
       -- Default config passed to all servers to specify on_attach callback and other options.
       default_config = {
         flags = {
