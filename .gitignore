@@ -1,2 +1,3 @@
 **/.direnv
 /nixos/programs/editors/emacs-config/config.el
+nixos/programs/editors/neovim-config/lua/.luarc.json
