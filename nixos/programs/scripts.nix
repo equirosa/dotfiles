@@ -82,6 +82,16 @@ in
       '';
     })
     (shellApplicationWithInputs {
+      name = "2org";
+      getExt = true;
+      text = ''
+        case "''${ext}" in
+          odt | docx ) ${getExe pandoc} "''${1}" -o "''${file}.org" ;;
+          * ) printf "I can't handle that format yet!\n"
+        esac
+      '';
+    })
+    (shellApplicationWithInputs {
       name = "2webp";
       getExt = true;
       getBase = true;
