@@ -20,27 +20,6 @@ let
 in
 {
   programs = {
-    pistol = {
-      enable = true;
-      associations = [
-        {
-          mime = "text/*";
-          command = "${getExe pkgs.bat} --plain --paging=never --force-colorization %pistol-filename% -";
-        }
-        {
-          mime = "application/pdf";
-          command = "${pkgs.poppler_utils}/bin/pdftotext -layout %pistol-filename% -";
-        }
-        {
-          mime = "inode/directory";
-          command = "${getExe pkgs.lsd} -1 %pistol-filename%";
-        }
-        {
-          mime = "video/*";
-          command = "${getExe pkgs.mediainfo} %pistol-filename%";
-        }
-      ];
-    };
     lf = {
       enable = true;
       commands = recursiveUpdate
@@ -79,7 +58,7 @@ in
         });
       previewer = {
         keybinding = "i";
-        source = "${getExe pkgs.pistol}";
+        source = "${getExe pkgs.ctpv}";
       };
       settings = {
         icons = true;
@@ -89,6 +68,11 @@ in
         shell = "${getExe pkgs.dash}";
         wrapscroll = true;
       };
+      extraConfig = ''
+        set cleaner ${pkgs.ctpv}/bin/ctpvclear
+        &${getExe pkgs.ctpv} -s $id
+        &${pkgs.ctpv}/bin/ctpvquit $id
+      '';
     };
   };
   # TODO: consider contributing a default icons file for this module
