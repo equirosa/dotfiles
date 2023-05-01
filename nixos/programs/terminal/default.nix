@@ -1,3 +1,3 @@
 { ... }: {
-  imports = [ ./foot.nix ];
+  imports = [ ./foot.nix ./kitty.nix ];
 }
