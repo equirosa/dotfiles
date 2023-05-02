@@ -257,6 +257,7 @@ in
     "code2png"
     "config-check"
     "gen-ssh-key"
+    "generate-months"
     "git-remove-merged-branches"
     "nvim-clean"
     "show-nix-store-path"
