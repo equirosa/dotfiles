@@ -10,7 +10,6 @@ let inherit (builtins) attrValues elem; in
         # Games
         # nix-gaming.packages.x86_64-linux.rocket-league
         # Launchers
-        lutris
         prismlauncher
         # General games client
         (writeShellApplication {
