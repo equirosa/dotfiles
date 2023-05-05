@@ -15,7 +15,6 @@ in
     ./gaming.nix
     ./graphical/wayland/sway.nix
     ./hardware/zsa.nix
-    ./services/ipfs.nix
     ./services/jellyfin.nix
     ./printing.nix
     ./programs
