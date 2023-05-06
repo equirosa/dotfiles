@@ -15,7 +15,7 @@
   md = "mkdir -p";
   ned = "nix-env -qaP --description";
   nf = "nix fmt";
-  nfu = "nix flake upate --commit-lock-file";
+  nfu = "nix flake update --commit-lock-file";
   nr = "nix run nixpkgs#";
   nfst = "nix flake show templates";
   nrh = "nixpkgs-review rev HEAD";
