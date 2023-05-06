@@ -261,5 +261,6 @@ in
     "git-remove-merged-branches"
     "nvim-clean"
     "show-nix-store-path"
+    "calendarios-gaby"
   ];
 }
