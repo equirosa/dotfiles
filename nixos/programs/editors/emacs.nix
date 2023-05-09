@@ -6,7 +6,7 @@
     defaultEditor = true;
     package = pkgs.emacsWithPackagesFromUsePackage {
       config = ./emacs-config/config.el;
-      package = pkgs.emacsUnstable;
+      package = pkgs.emacsPgtk;
       alwaysEnsure = true;
       alwaysTangle = false;
       defaultInitFile = true;
