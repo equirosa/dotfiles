@@ -40,9 +40,9 @@ in
             name = "sway-shot";
             text = replaceStrings [ "grimshot" "pngquant" "swappy" ]
               [
-                "${getExe pkgs.sway-contrib.grimshot}"
-                "${getExe pkgs.pngquant}"
-                "${getExe pkgs.swappy}"
+                "${getExe sway-contrib.grimshot}"
+                "${getExe pngquant}"
+                "${getExe swappy}"
               ] ''
               ${fileContents ../../../scripts/sway-shot.sh}
             '';
