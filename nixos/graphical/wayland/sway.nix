@@ -84,6 +84,7 @@ in
         sway = {
           enable = true;
           config = {
+          inherit terminal;
             bars = [{
               fonts.size = 10.0;
               statusCommand = "i3status-rs ${config.xdg.configHome}/i3status-rust/config-default.toml";
