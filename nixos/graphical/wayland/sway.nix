@@ -134,6 +134,7 @@ in
               { command = "${getExe pkgs.mako}"; }
               { command = "${getExe pkgs.element-desktop-wayland}"; }
               { command = "${getExe pkgs.thunderbird}"; }
+              { command = "${getExe pkgs.swww} init"; }
               { command = "${pkgs.transmission}/bin/transmission-daemon"; }
             ];
             input = {
@@ -143,7 +144,6 @@ in
               };
             };
             output = {
-              "*" = { bg = "${cacheHome}/background_image fill"; };
               "DP-1" = {
                 mode = "1920x1080";
                 position = "0 0";
