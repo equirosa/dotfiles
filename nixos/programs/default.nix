@@ -1,11 +1,6 @@
 { pkgs
-, lib
 , ...
-}:
-let
-  inherit (import ../util.nix { inherit pkgs lib; }) nixFilesIn;
-in
-{
+}: {
   imports = [
     ./flatpak.nix
     ./editors/emacs.nix
