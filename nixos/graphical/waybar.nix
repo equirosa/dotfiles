@@ -21,7 +21,7 @@ _: {
         ];
         clock = { format = "{:%Y-%m-%d | %H:%M}"; };
         cpu = { format = "{load} - {usage}%  "; };
-        disk = { format = "{free}/{total}"; };
+        disk = { format = "{free}/{total} 󰋊"; };
         idle_inhibitor = {
           format = "{icon}";
           format-icons = {
