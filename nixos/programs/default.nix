@@ -65,6 +65,7 @@ in
         fd
         imv
         libnotify
+        parallel-full
         qpwgraph
         qrencode
         ripgrep
