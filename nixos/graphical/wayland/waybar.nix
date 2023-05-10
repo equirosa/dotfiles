@@ -52,7 +52,7 @@ _: {
           "offscreen-css" = true;
           "offscreen-css-text" = "(inactive)";
           "rewrite" = {
-            "(.*) — Mozilla Firefox" = "🌎  $1";
+            "(.*) — Mozilla Firefox" = "  $1";
             "(.*) — fish" = " [$1]";
           };
         };
