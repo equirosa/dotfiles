@@ -42,7 +42,7 @@ in
                 "${getExe pngquant}"
                 "${getExe swappy}"
               ] ''
-              ${fileContents ../../../scripts/sway-shot.sh}
+              ${fileContents ../../scripts/sway-shot.sh}
             '';
           })
         ];
