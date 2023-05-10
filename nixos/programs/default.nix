@@ -20,7 +20,6 @@
       ./newsboat
       ./rofi.nix
       ./scripts.nix
-      ./thunderbird.nix
       ./editors/neovim.nix
     ];
     programs.rbw = {
