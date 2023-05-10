@@ -45,6 +45,7 @@ _: {
           format-ethernet = "{ipaddr}/{cidr} ";
           format-disconnected = "disconnected";
         };
+        "sway/language".format = "{flag}";
         "sway/window" = {
           "format" = "{title}";
           "max-length" = 50;
