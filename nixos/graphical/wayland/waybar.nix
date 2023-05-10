@@ -42,7 +42,7 @@ _: {
         memory = { format = "{}% "; };
         network = {
           format = "{ifname}";
-          format-ethernet = "{bandwidthDownBits}⬇️  {ipaddr}/{cidr} ";
+          format-ethernet = "{bandwidthDownBits}  {ipaddr}/{cidr} ";
           format-disconnected = "disconnected";
         };
         "sway/language".format = "{flag}";
