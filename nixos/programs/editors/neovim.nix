@@ -1,10 +1,10 @@
-{ config
-, pkgs
+{  pkgs
 , lib
 , vimUtils
 , ...
 }:
 let
+  inherit (lib) fileContents;
   pluginGit = ref: repo: vimUtils.buildVimPluginFrom2Nix {
     pname = "${lib.strings.sanitizeDerivationName repo}";
     version = ref;
@@ -14,7 +14,6 @@ let
     };
   };
   pluginLatest = pluginGit "HEAD";
-  inherit (lib) fileContents;
 in
 {
   programs.neovim = {
