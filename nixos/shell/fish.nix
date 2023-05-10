@@ -1,11 +1,9 @@
 { pkgs
-, config
 , lib
 , ...
 }:
 let
-  inherit (lib) getExe optionalString fileContents;
-  inherit (builtins) attrValues;
+  inherit (lib) getExe optionalString;
   abbreviations = import ./abbreviations.nix;
 in
 {
@@ -28,16 +26,8 @@ in
             ${getExe pkgs.nix-your-shell} fish | source
             ${optionalString neovim.enable "set -gx EDITOR nvim"}
           '';
-          plugins = [
-            {
-              name = "done";
-              src = pkgs.fetchFromGitHub {
-                owner = "franciscolourenco";
-                repo = "done";
-                rev = "1.16.5";
-                sha256 = "sha256-E0wveeDw1VzEH2kzn63q9hy1xkccfxQHBV2gVpu2IdQ=";
-              };
-            }
+          plugins = with pkgs.fishPlugins; [
+            {name = "done"; src = done;}
           ];
         };
       };
