@@ -10,7 +10,6 @@ let
   inherit (import ../../default-programs.nix { inherit pkgs lib; })
     http-browser
     terminal
-    terminal-http-browser
     terminal-feed-reader
     terminal-audio
     terminal-monitor
@@ -20,7 +19,6 @@ let
   dmenuCommand = "rofi -show run | ${pkgs.busybox}/bin/xargs swaymsg exec --";
   desktopCommand = "rofi -show drun | ${pkgs.busybox}/bin/xargs swaymsg exec --";
   transmissionClient = "${getExe pkgs.tremc}";
-  colors = import ../../colors.nix;
 in
 {
   home-manager.users.kiri =
