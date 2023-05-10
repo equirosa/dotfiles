@@ -26,7 +26,7 @@ in
     , lib
     , ...
     }: {
-      imports = [ ./bar.nix ./notifications.nix ];
+      imports = [ ./waybar.nix ./notifications.nix ];
       xdg.configFile."electron-flags.conf".text = ''
         --enable-features=UseOzonePlatform
         --ozone-platform=wayland
@@ -83,11 +83,7 @@ in
           enable = true;
           config = {
           inherit terminal;
-            bars = [{
-              fonts.size = 10.0;
-              statusCommand = "i3status-rs ${config.xdg.configHome}/i3status-rust/config-default.toml";
-              position = "top";
-            }];
+            bars = [];
             menu = "${dmenuCommand}";
             modifier = "Mod4";
             keybindings =
