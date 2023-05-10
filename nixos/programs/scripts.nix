@@ -261,6 +261,7 @@ in
     "generate-months"
     "git-remove-merged-branches"
     "nvim-clean"
+    "remove-whitespace"
     "show-nix-store-path"
   ];
 }
