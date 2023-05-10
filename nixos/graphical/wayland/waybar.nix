@@ -6,10 +6,7 @@ _: {
         layer = "top";
         position = "top";
         height = 20;
-        output = [
-          "DP-1"
-          "HDMI-A-1"
-        ];
+        output = [ "DP-1" "HDMI-A-1" ];
         modules-left = [ "sway/workspaces" "sway/mode" ];
         modules-center = [ "sway/window" ];
         modules-right = [

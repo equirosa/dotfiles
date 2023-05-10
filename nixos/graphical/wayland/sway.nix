@@ -82,8 +82,8 @@ in
         sway = {
           enable = true;
           config = {
-          inherit terminal;
-            bars = [];
+            inherit terminal;
+            bars = [ ];
             menu = "${dmenuCommand}";
             modifier = "Mod4";
             keybindings =
