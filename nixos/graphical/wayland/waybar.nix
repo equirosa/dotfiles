@@ -46,14 +46,14 @@ _: {
           format-disconnected = "disconnected";
         };
         "sway/window" = {
-          "format" = "{}";
+          "format" = "{title}";
           "max-length" = 50;
           "all-outputs" = true;
           "offscreen-css" = true;
           "offscreen-css-text" = "(inactive)";
           "rewrite" = {
-            "(.*) - Mozilla Firefox" = " $1";
-            "(.*) - fish" = "> [$1]";
+            "(.*) — Mozilla Firefox" = "🌎  $1";
+            "(.*) — fish" = " [$1]";
           };
         };
         "sway/workspaces" = {
