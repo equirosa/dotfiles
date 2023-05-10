@@ -4,9 +4,6 @@ let
   hyprland = (import flake-compat {
     src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
   }).defaultNix;
-  inherit (config.home-manager.users.kiri.xdg) cacheHome;
-  inherit (lib) getExe fileContents;
-  inherit (builtins) replaceStrings;
   inherit (import ../default-programs.nix { inherit pkgs lib; })
     http-browser
     terminal
