@@ -19,7 +19,7 @@ let
     fi
   '';
   ffmpeg-bin = "${pkgs.ffmpeg_6-full}/bin/ffmpeg";
-  scriptAudio = "-c:a libopus -b:a 96k";
+  scriptAudio = "-c:a libopus -b:a 128k";
   getExeList = map (x: "${getExe pkgs.${x}}");
   stringsToReplace = [ "rbw" "silicon" "nvd" ];
   shellApplicationFromList = map
