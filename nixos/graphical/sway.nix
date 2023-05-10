@@ -7,7 +7,7 @@ let
   inherit (config.home-manager.users.kiri.xdg) cacheHome;
   inherit (lib) getExe fileContents;
   inherit (builtins) replaceStrings;
-  inherit (import ../../default-programs.nix { inherit pkgs lib; })
+  inherit (import ../default-programs.nix { inherit pkgs lib; })
     http-browser
     terminal
     terminal-feed-reader
