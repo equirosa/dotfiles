@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  colors = import ../../colors.nix;
+  colors = import ../colors.nix;
 in
 {
   services.mako = with colors.selected; {
