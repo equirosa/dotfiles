@@ -18,6 +18,7 @@ let
     file="''${file}.bak"
     fi
   '';
+  ffmpeg-bin = "${pkgs.ffmpeg_6-full}/bin/ffmpeg";
   scriptAudio = "-c:a libopus -b:a 96k";
   getExeList = map (x: "${getExe pkgs.${x}}");
   stringsToReplace = [ "rbw" "silicon" "nvd" ];
@@ -56,10 +57,10 @@ in
       name = "2mkv";
       getBase = true;
       getExt = true;
-      text = replaceStrings [ "ffmpeg" ] [ (getExe ffmpeg) ] ''
+      text = ''
         ${backupIfDuplicate "mkv"}
-        ffmpeg -i "''${file}" -c:v libsvtav1 -preset 5 -crf 32 \
-        -g 240 -pix_fmt yuv420p10le ${scriptAudio} "''${base}.mkv"
+        ${ffmpeg-bin} -i "''${file}" -c:v librav1e -preset 5 \
+        -crf 30 -g 240 -pix_fmt yuv420p10le ${scriptAudio} "''${base}.mkv"
       '';
     })
     (shellApplicationWithInputs {
@@ -68,7 +69,7 @@ in
       getExt = true;
       text = ''
         ${backupIfDuplicate "ogg"}
-        ${getExe ffmpeg} -i "''${file}" -vn ${scriptAudio} "''${base}.ogg"
+        ${ffmpeg-bin} -i "''${file}" -vn ${scriptAudio} "''${base}.ogg"
       '';
     })
     (shellApplicationWithInputs {
