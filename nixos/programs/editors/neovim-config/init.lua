@@ -124,6 +124,8 @@ require("lazy").setup({
 
   -- Useful plugin to show you pending keybinds.
   { "folke/which-key.nvim", opts = {} },
+
+  -- Git-related
   {
     "akinsho/git-conflict.nvim",
     version = "*",
@@ -138,6 +140,7 @@ require("lazy").setup({
       },
     },
   },
+  { "kdheepak/lazygit.nvim" },
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
     "lewis6991/gitsigns.nvim",
@@ -188,7 +191,7 @@ require("lazy").setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { "numToStr/Comment.nvim", opts = {} },
+  { "numToStr/Comment.nvim",  opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
