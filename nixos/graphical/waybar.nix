@@ -15,7 +15,6 @@ _: {
           "disk"
           "network"
           "memory"
-          "keyboard-state"
           "cpu"
           "tray"
           "clock"
@@ -28,15 +27,6 @@ _: {
           format-icons = {
             activated = "";
             deactivated = "";
-          };
-        };
-        keyboard-state = {
-          numlock = true;
-          capslock = true;
-          format = "{name} {icon}";
-          format-icons = {
-            locked = "";
-            unlocked = "";
           };
         };
         memory = { format = "{}% "; };
