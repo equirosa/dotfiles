@@ -47,7 +47,6 @@ _: {
         };
         "sway/language".format = "{flag}";
         "sway/window" = {
-          "format" = "{title}";
           "max-length" = 50;
           "all-outputs" = true;
           "offscreen-css" = true;
