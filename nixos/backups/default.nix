@@ -46,7 +46,6 @@
           "Sync/"
           "Templates/"
           "Videos/"
-          "dotfiles/"
           "projects/"
         ];
         basicBorgJob = name: {

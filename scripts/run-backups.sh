@@ -23,7 +23,6 @@ borg create --progress --verbose --stats --checkpoint-interval 600 hvwib450@hvwi
 	~/Pictures/ \
 	~/Templates/ \
 	~/Videos/ \
-	~/dotfiles/ \
 	~/projects \
 	~/.local/share/libvirt/ \
 	--exclude "${HOME}/projects/nixpkgs/" \
