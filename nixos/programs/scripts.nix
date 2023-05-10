@@ -259,6 +259,7 @@ in
     "config-check"
     "gen-ssh-key"
     "generate-months"
+    "git-find-deleted-files"
     "git-remove-merged-branches"
     "nvim-clean"
     "remove-whitespace"
