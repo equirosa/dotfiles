@@ -13,6 +13,7 @@ in
     ./btrfs.nix
     ./extra_security
     ./gaming.nix
+    ./graphical/hyprland.nix
     ./graphical/sway.nix
     ./hardware/zsa.nix
     ./services/jellyfin.nix

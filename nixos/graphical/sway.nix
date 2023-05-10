@@ -192,5 +192,4 @@ in
     enable = true;
     wlr.enable = config.programs.sway.enable;
   };
-  programs.hyprland.enable = true;
 }
