@@ -29,11 +29,11 @@ _: {
             deactivated = "";
           };
         };
-        memory = { format = "{}% 󰍛 "; };
+        memory = { format = "{}% 󰍛"; };
         network = {
           format = "{ifname}";
           format-ethernet = "{bandwidthDownBits}  {ipaddr}/{cidr} ";
-          format-disconnected = "󰣼 ";
+          format-disconnected = "󰣼";
         };
         "sway/language".format = "{flag}";
         "sway/window" = {
