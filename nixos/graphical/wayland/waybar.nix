@@ -45,6 +45,17 @@ _: {
           format-ethernet = "{ipaddr}/{cidr} ";
           format-disconnected = "disconnected";
         };
+        "sway/window" = {
+          "format" = "{}";
+          "max-length" = 50;
+          "all-outputs" = true;
+          "offscreen-css" = true;
+          "offscreen-css-text" = "(inactive)";
+          "rewrite" = {
+            "(.*) - Mozilla Firefox" = " $1";
+            "(.*) - fish" = "> [$1]";
+          };
+        };
         "sway/workspaces" = {
           format = "{name}: {icon}";
           format-icons = {
