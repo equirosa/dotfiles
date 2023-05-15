@@ -192,12 +192,6 @@ in
         ${getExe remmina} -c "$chosen"
       '';
     })
-    (writeShellApplication rec {
-      name = "run-backups";
-      text = replaceStrings [ "rbw" "borg " ] [ "${getExe rbw}" "${getExe borgbackup} " ] ''
-        ${fileContents ../../scripts/${name}.sh}
-      '';
-    })
     (writeShellApplication {
       name = "search";
       text = ''
@@ -260,6 +254,7 @@ in
     "git-remove-merged-branches"
     "nvim-clean"
     "remove-whitespace"
+    "run-backups"
     "show-nix-store-path"
   ];
 }
