@@ -1,8 +1,4 @@
-{ pkgs
-, lib
-, config
-, ...
-}:
+{ pkgs, lib, config, ... }:
 let
   inherit (builtins) replaceStrings;
   inherit (lib) getExe optionalString fileContents;
@@ -53,7 +49,6 @@ let
 in
 {
   home.packages = with pkgs; [
-    # Scripts
     (shellApplicationWithInputs {
       name = "2mkv";
       getBase = true;
@@ -97,10 +92,10 @@ in
       name = "2webp";
       getExt = true;
       getBase = true;
-      text = replaceStrings [ "cwebp" ] [ "${libwebp}/bin/cwebp" ] ''
+      text = let cwebp = "${libwebp}/bin/cwebp"; in ''
         case "''${ext}" in
-        jpg | jpeg ) cwebp -q 80 "''${file}" -o "''${base}.webp" ;;
-        png ) cwebp -lossless "''${file}" -o "''${base}.webp" ;;
+        jpg | jpeg ) ${cwebp} -q 80 "''${file}" -o "''${base}.webp" ;;
+        png ) ${cwebp} -lossless "''${file}" -o "''${base}.webp" ;;
         webp ) printf "File is already WEBP" && exit 1 ;;
         * ) printf "Can't handle that file extension..." && exit 1 ;;
         esac
