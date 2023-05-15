@@ -106,7 +106,7 @@ in
       '';
     })
     (shellApplicationWithInputs {
-      name = "download-file";
+      name = "download-media";
       text = ''
         setsid ${getExe yt-dlp} --sponsorblock-mark all \
         --embed-subs --embed-metadata \
