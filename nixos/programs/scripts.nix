@@ -7,9 +7,10 @@ let
   inherit (builtins) replaceStrings;
   inherit (lib) getExe optionalString fileContents;
   inherit (import ../default-programs.nix { inherit pkgs lib; })
+    gemini-browser
     http-browser
-    notify
-    gemini-browser;
+    image-viewer
+    notify;
   inherit (import ../shell/aliases.nix { inherit pkgs lib; }) cat;
   menu-program = "rofi -dmenu";
   backupIfDuplicate = ext: ''
@@ -247,7 +248,7 @@ in
           magnet|*.torrent)
             transmission-remote -a "''${1}" && ${notify} "Torrent Added! ✅";;
           *.org) emacsclient --create-frame "''${1}" ;;
-          *.png|*.jpg|*.jpeg|*.webp) ${getExe imv} "''${1}" ;;
+          *.png|*.jpg|*.jpeg|*.webp) ${image-viewer} "''${1}" ;;
           *.pdf) setsid ${http-browser} "''${1}" ;;
           *) ${xdg-utils}/bin/xdg-open "''${1}" ;;
         esac
