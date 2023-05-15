@@ -55,7 +55,7 @@ in
           with colors.ansi;
           let
             dataFiles = [ "csv" "json" "toml" "yaml" ];
-            mediaFiles = [ "mkv" "mp4" "webm" "webp" ];
+            mediaFiles = [ "avif" "mkv" "mp4" "webm" "webp" ];
             docFiles = [ "md" "org" "docx" "odt" ];
             pdf = [ "pdf" ];
             extAttrs = extList: color:
