@@ -2,12 +2,12 @@
 let
   inherit (builtins) replaceStrings;
   inherit (lib) getExe optionalString fileContents;
-  inherit (import ../default-programs.nix { inherit pkgs lib; })
+  inherit (import ../../default-programs.nix { inherit pkgs lib; })
     gemini-browser
     http-browser
     image-viewer
     notify;
-  inherit (import ../shell/aliases.nix { inherit pkgs lib; }) cat;
+  inherit (import ../../shell/aliases.nix { inherit pkgs lib; }) cat;
   menu-program = "rofi -dmenu";
   backupIfDuplicate = ext: ''
     if [ "''${ext}" = "${ext}" ]; then
@@ -25,7 +25,7 @@ let
       text = replaceStrings
         stringsToReplace
         (getExeList stringsToReplace)
-        "${fileContents ../../scripts/${name}.sh}";
+        "${fileContents ./${name}.sh}";
     });
   shellApplicationWithInputs =
     { name

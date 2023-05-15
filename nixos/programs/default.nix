@@ -19,7 +19,7 @@
       ./mpv.nix
       ./newsboat
       ./rofi.nix
-      ./scripts.nix
+      ./scripts
       ./editors/neovim.nix
     ];
     programs.rbw = {
