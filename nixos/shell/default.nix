@@ -1,6 +1,6 @@
 { pkgs, lib, ... }:
 let
-  inherit (lib) getExe genAttrs recursiveUpdate;
+  inherit (lib) getExe genAttrs;
   colors = import ../colors.nix;
 in
 {
