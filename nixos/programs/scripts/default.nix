@@ -177,6 +177,16 @@ in
       '';
     })
     (shellApplicationWithInputs {
+      name = "optimize-size";
+      getExt = true;
+      text = ''
+        case "''${ext}" in
+          jpeg|jpg) 
+            ${mozjpeg}/bin/jpegtran -copy none -optimize -progressive "''${file}" > "''${file}" ;;
+        esac
+      '';
+    })
+    (shellApplicationWithInputs {
       name = "password-menu";
       runtimeInputs = [ wtype ];
       text = ''${getExe rofi-rbw}'';
