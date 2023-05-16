@@ -8,12 +8,10 @@ _: {
     };
     snapper = {
       configs.home = {
-        subvolume = "/home";
-        extraConfig = ''
-          ALLOW_USERS="kiri"
-          TIMELINE_CREATE=yes
-          TIMELINE_CLEANUP=yes
-        '';
+        SUBVOLUME = "/home";
+        ALLOW_USERS = ["kiri"];
+        TIMELINE_CREATE = true;
+        TIMELINE_CLEANUP = true;
       };
       cleanupInterval = "7d";
       snapshotInterval = "*:0/10";
