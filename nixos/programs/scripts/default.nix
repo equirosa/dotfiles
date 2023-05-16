@@ -180,9 +180,11 @@ in
       name = "optimize-size";
       getExt = true;
       text = ''
+        output="''$(mktemp)"
+        cp "''${file}" "''${output}"
         case "''${ext}" in
           jpeg|jpg) 
-            ${mozjpeg}/bin/jpegtran -copy none -optimize -progressive "''${file}" > "''${file}" ;;
+            ${mozjpeg}/bin/jpegtran -copy none -optimize -progressive "''${output}" > "''${file}" ;;
         esac
       '';
     })
