@@ -18,13 +18,13 @@ let
   ffmpeg-bin = "${pkgs.ffmpeg_6-full}/bin/ffmpeg";
   scriptAudio = "-c:a libopus -b:a 128k";
   getExeList = map (x: "${getExe pkgs.${x}}");
-  stringsToReplace = [ "rbw" "silicon" "nvd" ];
+  stringsToReplace = [ "rbw" "silicon" "nvd" "pngquant" "swappy" ];
   shellApplicationFromList = map
     (name: pkgs.writeShellApplication {
       inherit name;
       text = replaceStrings
-        stringsToReplace
-        (getExeList stringsToReplace)
+        (stringsToReplace ++ [ "grimshot" ])
+        ((getExeList stringsToReplace) ++ [ (getExe pkgs.sway-contrib.grimshot) ])
         "${fileContents ./${name}.sh}";
     });
   shellApplicationWithInputs =
@@ -266,5 +266,6 @@ in
     "remove-whitespace"
     "run-backups"
     "show-nix-store-path"
+    "sway-shot"
   ];
 }

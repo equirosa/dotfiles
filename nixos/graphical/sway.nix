@@ -31,22 +31,6 @@ in
         --enable-features=UseOzonePlatform
         --ozone-platform=wayland
       '';
-      home = {
-        packages = with pkgs; [
-          wl-clipboard
-          (writeShellApplication {
-            name = "sway-shot";
-            text = replaceStrings [ "grimshot" "pngquant" "swappy" ]
-              [
-                "${getExe sway-contrib.grimshot}"
-                "${getExe pngquant}"
-                "${getExe swappy}"
-              ] ''
-              ${fileContents ../../scripts/sway-shot.sh}
-            '';
-          })
-        ];
-      };
       services = {
         wlsunset = {
           enable = true;
