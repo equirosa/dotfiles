@@ -136,6 +136,7 @@ in
         bind = $mainMod, W, exec, ${http-browser}
         bind = $mainMod, C, killactive,
         bind = $mainMod, M, exit,
+        bind = $mainMod, F, fullscreen,
         bind = $mainMod, R, exec, ${terminal} ${terminal-file-manager} 
         bind = $mainMod, V, togglefloating,
         bind = $mainMod SHIFT, D, exec, wofi --show drun
