@@ -64,6 +64,7 @@
         qrencode
         ripgrep
         trash-cli
+        wl-clipboard
         # Password
         bitwarden
         gopass
