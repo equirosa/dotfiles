@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  inherit (lib) getExe;
   flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
   hyprland = (import flake-compat {
     src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
@@ -28,8 +29,9 @@ in
         # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
         # Execute your favorite apps at launch
-        # exec-once = waybar & hyprpaper & firefox
-        exec-once = swww init
+        exec = systemctl --user restart waybar.service
+        exec-once = ${getExe pkgs.swww} init
+        exec-once = ${http-browser}
 
         # Source a file (multi-file configs)
         # source = ~/.config/hypr/myColors.conf
@@ -129,13 +131,15 @@ in
         $mainMod = SUPER
 
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-        bind = $mainMod, Q, exec, ${terminal}
+        bind = $mainMod, RETURN, exec, ${terminal}
+        bind = $mainMod, W, exec, ${http-browser}
         bind = $mainMod, C, killactive,
         bind = $mainMod, M, exit,
         bind = $mainMod, R, exec, ${terminal} ${terminal-file-manager} 
         bind = $mainMod, V, togglefloating,
         bind = $mainMod SHIFT, D, exec, wofi --show drun
         bind = $mainMod, P, exec, emoji
+        bind = $mainMod, X, exec, ${lock-command}
         bind = $mainMod, J, togglesplit, # dwindle
 
         # Move focus with mainMod + arrow keys
