@@ -9,7 +9,7 @@ _: {
     snapper = {
       configs.home = {
         SUBVOLUME = "/home";
-        ALLOW_USERS = ["kiri"];
+        ALLOW_USERS = [ "kiri" ];
         TIMELINE_CREATE = true;
         TIMELINE_CLEANUP = true;
       };
