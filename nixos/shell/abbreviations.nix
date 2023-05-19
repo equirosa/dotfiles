@@ -8,10 +8,8 @@
   duts = "dust";
   e = "$EDITOR";
   fex = "fd --extension";
-  l = "ls -lh";
   lb = "lsblk";
   lg = "lazygit";
-  ll = "ls -lah";
   md = "mkdir -p";
   ned = "nix-env -qaP --description";
   nf = "nix fmt";
@@ -32,6 +30,11 @@
   v = "nvim";
   wl = "watchlist";
   x = "xdg-open";
+  # Listing
+  l = "ls -lh";
+  ll = "ls -lah";
+  lss = "ls -lh";
+  lls = "ls -lah";
   # Mpv
   m = "mpv";
   mfs = "mpv --fs";
