@@ -141,13 +141,13 @@ in
         bind = $mainMod SHIFT, D, exec, wofi --show drun
         bind = $mainMod, P, exec, emoji
         bind = $mainMod, X, exec, ${lock-command}
-        bind = $mainMod, J, togglesplit, # dwindle
+        # bind = $mainMod, J, togglesplit, # dwindle
 
         # Move focus with mainMod + arrow keys
-        bind = $mainMod, left, movefocus, h
-        bind = $mainMod, right, movefocus, l
-        bind = $mainMod, up, movefocus, k
-        bind = $mainMod, down, movefocus, j
+        bind = $mainMod, h, movefocus, l
+        bind = $mainMod, l, movefocus, r
+        bind = $mainMod, k, movefocus, u
+        bind = $mainMod, j, movefocus, d
 
         # Switch workspaces with mainMod + [0-9]
         bind = $mainMod, 1, workspace, 1
