@@ -32,7 +32,7 @@
         tor-browser-bundle-bin
         # Messengers
         aerc
-        catimg
+        ctpv
         element-desktop-wayland
         signal-desktop
         # Documents
