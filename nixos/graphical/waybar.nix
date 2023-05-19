@@ -46,7 +46,7 @@ _: {
             "(.*) — fish" = " [$1]";
           };
         };
-        "sway/workspaces" = {
+        "wlr/workspaces" = {
           format = "{name}: {icon}";
           format-icons = {
             "1" = "";
