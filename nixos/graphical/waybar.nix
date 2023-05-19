@@ -7,11 +7,11 @@ _: {
         position = "top";
         height = 20;
         output = [ "DP-1" "HDMI-A-1" ];
-        modules-left = [ "sway/workspaces" "sway/mode" ];
-        modules-center = [ "sway/window" ];
+        modules-left = [ "wlr/workspaces" ];
+        modules-center = [ "hyprland/window" ];
         modules-right = [
           "idle_inhibitor"
-          "sway/language"
+          "hyprland/language"
           "disk"
           "network"
           "memory"
@@ -35,8 +35,8 @@ _: {
           format-ethernet = "{bandwidthDownBits}  {ipaddr}/{cidr} ";
           format-disconnected = "󰣼";
         };
-        "sway/language".format = "{flag}";
-        "sway/window" = {
+        "hyprland/language".format = "{}";
+        "hyprland/window" = {
           "max-length" = 50;
           "all-outputs" = true;
           "offscreen-css" = true;
@@ -48,6 +48,7 @@ _: {
         };
         "wlr/workspaces" = {
           format = "{name}: {icon}";
+          on-click = "activate";
           format-icons = {
             "1" = "";
             "2" = "";
