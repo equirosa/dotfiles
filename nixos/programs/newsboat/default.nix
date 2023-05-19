@@ -37,7 +37,7 @@ let
     { pattern = ":.*\\(embedded flash\\)$"; color = "magenta default"; }
     { pattern = "(^.$ .*|^.# .*)"; color = "yellow default bold"; }
   ];
-  convertToString = builtins.concatStringsSep "\n";
+  convertToString = argument: list: builtins.concatStringsSep "\n" (map argument list);
 in
 {
   programs.newsboat = {
@@ -52,10 +52,10 @@ in
       show-read-feeds no
 
       # Controls
-      ${convertToString (map (control: "bind-key ${control.key} ${control.action}") controlsList)}
+      ${convertToString (control: "bind-key ${control.key} ${control.action}") controlsList}
 
       # Macros
-      ${convertToString (map (macro: "macro ${macro.key} set browser \"${macro.action}\"; open-in-browser-and-mark-read; ${resetBrowser}") macroList)}
+      ${convertToString (macro: "macro ${macro.key} set browser \"${macro.action}\"; open-in-browser-and-mark-read; ${resetBrowser}") macroList}
 
       # Colors
       color listnormal white default
@@ -67,7 +67,7 @@ in
 
       highlight all "---.*---" yellow
       highlight feedlist ".*(0/0))" black
-      ${convertToString (map (highlight: "\"${highlight.pattern}\" ${highlight.color}") articleColors)}
+      ${convertToString (highlight: "\"${highlight.pattern}\" ${highlight.color}") articleColors}
 
       # Miniflux stuff
       urls-source "miniflux"
