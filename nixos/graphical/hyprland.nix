@@ -137,6 +137,7 @@ in
         bind = $mainMod, C, killactive,
         bind = $mainMod, M, exit,
         bind = $mainMod, F, fullscreen,
+        bind = ALT SHIFT, F, fakefullscreen,
         bind = $mainMod, R, exec, ${terminal} ${terminal-file-manager} 
         bind = $mainMod, V, togglefloating,
         bind = $mainMod SHIFT, D, exec, wofi --show drun
