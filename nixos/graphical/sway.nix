@@ -7,15 +7,15 @@ let
   inherit (config.home-manager.users.kiri.xdg) cacheHome;
   inherit (lib) getExe fileContents;
   inherit (builtins) replaceStrings;
-  inherit (import ../default-programs.nix { inherit pkgs lib; })
+  inherit (import ../default-programs.nix { inherit pkgs lib config; })
     http-browser
+    lock-command
     terminal
     terminal-feed-reader
     terminal-audio
     terminal-monitor
     terminal-file-manager
     terminal-mail-client;
-  lockCommand = "${getExe pkgs.swaylock} --image ${cacheHome}/background_image -f";
   dmenuCommand = "rofi -show run | ${pkgs.busybox}/bin/xargs swaymsg exec --";
   desktopCommand = "rofi -show drun | ${pkgs.busybox}/bin/xargs swaymsg exec --";
   transmissionClient = "${getExe pkgs.tremc}";
@@ -42,17 +42,17 @@ in
           events = [
             {
               event = "before-sleep";
-              command = "${lockCommand}";
+              command = "${lock-command}";
             }
             {
               event = "lock";
-              command = "${lockCommand}";
+              command = "${lock-command}";
             }
           ];
           timeouts = [
             {
               timeout = 300;
-              command = "${lockCommand}";
+              command = "${lock-command}";
             }
             {
               timeout = 600;
@@ -87,7 +87,7 @@ in
                 "${mod}+i" = "exec ${terminal} ${terminal-monitor}";
                 "${mod}+n" = "exec ${terminal} ${terminal-feed-reader}";
                 "${mod}+r" = "exec ${terminal} ${terminal-file-manager}";
-                "${mod}+x" = "exec ${lockCommand}";
+                "${mod}+x" = "exec ${lock-command}";
                 "${mod}+p" = "exec emoji";
                 "${mod}+w" = "exec ${http-browser}";
                 "${mod}+z" = "exec password-menu show";

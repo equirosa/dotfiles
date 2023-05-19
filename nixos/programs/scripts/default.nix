@@ -2,7 +2,7 @@
 let
   inherit (builtins) replaceStrings;
   inherit (lib) getExe optionalString fileContents;
-  inherit (import ../../default-programs.nix { inherit pkgs lib; })
+  inherit (import ../../default-programs.nix { inherit pkgs lib config; })
     gemini-browser
     http-browser
     image-viewer

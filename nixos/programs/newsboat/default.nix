@@ -1,8 +1,8 @@
 { pkgs, config, lib, ... }:
 let
   resetBrowser = ''set browser "xdg-open"'';
-  inherit (import ../../default-programs.nix { inherit pkgs lib; }) http-browser terminal-http-browser;
-  inherit (lib) getExe;
+  inherit (import ../../default-programs.nix { inherit pkgs lib config; })
+    http-browser terminal-http-browser;
   macroList = [
     { key = "m"; action = "mpv --keep-open=no --pause"; }
     { key = "u"; action = "umpv"; }

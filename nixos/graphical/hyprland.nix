@@ -1,11 +1,12 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 let
   flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
   hyprland = (import flake-compat {
     src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
   }).defaultNix;
-  inherit (import ../default-programs.nix { inherit pkgs lib; })
+  inherit (import ../default-programs.nix { inherit pkgs lib config; })
     http-browser
+    lock-command
     terminal
     terminal-feed-reader
     terminal-audio

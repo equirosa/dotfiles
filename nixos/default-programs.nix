@@ -1,10 +1,12 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 let
   inherit (lib) getExe;
+  inherit (config.home-manager.users.kiri.xdg) cacheHome;
 in
 {
   gemini-browser = getExe pkgs.lagrange;
   http-browser = "${getExe pkgs.firefox} -p default";
+  lock-command = "${getExe pkgs.swaylock} --image ${cacheHome}/background_image -f";
   image-viewer = getExe pkgs.imv;
   notify = "${getExe pkgs.libnotify} -t 5000";
   terminal = getExe pkgs.foot;
