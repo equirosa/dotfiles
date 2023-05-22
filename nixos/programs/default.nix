@@ -31,6 +31,8 @@
       # Messengers
       aerc
       element-desktop-wayland
+      # Social
+      toot
       # Documents
       onlyoffice-bin
       hunspell
