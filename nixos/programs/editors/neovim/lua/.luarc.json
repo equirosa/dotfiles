@@ -1,0 +1,8 @@
+{
+    "workspace.library": [
+        "/home/kiri/.local/share/nvim/lazy/neodev.nvim/types/stable",
+        "/nix/store/0a4zi4bh1fr2xayjlpqrlfsvay0z4ypn-neovim-unwrapped-0.9.0/share/nvim/runtime/lua",
+        "/home/kiri/projects/dotfiles/nixos/programs/editors/neovim-config/lua",
+        "${3rd}/luv/library"
+    ]
+}

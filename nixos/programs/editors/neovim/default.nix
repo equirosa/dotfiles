@@ -20,7 +20,7 @@ in
     enable = true;
     extraConfig = ''
       lua << EOF
-      ${fileContents ./neovim-config/init.lua};
+      ${fileContents ./init.lua};
       EOF
     '';
     extraPackages = with pkgs; [ gcc gnumake ];
@@ -40,6 +40,6 @@ in
   xdg.configFile."nvim/lua" = {
     enable = true;
     recursive = true;
-    source = ./neovim-config/lua;
+    source = ./lua;
   };
 }
