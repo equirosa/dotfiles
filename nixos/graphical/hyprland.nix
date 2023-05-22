@@ -182,18 +182,6 @@ in
         # Move/resize windows with mainMod + LMB/RMB and dragging
         bindm = $mainMod, mouse:272, movewindow
         bindm = $mainMod, mouse:273, resizewindow
-
-        #Assign Workspaces to Monitors
-        workspace=1,monitor:0
-        workspace=2,monitor:0
-        workspace=3,monitor:0
-        workspace=4,monitor:0
-        workspace=5,monitor:0
-        workspace=6,monitor:0
-        workspace=7,monitor:1
-        workspace=8,monitor:1
-        workspace=9,monitor:1
-        workspace=10,monitor:1
       '';
     };
   };
