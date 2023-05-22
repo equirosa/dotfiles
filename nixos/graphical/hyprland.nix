@@ -140,7 +140,7 @@ in
         bind = ALT SHIFT, F, fakefullscreen,
         bind = $mainMod, R, exec, ${terminal} ${terminal-file-manager} 
         bind = $mainMod, V, togglefloating,
-        bind = $mainMod SHIFT, D, exec, wofi --show drun
+        bind = $mainMod, D, exec, rofi -show run
         bind = $mainMod, P, exec, emoji
         bind = $mainMod, X, exec, ${lock-command}
         # bind = $mainMod, J, togglesplit, # dwindle
