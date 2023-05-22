@@ -14,6 +14,8 @@ let
     terminal-monitor
     terminal-file-manager
     terminal-mail-client;
+  leftWorkspaces = range 1 6;
+  leftWorkspaces = range 7 10;
 in
 {
   programs.hyprland.enable = true;
@@ -25,6 +27,17 @@ in
         # See https://wiki.hyprland.org/Configuring/Monitors/
         monitor=DP-1,preferred,auto,auto
         monitor=HDMI-A-1,1920x1080@60,1920x0,1
+
+        workspace=1,monitor:DP-1
+        workspace=2,monitor:DP-1
+        workspace=3,monitor:DP-1
+        workspace=4,monitor:DP-1
+        workspace=5,monitor:DP-1
+        workspace=6,monitor:DP-1
+        workspace=7,monitor:HDMI-A-1
+        workspace=8,monitor:HDMI-A-1
+        workspace=9,monitor:HDMI-A-1
+        workspace=10,monitor:HDMI-A-1
 
 
         # See https://wiki.hyprland.org/Configuring/Keywords/ for more
@@ -132,7 +145,6 @@ in
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
         bind = $mainMod, RETURN, exec, ${terminal}
         bind = $mainMod, W, exec, ${http-browser}
-        bind = $mainMod, C, killactive,
         bind = $mainMod, M, exit,
         bind = $mainMod, F, fullscreen,
         bind = ALT SHIFT, F, fakefullscreen,
@@ -141,6 +153,7 @@ in
         bind = $mainMod, D, exec, rofi -show run
         bind = $mainMod, P, exec, emoji
         bind = $mainMod, X, exec, ${lock-command}
+        bind = $mainMod SHIFT, Q, killactive,
         # bind = $mainMod, J, togglesplit, # dwindle
 
         # Move focus with mainMod + arrow keys
