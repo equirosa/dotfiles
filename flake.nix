@@ -2,11 +2,17 @@
   description = "Kiri's Nix configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
-    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = inputs @ {
@@ -40,6 +46,7 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users.kiri = import ./home.nix;
+                # extraSpecialArgs = []; # to pass arguments to home.nix
               };
             }
           ];
