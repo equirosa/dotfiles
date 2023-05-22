@@ -10,8 +10,4 @@ in
     };
     enableGnomeExtensions = false;
   };
-  programs.librewolf = {
-    enable = true;
-    settings = { };
-  };
 }
