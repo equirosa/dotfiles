@@ -46,7 +46,7 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users.kiri = import ./home.nix;
-                # extraSpecialArgs = []; # to pass arguments to home.nix
+                extraSpecialArgs = []; # to pass arguments to home.nix
               };
             }
           ];
