@@ -21,7 +21,14 @@
     flake-utils.lib.eachDefaultSystem (system:
     let pkgs = nixpkgs.legacyPackages.${system}; in
     {
-      devShells.default = import ./shell.nix { inherit pkgs; };
+      devShells.default = pkgs.mkShell {
+  buildInputs = with pkgs;[
+    alejandra
+    shfmt
+    stylua
+    nodePackages.bash-language-server
+  ];
+};
       formatter = nixpkgs.legacyPackages.${system}.treefmt;
       nixosConfigurations = {
         snowfort = nixpkgs.lib.nixosSystem {
