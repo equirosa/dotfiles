@@ -30,7 +30,6 @@ in
         # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
         # Execute your favorite apps at launch
-        exec = systemctl --user restart waybar.service
         exec-once = ${http-browser}
 
         # Source a file (multi-file configs)
