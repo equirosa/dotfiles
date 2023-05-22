@@ -15,7 +15,6 @@ in {
     ./graphical
     ./hardware/zsa.nix
     ./services/jellyfin.nix
-    ./printing.nix
     ./programs
     ./shell
     ./theme.nix
