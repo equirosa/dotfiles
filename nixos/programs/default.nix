@@ -3,7 +3,6 @@
 }: {
   imports = [
     ./flatpak.nix
-    ./editors/emacs.nix
   ];
   nixpkgs.overlays = [
     (import (fetchTarball {
@@ -17,10 +16,9 @@
       ./lf.nix
       ./terminal
       ./mpv.nix
-      ./newsboat
       ./rofi.nix
       ./scripts
-      ./editors/neovim.nix
+      ./editors/neovim
     ];
     programs.rbw = {
       enable = true;
@@ -32,16 +30,12 @@
         tor-browser-bundle-bin
         # Messengers
         aerc
-        ctpv
         element-desktop-wayland
-        signal-desktop
         # Documents
         onlyoffice-bin
         hunspell
         hunspellDicts.en-us-large
         hunspellDicts.es-any
-        pandoc
-        tectonic
         # File Sharing
         transmission
         tremc
