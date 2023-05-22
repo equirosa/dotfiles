@@ -29,6 +29,7 @@ in
       lazy-nvim # To avoid bootstrapping
       lazy-lsp-nvim # This already calls a nix shell anyway so might as well stick it here
       nvim-treesitter.withAllGrammars
+      parinfer-rust
     ];
     viAlias = true;
     vimAlias = true;
