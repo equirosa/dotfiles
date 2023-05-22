@@ -1,11 +1,18 @@
-{ pkgs, lib, config, ... }:
-let
-  inherit (lib) getExe;
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
+  inherit (lib) getExe range;
   flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
-  hyprland = (import flake-compat {
-    src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
-  }).defaultNix;
-  inherit (import ../default-programs.nix { inherit pkgs lib config; })
+  hyprland =
+    (import flake-compat {
+      src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
+    })
+    .defaultNix;
+  inherit
+    (import ../default-programs.nix {inherit pkgs lib config;})
     http-browser
     lock-command
     terminal
@@ -13,14 +20,14 @@ let
     terminal-audio
     terminal-monitor
     terminal-file-manager
-    terminal-mail-client;
+    terminal-mail-client
+    ;
   leftWorkspaces = range 1 6;
-  leftWorkspaces = range 7 10;
-in
-{
+  rightWorkspaces = range 7 10;
+in {
   programs.hyprland.enable = true;
   home-manager.users.kiri = _: {
-    imports = [ hyprland.homeManagerModules.default ];
+    imports = [hyprland.homeManagerModules.default];
     wayland.windowManager.hyprland = {
       enable = true;
       extraConfig = ''
@@ -148,7 +155,7 @@ in
         bind = $mainMod, M, exit,
         bind = $mainMod, F, fullscreen,
         bind = ALT SHIFT, F, fakefullscreen,
-        bind = $mainMod, R, exec, ${terminal} ${terminal-file-manager} 
+        bind = $mainMod, R, exec, ${terminal} ${terminal-file-manager}
         bind = $mainMod, V, togglefloating,
         bind = $mainMod, D, exec, rofi -show run
         bind = $mainMod, P, exec, emoji
@@ -197,4 +204,3 @@ in
     };
   };
 }
-

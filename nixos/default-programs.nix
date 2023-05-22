@@ -1,9 +1,12 @@
-{ pkgs, lib, config, ... }:
-let
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
   inherit (lib) getExe;
   inherit (config.home-manager.users.kiri.xdg) cacheHome;
-in
-{
+in {
   gemini-browser = getExe pkgs.lagrange;
   http-browser = "${getExe pkgs.firefox} -p default";
   lock-command = "${getExe pkgs.swaylock} --image ${cacheHome}/background_image -f";

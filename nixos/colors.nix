@@ -23,8 +23,7 @@ let
       white = "a89984";
     };
   };
-in
-{
+in {
   opacity = "0.8";
   selected = gruvbox;
   ansi = {

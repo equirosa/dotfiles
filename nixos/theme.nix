@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   qt = {
     enable = true;
     platformTheme = "gnome";
@@ -9,8 +9,8 @@
     fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [ "Fira Code" "FiraCode Nerd Font" "Twitter Color Emoji" ];
-        emoji = [ "Twitter Color Emoji" ];
+        monospace = ["Fira Code" "FiraCode Nerd Font" "Twitter Color Emoji"];
+        emoji = ["Twitter Color Emoji"];
       };
     };
     fontDir.enable = true;
@@ -20,31 +20,29 @@
       fira-code
       font-awesome
       liberation_ttf
-      (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+      (nerdfonts.override {fonts = ["FiraCode" "DroidSansMono"];})
       twitter-color-emoji
     ];
   };
-  home-manager.users.kiri = { pkgs, ... }:
-    let
-      gtk-extra-config = { gtk-application-prefer-dark-theme = true; };
-    in
-    {
-      gtk = {
-        enable = true;
-        iconTheme = {
-          package = pkgs.gnome.adwaita-icon-theme;
-          name = "Adwaita";
-        };
-        gtk3.extraConfig = gtk-extra-config;
-        gtk4.extraConfig = gtk-extra-config;
+  home-manager.users.kiri = {pkgs, ...}: let
+    gtk-extra-config = {gtk-application-prefer-dark-theme = true;};
+  in {
+    gtk = {
+      enable = true;
+      iconTheme = {
+        package = pkgs.gnome.adwaita-icon-theme;
+        name = "Adwaita";
       };
-      qt = {
-        enable = true;
-        platformTheme = "gnome";
-        style = {
-          package = pkgs.adwaita-qt;
-          name = "adwaita-dark";
-        };
+      gtk3.extraConfig = gtk-extra-config;
+      gtk4.extraConfig = gtk-extra-config;
+    };
+    qt = {
+      enable = true;
+      platformTheme = "gnome";
+      style = {
+        package = pkgs.adwaita-qt;
+        name = "adwaita-dark";
       };
     };
+  };
 }

@@ -1,5 +1,9 @@
-{ config, pkgs, lib, ... }:
-let
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
   inherit (lib) getExe recursiveUpdate;
   inherit (lib.attrsets) optionalAttrs;
   inherit (config.programs) zoxide;
@@ -17,12 +21,12 @@ let
       }}
     '';
   };
-in
-{
+in {
   programs = {
     lf = {
       enable = true;
-      commands = recursiveUpdate
+      commands =
+        recursiveUpdate
         {
           on-cd = ''
             &{{
@@ -38,7 +42,8 @@ in
         (optionalAttrs
           zoxide.enable
           zoxideCommands);
-      keybindings = recursiveUpdate
+      keybindings =
+        recursiveUpdate
         {
           "<backspace2>" = ":set hidden!";
           "<delete>" = "\$${pkgs.trash-cli}/bin/trash-put \"$fx\"";

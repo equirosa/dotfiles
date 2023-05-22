@@ -9,26 +9,25 @@
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs =
-    inputs @
-    { self
-    , flake-utils
-    , nixpkgs
-    , home-manager
-    , nur
-    , ...
-    }:
-    flake-utils.lib.eachDefaultSystem (system:
-    let pkgs = nixpkgs.legacyPackages.${system}; in
-    {
+  outputs = inputs @ {
+    self,
+    flake-utils,
+    nixpkgs,
+    home-manager,
+    nur,
+    ...
+  }:
+    flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
       devShells.default = pkgs.mkShell {
-  buildInputs = with pkgs;[
-    alejandra
-    shfmt
-    stylua
-    nodePackages.bash-language-server
-  ];
-};
+        buildInputs = with pkgs; [
+          alejandra
+          shfmt
+          stylua
+          nodePackages.bash-language-server
+        ];
+      };
       formatter = nixpkgs.legacyPackages.${system}.treefmt;
       nixosConfigurations = {
         snowfort = nixpkgs.lib.nixosSystem {

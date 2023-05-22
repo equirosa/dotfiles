@@ -1,8 +1,6 @@
-_:
-let
+_: let
   colors = import ../colors.nix;
-in
-{
+in {
   services.mako = with colors.selected; {
     enable = true;
     backgroundColor = "#${background}";

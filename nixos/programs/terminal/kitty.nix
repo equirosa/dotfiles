@@ -1,16 +1,14 @@
-_:
-let
+_: let
   colors = import ../../colors.nix;
-in
-{
+in {
   programs.kitty = {
     enable = true;
     font = {
       name = "monospace";
       size = 14;
     };
-    keybindings = { };
-    settings = { background_opacity = "${colors.opacity}"; };
+    keybindings = {};
+    settings = {background_opacity = "${colors.opacity}";};
     theme = "Gruvbox Dark Hard";
   };
 }

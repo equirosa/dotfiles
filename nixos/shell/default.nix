@@ -1,12 +1,14 @@
-{ pkgs, lib, ... }:
-let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   inherit (lib) getExe genAttrs;
   colors = import ../colors.nix;
-in
-{
-  imports = [ ./fish.nix ];
+in {
+  imports = [./fish.nix];
   home-manager.users.kiri = {
-    home.shellAliases = import ./aliases.nix { inherit pkgs lib; };
+    home.shellAliases = import ./aliases.nix {inherit pkgs lib;};
     programs = {
       direnv = {
         enable = true;
@@ -17,7 +19,7 @@ in
             load_dotenv = true;
             strict_env = true;
           };
-          whitelist.prefix = [ "/home/kiri/projects" ];
+          whitelist.prefix = ["/home/kiri/projects"];
         };
       };
       gpg = {
@@ -26,9 +28,9 @@ in
       };
       keychain = {
         enable = true;
-        agents = [ "ssh" "gpg" ];
-        keys = [ "id_ed25519" "B77F36C3F12720B4" ];
-        extraFlags = [ "--quiet" ];
+        agents = ["ssh" "gpg"];
+        keys = ["id_ed25519" "B77F36C3F12720B4"];
+        extraFlags = ["--quiet"];
       };
       less.enable = true;
       ssh.enable = true;
@@ -51,45 +53,40 @@ in
       };
       dircolors = {
         enable = true;
-        settings =
-          with colors.ansi;
-          let
-            dataFiles = [ "csv" "json" "toml" "yaml" ];
-            mediaFiles = [ "avif" "mkv" "mp4" "webm" "webp" ];
-            docFiles = [ "md" "org" "docx" "odt" ];
-            pdf = [ "pdf" ];
-            extAttrs = extList: color:
-              (genAttrs (map (ext: ".${ext}") extList)
-                (ext: "${bold};${color}"));
-          in
+        settings = with colors.ansi; let
+          dataFiles = ["csv" "json" "toml" "yaml"];
+          mediaFiles = ["avif" "mkv" "mp4" "webm" "webp"];
+          docFiles = ["md" "org" "docx" "odt"];
+          pdf = ["pdf"];
+          extAttrs = extList: color: (genAttrs (map (ext: ".${ext}") extList)
+            (ext: "${bold};${color}"));
+        in
           {
             OTHER_WRITABLE = "30;46";
             ".sh" = "${bold};${green}";
-          } //
-          (extAttrs dataFiles yellow) //
-          (extAttrs docFiles teal) //
-          (extAttrs mediaFiles pink) //
-          (extAttrs pdf red);
+          }
+          // (extAttrs dataFiles yellow)
+          // (extAttrs docFiles teal)
+          // (extAttrs mediaFiles pink)
+          // (extAttrs pdf red);
       };
       lsd = {
         enable = true;
         enableAliases = true;
-        settings = { date = "relative"; };
+        settings = {date = "relative";};
       };
-      fzf =
-        let
-          fileCommand = "${getExe pkgs.ripgrep} --files";
-        in
-        {
-          enable = true;
-          changeDirWidgetCommand = "${getExe pkgs.fd} --type d";
-          changeDirWidgetOptions = [ "--preview '${getExe pkgs.lsd} -1 {}'" ];
-          defaultCommand = "${fileCommand}";
-          defaultOptions = [ "--height 100%" "--border" ];
-          fileWidgetCommand = "${fileCommand}";
-          fileWidgetOptions = [ "--preview '${getExe pkgs.pistol} {}'" ];
-        };
-      navi = { enable = true; };
+      fzf = let
+        fileCommand = "${getExe pkgs.ripgrep} --files";
+      in {
+        enable = true;
+        changeDirWidgetCommand = "${getExe pkgs.fd} --type d";
+        changeDirWidgetOptions = ["--preview '${getExe pkgs.lsd} -1 {}'"];
+        defaultCommand = "${fileCommand}";
+        defaultOptions = ["--height 100%" "--border"];
+        fileWidgetCommand = "${fileCommand}";
+        fileWidgetOptions = ["--preview '${getExe pkgs.pistol} {}'"];
+      };
+      navi = {enable = true;};
       starship = {
         enable = true;
         settings = {

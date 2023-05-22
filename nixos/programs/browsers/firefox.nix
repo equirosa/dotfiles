@@ -1,12 +1,14 @@
-{ pkgs, config, ... }:
-let
-  globalSettings = { };
-in
 {
+  pkgs,
+  config,
+  ...
+}: let
+  globalSettings = {};
+in {
   programs.firefox = {
     enable = true;
     package = pkgs.firefox.override {
-      cfg = { enableTridactylNative = true; };
+      cfg = {enableTridactylNative = true;};
     };
     enableGnomeExtensions = false;
   };

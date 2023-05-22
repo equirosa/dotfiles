@@ -1,45 +1,135 @@
-{ pkgs, config, lib, ... }:
-let
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
   resetBrowser = ''set browser "xdg-open"'';
-  inherit (import ../../default-programs.nix { inherit pkgs lib config; })
-    http-browser terminal-http-browser;
+  inherit
+    (import ../../default-programs.nix {inherit pkgs lib config;})
+    http-browser
+    terminal-http-browser
+    ;
   macroList = [
-    { key = "m"; action = "mpv --keep-open=no --pause"; }
-    { key = "u"; action = "umpv"; }
-    { key = "w"; action = terminal-http-browser; }
-    { key = "b"; action = http-browser; }
-    { key = "d"; action = "watchlist"; }
+    {
+      key = "m";
+      action = "mpv --keep-open=no --pause";
+    }
+    {
+      key = "u";
+      action = "umpv";
+    }
+    {
+      key = "w";
+      action = terminal-http-browser;
+    }
+    {
+      key = "b";
+      action = http-browser;
+    }
+    {
+      key = "d";
+      action = "watchlist";
+    }
   ];
   controlsList = [
-    { key = "j"; action = "down"; }
-    { key = "k"; action = "up"; }
-    { key = "j"; action = "next articlelist"; }
-    { key = "k"; action = "prev articlelist"; }
-    { key = "G"; action = "end"; }
-    { key = "g"; action = "home"; }
-    { key = "a"; action = "toggle-article-read"; }
-    { key = "l"; action = "open"; }
-    { key = "h"; action = "quit"; }
-    { key = "u"; action = "show-urls"; }
-    { key = "T"; action = "toggle-show-read-feeds"; }
-    { key = "O"; action = "open-in-browser-and-mark-read"; }
+    {
+      key = "j";
+      action = "down";
+    }
+    {
+      key = "k";
+      action = "up";
+    }
+    {
+      key = "j";
+      action = "next articlelist";
+    }
+    {
+      key = "k";
+      action = "prev articlelist";
+    }
+    {
+      key = "G";
+      action = "end";
+    }
+    {
+      key = "g";
+      action = "home";
+    }
+    {
+      key = "a";
+      action = "toggle-article-read";
+    }
+    {
+      key = "l";
+      action = "open";
+    }
+    {
+      key = "h";
+      action = "quit";
+    }
+    {
+      key = "u";
+      action = "show-urls";
+    }
+    {
+      key = "T";
+      action = "toggle-show-read-feeds";
+    }
+    {
+      key = "O";
+      action = "open-in-browser-and-mark-read";
+    }
   ];
   articleColors = [
-    { pattern = "(^Feed:.*|^Title:.*|^Author:.*)"; color = "cyan default bold"; }
-    { pattern = "(^Link:.*|^Date:.*)"; color = "default default"; }
-    { pattern = "https?://[^ ]+"; color = "green default"; }
-    { pattern = "^(Title):.*$"; color = "blue default"; }
-    { pattern = "\\[[0-9][0-9]*\\]"; color = "magenta default bold"; }
-    { pattern = "\\[image\\ [0-9]+\\]"; color = "green default bold"; }
-    { pattern = "\\[embedded flash: [0-9][0-9]*\\]"; color = "green default bold"; }
-    { pattern = ":.*\\(link\\)$"; color = "cyan default"; }
-    { pattern = ":.*\\(image\\)$"; color = "blue default"; }
-    { pattern = ":.*\\(embedded flash\\)$"; color = "magenta default"; }
-    { pattern = "(^.$ .*|^.# .*)"; color = "yellow default bold"; }
+    {
+      pattern = "(^Feed:.*|^Title:.*|^Author:.*)";
+      color = "cyan default bold";
+    }
+    {
+      pattern = "(^Link:.*|^Date:.*)";
+      color = "default default";
+    }
+    {
+      pattern = "https?://[^ ]+";
+      color = "green default";
+    }
+    {
+      pattern = "^(Title):.*$";
+      color = "blue default";
+    }
+    {
+      pattern = "\\[[0-9][0-9]*\\]";
+      color = "magenta default bold";
+    }
+    {
+      pattern = "\\[image\\ [0-9]+\\]";
+      color = "green default bold";
+    }
+    {
+      pattern = "\\[embedded flash: [0-9][0-9]*\\]";
+      color = "green default bold";
+    }
+    {
+      pattern = ":.*\\(link\\)$";
+      color = "cyan default";
+    }
+    {
+      pattern = ":.*\\(image\\)$";
+      color = "blue default";
+    }
+    {
+      pattern = ":.*\\(embedded flash\\)$";
+      color = "magenta default";
+    }
+    {
+      pattern = "(^.$ .*|^.# .*)";
+      color = "yellow default bold";
+    }
   ];
   convertToString = argument: list: builtins.concatStringsSep "\n" (map argument list);
-in
-{
+in {
   programs.newsboat = {
     enable = true;
     autoReload = true;

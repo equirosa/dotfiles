@@ -1,21 +1,21 @@
-{ pkgs
-, lib
-, vimUtils
-, ...
-}:
-let
-  inherit (lib) fileContents;
-  pluginGit = ref: repo: vimUtils.buildVimPluginFrom2Nix {
-    pname = "${lib.strings.sanitizeDerivationName repo}";
-    version = ref;
-    src = builtins.fetchGit {
-      url = "https://github.com/${repo}.git";
-      inherit ref;
-    };
-  };
-  pluginLatest = pluginGit "HEAD";
-in
 {
+  pkgs,
+  lib,
+  vimUtils,
+  ...
+}: let
+  inherit (lib) fileContents;
+  pluginGit = ref: repo:
+    vimUtils.buildVimPluginFrom2Nix {
+      pname = "${lib.strings.sanitizeDerivationName repo}";
+      version = ref;
+      src = builtins.fetchGit {
+        url = "https://github.com/${repo}.git";
+        inherit ref;
+      };
+    };
+  pluginLatest = pluginGit "HEAD";
+in {
   programs.neovim = {
     enable = true;
     extraConfig = ''
@@ -23,7 +23,7 @@ in
       ${fileContents ./init.lua};
       EOF
     '';
-    extraPackages = with pkgs; [ gcc gnumake ];
+    extraPackages = with pkgs; [gcc gnumake];
     plugins = with pkgs.vimPlugins; [
       # Plugins managed directly by Nix
       lazy-nvim # To avoid bootstrapping

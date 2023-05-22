@@ -4,12 +4,12 @@ _: {
       spec = "/home";
       hashTableSizeMB = 4096;
       verbosity = "crit";
-      extraOptions = [ "--loadavg-target" "2.0" ];
+      extraOptions = ["--loadavg-target" "2.0"];
     };
     snapper = {
       configs.home = {
         SUBVOLUME = "/home";
-        ALLOW_USERS = [ "kiri" ];
+        ALLOW_USERS = ["kiri"];
         TIMELINE_CREATE = true;
         TIMELINE_CLEANUP = true;
       };
@@ -18,7 +18,7 @@ _: {
     };
     btrfs.autoScrub = {
       enable = true;
-      fileSystems = [ "/" ];
+      fileSystems = ["/"];
     };
   };
 }

@@ -1,12 +1,11 @@
-{ config
-, pkgs
-, ...
-}:
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   inherit (builtins) fetchTarball;
   home-manager = fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-in
-{
+in {
   imports = [
     (import "${home-manager}/nixos")
     ./backups
@@ -27,7 +26,7 @@ in
     useUserPackages = true;
     useGlobalPkgs = true;
     users.kiri = {
-      home = { inherit (config.system) stateVersion; };
+      home = {inherit (config.system) stateVersion;};
       xdg.userDirs.enable = true;
     };
   };
@@ -49,7 +48,7 @@ in
       options = "--delete-older-than 7d";
       persistent = true;
     };
-    settings = { auto-optimise-store = true; };
+    settings = {auto-optimise-store = true;};
     # registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = ''
       experimental-features = flakes nix-command
@@ -57,14 +56,14 @@ in
       keep-derivations = true
     '';
   };
-  security = { pam = { services = { login = { gnupg.enable = true; }; }; }; };
+  security = {pam = {services = {login = {gnupg.enable = true;};};};};
   services = {
-    dbus.packages = [ pkgs.gcr ];
+    dbus.packages = [pkgs.gcr];
     dnscrypt-proxy2 = {
       enable = true;
       settings = {
         sources.public-resolvers = {
-          urls = [ "https://download.dnscrypt.info/resolvers-list/v2/public-resolvers.md" ];
+          urls = ["https://download.dnscrypt.info/resolvers-list/v2/public-resolvers.md"];
           cache_file = "public-resolvers.md";
           minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
           refresh_delay = 72;

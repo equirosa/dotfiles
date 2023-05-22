@@ -1,9 +1,10 @@
-{ pkgs
-, lib
-, ...
-}:
-let inherit (builtins) attrValues elem; in
 {
+  pkgs,
+  lib,
+  ...
+}: let
+  inherit (builtins) attrValues elem;
+in {
   home-manager.users.kiri = {
     home = {
       packages = with pkgs; [
@@ -13,7 +14,7 @@ let inherit (builtins) attrValues elem; in
         # General games client
         (writeShellApplication {
           name = "gaming";
-          runtimeInputs = [ xdg-user-dirs ];
+          runtimeInputs = [xdg-user-dirs];
           text = ''
             gamescope -e -- steam -tenfoot -steamos
           '';
@@ -33,7 +34,7 @@ let inherit (builtins) attrValues elem; in
     opengl = {
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages32 = [ pkgs.pkgsi686Linux.libva ];
+      extraPackages32 = [pkgs.pkgsi686Linux.libva];
     };
     steam-hardware.enable = true;
   };
@@ -53,12 +54,14 @@ let inherit (builtins) attrValues elem; in
   };
   nixpkgs = {
     config = {
-      allowUnfreePredicate = pkg: elem (lib.getName pkg) [
-        "steam-original"
-        "steam-run"
-        "steam-runtime"
-        "steam"
-      ];
+      allowUnfreePredicate = pkg:
+        elem (lib.getName pkg) [
+          "steam-original"
+          "steam-run"
+          "steam-runtime"
+          "steam"
+        ];
+      permittedInsecurePackages = ["nodejs-16.20.0"];
     };
   };
   security.rtkit.enable = true;

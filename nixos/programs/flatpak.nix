@@ -1,11 +1,10 @@
-{ pkgs
-, lib
-, ...
-}:
-let
-  inherit (lib) attrValues getExe;
-in
 {
+  pkgs,
+  lib,
+  ...
+}: let
+  inherit (lib) attrValues getExe;
+in {
   services = {
     flatpak.enable = true;
   };
@@ -14,7 +13,7 @@ in
       serviceConfig = {
         Type = "oneshot";
         User = "kiri";
-        path = attrValues { inherit (pkgs) flatpak; };
+        path = attrValues {inherit (pkgs) flatpak;};
         script = ''
           flatpak update --assumeyes
         '';
@@ -22,15 +21,15 @@ in
     };
     timers = {
       flatpak-upgrade-timer = {
-        after = [ "nixos-upgrade.service" ];
+        after = ["nixos-upgrade.service"];
         description = "Update flatpaks at mid-day";
-        requiredBy = [ "timers.target" ];
+        requiredBy = ["timers.target"];
         timerConfig = {
           OnCalendar = "0/6:0:0";
           Unit = "update-flatpak.service";
           Persistent = true;
         };
-        wantedBy = [ "timers.target" ];
+        wantedBy = ["timers.target"];
       };
     };
   };

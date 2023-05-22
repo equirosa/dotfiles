@@ -1,6 +1,6 @@
 _: {
-  imports = [ ./hyprland.nix ];
+  imports = [./hyprland.nix];
   home-manager.users.kiri = {
-    imports = [ ./waybar.nix ./notifications.nix ];
+    imports = [./waybar.nix ./notifications.nix];
   };
 }

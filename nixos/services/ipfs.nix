@@ -1,4 +1,4 @@
 {
   services.kubo.enable = true;
-  users.users.kiri.extraGroups = [ "ipfs" ];
+  users.users.kiri.extraGroups = ["ipfs"];
 }
