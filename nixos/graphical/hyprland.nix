@@ -31,7 +31,6 @@ in
 
         # Execute your favorite apps at launch
         exec = systemctl --user restart waybar.service
-        exec-once = ${getExe pkgs.swww} init
         exec-once = ${http-browser}
 
         # Source a file (multi-file configs)
