@@ -3,26 +3,19 @@
   lib,
   ...
 }: let
-  inherit (builtins) attrValues elem;
+  inherit (builtins) elem;
+  inherit (lib) getExe;
 in {
   home-manager.users.kiri = {
     home = {
       packages = with pkgs; [
-        # Games
-        # nix-gaming.packages.x86_64-linux.rocket-league
-        # Launchers
-        # General games client
         (writeShellApplication {
           name = "gaming";
           runtimeInputs = [xdg-user-dirs];
           text = ''
-            gamescope -e -- steam -tenfoot -steamos
+            ${getExe pkgs.gamescope} -e -- steam -tenfoot -steamos
           '';
         })
-        legendary-gl
-        # Utilities
-        gamescope
-        mangohud
       ];
     };
   };
