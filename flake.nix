@@ -35,11 +35,13 @@
         ];
       };
       formatter = nixpkgs.legacyPackages.${system}.treefmt;
+    })
+    // {
       nixosConfigurations = {
         snowfort = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            /etc/nixos/configuation.nix
+            ./hosts/snowfort/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -52,5 +54,5 @@
           ];
         };
       };
-    });
+    };
 }
