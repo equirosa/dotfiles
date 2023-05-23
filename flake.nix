@@ -54,7 +54,6 @@
       in {
         main = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          # system = "x86_64-linux";
           extraSpecialArgs = {inherit colors inputs default-programs;}; # to pass arguments to home.nix
           modules = [
             hyprland.homeManagerModules.default
