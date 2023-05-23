@@ -25,7 +25,6 @@
     ...
   }: let
     colors = import ./colors.nix;
-    default-programs = import ./default-programs.nix;
   in
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
@@ -35,7 +34,6 @@
           alejandra
           shfmt
           stylua
-          nodePackages.bash-language-server
         ];
       };
       formatter = nixpkgs.legacyPackages.${system}.treefmt;
@@ -51,10 +49,11 @@
       homeConfigurations = let
         system = "x86_64-linux";
         pkgs = nixpkgs.legacyPackages.${system};
+        lib = pkgs.lib;
       in {
         main = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {inherit colors inputs default-programs;}; # to pass arguments to home.nix
+          inherit pkgs lib;
+          extraSpecialArgs = {inherit colors inputs;}; # to pass arguments to home.nix
           modules = [
             hyprland.homeManagerModules.default
             {

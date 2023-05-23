@@ -2,19 +2,12 @@
   pkgs,
   lib,
   config,
-  default-programs,
   ...
 }: let
   inherit (builtins) replaceStrings;
   inherit (lib) getExe optionalString fileContents;
-  inherit
-    (default-programs)
-    gemini-browser
-    http-browser
-    image-viewer
-    notify
-    ;
   inherit (import ../../shell/aliases.nix {inherit pkgs lib;}) cat;
+  notify = "${getExe pkgs.libnotify} -t 5000";
   menu-program = "rofi -dmenu";
   backupIfDuplicate = ext: ''
     if [ "''${ext}" = "${ext}" ]; then
@@ -122,46 +115,6 @@ in {
         '';
       })
       (writeShellApplication {
-        name = "download-music-playlist";
-        text = replaceStrings ["yt-dlp"] ["${getExe yt-dlp}"] ''
-          source_file="Source - Playlists.txt"
-          touch "''${source_file}"
-          ${fileContents "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Playlists/Playlists.sh"}
-        '';
-      })
-      (writeShellApplication {
-        name = "download-music-unique";
-        text = replaceStrings ["yt-dlp"] ["${getExe yt-dlp}"] ''
-          source_file="Source - Unique.txt"
-          touch "''${source_file}"
-          ${fileContents "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Audio-Only Scripts/Archivist Scripts/Unique/Unique.sh"}
-        '';
-      })
-      (writeShellApplication {
-        name = "download-video-channel";
-        text = replaceStrings ["yt-dlp"] ["${getExe yt-dlp}"] ''
-          source_file="Source - Channels.txt"
-          touch "''${source_file}"
-          ${fileContents "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Channels/Channels.sh"}
-        '';
-      })
-      (writeShellApplication {
-        name = "download-video-playlist";
-        text = replaceStrings ["yt-dlp"] ["${getExe yt-dlp}"] ''
-          source_file="Source - Playlists.txt"
-          touch "''${source_file}"
-          ${fileContents "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Playlists/Playlists.sh"}
-        '';
-      })
-      (writeShellApplication {
-        name = "download-video-unique";
-        text = replaceStrings ["yt-dlp"] ["${getExe yt-dlp}"] ''
-          source_file="Source - Unique.txt"
-          touch "''${source_file}"
-          ${fileContents "/home/kiri/projects/TheFrenchGhostys-Ultimate-YouTube-DL-Scripts-Collection/scripts/Archivist Scripts/Archivist Scripts (No Comments)/Unique/Unique.sh"}
-        '';
-      })
-      (writeShellApplication {
         name = "emoji";
         runtimeInputs = [(rofimoji.override {rofi = rofi-wayland;})];
         text = ''
@@ -176,7 +129,7 @@ in {
           else
             url="''${1}"
           fi
-          ${http-browser} "https://reader.miniflux.app/bookmarklet?uri=''${url}"
+          firefox -p default "https://reader.miniflux.app/bookmarklet?uri=''${url}"
         '';
       })
       (shellApplicationWithInputs {
@@ -222,7 +175,7 @@ in {
           search_options="farside.link/whoogle/search?q=\nyoutube.com/results?search_query=\ngithub.com/search?q=\nnixos.wiki/index.php?search=\nprotondb.com/search?q="
           search_site="$(echo -e "''${search_options}" | ${menu-program} --prompt-text "Search website")"
           input="$(${menu-program} --prompt-text "Search term")"
-          ${http-browser} "''${search_site}''${input}"
+          firefox -p default "''${search_site}''${input}"
         '';
       })
       (writeShellApplication {
@@ -254,13 +207,13 @@ in {
         name = "xdg-open";
         text = ''
           case "''${1%%:*}" in
-            gemini) ${gemini-browser} "''${1}" ;;
-            http|https|*.html) ${http-browser} "''${1}" ;;
+            gemini) ${lagrange}/bin/lagrange "''${1}" ;;
+            http|https|*.html) firefox -p default "''${1}" ;;
             magnet|*.torrent)
               transmission-remote -a "''${1}" && ${notify} "Torrent Added! ✅";;
             *.org) emacsclient --create-frame "''${1}" ;;
-            *.png|*.jpg|*.jpeg|*.webp) ${image-viewer} "''${1}" ;;
-            *.pdf) setsid ${http-browser} "''${1}" ;;
+            *.png|*.jpg|*.jpeg|*.webp) ${imv}/bin/imv "''${1}" ;;
+            *.pdf) setsid ${zathura}/bin/zathura "''${1}" ;;
             *) ${xdg-utils}/bin/xdg-open "''${1}" ;;
           esac
         '';

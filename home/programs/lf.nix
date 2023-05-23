@@ -81,5 +81,5 @@ in {
     };
   };
   # TODO: consider contributing a default icons file for this module
-  xdg.configFile."lf/icons".source = builtins.fetchurl "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
+  # xdg.configFile."lf/icons".source = builtins.fetchurl "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
 }

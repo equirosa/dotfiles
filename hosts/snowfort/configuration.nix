@@ -1,6 +1,7 @@
 _: {
   imports = [
     # Include the results of the hardware scan.
+    ../../nixos/global.nix
     ./hardware-configuration.nix
   ];
 

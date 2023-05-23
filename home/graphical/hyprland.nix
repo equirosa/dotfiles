@@ -1,12 +1,5 @@
-{
-  lib,
-  default-programs,
-  ...
-}: let
-  leftWorkspaces = lib.range 1 6;
-  rightWorkspaces = lib.range 7 10;
-in {
-  wayland.windowManager.hyprland = with default-programs; {
+{...}: {
+  wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = ''
       # See https://wiki.hyprland.org/Configuring/Monitors/
@@ -28,7 +21,6 @@ in {
       # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
       # Execute your favorite apps at launch
-      exec-once = ${http-browser}
 
       # Source a file (multi-file configs)
       # source = ~/.config/hypr/myColors.conf
@@ -129,18 +121,17 @@ in {
 
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
       bind = $mainMod SHIFT, Q, killactive,
-      bind = $mainMod, A, exec, ${terminal} ${terminal-audio}
+      bind = $mainMod, A, exec, foot pulsemixer
       bind = $mainMod, D, exec, rofi -show run
-      bind = $mainMod, E, exec, ${terminal} ${terminal-mail-client}
+      bind = $mainMod, E, exec, foot aerc
       bind = $mainMod, F, fullscreen,
-      bind = $mainMod, I, exec, ${terminal} ${terminal-monitor}
+      bind = $mainMod, I, exec, foot btop
       bind = $mainMod, M, exit,
       bind = $mainMod, P, exec, emoji
-      bind = $mainMod, R, exec, ${terminal} ${terminal-file-manager}
-      bind = $mainMod, RETURN, exec, ${terminal}
+      bind = $mainMod, R, exec, foot lf
+      bind = $mainMod, RETURN, exec, foot
       bind = $mainMod, V, togglefloating,
-      bind = $mainMod, W, exec, ${http-browser}
-      bind = $mainMod, X, exec, ${lock-command}
+      bind = $mainMod, W, exec, firefox -p default
       bind = ALT SHIFT, F, fakefullscreen,
       # bind = $mainMod, J, togglesplit, # dwindle
 
