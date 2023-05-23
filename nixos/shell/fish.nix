@@ -23,7 +23,10 @@ in {
           ${optionalString neovim.enable "set -gx EDITOR nvim"}
         '';
         plugins = with pkgs.fishPlugins; [
-          { name = "done"; src = done; }
+          {
+            name = "done";
+            src = done;
+          }
         ];
       };
     };
