@@ -3,10 +3,8 @@
     ./backups
     ./btrfs.nix
     ./extra_security
-    ./flatpak.nix
     ./gaming.nix
     ./hardware/zsa.nix
-    ./services/jellyfin.nix
     ./theme.nix
     ./virtualization/podman.nix
     ./virtualization/qemu.nix
