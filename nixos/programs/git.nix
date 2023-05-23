@@ -10,9 +10,7 @@
           algorithm = "histogram";
           sopsdiffer.textconv = "sops -d";
         };
-        merge = {
-          tool = "nvimdiff";
-        };
+        merge = {tool = "nvimdiff";};
         push = {autoSetupRemote = true;};
         url = {
           "ssh://git@github.com/".insteadOf = "https://github.com/";
