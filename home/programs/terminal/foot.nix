@@ -1,6 +1,4 @@
-_: let
-  colors = import ../../colors.nix;
-in {
+{colors, ...}: {
   programs.foot = {
     enable = true;
     server.enable = false;

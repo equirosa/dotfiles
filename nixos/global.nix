@@ -3,16 +3,19 @@
     ./backups
     ./btrfs.nix
     ./extra_security
+    ./flatpak.nix
     ./gaming.nix
-    ./graphical
     ./hardware/zsa.nix
     ./services/jellyfin.nix
-    ./programs
-    ./shell
     ./theme.nix
     ./virtualization/podman.nix
     ./virtualization/qemu.nix
   ];
+  users.users.kiri.shell = pkgs.fish;
+  programs.fish = {
+    enable = true;
+    useBabelfish = true;
+  };
   boot = {
     tmp.useTmpfs = true;
     kernelPackages = pkgs.linuxPackages_latest;

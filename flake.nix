@@ -20,9 +20,13 @@
     flake-utils,
     nixpkgs,
     home-manager,
+    hyprland,
     nur,
     ...
-  }:
+  }: let
+    colors = import ./colors.nix;
+    default-programs = import ./default-programs.nix;
+  in
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
     in {
@@ -40,20 +44,30 @@
       nixosConfigurations = {
         snowfort = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          modules = [./hosts/snowfort/configuration.nix];
+          specialArgs = {inherit colors nixpkgs;};
+        };
+      };
+      homeConfigurations = let
+        system = "x86_64-linux";
+        pkgs = nixpkgs.legacyPackages.${system};
+      in {
+        main = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          # system = "x86_64-linux";
+          extraSpecialArgs = {inherit colors inputs default-programs;}; # to pass arguments to home.nix
           modules = [
-            ./hosts/snowfort/configuration.nix
-            home-manager.nixosModules.home-manager
+            hyprland.homeManagerModules.default
             {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                xdg.userDirs.enable = true;
-                users.kiri = import ./home.nix;
-                extraSpecialArgs = []; # to pass arguments to home.nix
+              home = {
+                username = "kiri";
+                homeDirectory = "/home/kiri";
+                stateVersion = "22.05";
               };
+              xdg.userDirs.enable = true;
             }
+            ./home
           ];
-          specialArgs = {inherit nixpkgs;};
         };
       };
     };

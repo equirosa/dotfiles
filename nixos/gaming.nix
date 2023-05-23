@@ -6,19 +6,15 @@
   inherit (builtins) elem;
   inherit (lib) getExe;
 in {
-  home-manager.users.kiri = {
-    home = {
-      packages = with pkgs; [
-        (writeShellApplication {
-          name = "gaming";
-          runtimeInputs = [xdg-user-dirs];
-          text = ''
-            ${getExe pkgs.gamescope} -e -- steam -tenfoot -steamos
-          '';
-        })
-      ];
-    };
-  };
+  users.users.kiri. packages = with pkgs; [
+    (writeShellApplication {
+      name = "gaming";
+      runtimeInputs = [xdg-user-dirs];
+      text = ''
+        ${getExe pkgs.gamescope} -e -- steam -tenfoot -steamos
+      '';
+    })
+  ];
   programs = {
     gamemode.enable = true;
     steam.enable = true;

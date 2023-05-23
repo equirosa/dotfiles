@@ -2,12 +2,13 @@
   pkgs,
   lib,
   config,
+  default-programs,
   ...
 }: let
   inherit (builtins) replaceStrings;
   inherit (lib) getExe optionalString fileContents;
   inherit
-    (import ../../default-programs.nix {inherit pkgs lib config;})
+    (default-programs)
     gemini-browser
     http-browser
     image-viewer
