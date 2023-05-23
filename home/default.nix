@@ -1,1 +1,4 @@
-_: {imports = [./graphical ./shell ./programs];}
+_: {
+  imports = [./graphical ./shell ./programs];
+  programs.home-manager.enable = true;
+}
