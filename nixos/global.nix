@@ -1,13 +1,5 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
-  inherit (builtins) fetchTarball;
-  home-manager = fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-in {
+{ pkgs, ... }:{
   imports = [
-    (import "${home-manager}/nixos")
     ./backups
     ./btrfs.nix
     ./extra_security
@@ -21,14 +13,6 @@ in {
     ./virtualization/podman.nix
     ./virtualization/qemu.nix
   ];
-  home-manager = {
-    useUserPackages = true;
-    useGlobalPkgs = true;
-    users.kiri = {
-      home = {inherit (config.system) stateVersion;};
-      xdg.userDirs.enable = true;
-    };
-  };
   boot = {
     tmp.useTmpfs = true;
     kernelPackages = pkgs.linuxPackages_latest;

@@ -47,11 +47,13 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
+                xdg.userDirs.enable = true;
                 users.kiri = import ./home.nix;
                 extraSpecialArgs = []; # to pass arguments to home.nix
               };
             }
           ];
+          specialArgs = {inherit nixpkgs;};
         };
       };
     };
