@@ -1,4 +1,9 @@
-{...}: {
+{lib, ...}: let
+  inherit (lib.lists) forEach range;
+  leftWorkspaces = range 1 6;
+  rightWorkspaces = range 7 9;
+  convertToString = argument: list: builtins.concatStringsSep "\n" (map argument list);
+in {
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = ''
@@ -6,6 +11,7 @@
       monitor=DP-1,preferred,auto,auto
       monitor=HDMI-A-1,1920x1080@60,1920x0,1
 
+      # Assign workspaces
       workspace=1,monitor:DP-1
       workspace=2,monitor:DP-1
       workspace=3,monitor:DP-1
@@ -59,6 +65,9 @@
 
       misc {
         vrr = true
+        # Swallowing
+        enable_swallow = true
+        swallow_regex = "foot"
       }
 
       decoration {

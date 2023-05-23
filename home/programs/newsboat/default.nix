@@ -7,8 +7,7 @@
   resetBrowser = ''set browser "xdg-open"'';
   inherit
     (import ../../default-programs.nix {inherit pkgs lib config;})
-    firefox -p default
-    terminal-firefox -p default
+    http-browser
     ;
   macroList = [
     {
@@ -20,12 +19,8 @@
       action = "umpv";
     }
     {
-      key = "w";
-      action = terminal-firefox -p default;
-    }
-    {
       key = "b";
-      action = firefox -p default;
+      action = "firefox -p default";
     }
     {
       key = "d";

@@ -9,7 +9,7 @@
   inherit (builtins) replaceStrings;
   inherit
     (import ../default-programs.nix {inherit pkgs lib config;})
-    firefox -p default
+    http-browser
     lock-command
     terminal
     terminal-feed-reader
@@ -89,7 +89,7 @@ in {
               "${mod}+r" = "exec ${terminal} ${terminal-file-manager}";
               "${mod}+x" = "exec ${lock-command}";
               "${mod}+p" = "exec emoji";
-              "${mod}+w" = "exec ${firefox -p default}";
+              "${mod}+w" = "exec ${http-browser}";
               "${mod}+z" = "exec password-menu show";
               "${mod}+Shift+z" = "exec password-menu otp";
               "Print" = "exec sway-shot";
@@ -113,7 +113,7 @@ in {
           ];
           startup = [
             {command = "${getExe pkgs.autotiling}";}
-            {command = firefox -p default;}
+            {command = http-browser;}
             {command = "${getExe pkgs.mako}";}
             {command = "${getExe pkgs.element-desktop-wayland}";}
             {command = "${getExe pkgs.thunderbird}";}
