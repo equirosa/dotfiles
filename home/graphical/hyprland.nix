@@ -57,6 +57,10 @@
           layout = dwindle
       }
 
+      misc {
+        vrr = true
+      }
+
       decoration {
           # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
