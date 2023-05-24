@@ -1,7 +1,7 @@
 {lib, ...}: let
   inherit (lib.lists) forEach range;
   leftWorkspaces = range 1 6;
-  rightWorkspaces = range 7 9;
+  rightWorkspaces = range 7 10;
   convertToString = argument: list: builtins.concatStringsSep "\n" (map argument list);
 in {
   wayland.windowManager.hyprland = {
