@@ -1,5 +1,6 @@
 {lib, ...}: let
   inherit (lib.lists) forEach range;
+  inherit (builtins) concatStringsSep;
   leftWorkspaces = range 1 6;
   rightWorkspaces = range 7 10;
   convertToString = argument: list: builtins.concatStringsSep "\n" (map argument list);
@@ -149,10 +150,10 @@ in {
       # bind = $mainMod, J, togglesplit, # dwindle
 
       # Move focus with mainMod + arrow keys
-      bind = $mainMod, h, movefocus, l
-      bind = $mainMod, l, movefocus, r
-      bind = $mainMod, k, movefocus, u
-      bind = $mainMod, j, movefocus, d
+      ${concatStringsSep "\n" (forEach ["h" "LEFT"] (key: "bind = $mainMod, ${key}, movefocus, l"))}
+      ${concatStringsSep "\n" (forEach ["l" "RIGHT"] (key: "bind = $mainMod, ${key}, movefocus, r"))}
+      ${concatStringsSep "\n" (forEach ["k" "UP"] (key: "bind = $mainMod, ${key}, movefocus, u"))}
+      ${concatStringsSep "\n" (forEach ["j" "DOWN"] (key: "bind = $mainMod, ${key}, movefocus, d"))}
 
       # Switch workspaces with mainMod + [0-9]
       bind = $mainMod, 1, workspace, 1
