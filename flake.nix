@@ -16,12 +16,10 @@
   };
 
   outputs = inputs @ {
-    self,
     flake-utils,
     nixpkgs,
     home-manager,
     hyprland,
-    nur,
     ...
   }: let
     colors = import ./colors.nix;
