@@ -58,7 +58,7 @@ in {
         docFiles = ["md" "org" "docx" "odt"];
         pdf = ["pdf"];
         extAttrs = extList: color: (genAttrs (map (ext: ".${ext}") extList)
-          (ext: "${bold};${color}"));
+          (_: "${bold};${color}"));
       in
         {
           OTHER_WRITABLE = "30;46";
