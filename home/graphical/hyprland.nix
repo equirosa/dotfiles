@@ -1,6 +1,15 @@
-{lib, ...}: let
+{
+  pkgs,
+  lib,
+  ...
+}: let
+  inherit (lib) getExe;
   inherit (lib.lists) forEach range;
   inherit (builtins) concatStringsSep;
+  inherit (pkgs)
+    btop
+    pulsemixer
+    ;
   gaps = 2;
   leftWorkspaces = range 1 6;
   rightWorkspaces = range 7 10;
@@ -102,11 +111,11 @@ in {
 
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
       bind = $mainMod SHIFT, Q, killactive,
-      bind = $mainMod, A, exec, foot pulsemixer
+      bind = $mainMod, A, exec, foot ${getExe pulsemixer}
       bind = $mainMod, D, exec, rofi -show run
       bind = $mainMod, E, exec, foot aerc
       bind = $mainMod, F, fullscreen,
-      bind = $mainMod, I, exec, foot btop
+      bind = $mainMod, I, exec, foot ${getExe btop}
       bind = $mainMod, M, exit,
       bind = $mainMod, P, exec, emoji
       bind = $mainMod, R, exec, foot lf
