@@ -1,6 +1,7 @@
 {lib, ...}: let
   inherit (lib.lists) forEach range;
   inherit (builtins) concatStringsSep;
+  gaps = 2;
   leftWorkspaces = range 1 6;
   rightWorkspaces = range 7 10;
   allWorkspaces = leftWorkspaces ++ rightWorkspaces;
@@ -49,8 +50,8 @@ in {
       general {
           # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
-          gaps_in = 5
-          gaps_out = 5
+          gaps_in = ${toString gaps}
+          gaps_out = ${toString (gaps * 2)}
           border_size = 2
           col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
           col.inactive_border = rgba(595959aa)
