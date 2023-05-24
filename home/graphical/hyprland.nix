@@ -3,6 +3,7 @@
   inherit (builtins) concatStringsSep;
   leftWorkspaces = range 1 6;
   rightWorkspaces = range 7 10;
+  allWorkspaces = leftWorkspaces++rightWorkspaces;
   convertToString = argument: list: builtins.concatStringsSep "\n" (map argument list);
 in {
   wayland.windowManager.hyprland = {
@@ -13,17 +14,10 @@ in {
       monitor=HDMI-A-1,1920x1080@60,1920x0,1
 
       # Assign workspaces
-      workspace=1,monitor:DP-1
-      workspace=2,monitor:DP-1
-      workspace=3,monitor:DP-1
-      workspace=4,monitor:DP-1
-      workspace=5,monitor:DP-1
-      workspace=6,monitor:DP-1
-      workspace=7,monitor:HDMI-A-1
-      workspace=8,monitor:HDMI-A-1
-      workspace=9,monitor:HDMI-A-1
-      workspace=10,monitor:HDMI-A-1
-
+      ${concatStringsSep "\n" (forEach leftWorkspaces
+          (number: "workspace=${toString number},monitor:DP-1"))}
+      ${concatStringsSep "\n" (forEach rightWorkspaces
+          (number: "workspace=${toString number},monitor:HDMI-A-1"))}
 
       # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
@@ -156,16 +150,9 @@ in {
       ${concatStringsSep "\n" (forEach ["j" "DOWN"] (key: "bind = $mainMod, ${key}, movefocus, d"))}
 
       # Switch workspaces with mainMod + [0-9]
-      bind = $mainMod, 1, workspace, 1
-      bind = $mainMod, 2, workspace, 2
-      bind = $mainMod, 3, workspace, 3
-      bind = $mainMod, 4, workspace, 4
-      bind = $mainMod, 5, workspace, 5
-      bind = $mainMod, 6, workspace, 6
-      bind = $mainMod, 7, workspace, 7
-      bind = $mainMod, 8, workspace, 8
-      bind = $mainMod, 9, workspace, 9
-      bind = $mainMod, 0, workspace, 10
+      ${concatStringsSep "\n"
+        (forEach allWorkspaces
+          (number: "bind = $mainMod, ${toString number}, workspace, ${toString number}"))}
 
       # Move active window to a workspace with mainMod + SHIFT + [0-9]
       bind = $mainMod SHIFT, 1, movetoworkspace, 1
