@@ -9,6 +9,7 @@
 in {
   wayland.windowManager.hyprland = {
     enable = true;
+    recommendedEnvironment = true;
     extraConfig = ''
       # See https://wiki.hyprland.org/Configuring/Monitors/
       monitor=DP-1,preferred,auto,auto
