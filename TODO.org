@@ -1,3 +1,0 @@
-* DONE Re-enable Bees
-It was disabled because it doesn't build properly as of [[https://github.com/NixOS/nixpkgs/issues/197463][this issue]].
-* TODO Convert NixOS and Home-Manager stuff to Flakes.
