@@ -151,6 +151,9 @@ in {
       # Window Rules
       windowrulev2=workspace 1,class:(org.remmina.Remmina)
       windowrulev2=fakefullscreen,class:(org.remmina.Remmina)
+      windowrulev2=workspace 6,class:^(Steam)
+      windowrulev2=workspace 6,title:(Steam)
+      windowrulev2=workspace 9,class:^(Element)
     '';
   };
 }
