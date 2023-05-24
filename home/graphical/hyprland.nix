@@ -147,6 +147,10 @@ in {
       # Move/resize windows with mainMod + LMB/RMB and dragging
       bindm = $mainMod, mouse:272, movewindow
       bindm = $mainMod, mouse:273, resizewindow
+
+      # Window Rules
+      windowrulev2=workspace 1,class:(org.remmina.Remmina)
+      windowrulev2=fakefullscreen,class:(org.remmina.Remmina)
     '';
   };
 }
