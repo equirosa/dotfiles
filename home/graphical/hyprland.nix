@@ -5,28 +5,20 @@
   leftWorkspaces = range 1 6;
   rightWorkspaces = range 7 10;
   allWorkspaces = leftWorkspaces ++ rightWorkspaces;
-  convertToString = argument: list: builtins.concatStringsSep "\n" (map argument list);
+  assignWorkspaces = monitor: workspaces:
+    concatStringsSep "\n" (forEach workspaces
+      (number: "workspace=${toString number},monitor:${monitor}"));
 in {
   wayland.windowManager.hyprland = {
     enable = true;
     recommendedEnvironment = true;
     extraConfig = ''
-      # See https://wiki.hyprland.org/Configuring/Monitors/
       monitor=DP-1,preferred,auto,auto
       monitor=HDMI-A-1,1920x1080@60,1920x0,1
 
       # Assign workspaces
-      ${concatStringsSep "\n" (forEach leftWorkspaces
-          (number: "workspace=${toString number},monitor:DP-1"))}
-      ${concatStringsSep "\n" (forEach rightWorkspaces
-          (number: "workspace=${toString number},monitor:HDMI-A-1"))}
-
-      # See https://wiki.hyprland.org/Configuring/Keywords/ for more
-
-      # Execute your favorite apps at launch
-
-      # Source a file (multi-file configs)
-      # source = ~/.config/hypr/myColors.conf
+      ${assignWorkspaces "DP-1" leftWorkspaces}
+      ${assignWorkspaces "HDMI-A-1" rightWorkspaces}
 
       # Some default env vars.
       env = XCURSOR_SIZE,24
@@ -38,25 +30,19 @@ in {
           kb_model =
           kb_options =grp:win_space_toggle
           kb_rules =
-
           follow_mouse = 1
-
           touchpad {
               natural_scroll = no
           }
-
           sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
       }
 
       general {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
-
           gaps_in = ${toString gaps}
           gaps_out = ${toString (gaps * 2)}
           border_size = 2
           col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
           col.inactive_border = rgba(595959aa)
-
           layout = dwindle
       }
 
@@ -68,14 +54,11 @@ in {
       }
 
       decoration {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
-
           rounding = 10
           blur = yes
           blur_size = 3
           blur_passes = 1
           blur_new_optimizations = on
-
           drop_shadow = yes
           shadow_range = 4
           shadow_render_power = 3
@@ -84,11 +67,7 @@ in {
 
       animations {
           enabled = yes
-
-          # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
-
           bezier = myBezier, 0.05, 0.9, 0.1, 1.05
-
           animation = windows, 1, 7, myBezier
           animation = windowsOut, 1, 7, default, popin 80%
           animation = border, 1, 10, default
@@ -104,19 +83,11 @@ in {
       }
 
       master {
-          # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
           new_is_master = true
       }
 
       gestures {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
           workspace_swipe = off
-      }
-
-      # Example per-device config
-      # See https://wiki.hyprland.org/Configuring/Keywords/#executing for more
-      device:epic-mouse-v1 {
-          sensitivity = -0.5
       }
 
       # Example windowrule v1
