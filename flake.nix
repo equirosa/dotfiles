@@ -49,10 +49,9 @@
       homeConfigurations = let
         system = "x86_64-linux";
         pkgs = nixpkgs.legacyPackages.${system};
-        lib = pkgs.lib;
       in {
         main = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs lib;
+          inherit pkgs;
           extraSpecialArgs = {inherit colors inputs;}; # to pass arguments to home.nix
           modules = [
             hyprland.homeManagerModules.default
