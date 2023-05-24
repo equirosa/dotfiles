@@ -229,6 +229,7 @@ in {
       "git-find-deleted-files"
       "git-remove-merged-branches"
       "nvim-clean"
+      "regen"
       "remove-whitespace"
       "run-backups"
       "show-nix-store-path"
