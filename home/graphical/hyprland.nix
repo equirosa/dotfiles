@@ -3,7 +3,7 @@
   inherit (builtins) concatStringsSep;
   leftWorkspaces = range 1 6;
   rightWorkspaces = range 7 10;
-  allWorkspaces = leftWorkspaces++rightWorkspaces;
+  allWorkspaces = leftWorkspaces ++ rightWorkspaces;
   convertToString = argument: list: builtins.concatStringsSep "\n" (map argument list);
 in {
   wayland.windowManager.hyprland = {
