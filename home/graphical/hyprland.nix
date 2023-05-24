@@ -152,7 +152,11 @@ in {
       # Switch workspaces with mainMod + [0-9]
       ${concatStringsSep "\n"
         (forEach allWorkspaces
-          (number: "bind = $mainMod, ${toString number}, workspace, ${toString number}"))}
+          (number: "bind = $mainMod, ${toString (
+            if number == 10
+            then 0
+            else number
+          )}, workspace, ${toString number}"))}
 
       # Move active window to a workspace with mainMod + SHIFT + [0-9]
       bind = $mainMod SHIFT, 1, movetoworkspace, 1
