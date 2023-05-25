@@ -126,6 +126,7 @@ in {
       bind = $mainMod, P, exec, emoji
       bind = $mainMod, R, exec, foot lf
       bind = $mainMod, RETURN, exec, foot
+      bind = $mainMod, S, exec, search
       bind = $mainMod, V, togglefloating,
       bind = $mainMod, W, exec, firefox -p default
       bind = ALT SHIFT, F, fakefullscreen,
