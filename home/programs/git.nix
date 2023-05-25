@@ -35,9 +35,7 @@
     };
     lazygit = {
       enable = true;
-      settings = {
-        git.paging.pager = "difftastic";
-      };
+      settings.git.paging.pager = "difftastic";
     };
     gh = {
       enable = true;
