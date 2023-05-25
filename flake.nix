@@ -3,14 +3,12 @@
 
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager";
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.url = "github:hyprwm/Hyprland";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    nix-index-database.url = "github:Mic92/nix-index-database";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
   };
@@ -46,14 +44,17 @@
         };
       };
       homeConfigurations = let
+        inherit (home-manager.lib) homeManagerConfiguration;
         system = "x86_64-linux";
         pkgs = nixpkgs.legacyPackages.${system};
       in {
-        main = home-manager.lib.homeManagerConfiguration {
+        main = homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {inherit colors inputs;}; # to pass arguments to home.nix
           modules = [
             hyprland.homeManagerModules.default
+            inputs.nix-index-database.hmModules.nix-index
+            {programs.nix-index-database.comma.enable = true;}
             {
               home = {
                 username = "kiri";

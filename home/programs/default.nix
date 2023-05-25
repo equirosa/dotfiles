@@ -34,7 +34,6 @@
     tremc
     # Nix-specific stuff
     cachix
-    comma
     deadnix
     nil
     nix-update
