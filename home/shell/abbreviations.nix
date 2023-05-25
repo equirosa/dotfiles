@@ -1,4 +1,4 @@
-{
+rec {
   # General
   cl = "curl -L";
   clo = "curl -LO";
@@ -41,12 +41,6 @@
   sm = "setsid mpv";
   u = "umpv";
   umfs = "umpv --fs";
-  # Flatpak
-  fi = "flatpak install --assumeyes";
-  fl = "flatpak list";
-  fs = "flatpak search";
-  fu = "flatpak update --assumeyes && flatpak uninstall --unused --assumeyes";
-  fun = "flatpak uninstall --assumeyes";
   # Git
   gca = "git commit -a";
   gcb = "git checkout -b";
@@ -62,16 +56,11 @@
   pur = "git pull upstream master --rebase";
   # Kitty
   icat = "kitty +kitten icat";
-  # Download stuff
-  dmp = "download-music-playlist";
-  dmu = "download-music-unique";
-  dvp = "download-video-playlist";
-  dvu = "download-video-unique";
   # Nix
-  cm = "check-modifications";
-  cu = "check-updates";
+  dn = "deadnix";
+  dne = "${dn} -e";
   nb = "nix build";
-  nbf = "nix build -f ./.";
+  nbf = "${nb} -f ./.";
   nph = "nix profile history";
   npi = "nix profile install";
   npl = "nix profile list";
@@ -83,7 +72,6 @@
   # trash-cli
   rm = "trash-put";
   te = "trash-empty";
-  tp = "trash-put";
   tr = "trash-restore";
   # Quickemu
   qe = "quickemu";
