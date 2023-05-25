@@ -221,7 +221,6 @@ in {
     ]
     ++ shellApplicationFromList [
       "calendarios-gaby"
-      "change-background"
       "code2png"
       "config-check"
       "gen-ssh-key"
