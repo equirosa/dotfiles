@@ -68,6 +68,10 @@ rec {
   npra = "nix profile remove '.*'";
   nprb = "nix profile rollback";
   npu = "nix profile upgrade";
+  ra = "regen all";
+  rh = "regen home";
+  ro = "regen os";
+  rt = "regen test";
   up = ''sudo nixos-rebuild switch --profile-name $(date +%s)-'';
   # trash-cli
   rm = "trash-put";
