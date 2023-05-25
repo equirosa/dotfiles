@@ -1,4 +1,4 @@
-{config, ...}: {
+_: {
   security.sudo = {
     enable = true;
     execWheelOnly = true;

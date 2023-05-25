@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+_: {
   boot = {
     blacklistedKernelModules = [
       # Obscure network protocols
