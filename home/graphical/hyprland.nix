@@ -6,28 +6,34 @@
   inherit (lib) getExe;
   inherit (lib.lists) forEach range;
   inherit (builtins) concatStringsSep;
-  inherit (pkgs)
+  inherit
+    (pkgs)
     btop
     pulsemixer
     ;
   gaps = 2;
+  leftMon = "DP-1";
+  rightMon = "HDMI-A-1";
   leftWorkspaces = range 1 6;
   rightWorkspaces = range 7 10;
   allWorkspaces = leftWorkspaces ++ rightWorkspaces;
+  addToFile = concatStringsSep "\n";
   assignWorkspaces = monitor: workspaces:
-    concatStringsSep "\n" (forEach workspaces
-      (number: "workspace=${toString number},monitor:${monitor}"));
+    addToFile (map (number: "workspace=${toString number},monitor:${monitor}")
+      workspaces);
+  genWinRule2 = rules: regexs:
+    addToFile (map (regex: "${addToFile (map (rule: "windowrulev2=${rule},${regex}") rules)}") regexs);
 in {
   wayland.windowManager.hyprland = {
     enable = true;
     recommendedEnvironment = true;
     extraConfig = ''
-      monitor=DP-1,preferred,auto,auto
-      monitor=HDMI-A-1,1920x1080@60,1920x0,1
+      monitor=${leftMon},preferred,auto,auto
+      monitor=${rightMon},1920x1080@60,1920x0,1
 
       # Assign workspaces
-      ${assignWorkspaces "DP-1" leftWorkspaces}
-      ${assignWorkspaces "HDMI-A-1" rightWorkspaces}
+      ${assignWorkspaces leftMon leftWorkspaces}
+      ${assignWorkspaces rightMon rightWorkspaces}
 
       # Some default env vars.
       env = XCURSOR_SIZE,24
@@ -126,13 +132,21 @@ in {
       # bind = $mainMod, J, togglesplit, # dwindle
 
       # Move focus with mainMod + arrow keys
-      ${concatStringsSep "\n" (forEach ["h" "LEFT"] (key: "bind = $mainMod, ${key}, movefocus, l"))}
-      ${concatStringsSep "\n" (forEach ["l" "RIGHT"] (key: "bind = $mainMod, ${key}, movefocus, r"))}
-      ${concatStringsSep "\n" (forEach ["k" "UP"] (key: "bind = $mainMod, ${key}, movefocus, u"))}
-      ${concatStringsSep "\n" (forEach ["j" "DOWN"] (key: "bind = $mainMod, ${key}, movefocus, d"))}
+      ${addToFile (
+        map (key: "bind = $mainMod, ${key}, movefocus, l") ["h" "LEFT"]
+      )}
+      ${addToFile (
+        map (key: "bind = $mainMod, ${key}, movefocus, r") ["l" "RIGHT"]
+      )}
+      ${addToFile (
+        map (key: "bind = $mainMod, ${key}, movefocus, u") ["k" "UP"]
+      )}
+      ${addToFile (
+        map (key: "bind = $mainMod, ${key}, movefocus, d") ["j" "DOWN"]
+      )}
 
       # Switch workspaces with mainMod + [0-9]
-      ${concatStringsSep "\n"
+      ${addToFile
         (forEach allWorkspaces
           (number: "bind = $mainMod, ${toString (
             if number == 10
@@ -141,7 +155,7 @@ in {
           )}, workspace, ${toString number}"))}
 
       # Move active window to a workspace with mainMod + SHIFT + [0-9]
-      ${concatStringsSep "\n"
+      ${addToFile
         (forEach allWorkspaces
           (number: "bind = $mainMod SHIFT, ${toString (
             if number == 10
@@ -158,10 +172,10 @@ in {
       bindm = $mainMod, mouse:273, resizewindow
 
       # Window Rules
-      windowrulev2=workspace 1,class:(org.remmina.Remmina)
-      windowrulev2=fakefullscreen,class:(org.remmina.Remmina)
-      windowrulev2=workspace 6,class:^(Steam)
-      windowrulev2=workspace 6,title:(Steam)
+      ${genWinRule2 ["workspace 1" "fakefullscreen"]
+        ["class:(org.remmina.Remmina)"]}
+      ${genWinRule2 ["workspace 6" "tile"]
+        ["class:^(Steam)" "title:^(Steam)"]}
       windowrulev2=workspace 9,class:^(Element)
     '';
   };
