@@ -30,7 +30,6 @@
           alejandra
           deadnix
           shfmt
-          stylua
         ];
       };
       formatter = nixpkgs.legacyPackages.${system}.treefmt;
