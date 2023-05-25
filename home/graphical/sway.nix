@@ -4,9 +4,7 @@
   lib,
   ...
 }: let
-  inherit (config.home-manager.users.kiri.xdg) cacheHome;
-  inherit (lib) getExe fileContents;
-  inherit (builtins) replaceStrings;
+  inherit (lib) getExe;
   inherit
     (import ../default-programs.nix {inherit pkgs lib config;})
     http-browser
