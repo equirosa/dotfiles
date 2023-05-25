@@ -1,1 +1,2 @@
-_: {imports = [./hyprland.nix ./waybar.nix ./notifications.nix];}
+_: {imports = [./hyprland.nix ./waybar.nix ./notifications.nix
+./screenlock.nix];}
