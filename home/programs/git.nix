@@ -7,26 +7,23 @@
       extraConfig = {
         init.defaultBranch = "main";
         diff = {
+          tool = "difftastic";
           algorithm = "histogram";
           sopsdiffer.textconv = "sops -d";
         };
-        merge = {tool = "nvimdiff";};
-        push = {autoSetupRemote = true;};
+        difftool.prompt = false;
+        difftool."difftastic".cmd = ''difft "$LOCAL" "$REMOTE"'';
+        merge.tool = "nvimdiff";
+        pager.difftool = true;
+        push.autoSetupRemote = true;
         url = {
           "ssh://git@github.com/".insteadOf = "https://github.com/";
         };
       };
-      delta = {
+      difftastic = {
         enable = true;
-        options = {
-          decorations = {
-            commit-decoration-style = "bold yellow box ul";
-            file-decoration-style = "none";
-            file-style = "bold yellow ul";
-          };
-          features = "decorations";
-          whitespace-error-style = "22 reverse";
-        };
+        background = "dark";
+        display = "inline";
       };
       ignores = ["*~" "*.swp" ".direnv" ".DS_Store"];
       signing = {
@@ -39,7 +36,7 @@
     lazygit = {
       enable = true;
       settings = {
-        git.paging.pager = "delta --dark --paging=never --24-bit-color=never";
+        git.paging.pager = "difftastic";
       };
     };
     gh = {
