@@ -36,30 +36,6 @@ in {
         latitude = "-20.0";
         longitude = "-80.0";
       };
-      swayidle = {
-        enable = true;
-        events = [
-          {
-            event = "before-sleep";
-            command = "${lock-command}";
-          }
-          {
-            event = "lock";
-            command = "${lock-command}";
-          }
-        ];
-        timeouts = [
-          {
-            timeout = 300;
-            command = "${lock-command}";
-          }
-          {
-            timeout = 600;
-            command = ''${pkgs.sway}/bin/swaymsg "output * dpms off"'';
-            resumeCommand = ''${pkgs.sway}/bin/swaymsg "output * dpms on"'';
-          }
-        ];
-      };
     };
     wayland.windowManager = {
       sway = {
