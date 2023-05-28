@@ -1,17 +1,15 @@
-{
-  pkgs,
-  lib,
-}: let
+{lib, ...}: let
   inherit (builtins) readDir;
+  inherit (lib) filterAttrs mapAttrsToList hasSuffix;
   filesIn = {
     folder,
     ext ? null,
   }:
-    lib.mapAttrsToList
-    (name: value: folder + ("/" + name))
-    (lib.filterAttrs
-      (key: value: value == "regular" && lib.hasSuffix ".${ext}" key)
-      (builtins.readDir folder));
+    mapAttrsToList
+    (name: folder + ("/" + name))
+    (filterAttrs
+      (key: value: value == "regular" && hasSuffix ".${ext}" key)
+      (readDir folder));
   nixFilesIn = folder:
     filesIn {
       inherit folder;
