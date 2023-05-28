@@ -1,8 +1,4 @@
-{
-  config,
-  lib,
-  ...
-}: {
+_: {
   services = {
     borgbackup.jobs = let
       homeDir = "/home/kiri/";
@@ -51,7 +47,7 @@
         "Videos/"
         "projects/"
       ];
-      basicBorgJob = name: {
+      basicBorgJob = {
         paths = common-includes;
         environment = {
           BORG_UNKNOWN_UNENCRYPTED_REPO_ACCESS_IS_OK = "yes";
@@ -72,13 +68,10 @@
           monthly = -1;
         };
       };
-      inherit (lib) recursiveUpdate;
-      inherit (config.netrowking) hostName;
     in {
       snowfortBorgbase =
-        recursiveUpdate
-        (basicBorgJob hostName)
-        {
+        basicBorgJob
+        // {
           encryption = {
             mode = "keyfile";
             passCommand = "cat /home/kiri/.borg_pass";
@@ -86,9 +79,8 @@
           repo = "hvwib450@hvwib450.repo.borgbase.com:repo";
         };
       snowfortExternalDrive =
-        recursiveUpdate
-        (basicBorgJob hostName)
-        {
+        basicBorgJob
+        // {
           encryption.mode = "none";
           removableDevice = true;
           repo = "/run/media/kiri/2e571771-81db-41a5-a0b6-d5c6d3b8bf88/borg/";
