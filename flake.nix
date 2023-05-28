@@ -38,7 +38,11 @@
       nixosConfigurations = {
         snowfort = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [./hosts/snowfort/configuration.nix];
+          modules = [
+            hyprland.nixosModules.default
+            {programs.hyprland.enable = true;}
+            ./hosts/snowfort/configuration.nix
+          ];
           specialArgs = {inherit colors nixpkgs;};
         };
       };
