@@ -54,6 +54,7 @@
         "wlr/workspaces" = {
           format = "{name}: {icon}";
           on-click = "activate";
+          sort-by-number = true;
           format-icons = {
             "1" = "";
             "2" = "";
