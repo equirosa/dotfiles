@@ -14,6 +14,7 @@ in {
         ${getExe pkgs.gamescope} -e -- steam -tenfoot -steamos
       '';
     })
+    mangohud
   ];
   programs = {
     gamemode.enable = true;
