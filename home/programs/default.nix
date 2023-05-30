@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./browsers/firefox.nix
     ./git.nix
@@ -40,6 +44,7 @@
     nixpkgs-review
     statix
     # Utilities
+    inputs.hypr-contrib.packages."x86_64-linux".grimblast
     archiver
     cryfs
     du-dust

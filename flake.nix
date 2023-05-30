@@ -5,6 +5,8 @@
     flake-utils.url = "github:numtide/flake-utils";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
+    hypr-contrib.inputs.nixpkgs.follows = "nixpkgs";
+    hypr-contrib.url = "github:hyprwm/contrib";
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
