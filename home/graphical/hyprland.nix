@@ -126,6 +126,7 @@ in {
       bind = $mainMod, M, exit,
       bind = $mainMod, P, exec, emoji
       bind = $mainMod, R, exec, foot lf
+      bind = $mainMod, X, exec, swaylock
       bind = $mainMod, RETURN, exec, foot
       bind = $mainMod, S, exec, search
       bind = $mainMod, V, togglefloating,
