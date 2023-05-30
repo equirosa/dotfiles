@@ -12,7 +12,7 @@ in {
     settings = {
       show-keyboard-layout = true;
       daemonize = true;
-      effect-blur = "10x10";
+      effect-blur = "15x2";
       clock = true;
       indicator = true;
       font-size = 25;
