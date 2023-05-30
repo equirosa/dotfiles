@@ -26,8 +26,8 @@
         inherit name;
         text =
           replaceStrings
-          (stringsToReplace)
-          ((getExeList stringsToReplace))
+          stringsToReplace
+          (getExeList stringsToReplace)
           "${fileContents ./${name}.sh}";
       });
   shellApplicationWithInputs = {
