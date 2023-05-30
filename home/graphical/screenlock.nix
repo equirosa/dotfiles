@@ -1,9 +1,26 @@
-{config, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   inherit (config.xdg) cacheHome;
   lock-command = "swaylock --image ${cacheHome}/background_image -f";
 in {
   programs.swaylock = {
     enable = true;
+    package = pkgs.swaylock-effects;
+    settings = {
+      show-keyboard-layout = true;
+      daemonize = true;
+      effect-blur = "10x10";
+      clock = true;
+      indicator = true;
+      font-size = 25;
+      indicator-radius = 85;
+      indicator-thickness = 16;
+      screenshots = true;
+      fade-in = 1;
+    };
   };
   services.swayidle = {
     enable = true;
