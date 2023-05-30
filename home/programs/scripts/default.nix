@@ -26,8 +26,8 @@
         inherit name;
         text =
           replaceStrings
-          (stringsToReplace ++ ["grimshot"])
-          ((getExeList stringsToReplace) ++ [(getExe pkgs.sway-contrib.grimshot)])
+          (stringsToReplace)
+          ((getExeList stringsToReplace))
           "${fileContents ./${name}.sh}";
       });
   shellApplicationWithInputs = {

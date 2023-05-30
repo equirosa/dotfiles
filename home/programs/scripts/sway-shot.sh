@@ -1,3 +1,2 @@
-grimshot save window - \
-	| pngquant --skip-if-larger --strip - \
-	| swappy -f -
+GRIMBLAST_EDITOR="swappy -f"
+grimblast edit area
