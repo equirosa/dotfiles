@@ -117,6 +117,7 @@ in {
 
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
       bind = $mainMod SHIFT, Q, killactive,
+      bind = , Print, exec, sway-shot
       bind = $mainMod, A, exec, foot ${getExe pulsemixer}
       bind = $mainMod, D, exec, rofi -show run
       bind = $mainMod, E, exec, foot aerc
