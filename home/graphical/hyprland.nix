@@ -180,6 +180,7 @@ in {
       ${genWinRule2 ["workspace 6" "tile"]
         ["class:^(Steam)" "title:^(Steam)"]}
       windowrulev2=workspace 9,class:^(Element)
+      windowrulev2=maximize,class:^(Firefox),title:(Picture-in-Picture)
     '';
   };
 }
