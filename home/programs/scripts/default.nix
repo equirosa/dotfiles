@@ -231,7 +231,7 @@ in {
       "regen"
       "remove-whitespace"
       "run-backups"
+      "screenshot"
       "show-nix-store-path"
-      "sway-shot"
     ];
 }
