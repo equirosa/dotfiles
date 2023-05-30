@@ -42,7 +42,10 @@
           system = "x86_64-linux";
           modules = [
             hyprland.nixosModules.default
-            {programs.hyprland.enable = true;}
+            {
+              programs.hyprland.enable = true;
+              security.pam.services.swaylock = {};
+            }
             ./hosts/snowfort/configuration.nix
           ];
           specialArgs = {inherit colors nixpkgs;};
