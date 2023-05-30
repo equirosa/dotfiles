@@ -44,12 +44,13 @@
     nixpkgs-review
     statix
     # Utilities
-    inputs.hypr-contrib.packages."x86_64-linux".grimblast
     archiver
     cryfs
     du-dust
     fd
+    hyprpicker
     imv
+    inputs.hypr-contrib.packages."x86_64-linux".grimblast
     libnotify
     parallel-full
     qpwgraph
