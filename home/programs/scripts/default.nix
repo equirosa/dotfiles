@@ -153,7 +153,7 @@ in {
           esac
         '';
       })
-      (shellApplicationWithInputs {
+      (writeShellApplication {
         name = "password-menu";
         runtimeInputs = [wtype];
         text = ''${getExe rofi-rbw}'';
