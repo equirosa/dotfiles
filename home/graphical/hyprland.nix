@@ -137,6 +137,7 @@ in {
       bind = $mainMod, S, exec, search
       bind = $mainMod, V, togglefloating,
       bind = $mainMod, W, exec, firefox -p default
+      bind=$mainMod,Z,exec,password-menu
       bind = ALT SHIFT, F, fakefullscreen,
       # bind = $mainMod, J, togglesplit, # dwindle
 
