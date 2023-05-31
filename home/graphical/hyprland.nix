@@ -126,7 +126,7 @@ in {
       bind = , Print, exec, screenshot
       bind = $mainMod, A, exec, foot ${getExe pulsemixer}
       bind = $mainMod, D, exec, rofi -show run
-      bind = $mainMod, E, exec, foot aerc
+      bind = $mainMod, E, exec, kitty aerc
       bind = $mainMod, F, fullscreen,
       bind = $mainMod, I, exec, foot ${getExe btop}
       bind = $mainMod, M, exit,
