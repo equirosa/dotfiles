@@ -17,6 +17,12 @@
   leftWorkspaces = range 1 6;
   rightWorkspaces = range 7 10;
   allWorkspaces = leftWorkspaces ++ rightWorkspaces;
+  useRightNum = num:
+    toString (
+      if num == 10
+      then 0
+      else num
+    );
   addToFile = concatStringsSep "\n";
   assignWorkspaces = monitor: workspaces:
     addToFile (map (number: "workspace=${toString number},monitor:${monitor}")
@@ -151,20 +157,12 @@ in {
       # Switch workspaces with mainMod + [0-9]
       ${addToFile
         (forEach allWorkspaces
-          (number: "bind = $mainMod, ${toString (
-            if number == 10
-            then 0
-            else number
-          )}, workspace, ${toString number}"))}
+          (number: "bind = $mainMod, ${useRightNum number}, workspace, ${toString number}"))}
 
       # Move active window to a workspace with mainMod + SHIFT + [0-9]
       ${addToFile
         (forEach allWorkspaces
-          (number: "bind = $mainMod SHIFT, ${toString (
-            if number == 10
-            then 0
-            else number
-          )}, movetoworkspace, ${toString number}"))}
+          (number: "bind = $mainMod SHIFT, ${useRightNum number}, movetoworkspace, ${toString number}"))}
 
       # Scroll through existing workspaces with mainMod + scroll
       bind = $mainMod, mouse_down, workspace, e+1
@@ -176,11 +174,12 @@ in {
 
       # Window Rules
       ${genWinRule2 ["workspace 1" "fakefullscreen"]
-        ["class:(org.remmina.Remmina)"]}
+        ["class:org.remmina.Remmina"]}
       ${genWinRule2 ["workspace 6" "tile"]
-        ["class:^(Steam)" "title:^(Steam)"]}
-      windowrulev2=workspace 9,class:^(Element)
-      windowrulev2=maximize,class:^(Firefox),title:(Picture-in-Picture)
+        ["class:^(Steam|.gamescope-wrapped)"]}
+      windowrule=workspace 9,class:Element
+      windowrulev2=maximize,class:^(firefox)$,title:Picture-in-Picture
+      windowrulev2=float,nofullscreen,class:firefox,title:^Firefox — Sharing Indicator$
     '';
   };
 }
