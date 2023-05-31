@@ -178,7 +178,7 @@ in {
         ["class:org.remmina.Remmina"]}
       ${genWinRule2 ["workspace 6" "tile"]
         ["class:^(Steam|.gamescope-wrapped)"]}
-      windowrule=workspace 9,class:Element
+      windowrule=workspace 9,class:^(Element)
       windowrulev2=maximize,class:^(firefox)$,title:Picture-in-Picture
       windowrulev2=float,nofullscreen,class:firefox,title:^Firefox — Sharing Indicator$
     '';
