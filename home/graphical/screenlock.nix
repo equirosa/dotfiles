@@ -1,10 +1,5 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
-  inherit (config.xdg) cacheHome;
-  lock-command = "swaylock --image ${cacheHome}/background_image -f";
+{pkgs, ...}: let
+  lock-command = "swaylock";
 in {
   programs.swaylock = {
     enable = true;
