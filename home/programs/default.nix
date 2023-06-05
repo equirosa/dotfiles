@@ -57,6 +57,7 @@
     qrencode
     ripgrep
     trash-cli
+    unzip
     wl-clipboard
     # Password
     bitwarden
