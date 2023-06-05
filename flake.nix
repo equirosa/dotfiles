@@ -12,14 +12,18 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:Mic92/nix-index-database";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    nixvim.url = "github:pta2002/nixvim";
     nur.url = "github:nix-community/NUR";
   };
 
   outputs = inputs @ {
     flake-utils,
-    nixpkgs,
     home-manager,
     hyprland,
+    nix-index-database,
+    nixpkgs,
+    nixvim,
     ...
   }: let
     colors = import ./colors.nix;
@@ -61,7 +65,8 @@
           extraSpecialArgs = {inherit colors inputs;}; # to pass arguments to home.nix
           modules = [
             hyprland.homeManagerModules.default
-            inputs.nix-index-database.hmModules.nix-index
+            nix-index-database.hmModules.nix-index
+            nixvim.homeManagerModules.nixvim
             {programs.nix-index-database.comma.enable = true;}
             {programs.nix-index.enable = true;}
             {

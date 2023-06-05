@@ -16,8 +16,13 @@
     };
   pluginLatest = pluginGit "HEAD";
 in {
-  programs.neovim = {
+  programs.nixvim = {
     enable = true;
+    colorschemes.gruvbox.enable = true;
+    plugins.lualine.enable = true;
+  };
+  programs.neovim = {
+    enable = false;
     extraConfig = ''
       lua << EOF
       ${fileContents ./init.lua};
