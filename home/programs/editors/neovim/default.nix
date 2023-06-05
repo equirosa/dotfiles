@@ -1,21 +1,4 @@
-{
-  pkgs,
-  lib,
-  vimUtils,
-  ...
-}: let
-  inherit (lib) fileContents;
-  pluginGit = ref: repo:
-    vimUtils.buildVimPluginFrom2Nix {
-      pname = "${lib.strings.sanitizeDerivationName repo}";
-      version = ref;
-      src = builtins.fetchGit {
-        url = "https://github.com/${repo}.git";
-        inherit ref;
-      };
-    };
-  pluginLatest = pluginGit "HEAD";
-in {
+_: {
   programs.nixvim = {
     enable = true;
     colorschemes.catppuccin.enable = true;
@@ -31,8 +14,12 @@ in {
       treesitter-rainbow = {enable = true;};
       lsp = {
         enable = true;
-        servers = {nil_ls.enable = true;};
+        servers = {
+          nil_ls.enable = true;
+          yamlls.enable = true;
+        };
       };
+      lsp-format.enable = true;
     };
   };
   xdg.configFile."nvim/lua" = {
