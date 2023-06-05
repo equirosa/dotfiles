@@ -20,6 +20,21 @@ _: {
       };
       lsp-format.enable = true;
       lsp-lines.enable = true;
+      telescope = {
+        enable = true;
+        extensions = {
+          frecency.enable = true;
+          fzf-native.enable = true;
+        };
+        keymaps = {
+          "<leader>sd" = "diagnostics";
+          "<leader>sf" = "find_files";
+          "<leader>sg" = "live_grep";
+          "<leader>sh" = "help_tags";
+          "<leader>sk" = "keymaps";
+          "<leader>sw" = "grep_string";
+        };
+      };
       treesitter-rainbow = {enable = true;};
     };
   };
