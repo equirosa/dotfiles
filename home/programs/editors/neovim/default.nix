@@ -24,6 +24,7 @@ _: {
       };
       lsp-format.enable = true;
       lsp-lines.enable = true;
+      neogit.enable = true;
       telescope = {
         enable = true;
         extensions = {
