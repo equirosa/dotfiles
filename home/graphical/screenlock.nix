@@ -36,8 +36,8 @@ in {
       }
       {
         timeout = 600;
-        command = ''hyprctl dpms off"'';
-        resumeCommand = ''hyprctl dpms on"'';
+        command = ''hyprctl dispatch dpms off'';
+        resumeCommand = ''hyprctl dispatch dpms on'';
       }
     ];
   };
