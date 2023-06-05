@@ -41,6 +41,7 @@ _: {
         };
       };
       treesitter-rainbow = {enable = true;};
+      which-key = {enable = true;};
     };
   };
   xdg.configFile."nvim/lua" = {
