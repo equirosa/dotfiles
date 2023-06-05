@@ -4,7 +4,16 @@ _: {
     colorschemes.catppuccin.enable = true;
     colorschemes.catppuccin.flavour = "mocha";
     globals.mapleader = " ";
-    maps = {normal = {"<leader>w".action = "<cmd>w<CR>";};};
+    maps = {
+      normal = {
+        "<leader>gg".action = ":Neogit<CR>";
+        "<leader>w".action = "<cmd>w<CR>";
+        "<C-h>".action = ":wincmd h<CR>";
+        "<C-j>".action = ":wincmd j<CR>";
+        "<C-k>".action = ":wincmd k<CR>";
+        "<C-l>".action = ":wincmd l<CR>";
+      };
+    };
     plugins.lualine.enable = true;
     plugins.treesitter = {
       enable = true;
