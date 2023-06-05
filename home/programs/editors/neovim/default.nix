@@ -20,6 +20,7 @@ _: {
         };
       };
       lsp-format.enable = true;
+      lsp-lines.enable = true;
     };
   };
   xdg.configFile."nvim/lua" = {
