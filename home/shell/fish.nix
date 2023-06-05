@@ -1,11 +1,9 @@
 {
   pkgs,
   lib,
-  config,
   ...
 }: let
-  inherit (lib) getExe optionalString;
-  inherit (config.programs) neovim;
+  inherit (lib) getExe;
 in {
   home.packages = [pkgs.jq];
   programs = {
@@ -14,7 +12,7 @@ in {
       shellAbbrs = import ./abbreviations.nix;
       interactiveShellInit = ''
         ${getExe pkgs.nix-your-shell} fish | source
-        ${optionalString neovim.enable "set -gx EDITOR nvim"}
+        set -gx EDITOR nvim
       '';
       plugins = with pkgs.fishPlugins; [
         {
