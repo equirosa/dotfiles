@@ -11,7 +11,6 @@ _: {
       folding = true;
     };
     plugins = {
-      treesitter-rainbow = {enable = true;};
       lsp = {
         enable = true;
         servers = {
@@ -21,6 +20,7 @@ _: {
       };
       lsp-format.enable = true;
       lsp-lines.enable = true;
+      treesitter-rainbow = {enable = true;};
     };
   };
   xdg.configFile."nvim/lua" = {
