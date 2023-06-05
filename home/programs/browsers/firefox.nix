@@ -1,10 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
-  globalSettings = {};
-in {
+{pkgs, ...}: {
   programs.firefox = {
     enable = true;
     package = pkgs.firefox.override {
