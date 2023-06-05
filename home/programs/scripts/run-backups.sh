@@ -6,15 +6,15 @@ LGREEN="\033[1;32m"
 NC="\033[0m"
 
 print_success() {
-	printf "%b%s%b\n" "${LGREEN}" "${1}" "${NC}"
+	printf "%b%s%b\n" "$LGREEN" "${1}" "$NC"
 }
 
 print_announce() {
-	printf "%b%s%b\n" "${LBLUE}" "${1}" "${NC}"
+	printf "%b%s%b\n" "$LBLUE" "${1}" "$NC"
 }
 
 print_announce "Starting Backup to BorgBase"
-borg create --progress --verbose --stats --checkpoint-interval 600 hvwib450@hvwib450.repo.borgbase.com:repo::"${BORG_BACKUP_FORMAT}" \
+borg create --progress --verbose --stats --checkpoint-interval 600 hvwib450@hvwib450.repo.borgbase.com:repo::"$BORG_BACKUP_FORMAT" \
 	~/Documents/ \
 	~/Downloads/ \
 	~/Games/itch/ \
