@@ -2,6 +2,7 @@ _: {
   imports = [
     # Include the results of the hardware scan.
     ../../nixos/global.nix
+    ../../nixos/bluetooth.nix
     ./hardware-configuration.nix
   ];
 
