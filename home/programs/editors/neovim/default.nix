@@ -1,8 +1,10 @@
 _: {
   programs.nixvim = {
     enable = true;
-    colorschemes.catppuccin.enable = true;
-    colorschemes.catppuccin.flavour = "mocha";
+    colorschemes.catppuccin = {
+      enable = true;
+      flavour = "mocha";
+    };
     globals.mapleader = " ";
     maps = {
       normal = {
