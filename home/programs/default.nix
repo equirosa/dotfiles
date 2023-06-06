@@ -33,6 +33,7 @@
     hunspell
     hunspellDicts.en-us-large
     hunspellDicts.es-any
+    texlive.combined.scheme-full
     # File Sharing
     transmission
     tremc
