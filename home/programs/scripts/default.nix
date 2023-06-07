@@ -220,6 +220,7 @@ in {
       })
     ]
     ++ shellApplicationFromList [
+      "autostart"
       "calendarios-gaby"
       "code2png"
       "config-check"
