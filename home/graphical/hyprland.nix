@@ -174,11 +174,11 @@ in {
       bindm = $mainMod, mouse:273, resizewindow
 
       # Window Rules
-      ${genWinRule2 ["workspace 1" "fakefullscreen"]
+      ${genWinRule2 ["workspace 1 silent" "fakefullscreen"]
         ["class:org.remmina.Remmina"]}
-      ${genWinRule2 ["workspace 6" "tile"]
+      ${genWinRule2 ["workspace 6 silent" "tile"]
         ["class:^(Steam|.gamescope-wrapped)"]}
-      windowrulev2=workspace 9,class:^(Element)
+      windowrulev2=workspace 9 silent,class:^(Element)
       windowrulev2=maximize,class:^(firefox)$,title:Picture-in-Picture
       windowrulev2=float,nofullscreen,class:firefox,title:^Firefox — Sharing Indicator$
     '';
