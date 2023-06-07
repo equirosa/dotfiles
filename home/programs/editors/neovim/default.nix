@@ -31,11 +31,12 @@ _: {
       lsp = {
         enable = true;
         servers = {
+          texlab.enable = true;
           bashls.enable = true;
           html.enable = true;
           jsonls.enable = true;
-          rust-analyzer.enable = true;
           nil_ls.enable = true;
+          rust-analyzer.enable = true;
           yamlls.enable = true;
         };
       };
