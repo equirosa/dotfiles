@@ -5,6 +5,15 @@ _: {
     colorschemes.catppuccin = {
       enable = true;
       flavour = "mocha";
+      integrations = {
+        cmp = true;
+        neogit = true;
+        telescope = true;
+        treesitter = true;
+        ts_rainbow2 = true;
+        which_key = true;
+      };
+      terminalColors = true;
     };
     globals.mapleader = " ";
     maps = {
