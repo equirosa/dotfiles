@@ -24,6 +24,7 @@
       "hosts"
       "alternates/gambling/hosts"
     ];
+    hosts = {"0.0.0.0" = ["*.zip" "*.mov"];};
   };
   nix = {
     gc = {
