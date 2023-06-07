@@ -144,7 +144,7 @@ in {
         name = "optimize-size";
         getExt = true;
         text = ''
-          output="''$(mktemp)"
+          output="$(mktemp)"
           cp "''${file}" "''${output}"
           case "''${ext}" in
             jpeg|jpg)
