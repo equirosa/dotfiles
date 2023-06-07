@@ -116,7 +116,6 @@ in {
       })
       (writeShellApplication {
         name = "emoji";
-        runtimeInputs = [(rofimoji.override {rofi = rofi-wayland;})];
         text = ''
           rofimoji --clipboarder wl-copy --action type copy --typer wtype
         '';
