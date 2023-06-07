@@ -26,12 +26,8 @@ _: {
         "<C-l>".action = ":wincmd l<CR>";
       };
     };
-    plugins.lualine.enable = true;
-    plugins.treesitter = {
-      enable = true;
-      folding = true;
-    };
     plugins = {
+      lualine.enable = true;
       lsp = {
         enable = true;
         servers = {
@@ -46,6 +42,10 @@ _: {
       lsp-format.enable = true;
       lsp-lines.enable = true;
       neogit.enable = true;
+      treesitter = {
+        enable = true;
+        folding = true;
+      };
       telescope = {
         enable = true;
         extensions = {
