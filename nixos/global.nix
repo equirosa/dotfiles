@@ -32,7 +32,7 @@
       options = "--delete-older-than 7d";
       persistent = true;
     };
-    settings = {auto-optimise-store = true;};
+    settings.auto-optimise-store = true;
     # registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = ''
       experimental-features = flakes nix-command
@@ -72,11 +72,8 @@
     };
     udisks2.enable = true;
   };
-  system = {
-    autoUpgrade = {
-      enable = true;
-      dates = "05:00:00";
-    };
+  system.autoUpgrade = {
+    enable = true;
+    dates = "05:00:00";
   };
-  zramSwap.enable = false;
 }
