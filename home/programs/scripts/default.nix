@@ -115,12 +115,6 @@ in {
         '';
       })
       (writeShellApplication {
-        name = "emoji";
-        text = ''
-          rofimoji --clipboarder wl-copy --action type copy --typer wtype
-        '';
-      })
-      (writeShellApplication {
         name = "feed-subscribe";
         text = ''
           if [ $# -eq 0 ]; then
@@ -223,6 +217,7 @@ in {
       "calendarios-gaby"
       "code2png"
       "config-check"
+      "emoji"
       "gen-ssh-key"
       "generate-months"
       "git-find-deleted-files"
