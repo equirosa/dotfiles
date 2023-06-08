@@ -43,6 +43,7 @@ _: {
       };
       lsp-format.enable = true;
       lsp-lines.enable = true;
+      luasnip.enable = true;
       neogit.enable = true;
       neo-tree.enable = true;
       nvim-cmp = {
@@ -75,6 +76,7 @@ _: {
           {name = "buffer";}
         ];
       };
+      cmp_luasnip.enable = true;
       treesitter = {
         enable = true;
         folding = true;
