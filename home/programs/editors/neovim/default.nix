@@ -8,6 +8,7 @@ _: {
       integrations = {
         cmp = true;
         neogit = true;
+        neotree = true;
         telescope = true;
         treesitter = true;
         ts_rainbow2 = true;
@@ -43,6 +44,7 @@ _: {
       lsp-format.enable = true;
       lsp-lines.enable = true;
       neogit.enable = true;
+      neo-tree.enable = true;
       nvim-cmp = {
         enable = true;
         mapping = {
