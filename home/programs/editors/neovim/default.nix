@@ -17,6 +17,10 @@ _: {
       terminalColors = true;
     };
     globals.mapleader = " ";
+    options = {
+      number = true;
+      relativenumber = true;
+    };
     maps = {
       normal = {
         "<leader>gg".action = ":Neogit<CR>";
