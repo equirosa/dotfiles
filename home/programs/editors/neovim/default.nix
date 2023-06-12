@@ -19,6 +19,7 @@ _: {
     };
     globals.mapleader = " ";
     options = {
+      hlsearch = false;
       number = true;
       relativenumber = true;
     };
