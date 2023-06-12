@@ -7,7 +7,6 @@
     ./hardware/zsa.nix
     ./theme.nix
     ./virtualization/podman.nix
-    ./virtualization/qemu.nix
   ];
   users.users.kiri.shell = pkgs.fish;
   programs.fish = {
