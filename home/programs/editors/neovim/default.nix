@@ -33,6 +33,7 @@ _: {
         "<C-k>".action = ":wincmd k<CR>";
         "<C-l>".action = ":wincmd l<CR>";
       };
+      visualOnly = {"<C-s>".action = ":sort<CR>";};
     };
     plugins = {
       lualine.enable = true;
