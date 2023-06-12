@@ -9,7 +9,9 @@
   inherit
     (pkgs)
     btop
+    lf
     pulsemixer
+    tremc
     ;
   gaps = 2;
   leftMon = "DP-1";
@@ -131,7 +133,8 @@ in {
       bind = $mainMod, I, exec, foot ${getExe btop}
       bind = $mainMod, M, exit,
       bind = $mainMod, P, exec, emoji
-      bind = $mainMod, R, exec, foot lf
+      bind = $mainMod, R, exec, foot ${getExe lf}
+      bind = $mainMod, T, exec, foot ${getExe tremc}
       bind = $mainMod, X, exec, swaylock
       bind = $mainMod, RETURN, exec, foot
       bind = $mainMod, S, exec, search
