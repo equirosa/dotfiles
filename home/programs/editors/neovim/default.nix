@@ -25,6 +25,7 @@ _: {
     };
     maps = {
       normal = {
+        "<leader>e".action = ":NeoTreeFocusToggle<CR>";
         "<leader>gg".action = ":Neogit<CR>";
         "<leader>w".action = "<cmd>w<CR>";
         "<C-h>".action = ":wincmd h<CR>";
