@@ -11,7 +11,7 @@ in {
       name = "gaming";
       runtimeInputs = [xdg-user-dirs];
       text = ''
-        ${getExe pkgs.gamescope} -e -- steam -tenfoot -steamos
+        ${getExe pkgs.gamescope} -e -- steam -gamepadui
       '';
     })
     mangohud
