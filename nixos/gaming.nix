@@ -5,15 +5,17 @@
 }: let
   inherit (builtins) elem;
   inherit (lib) getExe;
+  gscope = prog: pkgs.writeShellApplication {
+      name = if prog == "steam" then "gaming" else "fgaming";
+      runtimeInputs = [pkgs.xdg-user-dirs];
+      text = ''
+        ${getExe pkgs.gamescope} -e -- ${prog} -gamepadui
+      '';
+    };
 in {
   users.users.kiri. packages = with pkgs; [
-    (writeShellApplication {
-      name = "gaming";
-      runtimeInputs = [xdg-user-dirs];
-      text = ''
-        ${getExe pkgs.gamescope} -e -- steam -gamepadui
-      '';
-    })
+    (gscope "steam")
+    (gscope "com.valvesoftware.Steam")
     mangohud
   ];
   programs = {
