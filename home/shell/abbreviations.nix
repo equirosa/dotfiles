@@ -48,9 +48,10 @@ rec {
   gcm = "git checkout master || git checkout main";
   gl = "git log --oneline --decorate --graph --all";
   gr = "git revert";
+  grg = "git remote get-url origin";
   pll = "git pull";
-  psh = "git push";
   psf = "git push --force-with-lease";
+  psh = "git push";
   pum = "git pull upstream master";
   pump = "git pull upstream master && git push";
   pur = "git pull upstream master --rebase";
