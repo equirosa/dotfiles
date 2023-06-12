@@ -106,10 +106,16 @@ _: {
       treesitter-rainbow = {enable = true;};
       which-key = {enable = true;};
     };
-  };
-  xdg.configFile."nvim/lua" = {
-    enable = true;
-    recursive = true;
-    source = ./lua;
+    autoGroups = {
+      highlight_group.clear = true;
+    };
+    autoCmd = [
+      {
+        event = "TextYankPost";
+        callback = "function() vim.highlight.on_yank() end,";
+        group = "highlight_group";
+        pattern = "*";
+      }
+    ];
   };
 }
