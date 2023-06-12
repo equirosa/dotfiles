@@ -1,7 +1,7 @@
 day=$(date +%u)
 
 if [ "$day" -le 5 ]; then
-	rem-lap
+	setsid rem-lap
 fi
-element-desktop
-firefox -p default
+setsid element-desktop
+setsid firefox -p default
