@@ -45,7 +45,6 @@ in {
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
     ];
   };
-  # configuration.nix
   nixpkgs = {
     config = {
       allowUnfreePredicate = pkg:
@@ -55,7 +54,6 @@ in {
           "steam-runtime"
           "steam"
         ];
-      permittedInsecurePackages = ["nodejs-16.20.0"];
     };
   };
   security.rtkit.enable = true;
