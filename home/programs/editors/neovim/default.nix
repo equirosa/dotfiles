@@ -15,6 +15,7 @@ _: {
         which_key = true;
       };
       terminalColors = true;
+      transparentBackground = true;
     };
     globals.mapleader = " ";
     options = {
