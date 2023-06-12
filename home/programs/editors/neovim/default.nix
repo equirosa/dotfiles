@@ -86,7 +86,7 @@ _: {
       cmp_luasnip.enable = true;
       treesitter = {
         enable = true;
-        folding = true;
+        #folding = true;
       };
       telescope = {
         enable = true;
