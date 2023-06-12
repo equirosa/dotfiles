@@ -57,6 +57,7 @@
     qpwgraph
     qrencode
     ripgrep
+    swww
     trash-cli
     unzip
     wl-clipboard
