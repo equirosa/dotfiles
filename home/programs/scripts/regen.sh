@@ -13,9 +13,14 @@ test_run() {
 	nixos-rebuild build --flake "${flake_path}#$(hostname)"
 }
 
+regen_all() {
+	regen_nixos
+	regen_home
+}
+
 case "${1}" in
 	"home") regen_home ;;
 	"os") regen_nixos ;;
-	"all") regen_nixos && regen_home ;;
+	"all") regen_all;;
 	"test") test_run ;;
 esac
