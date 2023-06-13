@@ -107,16 +107,5 @@ _: {
       treesitter-rainbow = {enable = true;};
       which-key = {enable = true;};
     };
-    autoGroups = {
-      highlight_group.clear = true;
-    };
-    autoCmd = [
-      {
-        event = "TextYankPost";
-        callback = "function() vim.highlight.on_yank() end,";
-        group = "highlight_group";
-        pattern = "*";
-      }
-    ];
   };
 }
