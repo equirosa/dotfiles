@@ -26,7 +26,6 @@
     # Messengers
     aerc
     ferdium
-    element-desktop-wayland
     # Social
     toot
     # Documents
