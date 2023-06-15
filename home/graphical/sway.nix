@@ -26,17 +26,6 @@ in {
     ...
   }: {
     imports = [./waybar.nix ./notifications.nix];
-    xdg.configFile."electron-flags.conf".text = ''
-      --enable-features=UseOzonePlatform
-      --ozone-platform=wayland
-    '';
-    services = {
-      wlsunset = {
-        enable = true;
-        latitude = "-20.0";
-        longitude = "-80.0";
-      };
-    };
     wayland.windowManager = {
       sway = {
         enable = true;
