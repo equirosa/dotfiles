@@ -9,6 +9,7 @@
   inherit
     (pkgs)
     btop
+    foot
     lf
     pulsemixer
     tremc
@@ -25,6 +26,7 @@
       then 0
       else num
     );
+    termWrap = program: "${getExe foot} ${getExe program}";
   addToFile = concatStringsSep "\n";
   assignWorkspaces = monitor: workspaces:
     addToFile (map (number: "workspace=${toString number},monitor:${monitor}")
@@ -126,20 +128,20 @@ in {
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
       bind = $mainMod SHIFT, Q, killactive,
       bind = , Print, exec, screenshot
-      bind = $mainMod, A, exec, foot ${getExe pulsemixer}
+      bind = $mainMod, A, exec, ${termWrap pulsemixer}
       bind = $mainMod, D, exec, rofi -show run
       bind = $mainMod, E, exec, kitty aerc
       bind = $mainMod, F, fullscreen,
-      bind = $mainMod, I, exec, foot ${getExe btop}
+      bind = $mainMod, I, exec, ${termWrap btop}
       bind = $mainMod, M, exit,
       bind = $mainMod, P, exec, emoji
-      bind = $mainMod, R, exec, foot ${getExe lf}
-      bind = $mainMod, T, exec, foot ${getExe tremc}
+      bind = $mainMod, R, exec, ${termWrap lf}
+      bind = $mainMod, T, exec, ${termWrap tremc}
       bind = $mainMod, X, exec, swaylock
       bind = $mainMod, RETURN, exec, foot
       bind = $mainMod, S, exec, search
       bind = $mainMod, V, togglefloating,
-      bind = $mainMod, W, exec, firefox -p default
+      bind = $mainMod, W, exec, gamemoderun firefox -p default
       bind=$mainMod,Z,exec,password-menu
       bind = ALT SHIFT, F, fakefullscreen,
       # bind = $mainMod, J, togglesplit, # dwindle
@@ -181,11 +183,10 @@ in {
         ["class:org.remmina.Remmina"]}
       ${genWinRule2 ["workspace 6 silent" "tile"]
         ["class:^(Steam|.gamescope-wrapped)"]}
-      windowrulev2=workspace 9 silent,class:^(Element)
+      windowrulev2=workspace 9 silent,class:^(Ferdium)
       windowrulev2=maximize,class:^(firefox)$,title:Picture-in-Picture
       windowrulev2=float,nofullscreen,class:firefox,title:^Firefox — Sharing Indicator$
 
-      exec-once=autostart
     '';
   };
 }
