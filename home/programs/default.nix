@@ -25,6 +25,7 @@
     tor-browser-bundle-bin
     # Messengers
     aerc
+    ferdium
     element-desktop-wayland
     # Social
     toot
