@@ -31,7 +31,7 @@
   assignWorkspaces = monitor: workspaces:
     addToFile (map (number: "workspace=${toString number},monitor:${monitor}")
       workspaces);
-  genWinRule2 = rules: regexs:
+  genRule2 = rules: regexs:
     addToFile (map (regex: "${addToFile (map (rule: "windowrulev2=${rule},${regex}") rules)}") regexs);
 in {
   wayland.windowManager.hyprland = {
@@ -179,9 +179,9 @@ in {
       bindm = $mainMod, mouse:273, resizewindow
 
       # Window Rules
-      ${genWinRule2 ["workspace 1 silent" "fakefullscreen"]
+      ${genRule2 ["workspace 1 silent" "fakefullscreen"]
         ["class:org.remmina.Remmina"]}
-      ${genWinRule2 ["workspace 6 silent" "tile"]
+      ${genRule2 ["workspace 6 silent" "tile"]
         ["class:^(Steam|.gamescope-wrapped)"]}
       windowrulev2=workspace 9 silent,class:^(Ferdium)
       windowrulev2=maximize,class:^(firefox)$,title:Picture-in-Picture
