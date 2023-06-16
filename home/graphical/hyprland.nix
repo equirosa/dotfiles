@@ -187,6 +187,7 @@ in {
       windowrulev2=maximize,class:^(firefox)$,title:Picture-in-Picture
       windowrulev2=float,nofullscreen,class:firefox,title:^Firefox — Sharing Indicator$
 
+      exec-once=ferdium
     '';
   };
 }
