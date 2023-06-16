@@ -5,8 +5,12 @@
 }: let
   inherit (builtins) elem;
   inherit (lib) getExe;
-  gscope = prog: pkgs.writeShellApplication {
-      name = if prog == "steam" then "gaming" else "fgaming";
+  gscope = prog:
+    pkgs.writeShellApplication {
+      name =
+        if prog == "steam"
+        then "gaming"
+        else "fgaming";
       runtimeInputs = [pkgs.xdg-user-dirs];
       text = ''
         ${getExe pkgs.gamescope} -e -- ${prog} -gamepadui

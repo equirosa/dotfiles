@@ -26,7 +26,7 @@
       then 0
       else num
     );
-    termWrap = program: "${getExe foot} ${getExe program}";
+  termWrap = program: "${getExe foot} ${getExe program}";
   addToFile = concatStringsSep "\n";
   assignWorkspaces = monitor: workspaces:
     addToFile (map (number: "workspace=${toString number},monitor:${monitor}")

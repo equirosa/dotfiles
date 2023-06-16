@@ -21,6 +21,6 @@ regen_all() {
 case "${1}" in
 	"home") regen_home ;;
 	"os") regen_nixos ;;
-	"all") regen_all;;
+	"all") regen_all ;;
 	"test") test_run ;;
 esac
