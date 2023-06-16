@@ -89,6 +89,7 @@ _: {
         enable = true;
         #folding = true;
       };
+      treesitter-refactor.enable = true;
       telescope = {
         enable = true;
         extensions = {
