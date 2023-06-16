@@ -113,10 +113,7 @@ in {
         allow-loopback-pinentry
       '';
     };
-    syncthing = {
-      enable = true;
-      tray.enable = true;
-    };
+    syncthing.enable = true;
     udiskie.enable = true;
   };
 }
