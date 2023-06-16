@@ -7,6 +7,7 @@ _: {
       flavour = "mocha";
       integrations = {
         cmp = true;
+        markdown = true;
         neogit = true;
         neotree = true;
         telescope = true;
