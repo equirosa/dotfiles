@@ -5,13 +5,14 @@
 }: {
   imports = [
     ./browsers/firefox.nix
+    ./editors/emacs
+    ./editors/neovim
     ./git.nix
     ./lf.nix
-    ./terminal
     ./mpv.nix
     ./rofi.nix
     ./scripts
-    ./editors/neovim
+    ./terminal
   ];
   programs.rbw = {
     enable = true;
