@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./browsers/firefox.nix
-    ./editors/emacs
+    ./browsers/qutebrowser.nix
     ./editors/neovim
     ./git.nix
     ./lf.nix
