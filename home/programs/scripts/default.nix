@@ -18,7 +18,7 @@
   ffmpeg-bin = "${pkgs.ffmpeg_6-full}/bin/ffmpeg";
   scriptAudio = "-c:a libopus -b:a 128k";
   getExeList = map (x: "${getExe pkgs.${x}}");
-  stringsToReplace = ["rbw" "silicon" "nvd" "pngquant" "swappy"];
+  stringsToReplace = ["appimage-run" "rbw" "silicon" "nvd" "pngquant" "swappy"];
   shellApplicationFromList =
     map
     (name:
@@ -214,6 +214,7 @@ in {
     ]
     ++ shellApplicationFromList [
       "autostart"
+      "beeper"
       "calendarios-gaby"
       "code2png"
       "config-check"
