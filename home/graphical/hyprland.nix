@@ -27,6 +27,7 @@
       else num
     );
   termWrap = program: "${getExe foot} ${getExe program}";
+  execOnce = ["ferdium" "firefox -p default" "swww init"];
   addToFile = concatStringsSep "\n";
   assignWorkspaces = monitor: workspaces:
     addToFile (map (number: "workspace=${toString number},monitor:${monitor}")
@@ -187,7 +188,7 @@ in {
       windowrulev2=maximize,class:^(firefox)$,title:Picture-in-Picture
       windowrulev2=float,nofullscreen,class:firefox,title:^Firefox — Sharing Indicator$
 
-      exec-once=ferdium
+      ${addToFile (forEach execOnce (command: "exec-once=${command}"))}
     '';
   };
 }
