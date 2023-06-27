@@ -45,7 +45,7 @@ _: {
           bashls.enable = true;
           html.enable = true;
           jsonls.enable = true;
-          nil_ls.enable = true;
+          nixd.enable = true;
           rust-analyzer.enable = true;
           yamlls.enable = true;
         };
