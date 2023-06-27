@@ -41,12 +41,12 @@ _: {
       lsp = {
         enable = true;
         servers = {
-          texlab.enable = true;
           bashls.enable = true;
           html.enable = true;
           jsonls.enable = true;
           nixd.enable = true;
           rust-analyzer.enable = true;
+          texlab.enable = true;
           yamlls.enable = true;
         };
       };
