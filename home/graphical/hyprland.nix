@@ -27,7 +27,7 @@
       else num
     );
   termWrap = program: "${getExe foot} ${getExe program}";
-  execOnce = ["ferdium" "firefox -p default" "swww init"];
+  execOnce = ["beeper" "firefox -p default" "swww init"];
   addToFile = concatStringsSep "\n";
   assignWorkspaces = monitor: workspaces:
     addToFile (map (number: "workspace=${toString number},monitor:${monitor}")
@@ -184,7 +184,7 @@ in {
         ["class:org.remmina.Remmina"]}
       ${genRule2 ["workspace 6 silent" "tile"]
         ["class:^(Steam|.gamescope-wrapped)"]}
-      windowrulev2=workspace 9 silent,class:^(Ferdium)
+      windowrulev2=workspace 9 silent,class:^(Ferdium|Beeper)
       windowrulev2=maximize,class:^(firefox)$,title:Picture-in-Picture
       windowrulev2=float,nofullscreen,class:firefox,title:^Firefox — Sharing Indicator$
 
