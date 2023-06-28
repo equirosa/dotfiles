@@ -50,6 +50,11 @@ _: {
           yamlls.enable = true;
         };
       };
+      lspkind = {
+        enable = true;
+        cmp.enable = true;
+      };
+      lspsaga.enable = true;
       lsp-format.enable = true;
       lsp-lines.enable = true;
       luasnip.enable = true;
