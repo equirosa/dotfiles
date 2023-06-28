@@ -86,6 +86,8 @@ _: {
         ];
       };
       cmp-fuzzy-buffer.enable = true;
+      cmp-nvim-lsp-document-symbol.enable = true;
+      cmp-nvim-lsp.enable = true;
       cmp_luasnip.enable = true;
       treesitter = {
         enable = true;
