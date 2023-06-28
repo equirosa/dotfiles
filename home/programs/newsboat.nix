@@ -152,7 +152,7 @@ in {
 
       highlight all "---.*---" yellow
       highlight feedlist ".*(0/0))" black
-      ${convertToString (highlight: "\"${highlight.pattern}\" ${highlight.color}") articleColors}
+      ${convertToString (highlight: "highlight article \"${highlight.pattern}\" ${highlight.color}") articleColors}
 
       # Miniflux stuff
       urls-source "miniflux"
