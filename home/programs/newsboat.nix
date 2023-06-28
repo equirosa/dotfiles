@@ -12,7 +12,7 @@
   macroList = [
     {
       key = "m";
-      action = "mpv --keep-open=no --pause";
+      action = "mpv --keep-open=no";
     }
     {
       key = "u";
