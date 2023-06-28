@@ -35,15 +35,11 @@ in {
     steam-hardware.enable = true;
   };
   nix.settings = {
-    trusted-substituters = [
-      "https://nix-gaming.cachix.org"
-      "https://nix-community.cachix.org"
-      "https://hyprland.cachix.org"
-    ];
     substituters = [
       "https://nix-gaming.cachix.org"
       "https://nix-community.cachix.org"
       "https://hyprland.cachix.org"
+      "https://cache.nixos.org/"
     ];
     trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
