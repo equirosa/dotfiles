@@ -11,6 +11,7 @@
     btop
     foot
     lf
+    newsboat
     pulsemixer
     tremc
     ;
@@ -135,6 +136,7 @@ in {
       bind = $mainMod, F, fullscreen,
       bind = $mainMod, I, exec, ${termWrap btop}
       bind = $mainMod, M, exit,
+      bind = $mainMod, N, exec, ${termWrap newsboat}
       bind = $mainMod, P, exec, emoji
       bind = $mainMod, R, exec, ${termWrap lf}
       bind = $mainMod, T, exec, ${termWrap tremc}

@@ -10,6 +10,7 @@
     ./git.nix
     ./lf.nix
     ./mpv.nix
+    ./newsboat.nix
     ./rofi.nix
     ./scripts
     ./terminal
