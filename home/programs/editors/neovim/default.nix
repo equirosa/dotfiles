@@ -79,10 +79,10 @@ _: {
           };
         };
         sources = [
-          {name = "nvim_lsp";}
-          {name = "luasnip";} #For luasnip users.
-          {name = "path";}
           {name = "buffer";}
+          {name = "luasnip";} #For luasnip users.
+          {name = "nvim_lsp";}
+          {name = "path";}
         ];
       };
       cmp_luasnip.enable = true;
