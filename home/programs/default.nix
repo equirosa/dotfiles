@@ -28,7 +28,6 @@
     tor-browser-bundle-bin
     # Messengers
     aerc
-    ferdium
     # Social
     toot
     # Documents
