@@ -4,7 +4,7 @@ _: {
       spec = "/home";
       hashTableSizeMB = 4096;
       verbosity = "crit";
-      extraOptions = ["--loadavg-target" "2.0"];
+      extraOptions = ["--loadavg-target" "2.0" "--workaround-btrfs-send"];
     };
     snapper = {
       configs.home = {
