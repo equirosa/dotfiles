@@ -76,8 +76,8 @@ in {
       misc {
         vrr = true
         # Swallowing
-        enable_swallow = true
-        swallow_regex = "foot"
+        enable_swallow=true
+        swallow_regex=^(foot)
       }
 
       decoration {
