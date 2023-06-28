@@ -13,7 +13,7 @@
         else "fgaming";
       runtimeInputs = [pkgs.xdg-user-dirs];
       text = ''
-        ${getExe pkgs.gamescope} -e -- ${prog} -gamepadui
+        ${getExe pkgs.gamescope} -e -- ${prog}
       '';
     };
 in {
