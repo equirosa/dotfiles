@@ -135,7 +135,7 @@ in {
       bind = $mainMod, E, exec, kitty aerc
       bind = $mainMod, F, fullscreen,
       bind = $mainMod, I, exec, ${termWrap btop}
-      bind = $mainMod, M, exit,
+      bind = $mainMod, M, maximize,
       bind = $mainMod, N, exec, ${termWrap newsboat}
       bind = $mainMod, P, exec, emoji
       bind = $mainMod, R, exec, ${termWrap lf}
