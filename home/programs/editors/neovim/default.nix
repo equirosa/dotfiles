@@ -6,6 +6,8 @@ _: {
       enable = true;
       flavour = "mocha";
       integrations = {
+        lsp_saga = true;
+        native_lsp.enabled = true;
         cmp = true;
         markdown = true;
         neogit = true;
