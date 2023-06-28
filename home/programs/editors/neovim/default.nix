@@ -85,6 +85,7 @@ _: {
           {name = "path";}
         ];
       };
+      cmp-fuzzy-buffer.enable = true;
       cmp_luasnip.enable = true;
       treesitter = {
         enable = true;
