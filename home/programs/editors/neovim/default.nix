@@ -82,10 +82,12 @@ _: {
           {name = "buffer";}
           {name = "luasnip";} #For luasnip users.
           {name = "nvim_lsp";}
+          {name = "nvim_lsp_signature_help";}
           {name = "path";}
+          {name = "treesitter";}
         ];
       };
-      cmp-fuzzy-buffer.enable = true;
+      cmp-buffer.enable = true;
       cmp-nvim-lsp-document-symbol.enable = true;
       cmp-nvim-lsp.enable = true;
       cmp-treesitter.enable = true;
