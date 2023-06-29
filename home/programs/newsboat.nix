@@ -5,10 +5,6 @@
   ...
 }: let
   resetBrowser = ''set browser "xdg-open"'';
-  inherit
-    (import ../../default-programs.nix {inherit pkgs lib config;})
-    http-browser
-    ;
   macroList = [
     {
       key = "m";
