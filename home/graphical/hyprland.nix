@@ -117,13 +117,6 @@ in {
           workspace_swipe = off
       }
 
-      # Example windowrule v1
-      # windowrule = float, ^(kitty)$
-      # Example windowrule v2
-      # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
-      # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
-
-
       # See https://wiki.hyprland.org/Configuring/Keywords/ for more
       $mainMod = SUPER
 
@@ -144,10 +137,9 @@ in {
       bind = $mainMod, V, togglefloating,
       bind = $mainMod, W, exec, gamemoderun firefox -p default
       bind = $mainMod, X, exec, swaylock
-      bind = $mainMod,Z,exec,password-menu
+      bind = $mainMod, Z, exec,password-menu
       bind = , Print, exec, screenshot
       bind = ALT SHIFT, F, fakefullscreen,
-      # bind = $mainMod, J, togglesplit, # dwindle
 
       # Move focus with mainMod + arrow keys
       ${addToFile (
