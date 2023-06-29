@@ -9,6 +9,7 @@ _: {
     };
     searchEngines = {
       aw = "https://wiki.archlinux.org/?search={}";
+      gh = "github.com/search?q={}";
       nw = "https://nixos.wiki/index.php?search={}";
       p = "https://www.phind.com/search?q={}&source=searchbox";
     };
