@@ -35,12 +35,13 @@
     settings.auto-optimise-store = true;
     # registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = ''
-      experimental-features = flakes nix-command
+      experimental-features = flakes nix-command recursive-nix
       keep-outputs = true
       keep-derivations = true
     '';
+    systemFeatures = ["recursive-nix"];
   };
-  security = {pam = {services = {login = {gnupg.enable = true;};};};};
+  security.pam.services.login.gnupg.enable = true;
   services = {
     dbus.packages = [pkgs.gcr];
     dnscrypt-proxy2 = {

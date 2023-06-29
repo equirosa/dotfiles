@@ -27,8 +27,12 @@
       then 0
       else num
     );
-  termWrap = program: "${getExe foot} ${getExe program}";
-  execOnce = ["beeper" "firefox -p default" "swww init"];
+    defaultTerm = getExe foot;
+  termWrap = program: "${defaultTerm} ${getExe program}";
+  execOnce =
+    addToFile
+    (map (command: "exec-once=${command}")
+      ["beeper" "firefox -p default" "swww init"]);
   addToFile = concatStringsSep "\n";
   assignWorkspaces = monitor: workspaces:
     addToFile (map (number: "workspace=${toString number},monitor:${monitor}")
@@ -104,17 +108,8 @@ in {
       }
 
       dwindle {
-          # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-          pseudotile = yes # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+          pseudotile = yes
           preserve_split = yes # you probably want this
-      }
-
-      master {
-          new_is_master = true
-      }
-
-      gestures {
-          workspace_swipe = off
       }
 
       # See https://wiki.hyprland.org/Configuring/Keywords/ for more
@@ -128,7 +123,7 @@ in {
       bind = $mainMod, F, fullscreen, 0
       bind = $mainMod, I, exec, ${termWrap btop}
       bind = $mainMod, M, fullscreen, 1
-      bind = $mainMod, N, exec, ${termWrap newsboat}
+      bind = $mainMod, N, exec, ${getExe foot} --title=newsboat ${getExe newsboat}
       bind = $mainMod, P, exec, emoji
       bind = $mainMod, R, exec, ${termWrap lf}
       bind = $mainMod, RETURN, exec, foot
@@ -163,7 +158,7 @@ in {
       # Move active window to a workspace with mainMod + SHIFT + [0-9]
       ${addToFile
         (forEach allWorkspaces
-          (number: "bind = $mainMod SHIFT, ${useRightNum number}, movetoworkspace, ${toString number}"))}
+          (number: "bind = $mainMod SHIFT, ${useRightNum number}, movetoworkspacesilent, ${toString number}"))}
 
       # Scroll through existing workspaces with mainMod + scroll
       bind = $mainMod, mouse_down, workspace, e+1
@@ -180,9 +175,10 @@ in {
         ["class:^(Steam|.gamescope-wrapped)"]}
       windowrulev2=workspace 9 silent,class:^(Ferdium|Beeper)
       windowrulev2=maximize,class:^(firefox)$,title:Picture-in-Picture
+      windowrulev2=workspace 8,class:^(foot)$,title:newsboat
       windowrulev2=float,nofullscreen,class:firefox,title:^Firefox — Sharing Indicator$
 
-      ${addToFile (forEach execOnce (command: "exec-once=${command}"))}
+      ${execOnce}
     '';
   };
 }
