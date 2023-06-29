@@ -129,7 +129,6 @@ in {
 
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
       bind = $mainMod SHIFT, Q, killactive,
-      bind = , Print, exec, screenshot
       bind = $mainMod, A, exec, ${termWrap pulsemixer}
       bind = $mainMod, D, exec, rofi -show run
       bind = $mainMod, E, exec, kitty aerc
@@ -139,13 +138,14 @@ in {
       bind = $mainMod, N, exec, ${termWrap newsboat}
       bind = $mainMod, P, exec, emoji
       bind = $mainMod, R, exec, ${termWrap lf}
-      bind = $mainMod, T, exec, ${termWrap tremc}
-      bind = $mainMod, X, exec, swaylock
       bind = $mainMod, RETURN, exec, foot
       bind = $mainMod, S, exec, search
+      bind = $mainMod, T, exec, ${termWrap tremc}
       bind = $mainMod, V, togglefloating,
       bind = $mainMod, W, exec, gamemoderun firefox -p default
-      bind=$mainMod,Z,exec,password-menu
+      bind = $mainMod, X, exec, swaylock
+      bind = $mainMod,Z,exec,password-menu
+      bind = , Print, exec, screenshot
       bind = ALT SHIFT, F, fakefullscreen,
       # bind = $mainMod, J, togglesplit, # dwindle
 
