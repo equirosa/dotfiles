@@ -133,9 +133,9 @@ in {
       bind = $mainMod, A, exec, ${termWrap pulsemixer}
       bind = $mainMod, D, exec, rofi -show run
       bind = $mainMod, E, exec, kitty aerc
-      bind = $mainMod, F, fullscreen,
+      bind = $mainMod, F, fullscreen, 0
       bind = $mainMod, I, exec, ${termWrap btop}
-      bind = $mainMod, M, maximize,
+      bind = $mainMod, M, fullscreen, 1
       bind = $mainMod, N, exec, ${termWrap newsboat}
       bind = $mainMod, P, exec, emoji
       bind = $mainMod, R, exec, ${termWrap lf}
