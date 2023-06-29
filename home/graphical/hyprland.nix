@@ -170,10 +170,10 @@ in {
         ["class:org.remmina.Remmina"]}
       ${genRule2 ["workspace 6 silent" "tile"]
         ["class:^(Steam|.gamescope-wrapped)"]}
-      windowrulev2=workspace 9 silent,class:^(Ferdium|Beeper)
+      windowrulev2=float,nofullscreen,class:firefox,title:^Firefox — Sharing Indicator$
       windowrulev2=maximize,class:^(firefox)$,title:Picture-in-Picture
       windowrulev2=workspace 8,class:^(foot)$,title:newsboat
-      windowrulev2=float,nofullscreen,class:firefox,title:^Firefox — Sharing Indicator$
+      windowrulev2=workspace 9 silent,class:^(Ferdium|Beeper)
 
       ${execOnce}
     '';
