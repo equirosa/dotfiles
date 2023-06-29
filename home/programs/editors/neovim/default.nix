@@ -66,7 +66,7 @@ _: {
         enable = true;
         mapping = {
           "<CR>" = "cmp.mapping.confirm({ select = true })";
-          "<Tab>" = {
+          "<C-Tab>" = {
             modes = ["i" "s"];
             action = ''
               function(fallback)
