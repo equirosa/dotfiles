@@ -4,7 +4,7 @@ _: {
     aliases = {};
     keyBindings = {
       prompt = {
-        "<Ctrl-y>" = "promt-yes";
+        "<Ctrl-y>" = "prompt-yes";
       };
     };
   };
