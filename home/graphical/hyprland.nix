@@ -16,6 +16,7 @@
     tremc
     ;
   gaps = 2;
+  mod = "SUPER";
   leftMon = "DP-1";
   rightMon = "HDMI-A-1";
   leftWorkspaces = range 1 6;
@@ -112,61 +113,57 @@ in {
           preserve_split = yes # you probably want this
       }
 
-      # See https://wiki.hyprland.org/Configuring/Keywords/ for more
-      $mainMod = SUPER
-
-      # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-      bind = $mainMod SHIFT, Q, killactive,
-      bind = $mainMod, A, exec, ${termWrap pulsemixer}
-      bind = $mainMod, D, exec, rofi -show run
-      bind = $mainMod, E, exec, kitty aerc
-      bind = $mainMod, F, fullscreen, 0
-      bind = $mainMod, I, exec, ${termWrap btop}
-      bind = $mainMod, M, fullscreen, 1
-      bind = $mainMod, N, exec, ${getExe foot} --title=newsboat ${getExe newsboat}
-      bind = $mainMod, P, exec, emoji
-      bind = $mainMod, R, exec, ${termWrap lf}
-      bind = $mainMod, RETURN, exec, foot
-      bind = $mainMod, S, exec, search
-      bind = $mainMod, T, exec, ${termWrap tremc}
-      bind = $mainMod, V, togglefloating,
-      bind = $mainMod, W, exec, gamemoderun firefox -p default
-      bind = $mainMod, X, exec, swaylock
-      bind = $mainMod, Z, exec,password-menu
+      bind = ${mod} SHIFT, Q, killactive,
+      bind = ${mod}, A, exec, ${termWrap pulsemixer}
+      bind = ${mod}, D, exec, rofi -show run
+      bind = ${mod}, E, exec, kitty aerc
+      bind = ${mod}, F, fullscreen, 0
+      bind = ${mod}, I, exec, ${termWrap btop}
+      bind = ${mod}, M, fullscreen, 1
+      bind = ${mod}, N, exec, ${getExe foot} --title=newsboat ${getExe newsboat}
+      bind = ${mod}, P, exec, emoji
+      bind = ${mod}, R, exec, ${termWrap lf}
+      bind = ${mod}, RETURN, exec, foot
+      bind = ${mod}, S, exec, search
+      bind = ${mod}, T, exec, ${termWrap tremc}
+      bind = ${mod}, V, togglefloating,
+      bind = ${mod}, W, exec, gamemoderun firefox -p default
+      bind = ${mod}, X, exec, swaylock
+      bind = ${mod}, Z, exec,password-menu
       bind = , Print, exec, screenshot
       bind = ALT SHIFT, F, fakefullscreen,
 
-      # Move focus with mainMod + arrow keys
+      # Move focus with ${mod} + arrow keys
       ${addToFile (
-        map (key: "bind = $mainMod, ${key}, movefocus, l") ["h" "LEFT"]
+        map (key: "bind = ${mod}, ${key}, movefocus, l") ["h" "LEFT"]
       )}
       ${addToFile (
-        map (key: "bind = $mainMod, ${key}, movefocus, r") ["l" "RIGHT"]
+        map (key: "bind = ${mod}, ${key}, movefocus, r") ["l" "RIGHT"]
       )}
       ${addToFile (
-        map (key: "bind = $mainMod, ${key}, movefocus, u") ["k" "UP"]
+        map (key: "bind = ${mod}, ${key}, movefocus, u") ["k" "UP"]
       )}
       ${addToFile (
-        map (key: "bind = $mainMod, ${key}, movefocus, d") ["j" "DOWN"]
+        map (key: "bind = ${mod}, ${key}, movefocus, d") ["j" "DOWN"]
       )}
 
-      # Switch workspaces with mainMod + [0-9]
+      # Switch workspaces with ${mod} + [0-9]
       ${addToFile
         (forEach allWorkspaces
-          (number: "bind = $mainMod, ${useRightNum number}, workspace, ${toString number}"))}
+          (number: "bind = ${mod}, ${useRightNum number}, workspace, ${toString number}"))}
 
-      # Move active window to a workspace with mainMod + SHIFT + [0-9]
+      # Move active window to a workspace with ${mod} + SHIFT + [0-9]
       ${addToFile
         (forEach allWorkspaces
-          (number: "bind = $mainMod SHIFT, ${useRightNum number}, movetoworkspacesilent, ${toString number}"))}
+          (number: "bind = ${mod} SHIFT, ${useRightNum number}, movetoworkspacesilent, ${toString number}"))}
 
-      # Scroll through existing workspaces with mainMod + scroll
-      bind = $mainMod, mouse_down, workspace, e+1
-      bind = $mainMod, mouse_up, workspace, e-1
+      # Scroll through existing workspaces with ${mod} + scroll
+      bind = ${mod}, mouse_down, workspace, e+1
+      bind = ${mod}, mouse_up, workspace, e-1
 
-      # Move/resize windows with mainMod + LMB/RMB and dragging
-      bindm = $mainMod, mouse:272, movewindow
-      bindm = $mainMod, mouse:273, resizewindow
+      # Move/resize windows with ${mod} + LMB/RMB and dragging
+      bindm = ${mod}, mouse:272, movewindow
+      bindm = ${mod}, mouse:273, resizewindow
 
       # Window Rules
       ${genRule2 ["workspace 1 silent" "fakefullscreen"]
