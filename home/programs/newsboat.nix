@@ -6,7 +6,7 @@
   macroList = [
     {
       key = "m";
-      action = "mpv --keep-open=no";
+      action = "mpv --keep-open=no --title=newsboat";
     }
     {
       key = "u";
