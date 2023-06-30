@@ -28,7 +28,7 @@
       then 0
       else num
     );
-    defaultTerm = getExe foot;
+  defaultTerm = getExe foot;
   termWrap = program: "${defaultTerm} ${getExe program}";
   execOnce =
     addToFile

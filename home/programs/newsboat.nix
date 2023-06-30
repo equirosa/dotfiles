@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   resetBrowser = ''set browser "xdg-open"'';
   macroList = [
     {

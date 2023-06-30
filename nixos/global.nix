@@ -33,13 +33,13 @@
       persistent = true;
     };
     settings.auto-optimise-store = true;
+    settings.system-features = ["recursive-nix"];
     # registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = ''
       experimental-features = flakes nix-command recursive-nix
       keep-outputs = true
       keep-derivations = true
     '';
-    systemFeatures = ["recursive-nix"];
   };
   security.pam.services.login.gnupg.enable = true;
   services = {

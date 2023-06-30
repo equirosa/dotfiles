@@ -1,4 +1,8 @@
-{pkgs,lib,...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   services.flatpak.enable = true;
   systemd = {
     services.flatpak-update = let
