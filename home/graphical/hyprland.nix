@@ -175,7 +175,7 @@ in {
       ${genRule2 ["workspace 1 silent" "fakefullscreen"]
         ["class:org.remmina.Remmina"]}
       ${genRule2 ["workspace 6 silent" "tile"]
-        ["class:^(Steam|.gamescope-wrapped)"]}
+        ["class:^([Ss]team|.gamescope-wrapped)"]}
       windowrulev2=float,nofullscreen,class:firefox,title:^Firefox — Sharing Indicator$
       windowrulev2=maximize,class:^(firefox)$,title:Picture-in-Picture
       windowrulev2=workspace 8 silent,class:^(foot|mpv)$,title:newsboat
