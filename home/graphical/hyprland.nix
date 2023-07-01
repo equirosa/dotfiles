@@ -176,7 +176,7 @@ in {
         ["class:org.remmina.Remmina"]}
       ${genRule2 ["workspace 6 silent" "tile"]
         ["class:^([Ss]team|.gamescope-wrapped)"]}
-      ${genRule2 ["float" "pin"]
+      ${genRule2 ["dimaround" "float" "pin"]
         ["class:^(gcr-prompter)"]}
       windowrulev2=float,nofullscreen,class:firefox,title:^Firefox — Sharing Indicator$
       windowrulev2=maximize,class:^(firefox)$,title:Picture-in-Picture
