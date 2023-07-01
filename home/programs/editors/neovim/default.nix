@@ -101,7 +101,7 @@ _: {
       cmp_luasnip.enable = true;
       treesitter = {
         enable = true;
-        #folding = true;
+        nixvimInjections = true;
       };
       treesitter-refactor.enable = true;
       telescope = {
