@@ -29,7 +29,7 @@
       else num
     );
   defaultTerm = getExe foot;
-  termWrap = program: "${defaultTerm} ${getExe program}";
+  termify = program: "${defaultTerm} ${getExe program}";
   execOnce =
     addToFile
     (map (command: "exec-once=${command}")
@@ -114,18 +114,18 @@ in {
       }
 
       bind = ${mod} SHIFT, Q, killactive,
-      bind = ${mod}, A, exec, ${termWrap pulsemixer}
+      bind = ${mod}, A, exec, ${termify pulsemixer}
       bind = ${mod}, D, exec, rofi -show run
       bind = ${mod}, E, exec, kitty aerc
       bind = ${mod}, F, fullscreen, 0
-      bind = ${mod}, I, exec, ${termWrap btop}
+      bind = ${mod}, I, exec, ${termify btop}
       bind = ${mod}, M, fullscreen, 1
       bind = ${mod}, N, exec, ${getExe foot} --title=newsboat ${getExe newsboat}
       bind = ${mod}, P, exec, emoji
-      bind = ${mod}, R, exec, ${termWrap lf}
+      bind = ${mod}, R, exec, ${termify lf}
       bind = ${mod}, RETURN, exec, foot
       bind = ${mod}, S, exec, search
-      bind = ${mod}, T, exec, ${termWrap tremc}
+      bind = ${mod}, T, exec, ${termify tremc}
       bind = ${mod}, V, togglefloating,
       bind = ${mod}, W, exec, gamemoderun firefox -p default
       bind = ${mod}, X, exec, swaylock
