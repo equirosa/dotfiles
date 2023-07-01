@@ -4,18 +4,18 @@ rec {
   clo = "curl -LO";
   cnf = "command-not-found";
   cp = "cp -i";
-  mv = "mv -i";
   duts = "dust";
   e = "$EDITOR";
   fex = "fd --extension";
   lb = "lsblk";
   lg = "lazygit";
   md = "mkdir -p";
+  mv = "mv -i";
   ned = "nix-env -qaP --description";
   nf = "nix fmt";
+  nfst = "nix flake show templates";
   nfu = "nix flake update --commit-lock-file";
   nr = "nix run nixpkgs#";
-  nfst = "nix flake show templates";
   nrh = "nixpkgs-review rev HEAD";
   nrp = "nixpkgs-review pr --post-result";
   nrw = "nixpkgs-review wip";
@@ -30,11 +30,16 @@ rec {
   v = "nvim";
   wl = "watchlist";
   x = "xdg-open";
+  # Flatpak
+  fi = "flatpak install";
+  fl = "flatpak list";
+  fu = "flatpak update --assumeyes";
+  fun = "flatpak uninstall --assumeyes";
   # Listing
   l = "ls -lh";
   ll = "ls -lah";
-  lss = "ls -lh";
   lls = "ls -lah";
+  lss = "ls -lh";
   # Mpv
   m = "mpv";
   mfs = "mpv --fs";
@@ -62,18 +67,19 @@ rec {
   dne = "${dn} -e";
   nb = "nix build";
   nbf = "${nb} -f ./.";
-  nph = "nix profile history";
-  npi = "nix profile install";
-  npl = "nix profile list";
-  npr = "nix profile remove";
-  npra = "nix profile remove '.*'";
-  nprb = "nix profile rollback";
-  npu = "nix profile upgrade";
+  np = "nix profile";
+  nph = "${np} history";
+  npi = "${np} install";
+  npl = "${np} list";
+  npr = "${np} remove";
+  npra = "${np} remove '.*'";
+  nprb = "${np} rollback";
+  npu = "${np} upgrade";
   ra = "regen all";
   rh = "regen home";
   ro = "regen os";
   rt = "regen test";
-  up = ''sudo nixos-rebuild switch --profile-name $(date +%s)-'';
+  up = "sudo nixos-rebuild switch --profile-name $(date +%s)-";
   # trash-cli
   rm = "trash-put";
   te = "trash-empty";
