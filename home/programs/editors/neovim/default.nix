@@ -103,7 +103,23 @@ _: {
         enable = true;
         nixvimInjections = true;
       };
-      treesitter-refactor.enable = true;
+      treesitter-refactor = {
+        enable = true;
+        navigation = {
+          enable = true;
+          keymaps = {
+            gotoDefinition = "<leader>gd";
+            gotoNextUsage = "<leader>gn";
+            gotoPreviousUsage = "<leader>gp";
+            listDefinitons = "<leader>ld";
+            listDefinitonsToc = "<leader>gO";
+          };
+        };
+        smartRename = {
+          enable = true;
+          keymaps.smartRename = "<leader>r";
+        };
+      };
       telescope = {
         enable = true;
         extensions = {
