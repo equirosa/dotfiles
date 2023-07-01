@@ -13,5 +13,9 @@ _: {
       nw = "https://nixos.wiki/index.php?search={}";
       p = "https://www.phind.com/search?q={}&source=searchbox";
     };
+    quickmarks = {
+      nixpkgs = "https://github.com/NixOS/nixpkgs";
+      home-manager = "https://github.com/nix-community/home-manager";
+    };
   };
 }
