@@ -135,7 +135,7 @@ _: {
           "<leader>sw" = "grep_string";
         };
       };
-      treesitter-rainbow = {enable = true;};
+      treesitter-rainbow.enable = true;
       which-key = {enable = true;};
     };
   };
