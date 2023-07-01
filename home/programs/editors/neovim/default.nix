@@ -103,6 +103,7 @@ _: {
         enable = true;
         nixvimInjections = true;
       };
+      treesitter-context.enable = true;
       treesitter-refactor = {
         enable = true;
         navigation = {
