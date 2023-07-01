@@ -33,7 +33,13 @@
   execOnce =
     addToFile
     (map (command: "exec-once=${command}")
-      ["beeper" "firefox -p default" "swww init"]);
+      [
+        "transmission-daemon"
+        "${getExe foot} --title=newsboat ${getExe newsboat}"
+        "beeper"
+        "firefox -p default"
+        "swww init"
+      ]);
   addToFile = concatStringsSep "\n";
   assignWorkspaces = monitor: workspaces:
     addToFile (map (number: "workspace=${toString number},monitor:${monitor}")
