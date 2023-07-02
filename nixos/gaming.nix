@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  nix-gaming,
   ...
 }: let
   inherit (builtins) elem;
@@ -21,6 +22,7 @@ in {
     (gscope "steam")
     (gscope "com.valvesoftware.Steam")
     mangohud
+    nix-gaming.packages.${pkgs.system}.rocket-league
   ];
   programs = {
     gamemode.enable = true;
