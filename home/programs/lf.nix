@@ -70,7 +70,6 @@ in {
         incsearch = true;
         ifs = "\\n";
         ratios = "2:4";
-        shell = "${getExe pkgs.dash}";
         wrapscroll = true;
       };
       extraConfig = ''
