@@ -37,6 +37,7 @@
     hunspellDicts.es-any
     texlive.combined.scheme-full
     # File Sharing
+    transmission
     tremc
     # Nix-specific stuff
     cachix
