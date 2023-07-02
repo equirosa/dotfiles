@@ -6,10 +6,7 @@ _: {
       prompt = {
         "<Ctrl-y>" = "prompt-yes";
       };
-      normal = {
-        "eu" = "edit-url";
-        "ZZ" = "wq";
-      };
+      normal = {"eu" = "edit-url";};
     };
     searchEngines = {
       aw = "https://wiki.archlinux.org/?search={}";
