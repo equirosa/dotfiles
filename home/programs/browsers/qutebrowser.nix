@@ -8,6 +8,7 @@ _: {
       };
     };
     searchEngines = {
+      DEFAULT = "https://farside.link/whoogle";
       aw = "https://wiki.archlinux.org/?search={}";
       gh = "github.com/search?q={}";
       nw = "https://nixos.wiki/index.php?search={}";
