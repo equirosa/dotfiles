@@ -1,1 +1,1 @@
-rofimoji --clipboarder wl-copy --action type copy --typer wtype
+rofi -show emoji
