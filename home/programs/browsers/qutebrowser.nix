@@ -21,6 +21,7 @@ _: {
     };
     settings = {
       editor.command = ["foot" "nvim" "{file}"];
+      downloads.location.prompt = false;
     };
   };
 }
