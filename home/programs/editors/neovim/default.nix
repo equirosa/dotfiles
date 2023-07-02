@@ -25,6 +25,8 @@
       hlsearch = false;
       number = true;
       relativenumber = true;
+      smartcase = true;
+      ignorecase = true;
     };
     maps = {
       normal = {
