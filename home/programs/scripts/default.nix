@@ -23,6 +23,7 @@
     "nvd"
     "pngquant"
     "rbw"
+    "rofimoji"
     "silicon"
     "swappy"
   ];
