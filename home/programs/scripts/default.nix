@@ -18,7 +18,14 @@
   ffmpeg-bin = "${pkgs.ffmpeg_6-full}/bin/ffmpeg";
   scriptAudio = "-c:a libopus -b:a 128k";
   getExeList = map (x: "${getExe pkgs.${x}}");
-  stringsToReplace = ["appimage-run" "rbw" "silicon" "nvd" "pngquant" "swappy"];
+  stringsToReplace = [
+    "appimage-run"
+    "nvd"
+    "pngquant"
+    "rbw"
+    "silicon"
+    "swappy"
+  ];
   shellApplicationFromList =
     map
     (name:
