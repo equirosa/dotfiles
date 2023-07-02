@@ -1,4 +1,4 @@
-_: {
+{lib, ...}: {
   programs.nixvim = {
     enable = true;
     clipboard.providers.wl-copy.enable = true;
@@ -139,5 +139,6 @@ _: {
       treesitter-rainbow.enable = true;
       which-key = {enable = true;};
     };
+    extraConfigLua = lib.fileContents ./highlightYank.lua;
   };
 }

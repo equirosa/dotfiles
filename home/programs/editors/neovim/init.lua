@@ -322,16 +322,6 @@ vim.keymap.set({ "n", "v" }, "<C-j>", ":wincmd j <CR>", { silent = true })
 vim.keymap.set({ "n", "v" }, "<C-k>", ":wincmd k <CR>", { silent = true })
 vim.keymap.set({ "n", "v" }, "<C-l>", ":wincmd l <CR>", { silent = true })
 vim.keymap.set({ "n", "v" }, "<C-h>", ":wincmd h <CR>", { silent = true })
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
-vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = "*",
-})
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
