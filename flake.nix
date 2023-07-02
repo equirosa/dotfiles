@@ -9,6 +9,8 @@
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprland.url = "github:hyprwm/Hyprland";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:Mic92/nix-index-database";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
@@ -20,6 +22,7 @@
     flake-utils,
     home-manager,
     hyprland,
+    nix-gaming,
     nix-index-database,
     nixpkgs,
     nixvim,
@@ -51,7 +54,7 @@
             }
             ./hosts/snowfort/configuration.nix
           ];
-          specialArgs = {inherit colors nixpkgs;};
+          specialArgs = {inherit colors nix-gaming nixpkgs;};
         };
       };
       homeConfigurations = let
