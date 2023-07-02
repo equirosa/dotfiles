@@ -52,7 +52,7 @@
     fd
     hyprpicker
     imv
-    inputs.hypr-contrib.packages."x86_64-linux".grimblast
+    inputs.hypr-contrib.packages.${system}.grimblast
     libnotify
     parallel-full
     qpwgraph
