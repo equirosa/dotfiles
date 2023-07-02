@@ -3,7 +3,6 @@ _: {
     ./hyprland.nix
     ./notifications.nix
     ./screenlock.nix
-    ./wallpaper.nix
     ./waybar.nix
   ];
   xdg.configFile."electron-flags.conf".text = ''
