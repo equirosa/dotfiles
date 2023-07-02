@@ -177,7 +177,7 @@ in {
       ${genRule2 ["workspace 6 silent" "tile"]
         ["class:^([Ss]team|.gamescope-wrapped)"]}
       ${genRule2 ["dimaround" "float" "pin"]
-        ["class:^(gcr-prompter)"]}
+        ["class:^(gcr-prompter|[Rr]ofi)"]}
       windowrulev2=float,nofullscreen,class:firefox,title:^Firefox — Sharing Indicator$
       windowrulev2=maximize,class:^(firefox)$,title:Picture-in-Picture
       windowrulev2=workspace 8 silent,class:^(foot|mpv)$,title:newsboat
