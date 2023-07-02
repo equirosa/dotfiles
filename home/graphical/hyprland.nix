@@ -156,12 +156,9 @@ in {
       # Switch workspaces with ${mod} + [0-9]
       ${addToFile
         (forEach allWorkspaces
-          (number: "bind = ${mod}, ${useRightNum number}, workspace, ${toString number}"))}
-
-      # Move active window to a workspace with ${mod} + SHIFT + [0-9]
-      ${addToFile
-        (forEach allWorkspaces
-          (number: "bind = ${mod} SHIFT, ${useRightNum number}, movetoworkspacesilent, ${toString number}"))}
+          (number: ''
+            bind = ${mod}, ${useRightNum number}, workspace, ${toString number}
+            bind = ${mod} SHIFT, ${useRightNum number}, movetoworkspacesilent, ${toString number}''))}
 
       # Scroll through existing workspaces with ${mod} + scroll
       bind = ${mod}, mouse_down, workspace, e+1
