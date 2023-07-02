@@ -18,5 +18,8 @@ _: {
       nixpkgs = "https://github.com/NixOS/nixpkgs";
       tdm = "twitch.tv/drmick";
     };
+    settings = {
+      editor.command = ["foot" "nvim" "{file}"];
+    };
   };
 }
