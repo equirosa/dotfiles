@@ -17,6 +17,7 @@ _: {
     quickmarks = {
       home-manager = "https://github.com/nix-community/home-manager";
       nixpkgs = "https://github.com/NixOS/nixpkgs";
+      nvo = "https://pta2002.github.io/nixvim/";
       tdm = "twitch.tv/drmick";
     };
     settings = {
