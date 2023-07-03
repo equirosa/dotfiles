@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   services.emacs = {
-    enable = true;
+    enable = false;
     defaultEditor = true;
     package = pkgs.emacsWithPackagesFromUsePackage {
       config = ./init.el;
