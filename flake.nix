@@ -2,15 +2,16 @@
   description = "Kiri's Nix configuration";
 
   inputs = {
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     hypr-contrib.inputs.nixpkgs.follows = "nixpkgs";
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprland.url = "github:hyprwm/Hyprland";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-    nix-gaming.url = "github:fufexan/nix-gaming";
     nix-gaming.inputs.nixpkgs.follows = "nixpkgs";
+    nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:Mic92/nix-index-database";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
@@ -19,6 +20,7 @@
   };
 
   outputs = inputs @ {
+    emacs-overlay,
     flake-utils,
     home-manager,
     hyprland,
@@ -29,6 +31,7 @@
     ...
   }: let
     colors = import ./colors.nix;
+    overlays=[emacs-overlay.overlay];
   in
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
@@ -78,6 +81,7 @@
                 stateVersion = "22.05";
               };
               xdg.userDirs.enable = true;
+	      nixpkgs.overlays = overlays;
             }
             ./home
           ];

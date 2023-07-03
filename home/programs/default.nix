@@ -7,6 +7,7 @@
     ./browsers/firefox.nix
     ./browsers/qutebrowser.nix
     ./editors/neovim
+    ./editors/emacs
     ./git.nix
     ./lf.nix
     ./mpv.nix
