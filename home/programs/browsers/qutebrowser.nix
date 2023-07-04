@@ -1,7 +1,6 @@
 { pkgs, lib, ... }:
 let
   terminal = "${lib.getExe pkgs.foot}";
-  userscripts = { name, text }: "";
 in
 {
   programs.qutebrowser = {
@@ -13,8 +12,10 @@ in
         "<Ctrl-y>" = "prompt-yes";
       };
       normal = {
+        am = "spawn --userscript add-to-miniflux";
         aw = "spawn --userscript add-to-wallabag";
-        "eu" = "edit-url";
+        cs = "config-source";
+        eu = "edit-url";
       };
     };
     searchEngines = {
@@ -42,9 +43,14 @@ in
   xdg.dataFile = {
     "qutebrowser/userscripts/add-to-wallabag" = {
       executable = true;
-      recursive = true;
       source = pkgs.writeShellScript "add-to-wallabag" ''
         echo "open -t https://wallabag.nixnet.services/bookmarklet?url="$QUTE_URL >> $QUTE_FIFO
+      '';
+    };
+    "qutebrowser/userscripts/add-to-miniflux" = {
+      executable = true;
+      source = pkgs.writeShellScript "add-to-miniflux" ''
+        echo "open -t https://reader.miniflux.app/bookmarklet?uri="$QUTE_URL >> $QUTE_FIFO
       '';
     };
   };
