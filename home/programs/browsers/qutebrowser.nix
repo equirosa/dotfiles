@@ -1,5 +1,8 @@
 { pkgs, lib, ... }:
-let terminal = "${lib.getExe pkgs.foot}"; in
+let
+  terminal = "${lib.getExe pkgs.foot}";
+  userscripts = { name, text }: "";
+in
 {
   programs.qutebrowser = {
     enable = true;
@@ -9,7 +12,10 @@ let terminal = "${lib.getExe pkgs.foot}"; in
       prompt = {
         "<Ctrl-y>" = "prompt-yes";
       };
-      normal = { "eu" = "edit-url"; };
+      normal = {
+        aw = "spawn --userscript add-to-wallabag";
+        "eu" = "edit-url";
+      };
     };
     searchEngines = {
       aw = "https://wiki.archlinux.org/?search={}";
@@ -31,6 +37,15 @@ let terminal = "${lib.getExe pkgs.foot}"; in
     settings = {
       editor.command = [ terminal "nvim" "{file}" ];
       downloads.location.prompt = false;
+    };
+  };
+  xdg.dataFile = {
+    "qutebrowser/userscripts/add-to-wallabag" = {
+      executable = true;
+      recursive = true;
+      source = pkgs.writeShellScript "add-to-wallabag" ''
+        echo "open -t https://wallabag.nixnet.services/bookmarklet?url="$QUTE_URL >> $QUTE_FIFO
+      '';
     };
   };
 }
