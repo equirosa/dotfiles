@@ -1,7 +1,9 @@
-{lib, ...}: let
-  openPortRanges = [];
-  open-ports = [];
-in {
+{ lib, ... }:
+let
+  openPortRanges = [ ];
+  open-ports = [ ];
+in
+{
   imports = [
     # <nixpkgs/nixos/modules/profiles/hardened.nix>
     ./kernel.nix
@@ -9,7 +11,7 @@ in {
   ];
   environment = {
     # Remove default packages to reduce attack surface.
-    defaultPackages = lib.mkForce [];
+    defaultPackages = lib.mkForce [ ];
   };
   networking.firewall = {
     # Close firewall
@@ -19,7 +21,7 @@ in {
     allowedUDPPorts = open-ports;
     allowedUDPPortRanges = openPortRanges;
   };
-  nix.settings.allowed-users = ["@wheel"];
+  nix.settings.allowed-users = [ "@wheel" ];
   security = {
     apparmor = {
       enable = true;

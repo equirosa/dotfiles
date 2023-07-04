@@ -1,8 +1,8 @@
-{
-  pkgs,
-  lib,
-  ...
-}: let
+{ pkgs
+, lib
+, ...
+}:
+let
   inherit (lib) getExe;
   inherit (lib.lists) forEach range;
   inherit (builtins) concatStringsSep;
@@ -32,21 +32,22 @@
   termify = program: "${defaultTerm} ${getExe program}";
   execOnce =
     addToFile
-    (map (command: "exec-once=${command}")
-      [
-        "transmission-daemon"
-        "${getExe foot} --title=newsboat ${getExe newsboat}"
-        "beeper"
-        "firefox -p default"
-        "swww init"
-      ]);
+      (map (command: "exec-once=${command}")
+        [
+          "transmission-daemon"
+          "${getExe foot} --title=newsboat ${getExe newsboat}"
+          "beeper"
+          "firefox -p default"
+          "swww init"
+        ]);
   addToFile = concatStringsSep "\n";
   assignWorkspaces = monitor: workspaces:
     addToFile (map (number: "workspace=${toString number},monitor:${monitor}")
       workspaces);
   genRule2 = rules: regexs:
     addToFile (map (regex: "${addToFile (map (rule: "windowrulev2=${rule},${regex}") rules)}") regexs);
-in {
+in
+{
   wayland.windowManager.hyprland = {
     enable = true;
     recommendedEnvironment = true;

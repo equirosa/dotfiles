@@ -1,12 +1,12 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: let
+{ pkgs
+, lib
+, config
+, ...
+}:
+let
   inherit (builtins) replaceStrings;
   inherit (lib) getExe optionalString fileContents;
-  inherit (import ../../shell/aliases.nix {inherit pkgs lib;}) cat;
+  inherit (import ../../shell/aliases.nix { inherit pkgs lib; }) cat;
   notify = "${getExe pkgs.libnotify} -t 5000";
   menu-program = "rofi -dmenu";
   backupIfDuplicate = ext: ''
@@ -29,35 +29,37 @@
   ];
   shellApplicationFromList =
     map
-    (name:
-      pkgs.writeShellApplication {
-        inherit name;
-        text =
-          replaceStrings
-          stringsToReplace
-          (getExeList stringsToReplace)
-          "${fileContents ./${name}.sh}";
-      });
-  shellApplicationWithInputs = {
-    name,
-    runtimeInputs ? [],
-    text,
-    getFile ? false || getExt || getBase || getDir,
-    getExt ? false,
-    getBase ? false,
-    getDir ? false,
-  }: (pkgs.writeShellApplication {
-    inherit name runtimeInputs;
-    text = ''
-      [ $# -eq 0 ] && ${notify} "No arguments provided. Exitting..." && exit 1
-      ${optionalString getFile ''file="$(realpath "''${1}")"''}
-      ${optionalString getExt "ext=\${file##*.}"}
-      ${optionalString getBase "base=\${file%.*}"}
-      ${optionalString getDir "directory=\${file%/*}"}
-      ${text}
-    '';
-  });
-in {
+      (name:
+        pkgs.writeShellApplication {
+          inherit name;
+          text =
+            replaceStrings
+              stringsToReplace
+              (getExeList stringsToReplace)
+              "${fileContents ./${name}.sh}";
+        });
+  shellApplicationWithInputs =
+    { name
+    , runtimeInputs ? [ ]
+    , text
+    , getFile ? false || getExt || getBase || getDir
+    , getExt ? false
+    , getBase ? false
+    , getDir ? false
+    ,
+    }: (pkgs.writeShellApplication {
+      inherit name runtimeInputs;
+      text = ''
+        [ $# -eq 0 ] && ${notify} "No arguments provided. Exitting..." && exit 1
+        ${optionalString getFile ''file="$(realpath "''${1}")"''}
+        ${optionalString getExt "ext=\${file##*.}"}
+        ${optionalString getBase "base=\${file%.*}"}
+        ${optionalString getDir "directory=\${file%/*}"}
+        ${text}
+      '';
+    });
+in
+{
   home.packages = with pkgs;
     [
       (shellApplicationWithInputs {
@@ -103,16 +105,18 @@ in {
         name = "2webp";
         getExt = true;
         getBase = true;
-        text = let
-          cwebp = "${libwebp}/bin/cwebp";
-        in ''
-          case "''${ext}" in
-          jpg | jpeg ) ${cwebp} -q 80 "''${file}" -o "''${base}.webp" ;;
-          png ) ${cwebp} -lossless "''${file}" -o "''${base}.webp" ;;
-          webp ) printf "File is already WEBP" && exit 1 ;;
-          * ) printf "Can't handle that file extension..." && exit 1 ;;
-          esac
-        '';
+        text =
+          let
+            cwebp = "${libwebp}/bin/cwebp";
+          in
+          ''
+            case "''${ext}" in
+            jpg | jpeg ) ${cwebp} -q 80 "''${file}" -o "''${base}.webp" ;;
+            png ) ${cwebp} -lossless "''${file}" -o "''${base}.webp" ;;
+            webp ) printf "File is already WEBP" && exit 1 ;;
+            * ) printf "Can't handle that file extension..." && exit 1 ;;
+            esac
+          '';
       })
       (shellApplicationWithInputs {
         name = "download-media";
@@ -156,7 +160,7 @@ in {
       })
       (writeShellApplication {
         name = "password-menu";
-        runtimeInputs = [wtype];
+        runtimeInputs = [ wtype ];
         text = ''${getExe rofi-rbw}'';
       })
       (writeShellApplication {
@@ -187,22 +191,24 @@ in {
       })
       (writeShellApplication {
         name = "watchlist";
-        text = let
-          dateSecond = "$(date +%s)";
-          watchlistDir = "${config.xdg.userDirs.videos}/watchlist";
-        in ''
-          [ $# -eq 0 ] && setsid umpv "${watchlistDir}"
-          path="''${1%%:*}"
-          case "''${path}" in
-            http|https) setsid ${getExe yt-dlp} \
-              --sponsorblock-mark all\
-              --embed-subs\
-              --embed-metadata\
-              -o "${watchlistDir}/${dateSecond}-%(title)s-[%(id)s].%(ext)s"\
-            "''${1}" >>/dev/null & ;;
-            *) setsid mv "''${1}" "${watchlistDir}/${dateSecond}-''${1}" ;;
-          esac
-        '';
+        text =
+          let
+            dateSecond = "$(date +%s)";
+            watchlistDir = "${config.xdg.userDirs.videos}/watchlist";
+          in
+          ''
+            [ $# -eq 0 ] && setsid umpv "${watchlistDir}"
+            path="''${1%%:*}"
+            case "''${path}" in
+              http|https) setsid ${getExe yt-dlp} \
+                --sponsorblock-mark all\
+                --embed-subs\
+                --embed-metadata\
+                -o "${watchlistDir}/${dateSecond}-%(title)s-[%(id)s].%(ext)s"\
+              "''${1}" >>/dev/null & ;;
+              *) setsid mv "''${1}" "${watchlistDir}/${dateSecond}-''${1}" ;;
+            esac
+          '';
       })
       (shellApplicationWithInputs {
         name = "xdg-open";

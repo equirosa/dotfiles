@@ -1,4 +1,5 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   resetBrowser = ''set browser "xdg-open"'';
   macroList = [
     {
@@ -115,7 +116,8 @@
     }
   ];
   convertToString = argument: list: builtins.concatStringsSep "\n" (map argument list);
-in {
+in
+{
   programs.newsboat = {
     enable = true;
     autoReload = true;

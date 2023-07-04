@@ -1,4 +1,4 @@
-{lib, ...}: {
+{ lib, ... }: {
   programs.nixvim = {
     enable = true;
     clipboard.providers.wl-copy.enable = true;
@@ -38,7 +38,7 @@
         "<C-k>".action = ":wincmd k<CR>";
         "<C-l>".action = ":wincmd l<CR>";
       };
-      visualOnly = {"<C-s>".action = ":sort<CR>";};
+      visualOnly = { "<C-s>".action = ":sort<CR>"; };
     };
     plugins = {
       lualine.enable = true;
@@ -70,7 +70,7 @@
         mapping = {
           "<CR>" = "cmp.mapping.confirm({ select = true })";
           "<C-Tab>" = {
-            modes = ["i" "s"];
+            modes = [ "i" "s" ];
             action = ''
               function(fallback)
                 if cmp.visible() then
@@ -89,12 +89,12 @@
           };
         };
         sources = [
-          {name = "buffer";}
-          {name = "luasnip";} #For luasnip users.
-          {name = "nvim_lsp";}
-          {name = "nvim_lsp_signature_help";}
-          {name = "path";}
-          {name = "treesitter";}
+          { name = "buffer"; }
+          { name = "luasnip"; } #For luasnip users.
+          { name = "nvim_lsp"; }
+          { name = "nvim_lsp_signature_help"; }
+          { name = "path"; }
+          { name = "treesitter"; }
         ];
       };
       cmp-buffer.enable = true;
@@ -140,9 +140,9 @@
         };
       };
       treesitter-rainbow.enable = true;
-      which-key = {enable = true;};
+      which-key = { enable = true; };
     };
     extraConfigLua = lib.fileContents ./highlightYank.lua;
-    extraPackages = with pkgs; [nixpkgs-fmt];
+    extraPackages = with pkgs; [ nixpkgs-fmt ];
   };
 }

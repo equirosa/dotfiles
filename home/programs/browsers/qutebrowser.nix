@@ -1,13 +1,13 @@
-{pkgs,...}: {
+{ pkgs, ... }: {
   programs.qutebrowser = {
     enable = true;
     package = pkgs.qutebrowser-qt6;
-    aliases = {};
+    aliases = { };
     keyBindings = {
       prompt = {
         "<Ctrl-y>" = "prompt-yes";
       };
-      normal = {"eu" = "edit-url";};
+      normal = { "eu" = "edit-url"; };
     };
     searchEngines = {
       aw = "https://wiki.archlinux.org/?search={}";
@@ -23,7 +23,7 @@
       tdm = "twitch.tv/drmick";
     };
     settings = {
-      editor.command = ["foot" "nvim" "{file}"];
+      editor.command = [ "foot" "nvim" "{file}" ];
       downloads.location.prompt = false;
     };
   };

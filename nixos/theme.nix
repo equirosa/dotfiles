@@ -1,10 +1,10 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   fonts = {
     fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = ["Fira Code" "FiraCode Nerd Font" "Twitter Color Emoji"];
-        emoji = ["Twitter Color Emoji"];
+        monospace = [ "Fira Code" "FiraCode Nerd Font" "Twitter Color Emoji" ];
+        emoji = [ "Twitter Color Emoji" ];
       };
     };
     fontDir.enable = true;
@@ -14,7 +14,7 @@
       fira-code
       font-awesome
       liberation_ttf
-      (nerdfonts.override {fonts = ["FiraCode" "DroidSansMono"];})
+      (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
       twitter-color-emoji
     ];
   };

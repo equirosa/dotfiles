@@ -1,15 +1,17 @@
-{lib, ...}: let
+{ lib, ... }:
+let
   inherit (builtins) readDir;
   inherit (lib) filterAttrs mapAttrsToList hasSuffix;
-  filesIn = {
-    folder,
-    ext ? null,
-  }:
+  filesIn =
+    { folder
+    , ext ? null
+    ,
+    }:
     mapAttrsToList
-    (name: folder + ("/" + name))
-    (filterAttrs
-      (key: value: value == "regular" && hasSuffix ".${ext}" key)
-      (readDir folder));
+      (name: folder + ("/" + name))
+      (filterAttrs
+        (key: value: value == "regular" && hasSuffix ".${ext}" key)
+        (readDir folder));
   nixFilesIn = folder:
     filesIn {
       inherit folder;
@@ -20,4 +22,5 @@
       inherit folder;
       ext = "sh";
     };
-in {inherit filesIn nixFilesIn shellFilesIn;}
+in
+{ inherit filesIn nixFilesIn shellFilesIn; }

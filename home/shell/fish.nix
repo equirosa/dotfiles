@@ -1,11 +1,12 @@
-{
-  pkgs,
-  lib,
-  ...
-}: let
+{ pkgs
+, lib
+, ...
+}:
+let
   inherit (lib) getExe;
-in {
-  home.packages = [pkgs.jq];
+in
+{
+  home.packages = [ pkgs.jq ];
   programs = {
     fish = {
       enable = true;

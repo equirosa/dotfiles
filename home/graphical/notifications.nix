@@ -1,4 +1,4 @@
-{colors, ...}: {
+{ colors, ... }: {
   services.mako = with colors.selected; {
     enable = true;
     backgroundColor = "#${background}";

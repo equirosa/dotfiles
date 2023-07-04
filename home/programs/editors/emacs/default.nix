@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   services.emacs = {
     enable = false;
     defaultEditor = true;

@@ -1,6 +1,8 @@
-{pkgs, ...}: let
-  gtk-extra-config = {gtk-application-prefer-dark-theme = true;};
-in {
+{ pkgs, ... }:
+let
+  gtk-extra-config = { gtk-application-prefer-dark-theme = true; };
+in
+{
   gtk = {
     enable = true;
     iconTheme = {

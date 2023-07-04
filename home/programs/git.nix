@@ -2,8 +2,8 @@
   programs = {
     git = {
       enable = true;
-      aliases = {};
-      attributes = ["*.pdf diff=pdf" "*.md diff=md"];
+      aliases = { };
+      attributes = [ "*.pdf diff=pdf" "*.md diff=md" ];
       extraConfig = {
         init.defaultBranch = "main";
         diff = {
@@ -25,7 +25,7 @@
         background = "dark";
         display = "inline";
       };
-      ignores = ["*~" "*.swp" ".direnv" ".DS_Store"];
+      ignores = [ "*~" "*.swp" ".direnv" ".DS_Store" ];
       signing = {
         key = "03678E9642EB6D9E99974ACFB77F36C3F12720B4";
         signByDefault = true;

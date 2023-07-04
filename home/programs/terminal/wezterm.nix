@@ -1,6 +1,8 @@
-{lib, ...}: let
+{ lib, ... }:
+let
   inherit (lib) fileContents;
-in {
+in
+{
   programs.wezterm = {
     enable = true;
     extraConfig = fileContents ./wezterm.lua;

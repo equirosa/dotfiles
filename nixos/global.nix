@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     ./backups
     ./btrfs.nix
@@ -23,7 +23,7 @@
       "hosts"
       "alternates/gambling/hosts"
     ];
-    hosts = {"0.0.0.0" = ["*.zip" "*.mov"];};
+    hosts = { "0.0.0.0" = [ "*.zip" "*.mov" ]; };
   };
   nix = {
     gc = {
@@ -33,7 +33,7 @@
       persistent = true;
     };
     settings.auto-optimise-store = true;
-    settings.system-features = ["recursive-nix"];
+    settings.system-features = [ "recursive-nix" ];
     # registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = ''
       experimental-features = flakes nix-command recursive-nix
@@ -43,12 +43,12 @@
   };
   security.pam.services.login.gnupg.enable = true;
   services = {
-    dbus.packages = [pkgs.gcr];
+    dbus.packages = [ pkgs.gcr ];
     dnscrypt-proxy2 = {
       enable = true;
       settings = {
         sources.public-resolvers = {
-          urls = ["https://download.dnscrypt.info/resolvers-list/v2/public-resolvers.md"];
+          urls = [ "https://download.dnscrypt.info/resolvers-list/v2/public-resolvers.md" ];
           cache_file = "public-resolvers.md";
           minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
           refresh_delay = 72;

@@ -1,9 +1,9 @@
-{
-  pkgs,
-  lib,
-  nix-gaming,
-  ...
-}: let
+{ pkgs
+, lib
+, nix-gaming
+, ...
+}:
+let
   inherit (builtins) elem;
   inherit (lib) getExe;
   gscope = prog:
@@ -12,12 +12,13 @@
         if prog == "steam"
         then "gaming"
         else "fgaming";
-      runtimeInputs = [pkgs.xdg-user-dirs];
+      runtimeInputs = [ pkgs.xdg-user-dirs ];
       text = ''
         ${getExe pkgs.gamescope} -e -- ${prog}
       '';
     };
-in {
+in
+{
   users.users.kiri. packages = with pkgs; [
     (gscope "steam")
     (gscope "com.valvesoftware.Steam")
@@ -32,7 +33,7 @@ in {
     opengl = {
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages32 = [pkgs.pkgsi686Linux.libva];
+      extraPackages32 = [ pkgs.pkgsi686Linux.libva ];
     };
     steam-hardware.enable = true;
   };
