@@ -46,6 +46,7 @@
     cryfs
     du-dust
     fd
+    hut
     hyprpicker
     imv
     inputs.hypr-contrib.packages.${system}.grimblast
