@@ -35,7 +35,10 @@
         "<C-l>".action = ":wincmd l<CR>";
         "<leader>e".action = ":Telescope file_browser<CR>";
         "<leader>gg".action = ":Neogit<CR>";
-        "<leader>w".action = "<cmd>w<CR>";
+        "<leader>ra".action = ":!regen all<CR>";
+        "<leader>rh".action = ":!regen home<CR>";
+        "<leader>ro".action = ":!regen os<CR>";
+        "<leader>w".action = ":w<CR>";
       };
       visualOnly = { "<C-s>".action = ":sort<CR>"; };
     };
@@ -108,7 +111,7 @@
         };
         smartRename = {
           enable = true;
-          keymaps.smartRename = "<leader>r";
+          keymaps.smartRename = "<leader>rn";
         };
       };
       ts-context-commentstring.enable = true;
