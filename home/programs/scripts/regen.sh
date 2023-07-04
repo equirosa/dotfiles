@@ -1,10 +1,12 @@
 flake_path="${HOME}/projects/dotfiles"
 regen_home() {
 	home-manager switch --flake "${flake_path}#main"
+	notify-send "Home Rebuilt!"
 }
 
 regen_nixos() {
 	sudo nixos-rebuild switch --flake "${flake_path}#$(hostname)"
+	notify-send "System Rebuilt!"
 }
 
 test_run() {
