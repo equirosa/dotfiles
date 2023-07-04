@@ -70,27 +70,25 @@
         enable = true;
         mapping = {
           "<CR>" = "cmp.mapping.confirm({ select = true })";
-          "<C-Tab>" = {
+          "<Tab>" = {
             modes = [ "i" "s" ];
             action = lib.fileContents ./tabcycle.lua;
           };
         };
+        snippet.expand = "luasnip";
         sources = [
           { name = "buffer"; }
           { name = "luasnip"; } #For luasnip users.
           { name = "nvim_lsp"; }
+          { name = "nvim_lsp_document_help"; }
           { name = "nvim_lsp_signature_help"; }
           { name = "path"; }
           { name = "treesitter"; }
         ];
       };
-      cmp-buffer.enable = true;
-      cmp-nvim-lsp-document-symbol.enable = true;
-      cmp-nvim-lsp.enable = true;
-      cmp-treesitter.enable = true;
-      cmp_luasnip.enable = true;
       treesitter = {
         enable = true;
+        indent = true;
         nixvimInjections = true;
       };
       treesitter-context.enable = true;
