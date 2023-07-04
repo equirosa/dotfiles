@@ -4,7 +4,8 @@ rec {
   clo = "curl -LO";
   cnf = "command-not-found";
   cp = "cp -i";
-  duts = "dust";
+  d = "dust";
+  dt = "dust ~/.local/share/Trash/";
   e = "$EDITOR";
   fex = "fd --extension";
   lb = "lsblk";
