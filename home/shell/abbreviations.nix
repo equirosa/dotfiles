@@ -54,6 +54,7 @@ rec {
   gcm = "git checkout master || git checkout main";
   gl = "git log --oneline --decorate --graph --all";
   gr = "git revert";
+  gri = "git rebase --interactive";
   grg = "git remote get-url origin";
   pll = "git pull";
   psf = "git push --force-with-lease";
