@@ -66,6 +66,7 @@
       lsp-lines.enable = true;
       luasnip.enable = true;
       neogit.enable = true;
+      nvim-autopairs = { enable = true; checkTs = true; };
       nvim-cmp = {
         enable = true;
         mapping = {
