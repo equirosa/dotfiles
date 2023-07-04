@@ -143,5 +143,6 @@
       which-key = {enable = true;};
     };
     extraConfigLua = lib.fileContents ./highlightYank.lua;
+    extraPackages = with pkgs; [nixpkgs-fmt];
   };
 }

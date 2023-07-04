@@ -38,7 +38,7 @@
     in {
       devShells.default = pkgs.mkShell {
         buildInputs = with pkgs; [
-          alejandra
+          nixpkgs-fmt
           deadnix
           shfmt
         ];
