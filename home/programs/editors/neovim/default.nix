@@ -29,12 +29,13 @@
     };
     maps = {
       normal = {
-        "<leader>gg".action = ":Neogit<CR>";
-        "<leader>w".action = "<cmd>w<CR>";
         "<C-h>".action = ":wincmd h<CR>";
         "<C-j>".action = ":wincmd j<CR>";
         "<C-k>".action = ":wincmd k<CR>";
         "<C-l>".action = ":wincmd l<CR>";
+        "<leader>e".action = ":Telescope file_browser<CR>";
+        "<leader>gg".action = ":Neogit<CR>";
+        "<leader>w".action = "<cmd>w<CR>";
       };
       visualOnly = { "<C-s>".action = ":sort<CR>"; };
     };
@@ -119,7 +120,6 @@
         };
         keymaps = {
           "<leader><space>" = "buffers";
-          "<leader>e" = "file_browser";
           "<leader>sd" = "diagnostics";
           "<leader>sf" = "find_files";
           "<leader>sg" = "live_grep";
