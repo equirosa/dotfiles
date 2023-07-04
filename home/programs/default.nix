@@ -43,7 +43,6 @@
     # Nix-specific stuff
     cachix
     deadnix
-    nil
     nix-update
     nixpkgs-review
     statix
@@ -58,7 +57,6 @@
     libnotify
     parallel-full
     qpwgraph
-    qrencode
     ripgrep
     swww
     trash-cli
