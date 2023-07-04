@@ -12,10 +12,14 @@ let terminal = "${lib.getExe pkgs.foot}"; in
       normal = { "eu" = "edit-url"; };
     };
     searchEngines = {
+      DEFAULT = "https://www.mojeek.com/search?q={}";
       aw = "https://wiki.archlinux.org/?search={}";
+      f = "https://flathub.org/apps/search/{}";
       gh = "github.com/search?q={}";
       nw = "https://nixos.wiki/index.php?search={}";
-      p = "https://www.phind.com/search?q={}&source=searchbox";
+      pd = "https://www.protondb.com/search?q={}";
+      ph = "https://www.phind.com/search?q={}&source=searchbox";
+      w = "https://en.wikipedia.org/w/index.php?search={}";
     };
     quickmarks = {
       home-manager = "https://github.com/nix-community/home-manager";
