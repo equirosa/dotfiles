@@ -40,6 +40,7 @@
       visualOnly = { "<C-s>".action = ":sort<CR>"; };
     };
     plugins = {
+      comment-nvim.enable = true;
       lualine.enable = true;
       lsp = {
         enable = true;
@@ -109,6 +110,7 @@
           keymaps.smartRename = "<leader>r";
         };
       };
+      ts-context-commentstring.enable = true;
       telescope = {
         enable = true;
         extensions = {
