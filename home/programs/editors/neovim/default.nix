@@ -48,6 +48,7 @@
           bashls.enable = true;
           html.enable = true;
           jsonls.enable = true;
+          lua-ls.enable = true;
           nil_ls.enable = true;
           nixd.enable = true;
           rust-analyzer.enable = true;
@@ -71,21 +72,7 @@
           "<CR>" = "cmp.mapping.confirm({ select = true })";
           "<C-Tab>" = {
             modes = [ "i" "s" ];
-            action = ''
-              function(fallback)
-                if cmp.visible() then
-                  cmp.select_next_item()
-                elseif luasnip.expandable() then
-                  luasnip.expand()
-                elseif luasnip.expand_or_jumpable() then
-                  luasnip.expand_or_jump()
-                elseif check_backspace() then
-                  fallback()
-                else
-                  fallback()
-                end
-              end
-            '';
+            action = lib.fileContents ./tabcycle.lua;
           };
         };
         sources = [
