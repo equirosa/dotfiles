@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
-  lock-command = "swaylock";
+  lock-command = "${lib.getBin pkgs.swaylock-effects}";
 in
 {
   programs.swaylock = {
@@ -21,25 +21,26 @@ in
   };
   services.swayidle = {
     enable = true;
+    systemdTarget = "hyprland-session.target";
     events = [
       {
         event = "before-sleep";
-        command = "${lock-command}";
+        command = lock-command;
       }
       {
         event = "lock";
-        command = "${lock-command}";
+        command = lock-command;
       }
     ];
-    timeouts = [
+    timeouts = let dpms = "hyprctl dispatch dpms"; in [
       {
         timeout = 300;
-        command = "${lock-command}";
+        command = lock-command;
       }
       {
         timeout = 600;
-        command = ''hyprctl dispatch dpms off'';
-        resumeCommand = ''hyprctl dispatch dpms on'';
+        command = "${dpms} off";
+        resumeCommand = "${dpms} on";
       }
     ];
   };
