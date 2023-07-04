@@ -1,4 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }:
+let terminal = "${lib.getExe pkgs.foot}"; in
+{
   programs.qutebrowser = {
     enable = true;
     package = pkgs.qutebrowser-qt6;
@@ -21,9 +23,10 @@
       nixpkgs = "https://github.com/NixOS/nixpkgs";
       nvo = "https://pta2002.github.io/nixvim/";
       tdm = "twitch.tv/drmick";
+      hw = "https://wiki.hyprland.org/";
     };
     settings = {
-      editor.command = [ "foot" "nvim" "{file}" ];
+      editor.command = [ terminal "nvim" "{file}" ];
       downloads.location.prompt = false;
     };
   };
