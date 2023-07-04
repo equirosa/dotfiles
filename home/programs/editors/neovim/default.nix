@@ -11,7 +11,6 @@
         cmp = true;
         markdown = true;
         neogit = true;
-        neotree = true;
         telescope = true;
         treesitter = true;
         ts_rainbow2 = true;
@@ -30,7 +29,6 @@
     };
     maps = {
       normal = {
-        "<leader>e".action = ":NeoTreeFocusToggle<CR>";
         "<leader>gg".action = ":Neogit<CR>";
         "<leader>w".action = "<cmd>w<CR>";
         "<C-h>".action = ":wincmd h<CR>";
@@ -65,7 +63,6 @@
       lsp-lines.enable = true;
       luasnip.enable = true;
       neogit.enable = true;
-      neo-tree.enable = true;
       nvim-cmp = {
         enable = true;
         mapping = {
@@ -82,6 +79,7 @@
           { name = "nvim_lsp"; }
           { name = "nvim_lsp_document_help"; }
           { name = "nvim_lsp_signature_help"; }
+          { name = "nvim_lua"; }
           { name = "path"; }
           { name = "treesitter"; }
         ];
@@ -113,9 +111,15 @@
         enable = true;
         extensions = {
           frecency.enable = true;
+          file_browser = {
+            enable = true;
+            hijackNetrw = true;
+          };
           fzf-native.enable = true;
         };
         keymaps = {
+          "<leader><space>" = "buffers";
+          "<leader>e" = "file_browser";
           "<leader>sd" = "diagnostics";
           "<leader>sf" = "find_files";
           "<leader>sg" = "live_grep";
