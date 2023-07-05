@@ -19,23 +19,23 @@ in
       };
     };
     searchEngines = {
-      DEFAULT = "https://www.mojeek.com/search?q={}";
-      aw = "https://wiki.archlinux.org/?search={}";
+      DEFAULT = "www.mojeek.com/search?q={}";
+      aw = "wiki.archlinux.org/?search={}";
       d = "duckduckgo.com?q={}";
-      f = "https://flathub.org/apps/search/{}";
+      f = "flathub.org/apps/search/{}";
       gh = "github.com/search?q={}";
-      nw = "https://nixos.wiki/index.php?search={}";
-      pd = "https://www.protondb.com/search?q={}";
-      ph = "https://www.phind.com/search?q={}&source=searchbox";
-      w = "https://en.wikipedia.org/w/index.php?search={}";
+      nw = "nixos.wiki/index.php?search={}";
+      pd = "www.protondb.com/search?q={}";
+      ph = "www.phind.com/search?q={}&source=searchbox";
+      w = "en.wikipedia.org/w/index.php?search={}";
     };
     quickmarks = {
-      home-manager = "https://github.com/nix-community/home-manager";
-      m = "https://reader.miniflux.app/";
-      nixpkgs = "https://github.com/NixOS/nixpkgs";
-      nvo = "https://pta2002.github.io/nixvim/";
+      home-manager = "github.com/nix-community/home-manager";
+      m = "reader.miniflux.app/";
+      nixpkgs = "github.com/NixOS/nixpkgs";
+      nvo = "pta2002.github.io/nixvim/";
       tdm = "twitch.tv/drmick";
-      hw = "https://wiki.hyprland.org/";
+      hw = "wiki.hyprland.org/";
     };
     settings = {
       editor.command = [ terminal "nvim" "{file}" ];
