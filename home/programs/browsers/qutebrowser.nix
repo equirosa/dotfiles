@@ -21,6 +21,7 @@ in
     searchEngines = {
       DEFAULT = "https://www.mojeek.com/search?q={}";
       aw = "https://wiki.archlinux.org/?search={}";
+      d = "duckduckgo.com?q={}";
       f = "https://flathub.org/apps/search/{}";
       gh = "github.com/search?q={}";
       nw = "https://nixos.wiki/index.php?search={}";
