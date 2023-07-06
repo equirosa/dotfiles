@@ -24,6 +24,7 @@
   };
   home.packages = with pkgs; [
     # Browsers
+    librewolf-wayland
     mullvad-browser
     tor-browser-bundle-bin
     # Messengers
