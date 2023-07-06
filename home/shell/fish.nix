@@ -14,6 +14,7 @@ in
       interactiveShellInit = ''
         ${getExe pkgs.nix-your-shell} fish | source
         set -gx EDITOR nvim
+        bind \cx 'exec $SHELL'
       '';
       plugins = with pkgs.fishPlugins; [
         {
