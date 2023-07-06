@@ -148,13 +148,20 @@ in
       })
       (shellApplicationWithInputs {
         name = "optimize-size";
+        getBase = true;
         getExt = true;
         text = ''
+          mp4-optimize() {
+          ${backupIfDuplicate "mp4"}
+          ${ffmpeg-bin} -i "''${file}" -vcodec libx265 -crf 28 "''${base}.mp4"
+          }
           output="$(mktemp)"
           cp "''${file}" "''${output}"
           case "''${ext}" in
             jpeg|jpg)
               ${mozjpeg}/bin/jpegtran -copy none -optimize -progressive "''${output}" > "''${file}" ;;
+            mp4)
+              mp4-optimize ;;
           esac
         '';
       })
