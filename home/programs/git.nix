@@ -5,7 +5,6 @@
       aliases = { };
       attributes = [ "*.pdf diff=pdf" "*.md diff=md" ];
       extraConfig = {
-        init.defaultBranch = "main";
         diff = {
           tool = "difftastic";
           algorithm = "histogram";
