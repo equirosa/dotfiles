@@ -46,6 +46,7 @@
     cryfs
     du-dust
     fd
+    git-ignore
     hut
     hyprpicker
     imv
