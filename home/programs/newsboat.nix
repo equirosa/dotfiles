@@ -12,7 +12,7 @@ let
     }
     {
       key = "b";
-      action = "firefox -p default";
+      action = "librewolf";
     }
     {
       key = "d";

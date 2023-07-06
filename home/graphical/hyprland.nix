@@ -37,7 +37,7 @@ let
           "transmission-daemon"
           "${getExe foot} --title=newsboat ${getExe newsboat}"
           "beeper"
-          "firefox -p default"
+          "librewolf"
           "swww init"
         ]);
   addToFile = concatStringsSep "\n";
@@ -134,7 +134,7 @@ in
       bind = ${mod}, S, exec, search
       bind = ${mod}, T, exec, ${termify tremc}
       bind = ${mod}, V, togglefloating,
-      bind = ${mod}, W, exec, gamemoderun firefox -p default
+      bind = ${mod}, W, exec, librewolf
       bind = ${mod}, X, exec, swaylock
       bind = ${mod}, Z, exec,password-menu
       bind = , Print, exec, screenshot

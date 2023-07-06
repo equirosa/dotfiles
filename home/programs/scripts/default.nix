@@ -134,7 +134,7 @@ in
           else
             url="''${1}"
           fi
-          firefox -p default "https://reader.miniflux.app/bookmarklet?uri=''${url}"
+          librewolf "https://reader.miniflux.app/bookmarklet?uri=''${url}"
         '';
       })
       (shellApplicationWithInputs {
@@ -187,7 +187,7 @@ in
           search_options="farside.link/whoogle/search?q=\nyoutube.com/results?search_query=\ngithub.com/search?q=\nnixos.wiki/index.php?search=\nprotondb.com/search?q="
           search_site="$(echo -e "''${search_options}" | ${menu-program} --prompt-text "Search website")"
           input="$(${menu-program} --prompt-text "Search term")"
-          firefox -p default "''${search_site}''${input}"
+          librewolf "''${search_site}''${input}"
         '';
       })
       (writeShellApplication {
@@ -222,7 +222,7 @@ in
         text = ''
           case "''${1%%:*}" in
             gemini) ${lagrange}/bin/lagrange "''${1}" ;;
-            http|https|*.html) firefox -p default "''${1}" ;;
+            http|https|*.html) librewolf "''${1}" ;;
             magnet|*.torrent)
               transmission-remote -a "''${1}" && ${notify} "Torrent Added! ✅";;
             *.org) emacsclient --create-frame "''${1}" ;;
