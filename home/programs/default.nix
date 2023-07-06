@@ -3,7 +3,7 @@
 , ...
 }: {
   imports = [
-    ./browsers/firefox.nix
+    ./browsers/librewolf.nix
     ./browsers/qutebrowser.nix
     ./editors/neovim
     ./editors/emacs
@@ -24,7 +24,6 @@
   };
   home.packages = with pkgs; [
     # Browsers
-    librewolf-wayland
     mullvad-browser
     tor-browser-bundle-bin
     # Messengers
