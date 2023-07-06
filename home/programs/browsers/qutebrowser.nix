@@ -19,7 +19,6 @@ in
       };
     };
     searchEngines = {
-      DEFAULT = "www.mojeek.com/search?q={}";
       aw = "wiki.archlinux.org/?search={}";
       d = "duckduckgo.com?q={}";
       f = "flathub.org/apps/search/{}";
