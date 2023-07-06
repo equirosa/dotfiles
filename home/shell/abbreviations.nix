@@ -14,6 +14,7 @@ rec {
   mv = "mv -i";
   ned = "nix-env -qaP --description";
   nf = "nix fmt";
+  nfc = "nix flake check";
   nfd = ''nix flake new -t "github:numtide/devshell"'';
   nfst = "nix flake show templates";
   nfu = "nix flake update --commit-lock-file";
