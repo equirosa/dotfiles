@@ -14,7 +14,7 @@ let
         else "fgaming";
       runtimeInputs = [ pkgs.xdg-user-dirs ];
       text = ''
-        ${getExe pkgs.gamescope} -e -- ${prog}
+        ${getExe pkgs.gamescope} -e -- ${prog} -gamepadui
       '';
     };
 in
