@@ -151,15 +151,18 @@ in
         getBase = true;
         getExt = true;
         text = ''
-          mp4-optimize() {
-          ${backupIfDuplicate "mp4"}
-          ${ffmpeg-bin} -i "''${file}" -vcodec libx265 -crf 28 "''${base}.mp4"
+          jpeg-optimize() {
+            output="$(mktemp)"
+            cp "''${file}" "''${output}"
+            ${mozjpeg}/bin/jpegtran -copy none -optimize -progressive "''${output}" > "''${file}"
           }
-          output="$(mktemp)"
-          cp "''${file}" "''${output}"
+          mp4-optimize() {
+            ${backupIfDuplicate "mp4"}
+            ${ffmpeg-bin} -i "''${file}" -vcodec libx265 -crf 28 "''${base}.mp4"
+          }
           case "''${ext}" in
             jpeg|jpg)
-              ${mozjpeg}/bin/jpegtran -copy none -optimize -progressive "''${output}" > "''${file}" ;;
+              jpeg-optimize ;;
             mp4)
               mp4-optimize ;;
           esac
