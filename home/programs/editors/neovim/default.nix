@@ -127,6 +127,7 @@
           "<leader>sf" = "find_files";
           "<leader>sg" = "live_grep";
           "<leader>sh" = "help_tags";
+          "<leader>gr" = "lsp_references";
           "<leader>sk" = "keymaps";
           "<leader>sw" = "grep_string";
         };
@@ -156,6 +157,8 @@
 
       nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
       nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+      nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+      nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
     '';
     extraPackages = with pkgs; [ nixpkgs-fmt ];
   };
