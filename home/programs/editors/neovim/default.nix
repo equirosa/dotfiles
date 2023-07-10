@@ -109,10 +109,6 @@
             listDefinitonsToc = "<leader>gO";
           };
         };
-        smartRename = {
-          enable = true;
-          keymaps.smartRename = "<leader>rn";
-        };
       };
       ts-context-commentstring.enable = true;
       telescope = {
