@@ -14,6 +14,7 @@
     ./rofi.nix
     ./scripts
     ./terminal
+    ./zellij.nix
   ];
   programs.rbw = {
     enable = true;
