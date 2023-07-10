@@ -147,7 +147,7 @@ in
         '';
       })
       (shellApplicationWithInputs {
-        name = "optimize-size";
+        name = "optisize";
         getBase = true;
         getExt = true;
         text = ''
@@ -200,9 +200,7 @@ in
       })
       (writeShellApplication {
         name = "show-script";
-        text = ''
-          ${cat} "$(show-nix-store-path "''${1}")"
-        '';
+        text = ''${cat} "$(show-nix-store-path "''${1}")"'';
       })
       (writeShellApplication {
         name = "watchlist";
