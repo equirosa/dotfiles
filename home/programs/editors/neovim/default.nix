@@ -48,8 +48,9 @@
       lsp = {
         enable = true;
         servers = {
-          elmls.enable = true;
+          cssls.enable = true;
           bashls.enable = true;
+          elmls.enable = true;
           html.enable = true;
           jsonls.enable = true;
           lua-ls.enable = true;
