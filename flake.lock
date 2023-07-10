@@ -416,15 +416,15 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1688636885,
-        "narHash": "sha256-DJZVXC5+87lmirpdCDHbV9yUU8zOG4o2JzZhVUG9J+E=",
-        "owner": "equirosa",
+        "lastModified": 1688901444,
+        "narHash": "sha256-ZLGnwNpIRg7oW7+e9SupKoRDyt8hQBaB7Jknq+MctKg=",
+        "owner": "pta2002",
         "repo": "nixvim",
-        "rev": "ab502e9c3376dbf8b70dfd3d1f3704257ba0d800",
+        "rev": "89bbd4b916e99aa9719d133a101bce88694a70db",
         "type": "github"
       },
       "original": {
-        "owner": "equirosa",
+        "owner": "pta2002",
         "repo": "nixvim",
         "type": "github"
       }
