@@ -7,7 +7,8 @@ let
   inherit (builtins) replaceStrings;
   inherit (lib) getExe optionalString fileContents;
   inherit (import ../../shell/aliases.nix { inherit pkgs lib; }) cat;
-  notify = "${getExe pkgs.libnotify} -t 5000";
+  notify = pkgs.writeShellApplication
+    { name = "notify"; text = ''${getExe pkgs.libnotify} -t 5000 "$@"''; };
   menu-program = "rofi -dmenu";
   backupIfDuplicate = ext: ''
     if [ "''${ext}" = "${ext}" ]; then
@@ -62,6 +63,7 @@ in
 {
   home.packages = with pkgs;
     [
+      notify
       (shellApplicationWithInputs {
         name = "2mkv";
         getBase = true;
