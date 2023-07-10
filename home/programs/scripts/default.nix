@@ -157,8 +157,13 @@ in
             ${mozjpeg}/bin/jpegtran -copy none -optimize -progressive "''${output}" > "''${file}"
           }
           mp4-optimize() {
-            ${backupIfDuplicate "mp4"}
-            ${ffmpeg-bin} -i "''${file}" -vcodec libx265 -crf 28 "''${base}.mp4"
+            info="$(${getExe mediainfo} "''${file}")"
+            if [[ ''${info} == *"HEVC"* ]]; then
+              echo "File already optimized."
+            else
+              ${backupIfDuplicate "mp4"}
+              ${ffmpeg-bin} -i "''${file}" -vcodec libx265 -crf 28 "''${base}.mp4"
+            fi
           }
           case "''${ext}" in
             jpeg|jpg)
