@@ -44,6 +44,7 @@
     statix
     # Utilities
     archiver
+    compsize
     cryfs
     du-dust
     fd
@@ -53,6 +54,7 @@
     imv
     inputs.hypr-contrib.packages.${system}.grimblast
     libnotify
+    mediainfo
     parallel-full
     qpwgraph
     ripgrep
