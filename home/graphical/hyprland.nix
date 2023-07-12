@@ -13,6 +13,7 @@ let
     lf
     newsboat
     pulsemixer
+    tor-browser-bundle-bin
     tremc
     ;
   gaps = 2;
@@ -135,6 +136,7 @@ in
       bind = ${mod}, T, exec, ${termify tremc}
       bind = ${mod}, V, togglefloating,
       bind = ${mod}, W, exec, librewolf
+      bind = ${mod} SHIFT, W, exec, ${getExe tor-browser-bundle-bin}
       bind = ${mod}, X, exec, swaylock
       bind = ${mod}, Z, exec,password-menu
       bind = , Print, exec, screenshot
