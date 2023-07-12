@@ -7,7 +7,7 @@
 , ...
 }:
 let
-  globalBtrfsOpts = [ "compress=zstd:4" "autodefrag" "noatime" ];
+  globalBtrfsOpts = [ "compress=zstd:1" "autodefrag" "noatime" ];
 in
 {
   imports = [
