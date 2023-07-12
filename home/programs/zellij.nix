@@ -1,3 +1,3 @@
 _: {
-  programs.zellij = { enable = true; enableFishIntegration = true; };
+  programs.zellij = { enable = true; };
 }
