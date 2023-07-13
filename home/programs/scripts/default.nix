@@ -148,27 +148,32 @@ in
             cp "''${file}" "''${output}"
             ${mozjpeg}/bin/jpegtran -copy none -optimize -progressive "''${output}" > "''${file}"
           }
-          mp4-optimize() {
+
+          video-optimize() {
             info="$(${getExe mediainfo} "''${file}")"
-            if [[ ''${info} == *"HEVC"* ]]; then
-              echo "File already optimized."
-            else
-              ${backupIfDuplicate "mp4"}
-              ${ffmpeg-bin} -i "''${file}" -vcodec libx265 -crf 28 "''${base}.mp4"
-            fi
+            case "''${info}" in
+              *"AVC"*) 
+                ${backupIfDuplicate "mkv"}
+                ${ffmpeg-bin} -i "''${file}" -vcodec libx265 -crf 28 "''${base}.mkv" ;;
+              *"HEVC"* | *"AV1"* ) echo "File already optimized." ;;
+              *) echo "I don't know if I can optimize the ''${info} codec..." ;;
+            esac
           }
-          case "''${ext}" in
+
+          mimetype="$(${getExe file} --mime --brief "''${file}")"
+          case "''${mimetype}" in
             jpeg|jpg)
               jpeg-optimize ;;
-            mp4)
-              mp4-optimize ;;
+            "video/"*)
+              video-optimize ;;
+          * ) echo "I don't know how to handle that file" ;;
           esac
         '';
       })
       (writeShellApplication {
         name = "password-menu";
         runtimeInputs = [ wtype ];
-        text = ''${getExe rofi-rbw}'';
+        text = "${getExe rofi-rbw}";
       })
       (writeShellApplication {
         name = "rem-lap";
@@ -219,13 +224,13 @@ in
         name = "xdg-open";
         text = ''
           case "''${1%%:*}" in
-            gemini) ${lagrange}/bin/lagrange "''${1}" ;;
+            gemini) ${getExe lagrange} "''${1}" ;;
             http|https|*.html) librewolf "''${1}" ;;
             magnet|*.torrent)
               transmission-remote -a "''${1}" && ${notify} "Torrent Added! ✅";;
             *.org) emacsclient --create-frame "''${1}" ;;
-            *.png|*.jpg|*.jpeg|*.webp) ${imv}/bin/imv "''${1}" ;;
-            *.pdf) setsid ${zathura}/bin/zathura "''${1}" ;;
+            *.png|*.jpg|*.jpeg|*.webp) ${getExe imv} "''${1}" ;;
+            *.pdf) setsid ${getExe zathura} "''${1}" ;;
             *) ${xdg-utils}/bin/xdg-open "''${1}" ;;
           esac
         '';
