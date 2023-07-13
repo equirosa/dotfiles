@@ -65,16 +65,6 @@ in
     [
       notify
       (shellApplicationWithInputs {
-        name = "2mkv";
-        getBase = true;
-        getExt = true;
-        text = ''
-          ${backupIfDuplicate "mkv"}
-          ${ffmpeg-bin} -i "''${file}" -c:v librav1e -preset 5 \
-          -crf 30 -g 240 -pix_fmt yuv420p10le ${scriptAudio} "''${base}.mkv"
-        '';
-      })
-      (shellApplicationWithInputs {
         name = "2ogg";
         getBase = true;
         getExt = true;
