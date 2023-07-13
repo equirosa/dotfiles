@@ -180,7 +180,7 @@ in
         ["class:^(gcr-prompter|[Rr]ofi)"]}
       ${genRule2 ["workspace 9 silent"] ["class:^(Ferdium|Beeper)" "title:^(aerc)"]}
       windowrulev2=float,nofullscreen,class:firefox,title:^Firefox — Sharing Indicator$
-      windowrulev2=maximize,class:^(firefox)$,title:Picture-in-Picture
+      windowrulev2=maximize,class:^(librewolf)$,title:Picture-in-Picture
       windowrulev2=workspace 8 silent,class:^(foot|mpv)$,title:newsboat
 
       ${execOnce}
