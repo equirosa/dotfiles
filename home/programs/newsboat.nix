@@ -1,10 +1,15 @@
 { pkgs, ... }:
 let
   resetBrowser = ''set browser "xdg-open"'';
+  mpvCommand = "mpv --keep-open=no --title=newsboat";
   macroList = [
     {
       key = "m";
-      action = "mpv --keep-open=no --title=newsboat";
+      action = mpvCommand;
+    }
+    {
+      key = "M";
+      action = mpvCommand + "--pause";
     }
     {
       key = "u";
