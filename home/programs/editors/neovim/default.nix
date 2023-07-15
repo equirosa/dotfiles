@@ -28,7 +28,7 @@
       ignorecase = true;
     };
     maps = {
-      normal = {
+      normalVisualOp = {
         "<C-h>".action = ":wincmd h<CR>";
         "<C-j>".action = ":wincmd j<CR>";
         "<C-k>".action = ":wincmd k<CR>";
