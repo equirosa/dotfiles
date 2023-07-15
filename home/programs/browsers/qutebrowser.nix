@@ -37,6 +37,7 @@ in
       hw = "wiki.hyprland.org/";
     };
     settings = {
+      content.fullscreen.window = true;
       editor.command = [ terminal "nvim" "{file}" ];
       downloads.location.prompt = false;
     };
