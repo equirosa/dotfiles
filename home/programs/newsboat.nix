@@ -9,7 +9,7 @@ let
     }
     {
       key = "M";
-      action = mpvCommand + "--pause";
+      action = mpvCommand + " --pause";
     }
     {
       key = "u";
