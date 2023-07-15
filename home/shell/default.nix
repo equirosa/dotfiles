@@ -8,7 +8,7 @@ let
 in
 {
   imports = [ ./fish.nix ./nushell.nix ];
-  home.shellAliases = import ./aliases.nix { inherit pkgs lib; };
+  home.shellAliases = import ./aliases.nix { inherit pkgs lib; } // import ./abbreviations.nix;
   programs = {
     direnv = {
       enable = true;
@@ -72,7 +72,6 @@ in
     };
     lsd = {
       enable = true;
-      enableAliases = true;
       settings = { date = "relative"; };
     };
     fzf =

@@ -8,4 +8,7 @@
 let
   inherit (lib) getExe;
 in
-{ cat = "${getExe pkgs.bat} --plain"; }
+{
+  cat = "${getExe pkgs.bat} --plain";
+  ls = getExe pkgs.lsd;
+}
