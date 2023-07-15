@@ -28,13 +28,19 @@
       ignorecase = true;
     };
     maps = {
+      normal = {
+        "<M-k>".action = ":m -2<CR>"; # Move line up
+        "<M-j>".action = ":m +1<CR>"; # Move line down
+      };
+      visual = {
+        "<M-k>".action = ":m '<-2<CR>gv=gv"; # Move line up
+        "<M-j>".action = ":m '>+1<CR>gv=gv"; # Move line down
+      };
       normalVisualOp = {
         "<C-h>".action = ":wincmd h<CR>";
         "<C-j>".action = ":wincmd j<CR>";
         "<C-k>".action = ":wincmd k<CR>";
         "<C-l>".action = ":wincmd l<CR>";
-        "<M-k>".action = ":m -2<CR>"; # Move line up
-        "<M-j>".action = ":m +1<CR>"; # Move line down
         "<leader>e".action = ":Telescope file_browser<CR>";
         "<leader>gg".action = ":Neogit<CR>";
         "<leader>ra".action = ":!regen all<CR>";
