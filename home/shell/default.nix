@@ -7,7 +7,7 @@ let
   inherit (lib) getExe genAttrs;
 in
 {
-  imports = [ ./fish.nix ];
+  imports = [ ./fish.nix ./nushell.nix ];
   home.shellAliases = import ./aliases.nix { inherit pkgs lib; };
   programs = {
     direnv = {
