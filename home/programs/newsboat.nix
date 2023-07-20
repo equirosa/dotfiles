@@ -155,7 +155,7 @@ in
       # Miniflux stuff
       urls-source "miniflux"
       miniflux-url "https://reader.miniflux.app"
-      miniflux-login "nuclearcoffee"
+      miniflux-login "rebalance"
       miniflux-passwordeval "${pkgs.rbw}/bin/rbw get 3fbefc6e-da23-4507-9d1e-af980166fdff"
     '';
     reloadThreads = 12;
