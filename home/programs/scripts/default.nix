@@ -162,7 +162,7 @@ in
 
           mimetype="$(${getExe file} --mime --brief "''${file}")"
           case "''${mimetype}" in
-            jpeg|jpg)
+            "image/jpeg"*)
               jpeg-optimize ;;
             "video/"*)
               video-optimize ;;
