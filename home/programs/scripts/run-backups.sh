@@ -40,6 +40,7 @@ borg create --progress --verbose --stats --checkpoint-interval 600 hvwib450@hvwi
 	--exclude "*/target/" \
 	--exclude "*/torrented" \
 	--exclude "*/unhidden" \
+	--exclude "*/plain" \
 	--exclude "*/.thumbnails" \
 	--compression auto,zstd,10 \
 	&& print_announce "PRUNING" \

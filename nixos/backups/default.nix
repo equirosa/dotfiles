@@ -30,6 +30,7 @@ _: {
           "rocketleague"
           "torrented"
           "unhidden"
+          "plain"
           "venv"
         ];
         games-excludes = map (dir: "Games/" + dir) [
