@@ -179,7 +179,26 @@
       nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
       nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
       nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
+
+      require('boole').setup({ -- Config boole.nvim
+        mappings = {
+          increment = '<C-a>',
+          decrement = '<C-x>'
+        },
+        -- User defined loops
+        --[[ additions = {
+          {'Foo', 'Bar'},
+          {'tic', 'tac', 'toe'}
+        }, ]]
+        allow_caps_additions = {
+          {'enable', 'disable'}
+          -- enable → disable
+          -- Enable → Disable
+          -- ENABLE → DISABLE
+        }
+      })
     '';
     extraPackages = with pkgs; [ nixpkgs-fmt ];
+    extraPlugins = with pkgs.vimPlugins; [ boole-nvim ];
   };
 }
