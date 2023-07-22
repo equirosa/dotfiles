@@ -49,6 +49,7 @@
     du-dust
     fd
     git-ignore
+    gocryptfs
     hut
     hyprpicker
     imv
