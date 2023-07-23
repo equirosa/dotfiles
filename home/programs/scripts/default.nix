@@ -29,16 +29,14 @@ let
     "swappy"
   ];
   shellApplicationFromList =
-    map
-      (name:
-        pkgs.writeShellApplication {
-          inherit name;
-          text =
-            replaceStrings
-              stringsToReplace
-              (getExeList stringsToReplace)
-              "${fileContents ./${name}.sh}";
-        });
+    map (name: pkgs.writeShellApplication {
+      inherit name;
+      text =
+        replaceStrings
+          stringsToReplace
+          (getExeList stringsToReplace)
+          "${fileContents ./${name}.sh}";
+    });
   shellApplicationWithInputs =
     { name
     , runtimeInputs ? [ ]
