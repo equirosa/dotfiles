@@ -128,15 +128,6 @@ in
         '';
       })
       (shellApplicationWithInputs {
-        name = "nixify";
-        text = ''
-          nix flake new -t github:numtide/devshell ."''${1}" \
-          && cd "''${1}" \
-          && ${getExe direnv} allow
-          ''${EDITOR} flake.nix
-        '';
-      })
-      (shellApplicationWithInputs {
         name = "optisize";
         getBase = true;
         getExt = true;
