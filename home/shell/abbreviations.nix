@@ -43,6 +43,7 @@ rec {
   ll = "ls -lah";
   lls = "ls -lah";
   lss = "ls -lh";
+  lt = "lsd --tree";
   # Mpv
   m = "mpv";
   mfs = "mpv --fs";
