@@ -21,7 +21,7 @@
       let
         webProtocol = {
           profile-desc = "Profile for web videos";
-          speed = 3.14;
+          speed = 2.14;
           keep-open = "";
           ytdl-format = "bestvideo[height<=720]+bestaudio/best[height<=720]/bestvideo+bestaudio/best";
         };
