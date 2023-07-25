@@ -53,7 +53,7 @@ in
     enable = true;
     recommendedEnvironment = true;
     extraConfig = ''
-      monitor=${leftMon},preferred,auto,auto
+      monitor=${leftMon},preferred,0x0,auto
       monitor=${rightMon},1920x1080@60,1920x0,1
 
       # Assign workspaces
