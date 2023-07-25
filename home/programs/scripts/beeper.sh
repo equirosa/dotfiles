@@ -1,1 +1,1 @@
-appimage-run ~/Downloads/beeper-3.60.21.AppImage
+appimage-run ~/Downloads/beeper-3.65.19.AppImage
