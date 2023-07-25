@@ -49,7 +49,7 @@ in
             "<backspace2>" = ":set hidden!";
             "<delete>" = "\$${pkgs.trash-cli}/bin/trash-put \"$fx\"";
             "<enter>" = "push $";
-            D = "&${getExe pkgs.xdragon} --all --and-exit \"$fx\"";
+            D = "&${getExe pkgs.ripdrag} --all --and-exit \"$fx\"";
             E = "push \$\${EDITOR}<space>";
             L = "\$${getExe pkgs.lazygit}";
             M = "push \$mkdir<space>-p<space>";
