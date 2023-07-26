@@ -8,7 +8,7 @@ let
       action = mpvCommand;
     }
     {
-      key = "M";
+      key = "n";
       action = mpvCommand + " --pause";
     }
     {
