@@ -125,6 +125,7 @@ in
       bind = ${mod}, A, exec, ${termify pulsemixer}
       bind = ${mod}, D, exec, rofi -show run
       bind = ${mod}, E, exec, kitty aerc
+      bind = ${mod} SHIFT, E, exec, emacsclient --create-frame
       bind = ${mod}, F, fullscreen, 0
       bind = ${mod}, I, exec, ${termify btop}
       bind = ${mod}, M, fullscreen, 1
