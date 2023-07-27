@@ -32,6 +32,7 @@
     # Social
     toot
     # Documents
+    standardnotes
     texlive.combined.scheme-full
     # File Sharing
     transmission
