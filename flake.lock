@@ -507,7 +507,8 @@
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_4",
         "nixvim": "nixvim",
-        "nur": "nur"
+        "nur": "nur",
+        "wrapper-manager": "wrapper-manager"
       }
     },
     "systems": {
@@ -602,6 +603,26 @@
         "repo": "wlroots",
         "rev": "e8d545a9770a2473db32e0a0bfa757b05d2af4f3",
         "type": "gitlab"
+      }
+    },
+    "wrapper-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1690217209,
+        "narHash": "sha256-qqONS2cH66fEku3OXMPIANlGnaJNhVlKTNEiwvN0yIc=",
+        "owner": "viperML",
+        "repo": "wrapper-manager",
+        "rev": "e8a9a3c9ca07b3d7638357b9a9078dd1ab76afb0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "repo": "wrapper-manager",
+        "type": "github"
       }
     },
     "xdph": {

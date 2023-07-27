@@ -16,6 +16,10 @@
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.url = "github:pta2002/nixvim";
     nur.url = "github:nix-community/NUR";
+    wrapper-manager = {
+      url = "github:viperML/wrapper-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -27,6 +31,7 @@
     , nix-index-database
     , nixpkgs
     , nixvim
+    , wrapper-manager
     , ...
     }:
     let
@@ -72,7 +77,7 @@
         {
           main = homeManagerConfiguration {
             inherit pkgs;
-            extraSpecialArgs = { inherit colors inputs; }; # to pass arguments to home.nix
+            extraSpecialArgs = { inherit colors inputs wrapper-manager; }; # to pass arguments to home.nix
             modules = [
               hyprland.homeManagerModules.default
               nix-index-database.hmModules.nix-index
