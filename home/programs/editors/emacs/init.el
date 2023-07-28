@@ -218,6 +218,7 @@
 ;; Programming
 (use-package nix-mode)
 (use-package envrc
+  :diminish
   :config (envrc-global-mode))
 (provide 'init)
 ;;; init.el ends here
