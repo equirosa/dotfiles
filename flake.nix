@@ -14,7 +14,7 @@
     nix-index-database.url = "github:Mic92/nix-index-database";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
-    nixvim.url = "github:pta2002/nixvim";
+    nixvim.url = "github:nix-community/nixvim";
     nur.url = "github:nix-community/NUR";
     wrapper-manager = {
       url = "github:viperML/wrapper-manager";
