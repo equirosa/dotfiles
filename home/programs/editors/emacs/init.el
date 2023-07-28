@@ -47,7 +47,7 @@
   :config (scroll-bar-mode -1))
 (use-package simple
   :ensure nil
-  :config (column-number-mode +1))
+  :config (column-number-mode 1))
 (use-package files
   :ensure nil
   :config
@@ -57,7 +57,7 @@
 (use-package autorevert
   :ensure nil
   :config
-  (global-auto-revert-mode +1)
+  (global-auto-revert-mode 1)
   (setq auto-revert-interval 2
         auto-revert-check-vc-info t
         global-auto-revert-non-file-buffers t
