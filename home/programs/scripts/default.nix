@@ -8,7 +8,11 @@ let
   inherit (lib) getExe optionalString fileContents;
   inherit (import ../../shell/aliases.nix { inherit pkgs lib; }) cat;
   notify = pkgs.writeShellApplication
-    { name = "notify"; text = ''${getExe pkgs.libnotify} -t 5000 "$@"''; };
+    {
+      name = "notify";
+      runtimeInputs = [ pkgs.libnotify ];
+      text = fileContents ./notify.sh;
+    };
   menu-program = "rofi -dmenu";
   backupIfDuplicate = ext: ''
     if [ "''${ext}" = "${ext}" ]; then
