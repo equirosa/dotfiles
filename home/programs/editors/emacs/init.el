@@ -12,6 +12,8 @@
   (menu-bar-mode -1)
   (recentf-mode 1)
 
+  (setq use-dialog-box nil)
+
   ;; better scrolling experience
   (setq scroll-margin 0
         scroll-conservatively 101 ; > 100
