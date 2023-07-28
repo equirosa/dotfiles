@@ -221,5 +221,8 @@
   (which-key-mode +1)
   (setq which-key-idle-delay 0.4
         which-key-idle-secondary-delay 0.4))
+
+;; Programming
+(use-package nix-mode)
 (provide 'init)
 ;;; init.el ends here
