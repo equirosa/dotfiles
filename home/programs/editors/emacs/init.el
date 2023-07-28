@@ -14,6 +14,10 @@
 
   (setq use-dialog-box nil)
 
+  ;; Save what you enter into minibuffer prompts
+  (setq history-length 25)
+  (savehist-mode 1)
+
   ;; better scrolling experience
   (setq scroll-margin 0
         scroll-conservatively 101 ; > 100
