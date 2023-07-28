@@ -10,6 +10,7 @@
 
   (tool-bar-mode -1)
   (menu-bar-mode -1)
+  (recentf-mode 1)
 
   ;; better scrolling experience
   (setq scroll-margin 0
