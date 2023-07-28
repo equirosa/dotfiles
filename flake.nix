@@ -62,40 +62,29 @@
             {
               programs.hyprland.enable = true;
               security.pam.services.swaylock = { };
+              nixpkgs.overlays = overlays;
             }
             ./hosts/snowfort/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                extraSpecialArgs = { inherit colors inputs wrapper-manager overlays; };
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.kiri = { osConfig, ... }: {
+                  imports = [
+                    ./home
+                    hyprland.homeManagerModules.default
+                    nix-index-database.hmModules.nix-index
+                    nixvim.homeManagerModules.nixvim
+                  ];
+                  home.stateVersion = osConfig.system.stateVersion;
+                };
+              };
+            }
           ];
           specialArgs = { inherit colors nix-gaming nixpkgs; };
         };
       };
-      homeConfigurations =
-        let
-          inherit (home-manager.lib) homeManagerConfiguration;
-          system = "x86_64-linux";
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        {
-          main = homeManagerConfiguration {
-            inherit pkgs;
-            extraSpecialArgs = { inherit colors inputs wrapper-manager; }; # to pass arguments to home.nix
-            modules = [
-              hyprland.homeManagerModules.default
-              nix-index-database.hmModules.nix-index
-              nixvim.homeManagerModules.nixvim
-              { programs.nix-index-database.comma.enable = true; }
-              { programs.nix-index.enable = true; }
-              {
-                home = {
-                  username = "kiri";
-                  homeDirectory = "/home/kiri";
-                  stateVersion = "22.05";
-                };
-                xdg.userDirs.enable = true;
-                nixpkgs.overlays = overlays;
-              }
-              ./home
-            ];
-          };
-        };
     };
 }
