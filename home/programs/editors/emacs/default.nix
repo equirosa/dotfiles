@@ -4,7 +4,7 @@ let enable = true; in {
     inherit enable;
     package = pkgs.emacsWithPackagesFromUsePackage {
       config = ./init.el;
-      package = pkgs.emacsPgtk;
+      package = pkgs.emacs-pgtk;
       alwaysEnsure = true;
       alwaysTangle = false;
       defaultInitFile = true;
