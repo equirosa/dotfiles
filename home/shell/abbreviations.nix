@@ -80,8 +80,6 @@ rec {
   npra = "${np} remove '.*'";
   nprb = "${np} rollback";
   npu = "${np} upgrade";
-  ra = "regen all";
-  rh = "regen home";
   ro = "regen os";
   rt = "regen test";
   up = "sudo nixos-rebuild switch --profile-name $(date +%s)-";
