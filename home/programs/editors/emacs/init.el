@@ -224,5 +224,7 @@
 
 ;; Programming
 (use-package nix-mode)
+(use-package envrc
+  :config (envrc-global-mode))
 (provide 'init)
 ;;; init.el ends here
