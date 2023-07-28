@@ -193,6 +193,13 @@ in
         text = ''${cat} "$(show-nix-store-path "''${1}")"'';
       })
       (writeShellApplication {
+        name = "my-pkgs";
+        runtimeInputs = [ pkgs.ripgrep ];
+        text = ''
+          rg --files-with-matches equirosa | rg '^pkgs'
+        '';
+      })
+      (writeShellApplication {
         name = "watchlist";
         text =
           let
