@@ -127,13 +127,6 @@
   :config
   (setq custom-file (concat user-emacs-directory "to-be-dumped.el")))
 
-(use-package dashboard
-  :config
-  (dashboard-setup-startup-hook)
-  (setq dashboard-startup-banner 'logo
-        dashboard-banner-logo-title "Yay Evil!"
-        dashboard-items nil
-        dashboard-set-footer nil))
 ;; cool syntax highlighting
 (use-package highlight-numbers
   :hook (prog-mode . highlight-numbers-mode))
