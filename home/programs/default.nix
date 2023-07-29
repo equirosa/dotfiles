@@ -41,6 +41,7 @@
     cachix
     deadnix
     nix-update
+    nixd
     nixpkgs-review
     statix
     # Utilities
