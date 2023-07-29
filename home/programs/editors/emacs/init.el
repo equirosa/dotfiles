@@ -3,11 +3,19 @@
 (use-package emacs
   :preface
   (defvar ian/indent-width 4) ; change this value to your preferred width
+  :custom
+  (delete-by-moving-to-trash t)
+  (ring-bell-function 'ignore)       ; minimize distraction
+  (frame-resize-pixelwise t)
+  (default-directory "~/")
+  ;; Omit default startup screen
+  (inhibit-startup-screen t)
+  ;; better scrolling experience
+  (scroll-margin 0)
+  (scroll-conservatively 101) ; > 100
+  (scroll-preserve-screen-position t)
+  (auto-window-vscroll nil)
   :config
-  (setq ring-bell-function 'ignore       ; minimize distraction
-        frame-resize-pixelwise t
-        default-directory "~/")
-
   (tool-bar-mode -1)
   (menu-bar-mode -1)
   (recentf-mode 1)
@@ -18,18 +26,9 @@
   (setq history-length 25)
   (savehist-mode 1)
 
-  ;; better scrolling experience
-  (setq scroll-margin 0
-        scroll-conservatively 101 ; > 100
-        scroll-preserve-screen-position t
-        auto-window-vscroll nil)
-
   ;; Always use spaces for indentation
   (setq-default indent-tabs-mode nil
-                tab-width ian/indent-width)
-
-  ;; Omit default startup screen
-  (setq inhibit-startup-screen t))
+                tab-width ian/indent-width))
 
 ;; The Emacs default split doesn't seem too intuitive for most users.
 (use-package emacs
