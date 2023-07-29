@@ -4,6 +4,7 @@ rec {
   clo = "curl -LO";
   cnf = "command-not-found";
   cp = "cp -i";
+  ct = "cd $(mktemp -d)";
   d = "dust";
   dt = "dust ~/.local/share/Trash/";
   e = "$EDITOR";
