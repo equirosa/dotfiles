@@ -61,6 +61,9 @@
   (setq confirm-kill-processes nil
         create-lockfiles nil ; don't create .# files (crashes 'npm start')
         make-backup-files nil))
+(use-package select
+  :ensure nil
+  :config (x-select-enable-clipboart t))
 (use-package autorevert
   :ensure nil
   :config
