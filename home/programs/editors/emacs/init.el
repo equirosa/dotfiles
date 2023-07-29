@@ -225,6 +225,11 @@
 (use-package keychain-environment)
 
 ;; Programming
+(use-package eglot
+  :config
+  (add-hook 'prog-mode-hook 'eglot-ensure)
+  (add-hook 'before-save-hook 'eglot-format-buffer)
+  (add-to-list 'eglot-server-programs '(nix-mode . ("nixd"))))
 (use-package nix-mode)
 (use-package envrc
   :diminish
