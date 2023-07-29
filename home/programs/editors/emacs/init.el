@@ -129,10 +129,6 @@
     #'(lambda ()
         (put 'dired-find-alternate-file 'disabled nil)
         (define-key dired-mode-map (kbd "RET") #'dired-find-alternate-file))))
-(use-package cus-edit ; Dump custom-set-variables to a garbage file and don’t load it
-  :ensure nil
-  :config
-  (setq custom-file (concat user-emacs-directory "to-be-dumped.el")))
 
 ;; cool syntax highlighting
 (use-package highlight-numbers
