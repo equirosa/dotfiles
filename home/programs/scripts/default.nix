@@ -145,7 +145,7 @@ in
           video-optimize() {
             info="$(${getExe mediainfo} "''${file}")"
             case "''${info}" in
-              *"AVC"*) 
+              *"AVC"*)
                 ${backupIfDuplicate "mkv"}
                 ${ffmpeg-bin} -i "''${file}" -vcodec libx265 -crf 28 "''${base}.mkv" ;;
               *"HEVC"* | *"AV1"* ) echo "File already optimized." ;;
@@ -241,7 +241,6 @@ in
       "beeper"
       "calendarios-gaby"
       "code2png"
-      "config-check"
       "emoji"
       "gen-ssh-key"
       "generate-months"
