@@ -204,8 +204,8 @@
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous))
 
-;; Flycheck
-(use-package flycheck :config (global-flycheck-mode +1))
+;; ;; Flycheck
+;; (use-package flycheck :config (global-flycheck-mode +1))
 
 ;; Org Mode
 (use-package org
