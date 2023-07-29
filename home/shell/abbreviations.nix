@@ -7,7 +7,6 @@ rec {
   ct = "cd $(mktemp -d)";
   d = "dust";
   dt = "dust ~/.local/share/Trash/";
-  e = "$EDITOR";
   fex = "fd --extension";
   lb = "lsblk";
   lg = "lazygit";
@@ -31,7 +30,7 @@ rec {
   snp = "show-nix-store-path";
   ss = "show-script";
   tl = "tldr";
-  v = "nvim";
+  v = "$EDITOR";
   wl = "watchlist";
   x = "xdg-open";
   # Flatpak
