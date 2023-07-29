@@ -205,7 +205,6 @@
 
 ;; Theme
 (use-package modus-themes
-  :ensure t
   :config
   ;; Add all your customizations prior to loading the themes
   (setq modus-themes-italic-constructs t
