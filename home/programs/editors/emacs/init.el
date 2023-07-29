@@ -222,6 +222,8 @@
   (setq which-key-idle-delay 0.4
         which-key-idle-secondary-delay 0.4))
 
+(use-package keychain-environment)
+
 ;; Programming
 (use-package nix-mode)
 (use-package envrc
