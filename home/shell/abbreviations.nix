@@ -82,7 +82,6 @@ rec {
   npu = "${np} upgrade";
   ro = "regen os";
   rt = "regen test";
-  up = "sudo nixos-rebuild switch --profile-name $(date +%s)-";
   # trash-cli
   rm = "trash-put";
   te = "trash-empty";
