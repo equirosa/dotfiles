@@ -1,4 +1,4 @@
-flake_path="sourcehut:~eduardo_quiros/dotfiles"
+flake_path="${HOME}/projects/dotfiles"
 regen_nixos() {
 	sudo nixos-rebuild switch --flake "${flake_path}#$(hostname)"
 	notify-send "System Rebuilt!"
