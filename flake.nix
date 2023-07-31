@@ -46,8 +46,9 @@
       {
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
-            nixpkgs-fmt
             deadnix
+            nixpkgs-fmt
+            nodePackages.bash-language-server
             shfmt
           ];
         };
