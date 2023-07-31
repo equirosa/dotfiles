@@ -25,6 +25,7 @@ let
   getExeList = map (x: "${getExe pkgs.${x}}");
   stringsToReplace = [
     "appimage-run"
+    "libreoffice"
     "nvd"
     "pngquant"
     "rbw"
@@ -73,16 +74,6 @@ in
         text = ''
           ${backupIfDuplicate "ogg"}
           ${ffmpeg-bin} -i "''${file}" -vn ${scriptAudio} "''${base}.ogg"
-        '';
-      })
-      (shellApplicationWithInputs {
-        name = "2pdf";
-        getExt = true;
-        text = ''
-          case "''${ext}" in
-            odt | docx ) ${getExe libreoffice} --headless --convert-to pdf "''${1}" ;;
-            * ) printf "I can't handle that format yet!\n"
-          esac
         '';
       })
       (shellApplicationWithInputs {
@@ -237,6 +228,7 @@ in
       })
     ]
     ++ shellApplicationFromList [
+      "2pdf"
       "autostart"
       "beeper"
       "calendarios-gaby"
