@@ -49,6 +49,7 @@
             deadnix
             nixpkgs-fmt
             nodePackages.bash-language-server
+            shellharden
             shfmt
           ];
         };
