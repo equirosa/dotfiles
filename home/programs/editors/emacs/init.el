@@ -77,6 +77,9 @@
   :config
   (setq eldoc-idle-delay 0.4))
 
+;; Diminish
+(use-package diminish)
+
 ;; C, C++, and Java
 (use-package cc-vars
   :ensure nil
