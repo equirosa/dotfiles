@@ -224,6 +224,9 @@
 
   (define-key global-map (kbd "<f5>") #'modus-themes-toggle))
 
+(use-package doom-modeline
+  :init (doom-modeline-mode 1))
+
 ;; Org Mode
 (use-package org
   :hook ((org-mode . visual-line-mode)
