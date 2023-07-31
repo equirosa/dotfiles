@@ -1,4 +1,4 @@
-{
+{ pkgs, lib, ... }: {
   programs = {
     git = {
       enable = true;
@@ -34,7 +34,7 @@
     };
     lazygit = {
       enable = true;
-      settings.git.paging.pager = "difftastic";
+      settings.git.paging.pager = lib.getExe pkgs.delta;
     };
     gh = {
       enable = true;
