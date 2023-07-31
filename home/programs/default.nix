@@ -40,6 +40,7 @@
     # Nix-specific stuff
     cachix
     deadnix
+    nix-output-monitor
     nix-update
     nixd
     nixpkgs-review
