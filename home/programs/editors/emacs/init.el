@@ -205,6 +205,12 @@
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous))
 
+(use-package company-org-block
+  :custom (company-org-block-edit-style 'auto)
+  :hook ((org-mode . (lambda ()
+                       (setq-local company-backends '(company-org-block))
+                       (company-mode 1)))))
+
 ;; ;; Flycheck
 ;; (use-package flycheck :config (global-flycheck-mode +1))
 
