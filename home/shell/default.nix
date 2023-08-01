@@ -85,7 +85,7 @@ in
         defaultCommand = "${fileCommand}";
         defaultOptions = [ "--height 100%" "--border" ];
         fileWidgetCommand = "${fileCommand}";
-        fileWidgetOptions = [ "--preview '${getExe pkgs.pistol} {}'" ];
+        fileWidgetOptions = [ "--preview '${getExe pkgs.ctpv} {}'" ];
       };
     navi = { enable = true; };
     starship = {
