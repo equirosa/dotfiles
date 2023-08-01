@@ -4,6 +4,6 @@ file="$(realpath "''${1}")"
 ext=${file##*.}
 
 case "$ext" in
-  odt | docx ) libreoffice --headless --convert-to pdf "$file" ;;
-  * ) printf "I can't handle that format yet!\n" ;;
+	odt | docx) libreoffice --headless --convert-to pdf "$file" ;;
+	*) printf "I can't handle that format yet!\n" ;;
 esac
