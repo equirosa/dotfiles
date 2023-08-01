@@ -265,6 +265,7 @@
   (add-hook 'before-save-hook 'eglot-format-buffer)
   (add-to-list 'eglot-server-programs '(nix-mode . ("nixd"))))
 (use-package elm-mode)
+(use-package lua-mode)
 (use-package nix-mode)
 (use-package envrc
   :diminish
