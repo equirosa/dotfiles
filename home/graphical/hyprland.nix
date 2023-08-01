@@ -24,24 +24,20 @@ let
   leftWorkspaces = range 1 6;
   rightWorkspaces = range 7 10;
   allWorkspaces = leftWorkspaces ++ rightWorkspaces;
-  useRightNum = num:
-    toString (
-      if num == 10
-      then 0
-      else num
-    );
+  useRightNum = num: toString (
+    if num == 10
+    then 0
+    else num
+  );
   defaultTerm = getExe wezterm;
-  termify = program: "${defaultTerm} ${getExe program}";
-  execOnce =
-    addToFile
-      (map (command: "exec-once=${command}")
-        [
-          "transmission-daemon"
-          "${getExe foot} --title=newsboat ${getExe newsboat}"
-          "beeper"
-          "librewolf"
-          "swww init"
-        ]);
+  termify = program: "${defaultTerm} -e ${getExe program}";
+  execOnce = addToFile (map (command: "exec-once=${command}") [
+    "transmission-daemon"
+    "${getExe foot} --title=newsboat ${getExe newsboat}"
+    "beeper"
+    "librewolf"
+    "swww init"
+  ]);
   addToFile = concatStringsSep "\n";
   assignWorkspaces = monitor: workspaces:
     addToFile (map (number: "workspace=${toString number},monitor:${monitor}")
