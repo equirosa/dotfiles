@@ -15,6 +15,7 @@ let
     pulsemixer
     tor-browser-bundle-bin
     tremc
+    wezterm
     ;
   gaps = 2;
   mod = "SUPER";
@@ -29,7 +30,7 @@ let
       then 0
       else num
     );
-  defaultTerm = getExe foot;
+  defaultTerm = getExe wezterm;
   termify = program: "${defaultTerm} ${getExe program}";
   execOnce =
     addToFile
