@@ -32,10 +32,7 @@
       userEmail = "eduardo@eduardoquiros.com";
       userName = "Eduardo Quiros";
     };
-    lazygit = {
-      enable = true;
-      settings.git.paging.pager = lib.getExe pkgs.delta;
-    };
+    lazygit = { enable = true; };
     gh = {
       enable = true;
       settings = {
