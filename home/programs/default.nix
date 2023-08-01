@@ -46,8 +46,6 @@
     nixpkgs-review
     statix
     # Utilities
-    archiver
-    compsize
     cryfs
     du-dust
     fd
@@ -64,8 +62,13 @@
     ripgrep
     swww
     trash-cli
-    unzip
     wl-clipboard
+    # Compression
+    archiver
+    compsize
+    lzip
+    tarlz
+    unzip
     # Password
     bitwarden
     gopass
