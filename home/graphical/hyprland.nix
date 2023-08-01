@@ -129,7 +129,7 @@ in
       bind = ${mod}, N, exec, ${getExe foot} --title=newsboat ${getExe newsboat}
       bind = ${mod}, P, exec, emoji
       bind = ${mod}, R, exec, ${termify lf}
-      bind = ${mod}, RETURN, exec, foot
+      bind = ${mod}, RETURN, exec, ${getExe wezterm}
       bind = ${mod}, S, exec, search
       bind = ${mod}, T, exec, ${termify tremc}
       bind = ${mod}, V, togglefloating,
