@@ -95,6 +95,7 @@ in
         golang.symbol = " ";
         hostname.ssh_only = true;
         lua.symbol = " ";
+        nix_shell.symbol = " ";
         python.symbol = " ";
         rust.symbol = " ";
         sudo.disabled = false;
