@@ -92,6 +92,7 @@ in
       enable = true;
       settings = {
         git_commit.commit_hash_length = 4;
+        git_metrics.disabled = false;
         golang.symbol = " ";
         hostname.ssh_only = true;
         lua.symbol = " ";
