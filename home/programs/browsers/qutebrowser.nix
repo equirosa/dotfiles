@@ -39,7 +39,7 @@ in
     };
     settings = {
       content.fullscreen.window = true;
-      editor.command = [ terminal "nvim" "{file}" ];
+      editor.command = [ "emacsclient" "-c" "{file}" ];
       downloads.location.prompt = false;
     };
   };
