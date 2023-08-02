@@ -29,6 +29,7 @@ in
       w = "en.wikipedia.org/w/index.php?search={}";
     };
     quickmarks = {
+      cal = "calendar.google.com";
       hm = "github.com/nix-community/home-manager";
       hw = "wiki.hyprland.org/";
       m = "reader.miniflux.app/";
