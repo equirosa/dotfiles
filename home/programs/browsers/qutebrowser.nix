@@ -30,11 +30,11 @@ in
     };
     quickmarks = {
       hm = "github.com/nix-community/home-manager";
+      hw = "wiki.hyprland.org/";
       m = "reader.miniflux.app/";
       nixpkgs = "github.com/NixOS/nixpkgs";
       nvo = "pta2002.github.io/nixvim/";
       tdm = "twitch.tv/drmick";
-      hw = "wiki.hyprland.org/";
     };
     settings = {
       content.fullscreen.window = true;
