@@ -255,6 +255,13 @@
 
 (use-package keychain-environment)
 
+;; Syntax
+(use-package treesit-auto
+  :config
+  (global-treesit-auto-mode))
+(use-package tree-sitter-langs)
+
+
 ;; Programming
 (use-package eglot
   :config
