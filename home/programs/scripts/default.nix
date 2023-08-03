@@ -39,7 +39,7 @@ let
     file="''${file}.bak"
     fi
   '';
-  ffmpeg-bin = getExe ffmpeg_6-full;
+  ffmpeg-bin = "${ffmpeg_6-full}/bin/ffmpeg";
   scriptAudio = "-c:a libopus -b:a 128k";
   getExeList = map (x: "${getExe pkgs.${x}}");
   stringsToReplace = [
