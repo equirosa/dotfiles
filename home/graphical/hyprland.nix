@@ -66,10 +66,6 @@ in
       # Assign workspaces
       ${assignWorkspaces leftMon leftWorkspaces}
       ${assignWorkspaces rightMon rightWorkspaces}
-
-      # Some default env vars.
-      env = XCURSOR_SIZE,24
-
       # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
       input {
           kb_layout = us,latam
