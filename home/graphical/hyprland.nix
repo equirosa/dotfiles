@@ -31,13 +31,6 @@ let
   );
   defaultTerm = getExe wezterm;
   termify = program: "${defaultTerm} -e ${getExe program}";
-  execOnce = addToFile (map (command: "exec-once=${command}") [
-    "transmission-daemon"
-    "${getExe foot} --title=newsboat ${getExe newsboat}"
-    "beeper"
-    "librewolf"
-    "swww init"
-  ]);
   addToFile = concatStringsSep "\n";
   assignWorkspaces = monitor: workspaces:
     addToFile (map (number: "workspace=${toString number},monitor:${monitor}")
@@ -48,11 +41,28 @@ in
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    recommendedEnvironment = true;
+    settings = {
+      monitor = [
+        "${leftMon},preferred,0x0,auto"
+        "${rightMon},1920x1080@60,1920x0,1"
+      ];
+      general = {
+        gaps_in = gaps;
+        gaps_out = gaps * 2;
+        border_size = 2;
+        "col.active_border" = "rgba(E323BEEE) rgba(33ccffee) rgba(00ff99ee) 45deg";
+        "col.inactive_border" = "rgba(595959aa)";
+        layout = "dwindle";
+      };
+      exec-once = [
+        "transmission-daemon"
+        "${getExe foot} --title=newsboat ${getExe newsboat}"
+        "beeper"
+        "librewolf"
+        "swww init"
+      ];
+    };
     extraConfig = ''
-      monitor=${leftMon},preferred,0x0,auto
-      monitor=${rightMon},1920x1080@60,1920x0,1
-
       # Assign workspaces
       ${assignWorkspaces leftMon leftWorkspaces}
       ${assignWorkspaces rightMon rightWorkspaces}
@@ -73,16 +83,6 @@ in
           }
           sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
       }
-
-      general {
-          gaps_in = ${toString gaps}
-          gaps_out = ${toString (gaps * 2)}
-          border_size = 2
-          col.active_border = rgba(E323BEEE) rgba(33ccffee) rgba(00ff99ee) 45deg
-          col.inactive_border = rgba(595959aa)
-          layout = dwindle
-      }
-
       misc {
         vrr = true
         # Swallowing
@@ -180,8 +180,6 @@ in
       windowrulev2=float,nofullscreen,class:firefox,title:^Firefox — Sharing Indicator$
       windowrulev2=maximize,class:^(librewolf)$,title:Picture-in-Picture
       windowrulev2=workspace 8 silent,class:^(foot|mpv)$,title:newsboat
-
-      ${execOnce}
     '';
   };
 }
