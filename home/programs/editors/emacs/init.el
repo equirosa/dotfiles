@@ -15,15 +15,12 @@
   (scroll-conservatively 101) ; > 100
   (scroll-preserve-screen-position t)
   (auto-window-vscroll nil)
+  (use-dialog-box nil)
+  (history-length 25)
   :config
   (tool-bar-mode -1)
   (menu-bar-mode -1)
   (recentf-mode 1)
-
-  (setq use-dialog-box nil)
-
-  ;; Save what you enter into minibuffer prompts
-  (setq history-length 25)
   (savehist-mode 1)
 
   ;; Always use spaces for indentation
