@@ -60,7 +60,6 @@
         snowfort = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            hyprland.nixosModules.default
             {
               programs.hyprland.enable = true;
               security.pam.services.swaylock = { };
@@ -76,7 +75,6 @@
                 users.kiri = { osConfig, ... }: {
                   imports = [
                     ./home
-                    hyprland.homeManagerModules.default
                     nix-index-database.hmModules.nix-index
                     nixvim.homeManagerModules.nixvim
                   ];
