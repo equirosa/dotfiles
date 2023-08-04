@@ -5,7 +5,7 @@
 let
   inherit (lib) getExe;
   inherit (lib.lists) forEach range;
-  inherit (builtins) concatStringsSep;
+  inherit (builtins) concatStringsSep concatLists;
   inherit
     (pkgs)
     btop
@@ -61,11 +61,12 @@ in
         "librewolf"
         "swww init"
       ];
+      workspace = concatLists [
+        (map (num: "${toString num},monitor:${leftMon}") leftWorkspaces)
+        (map (num: "${toString num},monitor:${rightMon}") rightWorkspaces)
+      ];
     };
     extraConfig = ''
-      # Assign workspaces
-      ${assignWorkspaces leftMon leftWorkspaces}
-      ${assignWorkspaces rightMon rightWorkspaces}
       # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
       input {
           kb_layout = us,latam
