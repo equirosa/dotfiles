@@ -36,7 +36,7 @@ let
     addToFile (map (number: "workspace=${toString number},monitor:${monitor}")
       workspaces);
   genRule2 = rules: regexs:
-    addToFile (map (regex: "${addToFile (map (rule: "windowrulev2=${rule},${regex}") rules)}") regexs);
+    map (regex: "${addToFile (map (rule: "${rule},${regex}") rules)}") regexs;
 in
 {
   wayland.windowManager.hyprland = {
@@ -65,118 +65,108 @@ in
         (map (num: "${toString num},monitor:${leftMon}") leftWorkspaces)
         (map (num: "${toString num},monitor:${rightMon}") rightWorkspaces)
       ];
-    };
-    extraConfig = ''
-      # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
-      input {
-          kb_layout = us,latam
-          kb_variant =
-          kb_model =
-          kb_options =grp:win_space_toggle
-          kb_rules =
-          follow_mouse = 1
-          touchpad {
-              natural_scroll = no
-          }
-          sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
-      }
-      misc {
-        vrr = true
-        # Swallowing
-        enable_swallow=true
-        swallow_regex=^(foot)
-      }
-
-      decoration {
-          rounding = 10
-          blur = yes
-          blur_size = 3
-          blur_passes = 1
-          blur_new_optimizations = on
-          drop_shadow = yes
-          shadow_range = 4
-          shadow_render_power = 3
-          col.shadow = rgba(1a1a1aee)
-      }
-
-      animations {
-          enabled = yes
-          bezier = myBezier, 0.05, 0.9, 0.1, 1.05
-          animation = windows, 1, 7, myBezier
-          animation = windowsOut, 1, 7, default, popin 80%
-          animation = border, 1, 10, default
-          animation = borderangle, 1, 8, default
-          animation = fade, 1, 7, default
-          animation = workspaces, 1, 6, default
-      }
-
-      dwindle {
-          pseudotile = yes
-          preserve_split = yes # you probably want this
-      }
-
-      bind = ${mod} SHIFT, Q, killactive,
-      bind = ${mod}, A, exec, ${termify pulsemixer}
-      bind = ${mod}, D, exec, rofi -show run
-      bind = ${mod}, E, exec, kitty aerc
-      bind = ${mod} SHIFT, E, exec, emacsclient --create-frame
-      bind = ${mod}, F, fullscreen, 0
-      bind = ${mod}, I, exec, ${termify btop}
-      bind = ${mod}, M, fullscreen, 1
-      bind = ${mod}, N, exec, ${getExe foot} --title=newsboat ${getExe newsboat}
-      bind = ${mod}, P, exec, emoji
-      bind = ${mod}, R, exec, ${termify lf}
-      bind = ${mod}, RETURN, exec, ${getExe wezterm}
-      bind = ${mod}, S, exec, search
-      bind = ${mod}, T, exec, ${termify tremc}
-      bind = ${mod}, V, togglefloating,
-      bind = ${mod}, W, exec, librewolf
-      bind = ${mod} SHIFT, W, exec, ${getExe tor-browser-bundle-bin}
-      bind = ${mod}, X, exec, swaylock
-      bind = ${mod}, Z, exec,password-menu
-      bind = , Print, exec, screenshot
-      bind = ALT SHIFT, F, fakefullscreen,
-
-      # Move focus with ${mod} + arrow keys
-      ${addToFile (
-        map (key: "bind = ${mod}, ${key}, movefocus, l") ["h" "LEFT"]
-      )}
-      ${addToFile (
-        map (key: "bind = ${mod}, ${key}, movefocus, r") ["l" "RIGHT"]
-      )}
-      ${addToFile (
-        map (key: "bind = ${mod}, ${key}, movefocus, u") ["k" "UP"]
-      )}
-      ${addToFile (
-        map (key: "bind = ${mod}, ${key}, movefocus, d") ["j" "DOWN"]
-      )}
-
-      # Switch workspaces with ${mod} + [0-9]
-      ${addToFile
+      input = {
+        kb_layout = "us,latam";
+        kb_options = "grp:win_space_toggle";
+        follow_mouse = true;
+        touchpad.natural_scroll = false;
+        sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
+      };
+      misc = {
+        vrr = true;
+        enable_swallow = true;
+        swallow_regex = "^(foot)";
+      };
+      decoration = {
+        rounding = 10;
+        blur = true;
+        blur_size = 3;
+        blur_passes = 1;
+        blur_new_optimizations = false;
+        drop_shadow = true;
+        shadow_range = 4;
+        shadow_render_power = 3;
+        "col.shadow" = "rgba(1a1a1aee)";
+      };
+      animations = {
+        enabled = true;
+        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+        animation = [
+          "windows, 1, 7, myBezier"
+          "windowsOut, 1, 7, default, popin 80%"
+          "border, 1, 10, default"
+          "borderangle, 1, 8, default"
+          "fade, 1, 7, default"
+          "workspaces, 1, 6, default"
+        ];
+      };
+      dwindle = {
+        pseudotile = true;
+        preserve_split = true; # you probably want this
+      };
+      bind = concatLists [
+        (map (str: "${mod}${str}") [
+          " SHIFT, E, exec, emacsclient --create-frame"
+          " SHIFT, Q, killactive,"
+          " SHIFT, W, exec, ${getExe tor-browser-bundle-bin}"
+          ", A, exec, ${termify pulsemixer}"
+          ", D, exec, rofi -show run"
+          ", E, exec, kitty aerc"
+          ", F, fullscreen, 0"
+          ", I, exec, ${termify btop}"
+          ", M, fullscreen, 1"
+          ", N, exec, ${getExe foot} --title=newsboat ${getExe newsboat}"
+          ", P, exec, emoji"
+          ", R, exec, ${termify lf}"
+          ", RETURN, exec, ${getExe wezterm}"
+          ", S, exec, search"
+          ", T, exec, ${termify tremc}"
+          ", V, togglefloating,"
+          ", W, exec, librewolf"
+          ", X, exec, swaylock"
+          ", Z, exec,password-menu"
+          ", mouse_down, workspace, e+1"
+          ", mouse_up, workspace, e-1"
+        ])
+        (map (key: "${mod}, ${key}, movefocus, d") [ "j" "DOWN" ])
+        (map (key: "${mod}, ${key}, movefocus, l") [ "h" "LEFT" ])
+        (map (key: "${mod}, ${key}, movefocus, r") [ "l" "RIGHT" ])
+        (map (key: "${mod}, ${key}, movefocus, u") [ "k" "UP" ])
+        [
+          ", Print, exec, screenshot"
+          "ALT SHIFT, F, fakefullscreen,"
+        ]
         (forEach allWorkspaces
           (number: ''
             bind = ${mod}, ${useRightNum number}, workspace, ${toString number}
-            bind = ${mod} SHIFT, ${useRightNum number}, movetoworkspacesilent, ${toString number}''))}
-
-      # Scroll through existing workspaces with ${mod} + scroll
-      bind = ${mod}, mouse_down, workspace, e+1
-      bind = ${mod}, mouse_up, workspace, e-1
-
-      # Move/resize windows with ${mod} + LMB/RMB and dragging
-      bindm = ${mod}, mouse:272, movewindow
-      bindm = ${mod}, mouse:273, resizewindow
-
+            bind = ${mod} SHIFT, ${useRightNum number}, movetoworkspacesilent, ${toString number}''))
+      ];
+      bindm = [
+        "${mod}, mouse:272, movewindow"
+        "${mod}, mouse:273, resizewindow"
+      ];
+      windowrulev2 = concatLists [
+        [
+          "float,nofullscreen,class:firefox,title:^Firefox — Sharing Indicator$"
+          "maximize,class:^(librewolf)$,title:Picture-in-Picture"
+          "workspace 8 silent,class:^(foot|mpv)$,title:newsboat"
+        ]
+        (genRule2
+          [ "workspace 1 silent" "fakefullscreen" ]
+          [ "class:org.remmina.Remmina" ])
+        (genRule2
+          [ "workspace 6 silent" "tile" ]
+          [ "class:^([Ss]team|.gamescope-wrapped)" ])
+        (genRule2
+          [ "dimaround" "float" "pin" ]
+          [ "class:^(gcr-prompter|[Rr]ofi)" ])
+        (genRule2
+          [ "workspace 9 silent" ]
+          [ "class:^(Ferdium|Beeper)" "title:^(aerc)" ])
+      ];
+    };
+    extraConfig = ''
       # Window Rules
-      ${genRule2 ["workspace 1 silent" "fakefullscreen"]
-        ["class:org.remmina.Remmina"]}
-      ${genRule2 ["workspace 6 silent" "tile"]
-        ["class:^([Ss]team|.gamescope-wrapped)"]}
-      ${genRule2 ["dimaround" "float" "pin"]
-        ["class:^(gcr-prompter|[Rr]ofi)"]}
-      ${genRule2 ["workspace 9 silent"] ["class:^(Ferdium|Beeper)" "title:^(aerc)"]}
-      windowrulev2=float,nofullscreen,class:firefox,title:^Firefox — Sharing Indicator$
-      windowrulev2=maximize,class:^(librewolf)$,title:Picture-in-Picture
-      windowrulev2=workspace 8 silent,class:^(foot|mpv)$,title:newsboat
     '';
   };
 }
