@@ -1,7 +1,4 @@
 { pkgs, lib, ... }:
-let
-  terminal = "${lib.getExe pkgs.foot}";
-in
 {
   programs.qutebrowser = {
     enable = true;
