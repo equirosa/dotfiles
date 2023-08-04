@@ -176,6 +176,7 @@
 ;; Searching/sorting enhancements & project management
 ;; Ido, ido-vertical, ido-ubiquitous and fuzzy matching
 (use-package ido
+  :ensure nil
   :config
   (ido-mode +1)
   (setq ido-everywhere t
