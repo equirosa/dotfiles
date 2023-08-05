@@ -24,19 +24,9 @@ let
   leftWorkspaces = range 1 6;
   rightWorkspaces = range 7 10;
   allWorkspaces = leftWorkspaces ++ rightWorkspaces;
-  useRightNum = num: toString (
-    if num == 10
-    then 0
-    else num
-  );
+  useRightNum = num: toString (if num == 10 then 0 else num);
   defaultTerm = getExe wezterm;
   termify = program: "${defaultTerm} -e ${getExe program}";
-  addToFile = concatStringsSep "\n";
-  assignWorkspaces = monitor: workspaces:
-    addToFile (map (number: "workspace=${toString number},monitor:${monitor}")
-      workspaces);
-  genRule2 = rules: regexs:
-    map (regex: "${addToFile (map (rule: "${rule},${regex}") rules)}") regexs;
 in
 {
   wayland.windowManager.hyprland = {
@@ -151,22 +141,15 @@ in
           "maximize,class:^(librewolf)$,title:Picture-in-Picture"
           "workspace 8 silent,class:^(foot|mpv)$,title:newsboat"
         ]
-        (genRule2
-          [ "workspace 1 silent" "fakefullscreen" ]
-          [ "class:org.remmina.Remmina" ])
-        (genRule2
-          [ "workspace 6 silent" "tile" ]
-          [ "class:^([Ss]team|.gamescope-wrapped)" ])
-        (genRule2
-          [ "dimaround" "float" "pin" ]
-          [ "class:^(gcr-prompter|[Rr]ofi)" ])
-        (genRule2
-          [ "workspace 9 silent" ]
-          [ "class:^(Ferdium|Beeper)" "title:^(aerc)" ])
+        (map (rule: "${rule},class:org.remmina.Remmina")
+          [ "workspace 1 silent" "fakefullscreen" ])
+        (map (rule: "${rule},class:^([Ss]team|.gamescope-wrapped)")
+          [ "workspace 6 silent" "tile" ])
+        (map (rule: "${rule},class:^(gcr-prompter|[Rr]ofi)")
+          [ "dimaround" "float" "pin" ])
+        (map (id: "workspace 9 silent:${id}")
+          [ "class:^(Beeper)" "title:^(aerc)" ])
       ];
     };
-    extraConfig = ''
-      # Window Rules
-    '';
   };
 }
