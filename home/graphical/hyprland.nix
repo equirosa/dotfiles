@@ -11,13 +11,14 @@ let
     btop
     foot
     lf
+    librewolf
     newsboat
     pulsemixer
     tor-browser-bundle-bin
     tremc
     wezterm
     ;
-  gaps = 2;
+  gaps_in = 2;
   mod = "SUPER";
   leftMon = "DP-1";
   rightMon = "HDMI-A-1";
@@ -37,8 +38,8 @@ in
         "${rightMon},1920x1080@60,1920x0,1"
       ];
       general = {
-        gaps_in = gaps;
-        gaps_out = gaps * 2;
+        inherit gaps_in;
+        gaps_out = gaps_in * 2;
         border_size = 2;
         "col.active_border" = "rgba(E323BEEE) rgba(33ccffee) rgba(00ff99ee) 45deg";
         "col.inactive_border" = "rgba(595959aa)";
@@ -48,7 +49,7 @@ in
         "transmission-daemon"
         "${getExe foot} --title=newsboat ${getExe newsboat}"
         "beeper"
-        "librewolf"
+        (getExe librewolf)
         "swww init"
       ];
       workspace = concatLists [
