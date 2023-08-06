@@ -29,6 +29,7 @@
     tor-browser-bundle-bin
     # Messengers
     aerc
+    betterbird
     # Social
     toot
     # Documents
