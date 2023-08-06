@@ -222,6 +222,8 @@
 
 ;; Org Mode
 (use-package org
+  :custom
+  (org-list-allow-alphabetical t)
   :hook ((org-mode . visual-line-mode)
          (org-mode . org-indent-mode)))
 
