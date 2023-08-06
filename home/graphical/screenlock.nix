@@ -1,5 +1,6 @@
 { pkgs, lib, ... }:
 let
+  dpms = "hyprctl dispatch dpms";
   lock-command = "${lib.getBin pkgs.swaylock-effects}";
 in
 {
@@ -9,14 +10,14 @@ in
     settings = {
       show-keyboard-layout = true;
       daemonize = true;
-      effect-blur = "15x2";
+      effect-blur = "7x5";
       clock = true;
+      image = "~/Pictures/desktop_backgrounds/gifs/city.gif";
       indicator = true;
       font-size = 25;
       indicator-radius = 85;
       indicator-thickness = 16;
-      screenshots = true;
-      fade-in = 1;
+      fade-in = 0.2;
     };
   };
   services.swayidle = {
@@ -32,7 +33,7 @@ in
         command = lock-command;
       }
     ];
-    timeouts = let dpms = "hyprctl dispatch dpms"; in [
+    timeouts = [
       {
         timeout = 300;
         command = lock-command;
