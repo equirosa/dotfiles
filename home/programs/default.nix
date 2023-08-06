@@ -30,6 +30,7 @@
     # Messengers
     aerc
     betterbird
+    thunderbird-wayland
     # Social
     toot
     # Documents
