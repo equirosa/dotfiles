@@ -35,6 +35,7 @@
     toot
     # Documents
     joplin-desktop
+    libreoffice-fresh
     multimarkdown
     standardnotes
     texlive.combined.scheme-full
