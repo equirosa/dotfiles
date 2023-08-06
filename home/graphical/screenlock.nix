@@ -1,12 +1,13 @@
 { pkgs, lib, ... }:
 let
+  inherit (pkgs) swaylock-effects;
   dpms = "hyprctl dispatch dpms";
-  lock-command = "${lib.getBin pkgs.swaylock-effects}";
+  lock-command = "${lib.getBin swaylock-effects}";
 in
 {
   programs.swaylock = {
     enable = true;
-    package = pkgs.swaylock-effects;
+    package = swaylock-effects;
     settings = {
       clock = true;
       daemonize = true;
