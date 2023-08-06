@@ -10,7 +10,7 @@ in
     settings = {
       clock = true;
       daemonize = true;
-      effect-blur = "7x5";
+      effect-vignette = "0.5:0.5";
       fade-in = 0.2;
       font-size = 25;
       image = "~/Pictures/desktop_backgrounds/gifs/city.gif";
