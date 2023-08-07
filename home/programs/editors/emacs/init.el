@@ -136,6 +136,8 @@
         (define-key dired-mode-map (kbd "RET") #'dired-find-alternate-file))))
 
 ;; cool syntax highlighting
+(use-package rainbow-delimiters
+  :config (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 (use-package highlight-numbers
   :hook (prog-mode . highlight-numbers-mode))
 (use-package highlight-escape-sequences
