@@ -65,10 +65,10 @@
   :config (column-number-mode 1))
 (use-package files
   :ensure nil
-  :config
-  (setq confirm-kill-processes nil
-        create-lockfiles nil ; don't create .# files (crashes 'npm start')
-        make-backup-files nil))
+  :custom
+  (confirm-kill-processes nil)
+  (create-lockfiles nil) ; don't create .# files (crashes 'npm start')
+  (make-backup-files nil))
 (use-package select
   :ensure nil
   :config (x-select-enable-clipboart t))
