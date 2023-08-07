@@ -3,7 +3,7 @@
     fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [ "Fira Code" "FiraCode Nerd Font" "Twitter Color Emoji" ];
+        monospace = [ "Iosevka Comfy" "FiraCode Nerd Font" "Twitter Color Emoji" ];
         emoji = [ "Twitter Color Emoji" ];
       };
     };
@@ -12,7 +12,6 @@
       (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
       dejavu_fonts
       emacs-all-the-icons-fonts
-      fira-code
       font-awesome
       iosevka-comfy.comfy
       liberation_ttf
