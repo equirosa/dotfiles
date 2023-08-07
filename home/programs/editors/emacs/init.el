@@ -151,6 +151,10 @@
         (put 'dired-find-alternate-file 'disabled nil)
         (define-key dired-mode-map (kbd "RET") #'dired-find-alternate-file))))
 
+;; Beacon
+(use-package beacon
+  :config (beacon-mode 1))
+
 ;; cool syntax highlighting
 (use-package rainbow-delimiters
   :config (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
