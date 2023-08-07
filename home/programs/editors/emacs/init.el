@@ -23,6 +23,8 @@
   (recentf-mode 1)
   (savehist-mode 1)
 
+  (add-hook 'text-mode-hook 'visual-line-mode)
+
   ;; Always use spaces for indentation
   (setq-default indent-tabs-mode nil
                 tab-width ian/indent-width))
@@ -125,8 +127,9 @@
   :hook (before-save . whitespace-cleanup))
 (use-package dired ; Delete intermediate buffers when navigating through dired.
   :ensure nil
+  :custom
+  (delete-by-moving-to-trash t)
   :config
-  (setq delete-by-moving-to-trash t)
   (eval-after-load "dired"
     #'(lambda ()
         (put 'dired-find-alternate-file 'disabled nil)
