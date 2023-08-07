@@ -158,13 +158,20 @@
   (evil-ex-define-cmd "wq" #'ian/save-and-kill-this-buffer))
 (use-package evil-collection
   :after evil
+  :custom
+  (evil-collection-company-use-tng nil)
   :config
-  (setq evil-collection-company-use-tng nil)
   (evil-collection-init))
 (use-package evil-commentary
   :after evil
   :diminish
   :config (evil-commentary-mode +1))
+(use-package evil-org
+  :after org
+  :hook (org-mode . (lambda () evil-org-mode))
+  :config
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
 ;; Git
 (use-package magit
   :bind ("C-x g" . magit-status)
@@ -224,8 +231,7 @@
 (use-package org
   :custom
   (org-list-allow-alphabetical t)
-  :hook ((org-mode . visual-line-mode)
-         (org-mode . org-indent-mode)))
+  :hook ((org-mode . org-indent-mode)))
 
 (use-package org-bullets :hook org-mode)
 
