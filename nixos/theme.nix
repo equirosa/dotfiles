@@ -14,6 +14,7 @@
       emacs-all-the-icons-fonts
       fira-code
       font-awesome
+      iosevka-comfy.comfy
       liberation_ttf
       twitter-color-emoji
     ];
