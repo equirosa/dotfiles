@@ -274,5 +274,7 @@
 (use-package envrc
   :diminish
   :config (envrc-global-mode))
+(use-package rainbow-delimiters
+  :hook prog-mode)
 (provide 'init)
 ;;; init.el ends here
