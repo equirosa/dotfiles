@@ -74,17 +74,18 @@
   :config (x-select-enable-clipboart t))
 (use-package autorevert
   :ensure nil
+  :custom
+  (auto-revert-interval 2)
+  (auto-revert-check-vc-info t)
+  (global-auto-revert-non-file-buffers t)
+  (auto-revert-verbose nil)
   :config
-  (global-auto-revert-mode 1)
-  (setq auto-revert-interval 2
-        auto-revert-check-vc-info t
-        global-auto-revert-non-file-buffers t
-        auto-revert-verbose nil))
+  (global-auto-revert-mode 1))
 (use-package eldoc
   :ensure nil
   :diminish eldoc-mode
-  :config
-  (setq eldoc-idle-delay 0.4))
+  :custom
+  (eldoc-idle-delay 0.4))
 
 ;; Diminish
 (use-package diminish)
@@ -105,12 +106,13 @@
 ;; Python (both v2 and v3)
 (use-package python
   :ensure nil
-  :config (setq python-indent-offset ian/indent-width))
+  :custom (python-indent-offset ian/indent-width))
 
 (use-package mwheel
   :ensure nil
-  :config (setq mouse-wheel-scroll-amount '(2 ((shift) . 1))
-                mouse-wheel-progressive-speed nil))
+  :custom
+  (mouse-wheel-scroll-amount '(2 ((shift) . 1)))
+  (mouse-wheel-progressive-speed nil))
 (use-package paren
   :ensure nil
   :init (setq show-paren-delay 0)
