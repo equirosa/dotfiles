@@ -3,6 +3,10 @@
 (use-package emacs
   :preface
   (defvar ian/indent-width 4) ; change this value to your preferred width
+  (defun kiri/kill-this-buffer ()
+    "Kill the currently focused buffer."
+    (interactive)
+    (kill-buffer (current-buffer)))
   :custom
   (delete-by-moving-to-trash t)
   (ring-bell-function 'ignore)       ; minimize distraction
