@@ -29,6 +29,12 @@
 
   (add-hook 'text-mode-hook 'visual-line-mode)
 
+  (global-set-key (kbd "C-x k") 'kiri/kill-this-buffer)
+  (global-set-key (kbd "C-x w") 'delete-frame)
+  (global-set-key (kbd "C-c s s") 'replace-string)
+  (global-set-key (kbd "C-c s r") 'replace-regexp)
+  (global-set-key [remap eval-last-sexp] 'pp-eval-last-sexp)
+
   ;; Always use spaces for indentation
   (setq-default indent-tabs-mode nil
                 tab-width ian/indent-width))
