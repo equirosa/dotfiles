@@ -265,7 +265,7 @@
 (use-package eglot
   :hook
   (prog-mode . eglot-ensure)
-  (before-save . (lambda () 'eglot-format-buffer))
+  (before-save . eglot-format-buffer)
   :config
   (add-to-list 'eglot-server-programs '(nix-mode . ("nixd"))))
 (use-package elm-mode)
