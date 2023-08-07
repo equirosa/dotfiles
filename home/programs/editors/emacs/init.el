@@ -79,6 +79,10 @@
 ;; Diminish
 (use-package diminish)
 
+;; Bool flip
+(use-package bool-flip
+  :bind ("C-c b" . bool-flip-do-flip))
+
 ;; C, C++, and Java
 (use-package cc-vars
   :ensure nil
