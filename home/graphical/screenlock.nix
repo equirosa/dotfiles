@@ -1,8 +1,8 @@
 { pkgs, lib, ... }:
 let
-  inherit (pkgs) swaylock-effects;
-  dpms = "hyprctl dispatch dpms";
-  lock-command = "${lib.getBin swaylock-effects}";
+  inherit (pkgs) hyprland swaylock-effects;
+  dpms = "${hyprland}/bin/hyprctl dispatch dpms";
+  lock-command = "${lib.getExe swaylock-effects}";
 in
 {
   programs.swaylock = {
