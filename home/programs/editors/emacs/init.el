@@ -262,9 +262,10 @@
 
 ;; Programming
 (use-package eglot
+  :hook
+  (prog-mode . eglot-ensure)
+  (before-save . (lambda () 'eglot-format-buffer))
   :config
-  (add-hook 'prog-mode-hook 'eglot-ensure)
-  (add-hook 'before-save-hook 'eglot-format-buffer)
   (add-to-list 'eglot-server-programs '(nix-mode . ("nixd"))))
 (use-package elm-mode)
 (use-package lua-mode)
