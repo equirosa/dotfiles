@@ -1,4 +1,5 @@
 (setq use-package-always-ensure t
+      use-package-always-defer t
       use-package-expand-minimally t)
 (use-package emacs
   :preface
