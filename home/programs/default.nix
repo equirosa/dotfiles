@@ -34,7 +34,6 @@
     toot
     # Documents
     joplin-desktop
-    multimarkdown
     standardnotes
     texlive.combined.scheme-full
     # File Sharing
