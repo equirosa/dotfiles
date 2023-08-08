@@ -104,6 +104,10 @@ in
             "Q, killactive,"
             "W, exec, ${getExe tor-browser-bundle-bin}"
           ]
+          (map (key: "${key}, movewindow, d") [ "j" "DOWN" ])
+          (map (key: "${key}, movewindow, l") [ "h" "LEFT" ])
+          (map (key: "${key}, movewindow, r") [ "l" "RIGHT" ])
+          (map (key: "${key}, movewindow, u") [ "k" "UP" ])
           (map (num: "${useRightNum num}, movetoworkspacesilent, ${toString num}")
             allWorkspaces)
         ]))
