@@ -9,7 +9,6 @@ let
   inherit (import ../../shell/aliases.nix { inherit pkgs lib; }) cat;
   inherit (config.xdg.userDirs) download;
   inherit (pkgs)
-    coreutils
     ffmpeg_6-full
     file
     imv
@@ -192,8 +191,8 @@ in
       text = ''
         chosen=$(find "${config.xdg.dataHome}/remmina/" -name "*.remmina")
 
-        [ "$(${coreutils}/bin/wc -l <<< "''${chosen}")" -gt 1 ] &&\
-        chosen=$(${coreutils}/bin/printf "''${chosen}" | ${menu-program})
+        [ "$(wc -l <<< "''${chosen}")" -gt 1 ] &&\
+        chosen=$(printf "''${chosen}" | ${menu-program})
 
         ${getExe remmina} -c "$chosen"
       '';
@@ -205,11 +204,11 @@ in
     })
     (writeShellApplication {
       name = "screenshot";
-      runtimeInputs = [ pkgs.swappy ];
-      text = ''
-        export GRIMBLAST_EDITOR="swappy -f"
-        grimblast --notify edit area
-      '';
+      runtimeInputs = [
+        pkgs.swappy
+        inputs.hypr-contrib.packages.${pkgs.system}.grimblast
+      ];
+      text = fileContents ./screenshot.sh;
     })
     (writeShellApplication {
       name = "search";

@@ -1,5 +1,4 @@
 { pkgs
-, inputs
 , ...
 }: {
   imports = [
@@ -55,7 +54,6 @@
     gocryptfs
     hut
     hyprpicker
-    inputs.hypr-contrib.packages.${system}.grimblast
     libnotify
     mediainfo
     parallel-full
