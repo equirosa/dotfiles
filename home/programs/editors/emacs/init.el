@@ -158,6 +158,8 @@
 ;; cool syntax highlighting
 (use-package rainbow-delimiters
   :config (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+(use-package hl-indent-scope
+  :hook (prog-mode . hl-indent-scope-mode))
 (use-package highlight-numbers
   :hook (prog-mode . highlight-numbers-mode))
 (use-package highlight-escape-sequences
