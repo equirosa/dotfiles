@@ -20,7 +20,6 @@ let
     remmina
     ripgrep
     rofi-rbw
-    tofi
     writeShellApplication
     wtype
     xdg-utils
@@ -32,7 +31,7 @@ let
     runtimeInputs = [ libnotify ];
     text = fileContents ./notify.sh;
   };
-  menu-program = getExe tofi;
+  menu-program = "${getExe config.programs.rofi.finalPackage} -dmenu";
   backupIfDuplicate = ext: ''
     if [ "''${ext}" = "${ext}" ]; then
     bak="''${file}.bak"; mv "''${file}" "''${bak}"
@@ -47,6 +46,7 @@ let
     ext=''${file##*.}
     base=''${file%.*}
     directory=''${file%/*}
+    export file ext base directory
   '';
 in
 {
@@ -66,7 +66,7 @@ in
         ${process-inputs}
         case "''${ext}" in
           odt | docx ) ${getExe pandoc} "''${1}" -o "''${file}.org" ;;
-          * ) printf "I can't handle that format yet!\n"
+          * ) echo "I can't handle that format yet!"
         esac
       '';
     })
@@ -77,7 +77,7 @@ in
         ${process-inputs}
         case "$ext" in
           odt | docx) libreoffice --headless --convert-to pdf "$file" ;;
-          *) printf "I can't handle that format yet!\n" ;;
+          *) echo "I can't handle that format yet!" ;;
         esac
       '';
     })
@@ -89,8 +89,8 @@ in
         case "''${ext}" in
         jpg | jpeg ) cwebp -q 80 "''${file}" -o "''${base}.webp" ;;
         png ) cwebp -lossless "''${file}" -o "''${base}.webp" ;;
-        webp ) printf "File is already WEBP" && exit 1 ;;
-        * ) printf "Can't handle that file extension..." && exit 1 ;;
+        webp ) echo "File is already WEBP" && exit 1 ;;
+        * ) echo "Can't handle that file extension..." && exit 1 ;;
         esac
       '';
     })
@@ -192,7 +192,7 @@ in
         chosen=$(find "${config.xdg.dataHome}/remmina/" -name "*.remmina")
 
         [ "$(wc -l <<< "''${chosen}")" -gt 1 ] &&\
-        chosen=$(printf "''${chosen}" | ${menu-program})
+        chosen=$(echo "''${chosen}" | ${menu-program})
 
         ${getExe remmina} -c "$chosen"
       '';
