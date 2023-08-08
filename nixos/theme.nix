@@ -12,7 +12,7 @@
       dejavu_fonts
       emacs-all-the-icons-fonts
       font-awesome
-      iosevka-comfy.comfy
+      iosevka-comfy.comfy-duo
       liberation_ttf
       nerdfonts
       twitter-color-emoji
