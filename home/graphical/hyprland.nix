@@ -1,5 +1,6 @@
 { pkgs
 , lib
+, config
 , ...
 }:
 let
@@ -102,7 +103,7 @@ in
           " SHIFT, Q, killactive,"
           " SHIFT, W, exec, ${getExe tor-browser-bundle-bin}"
           ", A, exec, ${termify pulsemixer}"
-          ", D, exec, rofi -show run"
+          ", D, exec, ${config.programs.rofi.finalPackage}/bin/rofi -show run"
           ", E, exec, kitty aerc"
           ", F, fullscreen, 0"
           ", I, exec, ${termify btop}"
