@@ -5,8 +5,7 @@
 , ...
 }:
 let
-  inherit (builtins) replaceStrings;
-  inherit (lib) getExe optionalString fileContents;
+  inherit (lib) getExe fileContents;
   inherit (import ../../shell/aliases.nix { inherit pkgs lib; }) cat;
   inherit (config.xdg.userDirs) download;
   inherit (pkgs)
@@ -43,17 +42,6 @@ let
   '';
   ffmpeg-bin = "${ffmpeg_6-full}/bin/ffmpeg";
   scriptAudio = "-c:a libopus -b:a 128k";
-  getExeList = map (x: "${getExe pkgs.${x}}");
-  stringsToReplace = [
-    "appimage-run"
-    "libreoffice"
-    "nvd"
-    "pngquant"
-    "rbw"
-    "rofimoji"
-    "silicon"
-    "swappy"
-  ];
   process-inputs = ''
     [ $# -eq 0 ] && ${notify} "No arguments provided. Exitting..." && exit 1
     file="$(realpath "''${1}")"
