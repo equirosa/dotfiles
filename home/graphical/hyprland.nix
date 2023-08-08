@@ -13,7 +13,6 @@ let
     foot
     lf
     librewolf
-    newsboat
     pulsemixer
     tor-browser-bundle-bin
     tremc
@@ -49,7 +48,6 @@ in
       };
       exec-once = [
         "transmission-daemon"
-        "${getExe foot} --title=newsboat ${getExe newsboat}"
         "beeper"
         (getExe librewolf)
         "swww init"
@@ -120,7 +118,6 @@ in
               "F, fullscreen, 0"
               "I, exec, ${termify btop}"
               "M, fullscreen, 1"
-              "N, exec, ${getExe foot} --title=newsboat ${getExe newsboat}"
               "P, exec, emoji"
               "R, exec, ${termify lf}"
               "RETURN, exec, ${defaultTerm}"
@@ -152,8 +149,6 @@ in
         [
           "float,nofullscreen,class:firefox,title:^Firefox — Sharing Indicator$"
           "maximize,class:^(librewolf)$,title:Picture-in-Picture"
-          "maximize,class:mpv,title:newsboat"
-          "workspace 8 silent,class:^(foot|mpv)$,title:newsboat"
         ]
         (map (id: "workspace 9 silent:${id}")
           [ "class:^(Beeper)" "title:^(aerc)" ])
