@@ -44,7 +44,6 @@ let
   getExeList = map (x: "${getExe pkgs.${x}}");
   stringsToReplace = [
     "appimage-run"
-    "file"
     "libreoffice"
     "nvd"
     "pngquant"
@@ -255,7 +254,6 @@ in
     "emoji"
     "gen-ssh-key"
     "generate-months"
-    "get-mimetype"
     "git-find-deleted-files"
     "git-remove-merged-branches"
     "regen"
