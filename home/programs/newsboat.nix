@@ -11,18 +11,18 @@ let
     { key = "y"; action = "wl-copy"; }
   ];
   controlsList = [
+    { key = "G"; action = "end"; }
+    { key = "O"; action = "open-in-browser-and-mark-read"; }
+    { key = "T"; action = "toggle-show-read-feeds"; }
+    { key = "a"; action = "toggle-article-read"; }
+    { key = "g"; action = "home"; }
+    { key = "h"; action = "quit"; }
     { key = "j"; action = "down"; }
-    { key = "k"; action = "up"; }
     { key = "j"; action = "next articlelist"; }
     { key = "k"; action = "prev articlelist"; }
-    { key = "G"; action = "end"; }
-    { key = "g"; action = "home"; }
-    { key = "a"; action = "toggle-article-read"; }
+    { key = "k"; action = "up"; }
     { key = "l"; action = "open"; }
-    { key = "h"; action = "quit"; }
     { key = "u"; action = "show-urls"; }
-    { key = "T"; action = "toggle-show-read-feeds"; }
-    { key = "O"; action = "open-in-browser-and-mark-read"; }
   ];
   articleColors = [
     { pattern = "(^Feed:.*|^Title:.*|^Author:.*)"; color = "cyan default bold"; }
