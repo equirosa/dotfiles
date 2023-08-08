@@ -148,17 +148,17 @@ in
         [
           "float,nofullscreen,class:firefox,title:^Firefox — Sharing Indicator$"
           "maximize,class:^(librewolf)$,title:Picture-in-Picture"
-          "workspace 8 silent,class:^(foot|mpv)$,title:newsboat"
           "maximize,class:mpv,title:newsboat"
+          "workspace 8 silent,class:^(foot|mpv)$,title:newsboat"
         ]
-        (map (rule: "${rule},class:org.remmina.Remmina")
-          [ "workspace 1 silent" "fakefullscreen" ])
+        (map (id: "workspace 9 silent:${id}")
+          [ "class:^(Beeper)" "title:^(aerc)" ])
         (map (rule: "${rule},class:^([Ss]team|.gamescope-wrapped)")
           [ "workspace 6 silent" "tile" ])
         (map (rule: "${rule},class:^(gcr-prompter|[Rr]ofi)")
           [ "dimaround" "float" "pin" ])
-        (map (id: "workspace 9 silent:${id}")
-          [ "class:^(Beeper)" "title:^(aerc)" ])
+        (map (rule: "${rule},class:org.remmina.Remmina")
+          [ "workspace 1 silent" "fakefullscreen" ])
       ];
     };
   };
