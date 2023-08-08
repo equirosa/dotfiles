@@ -142,6 +142,7 @@ in
           "float,nofullscreen,class:firefox,title:^Firefox — Sharing Indicator$"
           "maximize,class:^(librewolf)$,title:Picture-in-Picture"
           "workspace 8 silent,class:^(foot|mpv)$,title:newsboat"
+          "maximize,class:mpv,title:newsboat"
         ]
         (map (rule: "${rule},class:org.remmina.Remmina")
           [ "workspace 1 silent" "fakefullscreen" ])
