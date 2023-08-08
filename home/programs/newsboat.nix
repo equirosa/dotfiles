@@ -3,11 +3,11 @@ let
   resetBrowser = ''set browser "xdg-open"'';
   mpvCommand = "mpv --keep-open=no --title=newsboat";
   macroList = [
+    { key = "b"; action = "librewolf"; }
+    { key = "d"; action = "watchlist"; }
     { key = "m"; action = mpvCommand; }
     { key = "n"; action = mpvCommand + " --pause"; }
     { key = "u"; action = "umpv"; }
-    { key = "b"; action = "librewolf"; }
-    { key = "d"; action = "watchlist"; }
     { key = "y"; action = "wl-copy"; }
   ];
   controlsList = [
