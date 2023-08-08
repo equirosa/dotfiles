@@ -12,15 +12,15 @@ let
       (filterAttrs
         (key: value: value == "regular" && hasSuffix ".${ext}" key)
         (readDir folder));
-  nixFilesIn = folder:
-    filesIn {
-      inherit folder;
-      ext = "nix";
-    };
-  shellFilesIn = folder:
-    filesIn {
-      inherit folder;
-      ext = "sh";
-    };
 in
-{ inherit filesIn nixFilesIn shellFilesIn; }
+{
+  inherit filesIn;
+  nixFilesIn = folder: filesIn {
+    inherit folder;
+    ext = "nix";
+  };
+  shellFilesIn = folder: filesIn {
+    inherit folder;
+    ext = "sh";
+  };
+}
