@@ -121,8 +121,8 @@
   :preface
   (defun ian/set-default-font ()
     (interactive)
-    (when (member "Iosevka Comfy" (font-family-list))
-      (set-face-attribute 'default nil :family "Iosevka Comfy"))
+    (when (member "Consolas" (font-family-list))
+      (set-face-attribute 'default nil :family "Consolas"))
     (set-face-attribute 'default nil
                         :height 120
                         :weight 'normal))
