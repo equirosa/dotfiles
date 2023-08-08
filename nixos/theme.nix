@@ -9,12 +9,12 @@
     };
     fontDir.enable = true;
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
       dejavu_fonts
       emacs-all-the-icons-fonts
       font-awesome
       iosevka-comfy.comfy
       liberation_ttf
+      nerdfonts
       twitter-color-emoji
     ];
   };
