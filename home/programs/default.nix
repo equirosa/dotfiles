@@ -55,7 +55,6 @@
     gocryptfs
     hut
     hyprpicker
-    imv
     inputs.hypr-contrib.packages.${system}.grimblast
     libnotify
     mediainfo
