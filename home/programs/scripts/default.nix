@@ -1,12 +1,14 @@
 { pkgs
 , lib
 , config
+, inputs
 , ...
 }:
 let
   inherit (builtins) replaceStrings;
   inherit (lib) getExe optionalString fileContents;
   inherit (import ../../shell/aliases.nix { inherit pkgs lib; }) cat;
+  inherit (config.xdg.userDirs) download;
   inherit (pkgs)
     coreutils
     ffmpeg_6-full
@@ -14,25 +16,25 @@ let
     imv
     lagrange
     libnotify
-    libwebp
     mediainfo
     mozjpeg
     pandoc
     remmina
     ripgrep
     rofi-rbw
+    tofi
     writeShellApplication
     wtype
     xdg-utils
     yt-dlp
     zathura
     ;
-  notify = writeShellApplication rec {
+  notify = writeShellApplication {
     name = "notify";
     runtimeInputs = [ libnotify ];
-    text = fileContents ./${name}.sh;
+    text = fileContents ./notify.sh;
   };
-  menu-program = "rofi -dmenu";
+  menu-program = getExe tofi;
   backupIfDuplicate = ext: ''
     if [ "''${ext}" = "${ext}" ]; then
     bak="''${file}.bak"; mv "''${file}" "''${bak}"
@@ -52,15 +54,6 @@ let
     "silicon"
     "swappy"
   ];
-  shellApplicationFromList =
-    map (name: writeShellApplication {
-      inherit name;
-      text =
-        replaceStrings
-          stringsToReplace
-          (getExeList stringsToReplace)
-          "${fileContents ./${name}.sh}";
-    });
   process-inputs = ''
     [ $# -eq 0 ] && ${notify} "No arguments provided. Exitting..." && exit 1
     file="$(realpath "''${1}")"
@@ -91,20 +84,42 @@ in
       '';
     })
     (writeShellApplication {
+      name = "2pdf";
+      runtimeInputs = [ pkgs.libreoffice-fresh ];
+      text = ''
+        ${process-inputs}
+        case "$ext" in
+          odt | docx) libreoffice --headless --convert-to pdf "$file" ;;
+          *) printf "I can't handle that format yet!\n" ;;
+        esac
+      '';
+    })
+    (writeShellApplication {
       name = "2webp";
-      text =
-        let
-          cwebp = "${libwebp}/bin/cwebp";
-        in
-        ''
-          ${process-inputs}
-          case "''${ext}" in
-          jpg | jpeg ) ${cwebp} -q 80 "''${file}" -o "''${base}.webp" ;;
-          png ) ${cwebp} -lossless "''${file}" -o "''${base}.webp" ;;
-          webp ) printf "File is already WEBP" && exit 1 ;;
-          * ) printf "Can't handle that file extension..." && exit 1 ;;
-          esac
-        '';
+      runtimeInputs = [ pkgs.libwebp ];
+      text = ''
+        ${process-inputs}
+        case "''${ext}" in
+        jpg | jpeg ) cwebp -q 80 "''${file}" -o "''${base}.webp" ;;
+        png ) cwebp -lossless "''${file}" -o "''${base}.webp" ;;
+        webp ) printf "File is already WEBP" && exit 1 ;;
+        * ) printf "Can't handle that file extension..." && exit 1 ;;
+        esac
+      '';
+    })
+    (writeShellApplication {
+      name = "beeper";
+      runtimeInputs = [ pkgs.appimage-run ];
+      text = "appimage-run ${download}/beeper-3.67.16.AppImage";
+    })
+    (writeShellApplication {
+      name = "calendarios-gaby";
+      text = fileContents ./calendarios-gaby.sh;
+    })
+    (writeShellApplication {
+      name = "code2png";
+      runtimeInputs = [ pkgs.silicon ];
+      text = fileContents ./code2png.sh;
     })
     (writeShellApplication {
       name = "download-media";
@@ -116,15 +131,32 @@ in
       '';
     })
     (writeShellApplication {
+      name = "emoji";
+      runtimeInputs = [ pkgs.rofimoji ];
+      text = fileContents ./emoji.sh;
+    })
+    (writeShellApplication {
       name = "feed-subscribe";
       text = ''
         if [ $# -eq 0 ]; then
-          url="$(${menu-program} --prompt-text Enter url)"
+          url="$(${menu-program} --prompt-text Url)"
         else
           url="''${1}"
         fi
         librewolf "https://reader.miniflux.app/bookmarklet?uri=''${url}"
       '';
+    })
+    (writeShellApplication {
+      name = "generate-months";
+      text = fileContents ./generate-months.sh;
+    })
+    (writeShellApplication {
+      name = "git-find-deleted-files";
+      text = fileContents ./git-find-deleted-files.sh;
+    })
+    (writeShellApplication {
+      name = "git-remove-merged-branches";
+      text = fileContents ./git-remove-merged-branches.sh;
     })
     (writeShellApplication {
       name = "optisize";
@@ -163,6 +195,11 @@ in
       text = "${getExe rofi-rbw}";
     })
     (writeShellApplication {
+      name = "regen";
+      runtimeInputs = [ pkgs.nvd ];
+      text = fileContents ./regen.sh;
+    })
+    (writeShellApplication {
       name = "rem-lap";
       text = ''
         chosen=$(find "${config.xdg.dataHome}/remmina/" -name "*.remmina")
@@ -171,6 +208,19 @@ in
         chosen=$(${coreutils}/bin/printf "''${chosen}" | ${menu-program})
 
         ${getExe remmina} -c "$chosen"
+      '';
+    })
+    (writeShellApplication {
+      name = "run-backups";
+      runtimeInputs = [ pkgs.borgbackup ];
+      text = fileContents ./run-backups.sh;
+    })
+    (writeShellApplication {
+      name = "screenshot";
+      runtimeInputs = [ pkgs.swappy ];
+      text = ''
+        export GRIMBLAST_EDITOR="swappy -f"
+        grimblast --notify edit area
       '';
     })
     (writeShellApplication {
@@ -183,15 +233,17 @@ in
       '';
     })
     (writeShellApplication {
+      name = "show-nix-store-path";
+      text = ''realpath "$(command -v "''${1}")"'';
+    })
+    (writeShellApplication {
       name = "show-script";
       text = ''${cat} "$(show-nix-store-path "''${1}")"'';
     })
     (writeShellApplication {
       name = "my-pkgs";
       runtimeInputs = [ ripgrep ];
-      text = ''
-        rg --files-with-matches equirosa | rg '^pkgs'
-      '';
+      text = "rg --files-with-matches equirosa | rg '^pkgs'";
     })
     (writeShellApplication {
       name = "watchlist";
@@ -216,35 +268,20 @@ in
     })
     (writeShellApplication {
       name = "xdg-open";
+      runtimeInputs = [ imv lagrange xdg-utils zathura ];
       text = ''
         ${process-inputs}
         case "''${1%%:*}" in
-          gemini) ${getExe lagrange} "''${1}" ;;
+          gemini) lagrange "''${1}" ;;
           http|https|*.html) librewolf "''${1}" ;;
           magnet|*.torrent)
             transmission-remote -a "''${1}" && ${notify} "Torrent Added! ✅";;
           *.org) emacsclient --create-frame "''${1}" ;;
-          *.png|*.jpg|*.jpeg|*.webp) ${getExe imv} "''${1}" ;;
-          *.pdf) setsid ${getExe zathura} "''${1}" ;;
-          *) ${xdg-utils}/bin/xdg-open "''${1}" ;;
+          *.png|*.jpg|*.jpeg|*.webp) imv "''${1}" ;;
+          *.pdf) setsid zathura "''${1}" ;;
+          *) xdg-open "''${1}" ;;
         esac
       '';
     })
-  ]
-  ++ shellApplicationFromList [
-    "2pdf"
-    "beeper"
-    "calendarios-gaby"
-    "code2png"
-    "emoji"
-    "gen-ssh-key"
-    "generate-months"
-    "git-find-deleted-files"
-    "git-remove-merged-branches"
-    "regen"
-    "remove-whitespace"
-    "run-backups"
-    "screenshot"
-    "show-nix-store-path"
   ];
 }
