@@ -5,7 +5,7 @@
 }:
 let
   inherit (lib) getExe;
-  inherit (lib.lists) forEach range;
+  inherit (lib.lists) range;
   inherit (builtins) concatLists;
   inherit
     (pkgs)
