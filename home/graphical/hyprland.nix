@@ -98,43 +98,47 @@ in
         preserve_split = true; # you probably want this
       };
       bind = concatLists [
-        (map (str: "${mod} SHIFT, ${str}") [
-          "E, exec, emacsclient --create-frame"
-          "Q, killactive,"
-          "W, exec, ${getExe tor-browser-bundle-bin}"
-        ])
-        (map (str: "${mod}, ${str}") [
-          "A, exec, ${termify pulsemixer}"
-          "D, exec, ${config.programs.rofi.finalPackage}/bin/rofi -show run"
-          "E, exec, kitty aerc"
-          "F, fullscreen, 0"
-          "I, exec, ${termify btop}"
-          "M, fullscreen, 1"
-          "N, exec, ${getExe foot} --title=newsboat ${getExe newsboat}"
-          "P, exec, emoji"
-          "R, exec, ${termify lf}"
-          "RETURN, exec, ${getExe wezterm}"
-          "S, exec, search"
-          "T, exec, ${termify tremc}"
-          "V, togglefloating,"
-          "W, exec, librewolf"
-          "X, exec, swaylock"
-          "Z, exec,password-menu"
-          "mouse_down, workspace, e+1"
-          "mouse_up, workspace, e-1"
-        ])
-        (map (key: "${mod}, ${key}, movefocus, d") [ "j" "DOWN" ])
-        (map (key: "${mod}, ${key}, movefocus, l") [ "h" "LEFT" ])
-        (map (key: "${mod}, ${key}, movefocus, r") [ "l" "RIGHT" ])
-        (map (key: "${mod}, ${key}, movefocus, u") [ "k" "UP" ])
+        (map (str: "${mod} SHIFT, ${str}") (concatLists [
+          [
+            "E, exec, emacsclient --create-frame"
+            "Q, killactive,"
+            "W, exec, ${getExe tor-browser-bundle-bin}"
+          ]
+          (map (num: "${useRightNum num}, movetoworkspacesilent, ${toString num}")
+            allWorkspaces)
+        ]))
+        (map (str: "${mod}, ${str}")
+          (concatLists [
+            [
+              "A, exec, ${termify pulsemixer}"
+              "D, exec, ${config.programs.rofi.finalPackage}/bin/rofi -show run"
+              "E, exec, kitty aerc"
+              "F, fullscreen, 0"
+              "I, exec, ${termify btop}"
+              "M, fullscreen, 1"
+              "N, exec, ${getExe foot} --title=newsboat ${getExe newsboat}"
+              "P, exec, emoji"
+              "R, exec, ${termify lf}"
+              "RETURN, exec, ${defaultTerm}"
+              "S, exec, search"
+              "T, exec, ${termify tremc}"
+              "V, togglefloating,"
+              "W, exec, librewolf"
+              "X, exec, swaylock"
+              "Z, exec,password-menu"
+              "mouse_down, workspace, e+1"
+              "mouse_up, workspace, e-1"
+            ]
+            (map (key: "${key}, movefocus, d") [ "j" "DOWN" ])
+            (map (key: "${key}, movefocus, l") [ "h" "LEFT" ])
+            (map (key: "${key}, movefocus, r") [ "l" "RIGHT" ])
+            (map (key: "${key}, movefocus, u") [ "k" "UP" ])
+            (map (num: "${useRightNum num}, workspace, ${toString num}") allWorkspaces)
+          ]))
         [
           ", Print, exec, screenshot"
           "ALT SHIFT, F, fakefullscreen,"
         ]
-        (forEach allWorkspaces
-          (number: ''
-            bind = ${mod}, ${useRightNum number}, workspace, ${toString number}
-            bind = ${mod} SHIFT, ${useRightNum number}, movetoworkspacesilent, ${toString number}''))
       ];
       bindm = [
         "${mod}, mouse:272, movewindow"
