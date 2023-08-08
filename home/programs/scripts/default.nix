@@ -247,7 +247,6 @@ in
   ]
   ++ shellApplicationFromList [
     "2pdf"
-    "autostart"
     "beeper"
     "calendarios-gaby"
     "code2png"
