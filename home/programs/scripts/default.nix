@@ -27,10 +27,10 @@ let
     yt-dlp
     zathura
     ;
-  notify = writeShellApplication {
+  notify = writeShellApplication rec {
     name = "notify";
     runtimeInputs = [ libnotify ];
-    text = fileContents ./notify.sh;
+    text = fileContents ./${name}.sh;
   };
   menu-program = "rofi -dmenu";
   backupIfDuplicate = ext: ''
@@ -61,58 +61,43 @@ let
           (getExeList stringsToReplace)
           "${fileContents ./${name}.sh}";
     });
-  shellApplicationWithInputs =
-    { name
-    , runtimeInputs ? [ ]
-    , text
-    , getFile ? false || getExt || getBase || getDir
-    , getExt ? false
-    , getBase ? false
-    , getDir ? false
-    ,
-    }: (writeShellApplication {
-      inherit name runtimeInputs;
-      text = ''
-        [ $# -eq 0 ] && ${notify} "No arguments provided. Exitting..." && exit 1
-        ${optionalString getFile ''file="$(realpath "''${1}")"''}
-        ${optionalString getExt "ext=\${file##*.}"}
-        ${optionalString getBase "base=\${file%.*}"}
-        ${optionalString getDir "directory=\${file%/*}"}
-        ${text}
-      '';
-    });
+  process-inputs = ''
+    [ $# -eq 0 ] && ${notify} "No arguments provided. Exitting..." && exit 1
+    file="$(realpath "''${1}")"
+    ext=''${file##*.}
+    base=''${file%.*}
+    directory=''${file%/*}
+  '';
 in
 {
   home.packages = [
     notify
-    (shellApplicationWithInputs {
+    (writeShellApplication {
       name = "2ogg";
-      getBase = true;
-      getExt = true;
       text = ''
+        ${process-inputs}
         ${backupIfDuplicate "ogg"}
         ${ffmpeg-bin} -i "''${file}" -vn ${scriptAudio} "''${base}.ogg"
       '';
     })
-    (shellApplicationWithInputs {
+    (writeShellApplication {
       name = "2org";
-      getExt = true;
       text = ''
+        ${process-inputs}
         case "''${ext}" in
           odt | docx ) ${getExe pandoc} "''${1}" -o "''${file}.org" ;;
           * ) printf "I can't handle that format yet!\n"
         esac
       '';
     })
-    (shellApplicationWithInputs {
+    (writeShellApplication {
       name = "2webp";
-      getExt = true;
-      getBase = true;
       text =
         let
           cwebp = "${libwebp}/bin/cwebp";
         in
         ''
+          ${process-inputs}
           case "''${ext}" in
           jpg | jpeg ) ${cwebp} -q 80 "''${file}" -o "''${base}.webp" ;;
           png ) ${cwebp} -lossless "''${file}" -o "''${base}.webp" ;;
@@ -121,9 +106,10 @@ in
           esac
         '';
     })
-    (shellApplicationWithInputs {
+    (writeShellApplication {
       name = "download-media";
       text = ''
+        ${process-inputs}
         setsid ${getExe yt-dlp} --sponsorblock-mark all \
         --embed-subs --embed-metadata \
         -o "%(title)s-[%(id)s].%(ext)s" "$1" >>/dev/null &
@@ -140,10 +126,8 @@ in
         librewolf "https://reader.miniflux.app/bookmarklet?uri=''${url}"
       '';
     })
-    (shellApplicationWithInputs {
+    (writeShellApplication {
       name = "optisize";
-      getBase = true;
-      getExt = true;
       text = ''
         jpeg-optimize() {
           output="$(mktemp)"
@@ -162,6 +146,7 @@ in
           esac
         }
 
+        ${process-inputs}
         mimetype="$(${getExe file} --mime --brief "''${file}")"
         case "''${mimetype}" in
           "image/jpeg"*)
@@ -229,9 +214,10 @@ in
           esac
         '';
     })
-    (shellApplicationWithInputs {
+    (writeShellApplication {
       name = "xdg-open";
       text = ''
+        ${process-inputs}
         case "''${1%%:*}" in
           gemini) ${getExe lagrange} "''${1}" ;;
           http|https|*.html) librewolf "''${1}" ;;
