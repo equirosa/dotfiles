@@ -98,28 +98,30 @@ in
         preserve_split = true; # you probably want this
       };
       bind = concatLists [
-        (map (str: "${mod}${str}") [
-          " SHIFT, E, exec, emacsclient --create-frame"
-          " SHIFT, Q, killactive,"
-          " SHIFT, W, exec, ${getExe tor-browser-bundle-bin}"
-          ", A, exec, ${termify pulsemixer}"
-          ", D, exec, ${config.programs.rofi.finalPackage}/bin/rofi -show run"
-          ", E, exec, kitty aerc"
-          ", F, fullscreen, 0"
-          ", I, exec, ${termify btop}"
-          ", M, fullscreen, 1"
-          ", N, exec, ${getExe foot} --title=newsboat ${getExe newsboat}"
-          ", P, exec, emoji"
-          ", R, exec, ${termify lf}"
-          ", RETURN, exec, ${getExe wezterm}"
-          ", S, exec, search"
-          ", T, exec, ${termify tremc}"
-          ", V, togglefloating,"
-          ", W, exec, librewolf"
-          ", X, exec, swaylock"
-          ", Z, exec,password-menu"
-          ", mouse_down, workspace, e+1"
-          ", mouse_up, workspace, e-1"
+        (map (str: "${mod} SHIFT, ${str}") [
+          "E, exec, emacsclient --create-frame"
+          "Q, killactive,"
+          "W, exec, ${getExe tor-browser-bundle-bin}"
+        ])
+        (map (str: "${mod}, ${str}") [
+          "A, exec, ${termify pulsemixer}"
+          "D, exec, ${config.programs.rofi.finalPackage}/bin/rofi -show run"
+          "E, exec, kitty aerc"
+          "F, fullscreen, 0"
+          "I, exec, ${termify btop}"
+          "M, fullscreen, 1"
+          "N, exec, ${getExe foot} --title=newsboat ${getExe newsboat}"
+          "P, exec, emoji"
+          "R, exec, ${termify lf}"
+          "RETURN, exec, ${getExe wezterm}"
+          "S, exec, search"
+          "T, exec, ${termify tremc}"
+          "V, togglefloating,"
+          "W, exec, librewolf"
+          "X, exec, swaylock"
+          "Z, exec,password-menu"
+          "mouse_down, workspace, e+1"
+          "mouse_up, workspace, e-1"
         ])
         (map (key: "${mod}, ${key}, movefocus, d") [ "j" "DOWN" ])
         (map (key: "${mod}, ${key}, movefocus, l") [ "h" "LEFT" ])
