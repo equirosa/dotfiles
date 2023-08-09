@@ -46,7 +46,6 @@
     nixpkgs-review
     statix
     # Utilities
-    cryfs
     du-dust
     fd
     git-ignore
