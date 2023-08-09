@@ -151,35 +151,35 @@ in
       name = "optisize";
       runtimeInputs = [ ffmpeg file mediainfo ];
       text = ''
-                jpeg-optimize() {
-                  output="$(mktemp)"
-                  cp "''${file}" "''${output}"
-                  ${mozjpeg}/bin/jpegtran -copy none -optimize -progressive "''${output}" > "''${file}"
-                }
+        jpeg-optimize() {
+          output="$(mktemp)"
+          cp "''${file}" "''${output}"
+          ${mozjpeg}/bin/jpegtran -copy none -optimize -progressive "''${output}" > "''${file}"
+        }
 
-                video-optimize() {
-                  info="$(mediainfo "''${file}")"
-                  case "''${info}" in
-                    *"AVC"*)
-                      ${backupIfDuplicate "mkv"}
-                      ffmpeg -i "''${file}" -c:v libx265 -crf 28 -preset slow ${scriptAudio} "''${base}.mkv" ;;
-                    *"VP8"* )
-                      ${backupIfDuplicate "mkv"}
-                      ffmpeg -i "''${file}" -c:v libvpx-vp9 ${scriptAudio} "''${base}.mkv" ;;
-                    *"HEVC"* | *"AV1"* | *"VP9"* ) echo "File already optimized." ;;
-                    *) echo "I don't know if I can optimize the ''${info} codec..." ;;
-                  esac
-                }
+        video-optimize() {
+          info="$(mediainfo "''${file}")"
+          case "''${info}" in
+            *"AVC"*)
+              ${backupIfDuplicate "mkv"}
+              ffmpeg -i "''${file}" -c:v libx265 -crf 28 -preset slow ${scriptAudio} "''${base}.mkv" ;;
+            *"VP8"* )
+              ${backupIfDuplicate "mkv"}
+              ffmpeg -i "''${file}" -c:v libvpx-vp9 ${scriptAudio} "''${base}.mkv" ;;
+            *"HEVC"* | *"AV1"* | *"VP9"* ) echo "File already optimized." ;;
+            *) echo "I don't know if I can optimize the ''${info} codec..." ;;
+          esac
+        }
 
-        ggu        ${PROCESS-inputs}
-                mimetype="$(file --mime --brief "''${file}")"
-                case "''${mimetype}" in
-                  "image/jpeg"*)
-                    jpeg-optimize ;;
-                  "video/"*)
-                    video-optimize ;;
-                * ) echo "I don't know how to handle that file" ;;
-                esac
+        ${process-inputs}
+        mimetype="$(file --mime --brief "''${file}")"
+        case "''${mimetype}" in
+          "image/jpeg"*)
+            jpeg-optimize ;;
+          "video/"*)
+            video-optimize ;;
+        * ) echo "I don't know how to handle that file" ;;
+        esac
       '';
     })
     (writeShellApplication {
