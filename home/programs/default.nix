@@ -51,6 +51,7 @@
     git-ignore
     gocryptfs
     hut
+    hyperfine
     hyprpicker
     libnotify
     mediainfo
