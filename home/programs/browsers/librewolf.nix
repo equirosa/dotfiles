@@ -4,6 +4,7 @@
     package = pkgs.librewolf-wayland;
     settings = {
       "identity.fxaccounts.enabled" = true;
+      "image.jxl.enabled" = true;
       "privacy.resistFingerprinting.letterboxing" = true;
     };
   };
