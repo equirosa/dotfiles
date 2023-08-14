@@ -9,12 +9,10 @@ let
   inherit (import ../../shell/aliases.nix { inherit pkgs lib; }) cat;
   inherit (config.xdg.userDirs) download;
   inherit (pkgs)
-    ffmpeg_6-full
     file
     imv
     lagrange
     libnotify
-    mediainfo
     mozjpeg
     pandoc
     ripgrep
@@ -25,11 +23,6 @@ let
     yt-dlp
     zathura
     ;
-  notify = writeShellApplication {
-    name = "notify";
-    runtimeInputs = [ libnotify ];
-    text = fileContents ./notify.sh;
-  };
   menu-program = "${getExe config.programs.rofi.finalPackage} -dmenu";
   backupIfDuplicate = ext: ''
     if [ "''${ext}" = "${ext}" ]; then
@@ -40,7 +33,7 @@ let
   ffmpeg = pkgs.ffmpeg_6-full;
   scriptAudio = "-c:a libopus -b:a 128k";
   process-inputs = ''
-    [ $# -eq 0 ] && ${notify} "No arguments provided. Exitting..." && exit 1
+    [ $# -eq 0 ] && notify-send "No arguments provided. Exitting..." && exit 1
     file="$(realpath "''${1}")"
     ext=''${file##*.}
     base=''${file%.*}
@@ -50,7 +43,6 @@ let
 in
 {
   home.packages = [
-    notify
     (writeShellApplication {
       name = "2ogg";
       runtimeInputs = [ ffmpeg ];
@@ -148,7 +140,7 @@ in
     })
     (writeShellApplication {
       name = "optisize";
-      runtimeInputs = [ ffmpeg file mediainfo ];
+      runtimeInputs = [ ffmpeg pkgs.file pkgs.mediainfo ];
       text = ''
         jpeg-optimize() {
           output="$(mktemp)"
@@ -261,14 +253,14 @@ in
     })
     (writeShellApplication {
       name = "xdg-open";
-      runtimeInputs = [ imv lagrange xdg-utils zathura ];
+      runtimeInputs = [ imv lagrange xdg-utils zathura libnotify ];
       text = ''
         ${process-inputs}
         case "''${1%%:*}" in
           gemini) lagrange "''${1}" ;;
           http|https|*.html) librewolf "''${1}" ;;
           magnet|*.torrent)
-            transmission-remote -a "''${1}" && ${notify} "Torrent Added! ✅";;
+            transmission-remote -a "''${1}" && notify-send "Torrent Added! ✅";;
           *.org) emacsclient --create-frame "''${1}" ;;
           *.png|*.jpg|*.jpeg|*.webp) imv "''${1}" ;;
           *.pdf) setsid zathura "''${1}" ;;
