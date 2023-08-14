@@ -5,7 +5,6 @@
 }:
 let
   inherit (builtins) elem;
-  inherit (lib) getExe;
 in
 {
   users.users.kiri. packages = with pkgs; [
