@@ -10,7 +10,6 @@ let
   inherit
     (pkgs)
     btop
-    foot
     lf
     librewolf
     pulsemixer
