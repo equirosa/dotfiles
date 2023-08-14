@@ -9,10 +9,12 @@ let
   inherit (import ../../shell/aliases.nix { inherit pkgs lib; }) cat;
   inherit (config.xdg.userDirs) download;
   inherit (pkgs)
+    ffmpeg
     file
     imv
     lagrange
     libnotify
+    mediainfo
     mozjpeg
     pandoc
     ripgrep
@@ -30,7 +32,6 @@ let
     file="''${file}.bak"
     fi
   '';
-  ffmpeg = pkgs.ffmpeg_6-full;
   scriptAudio = "-c:a libopus -b:a 128k";
   process-inputs = ''
     [ $# -eq 0 ] && notify-send "No arguments provided. Exitting..." && exit 1
@@ -140,7 +141,7 @@ in
     })
     (writeShellApplication {
       name = "optisize";
-      runtimeInputs = [ ffmpeg pkgs.file pkgs.mediainfo ];
+      runtimeInputs = [ ffmpeg file mediainfo ];
       text = ''
         jpeg-optimize() {
           output="$(mktemp)"
