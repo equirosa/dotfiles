@@ -6,22 +6,14 @@
 let
   inherit (builtins) elem;
   inherit (lib) getExe;
-  gscope = prog:
-    pkgs.writeShellApplication {
-      name =
-        if prog == "steam"
-        then "gaming"
-        else "fgaming";
-      runtimeInputs = [ pkgs.xdg-user-dirs ];
-      text = ''
-        ${getExe pkgs.gamescope} -e -- ${prog} -gamepadui
-      '';
-    };
 in
 {
   users.users.kiri. packages = with pkgs; [
-    (gscope "steam")
-    (gscope "com.valvesoftware.Steam")
+    (pkgs.writeShellApplication {
+      name = "gaming";
+      runtimeInputs = with pkgs; [ gamescope xdg-user-dirs ];
+      text = ''gamescope -e -- steam -gamepadui'';
+    })
     mangohud
     nix-gaming.packages.${pkgs.system}.rocket-league
   ];
