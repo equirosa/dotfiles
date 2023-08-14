@@ -17,7 +17,6 @@ let
     mediainfo
     mozjpeg
     pandoc
-    remmina
     ripgrep
     rofi-rbw
     writeShellApplication
@@ -194,13 +193,14 @@ in
     })
     (writeShellApplication {
       name = "rem-lap";
+      runtimeInputs = [ pkgs.remmina ];
       text = ''
         chosen=$(find "${config.xdg.dataHome}/remmina/" -name "*.remmina")
 
         [ "$(wc -l <<< "''${chosen}")" -gt 1 ] &&\
         chosen=$(echo "''${chosen}" | ${menu-program})
 
-        ${getExe remmina} -c "$chosen"
+        remmina -c "$chosen"
       '';
     })
     (writeShellApplication {
