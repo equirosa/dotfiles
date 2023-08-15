@@ -12,7 +12,6 @@ in
       enable = true;
       shellAbbrs = import ./abbreviations.nix;
       interactiveShellInit = ''
-        ${getExe pkgs.nix-your-shell} fish | source
         set -gx EDITOR nvim
         bind \cx 'exec $SHELL'
       '';
