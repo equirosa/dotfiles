@@ -2,9 +2,6 @@
 , lib
 , ...
 }:
-let
-  inherit (lib) getExe;
-in
 {
   home.packages = [ pkgs.jq ];
   programs = {
