@@ -19,6 +19,7 @@ let
     pandoc
     ripgrep
     rofi-rbw
+    writeScript
     writeShellApplication
     wtype
     xdg-utils
@@ -131,6 +132,12 @@ in
       name = "generate-months";
       text = fileContents ./generate-months.sh;
     })
+    (writeScript "nu-months" ''
+      #!${pkgs.nushell}/bin/nu
+      for month in [01-enero 02-febrero 03-marzo 04-abril 05-mayo 06-junio 07-julio 08-agosto 09-setiembre 10-octubre 11-noviembre 12-diciembre] {
+      mkdir $month
+      }
+    '')
     (writeShellApplication {
       name = "git-find-deleted-files";
       text = fileContents ./git-find-deleted-files.sh;
