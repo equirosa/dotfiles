@@ -141,12 +141,12 @@ in
     })
     (writeShellApplication {
       name = "optisize";
-      runtimeInputs = [ ffmpeg file mediainfo ];
+      runtimeInputs = [ ffmpeg file mediainfo mozjpeg ];
       text = ''
         jpeg-optimize() {
           output="$(mktemp)"
           cp "''${file}" "''${output}"
-          ${mozjpeg}/bin/jpegtran -copy none -optimize -progressive "''${output}" > "''${file}"
+          jpegtran -copy none -optimize -progressive "''${output}" > "''${file}"
         }
 
         video-optimize() {
@@ -176,8 +176,8 @@ in
     })
     (writeShellApplication {
       name = "password-menu";
-      runtimeInputs = [ wtype ];
-      text = "${getExe rofi-rbw}";
+      runtimeInputs = [ wtype rofi-rbw ];
+      text = "rofi-rbw";
     })
     (writeShellApplication {
       name = "regen";
