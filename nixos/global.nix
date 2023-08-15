@@ -5,7 +5,7 @@
     ./extra_security
     ./gaming.nix
     ./hardware/zsa.nix
-    ./theme.nix
+    ./fonts.nix
     ./virtualization/podman.nix
   ];
   users.users.kiri.shell = pkgs.fish;
