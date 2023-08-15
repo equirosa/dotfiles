@@ -16,10 +16,7 @@ in
         bind \cx 'exec $SHELL'
       '';
       plugins = with pkgs.fishPlugins; [
-        {
-          name = "done";
-          src = done;
-        }
+        { name = "done"; src = done; }
       ];
     };
   };
