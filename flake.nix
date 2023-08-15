@@ -47,6 +47,7 @@
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
             deadnix
+            lua-language-server
             nixpkgs-fmt
             nodePackages.bash-language-server
             shellharden
