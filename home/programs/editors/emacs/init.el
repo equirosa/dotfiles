@@ -122,8 +122,8 @@
   :preface
   (defun ian/set-default-font ()
     (interactive)
-    (when (member "Iosevka Comfy" (font-family-list))
-      (set-face-attribute 'default nil :family "Iosevka Comfy"))
+    (when (member "Iosevka Comfy Duo" (font-family-list))
+      (set-face-attribute 'default nil :family "Iosevka Comfy Duo"))
     (set-face-attribute 'default nil
                         :height 120
                         :weight 'normal))
