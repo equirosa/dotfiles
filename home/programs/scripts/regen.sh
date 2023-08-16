@@ -10,7 +10,11 @@ test_run() {
 	nvd diff /run/current-system/ ./result
 }
 
-case "${1}" in
-	"test") test_run ;;
-	"os" | *) regen_nixos ;;
-esac
+if [ $# -eq 0 ]; then
+	regen_nixos
+else
+	case "${1}" in
+		"test") test_run ;;
+		"os" | *) regen_nixos ;;
+	esac
+fi
