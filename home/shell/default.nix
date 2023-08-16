@@ -55,8 +55,8 @@ in
       enable = true;
       settings = with colors.ansi; let
         dataFiles = [ "csv" "json" "toml" "yaml" ];
-        mediaFiles = [ "avif" "mkv" "mp4" "webm" "webp" ];
         docFiles = [ "md" "org" "docx" "odt" ];
+        mediaFiles = [ "avif" "mkv" "mp4" "webm" "webp" ];
         pdf = [ "pdf" ];
         extAttrs = extList: color: (genAttrs (map (ext: ".${ext}") extList)
           (_: "${bold};${color}"));
