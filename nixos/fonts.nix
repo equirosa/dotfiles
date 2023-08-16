@@ -3,7 +3,7 @@
     fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [ "Iosevka Comfy" "FiraCode Nerd Font" "Twitter Color Emoji" ];
+        monospace = [ "Iosevka Comfy" "Iosevka Comfy Duo" "FiraCode Nerd Font" "Twitter Color Emoji" ];
         emoji = [ "Twitter Color Emoji" ];
       };
     };
