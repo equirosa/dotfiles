@@ -56,19 +56,19 @@ in
       settings = with colors.ansi; let
         dataFiles = [ "csv" "json" "toml" "yaml" ];
         docFiles = [ "md" "org" "docx" "odt" ];
+        scriptFiles = [ "sh" "bash" "awk" ];
         mediaFiles = [ "avif" "mkv" "mp4" "webm" "webp" ];
         pdf = [ "pdf" ];
         extAttrs = extList: color: (genAttrs (map (ext: ".${ext}") extList)
           (_: "${bold};${color}"));
       in
-      {
-        OTHER_WRITABLE = "30;46";
-        ".sh" = "${bold};${green}";
-      }
+      { OTHER_WRITABLE = "30;46"; }
       // (extAttrs dataFiles yellow)
       // (extAttrs docFiles teal)
       // (extAttrs mediaFiles pink)
-      // (extAttrs pdf red);
+      // (extAttrs pdf red)
+      // (extAttrs scriptFiles green)
+      ;
     };
     lsd = {
       enable = true;
