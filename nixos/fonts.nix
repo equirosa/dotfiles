@@ -2,10 +2,7 @@
   fonts = {
     fontconfig = {
       enable = true;
-      defaultFonts = {
-        monospace = [ "Iosevka Comfy" "Iosevka Comfy Duo" "FiraCode Nerd Font" "Twitter Color Emoji" ];
-        emoji = [ "Twitter Color Emoji" ];
-      };
+      defaultFonts.monospace = [ "Iosevka Comfy" "Iosevka Comfy Duo" "FiraCode Nerd Font" ];
     };
     fontDir.enable = true;
     packages = with pkgs; [
@@ -16,7 +13,7 @@
       iosevka-comfy.comfy-duo
       liberation_ttf
       nerdfonts
-      twitter-color-emoji
+      noto-fonts-emoji
     ];
   };
 }
