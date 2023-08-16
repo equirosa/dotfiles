@@ -129,7 +129,7 @@ in
     })
     (writeShellApplication {
       name = "generate-months";
-      text = fileContents ./generate-months.sh;
+      text = fileContents ./generate-months.bash;
     })
     (writeShellApplication {
       name = "git-find-deleted-files";
