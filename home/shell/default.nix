@@ -94,16 +94,16 @@ in
         git_commit.commit_hash_length = 4;
         git_metrics.disabled = false;
         git_status = {
-          ahead = "⇡$count ";
-          behind = "⇣$count ";
-          conflicted = "=$count ";
-          deleted = "✘$count ";
-          diverged = "⇕$count ";
-          modified = "!$count ";
-          renamed = "»$count ";
-          staged = "+$count ";
-          stashed = "$$count ";
-          untracked = "?$count ";
+          ahead = "⇡ $count ";
+          behind = "⇣ $count ";
+          conflicted = "= $count ";
+          deleted = "✘ $count ";
+          diverged = "⇕ $count ";
+          modified = "! $count ";
+          renamed = "» $count ";
+          staged = "+ $count ";
+          stashed = "$ $count ";
+          untracked = "? $count ";
         };
         golang.symbol = " ";
         hostname.ssh_only = true;
