@@ -5,14 +5,15 @@
 }:
 let
   inherit (builtins) elem;
+  args = [
+    "-h 720"
+    "-H 1080"
+    "-F fsr"
+    "-r 144"
+  ];
 in
 {
   users.users.kiri. packages = with pkgs; [
-    (pkgs.writeShellApplication {
-      name = "gaming";
-      runtimeInputs = with pkgs; [ gamescope xdg-user-dirs ];
-      text = ''gamescope -e -- steam -gamepadui'';
-    })
     lutris
     mangohud
     nix-gaming.packages.${pkgs.system}.rocket-league
@@ -21,14 +22,15 @@ in
     gamemode.enable = true;
     gamescope = {
       enable = true;
-      args = [
-        "-h 720"
-        "-H 1080"
-        "-U"
-        "-r 144"
-      ];
+      inherit args;
     };
-    steam.enable = true;
+    steam = {
+      enable = true;
+      gamescopeSession = {
+        enable = true;
+        inherit args;
+      };
+    };
   };
   hardware = {
     opengl = {
