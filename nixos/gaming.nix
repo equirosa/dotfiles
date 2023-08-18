@@ -18,6 +18,15 @@ in
   ];
   programs = {
     gamemode.enable = true;
+    gamescope = {
+      enable = true;
+      args = [
+        "-h 720"
+        "-H 1080"
+        "-U"
+        "-r 144"
+      ];
+    };
     steam.enable = true;
   };
   hardware = {
