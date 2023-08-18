@@ -1,12 +1,11 @@
 { pkgs
-, lib
 , ...
 }: {
   services.flatpak.enable = true;
   systemd = {
     services.flatpak-update =
       let
-        flatpak-wrap = args: "${lib.getExe pkgs.flatpak} ${args} --noninteractive --assumeyes";
+        flatpak-wrap = args: "${pkgs.flatpak}/bin/flatpak ${args} --noninteractive --assumeyes";
       in
       {
         description = "Automatically update flatpaks";

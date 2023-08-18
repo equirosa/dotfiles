@@ -5,7 +5,7 @@
 , ...
 }:
 let
-  inherit (lib) getExe fileContents;
+  inherit (lib) fileContents;
   inherit (import ../../shell/aliases.nix { inherit pkgs lib; }) cat;
   inherit (config.xdg.userDirs) download;
   inherit (pkgs)
@@ -25,7 +25,7 @@ let
     yt-dlp
     zathura
     ;
-  menu-program = "${getExe config.programs.rofi.finalPackage} -dmenu";
+  menu-program = "${config.programs.rofi.finalPackage}/bin/rofi -dmenu";
   backupIfDuplicate = ext: ''
     if [ "''${ext}" = "${ext}" ]; then
     bak="''${file}.bak"; mv "''${file}" "''${bak}"
@@ -104,9 +104,10 @@ in
     })
     (writeShellApplication {
       name = "download-media";
+      runtimeInputs = [ yt-dlp ];
       text = ''
         ${process-inputs}
-        setsid ${getExe yt-dlp} --sponsorblock-mark all \
+        setsid yt-dlp --sponsorblock-mark all \
         --embed-subs --embed-metadata \
         -o "%(title)s-[%(id)s].%(ext)s" "$1" >>/dev/null &
       '';
@@ -233,6 +234,7 @@ in
     })
     (writeShellApplication {
       name = "watchlist";
+      runtimeInputs = [ yt-dlp ];
       text =
         let
           dateSecond = "$(date +%s)";
@@ -242,7 +244,7 @@ in
           [ $# -eq 0 ] && setsid umpv "${watchlistDir}"
           path="''${1%%:*}"
           case "''${path}" in
-            http|https) setsid ${getExe yt-dlp} \
+            http|https) setsid yt-dlp \
               --sponsorblock-mark all\
               --embed-subs\
               --embed-metadata\

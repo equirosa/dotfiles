@@ -1,10 +1,6 @@
 { pkgs
-, lib
 , ...
 }:
-let
-  inherit (lib) getExe;
-in
 {
   programs = {
     lf = {
@@ -38,21 +34,21 @@ in
         "<backspace2>" = ":set hidden!";
         "<delete>" = "\$${pkgs.trash-cli}/bin/trash-put \"$fx\"";
         "<enter>" = "push $";
-        D = "&${getExe pkgs.ripdrag} --all --and-exit \"$fx\"";
+        D = "&${pkgs.ripdrag}/bin/ripdrag --all --and-exit \"$fx\"";
         E = "push \$\${EDITOR}<space>";
-        L = "\$${getExe pkgs.lazygit}";
+        L = "\$${pkgs.lazygit}/bin/lazygit";
         M = "push \$mkdir<space>-p<space>";
         T = "push \$touch<space>";
         e = "\$\${EDITOR} $fx";
         U = ''umpv "$fx"'';
-        zx = "\$${getExe pkgs.archiver} unarchive \"$fx\"";
+        zx = "\$${pkgs.archiver}/arc unarchive \"$fx\"";
         # Zoxide
         zi = ":zoxide_interactive";
         zz = "push :zoxide<space>";
       };
       previewer = {
         keybinding = "i";
-        source = "${getExe pkgs.ctpv}";
+        source = "${pkgs.ctpv}/bin/ctpv";
       };
       settings = {
         icons = true;
@@ -62,7 +58,7 @@ in
       };
       extraConfig = ''
         set cleaner ${pkgs.ctpv}/bin/ctpvclear
-        &${getExe pkgs.ctpv} -s $id
+        &${pkgs.ctpv}/bin/ctpv -s $id
         &${pkgs.ctpv}/bin/ctpvquit $id
       '';
     };

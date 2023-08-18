@@ -4,7 +4,7 @@
 , ...
 }:
 let
-  inherit (lib) getExe genAttrs;
+  inherit (lib) genAttrs;
 in
 {
   imports = [ ./fish.nix ./nushell.nix ];
@@ -15,7 +15,7 @@ in
       nix-direnv.enable = true;
       config = {
         global = {
-          bash_path = "${getExe pkgs.bash}";
+          bash_path = "${pkgs.bash}/bin/bash";
           load_dotenv = true;
           strict_env = true;
         };
@@ -47,7 +47,7 @@ in
     bat = {
       enable = true;
       config = {
-        pager = "${getExe pkgs.less} -FR";
+        pager = "${pkgs.less}/bin/less -FR";
         theme = "gruvbox-dark";
       };
     };
@@ -76,16 +76,16 @@ in
     };
     fzf =
       let
-        fileCommand = "${getExe pkgs.ripgrep} --files";
+        fileCommand = "${pkgs.ripgrep}/bin/rg --files";
       in
       {
         enable = true;
-        changeDirWidgetCommand = "${getExe pkgs.fd} --type d";
-        changeDirWidgetOptions = [ "--preview '${getExe pkgs.lsd} -1 {}'" ];
+        changeDirWidgetCommand = "${pkgs.fd}/bin/fd --type d";
+        changeDirWidgetOptions = [ "--preview '${pkgs.lsd}/bin/lsd -1 {}'" ];
         defaultCommand = "${fileCommand}";
         defaultOptions = [ "--height 100%" "--border" ];
         fileWidgetCommand = "${fileCommand}";
-        fileWidgetOptions = [ "--preview '${getExe pkgs.ctpv} {}'" ];
+        fileWidgetOptions = [ "--preview '${pkgs.ctpv}/bin/ctpv {}'" ];
       };
     navi = { enable = true; };
     starship = {

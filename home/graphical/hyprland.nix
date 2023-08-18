@@ -4,15 +4,16 @@
 , ...
 }:
 let
-  inherit (lib) getExe;
   inherit (lib.lists) range;
   inherit (builtins) concatLists;
+  inherit (config.programs) rofi;
   inherit
     (pkgs)
     btop
     lf
     librewolf
     pulsemixer
+    swww
     tor-browser-bundle-bin
     tremc
     wezterm
@@ -25,8 +26,8 @@ let
   rightWorkspaces = range 7 10;
   allWorkspaces = leftWorkspaces ++ rightWorkspaces;
   useRightNum = num: toString (if num == 10 then 0 else num);
-  defaultTerm = getExe wezterm;
-  termify = program: "${defaultTerm} -e ${getExe program}";
+  defaultTerm = "${wezterm}/bin/wezterm";
+  termify = program: "${defaultTerm} -e ${lib.getExe program}";
 in
 {
   wayland.windowManager.hyprland = {
@@ -48,8 +49,8 @@ in
       exec-once = [
         "transmission-daemon"
         "beeper"
-        (getExe librewolf)
-        "swww init"
+        "${librewolf}/bin/librewolf"
+        "${swww}/bin/swww init"
       ];
       workspace = concatLists [
         (map (num: "${toString num},monitor:${leftMon}") leftWorkspaces)
@@ -99,7 +100,7 @@ in
           [
             "E, exec, emacsclient --create-frame"
             "Q, killactive,"
-            "W, exec, ${getExe tor-browser-bundle-bin}"
+            "W, exec, ${tor-browser-bundle-bin}/bin/tor-browser"
           ]
           (map (key: "${key}, movewindow, d") [ "j" "DOWN" ])
           (map (key: "${key}, movewindow, l") [ "h" "LEFT" ])
@@ -112,7 +113,7 @@ in
           (concatLists [
             [
               "A, exec, ${termify pulsemixer}"
-              "D, exec, ${config.programs.rofi.finalPackage}/bin/rofi -show run"
+              "D, exec, ${rofi.finalPackage}/bin/rofi -show run"
               "E, exec, kitty aerc"
               "F, fullscreen, 0"
               "I, exec, ${termify btop}"
