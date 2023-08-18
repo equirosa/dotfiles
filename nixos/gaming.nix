@@ -13,6 +13,7 @@ in
       runtimeInputs = with pkgs; [ gamescope xdg-user-dirs ];
       text = ''gamescope -e -- steam -gamepadui'';
     })
+    lutris
     mangohud
     nix-gaming.packages.${pkgs.system}.rocket-league
   ];
