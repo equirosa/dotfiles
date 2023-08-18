@@ -53,6 +53,8 @@ rec {
   u = "umpv";
   umfs = "umpv --fs";
   # Git
+  g = "git";
+  gb = "git branch";
   gca = "git commit -a";
   gcb = "git checkout -b";
   gch = "git checkout";
