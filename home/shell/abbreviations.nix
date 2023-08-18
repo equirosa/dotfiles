@@ -72,7 +72,7 @@ rec {
   # Nix
   dn = "deadnix";
   dne = "${dn} -e";
-  nb = "nix build";
+  nb = "nom build";
   nbf = "${nb} -f ./.";
   np = "nix profile";
   nph = "${np} history";
