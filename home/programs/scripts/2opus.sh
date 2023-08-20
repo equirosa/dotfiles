@@ -19,7 +19,9 @@ case "${info}" in
             bak="${base}.bak.ogg"
             cp "${file}" "${bak}"
         fi
-        ffmpeg -i "${bak}" -c:a libopus -b:a 128k "${file}"
+        temp_out="$(mktemp --suffix=.opus)"
+        ffmpeg -i "${bak}" -c:a libopus -b:a 128k "${temp_out}"
+        mv "${temp_out}" "${base}.opus"
         ;;
 esac
 
