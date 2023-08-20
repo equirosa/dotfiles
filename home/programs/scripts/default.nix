@@ -8,21 +8,7 @@ let
   inherit (lib) fileContents;
   inherit (import ../../shell/aliases.nix { inherit pkgs lib; }) cat;
   inherit (config.xdg.userDirs) download;
-  inherit (pkgs)
-    ffmpeg
-    file
-    imv
-    lagrange
-    libnotify
-    mediainfo
-    mozjpeg
-    pandoc
-    ripgrep
-    writeShellApplication
-    xdg-utils
-    yt-dlp
-    zathura
-    ;
+  inherit (pkgs) writeShellApplication;
   menu-program = "${config.programs.rofi.finalPackage}/bin/rofi -dmenu";
   backupIfDuplicate = ext: ''
     if [ "''${ext}" = "${ext}" ]; then
@@ -45,7 +31,7 @@ in
   home.packages = [
     (writeShellApplication {
       name = "2ogg";
-      runtimeInputs = [ ffmpeg ];
+      runtimeInputs = [ pkgs.ffmpeg ];
       text = ''
         ${process-inputs}
         ${backupIfDuplicate "ogg"}
@@ -54,7 +40,7 @@ in
     })
     (writeShellApplication {
       name = "2org";
-      runtimeInputs = [ pandoc ];
+      runtimeInputs = [ pkgs.pandoc ];
       text = ''
         ${process-inputs}
         case "''${ext}" in
@@ -103,7 +89,7 @@ in
     })
     (writeShellApplication {
       name = "download-media";
-      runtimeInputs = [ yt-dlp ];
+      runtimeInputs = [ pkgs.yt-dlp ];
       text = ''
         ${process-inputs}
         setsid yt-dlp --sponsorblock-mark all \
@@ -141,7 +127,7 @@ in
     })
     (writeShellApplication {
       name = "optisize";
-      runtimeInputs = [ ffmpeg file mediainfo mozjpeg ];
+      runtimeInputs = with pkgs; [ ffmpeg file mediainfo mozjpeg ];
       text = ''
         jpeg-optimize() {
           output="$(mktemp)"
@@ -245,12 +231,12 @@ in
     })
     (writeShellApplication {
       name = "my-pkgs";
-      runtimeInputs = [ ripgrep ];
+      runtimeInputs = [ pkgs.ripgrep ];
       text = "rg --files-with-matches equirosa | rg '^pkgs'";
     })
     (writeShellApplication {
       name = "watchlist";
-      runtimeInputs = [ yt-dlp ];
+      runtimeInputs = [ pkgs.yt-dlp ];
       text =
         let
           dateSecond = "$(date +%s)";
@@ -272,7 +258,7 @@ in
     })
     (writeShellApplication {
       name = "xdg-open";
-      runtimeInputs = [ imv lagrange xdg-utils zathura libnotify ];
+      runtimeInputs = with pkgs; [ imv lagrange xdg-utils zathura libnotify ];
       text = ''
         ${process-inputs}
         case "''${1%%:*}" in
