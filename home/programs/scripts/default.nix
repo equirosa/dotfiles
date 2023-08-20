@@ -31,12 +31,8 @@ in
   home.packages = [
     (writeShellApplication {
       name = "2ogg";
-      runtimeInputs = [ pkgs.ffmpeg ];
-      text = ''
-        ${process-inputs}
-        ${backupIfDuplicate "ogg"}
-        ffmpeg -i "''${file}" -vn ${scriptAudio} "''${base}.ogg"
-      '';
+      runtimeInputs = [ pkgs.ffmpeg pkgs.mediainfo ];
+      text = fileContents ./2ogg.sh;
     })
     (writeShellApplication {
       name = "2org";
