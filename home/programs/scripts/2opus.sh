@@ -15,12 +15,8 @@ case "${info}" in
         fi
         ;;
     * )
-        if [ "${extension}" = "ogg" ]; then
-            bak="${base}.bak.ogg"
-            cp "${file}" "${bak}"
-        fi
         temp_out="$(mktemp --suffix=.opus)"
-        ffmpeg -i "${bak}" -c:a libopus -b:a 128k "${temp_out}"
+        ffmpeg -i "${file}" -c:a libopus -b:a 128k "${temp_out}"
         mv "${temp_out}" "${base}.opus"
         ;;
 esac
