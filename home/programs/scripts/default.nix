@@ -18,9 +18,7 @@ let
     mozjpeg
     pandoc
     ripgrep
-    rofi-rbw
     writeShellApplication
-    wtype
     xdg-utils
     yt-dlp
     zathura
@@ -195,7 +193,7 @@ in
     })
     (writeShellApplication {
       name = "password-menu";
-      runtimeInputs = [ wtype rofi-rbw ];
+      runtimeInputs = with pkgs; [ wtype rofi-rbw ];
       text = "rofi-rbw";
     })
     (writeShellApplication {
