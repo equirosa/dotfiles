@@ -155,10 +155,16 @@ in
           case "''${info}" in
             *"AVC"*)
               ${backupIfDuplicate "mkv"}
-              ffmpeg -i "''${file}" -c:v libx265 -crf 28 -preset slow ${scriptAudio} "''${base}.mkv" ;;
+              temp_out="$(mktemp --suffix=mkv)"
+              ffmpeg -i "''${file}" -c:v libx265 -crf 28 -preset slow ${scriptAudio} "''${temp_out}"
+              mv "''${temp_out}" "''${base}.mkv"
+              ;;
             *"VP8"* )
               ${backupIfDuplicate "mkv"}
-              ffmpeg -i "''${file}" -c:v libvpx-vp9 ${scriptAudio} "''${base}.mkv" ;;
+              temp_out="$(mktemp --suffix=mkv)"
+              ffmpeg -i "''${file}" -c:v libvpx-vp9 ${scriptAudio}  "''${temp_out}"
+              mv "''${temp_out}" "''${base}.mkv"
+              ;;
             *"HEVC"* | *"AV1"* | *"VP9"* ) echo "File already optimized." ;;
             *) echo "I don't know if I can optimize the ''${info} codec..." ;;
           esac
