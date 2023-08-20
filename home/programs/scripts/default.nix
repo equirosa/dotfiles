@@ -261,16 +261,17 @@ in
       runtimeInputs = with pkgs; [ imv lagrange xdg-utils zathura libnotify ];
       text = ''
         ${process-inputs}
-        case "''${1%%:*}" in
-          gemini) lagrange "''${1}" ;;
-          http|https|*.html) librewolf "''${1}" ;;
-          magnet|*.torrent)
-            transmission-remote -a "''${1}" && notify-send "Torrent Added! ✅";;
-          *.org) emacsclient --create-frame "''${1}" ;;
-          *.png|*.jpg|*.jpeg|*.webp) imv "''${1}" ;;
-          *.pdf) setsid zathura "''${1}" ;;
-          *) xdg-open "''${1}" ;;
-        esac
+        for arg in "$@"; do
+          case "''${arg}" in
+            magnet* | *.torrent )
+              transmission-remote -a "''${arg}" && notify-send -u low "Torrent Added! ✅"
+              ;;
+            *.org ) setsid emacsclient --create-frame "''${arg}" ;;
+            *.png | *.jpg | *.jpeg | *.webp ) setsid imv "''${arg}" ;;
+            *.pdf ) setsid zathura "''${arg}" ;;
+            * ) xdg-open "''${arg}" ;;
+          esac
+        done
       '';
     })
   ];
