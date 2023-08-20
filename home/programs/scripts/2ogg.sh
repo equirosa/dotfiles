@@ -6,8 +6,13 @@ info="$(mediainfo "${file}")"
 
 case "${info}" in
     *"Opus"* | *"opus"* )
-        error "File already optimized"
-        exit 1
+        if [ "${extension}" = "opus" ]; then
+            error "File already optimized"
+            exit 1
+        else
+            echo "Wrong file extension, correcting..."
+            rename .ogg .opus "${file}"
+        fi
         ;;
     * )
         if [ "${extension}" = "ogg" ]; then
