@@ -28,8 +28,9 @@ let
   menu-program = "${config.programs.rofi.finalPackage}/bin/rofi -dmenu";
   backupIfDuplicate = ext: ''
     if [ "''${ext}" = "${ext}" ]; then
-    bak="''${file}.bak"; mv "''${file}" "''${bak}"
-    file="''${file}.bak"
+      bak="''${file}.bak"
+      mv "''${file}" "''${bak}"
+      file="''${file}.bak"
     fi
   '';
   scriptAudio = "-c:a libopus -b:a 128k";
