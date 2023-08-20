@@ -103,6 +103,11 @@ in
       text = fileContents ./emoji.sh;
     })
     (writeShellApplication {
+      name = "error";
+      runtimeInputs = [ pkgs.libnotify ];
+      text = fileContents ./error.sh;
+    })
+    (writeShellApplication {
       name = "feed-subscribe";
       text = ''
         if [ $# -eq 0 ]; then
