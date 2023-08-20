@@ -4,11 +4,17 @@ extension=${file##*.}
 base=''${file%.*}
 info="$(mediainfo "${file}")"
 
-if [ "${extension}" = "ogg" ]; then
-    bak="${base}.bak.ogg"
-    cp "${file}" "${bak}"
-fi
+case "${info}" in
+    *"Opus"* | *"opus"* )
+        error "File already optimized"
+        exit 1
+        ;;
+    * )
+        if [ "${extension}" = "ogg" ]; then
+            bak="${base}.bak.ogg"
+            cp "${file}" "${bak}"
+        fi
+        ffmpeg -i "${bak}" -c:a libopus -b:a 128k "${file}"
+        ;;
+esac
 
-for file in "$@"; do
-    ffmpeg -i "${bak}" -c:a libopus -b:a 128k "${file}"
-done
