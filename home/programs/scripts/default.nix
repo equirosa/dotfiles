@@ -170,10 +170,15 @@ in
               re-encode-video
               ;;
             *"HEVC"* | *"AV1"* | *"VP9"* ) echo "File already optimized." ;;
-            *) echo "I don't know if I can optimize the ''${info} codec..." ;;
+            *)
+              echo -e "''${red}I don't know if I can optimize this file...''${reset}"
+              exit 1
+              ;;
           esac
         }
 
+        red='\033[1;31m ERROR: '
+        reset='\033[0m'
         ${process-inputs}
         mimetype="$(file --mime --brief "''${file}")"
         case "''${mimetype}" in
@@ -181,7 +186,10 @@ in
             jpeg-optimize ;;
           "video/"*)
             video-optimize ;;
-        * ) echo "I don't know how to handle that file" ;;
+        * )
+          echo -e "''${red}I don't know how to handle that file''${reset}"
+          exit 1
+          ;;
         esac
       '';
     })
