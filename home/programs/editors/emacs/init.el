@@ -283,6 +283,11 @@
   (global-treesit-auto-mode))
 (use-package tree-sitter-langs)
 
+;; Vterm
+(use-package multi-vterm
+  :bind (("C-c C-v v" . multi-vterm)
+         ("C-c C-v n" . multi-vterm-next)
+         ("C-c C-v p" . multi-vterm-prev)))
 
 ;; Programming
 (use-package eglot
