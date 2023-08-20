@@ -51,11 +51,11 @@ in
     })
     (writeShellApplication {
       name = "2pdf";
-      runtimeInputs = [ pkgs.libreoffice-fresh ];
+      runtimeInputs = [ pkgs.unoconv ];
       text = ''
         ${process-inputs}
         case "$ext" in
-          odt | docx) libreoffice --headless --convert-to pdf "$file" ;;
+          odt | docx | doc ) unoconv -f pdf "$file" ;;
           *) echo "I can't handle that format yet!" ;;
         esac
       '';
