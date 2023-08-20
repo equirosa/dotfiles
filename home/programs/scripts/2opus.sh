@@ -16,7 +16,7 @@ case "${info}" in
         ;;
     * )
         temp_out="$(mktemp --suffix=.opus)"
-        ffmpeg -i "${file}" -c:a libopus -b:a 128k "${temp_out}"
+        ffmpeg -i "${file}" -c:a libopus -b:a 128k -y "${temp_out}"
         mv "${temp_out}" "${base}.opus"
         ;;
 esac
