@@ -30,9 +30,9 @@ in
 {
   home.packages = [
     (writeShellApplication {
-      name = "2ogg";
+      name = "2opus";
       runtimeInputs = [ pkgs.ffmpeg pkgs.mediainfo ];
-      text = fileContents ./2ogg.sh;
+      text = fileContents ./2opus.sh;
     })
     (writeShellApplication {
       name = "2org";
