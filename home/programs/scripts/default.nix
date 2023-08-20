@@ -155,13 +155,13 @@ in
           case "''${info}" in
             *"AVC"*)
               ${backupIfDuplicate "mkv"}
-              temp_out="$(mktemp --suffix=mkv)"
+              temp_out="$(mktemp --suffix=.mkv)"
               ffmpeg -i "''${file}" -c:v libx265 -crf 28 -preset slow ${scriptAudio} "''${temp_out}"
               mv "''${temp_out}" "''${base}.mkv"
               ;;
             *"VP8"* )
               ${backupIfDuplicate "mkv"}
-              temp_out="$(mktemp --suffix=mkv)"
+              temp_out="$(mktemp --suffix=.mkv)"
               ffmpeg -i "''${file}" -c:v libvpx-vp9 ${scriptAudio}  "''${temp_out}"
               mv "''${temp_out}" "''${base}.mkv"
               ;;
