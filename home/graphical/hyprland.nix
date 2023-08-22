@@ -34,7 +34,7 @@ in
     enable = true;
     settings = {
       env = [
-        "QT_QPA_PLATFORM,wayland"
+        "QT_QPA_PLATFORM,wayland;xcb"
         "WLR_NO_HARDWARE_CURSORS,1"
       ];
       monitor = [
