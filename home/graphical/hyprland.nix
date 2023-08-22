@@ -27,7 +27,6 @@ let
   allWorkspaces = leftWorkspaces ++ rightWorkspaces;
   useRightNum = num: toString (if num == 10 then 0 else num);
   defaultTerm = "${wezterm}/bin/wezterm";
-  termify = program: "${defaultTerm} -e ${lib.getExe program}";
 in
 {
   wayland.windowManager.hyprland = {
@@ -117,17 +116,17 @@ in
         (map (str: "${mod}, ${str}")
           (concatLists [
             [
-              "A, exec, ${termify pulsemixer}"
+              "A, exec, ${defaultTerm} -e ${pulsemixer}/bin/pulsemixer"
               "D, exec, ${rofi.finalPackage}/bin/rofi -show run"
               "E, exec, kitty aerc"
               "F, fullscreen, 0"
-              "I, exec, ${termify btop}"
+              "I, exec, ${defaultTerm} -e ${btop}/bin/btop"
               "M, fullscreen, 1"
               "P, exec, emoji"
-              "R, exec, ${termify lf}"
+              "R, exec, ${defaultTerm} -e ${lf}/bin/lf"
               "RETURN, exec, ${defaultTerm}"
               "S, exec, search"
-              "T, exec, ${termify tremc}"
+              "T, exec, ${defaultTerm} -e ${tremc}/bin/tremc"
               "V, togglefloating,"
               "W, exec, librewolf"
               "X, exec, swaylock"
