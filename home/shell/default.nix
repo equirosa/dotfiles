@@ -74,6 +74,12 @@ in
       enable = true;
       settings = { date = "relative"; };
     };
+    exa = {
+      enable = true;
+      git = true;
+      icons = true;
+      extraOptions = [ "--header" ];
+    };
     fzf =
       let
         fileCommand = "${pkgs.ripgrep}/bin/rg --files";
