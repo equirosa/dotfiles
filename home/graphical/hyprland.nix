@@ -33,7 +33,10 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      env = [ "WLR_NO_HARDWARE_CURSORS,1" ];
+      env = [
+        "QT_QPA_PLATFORM,wayland"
+        "WLR_NO_HARDWARE_CURSORS,1"
+      ];
       monitor = [
         "${leftMon},preferred,0x0,auto"
         "${rightMon},1920x1080@60,1920x0,1"
