@@ -13,7 +13,6 @@ let
     lf
     librewolf
     pulsemixer
-    swww
     tor-browser-bundle-bin
     tremc
     wezterm
@@ -52,7 +51,7 @@ in
         "transmission-daemon"
         "beeper"
         "${librewolf}/bin/librewolf"
-        "${swww}/bin/swww init"
+        "swww"
       ];
       workspace = concatLists [
         (map (num: "${toString num},monitor:${leftMon}") leftWorkspaces)
