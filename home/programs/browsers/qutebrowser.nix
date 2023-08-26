@@ -2,7 +2,7 @@
 {
   programs.qutebrowser = {
     enable = true;
-    package = pkgs.qutebrowser-qt6;
+    package = pkgs.qutebrowser;
     aliases = { };
     keyBindings = {
       prompt = {
