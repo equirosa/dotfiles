@@ -14,19 +14,6 @@ rec {
   lg = "lazygit";
   md = "mkdir -p";
   mv = "mv -i";
-  ned = "nix-env -qaP --description";
-  nf = "nix fmt";
-  nfc = "nix flake check";
-  nfd = ''nix flake new -t "github:numtide/devshell"'';
-  nfst = "nix flake show templates";
-  nfu = "nix flake update --commit-lock-file";
-  nr = "nix run nixpkgs#";
-  nrh = "nixpkgs-review rev HEAD";
-  nrp = "nixpkgs-review pr --post-result";
-  nrw = "nixpkgs-review wip";
-  ns = "nix search nixpkgs";
-  nsp = "nix-shell -p";
-  nup = "nix-update --test --commit --review";
   qr = "qrencode -t ansiutf8";
   sid = "setsid";
   snp = "show-nix-store-path";
@@ -38,6 +25,7 @@ rec {
   # Flatpak
   fi = "flatpak install";
   fl = "flatpak list";
+  fs = "flatpak search";
   fu = "flatpak update --assumeyes";
   fun = "flatpak uninstall --assumeyes";
   # Listing
@@ -76,6 +64,13 @@ rec {
   dne = "${dn} -e";
   nb = "nom build";
   nbf = "${nb} -f ./.";
+  nd = "nix develop";
+  ned = "nix-env -qaP --description";
+  nf = "nix fmt";
+  nfc = "nix flake check";
+  nfd = ''nix flake new -t "github:numtide/devshell"'';
+  nfst = "nix flake show templates";
+  nfu = "nix flake update --commit-lock-file";
   np = "nix profile";
   nph = "${np} history";
   npi = "${np} install";
@@ -84,6 +79,13 @@ rec {
   npra = "${np} remove '.*'";
   nprb = "${np} rollback";
   npu = "${np} upgrade";
+  nr = "nix run nixpkgs#";
+  nrh = "nixpkgs-review rev HEAD";
+  nrp = "nixpkgs-review pr --post-result";
+  nrw = "nixpkgs-review wip";
+  ns = "nix search nixpkgs";
+  nsp = "nix-shell -p";
+  nup = "nix-update --test --commit --review";
   ro = "regen os";
   rt = "regen test";
   # trash-cli
