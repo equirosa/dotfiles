@@ -299,6 +299,7 @@
 (use-package elm-mode)
 (use-package lua-mode)
 (use-package nix-mode)
+(use-package rust-mode)
 (use-package envrc
   :diminish
   :config (envrc-global-mode))
