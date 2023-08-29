@@ -263,9 +263,9 @@ in
     })
     (writeShellApplication {
       name = "xdg-open";
-      runtimeInputs = with pkgs; [ imv lagrange xdg-utils zathura libnotify ];
+      runtimeInputs = with pkgs; [ imv lagrange zathura libnotify ];
       text = ''
-        ${process-inputs}
+        [ $# -eq 0 ] && notify-send "No arguments provided. Exitting..." && exit 1
         for arg in "$@"; do
           case "''${arg}" in
             magnet* | *.torrent )
@@ -274,7 +274,7 @@ in
             *.org ) setsid emacsclient --create-frame "''${arg}" ;;
             *.png | *.jpg | *.jpeg | *.webp ) setsid imv "''${arg}" ;;
             *.pdf ) setsid zathura "''${arg}" ;;
-            * ) xdg-open "''${arg}" ;;
+            * ) ${pkgs.xdg-utils}/bin/xdg-open "''${arg}" ;;
           esac
         done
       '';
