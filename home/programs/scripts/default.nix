@@ -127,6 +127,10 @@ in
       text = fileContents ./git-remove-merged-branches.sh;
     })
     (writeShellApplication {
+      name = "git-pushall";
+      text = fileContents ./git-pushall.sh;
+    })
+    (writeShellApplication {
       name = "optisize";
       runtimeInputs = with pkgs; [ ffmpeg file mediainfo mozjpeg ];
       text = ''
