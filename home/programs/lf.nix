@@ -13,7 +13,7 @@
             }}
           '';
           open = ''
-            ''${{for file in "$fx"; do
+            ''${{for file in $fx; do
             setsid xdg-open "$file" > /dev/null 2> /dev/null &
             done}}
           '';
