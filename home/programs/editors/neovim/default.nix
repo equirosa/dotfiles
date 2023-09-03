@@ -79,17 +79,6 @@
       lsp-lines.enable = true;
       luasnip.enable = true;
       neogit.enable = true;
-      neorg = {
-        enable = true;
-        modules = {
-          "core.defaults" = { };
-          "core.dirman".config = {
-            workspaces = {
-              todo = "~/Documents/org/";
-            };
-          };
-        };
-      };
       nvim-autopairs = { enable = true; checkTs = true; };
       nvim-cmp = {
         enable = true;
