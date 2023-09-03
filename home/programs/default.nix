@@ -4,8 +4,8 @@
   imports = [
     ./browsers/librewolf.nix
     ./browsers/qutebrowser.nix
-    ./editors/neovim
     ./editors/emacs
+    ./editors/neovim
     ./editors/vscode.nix
     ./git.nix
     ./lf.nix
