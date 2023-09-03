@@ -44,6 +44,7 @@
     nix-output-monitor
     nix-update
     nixd
+    nixpkgs-fmt
     nixpkgs-review
     statix
     # Utilities
