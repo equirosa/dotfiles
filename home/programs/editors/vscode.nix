@@ -2,6 +2,7 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
+    mutableExtensionsDir = false;
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
       catppuccin.catppuccin-vsc
