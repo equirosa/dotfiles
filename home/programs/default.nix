@@ -34,7 +34,6 @@
     # Development
     mprocs
     # Documents
-    joplin-desktop
     texlive.combined.scheme-full
     # File Sharing
     transmission
