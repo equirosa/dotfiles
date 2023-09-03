@@ -31,6 +31,8 @@
     betterbird
     # Social
     toot
+    # Development
+    mprocs
     # Documents
     joplin-desktop
     standardnotes
