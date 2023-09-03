@@ -35,7 +35,6 @@
     mprocs
     # Documents
     joplin-desktop
-    standardnotes
     texlive.combined.scheme-full
     # File Sharing
     transmission
