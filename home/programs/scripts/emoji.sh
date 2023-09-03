@@ -1,1 +1,1 @@
-rofimoji --clipboarder wl-copy --action type copy --typer wtype
+rofimoji --clipboarder wl-copy --action copy
