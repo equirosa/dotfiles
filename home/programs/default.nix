@@ -6,6 +6,7 @@
     ./browsers/qutebrowser.nix
     ./editors/neovim
     ./editors/emacs
+    ./editors/vscode.nix
     ./git.nix
     ./lf.nix
     ./mpv.nix
