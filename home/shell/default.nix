@@ -10,6 +10,16 @@ in
   imports = [ ./fish.nix ./nushell.nix ];
   home.shellAliases = import ./aliases.nix { inherit pkgs lib; } // import ./abbreviations.nix;
   programs = {
+    atuin = {
+      enable = true;
+      flags = [ "--disable-up-arrow" ];
+      settings = {
+        auto_sync = true;
+        sync_frequency = "5m";
+        update_check = false;
+        sync_address = "https://api.atuin.sh";
+      };
+    };
     direnv = {
       enable = true;
       nix-direnv.enable = true;
