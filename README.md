@@ -8,6 +8,7 @@
 
 Some useful documentation for the tools I'm using in this repo.
 - [Nix Devdocs](https://devdocs.io/nix/)
+- https://nix.dev
 
 ## Other great configs
 
