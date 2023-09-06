@@ -43,7 +43,7 @@
   };
   security.pam.services.login.gnupg.enable = true;
   services = {
-    mullvad-vpn = { enable = true; enableExcludeWrapper = false; };
+    mullvad-vpn.enable = true;
     dbus.packages = [ pkgs.gcr ];
     dnscrypt-proxy2 = {
       enable = true;
