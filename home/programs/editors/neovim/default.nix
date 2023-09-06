@@ -142,7 +142,7 @@
           "<leader>sw" = "grep_string";
         };
       };
-      treesitter-rainbow.enable = true;
+      rainbow-delimiters.enable = true;
       which-key = { enable = true; };
     };
     extraConfigLua = lib.fileContents ./init.lua;
