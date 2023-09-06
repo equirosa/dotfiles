@@ -143,7 +143,7 @@
         };
       };
       rainbow-delimiters.enable = true;
-      which-key = { enable = true; };
+      which-key.enable = true;
     };
     extraConfigLua = lib.fileContents ./init.lua;
     extraPackages = with pkgs; [ nixpkgs-fmt ];
