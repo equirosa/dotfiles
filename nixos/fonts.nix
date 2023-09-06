@@ -2,7 +2,7 @@
   fonts = {
     fontconfig = {
       enable = true;
-      defaultFonts.monospace = [ "Iosevka Comfy Duo" "Iosevka Comfy" "FiraCode Nerd Font" ];
+      defaultFonts.monospace = [ "Iosevka Comfy" "Iosevka Comfy Duo" "FiraCode Nerd Font" ];
     };
     fontDir.enable = true;
     packages = with pkgs; [
