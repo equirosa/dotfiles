@@ -8,6 +8,10 @@
     home-manager.url = "github:nix-community/home-manager";
     hypr-contrib.inputs.nixpkgs.follows = "nixpkgs";
     hypr-contrib.url = "github:hyprwm/contrib";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:Mic92/nix-index-database";
@@ -25,6 +29,7 @@
     inputs @ { emacs-overlay
     , flake-utils
     , home-manager
+    , nix-darwin
     , nix-gaming
     , nix-index-database
     , nixpkgs
@@ -84,6 +89,10 @@
           ];
           specialArgs = { inherit colors nix-gaming nixpkgs; };
         };
+      };
+      darwinConfigurations.Macbooks-MacBook-Air = nix-darwin.lib.darwinSystem {
+        system = "x86_64-darwin";
+        modules = [ ./hosts/maclap/configuration.nix ];
       };
     };
 }
