@@ -84,7 +84,7 @@ in
       enable = true;
       settings = { date = "relative"; };
     };
-    exa = {
+    eza = {
       enable = true;
       git = true;
       icons = true;
