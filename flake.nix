@@ -92,7 +92,7 @@
       };
       darwinConfigurations.Macbooks-MacBook-Air = nix-darwin.lib.darwinSystem {
         system = "x86_64-darwin";
-        modules = [ ./hosts/maclap/configuration.nix ];
+        modules = [ ./hosts/Macbooks-MacBook-Air/configuration.nix ];
       };
     };
 }
