@@ -72,6 +72,5 @@
     unzip
     # Password
     bitwarden
-    gopass
   ];
 }
