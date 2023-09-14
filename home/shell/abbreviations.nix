@@ -29,11 +29,9 @@ rec {
   fu = "flatpak update --assumeyes";
   fun = "flatpak uninstall --assumeyes";
   # Listing
-  l = "ls -lh";
-  ll = "ls -lah";
-  lls = "ls -lah";
-  lss = "ls -lh";
-  lt = "lsd --tree";
+  l = "ls -l";
+  ll = "ls -la";
+  lt = "eza --tree";
   # Mpv
   m = "mpv";
   mfs = "mpv --fs";

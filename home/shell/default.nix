@@ -80,10 +80,6 @@ in
       // (extAttrs scriptFiles green)
       ;
     };
-    lsd = {
-      enable = true;
-      settings = { date = "relative"; };
-    };
     eza = {
       enable = true;
       git = true;

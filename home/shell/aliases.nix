@@ -4,5 +4,5 @@
 }:
 {
   cat = "${pkgs.bat}/bin/bat --plain";
-  ls = "${pkgs.lsd}/bin/lsd";
+  ls = "${pkgs.eza}/bin/eza";
 }
