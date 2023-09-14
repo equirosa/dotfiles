@@ -2,7 +2,7 @@
   description = "Kiri's Nix configuration";
 
   inputs = {
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
@@ -30,6 +30,7 @@
     , flake-utils
     , home-manager
     , nix-darwin
+    , nix-doom-emacs
     , nix-gaming
     , nix-index-database
     , nixpkgs
@@ -79,6 +80,7 @@
                 users.kiri = { osConfig, ... }: {
                   imports = [
                     ./home
+                    nix-doom-emacs.hmModule
                     nix-index-database.hmModules.nix-index
                     nixvim.homeManagerModules.nixvim
                   ];
