@@ -26,7 +26,7 @@
   };
 
   outputs =
-    inputs @ { emacs-overlay
+    { emacs-overlay
     , flake-utils
     , home-manager
     , hypr-contrib
