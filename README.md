@@ -23,6 +23,10 @@ If you're looking at this repo looking for inspiration, then consider taking a l
 - [Mic92's](https://github.com/Mic92/dotfiles)
 - [viperML's config](https://github.com/viperML/dotfiles)
 
+### Neovim
+
+My Neovim config is originally derived from the starter for [LazyVim](https://www.lazyvim.org/)
+
 ### Misc
 
 - [Drew Devault's dotfile repo](https://git.sr.ht/~sircmpwn/dotfiles)
