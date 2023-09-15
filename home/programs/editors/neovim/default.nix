@@ -1,6 +1,7 @@
 { pkgs, lib, ... }: {
   programs.neovim = {
     enable = true;
+    extraPackages = [ pkgs.gnumake ];
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
