@@ -29,6 +29,7 @@
     inputs @ { emacs-overlay
     , flake-utils
     , home-manager
+    , hypr-contrib
     , nix-darwin
     , nix-gaming
     , nix-index-database
@@ -73,7 +74,7 @@
             home-manager.nixosModules.home-manager
             {
               home-manager = {
-                extraSpecialArgs = { inherit colors inputs wrapper-manager overlays; };
+                extraSpecialArgs = { inherit colors hypr-contrib wrapper-manager overlays; };
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users.kiri = { osConfig, ... }: {

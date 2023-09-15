@@ -1,7 +1,7 @@
 { pkgs
 , lib
 , config
-, inputs
+, hypr-contrib
 , ...
 }:
 let
@@ -213,7 +213,7 @@ in
       name = "screenshot";
       runtimeInputs = [
         pkgs.swappy
-        inputs.hypr-contrib.packages.${pkgs.system}.grimblast
+        hypr-contrib.packages.${pkgs.system}.grimblast
       ];
       text = fileContents ./screenshot.sh;
     })
