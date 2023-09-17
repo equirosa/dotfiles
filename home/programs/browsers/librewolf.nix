@@ -1,6 +1,7 @@
 { pkgs, ... }:
 let
   settings = {
+    "extensions.pocket.enabled" = false;
     "identity.fxaccounts.enabled" = true;
     "image.jxl.enabled" = true;
     "privacy.resistFingerprinting.letterboxing" = true;
