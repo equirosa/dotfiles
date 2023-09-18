@@ -15,12 +15,19 @@ in
       default = {
         id = 0;
         inherit settings;
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          bitwarden
+          libredirect
+        ];
       };
       media = {
         id = 1;
         settings = settings // {
           "browser.startup.homepage" = "https://reader.miniflux.app";
         };
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          libredirect
+        ];
       };
     };
   };
