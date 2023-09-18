@@ -6,15 +6,10 @@
 let
   inherit (lib.lists) range;
   inherit (builtins) concatLists;
-  inherit (config.programs) rofi;
   inherit
     (pkgs)
     btop
-    lf
     pulsemixer
-    tor-browser-bundle-bin
-    tremc
-    wezterm
     ;
   gaps_in = 2;
   mod = "SUPER";
