@@ -52,6 +52,7 @@
     fd
     git-ignore
     gocryptfs
+    handbrake
     hut
     hyperfine
     hyprpicker
