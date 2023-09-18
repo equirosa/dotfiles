@@ -27,6 +27,7 @@ in
         extensions = with firefox-addons; [
           bitwarden
           libredirect
+          multi-account-containers
         ];
       };
       media = {
