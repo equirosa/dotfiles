@@ -8,10 +8,10 @@ _: {
   ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "snowfort"; # Define your hostname.
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
 
   # Set your time zone.
   time.timeZone = "America/Costa_Rica";
@@ -19,8 +19,12 @@ _: {
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.enp3s0.useDHCP = true;
+
+  networking = {
+    hostName = "snowfort"; # Define your hostname.
+    useDHCP = false;
+    interfaces.enp3s0.useDHCP = true;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kiri = {

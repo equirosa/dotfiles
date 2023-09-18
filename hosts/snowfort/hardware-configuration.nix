@@ -14,17 +14,19 @@ in
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "uas" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
-
-
-  boot.initrd.luks.devices = {
-    "enc".device = "/dev/disk/by-uuid/10e5f1df-3228-478c-a505-2ec1861bc374";
-    "enc2".device = "/dev/disk/by-uuid/1e4df192-817e-4649-a884-44723fb34b46";
-    "enc-swap".device = "/dev/disk/by-uuid/42bb9c1c-1fd4-4a3e-9943-cf03d937d4b9";
-    "enc-nvme".device = "/dev/disk/by-uuid/ccccb02b-be56-4e7b-ba5a-eccd4d0ee6c9";
+  boot = {
+    initrd = {
+      availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "uas" "sd_mod" ];
+      kernelModules = [ ];
+    };
+    kernelModules = [ "kvm-amd" ];
+    extraModulePackages = [ ];
+    initrd.luks.devices = {
+      "enc".device = "/dev/disk/by-uuid/10e5f1df-3228-478c-a505-2ec1861bc374";
+      "enc2".device = "/dev/disk/by-uuid/1e4df192-817e-4649-a884-44723fb34b46";
+      "enc-swap".device = "/dev/disk/by-uuid/42bb9c1c-1fd4-4a3e-9943-cf03d937d4b9";
+      "enc-nvme".device = "/dev/disk/by-uuid/ccccb02b-be56-4e7b-ba5a-eccd4d0ee6c9";
+    };
   };
 
   fileSystems = {
