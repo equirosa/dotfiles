@@ -51,6 +51,8 @@ in
         "transmission-daemon"
         "beeper"
         "swww"
+        defaultBrowser
+        "firefox -P media"
       ];
       workspace = concatLists [
         (map (num: "${toString num},monitor:${leftMon}") leftWorkspaces)
