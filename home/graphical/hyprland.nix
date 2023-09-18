@@ -11,7 +11,6 @@ let
     (pkgs)
     btop
     lf
-    librewolf
     pulsemixer
     tor-browser-bundle-bin
     tremc
@@ -25,7 +24,8 @@ let
   rightWorkspaces = range 7 10;
   allWorkspaces = leftWorkspaces ++ rightWorkspaces;
   useRightNum = num: toString (if num == 10 then 0 else num);
-  defaultTerm = "${wezterm}/bin/wezterm";
+  defaultBrowser = "firefox -P default";
+  defaultTerm = "wezterm";
 in
 {
   wayland.windowManager.hyprland = {
@@ -50,7 +50,6 @@ in
       exec-once = [
         "transmission-daemon"
         "beeper"
-        "${librewolf}/bin/librewolf"
         "swww"
       ];
       workspace = concatLists [
@@ -103,7 +102,7 @@ in
           [
             "E, exec, emacsclient --create-frame"
             "Q, killactive,"
-            "W, exec, ${tor-browser-bundle-bin}/bin/tor-browser"
+            "W, exec, tor-browser"
           ]
           (map (key: "${key}, movewindow, d") [ "j" "DOWN" ])
           (map (key: "${key}, movewindow, l") [ "h" "LEFT" ])
@@ -116,18 +115,18 @@ in
           (concatLists [
             [
               "A, exec, ${defaultTerm} -e ${pulsemixer}/bin/pulsemixer"
-              "D, exec, ${rofi.finalPackage}/bin/rofi -show run"
+              "D, exec, rofi -show run"
               "E, exec, kitty aerc"
               "F, fullscreen, 0"
               "I, exec, ${defaultTerm} -e ${btop}/bin/btop"
               "M, fullscreen, 1"
               "P, exec, emoji"
-              "R, exec, ${defaultTerm} -e ${lf}/bin/lf"
+              "R, exec, ${defaultTerm} -e lf"
               "RETURN, exec, ${defaultTerm}"
               "S, exec, search"
-              "T, exec, ${defaultTerm} -e ${tremc}/bin/tremc"
+              "T, exec, ${defaultTerm} -e tremc"
               "V, togglefloating,"
-              "W, exec, librewolf"
+              "W, exec, firefox"
               "X, exec, swaylock"
               "Z, exec,password-menu"
               "mouse_down, workspace, e+1"
@@ -149,10 +148,7 @@ in
         "${mod}, mouse:273, resizewindow"
       ];
       windowrulev2 = concatLists [
-        [
-          "float,nofullscreen,class:firefox,title:^Firefox — Sharing Indicator$"
-          "maximize,class:^(librewolf)$,title:Picture-in-Picture"
-        ]
+        [ "maximize,class:^(firefox)$,title:Picture-in-Picture" ]
         (map (id: "workspace 9 silent:${id}")
           [ "class:^(Beeper)" "title:^(aerc)" ])
         (map (rule: "${rule},class:^([Ss]team|.gamescope-wrapped)")
