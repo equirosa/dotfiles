@@ -111,7 +111,7 @@ in
         else
           url="''${1}"
         fi
-        librewolf "https://reader.miniflux.app/bookmarklet?uri=''${url}"
+        xdg-open "https://reader.miniflux.app/bookmarklet?uri=''${url}"
       '';
     })
     (writeShellApplication {
@@ -269,12 +269,11 @@ in
         for arg in "$@"; do
           case "''${arg}" in
             magnet* | *.torrent )
-              transmission-remote -a "''${arg}" && notify-send -u low "Torrent Added! ✅"
+              setsid transmission-remote -a "''${arg}" && notify-send -u low "Torrent Added! ✅"
               ;;
             *.org ) setsid emacsclient --create-frame "''${arg}" ;;
             *.png | *.jpg | *.jpeg | *.webp ) setsid imv "''${arg}" ;;
-            *.pdf ) setsid zathura "''${arg}" ;;
-            * ) ${pkgs.xdg-utils}/bin/xdg-open "''${arg}" ;;
+            * ) setsid ${pkgs.xdg-utils}/bin/xdg-open "''${arg}" ;;
           esac
         done
       '';
