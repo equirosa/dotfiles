@@ -15,6 +15,10 @@ Some useful documentation for the tools I'm using in this repo.
 
 If you're looking at this repo looking for inspiration, then consider taking a look at these others:
 
+### Firefox
+
+The `user.js` (`programs.firefox.settings` in the `firefox.nix` file) has plenty of settings borrowed from [arkenfox](https://github.com/arkenfox/user.js).
+
 ### Nix
 
 - [Davidak's NixOS Config](https://codeberg.org/davidak/nixos-config)

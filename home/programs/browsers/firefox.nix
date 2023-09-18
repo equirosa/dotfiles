@@ -1,10 +1,17 @@
 { pkgs, ... }:
 let
+  defaultSearch = "DuckDuckGo";
   settings = {
     "extensions.pocket.enabled" = false;
     "identity.fxaccounts.enabled" = true;
     "image.jxl.enabled" = true;
     "privacy.resistFingerprinting.letterboxing" = true;
+    "browser.safebrowsing.downloads.remote.enabled" = false;
+    "signon.autofillForms" = false;
+    "signon.formlessCapture.enabled" = false;
+    "browser.startup.page" = 0;
+    "browser.startup.homepage" = "about:blank";
+    "browser.newtabpage.enabled" = false;
   };
 in
 {
@@ -15,6 +22,7 @@ in
       default = {
         id = 0;
         inherit settings;
+        search = { default = defaultSearch; };
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           bitwarden
           libredirect
@@ -25,6 +33,7 @@ in
         settings = settings // {
           "browser.startup.homepage" = "https://reader.miniflux.app";
         };
+        search.default = defaultSearch;
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           libredirect
         ];
