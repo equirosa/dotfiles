@@ -23,7 +23,8 @@ The `user.js` (`programs.firefox.settings` in the `firefox.nix` file) has plenty
 
 - [Davidak's NixOS Config](https://codeberg.org/davidak/nixos-config)
 - [David Armstrong's Nix Config](https://github.com/davidarmstronglewis/nix-config)
-- [donovanglover's config](https://github.com/donovanglover/dotfiles). Specifically the part about using `home-manager.sharedModules` to use `home-manager` inside the `nixosModule` 😅.
+- [donovanglover's config](https://github.com/donovanglover/dotfiles).
+  -  ~~Specifically the part about using `home-manager.sharedModules` to use `home-manager` inside the `nixosModule` 😅.~~ I no longer do it this way, but it's still a valid alternative 😁.
 - [Mic92's](https://github.com/Mic92/dotfiles)
 - [viperML's config](https://github.com/viperML/dotfiles)
 
