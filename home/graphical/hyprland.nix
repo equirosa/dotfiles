@@ -128,7 +128,7 @@ in
               "S, exec, search"
               "T, exec, ${defaultTerm} -e tremc"
               "V, togglefloating,"
-              "W, exec, firefox"
+              "W, exec, firefox -P default"
               "X, exec, swaylock"
               "Z, exec,password-menu"
               "mouse_down, workspace, e+1"
