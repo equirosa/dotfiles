@@ -2,7 +2,7 @@
 , ...
 }: {
   imports = [
-    ./browsers/librewolf.nix
+    ./browsers/firefox.nix
     ./browsers/qutebrowser.nix
     ./editors/emacs
     ./editors/neovim
