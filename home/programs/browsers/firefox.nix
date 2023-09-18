@@ -16,6 +16,12 @@ in
         id = 0;
         inherit settings;
       };
+      media = {
+        id = 1;
+        settings = settings // {
+          "browser.startup.homepage" = "https://reader.miniflux.app";
+        };
+      };
     };
   };
 }
