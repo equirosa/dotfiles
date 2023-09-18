@@ -35,12 +35,16 @@
     , nix-index-database
     , nixpkgs
     , nixvim
+    , nur
     , wrapper-manager
     , ...
     }:
     let
       colors = import ./colors.nix;
-      overlays = [ emacs-overlay.overlay ];
+      overlays = [
+        emacs-overlay.overlay
+        nur.overlay
+      ];
     in
     flake-utils.lib.eachDefaultSystem
       (system:
