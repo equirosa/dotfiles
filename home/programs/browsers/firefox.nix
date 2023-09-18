@@ -1,5 +1,6 @@
 { pkgs, ... }:
 let
+  inherit (pkgs.nur.repos.rycee) firefox-addons;
   defaultSearch = "DuckDuckGo";
   settings = {
     "extensions.pocket.enabled" = false;
@@ -23,7 +24,7 @@ in
         id = 0;
         inherit settings;
         search = { default = defaultSearch; };
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        extensions = with firefox-addons; [
           bitwarden
           libredirect
         ];
@@ -34,7 +35,7 @@ in
           "browser.startup.homepage" = "https://reader.miniflux.app";
         };
         search.default = defaultSearch;
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        extensions = with firefox-addons; [
           libredirect
         ];
       };
