@@ -22,9 +22,9 @@
           "tray"
           "clock"
         ];
-        clock = { format = "{:%Y-%m-%d | %H:%M}"; };
-        cpu = { format = "{load} - {usage}%  "; };
-        disk = { format = "{free}/{total} 󰋊"; };
+        clock.format = "{:%Y-%m-%d | %H:%M}";
+        cpu.format = "{load} - {usage}%  ";
+        disk.format = "{free}/{total} 󰋊";
         idle_inhibitor = {
           format = "{icon}";
           format-icons = {
@@ -32,7 +32,7 @@
             deactivated = "";
           };
         };
-        memory = { format = "{}% 󰍛"; };
+        memory.format = "{}% 󰍛";
         network = {
           format = "{ifname}";
           format-ethernet = "{bandwidthDownBits}  {ipaddr}/{cidr} ";
@@ -66,10 +66,10 @@
             "urgent" = " ";
           };
         };
-        tray = { spacing = 10; };
+        tray.spacing = 10;
       };
     };
-    systemd = { enable = true; };
+    systemd.enable = true;
   };
   xdg.configFile."waybar/mocha.css".source = ./mocha.css;
 }

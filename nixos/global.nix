@@ -18,13 +18,10 @@
     kernelPackages = pkgs.linuxPackages_latest;
   };
   hardware.enableRedistributableFirmware = true;
-  networking = {
-    hostFiles = map (x: "${pkgs.stevenblack-blocklist}/" + x) [
-      "hosts"
-      "alternates/gambling/hosts"
-    ];
-    hosts = { "0.0.0.0" = [ "*.zip" "*.mov" ]; };
-  };
+  networking.hostFiles = map (x: "${pkgs.stevenblack-blocklist}/" + x) [
+    "hosts"
+    "alternates/gambling/hosts"
+  ];
   nix = {
     gc = {
       automatic = true;

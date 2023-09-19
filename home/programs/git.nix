@@ -2,7 +2,6 @@ _: {
   programs = {
     git = {
       enable = true;
-      aliases = { };
       attributes = [ "*.pdf diff=pdf" "*.md diff=md" ];
       extraConfig = {
         diff = {
@@ -32,7 +31,7 @@ _: {
       userEmail = "eduardo@eduardoquiros.com";
       userName = "Eduardo Quiros";
     };
-    lazygit = { enable = true; };
+    lazygit.enable = true;
     gh = {
       enable = true;
       settings = {
