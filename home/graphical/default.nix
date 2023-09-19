@@ -3,7 +3,7 @@ _: {
     ./hyprland.nix
     ./notifications.nix
     ./screenlock.nix
-    ./waybar.nix
+    ./waybar
   ];
   xdg.configFile."electron-flags.conf".text = ''
     --enable-features=UseOzonePlatform
