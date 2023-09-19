@@ -23,7 +23,10 @@ in
       default = {
         id = 0;
         inherit settings;
-        search = { default = defaultSearch; };
+        search = {
+          default = defaultSearch;
+          force = true;
+        };
         extensions = with firefox-addons; [
           bitwarden
           libredirect
@@ -35,7 +38,7 @@ in
         settings = settings // {
           "browser.startup.homepage" = "https://reader.miniflux.app";
         };
-        search.default = defaultSearch;
+        search = { default = defaultSearch; force = true; };
         extensions = with firefox-addons; [
           libredirect
         ];
