@@ -34,7 +34,6 @@
     };
     settings.auto-optimise-store = true;
     settings.system-features = [ "recursive-nix" ];
-    # registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = ''
       experimental-features = flakes nix-command recursive-nix
       keep-outputs = true
