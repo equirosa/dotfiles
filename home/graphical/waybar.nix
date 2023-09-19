@@ -10,7 +10,7 @@
         position = "top";
         height = 20;
         output = [ "DP-1" "HDMI-A-1" ];
-        modules-left = [ "wlr/workspaces" ];
+        modules-left = [ "hyprland/workspaces" ];
         modules-center = [ "hyprland/window" ];
         modules-right = [
           "idle_inhibitor"
@@ -49,20 +49,18 @@
             "(.*) — fish" = " [$1]";
           };
         };
-        "wlr/workspaces" = {
+        "hyprland/workspaces" = {
           format = "{name}: {icon}";
-          on-click = "activate";
-          sort-by-number = true;
           format-icons = {
-            "1" = "";
-            "2" = "";
-            "3" = "";
-            "6" = "";
-            "8" = "";
-            "9" = "";
-            "default" = "";
-            "focused" = "";
-            "urgent" = "";
+            "1" = " ";
+            "2" = " ";
+            "3" = " ";
+            "6" = " ";
+            "8" = " ";
+            "9" = " ";
+            "default" = " ";
+            "focused" = " ";
+            "urgent" = " ";
           };
         };
         tray = { spacing = 10; };
