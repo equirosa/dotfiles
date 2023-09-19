@@ -68,4 +68,5 @@
     };
     systemd = { enable = true; };
   };
+  xdg.configFile."waybar/mocha.css".source = lib.strings.fileContents ./mocha.css;
 }
