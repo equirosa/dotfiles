@@ -38,7 +38,10 @@
           format-ethernet = "{bandwidthDownBits}  {ipaddr}/{cidr} ";
           format-disconnected = "󰣼";
         };
-        "hyprland/language".format = "{}";
+        "hyprland/language" = {
+          format-en = "🇺🇸";
+          format-es = "🇨🇷";
+        };
         "hyprland/window" = {
           "max-length" = 50;
           "all-outputs" = true;
