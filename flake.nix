@@ -60,6 +60,7 @@
             nodePackages.bash-language-server
             shellharden
             shfmt
+            vscode-langservers-extracted
           ];
         };
         formatter = nixpkgs.legacyPackages.${system}.treefmt;
