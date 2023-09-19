@@ -1,8 +1,10 @@
 { pkgs
+, lib
 , ...
 }: {
   programs.waybar = {
     enable = true;
+    style = lib.strings.fileContents ./style.css;
     settings = {
       mainBar = {
         layer = "top";
