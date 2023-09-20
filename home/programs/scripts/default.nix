@@ -184,7 +184,7 @@ in
     })
     (writeShellApplication {
       name = "password-menu";
-      runtimeInputs = with pkgs; [ wtype rofi-rbw ];
+      runtimeInputs = [ pkgs.rofi-rbw-wayland ];
       text = "rofi-rbw";
     })
     (writeShellApplication {
