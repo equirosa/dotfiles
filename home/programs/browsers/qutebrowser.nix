@@ -32,7 +32,7 @@
       m = "reader.miniflux.app/";
       nixpkgs = "github.com/NixOS/nixpkgs";
       nvo = "pta2002.github.io/nixvim/";
-      tdm = "twitch.tv/drmick";
+      tdm = "https://safetwitch.drgns.space/drmick";
     };
     settings = {
       content.fullscreen.window = true;
