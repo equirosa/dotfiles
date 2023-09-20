@@ -100,7 +100,7 @@ button:hover {
 }
 
 #clock {
-    background-color: #64727D;
+    background-color: @surface2;
 }
 
 #battery {
@@ -222,6 +222,7 @@ label:focus {
 
 #language {
     background: @teal;
+    padding: 0 3px;
 }
 
 #scratchpad {
