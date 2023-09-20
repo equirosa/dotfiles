@@ -100,7 +100,8 @@ button:hover {
 }
 
 #clock {
-    background-color: @surface2;
+    color: shade(@text, 0.5);
+    background-color: @rosewater;
 }
 
 #battery {
@@ -131,17 +132,17 @@ label:focus {
 }
 
 #cpu {
-    background-color: #2ecc71;
+    background-color: @peach;
     color: shade(@text, 0.5)
 }
 
 #memory {
-    background-color: @mauve;
+    background-color: @yellow;
     color: shade(@text, 0.5)
 }
 
 #disk {
-    background-color: @maroon;
+    background-color: @teal;
     color: shade(@text, 0.5)
 }
 
@@ -150,7 +151,7 @@ label:focus {
 }
 
 #network {
-    background-color: @sapphire;
+    background-color: @green;
     color: shade(@text, 0.5)
 }
 
@@ -183,7 +184,7 @@ label:focus {
 }
 
 #tray {
-    background-color: #2980b9;
+    background-color: @red;
 }
 
 #tray > .passive {
@@ -196,12 +197,13 @@ label:focus {
 }
 
 #idle_inhibitor {
-    background-color: @surface0;
+    background-color: @blue;
     color: shade(@text, 0.5)
 }
 
 #idle_inhibitor.activated {
-    background-color: @overlay2;
+    color: @blue;
+    background-color: shade(@text, 0.5)
 }
 
 #mpd {
@@ -221,7 +223,7 @@ label:focus {
 }
 
 #language {
-    background: @teal;
+    background: @sapphire;
     padding: 0 3px;
 }
 
