@@ -22,7 +22,7 @@
           "tray"
           "clock"
         ];
-        clock.format = "{:%Y-%m-%d | %H:%M}";
+        clock.format = "{:%A %Y-%m-%d | %H:%M}";
         cpu.format = "{load} - {usage}%  ";
         disk.format = "{free}/{total} 󰋊";
         idle_inhibitor = {
