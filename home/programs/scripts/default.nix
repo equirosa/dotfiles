@@ -137,6 +137,7 @@ in
         blue='\033[1;34m INFO: '
         red='\033[1;31m ERROR: '
         reset='\033[0m'
+
         jpeg-optimize() {
           output="$(mktemp)"
           cp "''${file}" "''${output}"
@@ -154,12 +155,12 @@ in
           info="$(mediainfo "''${file}")"
           case "''${info}" in
             *"AVC"*)
-              echo -e "''${blue}AVC detected, converting to H.265..."
+              echo -e "''${blue}AVC detected, converting to H.265...''${reset}"
               export preset="H.265 MKV 2160p60 4K"
               re-encode-video
               ;;
             *"VP8"* )
-              echo -e "''${blue}VP8 detected, converting to AV1..."
+              echo -e "''${blue}VP8 detected, converting to AV1...''${reset}"
               export video_codec="AV1 MKV 2160p60 4K"
               re-encode-video
               ;;
