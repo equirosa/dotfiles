@@ -30,7 +30,7 @@
       persistent = true;
     };
     settings.auto-optimise-store = true;
-    settings.system-features = [ "recursive-nix" ];
+    settings.system-features = [ "kvm" "nixos-test" "recursive-nix" ];
     extraOptions = ''
       experimental-features = flakes nix-command recursive-nix
       keep-outputs = true
