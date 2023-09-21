@@ -260,7 +260,10 @@
   (org-list-allow-alphabetical t)
   :hook ((org-mode . org-indent-mode)))
 
-(use-package org-bullets :hook org-mode)
+(use-package org-modern
+  :config
+  (add-hook 'org-mode-hook #'org-modern-mode)
+  (add-hook 'org-agenda-finalize-hook #'org-modern-agenda))
 
 (use-package org-roam
   :ensure t
