@@ -2,7 +2,7 @@
 , ...
 }: {
   imports = [
-    ./browsers/
+    ./browsers
     ./editors/emacs
     ./editors/neovim
     ./editors/vscode.nix
