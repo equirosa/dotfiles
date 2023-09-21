@@ -132,8 +132,11 @@ in
     })
     (writeShellApplication {
       name = "optisize";
-      runtimeInputs = with pkgs; [ ffmpeg file mediainfo mozjpeg ];
+      runtimeInputs = with pkgs; [ file handbrake mediainfo mozjpeg ];
       text = ''
+        blue='\033[1;34m INFO: '
+        red='\033[1;31m ERROR: '
+        reset='\033[0m'
         jpeg-optimize() {
           output="$(mktemp)"
           cp "''${file}" "''${output}"
@@ -143,7 +146,7 @@ in
         re-encode-video() {
           ${backupIfDuplicate "mkv"}
           temp_out="$(mktemp --suffix=.mkv)"
-          ffmpeg -i "''${file}" -c:v "''${video_codec}" -crf 28 -preset slow ${scriptAudio} -y "''${temp_out}"
+          HandBrakeCLI --preset "''${preset}" -i "''${file}" -o "''${temp_out}"
           mv "''${temp_out}" "''${base}.mkv"
         }
 
@@ -151,11 +154,13 @@ in
           info="$(mediainfo "''${file}")"
           case "''${info}" in
             *"AVC"*)
-              export video_codec=libx265
+              echo -e "''${blue}AVC detected, converting to H.265..."
+              export preset="H.265 MKV 2160p60 4K"
               re-encode-video
               ;;
             *"VP8"* )
-              export video_codec=libvpx-vp9
+              echo -e "''${blue}VP8 detected, converting to AV1..."
+              export video_codec="AV1 MKV 2160p60 4K"
               re-encode-video
               ;;
             *"HEVC"* | *"AV1"* | *"VP9"* ) echo "File already optimized." ;;
@@ -166,12 +171,10 @@ in
           esac
         }
 
-        red='\033[1;31m ERROR: '
-        reset='\033[0m'
         ${process-inputs}
         mimetype="$(file --mime --brief "''${file}" | cut -d ' ' -f2)"
         case "''${mimetype}" in
-          "image/jpeg"*)
+          image/jpeg)
             jpeg-optimize ;;
           "video/"*)
             video-optimize ;;
