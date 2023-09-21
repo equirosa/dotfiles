@@ -142,7 +142,7 @@ in
           output="$(mktemp)"
           cp "''${file}" "''${output}"
           jpegtran -copy none -optimize -progressive "''${file}" > "''${output}"
-          mv "''${output}" "''${file}"
+          mv "''${output}" "''${base}-optimized.jpg"
         }
 
         re-encode-video() {
