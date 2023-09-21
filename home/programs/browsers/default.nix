@@ -1,3 +1,3 @@
 _: {
-  imports = [ ./firefox.nix ./qutebrowser/ ];
+  imports = [ ./firefox.nix ./qutebrowser ];
 }
