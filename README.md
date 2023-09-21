@@ -32,6 +32,11 @@ The `user.js` (`programs.firefox.settings` in the `firefox.nix` file) has plenty
 
 My Neovim config is originally derived from the starter for [LazyVim](https://www.lazyvim.org/)
 
+### Qutebrowser
+
+- [Phantop's dotfiles](https://github.com/Phantop/dotfiles/tree/main)
+  - Specifically [redirects.py](https://github.com/Phantop/dotfiles/blob/main/qutebrowser/redirects.py)
+
 ### Misc
 
 - [Drew Devault's dotfile repo](https://git.sr.ht/~sircmpwn/dotfiles)
