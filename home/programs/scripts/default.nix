@@ -172,7 +172,7 @@ in
         }
 
         ${process-inputs}
-        mimetype="$(file --mime --brief "''${file}" | cut -d ' ' -f2)"
+        mimetype="$(file --mime-type --brief "''${file}")"
         case "''${mimetype}" in
           image/jpeg)
             jpeg-optimize ;;
