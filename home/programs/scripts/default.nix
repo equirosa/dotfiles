@@ -154,17 +154,12 @@ in
         video-optimize() {
           info="$(mediainfo "''${file}")"
           case "''${info}" in
-            *"AVC"*)
-              echo -e "''${blue}AVC detected, converting to H.265...''${reset}"
-              export preset="H.265 MKV 2160p60 4K"
-              re-encode-video
-              ;;
-            *"VP8"* )
-              echo -e "''${blue}VP8 detected, converting to AV1...''${reset}"
+            *"AVC"* | *"VP8"* | *"VP9"* )
+              echo -e "''${blue}Old codecs detected detected, converting to AV1...''${reset}"
               export video_codec="AV1 MKV 2160p60 4K"
               re-encode-video
               ;;
-            *"HEVC"* | *"AV1"* | *"VP9"* ) echo "File already optimized." ;;
+            *"HEVC"* | *"AV1"* ) echo "File already optimized." ;;
             *)
               echo -e "''${red}I don't know if I can optimize this file...''${reset}"
               exit 1
