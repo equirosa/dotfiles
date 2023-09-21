@@ -14,6 +14,7 @@ let
 in
 {
   users.users.kiri. packages = with pkgs; [
+    lutris
     mangohud
     nix-gaming.packages.${pkgs.system}.rocket-league
   ];
