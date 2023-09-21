@@ -169,7 +169,7 @@ in
         red='\033[1;31m ERROR: '
         reset='\033[0m'
         ${process-inputs}
-        mimetype="$(file --mime --brief "''${file}")"
+        mimetype="$(file --mime --brief "''${file}" | cut -d ' ' -f2)"
         case "''${mimetype}" in
           "image/jpeg"*)
             jpeg-optimize ;;
