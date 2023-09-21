@@ -22,9 +22,6 @@
     };
   };
   home.packages = with pkgs; [
-    # Browsers
-    mullvad-browser
-    tor-browser-bundle-bin
     # Messengers
     aerc
     betterbird
