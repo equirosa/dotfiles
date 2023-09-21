@@ -2,8 +2,7 @@
 , ...
 }: {
   imports = [
-    ./browsers/firefox.nix
-    ./browsers/qutebrowser.nix
+    ./browsers/
     ./editors/emacs
     ./editors/neovim
     ./editors/vscode.nix
