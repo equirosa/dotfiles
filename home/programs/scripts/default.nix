@@ -187,11 +187,6 @@ in
       '';
     })
     (writeShellApplication {
-      name = "password-menu";
-      runtimeInputs = [ pkgs.rofi-rbw-wayland ];
-      text = "rofi-rbw";
-    })
-    (writeShellApplication {
       name = "regen";
       runtimeInputs = [ pkgs.nvd ];
       text = fileContents ./regen.sh;

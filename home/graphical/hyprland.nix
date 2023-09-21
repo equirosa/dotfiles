@@ -124,7 +124,7 @@ in
               "V, togglefloating,"
               "W, exec, firefox -P default"
               "X, exec, swaylock"
-              "Z, exec,password-menu"
+              "Z, exec, ${pkgs.rofi-rbw-wayland}/bin/rofi-rbw"
               "mouse_down, workspace, e+1"
               "mouse_up, workspace, e-1"
             ]
