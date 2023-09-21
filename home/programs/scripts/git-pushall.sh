@@ -1,5 +1,4 @@
 # Push to all git remotes
 for remote in $(git remote); do
-    git push "${remote}"
+	git push "${remote}"
 done
-
