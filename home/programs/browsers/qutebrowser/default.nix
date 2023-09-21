@@ -1,7 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   programs.qutebrowser = {
     enable = true;
+    extraConfig = lib.strings.fileContents ./config.py;
     aliases = { };
     keyBindings = {
       prompt = {
