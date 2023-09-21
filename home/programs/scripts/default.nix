@@ -141,7 +141,8 @@ in
         jpeg-optimize() {
           output="$(mktemp)"
           cp "''${file}" "''${output}"
-          jpegtran -copy none -optimize -progressive "''${output}" > "''${file}"
+          jpegtran -copy none -optimize -progressive "''${file}" > "''${output}"
+          mv "''${output}" "''${file}"
         }
 
         re-encode-video() {
