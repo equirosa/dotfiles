@@ -2,7 +2,6 @@
 {
   programs.qutebrowser = {
     enable = true;
-    package = pkgs.qutebrowser;
     aliases = { };
     keyBindings = {
       prompt = {
