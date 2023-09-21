@@ -157,7 +157,7 @@ in
           case "''${info}" in
             *"AVC"* | *"VP8"* | *"VP9"* )
               echo -e "''${blue}Old codecs detected detected, converting to AV1...''${reset}"
-              export video_codec="AV1 MKV 2160p60 4K"
+              export preset="AV1 MKV 2160p60 4K"
               re-encode-video
               ;;
             *"HEVC"* | *"AV1"* ) echo "File already optimized." ;;
