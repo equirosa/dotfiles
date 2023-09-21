@@ -237,7 +237,7 @@ in
     (writeShellApplication {
       name = "my-pkgs";
       runtimeInputs = [ pkgs.ripgrep ];
-      text = "rg --files-with-matches equirosa | rg '^pkgs'";
+      text = "rg --files-with-matches equirosa pkgs/";
     })
     (writeShellApplication {
       name = "watchlist";
