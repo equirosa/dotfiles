@@ -9,6 +9,7 @@ rec {
   d = "dust";
   dt = "dust ~/.local/share/Trash/";
   fex = "fd --extension";
+  hf = "hyperfine";
   k9 = "kill -9";
   lb = "lsblk";
   lg = "lazygit";
