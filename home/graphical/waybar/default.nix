@@ -11,7 +11,7 @@
         height = 20;
         output = [ "DP-1" "HDMI-A-1" ];
         modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ "hyprland/window" ];
+        modules-center = [ ];
         modules-right = [
           "idle_inhibitor"
           "hyprland/language"
@@ -41,16 +41,6 @@
         "hyprland/language" = {
           format-en = "🇺🇸";
           format-es = "🇨🇷";
-        };
-        "hyprland/window" = {
-          "max-length" = 50;
-          "all-outputs" = true;
-          "offscreen-css" = true;
-          "offscreen-css-text" = "(inactive)";
-          "rewrite" = {
-            "(.*) — Mozilla Firefox" = "  $1";
-            "(.*) — fish" = " [$1]";
-          };
         };
         "hyprland/workspaces" = {
           format = "{name}: {icon}";
