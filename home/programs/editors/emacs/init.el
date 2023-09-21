@@ -72,7 +72,7 @@
   (make-backup-files nil))
 (use-package select
   :ensure nil
-  :config (x-select-enable-clipboart t))
+  :config (x-select-enable-clipboard t))
 (use-package autorevert
   :ensure nil
   :custom
