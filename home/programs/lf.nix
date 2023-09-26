@@ -41,6 +41,7 @@
         T = "push \$touch<space>";
         U = ''umpv "$fx"'';
         e = "\$\${EDITOR} $fx";
+        o = ":open";
         zx = "\$${pkgs.archiver}/arc unarchive \"$fx\"";
         # Zoxide
         zi = ":zoxide_interactive";
