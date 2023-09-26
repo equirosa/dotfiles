@@ -13,6 +13,7 @@
     enable = true;
     useBabelfish = true;
   };
+  programs.gnome-disks.enable = true;
   boot = {
     tmp.useTmpfs = true;
     kernelPackages = pkgs.linuxPackages_latest;
