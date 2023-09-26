@@ -39,8 +39,8 @@
         L = "\$${pkgs.lazygit}/bin/lazygit";
         M = "push \$mkdir<space>-p<space>";
         T = "push \$touch<space>";
-        e = "\$\${EDITOR} $fx";
         U = ''umpv "$fx"'';
+        e = "\$\${EDITOR} $fx";
         zx = "\$${pkgs.archiver}/arc unarchive \"$fx\"";
         # Zoxide
         zi = ":zoxide_interactive";
