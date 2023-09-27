@@ -264,6 +264,7 @@ in
               ;;
             *.org ) setsid emacsclient --create-frame "''${arg}" ;;
             *.png | *.jpg | *.jpeg | *.webp ) setsid imv "''${arg}" ;;
+            http* ) firefox -P default "''${arg}" ;;
             * ) setsid ${pkgs.xdg-utils}/bin/xdg-open "''${arg}" ;;
           esac
         done
