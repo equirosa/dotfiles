@@ -254,21 +254,8 @@ in
     })
     (writeShellApplication {
       name = "xdg-open";
-      runtimeInputs = with pkgs; [ imv lagrange zathura libnotify ];
-      text = ''
-        [ $# -eq 0 ] && notify-send "No arguments provided. Exitting..." && exit 1
-        for arg in "$@"; do
-          case "''${arg}" in
-            magnet* | *.torrent )
-              setsid transmission-remote -a "''${arg}" && notify-send -u low "Torrent Added! ✅"
-              ;;
-            *.org ) setsid emacsclient --create-frame "''${arg}" ;;
-            *.png | *.jpg | *.jpeg | *.webp ) setsid imv "''${arg}" ;;
-            http* ) firefox -P default "''${arg}" ;;
-            * ) setsid ${pkgs.xdg-utils}/bin/xdg-open "''${arg}" ;;
-          esac
-        done
-      '';
+      runtimeInputs = with pkgs; [ imv lagrange zathura libnotify xdg-utils ];
+      text = fileContents ./xdg-open.sh;
     })
   ];
 }
