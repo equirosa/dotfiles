@@ -254,7 +254,7 @@ in
     })
     (writeShellApplication {
       name = "xdg-open";
-      runtimeInputs = with pkgs; [ imv lagrange zathura libnotify xdg-utils ];
+      runtimeInputs = with pkgs; [ file imv lagrange zathura libnotify xdg-utils ];
       text = fileContents ./xdg-open.sh;
     })
   ];

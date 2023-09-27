@@ -4,11 +4,22 @@ add_torrent() {
     setsid transmission-remote -a "$1" && notify-send -u low "Torrent Added! ✅"
 }
 
-case "${arg}" in
+handle_mime() {
+    case $1 in
+        application/pdf ) setsid zathura "$arg" ;;
+        image/* ) setsid imv "$arg" ;;
+        * ) setsid xdg-open "$arg" ;;
+    esac
+}
+
+case "$arg" in
     magnet* | *.torrent ) add_torrent "$arg" ;;
-    *.org ) setsid emacsclient --create-frame "${arg}" ;;
-    *.png | *.jpg | *.jpeg | *.webp ) setsid imv "${arg}" ;;
-    *.pdf ) zathura "$arg" ;;
-    http* ) firefox -P default "${arg}" ;;
-    * ) setsid xdg-open "${arg}" ;;
+    *.org ) setsid emacsclient --create-frame "$arg" ;;
+    http* ) firefox -P default "$arg" ;;
+    * )
+        mimetype=$(file --mime-type --brief "$arg")
+        handle_mime "$mimetype"
+        ;;
 esac
+
+exit 0
