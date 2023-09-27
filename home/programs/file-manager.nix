@@ -64,5 +64,10 @@
       '';
     };
   };
-  programs.yazi = { enable = true; };
+  programs.yazi = {
+    enable = true;
+    enableFishIntegration = true;
+    enableNushellIntegration = true;
+    theme = { };
+  };
 }

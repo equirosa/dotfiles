@@ -7,7 +7,7 @@
     ./editors/neovim
     ./editors/vscode.nix
     ./git.nix
-    ./lf.nix
+    ./file-manager.nix
     ./mpv.nix
     ./rofi.nix
     ./scripts
