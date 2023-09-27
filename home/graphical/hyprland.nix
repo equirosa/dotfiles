@@ -117,7 +117,7 @@ in
               "I, exec, ${defaultTerm} -e ${btop}/bin/btop"
               "M, fullscreen, 1"
               "P, exec, emoji"
-              "R, exec, ${defaultTerm} -e lf"
+              "R, exec, ${defaultTerm} -e yazi"
               "RETURN, exec, ${defaultTerm}"
               "S, exec, search"
               "T, exec, ${defaultTerm} -e tremc"
