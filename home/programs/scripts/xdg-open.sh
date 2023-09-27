@@ -6,6 +6,7 @@ for arg in "$@"; do
       ;;
     *.org ) setsid emacsclient --create-frame "${arg}" ;;
     *.png | *.jpg | *.jpeg | *.webp ) setsid imv "${arg}" ;;
+    *.pdf ) zathura "$arg" ;;
     http* ) firefox -P default "${arg}" ;;
     * ) setsid xdg-open "${arg}" ;;
   esac
