@@ -40,7 +40,7 @@
         M = "push \$mkdir<space>-p<space>";
         T = "push \$touch<space>";
         U = ''umpv "$fx"'';
-        e = "\$\${EDITOR} $fx";
+        e = "\$\${EDITOR} \"$fx\"";
         o = ":open";
         zx = "\$${pkgs.archiver}/arc unarchive \"$fx\"";
         # Zoxide
