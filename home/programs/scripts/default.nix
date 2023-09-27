@@ -213,8 +213,8 @@ in
       text = ''
         search_options="farside.link/whoogle/search?q=\nyoutube.com/results?search_query=\ngithub.com/search?q=\nnixos.wiki/index.php?search=\nprotondb.com/search?q=\nsearch.nixos.org/packages?query="
         search_site="$(echo -e "''${search_options}" | ${menu-program} --prompt-text "Search website")"
-        input="https://$(${menu-program} --prompt-text "Search term")"
-        xdg-open "''${search_site}''${input}"
+        input="$(${menu-program} --prompt-text "Search term")"
+        xdg-open "https://''${search_site}''${input}"
       '';
     })
     (writeShellApplication {
