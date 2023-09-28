@@ -11,7 +11,9 @@
         height = 20;
         output = [ "DP-1" "HDMI-A-1" ];
         modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ ];
+        modules-center = [
+          "clock"
+        ];
         modules-right = [
           "idle_inhibitor"
           "hyprland/language"
@@ -20,7 +22,6 @@
           "memory"
           "cpu"
           "tray"
-          "clock"
         ];
         clock.format = "{:%A %Y-%m-%d | %H:%M}";
         cpu.format = "{load} - {usage}%  ";
