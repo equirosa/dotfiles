@@ -7,6 +7,7 @@ add_torrent() {
 handle_mime() {
     case $1 in
         application/pdf ) setsid zathura "$arg" ;;
+        image/jxl ) firefox -P default "$arg" ;;
         image/* ) setsid imv "$arg" ;;
         video/* ) setsid mpv "$arg" ;;
         * ) setsid xdg-open "$arg" ;;
