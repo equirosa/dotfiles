@@ -8,6 +8,7 @@
     home-manager.url = "github:nix-community/home-manager";
     hypr-contrib.inputs.nixpkgs.follows = "nixpkgs";
     hypr-contrib.url = "github:hyprwm/contrib";
+    nix-colors.url = "github:misterio77/nix-colors";
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,6 +31,7 @@
     , flake-utils
     , home-manager
     , hypr-contrib
+    , nix-colors
     , nix-darwin
     , nix-gaming
     , nix-index-database
@@ -92,7 +94,7 @@
             home-manager.nixosModules.home-manager
             {
               home-manager = {
-                extraSpecialArgs = { inherit colors hypr-contrib wrapper-manager overlays; };
+                extraSpecialArgs = { inherit colors hypr-contrib nix-colors wrapper-manager overlays; };
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users.kiri = { osConfig, ... }: {
@@ -100,7 +102,9 @@
                     ./home
                     nix-index-database.hmModules.nix-index
                     nixvim.homeManagerModules.nixvim
+                    nix-colors.homeManagerModules.default
                   ];
+                  colorScheme = nix-colors.colorSchemes.catppuccin-mocha;
                   home.stateVersion = osConfig.system.stateVersion;
                 };
               };

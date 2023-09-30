@@ -1,8 +1,12 @@
-{ colors, ... }: {
-  services.mako = with colors.selected; {
+{ config, ... }:
+let
+  inherit (config.colorScheme) colors;
+in
+{
+  services.mako = with colors; {
     enable = true;
-    backgroundColor = "#${background}";
-    borderColor = "#${bright.yellow}";
+    backgroundColor = "#${base00}";
+    borderColor = "#${base0A}";
     borderRadius = 15;
     borderSize = 2;
     defaultTimeout = 5000;
@@ -11,19 +15,16 @@
     layer = "top"; # Consider overlay
     markup = true;
     sort = "-time";
-    extraConfig = with regular; ''
+    extraConfig = ''
       [urgency=low]
-      border-color=#${green}
-
-      [urgency=normal]
-      border-color=#${yellow}
+      border-color=#${base0B}
 
       [urgency=high]
-      border-color=#${red}
+      border-color=#${base08}
       default-timeout=0
 
       [category=mpd]
-      border-color=#${blue}
+      border-color=#${base0D}
       default-timeout=2000
       group-by=category
     '';
