@@ -4,6 +4,7 @@
     extraPackages = with pkgs; [
       gcc
       gnumake
+      nodejs_20
       # LSPs
       nil
     ];
