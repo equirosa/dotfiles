@@ -93,6 +93,11 @@ in
         -o "%(title)s-[%(id)s].%(ext)s" "$1" >>/dev/null &
       '';
     })
+    (writeShellApplication rec {
+      name = "elm-size-comparison";
+      runtimeInputs = with pkgs; [ elmPackages.elm nodePackages.uglify-js ];
+      text = fileContents ./${name}.sh;
+    })
     (writeShellApplication {
       name = "emoji";
       runtimeInputs = [ pkgs.rofimoji ];
