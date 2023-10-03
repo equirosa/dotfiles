@@ -1,5 +1,5 @@
-js="$(mktemp -t elm.js.XXXXXX)"
-min="$(mktemp -t elm.min.js.XXXXXX)"
+js="$(mktemp --suffix=.js)"
+min="$(mktemp --suffix=.min.js)"
 
 elm make --optimize --output="$js" "$@"
 
