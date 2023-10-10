@@ -17,7 +17,6 @@ let
       file="''${file}.bak"
     fi
   '';
-  scriptAudio = "-c:a libopus -b:a 128k";
   process-inputs = ''
     [ $# -eq 0 ] && notify-send "No arguments provided. Exitting..." && exit 1
     file="$(realpath "''${1}")"
