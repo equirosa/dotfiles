@@ -2,6 +2,9 @@ _: {
   programs = {
     git = {
       enable = true;
+      aliases = {
+        diff-words = "diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'";
+      };
       attributes = [ "*.pdf diff=pdf" "*.md diff=md" ];
       extraConfig = {
         diff = {
