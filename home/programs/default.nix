@@ -25,6 +25,7 @@
     # Messengers
     aerc
     betterbird
+    thunderbird
     # Social
     toot
     # Development
