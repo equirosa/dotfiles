@@ -24,8 +24,16 @@ in
         id = 0;
         inherit settings;
         search = {
-          default = defaultSearch;
+          default = "Brave Search";
           force = true;
+          engines = {
+            "Brave Search" = {
+              urls = [{
+                template = "https://search.brave.com/search";
+                params = [{ name = "q"; value = "{searchTerms}"; }];
+              }];
+            };
+          };
         };
         extensions = with firefox-addons; [
           bitwarden
