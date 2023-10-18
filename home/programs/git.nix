@@ -24,7 +24,6 @@ _: {
       difftastic = {
         enable = true;
         background = "dark";
-        display = "inline";
       };
       ignores = [ "*~" "*.swp" ".direnv" ".DS_Store" ];
       signing = {
