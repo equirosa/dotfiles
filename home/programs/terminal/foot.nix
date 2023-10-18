@@ -1,29 +1,32 @@
-{ colors, ... }: {
+{ config, ... }:
+let
+  inherit (config.colorScheme) colors;
+in
+{
   programs.foot = {
     enable = true;
     server.enable = false;
     settings = {
-      colors = with colors;
-        with selected; {
-          alpha = "${opacity}";
-          background = "${regular.black}";
-          regular0 = "${regular.black}";
-          regular1 = "${regular.red}";
-          regular2 = "${regular.green}";
-          regular3 = "${regular.yellow}";
-          regular4 = "${regular.blue}";
-          regular5 = "${regular.magenta}";
-          regular6 = "${regular.cyan}";
-          regular7 = "${regular.white}";
-          bright0 = "${bright.black}";
-          bright1 = "${bright.red}";
-          bright2 = "${bright.green}";
-          bright3 = "${bright.yellow}";
-          bright4 = "${bright.blue}";
-          bright5 = "${bright.magenta}";
-          bright6 = "${bright.cyan}";
-          bright7 = "${bright.white}";
-        };
+      colors = with colors; {
+        alpha = 0.8;
+        background = base00;
+        regular0 = base01;
+        regular1 = base08;
+        regular2 = base0B;
+        regular3 = base0A;
+        regular4 = base0D;
+        regular5 = base07;
+        regular6 = base0C;
+        regular7 = base05;
+        bright0 = base01;
+        bright1 = base08;
+        bright2 = base0B;
+        bright3 = base0A;
+        bright4 = base0D;
+        bright5 = base07;
+        bright6 = base0C;
+        bright7 = base05;
+      };
       key-bindings = {
         scrollback-up-line = "Control+Shift+k";
         scrollback-down-line = "Control+Shift+j";
