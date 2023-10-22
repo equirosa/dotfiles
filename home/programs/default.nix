@@ -9,7 +9,6 @@
     ./git.nix
     ./file-manager.nix
     ./mpv.nix
-    ./rofi.nix
     ./scripts
     ./terminal
     ./zellij.nix
