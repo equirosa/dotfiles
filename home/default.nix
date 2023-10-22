@@ -6,10 +6,4 @@
     nix-index-database.comma.enable = true;
     nix-index.enable = true;
   };
-  xdg = {
-    mimeApps = {
-      enable = true;
-    };
-    userDirs.enable = true;
-  };
 }

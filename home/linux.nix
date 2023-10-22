@@ -1,1 +1,9 @@
-_: { imports = [ ./graphical ]}
+_: {
+  imports = [ ./graphical ]
+    xdg = {
+  mimeApps = {
+  enable = true;
+};
+userDirs.enable = true;
+};
+}
