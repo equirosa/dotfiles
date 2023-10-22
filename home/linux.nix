@@ -1,5 +1,5 @@
 _: {
-  imports = [ ./graphical ]
+  imports = [ ./graphical ];
     xdg = {
   mimeApps = {
   enable = true;
