@@ -28,7 +28,7 @@ _: {
       ignores = [ "*~" "*.swp" ".direnv" ".DS_Store" ];
       signing = {
         key = "03678E9642EB6D9E99974ACFB77F36C3F12720B4";
-        signByDefault = true;
+        # signByDefault = true;
       };
       userEmail = "eduardo@eduardoquiros.com";
       userName = "Eduardo Quiros";
