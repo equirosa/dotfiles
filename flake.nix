@@ -113,26 +113,30 @@
           specialArgs = { inherit colors nix-gaming nixpkgs; };
         };
       };
-      darwinConfigurations.Macbooks-MacBook-Air = nix-darwin.lib.darwinSystem {
+      darwinConfigurations.MacBook-Air-de-Eduardo = nix-darwin.lib.darwinSystem {
         system = "x86_64-darwin";
-        modules = [ ./hosts/Macbooks-MacBook-Air/configuration.nix
-        home-manager.darwinModules.home-manager {
-                        home-manager = {
-                extraSpecialArgs = { inherit colors inputs wrapper-manager overlays; };
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.kiri = { osConfig, ... }: {
-                  imports = [
-                    ./home/programs/editors/neovim
-                    nix-index-database.hmModules.nix-index
-                    nixvim.homeManagerModules.nixvim
-                  ];
-                  home.stateVersion = osConfig.system.stateVersion;
+        modules = [
+          ./hosts/Macbooks-MacBook-Air/configuration.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager = {
+              extraSpecialArgs = { inherit colors hypr-contrib nix-colors wrapper-manager overlays; };
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.kiri = { osConfig, lib, ... }: {
+                imports = [
+                  ./home/programs/editors/neovim
+                  ./home/programs/terminal
+                ];
+                home.stateVersion = "23.11";
+                home = {
+                  username = "kiri";
+                  homeDirectory = lib.mkForce "/Users/kiri";
                 };
               };
-
-        }
-         ];
+            };
+          }
+        ];
       };
     };
 }
