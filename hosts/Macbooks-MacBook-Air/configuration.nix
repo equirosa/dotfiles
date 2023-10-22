@@ -15,7 +15,7 @@
       sandbox = true;
     };
   };
-  users.users.kiri.packages = with pkgs; [ direnv nixpkgs-fmt shfmt git lazygit ];
+  users.users.kiri.packages = with pkgs; [ direnv git lazygit ];
   programs.zsh.enable = true;
   services.nix-daemon.enable = true;
 }
