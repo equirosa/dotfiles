@@ -73,61 +73,60 @@
         formatter = nixpkgs.legacyPackages.${system}.treefmt;
       })
     // {
-      nixosConfigurations = {
-        snowfort = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            {
-              programs.hyprland.enable = true;
-              security.pam.services.swaylock = { };
-              nixpkgs.overlays = overlays;
-              nix.settings = {
-                substituters = [
-                  "https://nix-gaming.cachix.org"
-                  "https://nix-community.cachix.org"
-                  "https://hyprland.cachix.org"
-                  "https://cache.nixos.org/"
+      nixosConfigurations.snowfort = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          {
+            programs.hyprland.enable = true;
+            security.pam.services.swaylock = { };
+            nixpkgs.overlays = overlays;
+            nix.settings = {
+              substituters = [
+                "https://nix-gaming.cachix.org"
+                "https://nix-community.cachix.org"
+                "https://hyprland.cachix.org"
+                "https://cache.nixos.org/"
+              ];
+              trusted-public-keys = [
+                "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+                "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+                "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+              ];
+            };
+          }
+          ./hosts/snowfort/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = common-hm-config // {
+              extraSpecialArgs = { inherit colors hypr-contrib nix-colors wrapper-manager overlays; };
+              users.kiri = { osConfig, ... }: {
+                imports = [
+                  ./home
+                  nix-index-database.hmModules.nix-index
+                  nixvim.homeManagerModules.nixvim
+                  nix-colors.homeManagerModules.default
                 ];
-                trusted-public-keys = [
-                  "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-                  "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-                  "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-                ];
+                colorScheme = nix-colors.colorSchemes.catppuccin-mocha;
+                home.stateVersion = osConfig.system.stateVersion;
               };
-            }
-            ./hosts/snowfort/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = common-hm-config // {
-                extraSpecialArgs = { inherit colors hypr-contrib nix-colors wrapper-manager overlays; };
-                users.kiri = { osConfig, ... }: {
-                  imports = [
-                    ./home
-                    nix-index-database.hmModules.nix-index
-                    nixvim.homeManagerModules.nixvim
-                    nix-colors.homeManagerModules.default
-                  ];
-                  colorScheme = nix-colors.colorSchemes.catppuccin-mocha;
-                  home.stateVersion = osConfig.system.stateVersion;
-                };
-              };
-            }
-          ];
-          specialArgs = { inherit colors nix-gaming nixpkgs; };
-        };
+            };
+          }
+        ];
+        specialArgs = { inherit colors nix-gaming nixpkgs; };
       };
       darwinConfigurations.MacBook-Air-de-Eduardo = nix-darwin.lib.darwinSystem {
         system = "x86_64-darwin";
         modules = [
           ./hosts/Macbooks-MacBook-Air/configuration.nix
+          nixpkgs.overlays = overlays;
           home-manager.darwinModules.home-manager
           {
             home-manager = common-hm-config // {
               extraSpecialArgs = { inherit colors hypr-contrib nix-colors wrapper-manager overlays; };
               users.kiri = { osConfig, lib, ... }: {
                 imports = [
-                  ./home/programs/editors/neovim
-                  ./home/programs/terminal
+                  nix-index-database.hmModules.nix-index
+                  ./home
                 ];
                 home.stateVersion = "23.11";
                 home = {
