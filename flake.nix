@@ -47,6 +47,10 @@
         emacs-overlay.overlay
         nur.overlay
       ];
+      common-hm-config = {
+        useGlobalPkgs = true;
+        useUserPackages = true;
+      };
     in
     flake-utils.lib.eachDefaultSystem
       (system:
@@ -93,10 +97,8 @@
             ./hosts/snowfort/configuration.nix
             home-manager.nixosModules.home-manager
             {
-              home-manager = {
+              home-manager = common-hm-config // {
                 extraSpecialArgs = { inherit colors hypr-contrib nix-colors wrapper-manager overlays; };
-                useGlobalPkgs = true;
-                useUserPackages = true;
                 users.kiri = { osConfig, ... }: {
                   imports = [
                     ./home
@@ -119,10 +121,8 @@
           ./hosts/Macbooks-MacBook-Air/configuration.nix
           home-manager.darwinModules.home-manager
           {
-            home-manager = {
+            home-manager = common-hm-config // {
               extraSpecialArgs = { inherit colors hypr-contrib nix-colors wrapper-manager overlays; };
-              useGlobalPkgs = true;
-              useUserPackages = true;
               users.kiri = { osConfig, lib, ... }: {
                 imports = [
                   ./home/programs/editors/neovim
