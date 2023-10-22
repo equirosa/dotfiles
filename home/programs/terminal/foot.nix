@@ -1,10 +1,10 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 let
   inherit (config.colorScheme) colors;
 in
 {
   programs.foot = {
-    enable = true;
+    enable = pkgs.stdenv.isLinux;
     server.enable = false;
     settings = {
       colors = with colors; {
