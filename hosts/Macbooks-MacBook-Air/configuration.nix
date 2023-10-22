@@ -15,7 +15,7 @@
       sandbox = true;
     };
   };
-  nixpkgs.hostPlatform = "x86_64-darwin";
   users.users.kiri.packages = with pkgs; [ direnv nixpkgs-fmt shfmt git lazygit ];
+  programs.zsh.enable = true;
   services.nix-daemon.enable = true;
 }
