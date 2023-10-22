@@ -15,7 +15,7 @@
       sandbox = true;
     };
   };
-  users.users.eduardo.packages = with pkgs; [ direnv wormhole-rs ];
   nixpkgs.hostPlatform = "x86_64-darwin";
+  users.users.kiri.packages = with pkgs; [ direnv nixpkgs-fmt shfmt git lazygit ];
   services.nix-daemon.enable = true;
 }
