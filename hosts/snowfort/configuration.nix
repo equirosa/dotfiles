@@ -1,6 +1,6 @@
 _: {
   imports = [
-    # Include the results of the hardware scan.
+    ../global.nix
     ../../nixos/global.nix
     ../../nixos/flatpak.nix
     ../../nixos/bluetooth.nix
