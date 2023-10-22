@@ -48,6 +48,7 @@
         nur.overlay
       ];
       common-hm-config = {
+        backupFileExtension = "hmBackup";
         useGlobalPkgs = true;
         useUserPackages = true;
       };
