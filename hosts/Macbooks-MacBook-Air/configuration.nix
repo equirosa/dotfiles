@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports [../global.nix];
+  imports = [ ../global.nix ];
   homebrew = {
     enable = true;
     onActivation.cleanup = "uninstall";
