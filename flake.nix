@@ -128,10 +128,10 @@
                   nix-index-database.hmModules.nix-index
                   ./home
                 ];
-                home.stateVersion = "23.11";
                 home = {
                   username = "kiri";
                   homeDirectory = lib.mkForce "/Users/kiri";
+                  stateVersion = "23.11";
                 };
               };
             };
