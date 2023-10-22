@@ -13,5 +13,6 @@ _: {
         allow-loopback-pinentry
       '';
     };
+    udiskie.enable = true;
   };
 }

@@ -1,5 +1,5 @@
 { lib, pkgs, ... }: {
-  imports = [ ./theme.nix ./shell ./programs ];
+  imports = [ ./shell ./programs ];
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [ "vscode" ];
   programs = {

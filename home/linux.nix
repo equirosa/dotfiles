@@ -1,5 +1,8 @@
 _: {
-  imports = [ ./graphical ];
+  imports = [
+    ./graphical
+    ./theme.nix
+  ];
   xdg = {
     mimeApps = {
       enable = true;

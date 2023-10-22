@@ -97,7 +97,7 @@ in
         defaultCommand = "${fileCommand}";
         defaultOptions = [ "--height 100%" "--border" ];
         fileWidgetCommand = "${fileCommand}";
-        fileWidgetOptions = [ "--preview '${pkgs.ctpv}/bin/ctpv {}'" ];
+        fileWidgetOptions = lib.lists.optionals pkgs.stdenv.isLinux [ "--preview '${pkgs.ctpv}/bin/ctpv {}'" ];
       };
     navi = { enable = true; };
     starship = {
@@ -130,6 +130,5 @@ in
   };
   services = {
     syncthing.enable = true;
-    udiskie.enable = true;
   };
 }
