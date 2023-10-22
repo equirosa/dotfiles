@@ -118,7 +118,7 @@
         system = "x86_64-darwin";
         modules = [
           ./hosts/Macbooks-MacBook-Air/configuration.nix
-          nixpkgs.overlays = overlays;
+          { nixpkgs.overlays = overlays; }
           home-manager.darwinModules.home-manager
           {
             home-manager = common-hm-config // {
