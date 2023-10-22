@@ -1,5 +1,9 @@
 { pkgs, ... }: {
-  homebrew = { enable = true; };
+  homebrew = {
+    enable = true;
+    onActivation.cleanup = "uninstall";
+    casks = [ "beeper" "bitwarden" "librewolf" ];
+  };
   nix = {
     extraOptions = ''
       experimental-features = flakes nix-command recursive-nix
