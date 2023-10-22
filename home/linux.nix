@@ -2,6 +2,8 @@ _: {
   imports = [
     ./graphical
     ./theme.nix
+    ./shell/linux.nix
+    ./programs/linux.nix
   ];
   xdg = {
     mimeApps = {
