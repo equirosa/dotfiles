@@ -7,6 +7,8 @@
       nodejs_20
       # LSPs
       nil
+      # search
+      ripgrep
     ];
     viAlias = true;
     vimAlias = true;
