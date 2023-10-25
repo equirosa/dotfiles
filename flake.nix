@@ -101,7 +101,7 @@
               extraSpecialArgs = { inherit colors hypr-contrib nix-colors wrapper-manager overlays; };
               users.kiri = { osConfig, ... }: {
                 imports = [
-                  ./home
+                  ./home/linux.nix
                   nix-index-database.hmModules.nix-index
                   nixvim.homeManagerModules.nixvim
                   nix-colors.homeManagerModules.default
