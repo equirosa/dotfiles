@@ -1,12 +1,11 @@
-{ pkgs
-, ...
-}: {
+_: {
   imports = [
     ./editors/neovim
     ./editors/vscode.nix
-    ./git.nix
     ./file-manager.nix
+    ./git.nix
     ./mpv.nix
+    ./scripts
     ./terminal
     ./zellij.nix
   ];
