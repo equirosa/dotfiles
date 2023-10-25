@@ -5,6 +5,7 @@
 }:
 let
   inherit (lib) genAttrs;
+  inherit (pkgs.stdenv) isLinux;
 in
 {
   imports = [ ./fish.nix ./nushell.nix ];
@@ -29,7 +30,7 @@ in
           load_dotenv = true;
           strict_env = true;
         };
-        whitelist.prefix = [ "/home/kiri/projects" ];
+        whitelist.prefix = [ "/${if isLinux then "home" else "Users"}/kiri/projects" ];
       };
     };
     gpg = {
