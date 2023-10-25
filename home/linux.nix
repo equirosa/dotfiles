@@ -1,5 +1,6 @@
 _: {
   imports = [
+    ./default.nix
     ./graphical
     ./theme.nix
     ./shell/linux.nix
