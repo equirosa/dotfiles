@@ -4,7 +4,7 @@
     ./browsers
     ./editors/emacs
     ./rofi.nix
-    ./scripts
+    ./scripts/linux.nix
   ];
   programs.rbw = {
     enable = true;
