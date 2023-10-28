@@ -3,7 +3,7 @@ platform="$(uname -s)"
 regen_nixos() {
 	case "$platform" in
 	"Linux")
-		sudo nixos-rebuild switch --flake "${flake_path}#$(hostname)"
+		sudo nixos-rebuild switch --flake "${flake_path}"
 		;;
 	"Darwin")
 		darwin-rebuild switch --flake "${flake_path}"
@@ -20,7 +20,7 @@ test_run() {
 	cd "$(mktemp -d)"
 	case "$platform" in
 	"Linux")
-		nixos-rebuild build --flake "${flake_path}#$(hostname)"
+		nixos-rebuild build --flake "${flake_path}"
 		;;
 	"Darwin")
 		darwin-rebuild build --flake "${flake_path}"
