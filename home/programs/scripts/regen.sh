@@ -4,6 +4,7 @@ regen_nixos() {
 	case "$platform" in
 	"Linux")
 		sudo nixos-rebuild switch --flake "${flake_path}"
+		notify-send "System Rebuilt!"
 		;;
 	"Darwin")
 		darwin-rebuild switch --flake "${flake_path}"
@@ -13,7 +14,6 @@ regen_nixos() {
 		exit 1
 		;;
 	esac
-	notify-send "System Rebuilt!"
 }
 
 test_run() {
