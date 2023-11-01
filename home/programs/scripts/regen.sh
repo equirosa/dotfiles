@@ -1,5 +1,7 @@
 flake_path="${HOME}/projects/dotfiles"
 platform="$(uname -s)"
+rebuild_command=""
+notify_command=""
 regen_nixos() {
 	case "$platform" in
 	"Linux")
