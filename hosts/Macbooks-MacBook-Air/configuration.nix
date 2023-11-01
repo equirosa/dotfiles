@@ -3,7 +3,7 @@
   homebrew = {
     enable = true;
     onActivation.cleanup = "uninstall";
-    casks = [ "beeper" "bitwarden" "librewolf" "mullvad-browser" ];
+    casks = [ "beeper" "bitwarden" "librewolf" "mullvad-browser" "thunderbird" ];
   };
   users.users.kiri.packages = with pkgs; [ direnv git lazygit ];
   programs.zsh.enable = true;
