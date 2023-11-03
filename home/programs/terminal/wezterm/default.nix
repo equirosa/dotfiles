@@ -1,10 +1,10 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 let
   inherit (lib) fileContents;
 in
 {
   programs.wezterm = {
-    enable = true;
+    enable = pkgs.stdenv.isLinux;
     extraConfig = fileContents ./wezterm.lua;
   };
 }
