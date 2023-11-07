@@ -5,12 +5,6 @@
 }:
 let
   inherit (builtins) elem;
-  args = [
-    "-h 720"
-    "-H 1080"
-    "-F fsr"
-    "-r 144"
-  ];
 in
 {
   users.users.kiri.packages = with pkgs; [
@@ -20,15 +14,16 @@ in
   ];
   programs = {
     gamemode.enable = true;
-    gamescope = {
-      enable = true;
-      inherit args;
-    };
     steam = {
       enable = true;
       gamescopeSession = {
         enable = true;
-        inherit args;
+        args = [
+          "-h 720"
+          "-H 1080"
+          "-F fsr"
+          "-r 144"
+        ];
       };
     };
   };
@@ -40,16 +35,12 @@ in
     };
     steam-hardware.enable = true;
   };
-  nixpkgs = {
-    config = {
-      allowUnfreePredicate = pkg:
-        elem (lib.getName pkg) [
-          "steam-original"
-          "steam-run"
-          "steam-runtime"
-          "steam"
-        ];
-    };
-  };
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    elem (lib.getName pkg) [
+      "steam-original"
+      "steam-run"
+      "steam-runtime"
+      "steam"
+    ];
   security.rtkit.enable = true;
 }
