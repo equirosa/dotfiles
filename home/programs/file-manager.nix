@@ -3,6 +3,7 @@
 }:
 let
   exiftool = "${pkgs.exiftool}/bin/exiftool";
+  global-keys = [{ on = [ "~" ]; exec = "help"; desc = "Open help"; }];
 in
 {
   programs.yazi = {
@@ -152,10 +153,7 @@ in
         { on = [ "g" "d" ]; exec = "cd ~/Downloads"; desc = "Go to the downloads directory"; }
         { on = [ "g" "t" ]; exec = "cd /tmp"; desc = "Go to the temporary directory"; }
         { on = [ "g" "<Space>" ]; exec = "cd --interactive"; desc = "Go to a directory interactively"; }
-
-        # Help
-        { on = [ "~" ]; exec = "help"; desc = "Open help"; }
-      ];
+      ] ++ global-keys;
 
       tasks.keymap = [
         { on = [ "<Esc>" ]; exec = "close"; desc = "Hide the task manager"; }
@@ -167,8 +165,7 @@ in
         { on = [ "<Down>" ]; exec = "arrow 1"; desc = "Move cursor down"; }
         { on = [ "<Enter>" ]; exec = "inspect"; desc = "Inspect the task"; }
         { on = [ "x" ]; exec = "cancel"; desc = "Cancel the task"; }
-        { on = [ "~" ]; exec = "help"; desc = "Open help"; }
-      ];
+      ] ++ global-keys;
 
       select.keymap = [
         { on = [ "<C-q>" ]; exec = "close"; desc = "Cancel selection"; }
@@ -180,8 +177,7 @@ in
         { on = [ "J" ]; exec = "arrow 5"; desc = "Move cursor down 5 lines"; }
         { on = [ "<Up>" ]; exec = "arrow -1"; desc = "Move cursor up"; }
         { on = [ "<Down>" ]; exec = "arrow 1"; desc = "Move cursor down"; }
-        { on = [ "~" ]; exec = "help"; desc = "Open help"; }
-      ];
+      ] ++ global-keys;
 
       input.keymap = [
         { on = [ "<C-q>" ]; exec = "close"; desc = "Cancel input"; }
@@ -225,10 +221,7 @@ in
         # Undo/Redo
         { on = [ "u" ]; exec = "undo"; desc = "Undo the last operation"; }
         { on = [ "<C-r>" ]; exec = "redo"; desc = "Redo the last operation"; }
-
-        # Help
-        { on = [ "~" ]; exec = "help"; desc = "Open help"; }
-      ];
+      ] ++ global-keys;
 
       help.keymap = [
         { on = [ "<Esc>" ]; exec = "escape"; desc = "Clear the filter, or hide the help"; }
