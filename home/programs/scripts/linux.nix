@@ -72,7 +72,7 @@ in
     (writeShellApplication {
       name = "beeper";
       runtimeInputs = [ pkgs.appimage-run ];
-      text = "appimage-run ${download}/beeper-3.79.17-build-231004eglj00sp6.AppImage";
+      text = "appimage-run ${download}/beeper-3.85.16-build-231108audbqnh2c.AppImage";
     })
     (writeShellApplication {
       name = "calendarios-gaby";
