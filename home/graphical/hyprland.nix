@@ -19,7 +19,7 @@ let
   allWorkspaces = leftWorkspaces ++ rightWorkspaces;
   useRightNum = num: toString (if num == 10 then 0 else num);
   defaultBrowser = "firefox -P default";
-  defaultTerm = "wezterm";
+  defaultTerm = "kitty";
 in
 {
   wayland.windowManager.hyprland = {
