@@ -247,7 +247,7 @@ in
       opener =
         let
           defaultOpener =
-            { exec = ''xdg-open "$@"''; display_name = "Open"; };
+            { exec = ''xdg-open "$@"''; desc = "Open"; };
         in
         {
           fallback = [ defaultOpener ];
@@ -256,7 +256,7 @@ in
             {
               exec = ''${exiftool} "$1"; echo "Press enter to exit"; read'';
               block = true;
-              display_name = "Show EXIF";
+              desc = "Show EXIF";
             }
           ];
         };
