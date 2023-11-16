@@ -23,6 +23,7 @@ rec {
   v = "$EDITOR";
   wl = "watchlist";
   x = "xdg-open";
+  nppr = "gh pr create --web --repo NixOS/nixpkgs --base master";
   # Flatpak
   fi = "flatpak install";
   fl = "flatpak list";
