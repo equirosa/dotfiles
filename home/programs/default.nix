@@ -1,4 +1,4 @@
-_: {
+{ pkgs, ... }: {
   imports = [
     ./editors/neovim
     ./editors/vscode.nix
@@ -8,5 +8,8 @@ _: {
     ./scripts
     ./terminal
     ./zellij.nix
+  ];
+  home.packages = with pkgs; [
+    nix-prefetch-github
   ];
 }
