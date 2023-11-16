@@ -26,6 +26,7 @@
     # Development
     mprocs
     # Documents
+    libreoffice
     texlive.combined.scheme-full
     # File Sharing
     transmission
