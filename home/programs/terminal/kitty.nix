@@ -8,7 +8,6 @@
     keybindings = { };
     settings = {
       background_opacity = "${colors.opacity}";
-      tab_bar_min_tabs = 2;
       tab_bar_edge = "bottom";
       tab_bar_style = "powerline";
       tab_powerline_style = "slanted";
