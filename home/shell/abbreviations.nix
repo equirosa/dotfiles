@@ -57,7 +57,7 @@ rec {
   pump = "git pull upstream master && git push";
   pur = "git pull upstream master --rebase";
   # Kitty
-  icat = "kitty +kitten icat";
+  icat = "kitten icat";
   # Nix
   dn = "deadnix";
   dne = "${dn} -e";
