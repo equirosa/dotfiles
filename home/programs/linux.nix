@@ -54,7 +54,7 @@
     qpwgraph
     ripgrep
     swww
-    trash-cli
+    trashy
     wl-clipboard
     # Compression
     archiver

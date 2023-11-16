@@ -88,9 +88,9 @@ rec {
   ro = "regen os";
   rt = "regen test";
   # trash-cli
-  rm = "trash-put";
-  te = "trash-empty";
-  tr = "trash-restore";
+  tp = "trash put";
+  te = "trash empty";
+  tr = "trash restore";
   # Quickemu
   qe = "quickemu";
   qg = "quickget";
