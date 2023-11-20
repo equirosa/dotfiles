@@ -5,7 +5,9 @@
       name = "monospace";
       size = 14;
     };
-    keybindings = { };
+    keybindings = {
+      "ctrl+shift+t" = "new_tab_with_cwd";
+    };
     settings = {
       background_opacity = "${colors.opacity}";
       tab_bar_style = "powerline";
