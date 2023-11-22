@@ -1,6 +1,11 @@
 return {
 	{
 		"dundalek/lazy-lsp.nvim",
-		opts = {},
+		opts = {
+			excluded_servers = {
+				-- deprecated servers
+				"sqls",
+			},
+		},
 	},
 }
