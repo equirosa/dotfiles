@@ -10,11 +10,17 @@ local rep = extras.rep
 local fmt = require("luasnip.extras.fmt").fmt
 
 ls.add_snippets("rust", {
-  s("letsig", fmt(
-    [[
+	s(
+		"letsig",
+		fmt(
+			[[
     let ({}, set_{}) = create_signal({});
-    ]], {
-      i(1), rep(1), i(0)
-    }
-  ))
+    ]],
+			{
+				i(1),
+				rep(1),
+				i(0),
+			}
+		)
+	),
 })
