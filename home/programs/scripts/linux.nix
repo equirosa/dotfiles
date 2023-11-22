@@ -112,7 +112,7 @@ in
       name = "feed-subscribe";
       text = ''
         if [ $# -eq 0 ]; then
-          url="$(${menu-program} --prompt-text Url)"
+          url=""
         else
           url="''${1}"
         fi
