@@ -1,6 +1,6 @@
 return {
-  {
-    "dundalek/lazy-lsp.nvim",
-    opts = {}
-  }
+	{
+		"dundalek/lazy-lsp.nvim",
+		opts = {},
+	},
 }

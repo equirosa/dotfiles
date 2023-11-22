@@ -67,6 +67,7 @@
             nodePackages.bash-language-server
             shellharden
             shfmt
+            stylua
             vscode-langservers-extracted
           ];
         };
