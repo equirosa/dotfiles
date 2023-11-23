@@ -15,7 +15,9 @@ rec {
   lg = "lazygit";
   md = "mkdir -p";
   mv = "mv -i";
+  nppr = "gh pr create --web --repo NixOS/nixpkgs --base master";
   qr = "qrencode -t ansiutf8";
+  sc = "scrcpy --turn-screen-off --stay-awake";
   sid = "setsid";
   snp = "show-nix-store-path";
   ss = "show-script";
@@ -23,7 +25,6 @@ rec {
   v = "$EDITOR";
   wl = "watchlist";
   x = "xdg-open";
-  nppr = "gh pr create --web --repo NixOS/nixpkgs --base master";
   # Flatpak
   fi = "flatpak install";
   fl = "flatpak list";
