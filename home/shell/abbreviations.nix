@@ -65,6 +65,7 @@ rec {
   dne = "${dn} -e";
   nb = "nom build";
   nbf = "${nb} -f ./.";
+  nts = "${nb} -f nixos/tests/signal-desktop.nix";
   nd = "nix develop";
   ned = "nix-env -qaP --description";
   nf = "nix fmt";
