@@ -218,6 +218,11 @@ in
       '';
     })
     (writeShellApplication {
+      name = "mirror-phone";
+      runtimeInputs = [ pkgs.scrcpy ];
+      text = "scrcpy --turn-screen-off --stay-awake";
+    })
+    (writeShellApplication {
       name = "my-pkgs";
       runtimeInputs = [ pkgs.ripgrep ];
       text = "rg --type nix --files-with-matches equirosa pkgs/";
