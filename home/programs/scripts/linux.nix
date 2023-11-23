@@ -221,7 +221,7 @@ in
       name = "mirror-phone";
       runtimeInputs = [ pkgs.scrcpy ];
       text = ''
-        pkill scrcpy
+        pgrep scrcpy && pkill scrcpy
         scrcpy --turn-screen-off --stay-awake
       '';
     })
