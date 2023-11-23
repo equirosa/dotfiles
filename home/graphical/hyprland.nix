@@ -153,6 +153,8 @@ in
           [ "dimaround" "float" "pin" ])
         (map (rule: "${rule},class:org.remmina.Remmina")
           [ "workspace 1 silent" "fakefullscreen" ])
+        (map (rule: "${rule},class:(.scrcpy-wrapped)")
+          [ "workspace 7 silent" "tile" ])
       ];
     };
   };
