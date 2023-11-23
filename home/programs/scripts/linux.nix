@@ -220,7 +220,10 @@ in
     (writeShellApplication {
       name = "mirror-phone";
       runtimeInputs = [ pkgs.scrcpy ];
-      text = "scrcpy --turn-screen-off --stay-awake";
+      text = ''
+        pkill scrcpy
+        scrcpy --turn-screen-off --stay-awake
+      '';
     })
     (writeShellApplication {
       name = "my-pkgs";
