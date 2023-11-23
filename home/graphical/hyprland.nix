@@ -96,6 +96,7 @@ in
       bind = concatLists [
         (map (str: "${mod} SHIFT, ${str}") (concatLists [
           [
+            "D, exec, rofi -show drun"
             "E, exec, emacsclient --create-frame"
             "Q, killactive,"
             "W, exec, tor-browser"
