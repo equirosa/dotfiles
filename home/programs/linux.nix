@@ -53,6 +53,7 @@
     parallel-full
     qpwgraph
     ripgrep
+    scrcpy
     swww
     trashy
     wl-clipboard
