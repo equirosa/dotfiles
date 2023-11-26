@@ -57,9 +57,8 @@
 
           # Configurations for macOS machines
           darwinConfigurations = {
-            # TODO: Change hostname from "example1" to something else.
-            example1 = self.nixos-flake.lib.mkMacosSystem {
-              nixpkgs.hostPlatform = "aarch64-darwin";
+            MacBook-Air-de-Eduardo = self.nixos-flake.lib.mkMacosSystem {
+              nixpkgs.hostPlatform = "x86_64-darwin";
               imports = [
                 self.nixosModules.common # See below for "nixosModules"!
                 self.nixosModules.darwin
