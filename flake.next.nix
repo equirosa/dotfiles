@@ -20,8 +20,7 @@
 
       flake =
         let
-          # TODO: Change username
-          myUserName = "john";
+          myUserName = "kiri";
         in
         {
           # Configurations for Linux (NixOS) machines
