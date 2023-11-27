@@ -145,7 +145,10 @@ in
         "${mod}, mouse:273, resizewindow"
       ];
       windowrulev2 = concatLists [
-        [ "maximize,class:^(firefox)$,title:Picture-in-Picture" ]
+        [
+          "maximize,class:^(firefox)$,title:Picture-in-Picture"
+          "workspace 10 silent,class:thunderbird"
+        ]
         (map (id: "workspace 9 silent:${id}")
           [ "class:^(Beeper)" "title:^(aerc)" ])
         (map (rule: "${rule},class:^([Ss]team|.gamescope-wrapped)")
