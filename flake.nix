@@ -2,6 +2,7 @@
   description = "Kiri's Nix configuration";
 
   inputs = {
+    devshell.url = "github:numtide/devshell";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixos-flake.url = "github:srid/nixos-flake";
@@ -29,40 +30,24 @@
   };
 
   outputs =
-    { emacs-overlay
-    , flake-utils
-    , home-manager
-    , hypr-contrib
-    , nix-colors
-    , nix-darwin
-    , nix-gaming
-    , nix-index-database
-    , nixpkgs
-    , nixvim
-    , nur
-    , wrapper-manager
-    , ...
-    }:
-    let
-      colors = import ./colors.nix;
-      overlays = [
-        emacs-overlay.overlay
-        nur.overlay
+    inputs@{ self, ... }:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" "x86_64-darwin" ];
+      imports = [
+        inputs.devshell.flakeModule
+        inputs.nixos-flake.flakeModule
+        ./users
+        ./home
+        ./nixos
+        ./nix-darwin
       ];
-      common-hm-config = {
-        backupFileExtension = "hmBackup";
-        useGlobalPkgs = true;
-        useUserPackages = true;
+      flake = {
+        nixosConfigurations = { };
+        darwinConfigurations = { };
       };
-    in
-    flake-utils.lib.eachDefaultSystem
-      (system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
-      {
-        devShells.default = pkgs.mkShell {
-          buildInputs = with pkgs; [
+      perSystem = { config, pkgs, ... }: {
+        devShells.default = {
+          packages = with pkgs; [
             deadnix
             lua-language-server
             nixpkgs-fmt
@@ -73,73 +58,7 @@
             vscode-langservers-extracted
           ];
         };
-        formatter = nixpkgs.legacyPackages.${system}.treefmt;
-      })
-    // {
-      nixosConfigurations.snowfort = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          {
-            programs.hyprland.enable = true;
-            security.pam.services.swaylock = { };
-            nixpkgs.overlays = overlays;
-            nix.settings = {
-              substituters = [
-                "https://nix-gaming.cachix.org"
-                "https://nix-community.cachix.org"
-                "https://hyprland.cachix.org"
-                "https://cache.nixos.org/"
-              ];
-              trusted-public-keys = [
-                "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-                "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-                "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-              ];
-            };
-          }
-          ./hosts/snowfort/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = common-hm-config // {
-              extraSpecialArgs = { inherit colors hypr-contrib nix-colors wrapper-manager overlays; };
-              users.kiri = { osConfig, ... }: {
-                imports = [
-                  ./home/linux.nix
-                  nix-index-database.hmModules.nix-index
-                  nixvim.homeManagerModules.nixvim
-                  nix-colors.homeManagerModules.default
-                ];
-                colorScheme = nix-colors.colorSchemes.catppuccin-mocha;
-                home.stateVersion = osConfig.system.stateVersion;
-              };
-            };
-          }
-        ];
-        specialArgs = { inherit colors nix-gaming nixpkgs; };
-      };
-      darwinConfigurations.MacBook-Air-de-Eduardo = nix-darwin.lib.darwinSystem {
-        system = "x86_64-darwin";
-        modules = [
-          ./hosts/Macbooks-MacBook-Air/configuration.nix
-          { nixpkgs.overlays = overlays; }
-          home-manager.darwinModules.home-manager
-          {
-            home-manager = common-hm-config // {
-              extraSpecialArgs = { inherit colors hypr-contrib nix-colors wrapper-manager overlays; };
-              users.kiri = { lib, ... }: {
-                imports = [
-                  nix-index-database.hmModules.nix-index
-                  ./home
-                ];
-                home = {
-                  username = "kiri";
-                  homeDirectory = lib.mkForce "/Users/kiri";
-                  stateVersion = "23.11";
-                };
-              };
-            };
-          }
-        ];
+        formatter = pkgs.treefmt;
       };
     };
 }
