@@ -74,10 +74,10 @@
         };
         formatter = treefmtEval.config.build.wrapper;
         checks = {
+          formatting = treefmtEval.config.build.check self;
           pre-commit-check = pre-commit-hooks.lib.${system}.run {
             src = ./.;
             hooks = {
-              nixpkgs-fmt.enable = true;
               deadnix.enable = true;
             };
           };
