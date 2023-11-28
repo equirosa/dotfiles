@@ -1,5 +1,6 @@
 rec {
   # General
+  ad = "adb devices";
   cl = "curl -L";
   clo = "curl -LO";
   cnf = "command-not-found";
