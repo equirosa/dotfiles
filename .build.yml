@@ -6,4 +6,4 @@ environment:
 tasks:
 - flake-check: |
     cd dotfiles
-    nix flake check
+    nix flake check --all-systems
