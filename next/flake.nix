@@ -20,28 +20,18 @@
 
       flake =
         let
-          # TODO: Change username
-          myUserName = "john";
+          myUserName = "kiri";
         in
         {
           # Configurations for Linux (NixOS) machines
           nixosConfigurations = {
-            # TODO: Change hostname from "example1" to something else.
-            example1 = self.nixos-flake.lib.mkLinuxSystem {
+            snowfort = self.nixos-flake.lib.mkLinuxSystem {
               nixpkgs.hostPlatform = "x86_64-linux";
               imports = [
                 self.nixosModules.common # See below for "nixosModules"!
                 self.nixosModules.linux
                 # Your machine's configuration.nix goes here
-                ({ pkgs, ... }: {
-                  # TODO: Put your /etc/nixos/hardware-configuration.nix here
-                  boot.loader.grub.device = "nodev";
-                  fileSystems."/" = {
-                    device = "/dev/disk/by-label/nixos";
-                    fsType = "btrfs";
-                  };
-                  system.stateVersion = "23.05";
-                })
+                ../hosts/snowfort/configuration.nix
                 # Your home-manager configuration
                 self.nixosModules.home-manager
                 {

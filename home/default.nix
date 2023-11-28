@@ -1,9 +1,9 @@
-{ self, lib, inputs, ... }: {
+{ self, lib, flake, ... }: {
   flake = {
     homeModules = {
       common = {
         imports = [
-          inputs.nix-index-database.hmModules.nix-index
+          flake.inputs.nix-index-database.hmModules.nix-index
           ./programs
           ./shell
         ];
@@ -22,7 +22,7 @@
       linux = {
         imports = [
           self.homeModules.common
-          inputs.nix-colors.homeManagerModules.default
+          flake.inputs.nix-colors.homeManagerModules.default
           ./linux.nix
         ];
       };
