@@ -5,6 +5,7 @@
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     flake-utils.url = "github:numtide/flake-utils";
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     hypr-contrib.inputs.nixpkgs.follows = "nixpkgs";
@@ -36,6 +37,7 @@
     , nix-index-database
     , nixpkgs
     , pre-commit-hooks
+    , treefmt-nix
     , ...
     }:
     let
@@ -54,6 +56,7 @@
       (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
+        treefmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
       in
       {
         devShells.default = pkgs.mkShell {
@@ -69,7 +72,7 @@
             vscode-langservers-extracted
           ];
         };
-        formatter = nixpkgs.legacyPackages.${system}.treefmt;
+        formatter = treefmtEval.config.build.wrapper;
         checks = {
           pre-commit-check = pre-commit-hooks.lib.${system}.run {
             src = ./.;
