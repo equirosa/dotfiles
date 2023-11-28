@@ -28,7 +28,8 @@
   };
 
   outputs =
-    inputs@{ flake-utils
+    inputs@{ self
+    , flake-utils
     , home-manager
     , nix-colors
     , nix-darwin
@@ -56,6 +57,7 @@
       in
       {
         devShells.default = pkgs.mkShell {
+          inherit (self.checks.${system}.pre-commit-check) shellHook;
           buildInputs = with pkgs; [
             deadnix
             lua-language-server
@@ -73,6 +75,7 @@
             src = ./.;
             hooks = {
               nixpkgs-fmt.enable = true;
+              deadnix.enable = true;
             };
           };
         };
