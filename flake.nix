@@ -45,9 +45,13 @@
         colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
         nixosConfigurations = {
           snowfort = self.nixos-flake.lib.mkLinuxSystem {
+            imports = [
+              self.nixosModules.default
+            ];
             programs.hyprland.enable = true;
             security.pam.services.swaylock = { };
-            nixpkgs.overlays = overlays;
+            # nixpkgs.overlays = overlays;
+            nixpkgs.hostPlatform = "x86_64-linux";
             nix.settings = {
               substituters = [
                 "https://nix-gaming.cachix.org"
