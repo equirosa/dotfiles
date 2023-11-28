@@ -15,5 +15,6 @@ ls.add_snippets("rust", {
 })
 
 ls.add_snippets("nix", {
-	ps("{", "{$0};"),
+	ps("mod", "{$0};"),
+  ps("list","[$0];")
 })
