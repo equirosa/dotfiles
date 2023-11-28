@@ -5,4 +5,5 @@ environment:
     NIX_CONFIG: "experimental-features = nix-command flakes"
 tasks:
 - flake-check: |
+    cd dotfiles
     nix flake check
