@@ -1,5 +1,22 @@
 # Kiri's Dotfiles
 
+<!--toc:start-->
+- [Kiri's Dotfiles](#kiris-dotfiles)
+  - [TO-DOs](#to-dos)
+  - [Goals](#goals)
+  - [Useful Docs](#useful-docs)
+  - [Other great configs](#other-great-configs)
+    - [Firefox](#firefox)
+    - [Nix](#nix)
+    - [Neovim](#neovim)
+    - [Qutebrowser](#qutebrowser)
+    - [Misc](#misc)
+<!--toc:end-->
+
+## TO-DOs
+
+- [ ] 
+
 ## Goals
 
 - Managed by nix wherever possible.
@@ -30,7 +47,7 @@ The `user.js` (`programs.firefox.settings` in the `firefox.nix` file) has plenty
 
 ### Neovim
 
-My Neovim config is originally derived from the starter for [LazyVim](https://www.lazyvim.org/)
+My Neovim config is taken from [LazyVim](https://www.lazyvim.org/)
 
 ### Qutebrowser
 
