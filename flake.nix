@@ -124,7 +124,7 @@
           {
             home-manager = common-hm-config // {
               extraSpecialArgs = { inherit colors hypr-contrib nix-colors wrapper-manager overlays; };
-              users.kiri = { osConfig, lib, ... }: {
+              users.kiri = { lib, ... }: {
                 imports = [
                   nix-index-database.hmModules.nix-index
                   ./home

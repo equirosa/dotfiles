@@ -6,7 +6,6 @@
 }:
 let
   inherit (lib) fileContents;
-  inherit (import ../../shell/aliases.nix { inherit pkgs lib; }) cat;
   inherit (config.xdg.userDirs) download;
   inherit (pkgs) writeShellApplication;
   menu-program = "${config.programs.rofi.finalPackage}/bin/rofi -dmenu";
