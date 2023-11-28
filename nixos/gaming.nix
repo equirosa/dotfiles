@@ -1,6 +1,6 @@
 { pkgs
 , lib
-, nix-gaming
+, inputs
 , ...
 }:
 let
@@ -10,7 +10,7 @@ in
   users.users.kiri.packages = with pkgs; [
     lutris
     mangohud
-    nix-gaming.packages.${pkgs.system}.rocket-league
+    inputs.nix-gaming.packages.${pkgs.system}.rocket-league
   ];
   programs = {
     gamemode.enable = true;

@@ -27,23 +27,17 @@
   };
 
   outputs =
-    { emacs-overlay
-    , flake-utils
+    inputs@{ flake-utils
     , home-manager
-    , hypr-contrib
     , nix-colors
     , nix-darwin
-    , nix-gaming
     , nix-index-database
     , nixpkgs
-    , nixvim
-    , nur
-    , wrapper-manager
     , ...
     }:
     let
       colors = import ./colors.nix;
-      overlays = [
+      overlays = with inputs; [
         emacs-overlay.overlay
         nur.overlay
       ];
@@ -99,12 +93,12 @@
           home-manager.nixosModules.home-manager
           {
             home-manager = common-hm-config // {
-              extraSpecialArgs = { inherit colors hypr-contrib nix-colors wrapper-manager overlays; };
+              extraSpecialArgs = { inherit colors inputs; };
               users.kiri = { osConfig, ... }: {
                 imports = [
                   ./home/linux.nix
                   nix-index-database.hmModules.nix-index
-                  nixvim.homeManagerModules.nixvim
+                  inputs.nixvim.homeManagerModules.nixvim
                   nix-colors.homeManagerModules.default
                 ];
                 colorScheme = nix-colors.colorSchemes.catppuccin-mocha;
@@ -113,7 +107,7 @@
             };
           }
         ];
-        specialArgs = { inherit colors nix-gaming nixpkgs; };
+        specialArgs = { inherit colors inputs; };
       };
       darwinConfigurations.MacBook-Air-de-Eduardo = nix-darwin.lib.darwinSystem {
         system = "x86_64-darwin";
@@ -123,7 +117,7 @@
           home-manager.darwinModules.home-manager
           {
             home-manager = common-hm-config // {
-              extraSpecialArgs = { inherit colors hypr-contrib nix-colors wrapper-manager overlays; };
+              extraSpecialArgs = { inherit colors inputs; };
               users.kiri = { lib, ... }: {
                 imports = [
                   nix-index-database.hmModules.nix-index
