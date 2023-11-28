@@ -3,7 +3,7 @@
     registry = {
       nixpkgs.to = {
         type = "path";
-        path = pkgs.path;
+        inherit (pkgs) path;
       };
     };
     extraOptions = ''
