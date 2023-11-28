@@ -34,6 +34,7 @@
     , nix-darwin
     , nix-index-database
     , nixpkgs
+    , pre-commit-hooks
     , ...
     }:
     let
@@ -67,6 +68,14 @@
           ];
         };
         formatter = nixpkgs.legacyPackages.${system}.treefmt;
+        checks = {
+          pre-commit-check = pre-commit-hooks.lib.${system}.run {
+            src = ./.;
+            hooks = {
+              nixpkgs-fmt.enable = true;
+            };
+          };
+        };
       })
     // {
       nixosConfigurations.snowfort = nixpkgs.lib.nixosSystem {
