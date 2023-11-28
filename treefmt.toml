@@ -13,13 +13,17 @@ excludes = []
 [formatter.shell]
 command = "shfmt"
 options = [
-	"--indent",
-	"0",                  # indent with tabs
-	"--simplify",         # simplify the code
-	"--case-indent",
-	"--binary-next-line",
-	"--language-dialect",
-	"bash",
-	"--write",            # write back to the file
+  "--indent",
+  "0",                  # indent with tabs
+  "--simplify",         # simplify the code
+  "--case-indent",
+  "--binary-next-line",
+  "--language-dialect",
+  "bash",
+  "--write",            # write back to the file
 ]
 includes = ["*.sh"]
+
+[formatter.lua]
+command = "stylua"
+includes = ["*.lua"]
