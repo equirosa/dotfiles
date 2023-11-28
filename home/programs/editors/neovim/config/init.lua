@@ -13,3 +13,7 @@ local fmt = require("luasnip.extras.fmt").fmt
 ls.add_snippets("rust", {
 	ps("letsig", "let ($1, set_$1) = create_signal($0);"),
 })
+
+ls.add_snippets("nix", {
+	ps("{", "{$0};"),
+})
