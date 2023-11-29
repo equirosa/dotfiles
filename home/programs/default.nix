@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   imports = [
+    ./anyrun.nix
     ./editors/neovim
     ./editors/vscode.nix
     ./file-manager.nix
