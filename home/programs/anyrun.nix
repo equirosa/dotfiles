@@ -41,6 +41,8 @@
             Custom( name: "Github", url: "github.com/search?q={}",),
             Custom( name: "Flathub", url: "https://flathub.org/apps/search?q={}",),
             Custom( name: "Nixos Wiki", url: "nixos.wiki/index.php?search={}",),
+            Custom( name: "Nixos Packages", url: "search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query={}",),
+            Custom( name: "Nixos Options", url: "search.nixos.org/options?channel=unstable&from=0&size=50&sort=relevance&type=packages&query={}",),
             Custom( name: "ProtonDB", url: "protondb.com/search?q={}",),
             Custom( name: "YouTube", url: "youtube.com/results?search_query={}",),
             DuckDuckGo
