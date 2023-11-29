@@ -29,15 +29,23 @@
     extraConfigFiles = {
       "applications.ron".text = ''
         Config(
+          desktop_actions: true,
+          max_entries: 5,
           terminal: Some("kitty"),
         )
       '';
       "websearch.ron".text = ''
-        Custom(
-          name: "Nixpkgs Unstable",
-          url: "search.nixos.org/packages?channel=unstable&query={}",
+        Config(
+          prefix: "?",
+          engines: [
+            Custom( name: "Github", url: "github.com/search?q={}",),
+            Custom( name: "Flathub", url: "https://flathub.org/apps/search?q={}",),
+            Custom( name: "Nixos Wiki", url: "nixos.wiki/index.php?search={}",),
+            Custom( name: "ProtonDB", url: "protondb.com/search?q={}",),
+            Custom( name: "YouTube", url: "youtube.com/results?search_query={}",),
+            DuckDuckGo
+          ]
         )
-        engines: [DuckDuckGo,Nixpkgs Unstable]
       '';
     };
   };
