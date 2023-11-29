@@ -37,6 +37,15 @@ in
       categories = [ "Application" "Network" "WebBrowser" ];
       mimeType = [ "text/html" "text/xml" ];
     };
+    mirror-phone = {
+      name = "Screen Copy";
+      icon = "mirror";
+      genericName = "Connect Phone";
+      exec = "mirror-phone";
+      terminal = false;
+      categories = [ "Application" ];
+
+    };
   };
   home.packages = [
     (writeShellApplication {
