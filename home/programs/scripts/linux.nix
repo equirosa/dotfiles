@@ -27,6 +27,17 @@ let
 in
 {
   imports = [ ./default.nix ];
+  xdg.desktopEntries = {
+    firefox-media = {
+      name = "Firefox Media Profile";
+      icon = "firefox";
+      genericName = "Web Browser";
+      exec = "firefox -P media %U";
+      terminal = false;
+      categories = [ "Application" "Network" "WebBrowser" ];
+      mimeType = [ "text/html" "text/xml" ];
+    };
+  };
   home.packages = [
     (writeShellApplication {
       name = "2opus";
@@ -210,7 +221,7 @@ in
     (writeShellApplication {
       name = "search";
       text = ''
-        search_options="farside.link/whoogle/search?q=\nyoutube.com/results?search_query=\ngithub.com/search?q=\nnixos.wiki/index.php?search=\nprotondb.com/search?q=\nsearch.nixos.org/packages?channel=unstable&query=\nhttps://flathub.org/apps/search?q="
+        search_options="farside.link/whoogle/search?q=\nyoutube.com/results?search_query=\ngithub.com/search?q=\nnixos.wiki/index.php?search=\nprotondb.com/search?q=\nhttps://flathub.org/apps/search?q="
         search_site="$(echo -e "''${search_options}" | ${menu-program} --prompt-text "Search website")"
         input="$(${menu-program} --prompt-text "Search term")"
         xdg-open "https://''${search_site}''${input}"

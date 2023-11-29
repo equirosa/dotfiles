@@ -5,6 +5,7 @@
       plugins = with inputs.anyrun.packages.${pkgs.system}; [
         applications
         rink
+        websearch
         shell
         symbols
       ];
@@ -25,10 +26,19 @@
       }
     '';
 
-    extraConfigFiles."applications.ron".text = ''
-      Config(
-        terminal: Some("kitty"),
-      )
-    '';
+    extraConfigFiles = {
+      "applications.ron".text = ''
+        Config(
+          terminal: Some("kitty"),
+        )
+      '';
+      "websearch.ron".text = ''
+        Custom(
+          name: "Nixpkgs Unstable",
+          url: "search.nixos.org/packages?channel=unstable&query={}",
+        )
+        engines: [DuckDuckGo,Nixpkgs Unstable]
+      '';
+    };
   };
 }
