@@ -13,6 +13,26 @@
       pinentry = "gnome3";
     };
   };
+  xdg.desktopEntries = {
+    firefox-media = {
+      name = "Firefox Media Profile";
+      icon = "firefox";
+      genericName = "Web Browser";
+      exec = "firefox -P media %U";
+      terminal = false;
+      categories = [ "Application" "Network" "WebBrowser" ];
+      mimeType = [ "text/html" "text/xml" ];
+    };
+    mirror-phone = {
+      name = "Screen Copy";
+      icon = "mirror";
+      genericName = "Connect Phone";
+      exec = "mirror-phone";
+      terminal = false;
+      categories = [ "Application" ];
+
+    };
+  };
   home.packages = with pkgs; [
     # Messengers
     aerc
