@@ -1,3 +1,4 @@
+#!/bin/sh
 flake_path="${HOME}/projects/dotfiles"
 platform="$(uname -s)"
 regen_nixos() {
@@ -17,7 +18,7 @@ regen_nixos() {
 }
 
 test_run() {
-  cd "$(mktemp -d)"
+  cd "$(mktemp -d)" || exit 1
   case "$platform" in
   "Linux")
     nixos-rebuild build --flake "${flake_path}"

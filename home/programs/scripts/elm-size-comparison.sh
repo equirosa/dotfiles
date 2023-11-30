@@ -1,3 +1,4 @@
+#!/bin/sh
 js="$(mktemp --suffix=.js)"
 opt="$(mktemp --suffix=.opt.js)"
 min="$(mktemp --suffix=.min.js)"

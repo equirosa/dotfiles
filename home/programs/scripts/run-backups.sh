@@ -1,3 +1,4 @@
+#!/bin/sh
 BORG_PASSPHRASE="$(rbw get a6ff7804-94ed-4661-8b78-afa100811de8)"
 export BORG_PASSPHRASE
 BORG_BACKUP_FORMAT="{hostname}-{user}-{now}"

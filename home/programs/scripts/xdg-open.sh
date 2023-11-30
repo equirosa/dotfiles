@@ -1,3 +1,4 @@
+#!/bin/sh
 [ $# -eq 0 ] && notify-send "No arguments provided. Exitting..." && exit 1
 arg=$1
 add_torrent() {

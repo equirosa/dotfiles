@@ -1,3 +1,4 @@
+#!/bin/sh
 [ $# -eq 0 ] && error "No arguments provided. Exitting..." && exit 1
 file="$(realpath "${1}")"
 extension=${file##*.}
