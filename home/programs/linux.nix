@@ -20,7 +20,7 @@
       genericName = "Messenger";
       exec = "beeper";
       terminal = false;
-      categories = [ "Network" ];
+      categories = [ "Chat" "InstantMessaging" "Network" ];
     };
     firefox-media = {
       name = "Firefox Media Profile";
