@@ -20,7 +20,7 @@
       genericName = "Messenger";
       exec = "beeper";
       terminal = false;
-      categories = [ "Application" "Network" "Messengers" ];
+      categories = [ "Network" ];
     };
     firefox-media = {
       name = "Firefox Media Profile";
@@ -28,7 +28,7 @@
       genericName = "Web Browser";
       exec = "firefox -P media %U";
       terminal = false;
-      categories = [ "Application" "Network" "WebBrowser" ];
+      categories = [ "Network" "WebBrowser" ];
       mimeType = [ "text/html" "text/xml" ];
     };
     mirror-phone = {
@@ -37,7 +37,7 @@
       genericName = "Connect Phone";
       exec = "mirror-phone";
       terminal = false;
-      categories = [ "Application" ];
+      categories = [ "Network" ];
 
     };
   };
