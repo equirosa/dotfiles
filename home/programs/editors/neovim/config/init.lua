@@ -19,4 +19,23 @@ ls.add_snippets("nix", {
 	ps("set", "$1 = {\n$2\n};$0"),
 	ps("str", '$1 = "$2";$0'),
 	ps("mls", "$1 = ''\n$2\n'';$0"),
+	ps(
+		"hm-systemd-service",
+		[[
+    systemd.user.services.$1 = {
+    Unit = {
+      Description = "$2";
+      After = [ "$3" ];
+    };
+    Service = {
+      ExecStart = "$4";
+      Restart = "$5";
+      RestartSec = $6;
+    };
+    Install = {
+          WantedBy = [ "$7" ];
+        };
+      };$0
+    ]]
+	),
 })
