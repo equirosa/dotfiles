@@ -15,8 +15,8 @@ ls.add_snippets("rust", {
 })
 
 ls.add_snippets("nix", {
-	ps("list", "$1 = [$0];"),
-	ps("set", "$1 = {\n$0\n};"),
-	ps("str", '$1 = "$0";'),
-	ps("mls", "$1 = ''\n$0\n'';"),
+	ps("list", "$1 = [$2];$0"),
+	ps("set", "$1 = {\n$2\n};$0"),
+	ps("str", '$1 = "$2";$0'),
+	ps("mls", "$1 = ''\n$2\n'';$0"),
 })
