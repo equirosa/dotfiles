@@ -14,6 +14,14 @@
     };
   };
   xdg.desktopEntries = {
+    beeper = {
+      name = "Beeper";
+      icon = "beeper";
+      genericName = "Messenger";
+      exec = "beeper";
+      terminal = false;
+      categories = [ "Application" "Network" "Messengers" ];
+    };
     firefox-media = {
       name = "Firefox Media Profile";
       icon = "firefox";
