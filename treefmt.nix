@@ -2,10 +2,14 @@
 {
   projectRootFile = "flake.nix";
   programs = {
+    # Lua
+    stylua.enable = true;
+    # Nix
     deadnix.enable = true;
     nixpkgs-fmt.enable = true;
+    statix.enable = true;
+    # Shell
     shellcheck.enable = true;
     shfmt.enable = true;
-    stylua.enable = true;
   };
 }
