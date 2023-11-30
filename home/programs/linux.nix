@@ -44,7 +44,6 @@
   home.packages = with pkgs; [
     # Messengers
     aerc
-    betterbird
     thunderbird
     # Password
     bitwarden
