@@ -5,6 +5,7 @@
     ./editors/emacs
     ./rofi.nix
     ./scripts/linux.nix
+    ./thunderbird.nix
   ];
   programs.rbw = {
     enable = true;
