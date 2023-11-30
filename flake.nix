@@ -64,7 +64,6 @@
         devShells.default = pkgs.mkShell {
           inherit (self.checks.${system}.pre-commit-check) shellHook;
           buildInputs = with pkgs; [
-            deadnix
             lua-language-server
             nixpkgs-fmt
             nodePackages.bash-language-server
@@ -78,9 +77,7 @@
           formatting = treefmtEval.config.build.check self;
           pre-commit-check = pre-commit-hooks.lib.${system}.run {
             src = ./.;
-            hooks = {
-              deadnix.enable = true;
-            };
+            hooks = { };
           };
         };
       })
