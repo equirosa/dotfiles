@@ -29,6 +29,18 @@
   programs.adb.enable = true;
   virtualisation.waydroid.enable = true;
 
+  services.btrbk.instances.btrbk = {
+    onCalendar = "*:0/10";
+    settings = {
+      snapshot_preserve_min = "2d";
+      volume."/" = {
+        subvolume = { home = { snapshot_create = "ondemand"; }; };
+        target = "/run/media/kiri/3e80dac5-95d8-4234-ab76-acb2f167f797/snapshots";
+      };
+    };
+  };
+  users.users.btrbk.extraGroups = [ "wheel" ]; # Need to add it since I have security.sudo.execWheelOnly set to `true`
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kiri = {
     isNormalUser = true;
