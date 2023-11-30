@@ -74,7 +74,6 @@
     handbrake
     hut
     hyperfine
-    hyprpicker
     libnotify
     mediainfo
     parallel-full
