@@ -10,8 +10,6 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
-    hypr-contrib.inputs.nixpkgs.follows = "nixpkgs";
-    hypr-contrib.url = "github:hyprwm/contrib";
     nix-colors.url = "github:misterio77/nix-colors";
     nix-darwin = {
       url = "github:LnL7/nix-darwin";

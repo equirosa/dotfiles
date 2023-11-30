@@ -1,7 +1,6 @@
 { pkgs
 , lib
 , config
-, inputs
 , ...
 }:
 let
@@ -201,10 +200,7 @@ in
     })
     (writeShellApplication {
       name = "screenshot";
-      runtimeInputs = [
-        pkgs.swappy
-        inputs.hypr-contrib.packages.${pkgs.system}.grimblast
-      ];
+      runtimeInputs = with pkgs; [ swappy grimblast ];
       text = fileContents ./screenshot.sh;
     })
     (writeShellApplication {
