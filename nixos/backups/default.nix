@@ -1,4 +1,4 @@
-_: {
+{
   services = {
     borgbackup.jobs =
       let

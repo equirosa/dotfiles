@@ -1,4 +1,4 @@
-_: {
+{
   services = {
     beesd.filesystems.home = {
       spec = "/home";

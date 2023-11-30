@@ -1,4 +1,4 @@
-_: {
+{
   imports = [ ./default.nix ];
   services = {
     gpg-agent = {

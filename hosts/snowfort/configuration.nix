@@ -1,4 +1,4 @@
-_: {
+{
   imports = [
     ../global.nix
     ../../nixos/global.nix

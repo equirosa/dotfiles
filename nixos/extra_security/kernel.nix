@@ -1,4 +1,4 @@
-_: {
+{
   boot = {
     blacklistedKernelModules = [
       # Obscure network protocols
