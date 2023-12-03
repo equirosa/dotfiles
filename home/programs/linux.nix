@@ -60,13 +60,10 @@
     transmission
     tremc
     # Nix-specific stuff
-    deadnix
     nix-output-monitor
     nix-update
     nixd
-    nixpkgs-fmt
     nixpkgs-review
-    statix
     # Utilities
     du-dust
     fd
