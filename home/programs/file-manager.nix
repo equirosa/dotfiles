@@ -1,4 +1,5 @@
 { pkgs
+, inputs
 , ...
 }:
 let
@@ -8,6 +9,17 @@ in
 {
   programs.yazi = {
     enable = true;
+    package = inputs.wrapper-manager.lib.build {
+      inherit pkgs;
+      modules = [{
+        wrappers.yazi = {
+          basePackage = pkgs.yazi;
+          pathAdd = with pkgs; [
+
+          ];
+        };
+      }];
+    };
     enableFishIntegration = true;
     enableNushellIntegration = true;
     keymap = {
