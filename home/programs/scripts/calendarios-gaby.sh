@@ -1,4 +1,4 @@
 #!/bin/sh
-for mes in enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre; do
-  curl -LO "https://blankcalendarpages.com/printable_calendar/calendario1/${mes}-de-$(date -u +%Y)-calendario-es1.jpg"
-done
+
+year="$(date -u +%Y)"
+parallel aria2c ::: "https://blankcalendarpages.com/printable_calendar/calendario1/enero-de-${year}-calendario-es1.jpg" "https://blankcalendarpages.com/printable_calendar/calendario1/febrero-de-${year}-calendario-es1.jpg" "https://blankcalendarpages.com/printable_calendar/calendario1/marzo-de-${year}-calendario-es1.jpg" "https://blankcalendarpages.com/printable_calendar/calendario1/abril-de-${year}-calendario-es1.jpg" "https://blankcalendarpages.com/printable_calendar/calendario1/mayo-de-${year}-calendario-es1.jpg" "https://blankcalendarpages.com/printable_calendar/calendario1/junio-de-${year}-calendario-es1.jpg" "https://blankcalendarpages.com/printable_calendar/calendario1/julio-de-${year}-calendario-es1.jpg" "https://blankcalendarpages.com/printable_calendar/calendario1/agosto-de-${year}-calendario-es1.jpg" "https://blankcalendarpages.com/printable_calendar/calendario1/septiembre-de-${year}-calendario-es1.jpg" "https://blankcalendarpages.com/printable_calendar/calendario1/octubre-de-${year}-calendario-es1.jpg" "https://blankcalendarpages.com/printable_calendar/calendario1/noviembre-de-${year}-calendario-es1.jpg" "https://blankcalendarpages.com/printable_calendar/calendario1/diciembre-de-${year}-calendario-es1.jpg"

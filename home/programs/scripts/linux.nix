@@ -74,6 +74,7 @@ in
     })
     (writeShellApplication {
       name = "calendarios-gaby";
+      runtimeInputs = [ pkgs.aria pkgs.parallel-full ];
       text = fileContents ./calendarios-gaby.sh;
     })
     (writeShellApplication {
