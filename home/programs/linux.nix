@@ -86,9 +86,6 @@
     # Compression
     archiver
     compsize
-    lzip
     p7zip
-    tarlz
-    unzip
   ];
 }
