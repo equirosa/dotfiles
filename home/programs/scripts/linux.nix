@@ -55,19 +55,6 @@ in
       '';
     })
     (writeShellApplication {
-      name = "2webp";
-      runtimeInputs = [ pkgs.libwebp ];
-      text = ''
-        ${process-inputs}
-        case "''${ext}" in
-        jpg | jpeg ) cwebp -q 80 "''${file}" -o "''${base}.webp" ;;
-        png ) cwebp -lossless "''${file}" -o "''${base}.webp" ;;
-        webp ) echo "File is already WEBP" && exit 1 ;;
-        * ) echo "Can't handle that file extension..." && exit 1 ;;
-        esac
-      '';
-    })
-    (writeShellApplication {
       name = "beeper";
       runtimeInputs = [ pkgs.appimage-run ];
       text = "appimage-run ${download}/beeper-3.87.20-build-2311213pwlsuqeb.AppImage";
@@ -132,7 +119,7 @@ in
     })
     (writeShellApplication {
       name = "optisize";
-      runtimeInputs = with pkgs; [ file handbrake mediainfo mozjpeg ];
+      runtimeInputs = with pkgs; [ file handbrake libwebp mediainfo mozjpeg ];
       text = ''
         blue='\033[1;34m INFO: '
         red='\033[1;31m ERROR: '
@@ -173,6 +160,10 @@ in
         case "''${mimetype}" in
           image/jpeg)
             jpeg-optimize ;;
+          image/png)
+            printf "%sConverting PNG to WEBP losslessly%s\n" "$blue" "$reset"
+            cwebp -lossless "''${file}" -o "''${base}.webp"
+            ;;
           "video/"*)
             video-optimize ;;
         * )
