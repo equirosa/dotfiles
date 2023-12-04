@@ -38,4 +38,18 @@ ls.add_snippets("nix", {
       };$0
     ]]
 	),
+	ps(
+		"wrapped-package",
+		[[
+    package = inputs.wrapper-manager.lib.build {
+      inherit pkgs;
+      modules = [{
+        wrappers.$1 = {
+          basePackage = pkgs.$1;
+          pathAdd = with pkgs; [ $2 ];
+        };
+      }];
+    };$0
+    ]]
+	),
 })
