@@ -15,14 +15,6 @@
     };
   };
   xdg.desktopEntries = {
-    beeper = {
-      name = "Beeper";
-      icon = "beeper";
-      genericName = "Messenger";
-      exec = "beeper";
-      terminal = false;
-      categories = [ "Chat" "InstantMessaging" "Network" ];
-    };
     firefox-media = {
       name = "Firefox Media Profile";
       icon = "firefox";
@@ -45,6 +37,7 @@
   home.packages = with pkgs; [
     # Messengers
     aerc
+    beeper
     thunderbird
     # Password
     bitwarden

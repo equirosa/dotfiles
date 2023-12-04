@@ -5,7 +5,6 @@
 }:
 let
   inherit (lib) fileContents;
-  inherit (config.xdg.userDirs) download;
   inherit (pkgs) writeShellApplication;
   menu-program = "${config.programs.rofi.finalPackage}/bin/rofi -dmenu";
   backupIfDuplicate = ext: ''
@@ -53,11 +52,6 @@ in
           *) echo "I can't handle that format yet!" ;;
         esac
       '';
-    })
-    (writeShellApplication {
-      name = "beeper";
-      runtimeInputs = [ pkgs.appimage-run ];
-      text = "appimage-run ${download}/beeper-3.87.20-build-2311213pwlsuqeb.AppImage";
     })
     (writeShellApplication {
       name = "calendarios-gaby";

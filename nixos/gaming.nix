@@ -1,11 +1,7 @@
 { pkgs
-, lib
 , inputs
 , ...
 }:
-let
-  inherit (builtins) elem;
-in
 {
   users.users.kiri.packages = with pkgs; [
     lutris
@@ -35,12 +31,5 @@ in
     };
     steam-hardware.enable = true;
   };
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    elem (lib.getName pkg) [
-      "steam-original"
-      "steam-run"
-      "steam-runtime"
-      "steam"
-    ];
   security.rtkit.enable = true;
 }
