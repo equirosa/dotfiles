@@ -49,7 +49,7 @@ in
         "firefox -P media"
       ];
       workspace = concatLists [
-        (map (num: "${toString num},monitor:${leftMon}") leftWorkspaces)
+        (map (num: "${toString num},monitor:${leftMon}") (leftWorkspaces ++ [ "11" ]))
         (map (num: "${toString num},monitor:${rightMon}") rightWorkspaces)
       ];
       input = {
@@ -151,7 +151,7 @@ in
         (map (id: "workspace 9 silent:${id}")
           [ "class:^(Beeper)" "title:^(aerc)" ])
         (map (rule: "${rule},class:^([Ss]team|.gamescope-wrapped)")
-          [ "workspace 6 silent" "tile" ])
+          [ "workspace 11 silent" "tile" ])
         (map (rule: "${rule},class:^(gcr-prompter|[Rr]ofi)")
           [ "dimaround" "float" "pin" ])
         (map (rule: "${rule},class:org.remmina.Remmina")
