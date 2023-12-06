@@ -39,7 +39,6 @@
       enable = true;
       dnssec = "true";
       extraConfig = ''
-        [Resolve]
         DNS=45.90.28.0#149cea.dns.nextdns.io
         DNS=2a07:a8c0::#149cea.dns.nextdns.io
         DNS=45.90.30.0#149cea.dns.nextdns.io
