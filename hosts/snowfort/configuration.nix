@@ -29,6 +29,11 @@
   programs.adb.enable = true;
   virtualisation.waydroid.enable = true;
 
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "both";
+  };
+
   services.btrbk.instances.btrbk = {
     onCalendar = "*:0/10";
     settings = {
