@@ -24,7 +24,7 @@ in
         id = 0;
         inherit settings;
         search = {
-          default = "Brave Search";
+          default = defaultSearch;
           force = true;
           engines = {
             "Brave Search" = {
