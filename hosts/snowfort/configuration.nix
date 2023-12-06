@@ -32,6 +32,8 @@
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "both";
+    permitCertUid = "kiri";
+    openFirewall = true;
   };
 
   services.btrbk.instances.btrbk = {
