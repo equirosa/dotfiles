@@ -38,7 +38,7 @@
         Config(
           prefix: "?",
           engines: [
-            DuckDuckGo
+            DuckDuckGo,
             Custom( name: "Github", url: "github.com/search?q={}",),
             Custom( name: "Flathub", url: "flathub.org/apps/search?q={}",),
             Custom( name: "Nixos Wiki", url: "nixos.wiki/index.php?search={}",),
