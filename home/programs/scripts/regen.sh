@@ -34,11 +34,17 @@ test_run() {
   nvd diff /run/current-system/ ./result
 }
 
+revert() {
+  sudo nixos-rebuild switch --rollback --flake "${flake_path}"
+  notify-send "System Rollback Successful!"
+}
+
 if [ $# -eq 0 ]; then
   regen_nixos
 else
   case "${1}" in
   "test") test_run ;;
+  "revert") revert ;;
   "os" | *) regen_nixos ;;
   esac
 fi

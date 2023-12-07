@@ -90,6 +90,7 @@ rec {
   nsp = "nix-shell -p";
   nup = "nix-update --test --commit --review";
   ro = "regen os";
+  rr = "regen revert";
   rt = "regen test";
   # trash-cli
   tp = "trash put";
