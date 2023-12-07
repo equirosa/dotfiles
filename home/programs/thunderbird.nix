@@ -1,4 +1,18 @@
 { pkgs, ... }: {
+  systemd.user.services.auto-mirror = {
+    Unit = {
+      Description = "Automatically use scrcpy on adb connection";
+      After = [ "graphical.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.autoadb}/bin/autoadb ${pkgs.scrcpy} --stay-awake --turn-screen-off -s '{}'";
+      Restart = "always";
+      RestartSec = 3;
+    };
+    Install = {
+      WantedBy = [ "graphical.target" ];
+    };
+  };
   systemd.user.services.beeper = {
     Unit = {
       Description = "Run Beeper";
