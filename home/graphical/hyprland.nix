@@ -49,7 +49,7 @@ in
         "firefox -P media"
       ];
       workspace = concatLists [
-        (map (num: "${toString num},monitor:${leftMon}") (leftWorkspaces ++ [ "11" ]))
+        (map (num: "${toString num},monitor:${leftMon}") (leftWorkspaces ++ [ "11" "12" ]))
         (map (num: "${toString num},monitor:${rightMon}") rightWorkspaces)
       ];
       input = {
@@ -157,7 +157,7 @@ in
         (map (rule: "${rule},class:org.remmina.Remmina")
           [ "workspace 1 silent" "fakefullscreen" ])
         (map (rule: "${rule},class:(.scrcpy-wrapped)")
-          [ "workspace 7 silent" "tile" ])
+          [ "workspace 12 silent" "tile" ])
       ];
     };
   };
