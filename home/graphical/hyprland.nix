@@ -49,7 +49,7 @@ in
         "firefox -P media"
       ];
       workspace = concatLists [
-        (map (num: "${toString num},monitor:${leftMon}") (leftWorkspaces ++ [ "11" "12" ]))
+        (map (num: "${toString num},monitor:${leftMon}") (leftWorkspaces ++ [ "11" "12" "13" ]))
         (map (num: "${toString num},monitor:${rightMon}") rightWorkspaces)
       ];
       input = {
