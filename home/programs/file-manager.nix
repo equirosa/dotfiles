@@ -163,6 +163,8 @@ in
         { on = [ "g" "h" ]; exec = "cd ~"; desc = "Go to the home directory"; }
         { on = [ "g" "c" ]; exec = "cd ~/.config"; desc = "Go to the config directory"; }
         { on = [ "g" "d" ]; exec = "cd ~/Downloads"; desc = "Go to the downloads directory"; }
+        { on = [ "g" "p" ]; exec = "cd ~/Pictures"; desc = "Go to the pictures directory"; }
+        { on = [ "g" "v" ]; exec = "cd ~/Videos"; desc = "Go to the videos directory"; }
         { on = [ "g" "t" ]; exec = "cd /tmp"; desc = "Go to the temporary directory"; }
         { on = [ "g" "<Space>" ]; exec = "cd --interactive"; desc = "Go to a directory interactively"; }
       ] ++ global-keys;
