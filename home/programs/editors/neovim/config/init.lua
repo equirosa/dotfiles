@@ -15,6 +15,8 @@ ls.add_snippets("rust", {
 })
 
 ls.add_snippets("nix", {
+	ps("enable", "enable = true;$0"),
+	ps("bool", "$1 = true;$0"),
 	ps("list", "$1 = [$2];$0"),
 	ps("set", "$1 = {\n$2\n};$0"),
 	ps("str", '$1 = "$2";$0'),
