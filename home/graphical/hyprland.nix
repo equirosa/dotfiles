@@ -123,7 +123,7 @@ in
               "RETURN, exec, ${defaultTerm}"
               "T, exec, ${defaultTerm} -e tremc"
               "V, togglefloating,"
-              "W, exec, firefox -P default"
+              "W, exec, ${defaultBrowser}"
               "X, exec, swaylock"
               "Z, exec, ${pkgs.rofi-rbw-wayland}/bin/rofi-rbw"
               "mouse_down, workspace, e+1"
