@@ -3,6 +3,7 @@
     ./anyrun.nix
     ./editors/neovim
     ./editors/vscode.nix
+    ./espanso.nix
     ./file-manager.nix
     ./git.nix
     ./mpv.nix
