@@ -113,7 +113,7 @@ in
           (concatLists [
             [
               "A, exec, ${defaultTerm} -e ${pulsemixer}/bin/pulsemixer"
-              "D, exec, anyrun"
+              "D, exec, rofi -show run"
               "E, exec, kitty aerc"
               "F, fullscreen, 0"
               "G, exec, move-to-extra-workspace"
