@@ -122,6 +122,7 @@ in
               "P, exec, emoji"
               "R, exec, ${defaultTerm} -e yazi"
               "RETURN, exec, ${defaultTerm}"
+              "S, exec, search"
               "T, exec, ${defaultTerm} -e tremc"
               "V, togglefloating,"
               "W, exec, ${defaultBrowser}"
