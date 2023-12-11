@@ -8,7 +8,7 @@ engines=(
 	"youtube.com/results?search_query="
 )
 
-selected_url="$(echo -e "${urls[@]}" | rofi -dmenu -p 'Choose URL:')"
+selected_url="$(echo -e "${engines[@]}" | rofi -dmenu -p 'Choose URL:')"
 
 input="$(rofi -dmenu -p 'Enter Text:')"
 
