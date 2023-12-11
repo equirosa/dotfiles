@@ -94,7 +94,7 @@ rec {
   rt = "regen test";
   # trash-cli
   tp = "trash put";
-  te = "trash empty";
+  te = "trash empty --all";
   tr = "trash restore";
   # Quickemu
   qe = "quickemu";
