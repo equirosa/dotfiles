@@ -13,15 +13,11 @@
           replace = "It's {{currentdate}} {{currenttime}}";
         }
         {
-          trigger = ":hello";
-          replace = "line1\nline2";
-        }
-        {
           regex = ":hi(?P<person>.*)\\.";
           replace = "Hi {{person}}!";
         }
         {
-          trigger = ":porton-uber";
+          trigger = ":uber";
           replace = "Hola! Ahorita viene un pedido mio, para que lo dejen pasar, por favor 😁";
         }
       ];
