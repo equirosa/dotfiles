@@ -8,9 +8,8 @@ engines=(
 	"youtube.com/results?search_query="
 )
 
-formatted_engines="$(printf "%s\n" "${engines[@]}")"
+selected_url="$(printf "%s\n" "${engines[@]}" | rofi -dmenu -p 'Choose URL:')"
 
-selected_url="$(echo "${formatted_engines[@]}" | rofi -dmenu -p 'Choose URL:')"
 
 input="$(rofi -dmenu -p 'Enter Text:')"
 
