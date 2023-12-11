@@ -39,9 +39,6 @@
     aerc
     beeper
     thunderbird
-    # Password
-    bitwarden
-    # Messengers
     # Social
     toot
     # Development
