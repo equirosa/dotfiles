@@ -2,7 +2,7 @@
   systemd.user.services.auto-mirror = {
     Unit = {
       Description = "Automatically use scrcpy on adb connection";
-      After = [ "graphical.target" ];
+      After = [ "graphical-session.target" ];
     };
     Service = {
       ExecStart = "${pkgs.autoadb}/bin/autoadb ${pkgs.scrcpy} --stay-awake --turn-screen-off -s '{}'";
@@ -10,7 +10,7 @@
       RestartSec = 3;
     };
     Install = {
-      WantedBy = [ "graphical.target" ];
+      WantedBy = [ "graphical-session.target" ];
     };
   };
   systemd.user.services.beeper = {
@@ -24,7 +24,7 @@
       RestartSec = 3;
     };
     Install = {
-      WantedBy = [ "graphical.target" ];
+      WantedBy = [ "graphical-session.target" ];
     };
   };
   systemd.user.services.thunderbird = {
@@ -38,7 +38,7 @@
       RestartSec = 3;
     };
     Install = {
-      WantedBy = [ "graphical.target" ];
+      WantedBy = [ "graphical-session.target" ];
     };
   };
 }
