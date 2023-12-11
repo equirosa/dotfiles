@@ -9,6 +9,7 @@ let
     (pkgs)
     btop
     pulsemixer
+    writeShellApplication
     ;
   gaps_in = 2;
   mod = "SUPER";
@@ -162,12 +163,16 @@ in
       ];
     };
   };
-  home.packages = with pkgs;[
+  home.packages = [
     (writeShellApplication {
       name = "move-to-extra-workspace";
       runtimeInputs = [ pkgs.jq ];
       text = ''
-        workspaces=hyprctl workspaces -j | jq '.[].id | select (. > 10)' | rofi -dmenu | xargs hyprctl dispatch workspace
+        hyprctl workspaces -j |
+          jq '.[].id |
+          select (. > 10)' |
+          rofi -dmenu |
+          xargs hyprctl dispatch workspace
       '';
     })
   ];
