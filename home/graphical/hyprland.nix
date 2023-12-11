@@ -115,6 +115,7 @@ in
               "D, exec, anyrun"
               "E, exec, kitty aerc"
               "F, fullscreen, 0"
+              "G, exec, move-to-extra-workspace"
               "I, exec, ${defaultTerm} -e ${btop}/bin/btop"
               "M, fullscreen, 1"
               "P, exec, emoji"
@@ -161,4 +162,13 @@ in
       ];
     };
   };
+  home.packages = with pkgs;[
+    (writeShellApplication {
+      name = "move-to-extra-workspace";
+      runtimeInputs = [ pkgs.jq ];
+      text = ''
+        workspaces=hyprctl workspaces -j | jq '.[].id | select (. > 10)' | rofi -dmenu | xargs hyprctl dispatch workspace
+      '';
+    })
+  ];
 }
