@@ -1,5 +1,6 @@
 { pkgs, ... }:
-let enable = true; in {
+let enable = false; in
+{
   programs.emacs = {
     inherit enable;
     package = pkgs.emacsWithPackagesFromUsePackage {
