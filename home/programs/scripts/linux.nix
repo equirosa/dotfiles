@@ -203,6 +203,10 @@ in
       text = "rg --type nix --files-with-matches equirosa pkgs/";
     })
     (writeShellApplication {
+      name = "search";
+      text = fileContents ./search.bash;
+    })
+    (writeShellApplication {
       name = "watchlist";
       runtimeInputs = [ pkgs.yt-dlp ];
       text =

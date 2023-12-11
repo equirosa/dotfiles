@@ -1,6 +1,5 @@
 { pkgs, ... }: {
   imports = [
-    ./anyrun.nix
     ./editors/neovim
     ./editors/vscode.nix
     ./espanso.nix
