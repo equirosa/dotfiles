@@ -1,4 +1,4 @@
-{
+{ config, ... }: {
   services = {
     borgbackup.jobs =
       let
@@ -73,7 +73,7 @@
           };
           encryption = {
             mode = "keyfile";
-            passCommand = "cat /home/kiri/.borg_pass";
+            passCommand = config.age.secrets.borgbackup-snowfort.path;
           };
           repo = "hvwib450@hvwib450.repo.borgbase.com:repo";
         };
