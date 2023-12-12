@@ -15,8 +15,7 @@
       gamescopeSession = {
         enable = true;
         args = [
-          "-h 720"
-          "-H 1080"
+          "-h 1080"
           "-F fsr"
           "-r 144"
         ];
