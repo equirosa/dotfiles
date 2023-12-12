@@ -24,7 +24,7 @@
     secrets = {
       borgbackup-snowfort = {
         file = ../../secrets/xxx.age;
-        path = "/etc/borgbackup-snowfort/";
+        owner = "kiri";
       };
     };
   };

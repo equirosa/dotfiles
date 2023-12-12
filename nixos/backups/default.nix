@@ -73,7 +73,7 @@
           };
           encryption = {
             mode = "keyfile";
-            passCommand = config.age.secrets.borgbackup-snowfort.path;
+            passCommand = "cat ${config.age.secrets.borgbackup-snowfort.path}";
           };
           repo = "hvwib450@hvwib450.repo.borgbase.com:repo";
         };
