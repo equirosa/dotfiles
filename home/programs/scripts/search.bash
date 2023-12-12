@@ -8,14 +8,14 @@ engines=(
 	"youtube.com/results?search_query="
 )
 
-selected_url="$(printf "%s\n" "${engines[@]}" | rofi -dmenu -p 'Choose URL:')"
+selected_url="$(printf "%s\n" "${engines[@]}" | rofi -dmenu -p 'Choose URL')"
 
 if [ -z "${selected_url}" ]; then
 	# User canceled, exit script
 	exit 1
 fi
 
-input="$(rofi -dmenu -p 'Enter Text:')"
+input="$(rofi -dmenu -p 'Enter Text')"
 
 if [ -z "${input}" ]; then
 	# User canceled, exit script
