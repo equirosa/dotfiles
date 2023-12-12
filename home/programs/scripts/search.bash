@@ -10,13 +10,17 @@ engines=(
 
 selected_url="$(printf "%s\n" "${engines[@]}" | rofi -dmenu -p 'Choose URL:')"
 
-
-input="$(rofi -dmenu -p 'Enter Text:')"
-
-if [ -n "${selected_url}" ]; then
-	# Open the selected URL in the default web browser
-	firefox -P default "${selected_url}${input}"
-else
+if [ -z "${selected_url}" ]; then
 	# User canceled, exit script
 	exit 1
 fi
+
+input="$(rofi -dmenu -p 'Enter Text:')"
+
+if [ -z "${input}" ]; then
+	# User canceled, exit script
+	exit 1
+fi
+
+# Open the selected URL in the default web browser
+firefox -P default "${selected_url}${input}"
