@@ -155,6 +155,8 @@ in
           [ "class:^(Beeper)" "title:^(aerc)" ])
         (map (rule: "${rule},class:^([Ss]team|.gamescope-wrapped)")
           [ "workspace 11 silent" "tile" ])
+        (map (rule: "${rule},title:^([Ss]team|.gamescope-wrapped)")
+          [ "workspace 11 silent" "tile" ])
         (map (rule: "${rule},class:^(gcr-prompter|[Rr]ofi)")
           [ "dimaround" "float" "pin" ])
         (map (rule: "${rule},class:org.remmina.Remmina")
