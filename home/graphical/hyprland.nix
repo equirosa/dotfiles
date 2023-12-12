@@ -45,7 +45,7 @@ in
       exec-once = [
         "transmission-daemon"
         "beeper"
-        "swww"
+        "swww init"
         defaultBrowser
         "firefox -P media"
       ];
