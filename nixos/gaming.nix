@@ -1,14 +1,21 @@
 { pkgs
 , inputs
 , ...
-}:
-{
+}: {
   users.users.kiri.packages = with pkgs; [
     lutris
     mangohud
     inputs.nix-gaming.packages.${pkgs.system}.rocket-league
   ];
   programs = {
+    gamescope = {
+      enable = true;
+      args = [
+        "-h 1080"
+        "-F fsr"
+        "-r 144"
+      ];
+    };
     gamemode.enable = true;
     steam = {
       enable = true;
