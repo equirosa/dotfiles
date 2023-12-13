@@ -180,11 +180,6 @@ in
       '';
     })
     (writeShellApplication {
-      name = "run-backups";
-      runtimeInputs = [ pkgs.borgbackup ];
-      text = fileContents ./run-backups.sh;
-    })
-    (writeShellApplication {
       name = "screenshot";
       runtimeInputs = with pkgs; [ swappy grimblast ];
       text = fileContents ./screenshot.sh;
