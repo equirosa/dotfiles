@@ -1,32 +1,29 @@
 { pkgs
 , inputs
 , ...
-}: {
+}:
+let
+  gamescope = {
+    enable = true;
+    args = [
+      "-h 1080"
+      "-F fsr"
+      "-r 144"
+    ];
+  };
+in
+{
   users.users.kiri.packages = with pkgs; [
     lutris
     mangohud
     inputs.nix-gaming.packages.${pkgs.system}.rocket-league
   ];
   programs = {
-    gamescope = {
-      enable = true;
-      args = [
-        "-h 1080"
-        "-F fsr"
-        "-r 144"
-      ];
-    };
+    inherit gamescope;
     gamemode.enable = true;
     steam = {
       enable = true;
-      gamescopeSession = {
-        enable = true;
-        args = [
-          "-h 1080"
-          "-F fsr"
-          "-r 144"
-        ];
-      };
+      gamescopeSession = gamescope;
     };
   };
   hardware = {
