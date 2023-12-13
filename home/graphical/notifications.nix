@@ -12,7 +12,7 @@ in
     defaultTimeout = 5000;
     font = "monospace 14";
     height = 110;
-    layer = "top"; # Consider overlay
+    layer = "overlay"; # Consider overlay
     markup = true;
     sort = "-time";
     extraConfig = ''
