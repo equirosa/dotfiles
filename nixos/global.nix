@@ -38,13 +38,6 @@
     resolved = {
       enable = true;
       dnssec = "true";
-      extraConfig = ''
-        DNS=45.90.28.0#149cea.dns.nextdns.io
-        DNS=2a07:a8c0::#149cea.dns.nextdns.io
-        DNS=45.90.30.0#149cea.dns.nextdns.io
-        DNS=2a07:a8c1::#149cea.dns.nextdns.io
-        DNSOverTLS=yes
-      '';
     };
     pipewire = {
       enable = true;
