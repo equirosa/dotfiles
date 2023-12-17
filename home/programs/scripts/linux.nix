@@ -22,14 +22,17 @@ let
     directory=''${file%/*}
     export file ext base directory
   '';
+  writeShellApplicationFromFile = { name, runtimeInputs ? [ ] }: writeShellApplication rec {
+    inherit name runtimeInputs;
+    text = fileContents ./${name}.sh;
+  };
 in
 {
   imports = [ ./default.nix ];
   home.packages = [
-    (writeShellApplication {
+    (writeShellApplicationFromFile {
       name = "2opus";
       runtimeInputs = [ pkgs.ffmpeg pkgs.mediainfo ];
-      text = fileContents ./2opus.sh;
     })
     (writeShellApplication {
       name = "2org";
@@ -53,15 +56,13 @@ in
         esac
       '';
     })
-    (writeShellApplication {
+    (writeShellApplicationFromFile {
       name = "calendarios-gaby";
       runtimeInputs = [ pkgs.aria pkgs.parallel-full ];
-      text = fileContents ./calendarios-gaby.sh;
     })
-    (writeShellApplication {
+    (writeShellApplicationFromFile {
       name = "code2png";
       runtimeInputs = [ pkgs.silicon ];
-      text = fileContents ./code2png.sh;
     })
     (writeShellApplication {
       name = "download-media";
@@ -73,20 +74,17 @@ in
         -o "%(title)s-[%(id)s].%(ext)s" "$1" >>/dev/null &
       '';
     })
-    (writeShellApplication rec {
+    (writeShellApplicationFromFile {
       name = "elm-size-comparison";
       runtimeInputs = with pkgs; [ elmPackages.elm nodePackages.uglify-js ];
-      text = fileContents ./${name}.sh;
     })
-    (writeShellApplication {
+    (writeShellApplicationFromFile {
       name = "emoji";
       runtimeInputs = [ pkgs.rofimoji ];
-      text = fileContents ./emoji.sh;
     })
-    (writeShellApplication {
+    (writeShellApplicationFromFile {
       name = "error";
       runtimeInputs = [ pkgs.libnotify ];
-      text = fileContents ./error.sh;
     })
     (writeShellApplication {
       name = "feed-subscribe";
@@ -99,17 +97,15 @@ in
         xdg-open "https://reader.miniflux.app/bookmarklet?uri=''${url}"
       '';
     })
-    (writeShellApplication {
+    (writeShellApplication rec {
       name = "generate-months";
-      text = fileContents ./generate-months.bash;
+      text = fileContents ./${name}.bash;
     })
-    (writeShellApplication {
+    (writeShellApplicationFromFile {
       name = "git-find-deleted-files";
-      text = fileContents ./git-find-deleted-files.sh;
     })
-    (writeShellApplication {
+    (writeShellApplicationFromFile {
       name = "git-remove-merged-branches";
-      text = fileContents ./git-remove-merged-branches.sh;
     })
     (writeShellApplication {
       name = "optisize";
@@ -179,10 +175,9 @@ in
         remmina -c "$chosen"
       '';
     })
-    (writeShellApplication {
+    (writeShellApplicationFromFile {
       name = "screenshot";
       runtimeInputs = with pkgs; [ swappy grimblast ];
-      text = fileContents ./screenshot.sh;
     })
     (writeShellApplication {
       name = "mirror-phone";
@@ -223,10 +218,9 @@ in
           esac
         '';
     })
-    (writeShellApplication {
+    (writeShellApplicationFromFile {
       name = "xdg-open";
       runtimeInputs = with pkgs; [ file imv lagrange zathura libnotify xdg-utils ];
-      text = fileContents ./xdg-open.sh;
     })
   ];
 }
