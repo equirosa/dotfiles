@@ -12,12 +12,10 @@
     #   inputs.nixpkgs.follows = "nixpkgs-darwin";
     # };
 
-    # If you're going to use homeConfigurations uncomment next input
-    # Otherwise you can remove it
-    # home-manager = {
-    #   url = "github:nix-community/home-manager/release-23.05";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
