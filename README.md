@@ -15,8 +15,6 @@
 
 ## TO-DOs
 
-- [ ] 
-
 ## Goals
 
 - Managed by nix wherever possible.
