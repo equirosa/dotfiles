@@ -7,7 +7,7 @@
   networking.hostName = "snowfort"; # Define your hostname.
 
   # Set your time zone.
-  time.timeZone = "America/Costa_rica";
+  time.timeZone = "America/Costa_Rica";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
