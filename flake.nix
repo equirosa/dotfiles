@@ -44,6 +44,7 @@
       ezConfigs = {
         root = ./.;
         globalArgs = { inherit inputs; };
+        nixos.hosts.snowfort.userHomeModules = [ "kiri" ];
       };
     };
 }
