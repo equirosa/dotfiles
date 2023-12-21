@@ -1,4 +1,4 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, modulesPath, ... }:
 {
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -28,24 +28,6 @@
   # Configure keymap in X11
   services.xserver.xkb.layout = "us,latam";
   services.xserver.xkb.options = "grp:win_space_toggle";
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.kiri = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      cargo
-      firefox
-      gcc
-      git
-      gnumake
-      lazygit
-      kitty
-      ripgrep
-      neovim
-      tree
-    ];
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
