@@ -15,6 +15,8 @@
 
 ## TO-DOs
 
+- [ ] Rebuild 2023
+
 ## Goals
 
 - Managed by nix wherever possible.
