@@ -40,7 +40,7 @@
       # mkFlake expects this to be present,
       # so even if we don't use anything from perSystem, we need to set it to something.
       # You can set it to anything you want if you also want to provide perSystem outputs in your flake.
-      systems = [ ];
+      systems = [ "x86_64-linux" ];
 
       ezConfigs = {
         root = ./.;
