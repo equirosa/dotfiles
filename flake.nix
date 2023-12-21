@@ -2,6 +2,7 @@
   description = "Kiri's Nix configs";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    stable.url = "github:NixOS/nixpkgs/nixos-23.05";
 
     # If you're going to use darwinConfigurations uncomment next two inputs
     # Otherwise you can remove them
