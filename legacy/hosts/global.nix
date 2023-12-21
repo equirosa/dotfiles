@@ -11,10 +11,7 @@
       keep-outputs = true
       keep-derivations = true
     '';
-    settings = {
-      auto-optimise-store = true;
-      sandbox = true;
-    };
+    settings.auto-optimise-store = true;
   };
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
