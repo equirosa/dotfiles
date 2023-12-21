@@ -19,7 +19,6 @@
       git
       gnumake
       lazygit
-      kitty
       ripgrep
       neovim
       tree
