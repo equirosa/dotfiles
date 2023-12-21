@@ -29,17 +29,6 @@
   services.xserver.xkb.layout = "us,latam";
   services.xserver.xkb.options = "grp:win_space_toggle";
 
-  fonts = {
-    fontDir.enable = true;
-    packages = with pkgs; [
-      dejavu_fonts
-      font-awesome
-      iosevka-comfy.comfy
-      liberation_ttf
-      nerdfonts
-      noto-fonts-emoji
-    ];
-  };
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kiri = {
     isNormalUser = true;

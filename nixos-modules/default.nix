@@ -1,5 +1,8 @@
 { inputs, ... }: {
-  imports = [ ./audio.nix ];
+  imports = [
+    ./audio.nix
+    ./fonts.nix
+  ];
   nix = {
     extraOptions = "experimental-features = nix-command flakes";
     registry.nixpkgs.flake = inputs.nixpkgs;
