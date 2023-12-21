@@ -20,10 +20,6 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  nix.extraOptions = ''
-    experimental-features = flakes nix-command
-  '';
-
   # Enable the Plasma 5 Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
