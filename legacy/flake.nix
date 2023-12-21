@@ -48,11 +48,6 @@
         emacs-overlay.overlay
         nur.overlay
       ];
-      common-hm-config = {
-        backupFileExtension = "hmBackup";
-        useGlobalPkgs = true;
-        useUserPackages = true;
-      };
     in
     flake-utils.lib.eachDefaultSystem
       (system:
