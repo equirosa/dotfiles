@@ -2,6 +2,7 @@
   imports = [
     ./audio.nix
     ./fonts.nix
+    ./gaming.nix
   ];
   nix = {
     extraOptions = "experimental-features = nix-command flakes";
