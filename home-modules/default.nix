@@ -12,6 +12,7 @@
       libreoffice
       git
       lazygit
+      fd
       ripgrep
       tree
       wl-clipboard
