@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: {
+{ inputs, ... }: {
   imports = [
     ./audio.nix
     ./fonts.nix
@@ -12,16 +12,5 @@
   users.users.kiri = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      cargo
-      firefox
-      gcc
-      git
-      gnumake
-      lazygit
-      ripgrep
-      neovim
-      tree
-    ];
   };
 }
