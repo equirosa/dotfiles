@@ -12,7 +12,6 @@
       git
       lazygit
       ripgrep
-      neovim
       tree
       wl-clipboard
       ;
