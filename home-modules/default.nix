@@ -15,5 +15,6 @@
   };
   programs = {
     bash.enable = true;
+    starship.enable = true;
   };
 }
