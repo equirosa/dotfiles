@@ -9,6 +9,7 @@
       firefox
       mullvad-browser
       # Utilities
+      libreoffice
       git
       lazygit
       ripgrep
