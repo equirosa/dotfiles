@@ -1,5 +1,8 @@
 { pkgs, lib, ... }: {
-  imports = [ ./kitty.nix ];
+  imports = [
+    ./kitty.nix
+    ./neovim
+  ];
   home.packages = lib.attrValues {
     inherit (pkgs)
       # Browsers
