@@ -11,6 +11,7 @@
       ripgrep
       neovim
       tree
+      wl-clipboard
       ;
   };
   programs = {
