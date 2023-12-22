@@ -3,7 +3,7 @@
     enable = true;
     font = {
       name = "monospace";
-      size = 14;
+      size = 12;
     };
     keybindings = {
       "ctrl+shift+t" = "new_tab_with_cwd";
