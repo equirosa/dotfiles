@@ -13,4 +13,7 @@
       tree
       ;
   };
+  programs = {
+    bash.enable = true;
+  };
 }
