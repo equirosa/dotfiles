@@ -16,7 +16,7 @@ in
   users.users.kiri.packages = with pkgs; [
     lutris
     mangohud
-    inputs.nix-gaming.packages.${pkgs.system}.rocket-league
+    # inputs.nix-gaming.packages.${pkgs.system}.rocket-league
   ];
   programs = {
     inherit gamescope;
