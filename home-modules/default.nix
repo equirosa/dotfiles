@@ -6,6 +6,7 @@
   home.packages = lib.attrValues {
     inherit (pkgs)
       beeper
+      thunderbird
       # Browsers
       firefox
       mullvad-browser
