@@ -11,6 +11,7 @@
       firefox
       mullvad-browser
       # Utilities
+      scrcpy
       libreoffice
       git
       lazygit
