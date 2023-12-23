@@ -5,6 +5,7 @@
   ];
   home.packages = lib.attrValues {
     inherit (pkgs)
+      beeper
       # Browsers
       firefox
       mullvad-browser
@@ -22,4 +23,7 @@
     bash.enable = true;
     starship.enable = true;
   };
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "beeper"
+  ];
 }

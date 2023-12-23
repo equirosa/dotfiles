@@ -16,6 +16,7 @@
   };
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "beeper"
     "steam"
     "steam-original"
     "steam-run"
