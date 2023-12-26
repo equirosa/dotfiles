@@ -12,6 +12,13 @@
 
   programs.adb.enable = true;
 
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "both";
+    permitCertUid = "kiri";
+    openFirewall = true;
+  };
+
   users.users.kiri = {
     isNormalUser = true;
     extraGroups = [ "wheel" "adbusers" ]; # Enable ‘sudo’ for the user.
