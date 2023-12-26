@@ -2,6 +2,7 @@
   imports = [
     ./kitty.nix
     ./neovim
+    ./scripts
   ];
   home.packages = lib.attrValues {
     inherit (pkgs)
