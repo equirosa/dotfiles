@@ -12,6 +12,8 @@
 
   programs.adb.enable = true;
 
+  programs.gnupg.agent.enable = true;
+
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "both";
